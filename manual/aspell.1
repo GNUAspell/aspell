@@ -181,7 +181,7 @@ encoding the document is expected to be in.  The default depends on the
 current locale.
 .TP
 \fB\-\-add-email\-quote=\fR\fI<list>\fR, \fB\-\-rem-email\-quote=\fR\fI<list>\fR
-Add or Remove a list of email quote characters.
+Add or remove a list of email quote characters.
 .TP
 \fB\-\-email\-margin=\fR\fI<integer>\fR
 Number of chars that can appear before the quote char.
@@ -191,14 +191,14 @@ Add or remove a list of HTML attributes to always check.  For example,
 look inside alt= tags.
 .TP
 \fB\-\-add\-html\-skip=\fR\fI<list>\fR, \fB\-\-rem\-html\-skip=\fR\fI<list>\fR
-Add or remove a list of HTML attributes to always skip while spell
+Add or remove a list of HTML tags to always skip while spell
 checking.
 .TP
 \fB\-\-add\-sgml\-check=\fR\fI<list>\fR, \fB\-\-rem\-sgml\-check=\fR\fI<list>\fR
 Add or remove a list of SGML attributes to always check for spelling.
 .TP
 \fB\-\-add\-sgml\-skip=\fR\fI<list>\fR, \fB\-\-rem\-sgml\-skip=\fR\fI<list>\fR
-Add or remove a list of SGML attributes to always skip while spell
+Add or remove a list of SGML tags to always skip while spell
 checking.
 .TP
 \fB\-\-sgml\-extension=\fR\fI<list>\fR
@@ -208,7 +208,22 @@ SGML file extensions.
 Check TeX comments.
 .TP
 \fB\-\-add\-tex\-command=\fR\fI<list>\fR, \fB\-\-rem\-tex\-command=\fR\fI<list>\fR
-Add or Remove a list of TeX commands.
+Add or remove a list of TeX commands.
+.TP
+\fB\-\-add\-tex\-ignore\-env=\fR\fI<list>\fR, \fB\-\-rem\-tex\-ignore\-env=\fR\fI<list>\fR
+Add or remove a list of LaTeX environments to skip while spell checking.
+.TP
+\fB\-\-add\-texinfo\-ignore=\fR\fI<list>\fR, \fB\-\-rem\-texinfo\-ignore=\fR\fI<list>\fR
+Add or remove a list of Texinfo commands.
+.TP
+\fB\-\-add\-texinfo\-ignore\-env=\fR\fI<list>\fR, \fB\-\-rem\-texinfo\-ignore\-env=\fR\fI<list>\fR
+Add or remove a list of Texinfo environments to ignore.
+.TP
+\fB\-\-context\-visible\-first, \fB\-\-dont\-context\-visible\-first
+Switch the context which should be visible to Aspell.
+.TP
+\fB\-\-add\-context\-delimiters=\fR\fI<list>\fR, \fB\-\-rem\-context\-delimiters=\fR\fI<list>\fR
+Add or remove pairs of delimiters.
 .SH RUN\-TOGETHER WORD OPTIONS
 These may be used to control the behavior of run\-together words.
 .TP
