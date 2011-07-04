@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# aspell list mimicks the standard unix spell program, roughly.
+
+cat "$@" | aspell list --mode=none | sort -u
+

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+find . \( -name '*.?pp' -o -name '*.h' \) -print |
+ xargs grep -l "Automatically generated file."|
+ xargs rm
+
