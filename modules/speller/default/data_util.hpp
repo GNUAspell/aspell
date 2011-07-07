@@ -8,9 +8,7 @@
 
 #include "parm_string.hpp"
 
-using namespace acommon;
-
-namespace aspeller {
+namespace aspell { namespace sp {
 
   template <class Itr>
   struct CharStrParms {
@@ -41,6 +39,6 @@ namespace aspeller {
     else 
       return 0;
   }
-}
+} }
 
 #endif

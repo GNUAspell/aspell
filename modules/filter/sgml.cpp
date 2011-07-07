@@ -28,7 +28,7 @@
 #include "indiv_filter.hpp"
 #include "string_map.hpp"
 #include "mutable_container.hpp"
-#include "clone_ptr-t.hpp"
+#include "clone_ptr.hpp"
 #include "filter_char_vector.hpp"
 
 //right now unused option
@@ -39,7 +39,7 @@
 
 namespace {
 
-  using namespace acommon;
+  using namespace aspell;
 
   class ToLowerMap : public StringMap
   {
@@ -57,7 +57,7 @@ namespace {
     }
   };
 
-  class SgmlFilter : public IndividualFilter 
+  class SgmlFilter : public NormalFilter 
   {
     // State enum. These states track where we are in the HTML/tag/element constructs.
     // This diagram shows the main states. The marked number is the state we enter
@@ -103,6 +103,7 @@ namespace {
     
     ScanState in_what;
 	     // which quote char is quoting this attrib value.	
+	
     FilterChar::Chr  quote_val;   
 	    // one char prior to this one. For escape handling and such.
     FilterChar::Chr  lookbehind;   
@@ -133,8 +134,8 @@ namespace {
 
   PosibErr<bool> SgmlFilter::setup(Config * opts) 
   {
-    name_ = which + "-filter";
-    order_num_ = 0.35;
+    set_name(which);
+    set_order_num(0.35);
     check_attribs.clear();
     skip_tags.clear();
     opts->retrieve_list("f-" + which + "-skip",  &skip_tags);
@@ -409,7 +410,7 @@ namespace {
   //
   //
 
-  class SgmlDecoder : public IndividualFilter 
+  class SgmlDecoder : public ConversionFilter 
   {
     FilterCharVector buf;
     String which;
@@ -422,8 +423,8 @@ namespace {
 
   PosibErr<bool> SgmlDecoder::setup(Config *) 
   {
-    name_ = which + "-decoder";
-    order_num_ = 0.65;
+    set_name(which, Decoder);
+    set_order_num(0.65);
     return true;
   }
 

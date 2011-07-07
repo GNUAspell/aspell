@@ -8,11 +8,13 @@
 #define ASPELL_FILE_UTIL__HPP
 
 #include <time.h>
-
+#ifdef WIN32PORT
+#include "minwin.h" //minimum windows declarations.
+#endif
 #include "string.hpp"
 #include "posib_err.hpp"
 
-namespace acommon {
+namespace aspell {
 
   class FStream;
   class Config;
@@ -33,8 +35,6 @@ namespace acommon {
   bool remove_file(ParmString name);
   bool file_exists(ParmString name);
   bool rename_file(ParmString orig, ParmString new_name);
-  // will return NULL if path is NULL.
-  const char * get_file_name(const char * path);
 
   // expands filename to the full path
   // returns the length of the directory part or 0 if nothing found
@@ -48,7 +48,12 @@ namespace acommon {
     String suffix;
     String path;
     StringEnumeration * els;
+#ifndef WIN32PORT
     void * dir_handle;
+#else
+    HANDLE dir_handle; //keeps track of where we are while browsing.13-Sep-04 
+    WIN32_FIND_DATA BrowseData;
+#endif
     const char * dir;
     PathBrowser(const PathBrowser &);
     void operator= (const PathBrowser &);
@@ -56,6 +61,10 @@ namespace acommon {
     PathBrowser(const StringList &, const char * suf = "");
     ~PathBrowser();
     const char * next();
+#ifdef WIN32PORT
+    bool GetNextDir();
+    bool GetNextFile();
+#endif
   };
 
 }

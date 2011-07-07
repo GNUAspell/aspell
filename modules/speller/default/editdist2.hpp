@@ -4,7 +4,7 @@
 
 #include <cassert>
 
-namespace aspeller {
+namespace aspell { namespace sp {
   inline int edit_distance(ParmString a, ParmString b, 
 			   int level, // starting level
 			   int limit, // maximum level
@@ -25,4 +25,4 @@ namespace aspeller {
     } while (score >= LARGE_NUM && level <= limit);
     return score;
   }
-}
+} }

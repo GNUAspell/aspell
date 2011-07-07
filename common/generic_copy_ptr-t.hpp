@@ -15,7 +15,7 @@
 
 #include "generic_copy_ptr.hpp"
 
-namespace acommon {
+namespace aspell {
 
   template <typename T, typename Parms> 
   GenericCopyPtr<T,Parms>::GenericCopyPtr(const GenericCopyPtr & other) 

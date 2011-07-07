@@ -23,13 +23,12 @@
 #include "string.hpp"
 #include "posib_err.hpp"
 
-using namespace acommon;
 
-namespace acommon {struct Conv;}
+namespace aspell {struct Conv;}
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
-  class Language;
+  class LangImpl;
 
   struct PhonetParms {
     String version;
@@ -42,7 +41,7 @@ namespace aspeller {
     static const char * const rules_end;
     const char * * rules;
 
-    const Language * lang;
+    const LangImpl * lang;
 
     char to_clean[256];
 
@@ -63,8 +62,8 @@ namespace aspeller {
 
   PosibErr<PhonetParms *> new_phonet(const String & file, 
                                      Conv & iconv,
-                                     const Language * lang);
+                                     const LangImpl * lang);
 
-}
+} }
 
 #endif

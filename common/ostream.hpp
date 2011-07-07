@@ -11,7 +11,7 @@
 
 #include "parm_string.hpp"
 
-namespace acommon {
+namespace aspell {
 
   // FIXME: Add Print Method compatible with printf and friends.
   //   Than avoid code bloat by using it in many places instead of

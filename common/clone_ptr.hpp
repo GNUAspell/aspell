@@ -1,4 +1,4 @@
-// Copyright (c) 2001
+ // Copyright (c) 2001
 // Kevin Atkinson
 //
 // Permission to use, copy, modify, distribute and sell this software
@@ -13,17 +13,26 @@
 #ifndef autil__clone_ptr
 #define autil__clone_ptr
 
+#include <typeinfo>
 #include "generic_copy_ptr.hpp"
 
-namespace acommon {
+namespace aspell {
 
   template <typename T>
   class ClonePtr 
   {
     struct Parms {
-      T * clone(const T * ptr) const;
-      void assign(T * & rhs, const T * lhs) const;
-      void del(T * ptr);
+      T * clone(const T * ptr) const { return ptr->clone(); }
+      void assign(T * & lhs, const T * rhs) const {
+        if (typeid(*lhs) == typeid(*rhs)) {
+          lhs->assign(rhs);
+        } else {
+          T * temp = lhs;
+          lhs = rhs->clone();
+          delete temp;
+        }
+      }
+      void del(T * ptr) { delete ptr; } 
     };
     GenericCopyPtr<T, Parms> impl;
 
@@ -31,12 +40,12 @@ namespace acommon {
 
     explicit ClonePtr(T * p = 0) : impl(p) {}
     ClonePtr(const ClonePtr & other) : impl(other.impl) {}
-
+    
     ClonePtr & operator=(const ClonePtr & other) {
       impl = other.impl; 
       return *this;
     }
-
+    
     void assign(const T * other) {impl.assign(other);}
     void reset(T * other = 0)    {impl.reset(other);}
     
@@ -44,7 +53,7 @@ namespace acommon {
     T * operator-> () const {return impl;}
     T * get()         const {return impl;}
     operator T * ()   const {return impl;}
-
+    
     T * release() {return impl.release();}
   };
   

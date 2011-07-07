@@ -1,13 +1,12 @@
 AUTOMAKE_OPTIONS = foreign subdir-objects
 SUBDIRS = . po manual
-DIST_SUBDIRS = ${SUBDIRS} examples myspell lib5
+DIST_SUBDIRS = ${SUBDIRS} examples lib5
 
 # These are needed due to a bug in Automake
 pkgdatadir = @pkgdatadir@
 pkglibdir = @pkglibdir@
 
 filterdir = ${pkglibdir}
-optdir = ${pkgdatadir}
 localedir = ${datadir}/locale
 
 PERLPROG = @PERLPROG@
@@ -18,7 +17,12 @@ AM_CPPFLAGS = -I${srcdir}/gen -I${srcdir}/common \
 SUFFIXES = .info
 
 noinst_DATA = 
-EXTRA_DIST = config.rpath  win32/Makefile win32/settings.h
+pkgdata_DATA = 
+EXTRA_DIST = TODO-0.61\
+             win32/Makefile\
+             win32/settings.h\
+             win32/dirs.h\
+             win32/libstub.cpp
 
 ########################################################################
 #
@@ -49,9 +53,9 @@ libaspell_la_SOURCES =\
   common/info.cpp\
   common/can_have_error.cpp\
   common/convert.cpp\
-  common/tokenizer.cpp\
+  common/convert_filter.cpp\
   common/speller.cpp\
-  common/document_checker.cpp\
+  common/checker.cpp\
   common/filter.cpp\
   common/objstack.cpp \
   common/strtonum.cpp\
@@ -64,20 +68,18 @@ libaspell_la_SOURCES =\
   modules/speller/default/phonetic.cpp\
   modules/speller/default/writable.cpp\
   modules/speller/default/speller_impl.cpp\
+  modules/speller/default/checker_impl.cpp\
   modules/speller/default/phonet.cpp\
   modules/speller/default/typo_editdist.cpp\
   modules/speller/default/editdist.cpp\
   modules/speller/default/primes.cpp\
-  modules/speller/default/language.cpp\
+  modules/speller/default/lang_impl.cpp\
   modules/speller/default/leditdist.cpp\
   modules/speller/default/affix.cpp\
-  modules/tokenizer/basic.cpp\
-  lib/filter-c.cpp\
   lib/word_list-c.cpp\
   lib/info-c.cpp\
   lib/mutable_container-c.cpp\
   lib/error-c.cpp\
-  lib/document_checker-c.cpp\
   lib/string_map-c.cpp\
   lib/new_config.cpp\
   lib/config-c.cpp\
@@ -89,8 +91,16 @@ libaspell_la_SOURCES =\
   lib/string_list-c.cpp\
   lib/find_speller.cpp\
   lib/speller-c.cpp\
+  lib/speller-cm.cpp\
   lib/string_pair_enumeration-c.cpp\
-  lib/new_checker.cpp
+  lib/new_checker.cpp\
+  lib/checker-c.cpp\
+  lib/document_checker-c.cpp\
+  lib/convert-c.cpp\
+  lib/language-c.cpp\
+  lib/language_types-c.cpp\
+  lib/language-cm.cpp\
+  lib/munch_list.cpp
 
 libaspell_la_LIBADD =  $(LTLIBINTL) $(PTHREAD_LIB)
 
@@ -102,10 +112,10 @@ libaspell_la_LIBADD =  $(LTLIBINTL) $(PTHREAD_LIB)
 ## 17:0:2 => 15.2.0
 
 if INCREMENTED_SONAME
-libaspell_la_LDFLAGS = -version-info 18:0:2 -no-undefined
+## Use C+1:R:A
+libaspell_la_LDFLAGS = -version-info 19:0:3 -no-undefined
 else
-## Use C-1:R:A 
-libaspell_la_LDFLAGS = -version-info 17:0:2 -no-undefined
+libaspell_la_LDFLAGS = -version-info 18:0:3 -no-undefined
 endif
 
 if PSPELL_COMPATIBILITY
@@ -114,9 +124,9 @@ libpspell_la_SOURCES = lib/dummy.cpp
 libpspell_la_LIBADD = libaspell.la
 
 if INCREMENTED_SONAME
-libpspell_la_LDFLAGS = -version-info 18:0:2 -no-undefined
+libpspell_la_LDFLAGS = -version-info 19:0:3 -no-undefined
 else
-libpspell_la_LDFLAGS = -version-info 17:0:2 -no-undefined
+libpspell_la_LDFLAGS = -version-info 18:0:3 -no-undefined
 endif
 
 endif
@@ -132,9 +142,7 @@ EXTRA_DIST += common/*.hpp common/*.h\
 
 AM_CPPFLAGS += -DLOCALEDIR="$(localedir)"
 
-bin_PROGRAMS = word-list-compress aspell prezip-bin
-
-word_list_compress_SOURCES = prog/compress.c
+bin_PROGRAMS = aspell prezip-bin
 
 aspell_SOURCES = prog/aspell.cpp prog/check_funs.cpp prog/checker_string.cpp
 
@@ -149,11 +157,16 @@ EXTRA_DIST += prog/*.hpp
 # Filter Modules
 #
 
-# This is for filters which are ALWAYS static.  Currently only the
-# URL filter
+# This is for filters which are ALWAYS static.  
+# The url filter is always usefull and fairly simple.
+# The genconv filter is mostly defined in the main aspell libarary
+#   since it is used by other filters.  The actual genconv filter
+#   is just a small wrapper.
 
-libaspell_la_SOURCES += modules/filter/url.cpp
-static_optfiles = modules/filter/url-filter.info
+libaspell_la_SOURCES += modules/filter/url.cpp  \
+                        modules/filter/genconv.cpp
+static_optfiles = modules/filter/url-filter.info\
+                  modules/filter/genconv-filter.info
 
 dynamic_optfiles = 
 
@@ -171,8 +184,19 @@ optfiles = \
   modules/filter/nroff-filter.info\
   modules/filter/texinfo-filter.info
 
+### Add any extra data files your filter uses here
+fltdata = \
+  modules/filter/tex.conv\
+  modules/filter/texinfo.conv
+
+### Add any extra files that should be included with the distribution
+### but not installed
+fltextra = \
+  modules/filter/mk-tex.conv.pl\
+  modules/filter/mk-texinfo.conv.pl
+
 ### Add all your aspell mode files ###
-fltfiles = \
+fltmodes = \
   modules/filter/modes/html.amf \
   modules/filter/modes/sgml.amf \
   modules/filter/modes/tex.amf \
@@ -243,8 +267,7 @@ texinfo_filter_la_LDFLAGS  = ${filter_ldflags}
 endif # COMPILE_IN_FILTERS
 
 noinst_DATA += $(static_optfiles) gen/filter.pot
-opt_DATA = $(dynamic_optfiles)
-filter_DATA = $(fltfiles)
+pkgdata_DATA += $(dynamic_optfiles) $(fltmodes) $(fltdata)
 
 # settings.h added as a dependency so it will get recreated if
 #   the COMPILE_IN_FILTERS option changes
@@ -256,7 +279,8 @@ lib/new_filter.cpp: gen/static_filters.src.cpp
 gen/filter.pot: gen/mk-filter-pot.pl ${static_optfiles} ${dynamic_optfiles}
 	${PERLPROG} gen/mk-filter-pot.pl
 
-EXTRA_DIST += ${static_optfiles} ${dynamic_optfiles} ${fltfiles} \
+EXTRA_DIST += ${static_optfiles} ${dynamic_optfiles} \
+              ${fltmodes} ${fltdata} ${fltextra}\
               gen/mk-static-filter.pl gen/mk-filter-pot.pl\
               gen/filter.pot
 
@@ -281,7 +305,7 @@ CLEANFILES += gen/dirs.h
 #
 
 bin_SCRIPTS = scripts/run-with-aspell scripts/aspell-import \
-              scripts/prezip scripts/preunzip scripts/precat 
+              scripts/prezip
 
 pkgdata_SCRIPTS = scripts/spell scripts/ispell
 
@@ -303,7 +327,7 @@ CLEANFILES += scripts/run-with-aspell
 
 EXTRA_DIST += scripts/mkconfig scripts/spell scripts/ispell \
               scripts/run-with-aspell.create scripts/aspell-import\
-              scripts/prezip scripts/preunzip scripts/precat
+              scripts/prezip 
 
 ########################################################################
 #
@@ -351,7 +375,7 @@ endif
 # Misc Top level
 #
 
-pkgdata_DATA = \
+pkgdata_DATA += \
   data/cp1250.cmap data/cp1250.cset \
   data/cp1251.cmap data/cp1251.cset \
   data/cp1252.cmap data/cp1252.cset \
@@ -390,6 +414,11 @@ maintainer-clean-local:
 	@find . \( -name '*.?pp' -o -name '*.h' -o -name '*.info' \) -print |\
 	    xargs grep -l "Automatically generated file." |\
 	    xargs rm
+
+install-exec-hook:
+	cd $(DESTDIR)$(bindir) && \
+	  rm -f precat preunzip && $(LN_S) prezip precat && $(LN_S) prezip preunzip &&\
+	  rm -f word-list-compress$(EXEEXT) && $(LN_S) prezip-bin$(EXEEXT) word-list-compress$(EXEEXT)
 
 dist-hook:
 	mkdir $(distdir)/maintainer

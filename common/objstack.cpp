@@ -1,9 +1,7 @@
 
 #include "objstack.hpp"
 
-namespace acommon {
-
-using namespace std;
+namespace aspell {
 
 void ObjStack::setup_chunk()
 {

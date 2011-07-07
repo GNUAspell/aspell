@@ -4,14 +4,11 @@
 
 #include "weights.hpp"
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   // limit_edit_distance finds the shortest edit distance but will
   // stop and return a number at least as large as LARGE_NUM if it has
   // to do more edits than a set limit.
-  // Note that this does NOT mean that the score returned is <= limit*w.max
-  // as "sub" vs "submarine" will return 6*(cost of insertion) no matter what
-  // the limit is.
   // The edit distance is 
   // (cost of swap)(# of swaps) + (cost of deletion)(# of deletions) 
   //   + (cost of insertion)(# of insertions) 
@@ -32,7 +29,7 @@ namespace aspeller {
   // and the running time is more like (3^l).
 
   // limit_edit_distance, based on my informal tests, turns out to be
-  // faster than edit_dist for l < 5.  For l == 5 it is about the 
+  // faster than edit_dist for l < 5.  For l == 5 it is about the same
   // smaller for short strings (<= 5) and less than for longer strings
 
   // limit2_edit_distance(a,b,w) = limit_edit_distance(a,b,2,w)
@@ -63,6 +60,6 @@ namespace aspeller {
 				const EditDistanceWeights & w 
 				= EditDistanceWeights());
   
-}
+} }
 
 #endif

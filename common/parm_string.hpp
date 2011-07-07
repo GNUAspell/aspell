@@ -34,7 +34,7 @@
 // during construction.
 //
 
-namespace acommon {
+namespace aspell {
 
   template<typename Ret> class PosibErr;
 
@@ -42,7 +42,7 @@ namespace acommon {
 
   class ParmString {
   public:
-    ParmString() : str_(0) {}
+    ParmString() : str_(0), size_(0) {}
     ParmString(const char * str, unsigned int sz = UINT_MAX) 
       : str_(str), size_(sz) {}
     inline ParmString(const String &);
@@ -64,6 +64,9 @@ namespace acommon {
     operator const char * () const {
       return str_;
     }
+#ifdef __BORLANDC__ //BorlandC considered parm[idx] ambigous
+    const char & operator[] (int index) const { return str_[index]; }
+#endif
     const char * str () const {
       return str_;
     }

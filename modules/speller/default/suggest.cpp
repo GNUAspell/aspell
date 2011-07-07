@@ -36,6 +36,51 @@
 // NOTE: It is assumed that that strlen(soundslike) <= strlen(word)
 //       for any possible word
 
+/* TODO:
+ *
+ * Use typo edit distance as the word score, rather than using it to
+ * fine tune the score at the very end.  Also, when a word is clearly
+ * a typo (ie a typo edit distance less than around 100) than give the
+ * word score a higher weight, like maybe around as high as 85%.  This
+ * will eliminate the need for the small_word_threshold hack, and thus
+ * should improve the overall results.  In a similar manor when the
+ * soundslike is identical consider giving the soundslike score more
+ * weight.  One way to do this is, is to have variable weights which
+ * depend on the actual score.  For example maybe something like:
+ *   word_weight = 50; soundslike_weight = 50;
+ *   if (word_score < 100) 
+ *     word_weight = (0.85*50)/(1-0.85)
+ *   if (soundslike_score == 0)
+ *     soundslike_weight = (0.60*50)/(1-0.60)
+ * or maybe a sliding scale.  It will take some experimenting to figure
+ * out what works best.  It is also possible the the soundslike_weight
+ * should stay fixed, and only the word_weight should change.  In any
+ * case a large list of common mistakes should be used to test any
+ * changes such as:
+ *   http://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings
+ *
+ * NOTES: 
+ *
+ * Finding the typo edit distance is expensive, thus
+ * limit_edit_distance should still be used to find possible candidate
+ * words, and then run typo edit distance to find tune the result, or
+ * perhaps enhance limit_edit_distance to return the same results as
+ * typo_edit_distance, but this might slow it down significantly.
+ *
+ * try_one_edit_word, should obviously be modified to use the typo
+ * score.  Thus, merge_dups may end up helping, when both
+ * try_one_edit_word and try_scan_* is used, since finding typo edit
+ * distance is expensive, than again maybe not.
+ *
+ * It will probably be a good idea to skip over all typos before
+ * taking "parms->span" into account, otherwise all that may be
+ * returned are corrections for a possible typo, which will be of
+ * little help to the user if the mistake was a true misspelling and
+ * just a simple typo.  This wasn't a problem before since the typo
+ * edit distance was only used to reorder the existing list.
+ *
+ */
+
 // POSSIBLE OPTIMIZATION:
 //   store the number of letters that are the same as the previous 
 //     soundslike so that it can possible be skipped
@@ -47,7 +92,7 @@
 #include "speller_impl.hpp"
 #include "asuggest.hpp"
 #include "basic_list.hpp"
-#include "clone_ptr-t.hpp"
+#include "clone_ptr.hpp"
 #include "config.hpp"
 #include "data.hpp"
 #include "editdist.hpp"
@@ -55,7 +100,7 @@
 #include "errors.hpp"
 #include "file_data_util.hpp"
 #include "hash-t.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
 #include "leditdist.hpp"
 #include "speller_impl.hpp"
 #include "stack_ptr.hpp"
@@ -67,9 +112,12 @@
 
 //#include "iostream.hpp"
 //#define DEBUG_SUGGEST
+//   SCORE_LIST_SANITY_CHECK performs an expensive check on
+//   score_list.  It should not be enabled in production builds.
+//#define SCORE_LIST_SANITY_CHECK
 
-using namespace aspeller;
-using namespace acommon;
+using namespace aspell::sp;
+using namespace aspell;
 using namespace std;
 
 namespace {
@@ -100,6 +148,12 @@ namespace {
   //
 
   struct ScoreWordSound {
+    // If word_score or soundslike_score is >= LARGE_NUM than that means the
+    // the score is unknown.  In most cases either word_score or
+    // soundslike_score will be known when the word is added to near_misses.
+    // Note that word_score may not necessary be the result from
+    // edit_distance(original.word, word), for example if a replacement table
+    // was used.
     char * word;
     char * word_clean;
     //unsigned word_size;
@@ -110,7 +164,9 @@ namespace {
     bool          count;
     WordEntry * repl_list;
     ScoreWordSound() {repl_list = 0;}
+#ifndef SCORE_LIST_SANITY_CHECK // hack
     ~ScoreWordSound() {delete repl_list;}
+#endif
   };
 
   inline int compare (const ScoreWordSound &lhs, 
@@ -136,16 +192,27 @@ namespace {
     return compare(lhs, rhs) == 0;
   }
 
+  static inline bool lt_word (const ScoreWordSound & lhs,
+                const ScoreWordSound & rhs) {
+    int temp = strcmp(lhs.word,rhs.word);
+    if (temp) 
+      return temp < 0;
+    else if (lhs.repl_list != rhs.repl_list)
+      return lhs.repl_list < rhs.repl_list;
+    else
+      return lhs.word_score < rhs.word_score;
+  }
+
   typedef BasicList<ScoreWordSound> NearMisses;
- 
+
   class Score {
   protected:
-    const Language * lang;
+    const LangImpl * lang;
     OriginalWord     original;
     const SuggestParms * parms;
 
   public:
-    Score(const Language *l, const String &w, const SuggestParms * p)
+    Score(const LangImpl *l, const String &w, const SuggestParms * p)
       : lang(l), original(), parms(p)
     {
       original.word = w;
@@ -186,7 +253,7 @@ namespace {
     static const bool do_count = true;
     static const bool dont_count = false;
 
-    CheckInfo check_info[8];
+    IntrCheckInfo check_info[8];
 
     void commit_temp(const char * b) {
       if (temp_end) {
@@ -212,10 +279,10 @@ namespace {
       commit_temp(sl);
       return sl;}
 
-    MutableString form_word(CheckInfo & ci);
+    MutableString form_word(IntrCheckInfo & ci);
     void try_word_n(ParmString str, int score);
-    bool check_word_s(ParmString word, CheckInfo * ci);
-    unsigned check_word(char * word, char * word_end, CheckInfo * ci,
+    bool check_word_s(ParmString word, IntrCheckInfo * ci);
+    unsigned check_word(char * word, char * word_end, IntrCheckInfo * ci,
                         /* it WILL modify word */
                         unsigned pos = 1);
     void try_word_c(char * word, char * word_end, int score);
@@ -249,25 +316,25 @@ namespace {
       return (parms->word_weight*word_score 
 	      + parms->soundslike_weight*soundslike_score)/100;
     }
-    int skip_first_couple(NearMisses::iterator & i) {
+    // Skip over the first couple of items as they should
+    // not be counted in the threshold score.
+    // Return true if it skipped over them before falling of the end
+    // if it fell of the end it will return the last element
+    bool skip_first_couple(NearMisses::iterator & i) {
       int k = 0;
       InsensitiveCompare cmp(lang);
-      const char * prev_word = "";
-      while (preview_next(i) != scored_near_misses.end()) 
-	// skip over the first couple of items as they should
-	// not be counted in the threshold score.
+      NearMisses::iterator prev = i;
+      for (;;prev = i, ++i)
       {
-	if (!i->count || cmp(prev_word, i->word) == 0) {
-	  ++i;
-	} else if (k == parms->skip) {
-	  break;
-	} else {
-          prev_word = i->word;
+        if (i == scored_near_misses.end()) {
+          i = prev;
+          break;
+        } if (i->count && cmp(prev->word, i->word) != 0) {
 	  ++k;
-	  ++i;
-	}
+          if (k == parms->skip) return true;
+        }
       }
-      return k;
+      return false;
     }
 
     void try_split();
@@ -277,11 +344,21 @@ namespace {
     void try_repl();
     void try_ngram();
 
-    void score_list();
+    void merge_dups();
+ 
+    void score_list(bool score_all);
     void fine_tune_score();
     void transfer();
+
+#  ifndef SCORE_LIST_SANITY_CHECK
+    void score_list() {score_list(false);}
+#  else
+    void score_list_sanity();
+    void score_list() {score_list_sanity();}
+#  endif
+
   public:
-    Working(SpellerImpl * m, const Language *l,
+    Working(SpellerImpl * m, const LangImpl *l,
 	    const String & w, const SuggestParms *  p)
       : Score(l,w,p), threshold(1), max_word_length(0), sp(m) {
       memset(check_info, 0, sizeof(check_info));
@@ -321,6 +398,10 @@ namespace {
       }
 
     }
+
+    if (lang->affix() && lang->affix()->two_fold_suffix)
+      goto done; // HACK: Until I fix try_scan_* to work sensibly
+                 // with two_fold_suffix
 
     if (parms->try_scan_1) {
       
@@ -378,11 +459,11 @@ namespace {
     transfer();
   }
 
-  // Forms a word by combining CheckInfo fields.
+  // Forms a word by combining IntrCheckInfo fields.
   // Will grow the grow the temp in the buffer.  The final
   // word must be null terminated and commited.
   // It returns a MutableString of what was appended to the buffer.
-  MutableString Working::form_word(CheckInfo & ci) 
+  MutableString Working::form_word(IntrCheckInfo & ci) 
   {
     size_t slen = ci.word.size() - ci.pre_strip_len - ci.suf_strip_len;
     size_t wlen = slen + ci.pre_add_len + ci.suf_add_len;
@@ -390,8 +471,8 @@ namespace {
     if (ci.pre_add_len) 
       memcpy(tmp, ci.pre_add, ci.pre_add_len);
     memcpy(tmp + ci.pre_add_len, ci.word.str() + ci.pre_strip_len, slen);
-    if (ci.suf_add_len) 
-      memcpy(tmp + ci.pre_add_len + slen, ci.suf_add, ci.suf_add_len);
+    if (ci.suf_add_len)
+      ci.get_suf(tmp + ci.pre_add_len + slen);
     return MutableString(tmp,wlen);
   }
 
@@ -409,7 +490,7 @@ namespace {
         add_nearmiss(i, sw, 0, score, -1, do_count);
     }
     if (sp->affix_compress) {
-      CheckInfo ci; memset(&ci, 0, sizeof(ci));
+      IntrCheckInfo ci; memset(&ci, 0, sizeof(ci));
       bool res = lang->affix()->affix_check(LookupInfo(sp, LookupInfo::Clean), str, ci, 0);
       if (!res) return;
       form_word(ci);
@@ -421,7 +502,7 @@ namespace {
     }
   }
 
-  bool Working::check_word_s(ParmString word, CheckInfo * ci)
+  bool Working::check_word_s(ParmString word, IntrCheckInfo * ci)
   {
     WordEntry sw;
     for (SpellerImpl::WS::const_iterator i = sp->suggest_ws.begin();
@@ -440,7 +521,7 @@ namespace {
     return false;
   }
 
-  unsigned Working::check_word(char * word, char * word_end,  CheckInfo * ci,
+  unsigned Working::check_word(char * word, char * word_end,  IntrCheckInfo * ci,
                           /* it WILL modify word */
                           unsigned pos)
   {
@@ -459,7 +540,7 @@ namespace {
       res = check_word(i, word_end, ci + 1, pos + 1);
       if (res) return res;
     }
-    memset(ci, 0, sizeof(CheckInfo));
+    memset(ci, 0, sizeof(IntrCheckInfo));
     return 0;
   }
 
@@ -483,7 +564,7 @@ namespace {
     buffer.commit_temp();
     add_nearmiss(beg, end - beg, 0, 0, score, -1, do_count);
     //CERR.printl(tmp);
-    memset(check_info, 0, sizeof(CheckInfo)*res);
+    memset(check_info, 0, sizeof(IntrCheckInfo)*res);
   }
 
   void Working::add_nearmiss(char * word, unsigned word_size,
@@ -574,7 +655,7 @@ namespace {
       new_word[i+1] = new_word[i];
       new_word[i] = '\0';
       
-      if (sp->check(new_word) && sp->check(new_word + i + 1)) {
+      if (sp->check(new_word).data && sp->check(new_word + i + 1).data) {
         for (size_t j = 0; j != parms->split_chars.size(); ++j)
         {
           new_word[i] = parms->split_chars[j];
@@ -799,7 +880,7 @@ namespace {
 #ifdef DEBUG_SUGGEST
     COUT.printf("will try soundslike: %s\n", sls.back());
 #endif
-    for (const aspeller::CheckInfo * ci = gi.head;
+    for (const IntrCheckInfo * ci = gi.head;
          ci; 
          ci = ci->next) 
     {
@@ -926,12 +1007,12 @@ namespace {
     int min_score = 0;
     int count = 0;
 
-    for (NearMisses::iterator i = scored_near_misses.begin();
-         i != scored_near_misses.end(); ++i)
+    for (NearMisses::iterator mi = scored_near_misses.begin();
+         mi != scored_near_misses.end(); ++mi)
     {
-      if (!i->soundslike)
-        i->soundslike = to_soundslike(i->word, strlen(i->word));
-      already_have.insert(i->soundslike);
+      if (!mi->soundslike)
+        mi->soundslike = to_soundslike(mi->word, strlen(mi->word));
+      already_have.insert(mi->soundslike);
     }
 
     for (SpellerImpl::WS::const_iterator i = sp->suggest_ws.begin();
@@ -979,16 +1060,51 @@ namespace {
       }
     }
     
-    for (Candidates::iterator i = candidates.begin();
-         i != candidates.end();
-         ++i)
+    for (Candidates::iterator ci = candidates.begin();
+         ci != candidates.end();
+         ++ci)
     {
-      //COUT.printf("ngram: %s %d\n", i->soundslike, i->score);
-      add_sound(i->i, &i->info, i->soundslike);
+      //COUT.printf("ngram: %s %d\n", candidate->soundslike, candidate->score);
+      add_sound(ci->i, &ci->info, ci->soundslike);
     }
   }
-  
-  void Working::score_list() {
+
+  // merge_dups is an optimization to avoid having to score the same
+  // word more than once, not sure if it does any good yet.  The idea,
+  // is that if both try_scan_* and try_one_edit_word is used than
+  // both the soundslike and the word score should already be known
+  // for many words, but they will be in different entries, thus merge
+  // them to avoid unnecessary work
+  void Working::merge_dups() {
+      near_misses.sort(lt_word);
+      NearMisses::iterator end = near_misses.end();
+      NearMisses::iterator first, last;
+      first = near_misses.begin();
+      while (last != end) {
+        last = first;
+        unsigned cnt = 0;
+        ++last;
+        while (last != end && strcmp(first->word, last->word) == 0 && first->repl_list == last->repl_list) {
+          ++cnt;
+          if (!first->word_clean && last->word_clean)
+            first->word_clean = last->word_clean;
+          if (!first->soundslike && last->soundslike)
+            first->soundslike = last->soundslike;
+          if (first->soundslike_score > last->soundslike_score) {
+            first->soundslike_score = last->soundslike_score;
+            first->score = weighted_average(first->word_score, first->soundslike_score);
+          }
+          if (!first->count && last->count)
+            first->count = last->count;
+          ++last;
+        }
+        if (cnt)
+          near_misses.erase_after(first, last);
+        first = last;
+      }
+    }
+
+  void Working::score_list(bool score_all) {
 
 #  ifdef DEBUG_SUGGEST
     COUT.printl("SCORING LIST");
@@ -1007,9 +1123,34 @@ namespace {
     // this item will only be looked at when sorting so 
     // make it a small value to keep it at the front.
 
+    // Each iteration of this loop will look for any words whose final score
+    // is within try_for, by the end of each iteration all scores which can
+    // possible be <= try_for are known, furthermore any words with are likely
+    // candidates for the final list are put into scored_near_misses.
+    //
+    // The loop terminated when we have a sufficient number of words in
+    // scored_near_misses.  Any words left in near_misses can not possibly
+    // have a score > try_for.
+    //
+    // The idea of is to start with a low try_for then in each iteration
+    // try_for is incremented by just_enough to increase the level (see below)
+    // by 1.  This is an important optimization because for small words the
+    // list to be scored can sometimes be huge (for example up to around
+    // 20,000 for small words for the English language) and starting with a
+    // low try_for saves a lot of time for two reasons:
+    //   1) In some cases it not even necessary to score the word 
+    //   2) When it is necessary we have an upper bound on the score
+    //      required (ie try_for), we can make use of this information
+    //      to greatly speed up the cost of calling edit_distance
+    //      (see limit_edit_distance for why).
     int try_for = (parms->word_weight*parms->edit_distance_weights.max)/100;
+    if (score_all) try_for = LARGE_NUM;
     while (true) {
       try_for += (parms->word_weight*parms->edit_distance_weights.max)/100;
+
+#  ifdef DEBUG_SUGGEST
+      COUT << "Trying for: " << try_for << "\n";
+#  endif
 
       // put all pairs whose score <= initial_limit*max_weight
       // into the scored list
@@ -1032,7 +1173,7 @@ namespace {
                                           level, level,
                                           parms->edit_distance_weights);
         }
-        
+
         if (i->word_score >= LARGE_NUM) goto cont1;
 
         if (i->soundslike_score >= LARGE_NUM) 
@@ -1062,21 +1203,25 @@ namespace {
       cont1:
         prev = i;
         ++i;
-      }
+      } // while (i != near_misses.end())
 	
       scored_near_misses.sort();
 	
       i = scored_near_misses.begin();
       ++i;
+
+      bool skipped_first_couple = skip_first_couple(i);
 	
-      if (i == scored_near_misses.end()) continue;
+      if (prev == near_misses.begin()) // no more left in near_misses
+        break;
+
+      if (!skipped_first_couple) // reached end after skipping first couple
+        continue;
 	
-      int k = skip_first_couple(i);
-	
-      if ((k == parms->skip && i->score <= try_for) 
-	  || prev == near_misses.begin() ) // or no more left in near_misses
-	break;
-    }
+      if (i->score <= try_for) // we have reached our target (after skipping
+        break;                 // the first couple)
+      
+    } // while(true) (top loop)
       
     threshold = i->score + parms->span;
     if (threshold < parms->edit_distance_weights.max)
@@ -1090,6 +1235,10 @@ namespace {
 #  endif
 
     //if (threshold - try_for <=  parms->edit_distance_weights.max/2) return;
+
+    // Now do one final pass to find any words with a score greater than
+    // try_for but less than threshold.  When the loop terminates all
+    // words in near_misses have a score > threshold.
       
     prev = near_misses.begin();
     i = prev;
@@ -1144,21 +1293,78 @@ namespace {
     scored_near_misses.sort();
     scored_near_misses.pop_front();
 
-    if (near_misses.empty()) {
+    i = scored_near_misses.begin();
+    if (!skip_first_couple(i))
+      try_harder = 2;
+    else if (near_misses.empty() 
+             && scored_near_misses.back().score <= threshold)
       try_harder = 1;
-    } else {
-      i = scored_near_misses.begin();
-      skip_first_couple(i);
-      ++i;
-      try_harder = i == scored_near_misses.end() ? 2 : 0;
-    }
+    else
+      try_harder = 0;
 
 #  ifdef DEBUG_SUGGEST
     COUT << "Size of scored: " << scored_near_misses.size() << "\n";
     COUT << "Size of ! scored: " << near_misses.size() << "\n";
     COUT << "Try Harder: " << try_harder << "\n";
 #  endif
+
   }
+
+#ifdef SCORE_LIST_SANITY_CHECK
+  void Working::score_list_sanity() {
+    merge_dups(); // to avoid false positives
+    NearMisses orig_near_misses(near_misses);
+    NearMisses orig_scored_near_misses(scored_near_misses);
+#  ifdef DEBUG_SUGGEST
+    COUT << "********************* SCORING ALL IN LIST **************************\n";
+#  endif
+    score_list(true);
+    NearMisses scored_near_misses_all(scored_near_misses);
+    int threshold_all = threshold;
+#  ifdef DEBUG_SUGGEST
+    COUT << "********************* DONE *****************************************\n";
+#  endif
+    near_misses = orig_near_misses;
+    scored_near_misses = orig_scored_near_misses;
+    score_list(false);
+
+    // now compare the lists
+    NearMisses::const_iterator 
+      i = scored_near_misses.begin(), 
+      j = scored_near_misses_all.begin(), 
+      i_end = scored_near_misses.end(),
+      j_end = scored_near_misses_all.end();
+    unsigned c = 0;
+    if (threshold != threshold_all) {
+      CERR << "WARNING score_list_sanity_check: thresholds differ\n";
+      goto dump_lists;
+    }
+    for (;i != i_end && j != j_end && i->score < threshold_all; ++i, ++j, ++c) {
+      if (strcmp(i->word,j->word) != 0) {
+        CERR << "WARNING score_list_sanity_check: lists differ at position " << c << "\n";
+        goto dump_lists;
+      }
+      if (i == i_end && j != j_end && j->score < threshold_all) {
+        CERR << "WARNING score_list_sanity_check: orig list is too small\n";
+      }
+    }
+    return;
+  dump_lists:
+    CERR << original.word << '\t' 
+	 << original.soundslike << '\t'
+	 << "\n";
+    CERR << "ORIG (With out try_for hack):\n";
+    CERR << "  Threshold: " << threshold << "\n";
+    for (i = scored_near_misses.begin(), c = 0; i != i_end && i->score < threshold_all; ++i, ++c)
+      CERR << "  " << c << '\t' << i->word << '\t' << i->score << '\t' << i->word_score
+           << '\t' << i->soundslike << '\t' << i->soundslike_score << "\n";
+    CERR << "NEW (With large try_for):\n";
+    CERR << "  Threshold: " << threshold_all << "\n";
+    for (j = scored_near_misses_all.begin(), c = 0; j != j_end && j->score < threshold_all; ++j, ++c)
+      CERR << "  " << c << '\t' << j->word << '\t' << j->score << '\t' << j->word_score
+           << '\t' << j->soundslike << '\t' << j->soundslike_score << "\n";
+  }
+#endif
 
   void Working::fine_tune_score() {
 
@@ -1225,9 +1431,9 @@ namespace {
  	  dup_pair = duplicates_check.insert(fix_case(i->repl_list->word, buf));
  	  if (dup_pair.second && 
  	      ((pos = dup_pair.first->find(' '), pos == String::npos)
- 	       ? (bool)sp->check(*dup_pair.first)
- 	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
- 		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
+ 	       ? sp->check(*dup_pair.first).data
+ 	       : (sp->check((String)dup_pair.first->substr(0,pos)).data 
+ 		  && sp->check((String)dup_pair.first->substr(pos+1)).data) ))
  	    near_misses_final->push_back(*dup_pair.first);
  	} while (i->repl_list->adv());
       } else {
@@ -1311,7 +1517,7 @@ namespace {
     if (keyboard == "none")
       parms_.use_typo_analysis = false;
     else
-      RET_ON_ERR(aspeller::setup(parms_.ti, m->config(), &m->lang(), keyboard));
+      RET_ON_ERR(aspell::sp::setup(parms_.ti, m->config(), &m->lang(), keyboard));
 
     return no_err;
   }
@@ -1332,7 +1538,7 @@ namespace {
   
 }
 
-namespace aspeller {
+namespace aspell { namespace sp {
   PosibErr<Suggest *> new_default_suggest(SpellerImpl * m) {
     StackPtr<SuggestImpl> s(new SuggestImpl);
     RET_ON_ERR(s->setup(m));
@@ -1427,4 +1633,4 @@ namespace aspeller {
     }
     word_weight = 100 - soundslike_weight;
   }
-}
+} }

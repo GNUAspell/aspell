@@ -8,7 +8,8 @@
 
 #include "copy_ptr.hpp"
 #include "enumeration.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
+#include "parm_string.hpp"
 #include "posib_err.hpp"
 #include "string.hpp"
 #include "string_enumeration.hpp"
@@ -16,16 +17,14 @@
 #include "cache.hpp"
 #include "wordinfo.hpp"
 
-using namespace acommon;
-
-namespace acommon {
+namespace aspell {
   class Config;
   class FStream;
   class OStream;
   class Convert;
 }
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   class Dictionary;
   class DictList;
@@ -46,8 +45,8 @@ namespace aspeller {
   class Dictionary : public Cacheable, public WordList {
     friend class SpellerImpl;
   private:
-    CachePtr<const Language> lang_;
-    PosibErr<void> attach(const Language &);
+    CachePtr<const LangImpl> lang_;
+    PosibErr<void> attach(const LangImpl &);
   public:
     class FileName {
       void copy(const FileName & other);
@@ -85,7 +84,7 @@ namespace aspeller {
     PosibErr<void> check_lang(ParmString lang);
     PosibErr<void> set_check_lang(ParmString lang, Config &);
     const LangImpl * lang() const {return lang_;};
-    const Language * language() const {return lang_;};
+    //const Language * language() const {return lang_;};
     const char * lang_name() const;
 
   private:
@@ -172,8 +171,7 @@ namespace aspeller {
   }
 
   class DictList {
-    // well a stack at the moment but it may eventually become a list
-    // NOT necessarily first in first out
+    // a stack
     Vector<Dict *> data;
   private:
     DictList(const DictList &);
@@ -184,6 +182,7 @@ namespace aspeller {
     void add(Dict * o) {data.push_back(o);}
     Dict * last() {return data.back();}
     void pop() {data.pop_back();}
+    unsigned size() {return data.size();}
     bool empty() {return data.empty();}
     ~DictList() {for (; !empty(); pop()) last()->release();}
   };
@@ -195,7 +194,11 @@ namespace aspeller {
   static const DataType DT_Multi        = 1<<3;
   static const DataType DT_Any          = 0xFF;
 
-  // any new extra dictionaries that were loaded will be ii
+  // Prep a dictionary for adding to the SpellerImpl
+  // Store any new dictionaries to add in other_dicts.  If the current
+  // dict is a multi-dict than there may be more than one.  The
+  // last element in other_dicts in garnateed to the the same 
+  // as the dictionary returned.
   PosibErr<Dict *> add_data_set(ParmString file_name,
                                 Config &,
                                 DictList * other_dicts = 0,
@@ -217,7 +220,7 @@ namespace aspeller {
 
   // implemented in writable.cpp
   ReplacementDict * new_default_replacement_dict();
-}
+} }
 
 #endif
 

@@ -22,30 +22,30 @@
 
 #include <stdio.h>
 #include <sys/stat.h>
-#include <dirent.h>
 
-#ifdef WIN32
-
+#if defined(WIN32) || defined(_WIN32)
 #  include <io.h>
-#  define ACCESS _access
-#  include <windows.h>
-#  include <winbase.h>
-
+#  include "minwin.h" //minimum windows declarations.
+#  include "asc_ctype.hpp"
+#  define F_OK 0 //does the file exist?
 #else
-
 #  include <unistd.h>
-#  define ACCESS access
-
+#   include <dirent.h>
 #endif
 
+#if defined(_MSC_VER)
+#  define ACCESS _access
+#else
+#  define ACCESS access
+#endif
 
-namespace acommon {
+namespace aspell {
 
   // Return false if file is already an absolute path and does not need
   // a directory prepended.
   bool need_dir(ParmString file) {
     if (file[0] == '/' || (file[0] == '.' && file[1] == '/')
-#ifdef WIN32
+#if defined(WIN32) || defined(_WIN32)
         || (asc_isalpha(file[0]) && file[1] == ':')
         || file[0] == '\\' || (file[0] == '.' && file[1] == '\\')
 #endif
@@ -154,18 +154,6 @@ namespace acommon {
     return rename(orig_name, new_name) == 0;
   }
  
-  const char * get_file_name(const char * path) {
-    const char * file_name;
-    if (path != 0) {
-      file_name = strrchr(path,'/');
-      if (file_name == 0)
-        file_name = path;
-    } else {
-      file_name = 0;
-    }
-    return file_name;
-  }
-
   unsigned find_file(const Config * config, const char * option, String & filename)
   {
     StringList sl;
@@ -192,6 +180,8 @@ namespace acommon {
     return 0;
   }
 
+#ifndef WIN32PORT
+  //Unix version
   PathBrowser::PathBrowser(const StringList & sl, const char * suf)
     : dir_handle(0)
   {
@@ -232,4 +222,79 @@ namespace acommon {
     if (dir_handle == 0) goto try_again;
     goto begin;
   }
+#else
+  //Windows version
+  PathBrowser::PathBrowser(const StringList & sl, const char * suf) 
+  {
+    els = sl.elements();
+    suffix = suf;
+    dir_handle = INVALID_HANDLE_VALUE;
+  }
+
+  PathBrowser::~PathBrowser() 
+  {
+    delete els;
+    if (INVALID_HANDLE_VALUE != dir_handle)
+      FindClose(dir_handle);
+  }
+
+  //
+  // Get the next directory from the els list, and start reading from it.
+  bool PathBrowser::GetNextDir()
+  {
+    dir = els->next();
+    if (dir) {
+      if (INVALID_HANDLE_VALUE != dir_handle)
+        FindClose(dir_handle);
+      String pattern = dir; pattern += "/*"; pattern += suffix;
+      dir_handle = FindFirstFile(pattern.c_str(),&BrowseData);
+      return true;
+    }
+    return false;
+  }
+
+  //
+  // If we do not have a valid dir_handle we can not
+  // find files, return false so that we can step to the
+  // next directory and get fresh dir_handle.
+  // If we have a handle, get the next file.
+  // If we can not find anymore files, close the handle
+  // and set dir_handle to invalid.
+  // return true if we have valid data in BrowseData.
+  bool PathBrowser::GetNextFile()
+  {
+    if (INVALID_HANDLE_VALUE == dir_handle)
+      return false; //invalid dir_handle
+    bool ok = FindNextFile(dir_handle,&BrowseData);
+    if (!ok) {
+      FindClose(dir_handle);
+      dir_handle = INVALID_HANDLE_VALUE;
 }
+    return ok;
+  }
+
+  //
+  // This just gets the next file that matches the suffix.
+  const char * PathBrowser::next()
+  {
+    bool first = false;
+    do {
+      if (INVALID_HANDLE_VALUE == dir_handle) {
+        if (! GetNextDir())
+          return 0; //no more directories
+        first = INVALID_HANDLE_VALUE != dir_handle; //FindFirstFile fills BrowseData.
+      }
+      while (first || GetNextFile()) {
+        first = false;
+        ParmString name = BrowseData.cFileName;
+        if ( "."  == name || ".." == name )
+          continue; //special directories
+        path = dir;
+        if (path.back() != '/') path += '/';
+        path += name;
+        return path.c_str();
+      }
+    } while (true);
+  }
+#endif
+}//namespace

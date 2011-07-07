@@ -8,9 +8,11 @@
 
 #include "checker_string.hpp"
 #include "speller.hpp"
-#include "document_checker.hpp"
+#include "checker.hpp"
 #include "asc_ctype.hpp"
 #include "convert.hpp"
+
+using namespace aspell;
 
 extern Conv dconv;
 extern Conv uiconv;
@@ -35,10 +37,11 @@ static int get_line(FILE * in, CheckerString::Line & d)
   return d.real.size();
 }
 
-CheckerString::CheckerString(AspellSpeller * speller, 
-                             FILE * in, FILE * out, 
-                             int num_lines)
-  : in_(in), out_(out), speller_(speller)
+CheckerString::CheckerString(AspellChecker * checker,
+                             AspellSpeller * speller,
+			     FILE * in, FILE * out, 
+			     int num_lines)
+  : in_(in), out_(out), checker_(checker), speller_(speller)
 {
   lines_.reserve(num_lines + 1);
   for (; num_lines > 0; --num_lines)
@@ -50,13 +53,11 @@ CheckerString::CheckerString(AspellSpeller * speller,
   if (lines_.back().real.size() != 0)
     lines_.resize(lines_.size() + 1);
 
-  end_ = lines_.end() - 1;
-  cur_line_ = lines_.begin();
-  diff_ = 0;
-  has_repl_ = false;
+  end_ = lines_.pend() - 1;
+  cur_line_ = lines_.pbegin();
 
-  checker_.reset(new_document_checker(reinterpret_cast<Speller *>(speller)));
-  checker_->process(cur_line_->real.data(), cur_line_->real.size());
+  aspell_checker_set_more_data_callback(checker_, checker_callback, this);
+  aspell_checker_process(checker_, cur_line_->real.data(), cur_line_->real.size(), 0, cur_line_);
 }
 
 CheckerString::~CheckerString()
@@ -76,7 +77,7 @@ CheckerString::~CheckerString()
 bool CheckerString::read_next_line()
 {
   if (feof(in_)) return false;
-  Lines::iterator next = end_;
+  Line * next = end_;
   inc(next);
   if (next == cur_line_) return false;
   int s = get_line(in_, *end_);
@@ -88,36 +89,22 @@ bool CheckerString::read_next_line()
   return true;
 }
 
+void CheckerString::checker_callback(void * d, void * w)
+{
+  CheckerString * cs = static_cast<CheckerString *>(d);
+  Line * cur = static_cast<Line *>(w);
+  cs->next_line(cur);
+  if (cs->off_end(cur)) return;
+  aspell_checker_process(cs->checker_, cur->real.data(), cur->real.size(), 0, cur);
+}
+
 bool CheckerString::next_misspelling()
 {
-  if (off_end(cur_line_)) return false;
-  if (has_repl_) {
-    has_repl_ = false;
-    CharVector word;
-    bool correct = false;
-    // FIXME: This is a hack to avoid trying to check a word with a space
-    //        in it.  The correct action is to reparse to string and
-    //        check each word individually.  However doing so involves
-    //        an API enhancement in Checker.
-    for (int i = 0; i != real_word_size_; ++i) {
-      if (asc_isspace(*(real_word_begin_ + i)))
-        correct = true;
-    }
-    if (!correct)
-      correct = aspell_speller_check(speller_, &*real_word_begin_, real_word_size_);
-    diff_ += real_word_size_ - tok_.len;
-    tok_.len = real_word_size_;
-    if (!correct)
-      return true;
-  }
-  while ((tok_ = checker_->next_misspelling()).len == 0) {
-    next_line(cur_line_);
-    diff_ = 0;
-    if (off_end(cur_line_)) return false;
-    checker_->process(cur_line_->real.data(), cur_line_->real.size());
-  }
-  real_word_begin_ = cur_line_->real.begin() + tok_.offset + diff_;
-  real_word_size_  = tok_.len;
+  const AspellCheckerToken * tok = aspell_checker_next_misspelling(checker_);
+  if (!tok) return false;
+  cur_line_ = static_cast<Line *>(tok->begin.which);
+  real_word_begin_ = cur_line_->real.begin() + tok->begin.offset;
+  real_word_size_  = tok->end.offset - tok->begin.offset;
   fix_display_str();
   return true;
 }
@@ -127,13 +114,13 @@ void CheckerString::replace(ParmString repl)
   assert(real_word_size_ > 0);
   int offset = real_word_begin_ - cur_line_->real.begin();
   aspell_speller_store_replacement(speller_, &*real_word_begin_, real_word_size_,
-                                   repl.str(), repl.size());
+				   repl.str(), repl.size());
   cur_line_->real.replace(real_word_begin_, real_word_begin_ + real_word_size_,
                           repl.str(), repl.str() + repl.size());
+  aspell_checker_replace(checker_, repl.str(), repl.size());
   real_word_begin_ = cur_line_->real.begin() + offset;
   real_word_size_ = repl.size();
   fix_display_str();
-  has_repl_ = true;
 }
 
 void CheckerString::fix_display_str()

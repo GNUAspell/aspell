@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include "settings.h"
 //#include "iostream.hpp"
 
 #include "posib_err.hpp"
@@ -15,7 +16,7 @@
 #include "gettext.h"
 
 
-namespace acommon {
+namespace aspell {
 
   String & String::operator= (const PosibErr<String> & s)
   {

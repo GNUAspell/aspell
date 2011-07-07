@@ -14,7 +14,7 @@
 //   must be used to construct the the data member and the destructor
 //   must explicitly be called.
 
-namespace acommon {
+namespace aspell {
 
   template <typename T>
   class BlockSList {
@@ -26,6 +26,10 @@ namespace acommon {
       T      data;
     };
 
+    // Delete a node, usefull when deleting objects that were
+    // constructed inplace.
+    static void del_node(Node * node) {if (node) node->data.~T();}
+    
   private:
 
     void * first_block;

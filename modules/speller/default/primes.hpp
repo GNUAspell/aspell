@@ -12,7 +12,7 @@
 
 #include <vector>
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   class Primes {
   private:
@@ -126,4 +126,4 @@ namespace aspeller {
     const_reverse_ra_iterator r_ra_end() const {return data.rend();}
   };
 
-}
+} }

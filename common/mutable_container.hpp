@@ -9,7 +9,7 @@
 
 #include "parm_string.hpp"
 
-namespace acommon {
+namespace aspell {
 
 class AddableContainer {
 public:

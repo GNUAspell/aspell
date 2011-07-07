@@ -14,7 +14,7 @@
 #include <cmath>
 #include <cassert>
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   using namespace std;
 
@@ -48,4 +48,4 @@ namespace aspeller {
       return true;
     }
   }
-}
+} }

@@ -4,9 +4,8 @@
 #include "parm_string.hpp"
 #include "weights.hpp"
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
-  using acommon::ParmString;
 
   // edit_distance finds the shortest edit distance.  The edit distance is 
   // (cost of swap)(# of swaps) + (cost of deletion)(# of deletions) 
@@ -25,6 +24,6 @@ namespace aspeller {
 
   short edit_distance(ParmString a, ParmString b,
 		      const EditDistanceWeights & w = EditDistanceWeights());
-}
+} }
 
 #endif

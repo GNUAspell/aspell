@@ -9,7 +9,7 @@
 #include "strtonum.hpp"
 #include "asc_ctype.hpp"
 
-namespace acommon {
+namespace aspell {
 
   static double strtodbl_c(const char * nptr, const char ** endptr)
   {

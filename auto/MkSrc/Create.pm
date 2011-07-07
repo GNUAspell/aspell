@@ -75,7 +75,9 @@ sub create_cc_file ( % )  {
   $file .= "#include \"aspell.h\"\n" if $p{type} eq 'cxx';
   $file .= "#include \"settings.h\"\n" if $p{type} eq 'native_impl' && $p{name} eq 'errors';
   $file .= "#include \"gettext.h\"\n" if $p{type} eq 'native_impl' && $p{name} eq 'errors';
-  $file .= cmap {"#include \"".to_lower($_).".hpp\"\n"} sort keys %{$accum{headers}};
+  $file .= cmap {$_ = to_lower($_);
+                 s/_c$/-c/; # FIXME: This is a hack
+                 "#include \"".$_.".hpp\"\n"} sort keys %{$accum{headers}};
   $file .= "#ifdef __cplusplus\nextern \"C\" {\n#endif\n" if $p{header} && !$p{cxx};
   $file .= "\nnamespace $p{namespace} {\n\n" if $p{cxx};
   if (defined $info{forward}{proc}{$p{type}}) {

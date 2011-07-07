@@ -7,7 +7,7 @@
 #ifndef ASPELL_STRTONUM__HPP
 #define ASPELL_STRTONUM__HPP
 
-namespace acommon {
+namespace aspell {
    
   // Local independent numeric conversion.  It is OK if
   //   nptr == *endptr

@@ -12,7 +12,7 @@
 #  include <stdlib.h>
 #endif
 
-namespace acommon {
+namespace aspell {
 
 // only use this on types with a trivial constructors destructor
 
@@ -30,7 +30,7 @@ namespace acommon {
   };
 
 #define VARARRAY(type, name, num) \
-  acommon::MallocPtr name##_data;             \
+  aspell::MallocPtr name##_data;             \
   name##_data.ptr = malloc(sizeof(type) * (num)); \
   type * name = (type *)name##_data.ptr
 

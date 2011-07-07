@@ -1,5 +1,5 @@
-#ifndef acommon_filter_char_vector__hh
-#define acommon_filter_char_vector__hh
+#ifndef aspell_filter_char_vector__hh
+#define aspell_filter_char_vector__hh
 
 // This file is part of The New Aspell
 // Copyright (C) 2002 by Kevin Atkinson under the GNU LGPL license
@@ -10,7 +10,7 @@
 #include "vector.hpp"
 #include "filter_char.hpp"
 
-namespace acommon {
+namespace aspell {
 
   class FilterCharVector : public Vector<FilterChar>
   {

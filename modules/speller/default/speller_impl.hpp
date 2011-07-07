@@ -4,8 +4,6 @@
 #ifndef __aspeller_speller__
 #define __aspeller_speller__
 
-#include <vector>
-
 #include "clone_ptr.hpp"
 #include "copy_ptr.hpp"
 #include "data.hpp"
@@ -13,9 +11,7 @@
 #include "speller.hpp"
 #include "check_list.hpp"
 
-using namespace acommon;
-
-namespace acommon {
+namespace aspell {
   class StringMap;
   class Config;
   class WordList;
@@ -24,10 +20,10 @@ namespace acommon {
 // dictionaries coming up with suggestions and the like. Its methods
 // are NOT meant to be used my multiple threads and/or documents.
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
-  class Language;
-  class SensitiveCompare;
+  class LangImpl;
+  struct SensitiveCompare;
   class Suggest;
 
   enum SpecialId {main_id, personal_id, session_id, 
@@ -41,9 +37,11 @@ namespace aspeller {
     bool              save_on_saveall;
     SpecialId         special_id;
     SpellerDict     * next;
-    SpellerDict(Dict *);
+    SpellerDict(Dict * d) : special_id(none_id) {set(d);}
     SpellerDict(Dict *, const Config &, SpecialId id = none_id);
     ~SpellerDict() {if (dict) dict->release();}
+  private:
+    void set(Dict *);
   };
 
   class SpellerImpl : public Speller
@@ -53,8 +51,9 @@ namespace aspeller {
     ~SpellerImpl();
 
     PosibErr<void> setup(Config *);
+    PosibErr<void> reload_conv();
 
-    void setup_tokenizer(Tokenizer *);
+    Checker * new_checker();
 
     //
     // Low level Word List Management methods
@@ -79,14 +78,14 @@ namespace aspeller {
     PosibErr<const WordList *> main_word_list      () const;
 
     //
-    // Language methods
+    // LangImpl methods
     //
     
     char * to_lower(char *);
 
     const char * lang_name() const;
 
-    const Language & lang() const {return *lang_;}
+    const LangImpl & lang() const {return *lang_;}
 
     //
     // Spelling methods
@@ -95,7 +94,7 @@ namespace aspeller {
     PosibErr<bool> check(char * word, char * word_end, /* it WILL modify word */
                          bool try_uppercase,
 			 unsigned run_together_limit,
-			 CheckInfo *, GuessInfo *);
+			 IntrCheckInfo *, GuessInfo *);
 
     PosibErr<bool> check(MutableString word) {
       guess_info.reset();
@@ -114,13 +113,13 @@ namespace aspeller {
 
     bool check2(char * word, /* it WILL modify word */
                 bool try_uppercase,
-                CheckInfo & ci, GuessInfo * gi);
+                IntrCheckInfo & ci, GuessInfo * gi);
 
-    bool check_affix(ParmString word, CheckInfo & ci, GuessInfo * gi);
+    bool check_affix(ParmString word, IntrCheckInfo & ci, GuessInfo * gi);
 
     bool check_simple(ParmString, WordEntry &);
 
-    const CheckInfo * check_info() {
+    const IntrCheckInfo * intr_check_info() {
       if (check_inf[0].word)
         return check_inf;
       else if (guess_info.head)
@@ -160,7 +159,7 @@ namespace aspeller {
   private:
     friend class ConfigNotifier;
 
-    CachePtr<const Language>   lang_;
+    CachePtr<const LangImpl>   lang_;
     CopyPtr<SensitiveCompare>  sensitive_compare_;
     //CopyPtr<DictCollection> wls_;
     ClonePtr<Suggest>       suggest_;
@@ -193,9 +192,9 @@ namespace aspeller {
     double distance (const char *, const char *, 
 		     const char *, const char *) const;
 
-    CheckInfo check_inf[8];
+    IntrCheckInfo check_inf[8];
     GuessInfo guess_info;
-
+    
     SensitiveCompare s_cmp;
     SensitiveCompare s_cmp_begin;  // These (s_cmp_begin,middle,end)
     SensitiveCompare s_cmp_middle; // are used by the affix code.
@@ -257,6 +256,6 @@ namespace aspeller {
       return; 
     }
   }
-}
+} }
 
 #endif

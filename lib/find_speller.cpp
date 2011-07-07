@@ -9,7 +9,6 @@
 
 // POSIX includes
 #include <sys/types.h>
-#include <dirent.h>
 
 #include "asc_ctype.hpp"
 #include "can_have_error.hpp"
@@ -37,9 +36,9 @@
 #endif
 #endif
 
-using namespace acommon;
+using namespace aspell;
 
-namespace acommon {
+namespace aspell {
 
   static void free_lt_handle(SpellerLtHandle h) 
   {
@@ -401,7 +400,7 @@ namespace acommon {
         b_code  .cur = entry->code;
         b_module.cur = entry->module->name;
 
-        b_variety.cur = entry->variety;
+        b_variety.cur = entry->jargon;
     
         b_size.cur_str = entry->size_str;
         b_size.cur     = entry->size;
@@ -462,13 +461,10 @@ namespace acommon {
 
   PosibErr<void> reload_filters(Speller * m) 
   {
-    m->to_internal_->filter.clear();
-    m->from_internal_->filter.clear();
+    RET_ON_ERR(m->reload_conv());
     // Add enocder and decoder filters if any
-    RET_ON_ERR(setup_filter(m->to_internal_->filter, m->config(), 
-			    true, false, false));
-    RET_ON_ERR(setup_filter(m->from_internal_->filter, m->config(), 
-			    false, false, true));
+    RET_ON_ERR(m->to_internal_->add_filters(m->config(), true, false, false));
+    RET_ON_ERR(m->from_internal_->add_filters(m->config(), false, false, true));
     return no_err;
   }
 
@@ -480,7 +476,9 @@ namespace acommon {
     StackPtr<Speller> m(get_speller_class(c));
     RET_ON_ERR(m->setup(c));
 
-    RET_ON_ERR(reload_filters(m));
+    // Add enocder and decoder filters if any
+    RET_ON_ERR(m->to_internal_->add_filters(m->config(), true, false, false));
+    RET_ON_ERR(m->from_internal_->add_filters(m->config(), false, false, true));
     
     return m.release();
   }

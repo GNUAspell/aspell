@@ -2,7 +2,7 @@
 #include "file_util.hpp"
 #include "file_data_util.hpp"
 
-namespace acommon {
+namespace aspell {
   
   // Fill in values for a local data directory and a system data directory
   // The values are stored under the keys local-data-dir and data-dir.

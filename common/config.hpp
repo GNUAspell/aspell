@@ -13,7 +13,7 @@
 #include "string.hpp"
 #include "vector.hpp"
 
-namespace acommon {
+namespace aspell {
 
   class OStream;
   class KeyInfoEnumeration;
@@ -168,8 +168,8 @@ namespace acommon {
     Vector<Cacheable *> filter_modules_ptrs;
 
     Config(ParmStr name,
-	   const KeyInfo * mainbegin, 
-	   const KeyInfo * mainend);
+           const KeyInfo * mainbegin, 
+           const KeyInfo * mainend);
 
     Config(const Config &);
     ~Config();
@@ -232,7 +232,7 @@ namespace acommon {
 
   Config * new_config();
   Config * new_basic_config(); // config which doesn't require any
-			       // external symbols
+                               // external symbols
 
   class NotifierEnumeration {
     // no copy and destructor needed
@@ -244,7 +244,7 @@ namespace acommon {
     const Notifier * next() {
       const Notifier * temp = *i;
       if (i != end)
-	++i;
+        ++i;
       return temp;
     }
     bool at_end() const {return i == end;}

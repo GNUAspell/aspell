@@ -7,18 +7,18 @@
 
 #include <iostream.hpp>
 
+#include "file_util.hpp"
 #include "asc_ctype.hpp"
-#include "clone_ptr-t.hpp"
+#include "clone_ptr.hpp"
 #include "config.hpp"
 #include "enumeration.hpp"
 #include "errors.hpp"
 #include "file_data_util.hpp"
 #include "fstream.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
 #include "string.hpp"
-#include "cache-t.hpp"
+#include "cache.hpp"
 #include "getdata.hpp"
-#include "file_util.hpp"
 
 #ifdef ENABLE_NLS
 #  include <langinfo.h>
@@ -26,7 +26,9 @@
 
 #include "gettext.h"
 
-namespace aspeller {
+namespace aspell { namespace sp {
+
+  LangImpl::~LangImpl() {}
 
   static const char TO_CHAR_TYPE[256] = {
     // 1  2  3  4  5  6  7  8  9  A  B  C  D  E  F 
@@ -76,9 +78,9 @@ namespace aspeller {
     , {"norm-form",           KeyInfoString, "nfc", "", 0, FOR_CONFIG}
   };
 
-  static GlobalCache<Language> language_cache("language");
+  static GlobalCache<LangImpl> language_cache("language");
 
-  PosibErr<void> Language::setup(const String & lang, const Config * config)
+  PosibErr<void> LangImpl::setup(const String & lang, const Config * config)
   {
     //
     // get_lang_info
@@ -140,8 +142,8 @@ namespace aspeller {
     //
     // fill in tables
     //
-
-    for (unsigned int i = 0; i != 256; ++i) {
+    unsigned int i;
+    for ( i = 0; i != 256; ++i) {
       p = get_nb_line(char_data, temp);
       if (!p || strtoul(p, &p, 16) != i) 
         return make_err(bad_file_format, char_data_name);
@@ -165,14 +167,14 @@ namespace aspeller {
       char_info_[i] = inf;
     }
 
-    for (unsigned int i = 0; i != 256; ++i) {
+    for ( i = 0; i != 256; ++i) {
       de_accent_[i] = to_plain_[i] == 0 ? to_uchar(i) : to_plain_[i];
     }
 
     to_plain_[0] = 0x10; // to make things slightly easier
     to_plain_[1] = 0x10;
 
-    for (unsigned int i = 0; i != 256; ++i) {
+    for ( i = 0; i != 256; ++i) {
       to_stripped_[i] = to_plain_[(unsigned char)to_lower_[i]];
     }
     
@@ -193,7 +195,7 @@ namespace aspeller {
       clean_is = to_lower_;
     }
 
-    for (unsigned i = 0; i != 256; ++i) {
+    for ( i = 0; i != 256; ++i) {
       to_clean_[i] = char_type_[i] > NonLetter ? clean_is[i] : 0;
       if ((unsigned char)to_clean_[i] == i) char_info_[i] |= CLEAN;
     }
@@ -293,7 +295,7 @@ namespace aspeller {
       
       size_t num_repl = 0;
       while (getdata_pair(REPL, d, buf)) {
-        ::to_lower(d.key);
+        aspell::to_lower(d.key);
         if (d.key == "rep") {
           num_repl = atoi(d.value); // FIXME make this more robust
           break;
@@ -303,10 +305,10 @@ namespace aspeller {
       if (num_repl > 0)
         have_repl_ = true;
 
-      for (size_t i = 0; i != num_repl; ++i) {
+      for ( i = 0; i != num_repl; ++i) {
         bool res = getdata_pair(REPL, d, buf);
         assert(res); // FIXME
-        ::to_lower(d.key);
+        aspell::to_lower(d.key);
         assert(d.key == "rep"); // FIXME
         split(d);
         SuggestRepl rep;
@@ -330,13 +332,13 @@ namespace aspeller {
     return no_err;
   }
 
-  void Language::set_lang_defaults(Config & config) const
+  void LangImpl::set_lang_defaults(Config & config) const
   {
     config.replace_internal("actual-lang", name());
     config.lang_config_merge(*lang_config_, FOR_CONFIG, data_encoding_);
   }
 
-  WordInfo Language::get_word_info(ParmStr str) const
+  WordInfo LangImpl::get_word_info(ParmStr str) const
   {
     CharInfo first = CHAR_INFO_ALL, all = CHAR_INFO_ALL;
     const char * p = str;
@@ -352,7 +354,7 @@ namespace aspeller {
     return res;
   }
   
-  CasePattern Language::case_pattern(ParmStr str) const  
+  CasePattern LangImpl::case_pattern(ParmStr str) const  
   {
     CharInfo first = CHAR_INFO_ALL, all = CHAR_INFO_ALL;
     const char * p = str;
@@ -364,7 +366,7 @@ namespace aspeller {
     else                    return Other;
   }
 
-  CasePattern Language::case_pattern(const char * str, unsigned size) const  
+  CasePattern LangImpl::case_pattern(const char * str, unsigned size) const  
   {
     CharInfo first = CHAR_INFO_ALL, all = CHAR_INFO_ALL;
     const char * p = str;
@@ -377,7 +379,7 @@ namespace aspeller {
     else                    return Other;
   }
   
-  void Language::fix_case(CasePattern case_pattern,
+  void LangImpl::fix_case(CasePattern case_pattern,
                           char * res, const char * str) const 
   {
     if (!str[0]) return;
@@ -397,7 +399,7 @@ namespace aspeller {
     }
   }
 
-  const char * Language::fix_case(CasePattern case_pattern, const char * str,
+  const char * LangImpl::fix_case(CasePattern case_pattern, const char * str,
                                   String & buf) const 
   {
     if (!str[0]) return str;
@@ -415,7 +417,7 @@ namespace aspeller {
     }
   }
 
-  WordAff * Language::fake_expand(ParmStr word, ParmStr aff, 
+  WordAff * LangImpl::fake_expand(ParmStr word, ParmStr aff, 
                                   ObjStack & buf) const 
   {
     WordAff * cur = (WordAff *)buf.alloc_bottom(sizeof(WordAff));
@@ -468,7 +470,7 @@ namespace aspeller {
     return false;
   }
 
-  static PosibErrBase invalid_word_e(const Language & l,
+  static PosibErrBase invalid_word_e(const LangImpl & l,
                                      ParmStr word,
                                      const char * msg,
                                      char chr = 0)
@@ -483,7 +485,7 @@ namespace aspeller {
     return make_err(invalid_word, MsgConv(l)(word), msg);
   }
 
-  PosibErr<void> check_if_valid(const Language & l, ParmStr word) {
+  PosibErr<void> check_if_valid(const LangImpl & l, ParmStr word) {
     if (*word == '\0') 
       return invalid_word_e(l, word, _("Empty string."));
     const char * i = word;
@@ -513,7 +515,7 @@ namespace aspeller {
     return no_err;
   }
 
-  PosibErr<void> validate_affix(const Language & l, ParmStr word, ParmStr aff)
+  PosibErr<void> validate_affix(const LangImpl & l, ParmStr word, ParmStr aff)
   {
     for (const char * a = aff; *a; ++a) {
       CheckAffixRes res = l.affix()->check_affix(word, *a);
@@ -525,7 +527,7 @@ namespace aspeller {
     return no_err;
   }
 
-  CleanAffix::CleanAffix(const Language * lang0, OStream * log0)
+  CleanAffix::CleanAffix(const LangImpl * lang0, OStream * log0)
     : lang(lang0), log(log0), msgconv1(lang0), msgconv2(lang0)
   {
   }
@@ -549,16 +551,17 @@ namespace aspeller {
     return r;
   }
 
-  String get_stripped_chars(const Language & lang) {
+  String get_stripped_chars(const LangImpl & lang) {
     bool chars_set[256] = {0};
     String     chars_list;
-    for (int i = 0; i != 256; ++i) 
+    int i;
+    for (i = 0; i != 256; ++i) 
     {
       char c = static_cast<char>(i);
 	if (lang.is_alpha(c) || lang.special(c).any)
 	  chars_set[static_cast<unsigned char>(lang.to_stripped(c))] = true;
     }
-    for (int i = 1; i != 256; ++i) 
+    for (i = 1; i != 256; ++i) 
     {
       if (chars_set[i]) 
 	chars_list += static_cast<char>(i);
@@ -566,16 +569,17 @@ namespace aspeller {
     return chars_list;
   }
 
-  String get_clean_chars(const Language & lang) {
+  String get_clean_chars(const LangImpl & lang) {
     bool chars_set[256] = {0};
     String     chars_list;
-    for (int i = 0; i != 256; ++i) 
+    int i;
+    for (i = 0; i != 256; ++i) 
     {
       char c = static_cast<char>(i);
       if (lang.is_alpha(c) || lang.special(c).any) 
         chars_set[static_cast<unsigned char>(lang.to_clean(c))] = true;
     }
-    for (int i = 1; i != 256; ++i) 
+    for (i = 1; i != 256; ++i) 
     {
       if (chars_set[i]) {
 	chars_list += static_cast<char>(i);
@@ -584,7 +588,7 @@ namespace aspeller {
     return chars_list;
   }
 
-  PosibErr<Language *> new_language(const Config & config, ParmStr lang)
+  PosibErr<LangImpl *> new_lang_impl(const Config & config, ParmStr lang)
   {
     if (!lang)
       return get_cache_data(&language_cache, &config, config.retrieve("lang"));
@@ -634,7 +638,7 @@ namespace aspeller {
   }
 
   WordListIterator::WordListIterator(StringEnumeration * in0,
-                                   const Language * lang0,
+                                   const LangImpl * lang0,
                                    OStream * log0)
     : in(in0), lang(lang0), log(log0), val(), str(0), str_end(0),
       clean_affix(lang0, log0)
@@ -740,4 +744,14 @@ namespace aspeller {
     str = 0;
     goto loop;
   }
+}}
+
+namespace aspell
+{
+  PosibErr<LangBase *> new_language(Config * c)
+  {
+    sp::find_language(*c); // FIXME: Why?
+    return sp::new_lang_impl(*c);
+  }
+
 }

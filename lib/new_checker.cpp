@@ -5,21 +5,20 @@
 // at http://www.gnu.org/.
 
 #include "speller.hpp"
-#include "document_checker.hpp"
+#include "checker.hpp"
 #include "stack_ptr.hpp"
 #include "convert.hpp"
-#include "tokenizer.hpp"
 
-namespace acommon {
+namespace aspell {
 
-  PosibErr<DocumentChecker *> 
-  new_document_checker(Speller * speller)
+  PosibErr<Checker *> 
+  new_checker(Speller * speller)
   {
-    StackPtr<DocumentChecker> checker(new DocumentChecker());
-    Tokenizer * tokenizer = new_tokenizer(speller);
-    StackPtr<Filter> filter(new Filter);
+    StackPtr<Checker> checker(speller->new_checker());
+    StackPtr<Filter> filter(speller->to_internal_->shallow_copy_filter());
     setup_filter(*filter, speller->config(), true, true, false);
-    RET_ON_ERR(checker->setup(tokenizer, speller, filter.release()));
+    checker->set_filter(filter.release());
+    checker->reset();
     return checker.release();
   }
 

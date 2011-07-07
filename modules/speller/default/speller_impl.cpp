@@ -7,16 +7,15 @@
 #include <stdlib.h>
 #include <typeinfo>
 
-#include "clone_ptr-t.hpp"
+#include "clone_ptr.hpp"
 #include "config.hpp"
 #include "data.hpp"
 #include "data_id.hpp"
 #include "errors.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
 #include "speller_impl.hpp"
 #include "string_list.hpp"
 #include "suggest.hpp"
-#include "tokenizer.hpp"
 #include "convert.hpp"
 #include "stack_ptr.hpp"
 
@@ -24,7 +23,8 @@
 
 #include "gettext.h"
 
-namespace aspeller {
+namespace aspell { namespace sp {
+
   //
   // data_access functions
   //
@@ -79,7 +79,7 @@ namespace aspeller {
     String::size_type pos;
     StackPtr<StringEnumeration> sugels(intr_suggest_->suggest(mis.c_str()).elements());
     const char * first_word = sugels->next();
-    CheckInfo w1, w2;
+    IntrCheckInfo w1, w2;
     String cor1, cor2;
     String buf;
     bool correct = false;
@@ -137,7 +137,7 @@ namespace aspeller {
   {
     w0.clear(); // FIXME: is this necessary?
     const char * x = w;
-    while (*x != '\0' && (x-w) < static_cast<int>(ignore_count)) ++x;
+    while (*x != '\0' && (x-w.str()) < static_cast<int>(ignore_count)) ++x;
     if (*x == '\0') {w0.word = w; return true;}
     WS::const_iterator i   = check_ws.begin();
     WS::const_iterator end = check_ws.end();
@@ -148,7 +148,7 @@ namespace aspeller {
     return false;
   };
 
-  bool SpellerImpl::check_affix(ParmString word, CheckInfo & ci, GuessInfo * gi)
+  bool SpellerImpl::check_affix(ParmString word, IntrCheckInfo & ci, GuessInfo * gi)
   {
     WordEntry w;
     bool res = check_simple(word, w);
@@ -165,7 +165,7 @@ namespace aspeller {
 
   inline bool SpellerImpl::check2(char * word, /* it WILL modify word */
                                   bool try_uppercase,
-                                  CheckInfo & ci, GuessInfo * gi)
+                                  IntrCheckInfo & ci, GuessInfo * gi)
   {
     bool res = check_affix(word, ci, gi);
     if (res) return true;
@@ -182,11 +182,11 @@ namespace aspeller {
                                     /* it WILL modify word */
                                     bool try_uppercase,
                                     unsigned run_together_limit,
-                                    CheckInfo * ci, GuessInfo * gi)
+                                    IntrCheckInfo * ci, GuessInfo * gi)
   {
     assert(run_together_limit <= 8); // otherwise it will go above the 
                                      // bounds of the word array
-    clear_check_info(*ci);
+    ci->clear();
     bool res = check2(word, try_uppercase, *ci, gi);
     if (res) return true;
     if (run_together_limit <= 1) return false;
@@ -250,7 +250,7 @@ namespace aspeller {
   }
 
   PosibErr<const WordList *> SpellerImpl::main_word_list() const {
-    const WordList * wl = dynamic_cast<const WordList *>(main_);
+    const WordList * wl = static_cast<const WordList *>(main_);
     if (!wl) return make_err(operation_not_supported_error, 
                              _("The main word list is unavailable."));
     return wl;
@@ -457,7 +457,7 @@ namespace aspeller {
       dicts_(0), personal_(0), session_(0), repl_(0), main_(0)
   {}
 
-  inline PosibErr<void> add_dicts(SpellerImpl * sp, DictList & d)
+  static inline PosibErr<void> add_dicts(SpellerImpl * sp, DictList & d)
   {
     for (;!d.empty(); d.pop())
     {
@@ -472,11 +472,14 @@ namespace aspeller {
     assert (config_ == 0);
     config_.reset(c);
 
-    ignore_repl = config_->retrieve_bool("ignore-repl");
-    ignore_count = config_->retrieve_int("ignore");
+    ignore_repl = config_->retrieve_bool("ignore-repl").data;
+    ignore_count = config_->retrieve_int("ignore").data;
 
     DictList to_add;
     RET_ON_ERR(add_data_set(config_->retrieve("master-path"), *config_, &to_add, this));
+    assert(!to_add.empty());
+    RET_ON_ERR(add_dict(new SpellerDict(to_add.last(), *config_, main_id)));
+    to_add.pop();
     RET_ON_ERR(add_dicts(this, to_add));
 
     s_cmp.lang = lang_;
@@ -537,30 +540,17 @@ namespace aspeller {
       RET_ON_ERR(add_dict(new SpellerDict(temp, *config_, personal_repl_id)));
     }
 
-    const char * sys_enc = lang_->charmap();
-    String user_enc = config_->retrieve("encoding");
-    if (user_enc == "none") {
-      config_->replace("encoding", sys_enc);
-      user_enc = sys_enc;
-    }
-
-    PosibErr<Convert *> conv;
-    conv = new_convert(*c, user_enc, sys_enc, NormFrom);
-    if (conv.has_err()) return conv;
-    to_internal_.reset(conv);
-    conv = new_convert(*c, sys_enc, user_enc, NormTo);
-    if (conv.has_err()) return conv;
-    from_internal_.reset(conv);
+    RET_ON_ERR(reload_conv());
 
     unconditional_run_together_ = config_->retrieve_bool("run-together");
     run_together = unconditional_run_together_;
     
-    run_together_limit_  = config_->retrieve_int("run-together-limit");
+    run_together_limit_  = config_->retrieve_int("run-together-limit").data;
     if (run_together_limit_ > 8) {
       config_->replace("run-together-limit", "8");
       run_together_limit_ = 8;
     }
-    run_together_min_    = config_->retrieve_int("run-together-min");
+    run_together_min_    = config_->retrieve_int("run-together-min").data;
 
     config_->add_notifier(new ConfigNotifier(this));
 
@@ -633,6 +623,35 @@ namespace aspeller {
     return no_err;
   }
 
+  PosibErr<void> SpellerImpl::reload_conv()
+  {
+    const char * sys_enc = lang_->charmap();
+    String user_enc = config_->retrieve("encoding");
+    if (user_enc == "none") {
+      //config_->replace("encoding", sys_enc);
+      user_enc = sys_enc;
+    }
+
+    PosibErr<FullConvert *> conv;
+    conv = new_full_convert(*config_, user_enc, sys_enc, NormFrom);
+    if (conv.has_err()) return conv;
+    to_internal_.reset(conv);
+    conv = new_full_convert(*config_, sys_enc, user_enc, NormTo);
+    if (conv.has_err()) return conv;
+    from_internal_.reset(conv);
+
+    String tmp;
+    get_base_enc(tmp, to_internal_->in_code());
+    config_->replace("encoding", tmp);
+
+    //printf("%s => %s :: %s => %s\n", 
+    //       to_internal_->in_code(), to_internal_->out_code(),
+    //       from_internal_->in_code(), from_internal_->out_code());
+
+    return no_err;
+  }
+
+
   //////////////////////////////////////////////////////////////////////
   //
   // SpellerImpl destrution members
@@ -648,30 +667,13 @@ namespace aspeller {
 
   //////////////////////////////////////////////////////////////////////
   //
-  // SpellerImple setup tokenizer method
+  //
   //
 
-  void SpellerImpl::setup_tokenizer(Tokenizer * tok)
+  void SpellerDict::set(Dict * d) 
   {
-    for (int i = 0; i != 256; ++i) 
-    {
-      tok->char_type_[i].word   = lang_->is_alpha(i);
-      tok->char_type_[i].begin  = lang_->special(i).begin;
-      tok->char_type_[i].middle = lang_->special(i).middle;
-      tok->char_type_[i].end    = lang_->special(i).end;
-    }
-    tok->conv_ = to_internal_;
-  }
-
-
-  //////////////////////////////////////////////////////////////////////
-  //
-  //
-  //
-
-  SpellerDict::SpellerDict(Dict * d) 
-    : dict(d), special_id(none_id), next(0) 
-  {
+    dict = d;
+    next = 0;
     switch (dict->basic_type) {
     case Dict::basic_dict:
       use_to_check = true;
@@ -689,46 +691,17 @@ namespace aspeller {
   }
 
   SpellerDict::SpellerDict(Dict * w, const Config & c, SpecialId id)
-    : next(0) 
+    : special_id(id)
   {
-    dict = w;
-    special_id = id;
+    set(w);
     switch (id) {
-    case main_id:
-      if (dict->basic_type == Dict::basic_dict) {
-
-        use_to_check    = true;
-        use_to_suggest  = true;
-        save_on_saveall = false;
-
-      } else if (dict->basic_type == Dict::replacement_dict) {
-        
-        use_to_check    = false;
-        use_to_suggest  = false;
-        save_on_saveall = false;
-        
-      } else {
-        
-        abort();
-        
-      }
-      break;
     case personal_id:
-      use_to_check = true;
-      use_to_suggest = true;
       save_on_saveall = true;
       break;
-    case session_id:
-      use_to_check = true;
-      use_to_suggest = true;
-      save_on_saveall = false;
-      break;
     case personal_repl_id:
-      use_to_check = false;
-      use_to_suggest = true;
       save_on_saveall = c.retrieve_bool("save-repl");
       break;
-    case none_id:
+    default: // to avoid warnings with gcc
       break;
     }
   }
@@ -738,5 +711,5 @@ namespace aspeller {
   {
     return new SpellerImpl();
   }
-}
+} }
 

@@ -1,5 +1,5 @@
-#ifndef acommon_filter_char_hh
-#define acommon_filter_char_hh
+#ifndef aspell_filter_char_hh
+#define aspell_filter_char_hh
 
 // This file is part of The New Aspell
 // Copyright (C) 2002 by Kevin Atkinson under the GNU LGPL license
@@ -7,7 +7,7 @@
 // license along with this library if you did not you can find
 // it at http://www.gnu.org/.
 
-namespace acommon {
+namespace aspell {
 
   struct FilterChar {
     unsigned int chr; 

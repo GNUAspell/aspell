@@ -9,7 +9,7 @@
 
 #include "error.hpp"
 
-namespace acommon {
+namespace aspell {
 
   bool Error::is_a(ErrorInfo const * to_find) const 
   {

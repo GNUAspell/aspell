@@ -12,7 +12,7 @@
 
 #include "iostream.hpp"
 
-namespace acommon {
+namespace aspell {
   unsigned int linenumber = 0 ;
 
   bool getdata_pair(IStream & in, DataPair & d, String & buf)
@@ -22,7 +22,7 @@ namespace acommon {
     // get first non blank line and count all read ones
     do {
       buf.clear();
-      buf.append('\0'); // to avoid some special cases
+      buf.append('\0'); // to avoid some special cases when scanning backward
       if (!in.append_line(buf)) return false;
       d.line_num++;
       p = buf.mstr() + 1;
@@ -155,7 +155,7 @@ namespace acommon {
   {
     const char * s = str;
     while (*s == ' ' || *s == '\t') ++s;
-    size_t l = str.size() - (s - str);
+    size_t l = str.size() - (s - str.str());
     buf.assign(s, l);
     d.value.str  = buf.mstr();
     d.value.size = l;
@@ -178,6 +178,15 @@ namespace acommon {
       p = buf.mstr();
       while (*p == ' ' || *p == '\t') ++p;
     } while (*p == '#' || *p == '\0');
+    return p;
+  }
+
+  char * remove_comments(char * p)
+  {
+    char * b = p;
+    while (*p && *p != '#') ++p;
+    if (*p == '#') {--p; while (p >= b && asc_isspace(*p)) --p; ++p;}
+    *p = '\0';
     return p;
   }
 

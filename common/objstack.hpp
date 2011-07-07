@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-namespace acommon {
+namespace aspell {
 
 class ObjStack
 {
@@ -52,7 +52,7 @@ public:
   
   // This alloc_bottom does NOT check alignment.  However, if you always
   // insert objects with a multiple of min_align than it will always
-  // me aligned as such.
+  // be aligned as such.
   void * alloc_bottom(size_t size)  {
     byte * tmp = bottom;
     bottom += size;
@@ -139,7 +139,7 @@ public:
   }
   // returns a pointer to the beginning of the new memory (in
   // otherwords the END of the temp memory BEFORE the call to grow
-  // temp) NOT the beginning if the temp memory
+  // temp) NOT the beginning of the temp memory
   void * grow_temp(size_t s) {
     if (temp_end == 0)
       return alloc_temp(s);

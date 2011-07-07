@@ -28,19 +28,19 @@ See MkSrc::Info for a description of the categories and options
 =cut
 
 
-group: type id
-{
-/
-union: type id
-	treat as object
-	/
-	unsigned int: num
-		default => 0
-	array 4 char: str
-	cxx constructor:
-		/
-		string: str
-}
+#group: type id
+#{
+#/
+#union: type id
+#	treat as object
+#	/
+#	unsigned int: num
+#		default => 0
+#	array 4 char: str
+#	cxx constructor:
+#		/
+#		string: str
+#}
 methods: destructible
 	/
 	destructor
@@ -98,13 +98,14 @@ methods: copyable
 methods: can have error
 	/
 	cxx member: err
-		headers => copy ptr, error
 		what => CopyPtr<Error> err_
+		headers => copy ptr, error
 
 	method: error number
 		const
 		c only
 		c impl => return ths->err_ == 0 ? 0 : 1;
+		desc => deprecated
 		/
 		unsigned int
 
@@ -148,6 +149,7 @@ methods: mutable container
 
 group: mutable container
 {
+no native
 /
 class: mutable container
 	/
@@ -389,14 +391,11 @@ struct: error info
 }
 group: can have error
 {
+no native
 /
 class: can have error
 	c impl headers => error
 	/
-	cxx constructor:
-		cxx impl => : err_(e) {}
-		/
-		error: e
 	can have error methods
 		prefix =>
 	destructible methods
@@ -449,6 +448,8 @@ errors:
 		bad value
 			mesg => The value "%value" is not %accepted and is thus invalid for the key "%key".
 			parms => value, accepted
+		empty value
+			mesg => You must specify a value for the key "%key".
 		duplicate
 		key not string
 			mesg => The key "%key" is not a string.
@@ -501,6 +502,8 @@ errors:
 		/
 		unknown encoding
 			mesg => The encoding "%encod" is not known.
+		not simple encoding
+			mesg => The encoding "%encod" is not a simple encoding and therefore can not be used in this context.
 		encoding not supported
 			mesg => The encoding "%encod" is not supported.
 		conversion not supported
@@ -518,6 +521,9 @@ errors:
 		invalid word
 			mesg => The word "%word" is invalid.
 			parms => word
+		expecting_not
+			mesg => Expecting "%exp" but got "%got".
+			parms => exp, got
 		invalid affix
 			mesg => The affix flag '%aff' is invalid for word "%word".
 			parms => aff, word
@@ -608,34 +614,32 @@ errors:
 		invalid expression
 			mesg => "%expression" is not a valid regular expression.
 			parms => expression
+	convert filter
+		/
+		invalid table entry
+			mesg => Each row in the table must have at least %cols columns.
+			parms => cols
 }
+group: check info
+{
+/
+struct: check info
+	/
+	const check info pointer: next
+	string: str
+	unsigned int: str len
+	int: guess
+}
+
 group: speller
 {
 no native
 /
 class: speller
-	c impl headers => error
 	/
-	# FIXME: make a "methods" of the next two contractors
-	#      which will probably involve modifying mk-src.pl
-
-	constructor: new aspell speller
-		returns alt type
-		c impl =>
-			PosibErr<Speller *> ret = new_speller(config);
-			if (ret.has_err()) \{
-			  return new CanHaveError(ret.release_err());
-			\} else \{
-			  return ret;
-			\}
+	posib err constructor
 		/
-		can have error
 		config: config
-
-	constructor: to aspell speller
-		c impl => return static_cast<Speller *>(obj);
-		/
-		can have error: obj
 
 	destructible methods
 
@@ -654,6 +658,14 @@ class: speller
 		bool
 		encoded string: word
 
+	method: check info
+	
+		no c impl
+
+		/
+
+		const check info
+	
 	method: add to personal
 
 		posib err
@@ -662,10 +674,24 @@ class: speller
 		void
 		encoded string: word
 
+	method: add lower to personal
+		
+		posib err
+		/
+		void
+		encoded string: word
+
 	method: add to session
 
 		posib err
 		desc => Add this word to the current spelling session.
+		/
+		void
+		encoded string: word
+
+	method: add lower to session
+		
+		posib err
 		/
 		void
 		encoded string: word
@@ -729,145 +755,147 @@ class: speller
 
 }
 
-group: filter
+group: language types
 {
-no native
 /
-class: filter
-	c impl headers => error
+enum: case pattern
 	/
+	other
+	first upper
+	all lower
+	all upper
+struct: word
+	/
+	string: str
+	int: len
+		default => -1
+struct: warning
+	/
+	string: str
+	int: len
+		default => -1
+callback: get word callback
+	/
+	bool
+	void pointer: data
+	word: word
+callback: put word callback
+	/
+	bool
+	void pointer: data
+	const word: word
+callback: warning callback
+	/
+	bool
+	void pointer: data
+	const warning: warning
+struct: munch list parms
+	/
+	constructor
+		c impl => return new MunchListParms;
 	destructible methods
-
-	can have error methods
-
-	# FIXME: make a "methods" of the next two contractors
-
-#	constructor: new aspell filter
-#		returns alt type
-#		c impl =>
-#			PosibErr<Filter *> ret = new_filter(config);
-#			if (ret.has_err()) \{
-#			  return new CanHaveError(ret.release_err());
-#			\} else \{
-#			  return ret;
-#			\}
-#		/
-#		can have error
-#		config: config
-
-	constructor: to aspell filter
-		c impl => return static_cast<Filter *>(obj);
-		/
-		can have error: obj
-
-#	method: setup
-#
-#		posib err
-#		/
-#		void
-#		speller: speller
-#		config: config
-#
-#	method: reset
-#
-#		/
-#		void
-#
-#	method: process
-#
-#		/
-#		void
-#		char pointer: str
-#		int: size
-#
-#	method: config
-#
-#		/
-#		config
+	bool: multi
+		default => false
+	bool: simplify
+		default => true
+struct: combine list parms
+	/
+	constructor
+		c impl => return new CombineListParms;
+	destructible methods
+struct: clean list parms
+	/
+	constructor
+		c impl => return new CleanListParms;
+	destructible methods
 }
-
-group: document checker
+group: language
 {
 no native
 /
-struct: token
+class: language
+	indirect
+	base => const LangBase
 	/
-	unsigned int: offset
-	unsigned int: len
+	posib err constructor
+		no c impl
+		/
+		config: config
 
-class: document checker
-	c impl headers => error
-	/
 	destructible methods
 
 	can have error methods
 
-	# FIXME: make a "methods" of the next two contractors
-
-	constructor: new aspell document checker
-		returns alt type
-		c impl =>
-			PosibErr<DocumentChecker *> ret = new_document_checker(speller);
-			if (ret.has_err()) \{
-			  return new CanHaveError(ret.release_err());
-			\} else \{
-			  return ret;
-			\}
-		desc => Creates a new document checker.
-			The speller class is expected to last until
-			this class is destroyed.
-			If config is given it will be used to override
-			any relevent options set by this speller class.
-			The config class is not once this function is done.
-			If filter is given then it will take ownership of
-			the filter class and use it to do the filtering.
-			You are expected to free the checker when done.
+	method: case pattern
 		/
-		can have error
-		speller: speller
-
-	constructor: to aspell document checker
-		c impl => return static_cast<DocumentChecker *>(obj);
+		case pattern
+		encoded string: str
+	method: fix case
 		/
-		can have error: obj
-
-	method: reset
-
-		desc => Reset the internal state of the filter.
-			Should be called whenever a new document is
-			being filtered.
+		encoded string
+		case pattern: cs
+		encoded string: str
+	method: to soundslike
 		/
-		void
-
-	method: process
-
-		desc => Process a string.
-			The string passed in should only be split on
-			white space characters.  Furthermore, between
-			calls to reset, each string should be passed
-			in exactly once and in the order they appeared
-			in the document.  Passing in strings out of
-			order, skipping strings or passing them in
-			more than once may lead to undefined results.
+		encoded string
+		encoded string: str
+	method: munch
+		no c impl
 		/
-		void
-		string: str
-		int: size
-
-	method: next misspelling
-
-		desc => Returns the next misspelled word in the
-			processed string.  If there are no more
-			misspelled words, then token.word will be
-			NULL and token.size will be 0
+		int
+		encoded string: str
+		put word callback: out cb
+		void pointer: out cb data
+	method: expand
+		no c impl
 		/
-		token object
+		int
+		encoded string: str
+		put word callback: out cb
+		void pointer: out cb data
+		int: limit
 
-	method: filter
-
-		desc => Returns the underlying filter class.
-		/
-		filter
+func: munch list
+	no c impl
+	/
+	int
+	language: lang
+	get word callback: in cb
+	void pointer: in cb data
+	put word callback: out cb
+	void pointer: out cb data
+	munch list parms: parms
+func: combine list
+	no c impl
+	/
+	int
+	language: lang
+	get word callback: in cb
+	void pointer: in cb data
+	put word callback: out cb
+	void pointer: out cb data
+	combine list parms: parms
+func: clean list
+	no c impl
+	/
+	int
+	language: lang
+	get word callback: in cb
+	void pointer: in cb data
+	put word callback: out cb
+	void pointer: out cb data
+	warning callback: warnings cb # may be null
+	void pointer: warnings cb data
+	clean list parms: parms
+func: create default readonly dict
+	no c impl
+	/
+	int
+	language: lang
+	get word callback: in cb
+	void pointer: in cb data
+	warning callback: warnings cb # may NOT be null
+	void pointer: warnings cb data
 }
 
 group: word list
@@ -877,7 +905,7 @@ class: word list
 	c impl headers => string enumeration
 	/
 	cxx member: from internal
-		what => class Convert * from_internal_
+		what => class FullConvert * from_internal_
 		default => 0
 
 	method: empty
@@ -889,7 +917,7 @@ class: word list
 		const
 		/
 		unsigned int
-
+	
 	method: elements
 		const
 		c impl =>
@@ -901,6 +929,7 @@ class: word list
 }
 group: string enumeration
 {
+no native
 /
 class: string enumeration
 	c impl headers => convert
@@ -926,7 +955,8 @@ class: string enumeration
 		const string
 
 }
-group: info
+
+group: info types
 {
 /
 struct: module info
@@ -960,7 +990,13 @@ struct: dict info
 			see SCOWL (http://wordlist.sourceforge.net)
 			for an example of how these sizes are used.
 	module info: module
+}
 
+group: info
+{
+no native
+no impl
+/
 class: module info list
 	/
 	constructor: get aspell module info list
@@ -990,6 +1026,7 @@ class: dict info enumeration
 
 group: string list
 {
+no native
 /
 class: string list
 	/
@@ -1004,6 +1041,7 @@ class: string list
 
 group: string map
 {
+no native
 /
 class: string map
 	/
@@ -1054,6 +1092,8 @@ struct: string pair
 		default => ""
 	string: second
 		default => ""
+	cxx extra:
+		what => StringPair(const char * f, const char * s) : first(f), second(s) {}
 }
 group: string pair enumeration
 {
@@ -1077,3 +1117,196 @@ func: reset cache
 	string: which
 }
 
+group: checker types
+{
+/
+struct: checker pos
+	treat as object
+	/
+	void pointer: which
+	unsigned int: offset
+
+struct: checker token
+	/
+	checker pos: begin
+	checker pos: end
+	bool: correct
+
+callback: more data callback
+	/
+	void
+	void pointer: data
+	void pointer: which
+
+callback: string freed callback
+	/
+	void
+	void pointer: data
+	void pointer: which
+}
+
+group: checker
+{
+no native
+/
+class: checker
+	/
+	posib err constructor
+		/
+		speller: speller
+
+	destructible methods
+	
+	can have error methods
+
+	method: reset
+		/
+		void
+
+	method: process
+		/
+		void
+		string: str
+		unsigned int: size
+		unsigned int: ignore
+		void pointer: which
+	
+	method: add separator
+		/
+		void
+
+	method: replace
+		/
+		void
+		string: str
+		unsigned int: size
+
+	method: next
+		/
+		const checker token
+	
+	method: next misspelling
+		/
+		const checker token
+	
+	method: cur
+		const
+		/
+		const checker token
+
+	method: set more data callback
+		/
+		void
+		more data callback: callback
+		void pointer: callback data
+
+	method: set string freed callback
+		/
+		void
+		string freed callback: callback
+		void pointer: callback data
+
+	method: set span strings
+		/
+		void
+		bool: value
+}
+
+group: document checker
+{
+no native
+no impl
+/
+struct: token
+	/
+	unsigned int: offset
+	unsigned int: len
+
+class: document checker
+	c impl headers => error
+	/
+	posib err constructor
+		desc => Creates a new document checker.
+			The speller class is expected to last until this
+			class is destroyed.
+			If config is given it will be used to override
+			any relevent options set by this speller class.
+			The config class is not used once this function is done.
+			If filter is given then it will take ownership of 
+			the filter class and use it to do the filtering.
+			You are expected to free the checker when done.
+		/
+		speller: speller
+
+	destructible methods
+	
+	can have error methods
+
+	method: reset
+
+		desc => reset the internal state of the filter.
+			should be called whenever a new document is being filtered
+		/
+		void
+
+	method: process
+	
+		desc => process a string
+			The string passed in should only be split on white space
+			characters.  Furthermore, between calls to reset, each string
+			should be passed in exactly once and in the order they appeared
+			in the document.  Passing in strings out of order, skipping
+			strings or passing them in more than once may lead to undefined
+			results.
+		/
+		void
+		string: str
+		int: size
+
+	method: next misspelling
+	
+		desc => returns the next misspelled word in the processed string
+			if there are no more misspelled words then token.word
+			will be null and token.size will be 0
+		/
+		token object
+}
+group: convert
+{
+no native
+no impl
+/
+enum: normalize
+	prefix => norm
+	/
+	none
+	from
+	to
+	both
+
+class: convert
+	/
+	posib err constructor
+		/
+		config: c
+		string: from
+		string: to
+		normalize: n
+		bool: filter
+
+	destructible methods
+
+	method: needed
+		desc => returns true if a conversion is needed
+		/
+		bool
+
+	method:
+		desc => converts a null terminated string.
+			If no conversion is needed then it returns original string,
+			otherwise returns the converted string.	 The string
+			returned is only valid until the next call to convert.
+		/
+		string
+		string: str
+}

@@ -10,12 +10,13 @@
 #include "indiv_filter.hpp"
 #include "string_map.hpp"
 #include "vector.hpp"
+#include "convert_filter.hpp"
 
 namespace {
 
-  using namespace acommon;
+  using namespace aspell;
 
-  class TexInfoFilter : public IndividualFilter 
+  class TexInfoFilter : public NormalFilter 
   {
   private:
     struct Command {
@@ -57,8 +58,8 @@ namespace {
 
   PosibErr<bool> TexInfoFilter::setup(Config * opts) 
   {
-    name_ = "texinfo-filter";
-    order_num_ = 0.35;
+    set_name("texinfo");
+    set_order_num(0.35);
     
     to_ignore.clear();
     opts->retrieve_list("f-texinfo-ignore", &to_ignore);
@@ -226,6 +227,22 @@ namespace {
 
 }
 
-C_EXPORT 
-IndividualFilter * new_aspell_texinfo_filter() {return new TexInfoFilter;}
+C_EXPORT IndividualFilter * new_aspell_texinfo_filter() 
+{
+  return new TexInfoFilter;
+}
+
+C_EXPORT IndividualFilter * new_aspell_texinfo_decoder() 
+{
+  GenConvFilterParms parms("texinfo");
+  parms.file = "texinfo";
+  return new_convert_filter_decoder(parms);
+}
+
+C_EXPORT IndividualFilter * new_aspell_texinfo_encoder() 
+{
+  GenConvFilterParms parms("texinfo");
+  parms.file = "texinfo";
+  return new_convert_filter_encoder(parms);
+}
 

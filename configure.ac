@@ -1,4 +1,4 @@
-AC_INIT(GNU Aspell, 0.60-cvs)
+AC_INIT(GNU Aspell, 0.61-cvs)
 AC_CONFIG_SRCDIR(prog/aspell.cpp)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
@@ -15,7 +15,7 @@ dnl pkgdatadir
 
 pkgdatadir=undef
 AC_ARG_ENABLE(pkgdatadir, 
-  AS_HELP_STRING([--enable-pkgdatadir=DIR],[device dependent data files @<:@LIBDIR/aspell-0.60@:>@]),
+  AS_HELP_STRING([--enable-pkgdatadir=DIR],[device dependent data files @<:@LIBDIR/aspell-0.61@:>@]),
   pkgdatadir=$enable_pkgdatadir)
 
 AC_ARG_ENABLE(pkgdata-dir, 
@@ -24,7 +24,7 @@ AC_ARG_ENABLE(pkgdata-dir,
 
 if test "$pkgdatadir" = "undef"
 then
-  pkgdatadir=\${libdir}/aspell-0.60
+  pkgdatadir=\${libdir}/aspell-0.61
 fi
 
 AC_SUBST(pkgdatadir)
@@ -33,7 +33,7 @@ dnl pkglibdir
 
 pkglibdir=undef
 AC_ARG_ENABLE(pkglibdir, 
-  AS_HELP_STRING([--enable-pkglibdir=DIR],[device dependent data files @<:@LIBDIR/aspell-0.60@:>@]),
+  AS_HELP_STRING([--enable-pkglibdir=DIR],[device dependent data files @<:@LIBDIR/aspell-0.61@:>@]),
   pkglibdir=$enable_pkglibdir)
 
 AC_ARG_ENABLE(dict-dir, 
@@ -42,7 +42,7 @@ AC_ARG_ENABLE(dict-dir,
 
 if test "$pkglibdir" = "undef"
 then
-  pkglibdir=\${libdir}/aspell-0.60
+  pkglibdir=\${libdir}/aspell-0.61
 fi
 
 AC_SUBST(pkglibdir)
@@ -83,6 +83,8 @@ dnl AC_ARG_ENABLE(aspell5-compatibility,
 dnl [  --enable-aspell5-compatibility  install aspell 0.50 compatibility libraries])
 
 dnl
+
+AC_PROG_LN_S
 
 AC_PROG_CXX
 if test "$GXX" = "yes" && expr "$CXXFLAGS" : '.*-O' > /dev/null
@@ -157,6 +159,7 @@ AM_GNU_GETTEXT_VERSION([0.16.1])
 AH_TOP([#ifndef ASPELL_SETTINGS__H
 #define ASPELL_SETTINGS__H])
 AH_BOTTOM([#define C_EXPORT extern "C"])
+AH_BOTTOM([#define TYPENAME typename])
 AH_BOTTOM([#endif /* ASPELL_SETTINGS__H */])
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -582,12 +585,13 @@ AC_TRY_COMPILE(
 #                                                                 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-AC_CONFIG_FILES([Makefile gen/Makefile common/Makefile lib/Makefile data/Makefile
-                 auto/Makefile modules/Makefile modules/tokenizer/Makefile
+AC_CONFIG_FILES([Makefile gen/Makefile common/Makefile lib/Makefile data/Makefile 
+                 m4/Makefile 
+                 auto/Makefile modules/Makefile 
                  modules/speller/Makefile modules/speller/default/Makefile
 		 interfaces/Makefile interfaces/cc/Makefile
 		 scripts/Makefile examples/Makefile
-		 prog/Makefile manual/Makefile po/Makefile.in m4/Makefile
-                 modules/filter/Makefile myspell/Makefile lib5/Makefile
+		 prog/Makefile manual/Makefile po/Makefile.in modules/filter/Makefile
+		 lib5/Makefile
                  ])
 AC_OUTPUT

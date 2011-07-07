@@ -10,7 +10,7 @@
 #include "errors.hpp"
 #include "filter.hpp"
 
-namespace acommon {
+namespace aspell {
   
   extern void setup_static_filters(Config * config);
 

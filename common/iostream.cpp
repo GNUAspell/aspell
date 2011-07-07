@@ -6,7 +6,7 @@
 
 #include "iostream.hpp"
 
-namespace acommon {
+namespace aspell {
   FStream CIN(stdin, false);
   FStream COUT(stdout, false);
   FStream CERR(stderr, false);

@@ -6,7 +6,7 @@ common/posib_err.cpp
 lib/new_fmode.cpp
 prog/aspell.cpp
 prog/check_funs.cpp
-modules/speller/default/language.cpp
+modules/speller/default/lang_impl.cpp
 modules/speller/default/affix.cpp
 modules/speller/default/readonly_ws.cpp
 modules/speller/default/multi_ws.cpp

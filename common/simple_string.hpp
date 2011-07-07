@@ -11,7 +11,7 @@
 
 #include "parm_string.hpp"
 
-namespace acommon {
+namespace aspell {
 
   struct SimpleString {
     const char * str;

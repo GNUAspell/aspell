@@ -8,7 +8,8 @@
 #include "typo_editdist.hpp"
 #include "cache.hpp"
 
-namespace aspeller {
+namespace aspell { namespace sp {
+
   class Speller;
   class SpellerImpl;
   class Suggest;
@@ -40,12 +41,12 @@ namespace aspeller {
     int span;
     int limit;
 
-    String split_chars;
+    aspell::String split_chars;
 
     SuggestParms() {}
     
-    PosibErr<void> set(ParmString mode, SpellerImpl * sp);
-    PosibErr<void> fill_distance_lookup(const Config * c, const Language & l);
+    aspell::PosibErr<void> set(ParmString mode, SpellerImpl * sp);
+    aspell::PosibErr<void> fill_distance_lookup(const aspell::Config * c, const LangImpl & l);
     
     virtual ~SuggestParms() {}
     virtual SuggestParms * clone() const;
@@ -53,6 +54,7 @@ namespace aspeller {
   };
   
   Suggest * new_default_suggest(const Speller *, const SuggestParms &);
-}
+
+} }
 
 #endif

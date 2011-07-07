@@ -7,8 +7,8 @@ ASPELL >=0.51
 DESCRIPTION filter for dealing with TeX/LaTeX documents
 
 STATIC filter
-#STATIC encoder
-#STATIC decoder
+STATIC encoder
+STATIC decoder
 
 OPTION check-comments
 TYPE bool
@@ -85,21 +85,9 @@ DEFAULT bibitem op
 DEFAULT geometry p
 ENDOPTION
 
-#OPTION multi-byte
-#TYPE list
-#DESCRIPTION multi character coded letters (<char>,<rep>[,<rep>[...]])
-#DEFAULT Ä,\\"A,"A
-#DEFAULT ä,\\"a,"a
-#DEFAULT Ö,\\"O,"O
-#DEFAULT ö,\\"o,"o
-#DEFAULT Ü,\\"U,"U
-#DEFAULT ü,\\"u,"u
-#DEFAULT ß,\\"s,"s
-#FLAGS utf-8
-#ENDOPTION
+OPTION form
+TYPE string
+DESCRIPTION The prefered form that output should be in 
+DEFAULT single
+ENDOPTION
 
-#OPTION hyphen
-#TYPE list
-#DESCRIPTION characters used to encode hyphenation locations
-#DEFAULT \\-
-#ENDOPTION

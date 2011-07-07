@@ -1,0 +1,22 @@
+# SGML filter option file
+
+LIB-FILE genconv-filter
+
+#THIS Filter is usable with the following version(s) of Aspell
+ASPELL >=0.60.2
+
+DESCRIPTION bla
+
+STATIC decoder
+STATIC encoder
+
+OPTION file
+TYPE string
+DESCRIPTION Conversion file to use
+ENDOPTION
+
+OPTION form
+TYPE string
+DEFAULT single
+DESCRIPTION The prefered form that output should be in
+ENDOPTION

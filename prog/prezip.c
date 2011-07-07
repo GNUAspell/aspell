@@ -1,6 +1,7 @@
 /*
- * Copyright (c) 2004
+ * Copyright (c) 2005
  * Kevin Atkinson
+ * Jose Da Silva
  *
  * Permission to use, copy, modify, distribute and sell this software
  * and its documentation for any purpose is hereby granted without
@@ -11,6 +12,7 @@
  * purpose.  It is provided "as is" without express or implied
  * warranty.
  *
+ * Bug fixes and enhancements by Jose Da Silva, 2005.
  */
 
 /*
@@ -31,7 +33,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include <assert.h>
 
 #if defined(__CYGWIN__) || defined (_WIN32)
@@ -47,66 +48,86 @@
 
 #endif
 
-#define HEAD "prezip, a prefix delta compressor. Version 0.1.1, 2004-11-06"
+#define HEAD "prezip, a prefix delta compressor. Version 0.2.0, 2005-02-02\n"
 
 typedef struct Word {
   char * str;
   size_t alloc;
 } Word;
 
-#define INSURE_SPACE(cur,p,need)\
-  do {\
-    size_t pos = p - (cur)->str;\
-    if (pos + need + 1 < (cur)->alloc) break;\
-    (cur)->alloc = (cur)->alloc*3/2;\
-    (cur)->str = (char *)realloc((cur)->str, (cur)->alloc);\
-    p = (cur)->str + pos;\
-  } while (0)
+/* Insure Space for needed character(s) plus a '\0' */
+#define INSURE_SPACE(cur, p, need, go_error)\
+  if (p + need - (cur)->str > (cur)->alloc) {\
+    size_t tmp = (cur)->alloc*3/2;\
+    if (tmp <= (cur)->alloc) goto go_error;\
+    (cur)->alloc = tmp;\
+    char * pos = (cur)->str;\
+    pos = (char *)realloc((cur)->str, tmp);\
+    if (pos == NULL) goto go_error;\
+    p += (pos - (cur)->str);\
+    (cur)->str = pos;\
+  }
 
-#define ADV(w, c) do {char * s = w + c;\
-                      while(w != s) {\
-                        if (*w == 0) ret = 3;\
-                        ++w;}} while (0)
+/* Advance through "prefix" until reached "rest" of line */
+#define ADV(w, c, go_error) while (c--) {if (*w == 0) goto go_error; ++w;}
 
-int main (int argc, const char *argv[]) {
+int get_word(FILE * in, char * w) {
+  int bufsize = 255;
+  register int c;
 
-  if (argc < 2) {
+  while (c = getc(in), c <= 32 && c != EOF);
+  if (c != EOF) {
+    do {
+      *w++ = (char)(c);
+    } while (c = getc(in), c > 32 && c != EOF && --bufsize);
+  }
+  *w = '\0';
+  ungetc(c, in);
+  if (c == EOF) return 0; /* done */
+  if (bufsize)  return 1; /* normal return */
+  return 3;               /* error, word larger than 255 chars */
+}
 
-    goto usage;
+int compress(char LFonly, char zipMode) {
+  Word  w1,w2;
+  Word  * prev = &w1;
+  Word  * cur  = &w2;
+  char  * w, * p;
+  int   c,l;
+  int retVal = 0;
 
-  } else if (strcmp(argv[1], "-z") == 0) {
+  if ((w1.str = (char *)malloc(256)) == NULL) return 6;
+  if ((w2.str = (char *)malloc(256)) == NULL) {
+    free(w1.str); return 6;
+  }
+  w1.str[0] = 0;
+  w1.alloc = w2.alloc = 256;
 
-    Word w1,w2;
-    Word * prev = &w1;
-    Word * cur  = &w2;
-    char * w = 0;
-    char * p = 0;
-    int c,l;
+  SETBIN (stdout);
 
-    w1.str = (char *)malloc(256);
-    w1.str[0] = '\0';
-    w1.alloc = 256;
-    w2.str = (char *)malloc(256);
-    w2.alloc = 256;
-
-    SETBIN (stdout);
-
-    putc(2, stdout);
+  switch (zipMode) {
+  case 2:
+    /* compression version 0x02 == "prezip-bin -z" */
+    if (putc(2, stdout) < 0) goto error_out_c;
 
     c = 0;
-    while (c != EOF)
-    {
-      /* get next word */
+    while (c != EOF) {
+      /* get next line */
       w = cur->str;
-      while (c = getc(stdin), c != EOF && c != '\n') {
+      while (c = getc(stdin), c != '\n' && c != EOF) {
         if (c >= 32) {
-          INSURE_SPACE(cur, w, 1);
+          INSURE_SPACE(cur, w, 1, error_mem_c);
           *w++ = c;
         } else {
-          INSURE_SPACE(cur, w, 2);
+          INSURE_SPACE(cur, w, 2, error_mem_c);
           *w++ = 31;
           *w++ = c + 32;
         }
+      }
+
+      /* Remove trailing Carriage Return from input wordlist */
+      if (c == '\n' && LFonly && *(w - 1) == 45 && *(w - 2) == 31) {
+        --w; --w;
       }
 
       *w = 0;
@@ -115,18 +136,19 @@ int main (int argc, const char *argv[]) {
 
       /* get the length of the prefix */
       l = 0;
-      while (p[l] != '\0' && p[l] == w[l]) ++l;
+      while (*w == *p && *p != '\0') {++p; ++l; ++w;}
 
       /* prefix compress, and write word */
-      if (l < 30) {
-        putc(l, stdout);
-      } else {
-        int i = l - 30;
-        putc(30, stdout);
-        while (i >= 255) {putc(255, stdout); i -= 255;}
-	putc(i, stdout);
+      if (l >= 30) {
+        if (putc(30, stdout) < 0) goto error_out_c;
+        l -= 30;
+        while (l >= 255) {
+          if (putc(255, stdout) < 0) goto error_out_c;
+          l -= 255;
+        }
       }
-      fputs(w+l, stdout);
+      if (putc(l, stdout) < 0) goto error_out_c;
+      if (fputs(w, stdout) < 0) goto error_out_c;
 
       /* swap prev and next */
       {
@@ -136,125 +158,236 @@ int main (int argc, const char *argv[]) {
       }
     }
 
-    putc(31, stdout);
-    putc(255, stdout);
+    if (putc(31, stdout) < 0) goto error_out_c;
+    if (putc(255, stdout) < 0) goto error_out_c;
+    break;
 
-    free(w1.str);
-    free(w2.str);
+  case 1:
+    /* compression version 0x01 == "word-list-compress c" */
+    p = prev->str;
+    w = cur->str;
 
-  } else if (strcmp(argv[1], "-d") == 0) {
+    while ((retVal = get_word(stdin, w)) == 1) {
 
-    int ret = 0;
+      /* get the length of the prefix */
+      l = 0;
+      while (*w == *p && *p != '\0') {++p; ++l; ++w;}
 
-    Word cur;
-    int c;
-    char * w;
-    unsigned char ch;
+      if (l++ > 31) {
+        if (putc('\0', stdout) < 0) goto error_out_c;
+      }
+      if (putc(l, stdout) < 0) goto error_out_c;
+      if (fputs(w, stdout) < 0) goto error_out_c;
 
-    cur.str = (char *)malloc(256);
-    cur.alloc = 256;
-    w = cur.str;
-
-    SETBIN (stdin);
-
-    c = getc(stdin);
-
-    if (c == 2)
-    {
-      *w = '\0';
-      while (c != EOF && ret <= 0) {
-        ret = -1;
-        if (c != 2) {ret = 3; break;}
-        c = getc(stdin);
-        while (ret < 0) {
-          w = cur.str;
-          ADV(w, c);
-          if (c == 30) {
-            while (c = getc(stdin), c == 255) ADV(w, 255);
-            ADV(w, c);
-          }
-          while (c = getc(stdin), c > 30) {
-            INSURE_SPACE(&cur,w,1);
-            *w++ = (char)c;
-          }
-          *w = '\0';
-          for (w = cur.str; *w; w++) {
-            if (*w != 31) {
-              putc(*w, stdout);
-            } else {
-              ++w;
-              ch = *w;
-              if (32 <= ch && ch < 64) {
-                putc(ch - 32, stdout);
-              } else if (ch == 255) {
-                if (w[1] != '\0') ret = 3;
-                else              ret = 0;
-              } else {
-                ret = 3;
-              }
-            }
-          }
-          if (ret < 0 && c == EOF) ret = 4;
-          if (ret != 0)
-            putc('\n', stdout);
-        }
+      /* swap prev and next */
+      {
+        Word * tmp = cur;
+        cur = prev;
+        prev = tmp;
+        p = prev->str;
+        w = cur->str;
       }
     }
-    else if (c == 1)
+    break;
+  }
+
+  while (0) {
+    error_mem_c: retVal = 6; break;     /* memory alloc error */
+    error_out_c: retVal = 5; break;     /* output data error  */
+    /*           retVal = 3;               corrupt input      */
+  }
+  if (fflush(stdout) < 0 && retVal == 0) retVal = 5;
+
+  free(w2.str);
+  free(w1.str);
+
+  return retVal;
+}
+
+int decompress(void) {
+  Word cur;
+  int c;
+  int retVal = 0;
+  char * w;
+  unsigned char ch;
+
+  if ((w = cur.str = (char *)malloc(257)) == NULL) return 6;
+  cur.alloc = 257;
+
+  SETBIN (stdin);
+
+  c = getc(stdin);
+
+  switch (c) {
+  case 2:
+    /* decompression version 0x02 == "prezip-bin -d" */
+    retVal = 4;
+    *w = '\0';
+    /* get the length of the prefix */
+    c = getc(stdin);
+    while (c != EOF && retVal == 4) {
+      w = cur.str;
+      if (c == 30) {
+        ADV(w, c, error_in_d);
+        while ((c = getc(stdin)) == 255) ADV(w, c, error_in_d);
+        if (c < 0) goto error_EOF_d;
+      }
+      ADV(w, c, error_in_d);
+
+      /* get the rest of the line */
+      while ((c = getc(stdin)) > 30) {
+        INSURE_SPACE(&cur, w, 1, error_mem_d);
+        *w++ = (char)c;
+      }
+      *w = '\0';
+
+      /* output complete line (retVal=0 for last line) */
+      for (w = cur.str; *w; w++) {
+        if (*w != 31) {
+          if (putc(*w, stdout) < 0) goto error_out_d;
+        } else {
+          ++w;
+          ch = *w;
+          if (32 <= ch && ch < 64) {
+            if (putc(ch - 32, stdout) < 0) goto error_out_d;
+          } else {
+            if (ch == 255 && *++w == '\0') retVal = 0;
+            else                           retVal = 3;
+            break;
+          }
+        }
+      }
+      if (retVal)
+        putc('\n', stdout);
+    }
+    break;
+
+  case 1:
+    /* decompression version 0x01 == "word-list-compress d" */
     {
       int last_max = 0;
       while (c != -1) {
         if (c == 0)
           c = getc(stdin);
         --c;
-        if (c < 0 || c > last_max) {ret = 3; break;}
+        if (c > last_max || c < 0) goto error_in_d;
+        last_max = c;
         w = cur.str + c;
-        while (c = getc(stdin), c > 32) {
-          INSURE_SPACE(&cur,w,1);
-          *w++ = (char)c;
+        while ((c = getc(stdin)) > 32) {
+          INSURE_SPACE(&cur, w, 2, error_mem_d);
+          *w++ = (char)c; last_max++;
         }
-        *w = '\0';
-        last_max = w - cur.str;
-        fputs(cur.str, stdout);
-        putc('\n', stdout);
+        *w = '\n'; *++w = '\0';
+        if (fputs(cur.str, stdout) < 0) goto error_out_d;
       }
     }
-    else
-    {
-      ret = 2;
-    }
+    break;
 
-    assert(ret >= 0);
-    if (ret > 0 && argc > 2)
-      fputs(argv[2], stderr);
-    if (ret == 2)
-      fputs("unknown format\n", stderr);
-    else if (ret == 3)
-      fputs("corrupt input\n", stderr);
-    else if (ret == 4)
-      fputs("unexpected EOF\n", stderr);
-
-    free (cur.str);
-
-    return ret;
-
-  } else if (strcmp(argv[1], "-V") == 0) {
-
-    printf("%s\n", HEAD);
-
-  } else {
-
-    goto usage;
-
+    /* a place to hold all '-d' error codes in one spot */
+    error_mem_d: retVal = 6; break; /* memory alloc     */
+    error_out_d: retVal = 5; break; /* output data      */
+  case EOF:
+    error_EOF_d: retVal = 4; break; /* unexpected EOF   */
+    error_in_d:  retVal = 3; break; /* corrupt input    */
+  default:
+    retVal = 2;                     /* unknown format   */
   }
 
-  return 0;
+  free (cur.str);
 
-  usage:
+  return retVal;
+}
 
-  printf("%s\n"
-         "Usage:\n"
-         "  To Compress:   %s -z\n"
-         "  To Decompress: %s -d\n", HEAD, argv[0], argv[0]);
-  return 1;
+int main (int argc, const char *argv[]) {
+  int retVal = 1;               /* default, expect commandline error */
+  int nextOption;               /* check all options on commandline  */
+  int thisOption;               /* check rest of this option param.  */
+  char LFonly = 0;              /* Remove CR from DOS type word-list */
+  char doThis = 0;              /* prezip should do this: 'c' or 'd' */
+  char zipMode = 2;             /* choice of prezip compression 1..2 */
+
+  /* test all options on commandline, select 'doThis', stop if error */
+  for (nextOption = 1; nextOption < argc; ++nextOption) {
+    thisOption = 0;
+    if (argv[nextOption][thisOption] == '-') ++thisOption;
+    switch (argv[nextOption][thisOption]) {
+    case 'h':
+      if (doThis) goto PrezipUsage;
+      doThis = 'h';
+      retVal = 0;
+      break;
+    case 'v': case 'V':
+      if (doThis) goto PrezipUsage;
+      doThis = 'v';
+      break;
+    case 'd':
+      if (doThis) goto PrezipUsage;
+      doThis = 'd';
+      break;
+    case 'c':
+      if (doThis) goto PrezipUsage;
+      doThis = 'c';
+      zipMode = 1;      /* word-list-compress_ion */
+      break;
+    case 'z':
+      if (doThis) goto PrezipUsage;
+      doThis = 'c';
+      zipMode = 2;      /* prezip-bin compression */
+      break;
+    case 'l':
+      LFonly = 1;       /* autodetect & remove CR */
+      break;
+
+    default:
+      goto PrezipUsage;
+    }
+  }
+
+  switch (doThis) {
+  case 'c':
+    retVal = compress(LFonly, zipMode);
+    break;
+  case 'd':
+    retVal = decompress();
+    break;
+
+  case 'v':
+    fputs(HEAD, stdout);
+    retVal = 0;
+    break;
+
+  default:
+   PrezipUsage:
+    retVal = 1;
+  case 'h':
+    fprintf(stdout, "%s"
+        "Usage:\n"
+        "  %s [options] <filein >fileout\n"
+        "Option:\n"
+        "  -c = Compress (word-list-compress)\n"
+        "  -z = Compress (prezip-bin)\n"
+        "  -d = Decompress\n"
+        "  -h = this Help message\n"
+        "  -v = %s Version\n"
+        "Extra option for use with -z:\n"
+        "  -l = Autodetect EOL <CR><LF>, Remove <CR>\n"
+        , HEAD, argv[0], argv[0]);
+  }
+
+  assert(retVal >= 0);
+  if (retVal > 1)
+    fputs("ERROR: ", stderr);
+  switch (retVal) {
+  case 2:
+    fputs("Unknown Format\n", stderr); break;
+  case 3:
+    fputs("Corrupt Input\n", stderr); break;
+  case 4:
+    fputs("Unexpected EOF\n", stderr); break;
+  case 5:
+    fputs("Output Data Error\n", stderr); break;
+  case 6:
+    fputs("Memory Allocation Error\n", stderr);
+  }
+  return retVal;
 }

@@ -7,11 +7,15 @@
 #ifndef ASPELL_ERROR__HPP
 #define ASPELL_ERROR__HPP
 
-namespace acommon {
+namespace aspell {
 
 struct ErrorInfo;
 
 struct Error {
+  // NOTE: Also used by the C API.  Do not modify the data members with
+  //   out also modifying "mk-src.in" as they must be layed out in the same
+  //   fashion as the AspellError struct.
+
   const char * mesg; // expected to be allocated with malloc
   const ErrorInfo * err;
 
@@ -25,6 +29,9 @@ struct Error {
 };
 
 struct ErrorInfo {
+  // NOTE: Also used by the C API.  Do not modify the data members with
+  //   out also modifying "mk-src.in" as they must be layed out in the same
+  //   fashion as the AspellErrorInfo struct.
   const ErrorInfo * isa;
   const char * mesg;
   unsigned int num_parms;

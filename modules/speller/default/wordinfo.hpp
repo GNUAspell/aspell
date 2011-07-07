@@ -6,18 +6,18 @@
 #include <assert.h>
 #include "string.hpp"
 
-namespace acommon {
+namespace aspell {
   class OStream;
   class Convert;
 }
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   // WordInfo
 
   typedef unsigned int WordInfo; // 4 bits
 
-  enum CasePattern {Other, FirstUpper, AllLower, AllUpper};
+  //enum CasePattern {Other, FirstUpper, AllLower, AllUpper};
   //   Other      00
   //   FirstUpper 01
   //   AllLower   10
@@ -29,9 +29,7 @@ namespace aspeller {
   static const WordInfo ALL_PLAIN    = (1 << 2);
   static const WordInfo ALL_CLEAN    = (1 << 3);
 
-  using namespace acommon;
-
-  class Language;
+  class LangImpl;
   struct ConvertWord;
 
   // WordEntry is an entry in the dictionary.  
@@ -50,11 +48,11 @@ namespace aspeller {
     bool at_end() {return !word;}
     bool adv() {if (adv_) {adv_(this); return true;} word = 0; return false;}
     operator bool () const {return word != 0;}
-    OStream & write(OStream & o, const Language & l, Convert * c = 0) const;
+    OStream & write(OStream & o, const LangImpl & l, Convert * c = 0) const;
     WordEntry() {memset(this, 0, sizeof(WordEntry));}
     void clear() {memset(this, 0, sizeof(WordEntry));}
     ~WordEntry() {}
   };
-}
+} }
 
 #endif

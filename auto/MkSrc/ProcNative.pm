@@ -34,7 +34,7 @@ $info{group}{proc}{native} = sub {
   return if exists $data->{'no native'};
   create_cc_file (type => 'native',
 		  cxx => true,
-		  namespace => 'acommon',
+		  namespace => 'aspell',
 		  dir => "common",
 		  header => true,
 		  data => $data);
@@ -43,11 +43,13 @@ $info{group}{proc}{native} = sub {
 $info{enum}{proc}{native} = sub {
   my ($data) = @_;
   my $n = to_mixed($data->{name});
-  return ("enum $n {" .
+  return ("// NOTE: This enum is also used by the C API.  Do not modify with\n".
+          "//   out also modifying \"mk-src.in\".\n".
+          "enum $n {" .
 	  join (',',
 		map {to_mixed($data->{prefix}).to_mixed($_->{type})}
 		@{$data->{data}}).
-	  "};\n");
+	  "};\n\n");
 };
 
 
@@ -61,6 +63,12 @@ $info{union}{proc}{native} = sub {
 
 $info{class}{proc}{native} = sub {
   return make_native_obj 'class', @_;
+};
+
+$info{callback}{proc}{native} = sub {
+  my ($d) = @_;
+  return (make_desc($d->{desc}).
+          make_callback($d->{name}, @{$d->{data}}, {mode => 'native'}).";\n\n");
 };
 
 $info{errors}{proc}{native} = sub {
@@ -127,6 +135,11 @@ sub make_native_obj ( $ @ ) {
   $ret .= "$t $obj ";
   $ret .= ": ".join(', ', map {"public $_"} @public).' ' if @public;
   $ret .= "{\n";
+  if ($t eq 'struct' || $t eq 'union') {
+    $ret .= "  // NOTE: Also used by the C API.  Do not modify the data members with\n";
+    $ret .= "  //   out also modifying \"mk-src.in\" as they must be layed out in the same\n";
+    $ret .= "  //   fashion as the Aspell$obj $t.\n";
+  }
   $ret .= " public:\n" if $t eq 'class';
   foreach my $d (@{$data->{data}}) {
     next if exists $d->{'c only'};
@@ -139,10 +152,8 @@ sub make_native_obj ( $ @ ) {
       $ret .= $is_vir ? " = 0;\n" 
 	  : exists $d->{'cxx impl'} ? " { $d->{'cxx impl'}; }\n"
 	  : ";\n";
-    } elsif ($d->{type} eq 'cxx constructor') {
-      $ret .= make_cxx_constructor $data->{name}, $d->{data}, %$accum;
-      $ret .= exists $d->{'cxx impl'} ? " $d->{'cxx impl'}\n"
-	  : ";\n";
+    } elsif ($d->{type} eq 'cxx extra') {
+      $ret .= $d->{what}."\n";
     } else { # is a type
       if (exists $d->{default}) {
 	push @defaults, $d;

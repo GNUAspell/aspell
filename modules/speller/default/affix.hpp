@@ -23,44 +23,36 @@
 #define MAXAFFIXES      256
 #define MAXWORDLEN      255
 #define XPRODUCT        (1 << 0)
+#define CIRCUMFIX       (1 << 1)
 
 #define MAXLNLEN        1024
 
 #define TESTAFF( a , b) strchr(a, b)
 
-namespace acommon {
+namespace aspell {
+
   class Config;
-  struct CheckInfo;
+  struct IntrCheckInfo;
   struct Conv;
-}
+  struct GuessInfo;
+  struct WordAff;
 
-namespace aspeller {
+namespace sp {
 
-  using namespace acommon;
-
-  class Language;
+  class LangImpl;
 
   class SpellerImpl;
-  using acommon::CheckInfo;
-  struct GuessInfo;
 
   struct LookupInfo;
   struct AffEntry;
   struct PfxEntry;
   struct SfxEntry;
 
-  struct WordAff
-  {
-    SimpleString word;
-    const unsigned char * aff;
-    WordAff * next;
-  };
-
   enum CheckAffixRes {InvalidAffix, InapplicableAffix, ValidAffix};
 
   class AffixMgr
   {
-    const Language * lang;
+    const LangImpl * lang;
 
     PfxEntry *          pStart[SETSIZE];
     SfxEntry *          sStart[SETSIZE];
@@ -78,20 +70,23 @@ namespace aspeller {
 
     const char * affix_file;
 
+  public: // but don't use
+    bool                two_fold_suffix;
+
   public:
  
-    AffixMgr(const Language * l);
+    AffixMgr(const LangImpl * l);
     ~AffixMgr();
 
     unsigned int max_strip() const {return max_strip_;}
 
     PosibErr<void> setup(ParmString affpath, Conv &);
 
-    bool affix_check(const LookupInfo &, ParmString, CheckInfo &, GuessInfo *) const;
-    bool prefix_check(const LookupInfo &, ParmString, CheckInfo &, GuessInfo *, 
+    bool affix_check(const LookupInfo &, ParmString, IntrCheckInfo &, GuessInfo *) const;
+    bool prefix_check(const LookupInfo &, ParmString, IntrCheckInfo &, GuessInfo *,
                       bool cross = true) const;
-    bool suffix_check(const LookupInfo &, ParmString, CheckInfo &, GuessInfo *,
-                      int sfxopts, AffEntry* ppfx) const;
+    bool suffix_check(const LookupInfo &, ParmString, IntrCheckInfo &, GuessInfo *,
+                      const PfxEntry * ppfx = NULL, const SfxEntry * psfx = NULL) const;
 
     void munch(ParmString word, GuessInfo *, bool cross = true) const;
 
@@ -110,7 +105,7 @@ namespace aspeller {
     WordAff * expand_suffix(ParmString word, const unsigned char * aff,
                             ObjStack &, int limit = INT_MAX,
                             unsigned char * new_aff = 0, WordAff * * * l = 0,
-                            ParmString orig_word = 0) const;
+                            ParmString orig_word = 0, bool twofold = true) const;
     
   private:
     PosibErr<void> parse_file(const char * affpath, Conv &);
@@ -123,8 +118,8 @@ namespace aspeller {
 
   PosibErr<AffixMgr *> new_affix_mgr(ParmString name, 
                                      Conv &,
-                                     const Language * lang);
-}
+                                     const LangImpl * lang);
+}}
 
 #endif
 

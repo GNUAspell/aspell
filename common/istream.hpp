@@ -7,7 +7,7 @@
 #ifndef ASPELL_ISTREAM__HPP
 #define ASPELL_ISTREAM__HPP
 
-namespace acommon {
+namespace aspell {
 
   class String;
 

@@ -35,7 +35,7 @@
 
 #include "gettext.h"
 
-using namespace acommon;
+using namespace aspell;
 
 StackPtr<CheckerString> state;
 const char * last_prompt = 0;

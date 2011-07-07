@@ -4,33 +4,37 @@
 // license along with this library if you did not you can find
 // it at http://www.gnu.org/.
 
+#include <algorithm>
+
 #include <assert.h>
 #include <string.h>
 #include <math.h>
 
+#include "settings.h"
 #include "asc_ctype.hpp"
-#include "convert.hpp"
+#include "convert_impl.hpp"
 #include "fstream.hpp"
 #include "getdata.hpp"
 #include "config.hpp"
 #include "errors.hpp"
 #include "stack_ptr.hpp"
-#include "cache-t.hpp"
+#include "cache.hpp"
 #include "file_util.hpp"
 #include "file_data_util.hpp"
-#include "vararray.hpp"
+#include "objstack.hpp"
+#include "convert_filter.hpp"
+
+#include "indiv_filter.hpp"
 
 #include "iostream.hpp"
 
 #include "gettext.h"
 
-namespace acommon {
-
-  typedef unsigned char  byte;
-  typedef unsigned char  Uni8;
-  typedef unsigned short Uni16;
-  typedef unsigned int   Uni32;
-
+//If the max macro was defined, undefine it. We use max as a field name.
+#ifdef max
+#undef max
+#endif
+namespace aspell {
 
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
@@ -181,80 +185,59 @@ namespace acommon {
 
   //////////////////////////////////////////////////////////////////////
   //
-  // NormLookup
+  // NormLookup Parms
   //
 
-  template <class T>
-  struct NormTable
+  template <typename T>
+  struct AppendToFixed
   {
-    static const unsigned struct_size;
-    unsigned mask;
-    unsigned height;
-    unsigned width;
-    unsigned size;
-    T * end;
-    T data[1]; // hack for data[]
-  };
-
-  template <class T>
-  const unsigned NormTable<T>::struct_size = sizeof(NormTable<T>) - 1;
-
-  template <class T, class From>
-  struct NormLookupRet
-  {
-    const typename T::To   * to;
-    const From * last;
-    NormLookupRet(const typename T::To * t, From * l) 
-      : to(t), last(l) {}
+    T * d;
+    unsigned i;
+    AppendToFixed(T * d0, void *)
+      : d(d0), i(0) {}
+    void operator() (unsigned c) {
+      assert(i < d->max_to);
+      d->to[i] = static_cast<typename T::To>(c);
+      assert(c == static_cast<Uni32>(d->to[i]));
+      ++i;
+    }
+    void finish() {}
   };
   
-  template <class T, class From>
-  static inline NormLookupRet<T,From> norm_lookup(const NormTable<T> * d, 
-                                                  From * s, From * stop,
-                                                  const typename T::To * def,
-                                                  From * prev) 
-  {
-  loop:
-    if (s != stop) {
-      const T * i = d->data + (static_cast<typename T::From>(*s) & d->mask);
-      for (;;) {
-        if (i->from == static_cast<typename T::From>(*s)) {
-          if (i->sub_table) {
-            // really tail recursion
-            if (i->to[1] != T::to_non_char) {def = i->to; prev = s;}
-            d = (const NormTable<T> *)(i->sub_table);
-            s++;
-            goto loop;
-          } else {
-            return NormLookupRet<T,From>(i->to, s);
-          }
-        } else {
-          i += d->height;
-          if (i >= d->end) break;
-        }
-      }
-    }
-    return NormLookupRet<T,From>(def, prev);
-  }
+#if 0 // currently unused
 
-  template <class T>
-  void free_norm_table(NormTable<T> * d)
+  template <typename T>
+  struct AppendToDynamic
   {
-    for (T * cur = d->data; cur != d->end; ++cur) {
-      if (cur->sub_table) 
-        free_norm_table<T>(static_cast<NormTable<T> *>(cur->sub_table));
+    T * d;
+    unsigned i;
+    ObjStack * buf;
+    AppendToDynamic(T * d0, ObjStack * buf)
+      : d(d0), i(0) {tmp->abort_temp();}
+    void operator() (unsigned c) {
+      d = buf->resize_temp((i+2)*sizeof(typename T::To));
+      d->to[i] = static_cast<typename T::To>(c);
+      assert(c == static_cast<Uni32>(d->to[i]));
+      ++i;
     }
-    free(d);
-  }
+    void finish() {
+      d->to[i] = static_cast<typename T::To>(0);
+      tmp->commit_temp();
+    }
+  };
+
+#endif
 
   struct FromUniNormEntry
   {
     typedef Uni32 From;
     Uni32 from;
     typedef byte To;
+    typedef AppendToFixed<FromUniNormEntry> AppendTo;
     byte  to[4];
     static const From from_non_char = (From)(-1);
     static const To   to_non_char   = 0x10;
+    void set_to_to_non_char() {to[0] = to_non_char;} 
     static const unsigned max_to = 4;
     void * sub_table;
   } 
@@ -268,9 +251,11 @@ namespace acommon {
     typedef byte From;
     byte from;
     typedef Uni16 To;
+    typedef AppendToFixed<ToUniNormEntry> AppendTo;
     Uni16 to[3];
     static const From from_non_char = 0x10;
     static const To   to_non_char   = 0x10;
+    void set_to_to_non_char() {to[0] = to_non_char;}
     static const unsigned max_to = 3;
     void * sub_table;
   } 
@@ -278,7 +263,7 @@ namespace acommon {
     __attribute__ ((aligned (16)))
 #endif
   ;
-  
+
   //////////////////////////////////////////////////////////////////////
   //
   // read in char data
@@ -325,112 +310,70 @@ namespace acommon {
 
   //////////////////////////////////////////////////////////////////////
   //
-  // read in norm data
+  // read in norm tables
   //
 
-  struct Tally 
-  {
-    int size;
-    Uni32 mask;
-    int max;
-    int * data;
-    Tally(int s, int * d) : size(s), mask(s - 1), max(0), data(d) {
-      memset(data, 0, sizeof(int)*size);
-    }
-    void add(Uni32 chr) {
-      Uni32 p = chr & mask;
-      data[p]++;
-      if (data[p] > max) max = data[p];
-    }
-  };
-
-# define sanity(check) \
-    if (!(check)) return sanity_fail(__FILE__, FUNC, __LINE__, #check)
-
-  static PosibErrBase sanity_fail(const char * file, const char * func, 
-                                  unsigned line, const char * check_str) 
-  {
-    char mesg[500];
-    snprintf(mesg, 500, "%s:%d: %s: Assertion \"%s\" failed.",
-             file,  line, func, check_str);
-    return make_err(bad_input_error, mesg);
-  }
-# define CREATE_NORM_TABLE(T, in, buf, res) \
-  do { PosibErr<NormTable<T> *> pe( create_norm_table<T>(in,buf) );\
-       if (pe.has_err()) return PosibErrBase(pe); \
-       res = pe.data; } while(false)
-
   template <class T>
-  static PosibErr< NormTable<T> * > create_norm_table(IStream & in, String & buf)
-  {
-    const char FUNC[] = "create_norm_table";
-    const char * p = get_nb_line(in, buf);
-    sanity(*p == 'N');
-    ++p;
-    int size = strtoul(p, (char **)&p, 10);
-    VARARRAY(T, d, size);
-    memset(d, 0, sizeof(T) * size);
-    int sz = 1 << (unsigned)floor(log(size <= 1 ? 1.0 : size - 1)/log(2.0));
-    VARARRAY(int, tally0_d, sz);   Tally tally0(sz,   tally0_d);
-    VARARRAY(int, tally1_d, sz*2); Tally tally1(sz*2, tally1_d);
-    VARARRAY(int, tally2_d, sz*4); Tally tally2(sz*4, tally2_d);
-    T * cur = d;
-    while (p = get_nb_line(in, buf), *p != '.') {
+  struct TableFromIStream {
+  private:
+    IStream & in;
+    String  & buf;
+    ObjStack * os;
+    void operator=(const TableFromIStream &);
+  public:
+    TableFromIStream(IStream & in0, String & buf0, ObjStack * os0 = 0) 
+      : in(in0), buf(buf0), os(os0) {}
+    TableFromIStream(const TableFromIStream & other) 
+      : in(other.in), buf(other.buf), os(other.os) {}
+    int size; // only valid after init is called
+    // "cur" and "have_sub_table" will be updated on each call to get_next()
+    T * cur;
+    bool have_sub_table; // if a sub_table exits get_sub_table MUST be called
+    PosibErr<void> init() // sets up the table for input and sets size
+    {
+      const char FUNC[] = "TableFromIStream::init";
+      const char * p = get_nb_line(in, buf);
+      SANITY(*p == 'N');
+      ++p;
+      size = strtoul(p, (char **)&p, 10);
+      return no_err;
+    }
+    PosibErr<bool> get_next() // fills in next entry pointed to by
+                              // cur and sets have_sub_table
+    {
+      const char FUNC[] = "TableFromIStream::get_next";
+      char * p = get_nb_line(in, buf);
+      if (*p == '.') return false;
       Uni32 f = strtoul(p, (char **)&p, 16);
       cur->from = static_cast<typename T::From>(f);
-      sanity(f == cur->from);
-      tally0.add(f);
-      tally1.add(f);
-      tally2.add(f);
+      SANITY(f == cur->from);
       ++p;
-      sanity(*p == '>');
+      SANITY(*p == '>');
       ++p;
-      sanity(*p == ' ');
+      SANITY(*p == ' ');
       ++p;
-      unsigned i = 0;
-      if (*p != '-') {
-        for (;; ++i) {
-          const char * q = p;
-          Uni32 t = strtoul(p, (char **)&p, 16);
-          if (q == p) break;
-          sanity(i < d->max_to);
-          cur->to[i] = static_cast<typename T::To>(t);
-          sanity(t == static_cast<Uni32>(cur->to[i]));
-        } 
-      } else {
-        cur->to[0] = 0;
-        cur->to[1] = T::to_non_char;
+      {
+        typename T::AppendTo append_to(cur, os);
+        if (*p != '-') {
+          for (;;) {
+            const char * q = p;
+            Uni32 t = strtoul(p, (char **)&p, 16);
+            if (q == p) break;
+            append_to(t);
+          } 
+        } else {
+          append_to(0);
+          append_to(T::to_non_char);
+        }
+        append_to.finish();
       }
       if (*p == ' ') ++p;
-      if (*p == '/') CREATE_NORM_TABLE(T, in, buf, cur->sub_table);
-      ++cur;
-    }
-    sanity(cur - d == size);
-    Tally * which = &tally0;
-    if (which->max > tally1.max) which = &tally1;
-    if (which->max > tally2.max) which = &tally2;
-    NormTable<T> * final = (NormTable<T> *)calloc(1, NormTable<T>::struct_size + 
-                                                  sizeof(T) * which->size * which->max);
-    memset(final, 0, NormTable<T>::struct_size + sizeof(T) * which->size * which->max);
-    final->mask = which->size - 1;
-    final->height = which->size;
-    final->width = which->max;
-    final->end = final->data + which->size * which->max;
-    final->size = size;
-    for (cur = d; cur != d + size; ++cur) {
-      T * dest = final->data + (cur->from & final->mask);
-      while (dest->from != 0) dest += final->height;
-      *dest = *cur;
-      if (dest->from == 0) dest->from = T::from_non_char;
-    }
-    for (T * dest = final->data; dest < final->end; dest += final->height) {
-      if (dest->from == 0 || (dest->from == T::from_non_char && dest->to[0] == 0)) {
-        dest->from = T::from_non_char;
-        dest->to[0] = T::to_non_char;
-      }
-    }
-    return final;
-  }
+      if (*p == '/') have_sub_table = true;
+      else           have_sub_table = false;
+      return true;
+    }      
+    void get_sub_table(TableFromIStream & d) {}
+  };
 
   static PosibErr<void> init_norm_tables(FStream & in, NormTables * d) 
   {
@@ -438,23 +381,28 @@ namespace acommon {
     String l;
     get_nb_line(in, l);
     remove_comments(l);
-    sanity (l == "INTERNAL");
+    
+    SANITY (l == "INTERNAL");
     get_nb_line(in, l);
     remove_comments(l);
-    sanity (l == "/");
-    CREATE_NORM_TABLE(FromUniNormEntry, in, l, d->internal);
+    SANITY (l == "/");
+    { 
+      TableFromIStream<FromUniNormEntry> tin(in, l);
+      CREATE_NORM_TABLE(FromUniNormEntry, tin, d->internal);
+    }
     get_nb_line(in, l);
     remove_comments(l);
-    sanity (l == "STRICT");
+    SANITY (l == "STRICT");
     char * p = get_nb_line(in, l);
     remove_comments(l);
     if (l == "/") {
-      CREATE_NORM_TABLE(FromUniNormEntry, in, l, d->strict_d);
+      TableFromIStream<FromUniNormEntry> tin(in, l);
+      CREATE_NORM_TABLE(FromUniNormEntry, tin, d->strict_d);
       d->strict = d->strict_d;
     } else {
-      sanity(*p == '=');
+      SANITY(*p == '=');
       ++p; ++p;
-      sanity(strcmp(p, "INTERNAL") == 0);
+      SANITY(strcmp(p, "INTERNAL") == 0);
       d->strict = d->internal;
     }
     while (get_nb_line(in, l)) {
@@ -467,15 +415,16 @@ namespace acommon {
       char * p = get_nb_line(in, l);
       remove_comments(l);
       if (l == "/") {
-        CREATE_NORM_TABLE(ToUniNormEntry, in, l, e.data);
+        TableFromIStream<ToUniNormEntry> tin(in, l);
+        CREATE_NORM_TABLE(ToUniNormEntry, tin, e.data);
         e.ptr = e.data;
       } else {
-        sanity(*p == '=');
+        SANITY(*p == '=');
         ++p; ++p;
         for (char * q = p; *q; ++q) *q = asc_tolower(*q);
         Vector<NormTables::ToUniTable>::iterator i = d->to_uni.begin();
         while (i->name != p && i != d->to_uni.end()) ++i;
-        sanity(i != d->to_uni.end());
+        SANITY(i != d->to_uni.end());
         e.ptr = i->ptr;
         get_nb_line(in, l);
       }
@@ -507,7 +456,6 @@ namespace acommon {
     }
 
     return d;
-
   }
 
   NormTables::~NormTables()
@@ -529,11 +477,37 @@ namespace acommon {
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
 
+#if 0
 
   bool operator== (const Convert & rhs, const Convert & lhs)
   {
     return strcmp(rhs.in_code(), lhs.in_code()) == 0
       && strcmp(rhs.out_code(), lhs.out_code()) == 0;
+  }
+
+#endif
+
+  void FullConvert::add_filter_codes()
+  {
+    const char * slash = strchr(in_code_.str(), '/');
+    if (slash) in_code_.resize(slash - in_code_.str());
+    for (Filter::Iterator i = filter_.begin(); i != filter_.end(); ++i) {
+      if ((*i)->what() == IndividualFilter::Decoder) {
+        in_code_ += '/';
+        in_code_ += (*i)->base_name();
+      }
+    }
+
+    slash = strchr(out_code_.str(), '/');
+    if (slash) out_code_.resize(slash - out_code_.str());
+    for (Filter::Iterator i = filter_.begin(); i != filter_.end(); ++i) {
+      if ((*i)->what() == IndividualFilter::Encoder) {
+        out_code_ += '/';
+        out_code_ += (*i)->base_name();
+      }
+    }
+
+    //printf("%p: %s >> %s\n", this, in_code_.str(), out_code_.str());
   }
 
   //////////////////////////////////////////////////////////////////////
@@ -586,8 +560,9 @@ namespace acommon {
       }
       return no_err;
     }
-    bool encode(FilterChar * &, FilterChar * &, FilterCharVector &) const {
-      return true;
+    void encode(const FilterChar * b, const FilterChar * e, 
+                FilterCharVector & out) const {
+      out.append(b, e - b);
     }
   };
 
@@ -654,7 +629,8 @@ namespace acommon {
           out.append(0);
           ++in;
         } else {
-          NormLookupRet<E,const char> ret = norm_lookup<E>(data, in, stop, 0, in);
+          NormLookupRet<E,char> ret =
+            norm_lookup<E,char>(data, in, stop, 0, in);
           for (unsigned i = 0; ret.to[i] && i < E::max_to; ++i)
             out.append(ret.to[i]);
           in = ret.last + 1;
@@ -693,12 +669,10 @@ namespace acommon {
       }
       return no_err;
     }
-    bool encode(FilterChar * & in0, FilterChar * & stop,
+    void encode(const FilterChar * in, const FilterChar * stop,
                 FilterCharVector & out) const {
-      FilterChar * in = in0;
       for (; in != stop; ++in)
-        *in = lookup(*in);
-      return true;
+        out.append(lookup(*in));
     }
   };
 
@@ -715,7 +689,8 @@ namespace acommon {
           out.append('\0');
           ++in;
         } else {
-          NormLookupRet<E,const FilterChar> ret = norm_lookup<E>(data, in, stop, (const byte *)"?", in);
+          NormLookupRet<E,FilterChar> ret = norm_lookup<E,FilterChar>
+            (data, in, stop, (const byte *)"?", in);
           for (unsigned i = 0; i < E::max_to && ret.to[i]; ++i)
             out.append(ret.to[i]);
           in = ret.last + 1;
@@ -729,7 +704,8 @@ namespace acommon {
           out.append('\0');
           ++in;
         } else {
-          NormLookupRet<E,const FilterChar> ret = norm_lookup<E>(data, in, stop, 0, in);
+          NormLookupRet<E,FilterChar> ret = 
+            norm_lookup<E,FilterChar>(data, in, stop, 0, in);
           if (ret.to == 0) {
             char m[70];
             snprintf(m, 70, _("The Unicode code point U+%04X is unsupported."), in->chr);
@@ -742,28 +718,23 @@ namespace acommon {
       }
       return no_err;
     }
-    bool encode(FilterChar * & in, FilterChar * & stop,
-                FilterCharVector & buf) const {
-      buf.clear();
+    void encode(const FilterChar * in, const FilterChar * stop,
+                FilterCharVector & out) const {
       while (in < stop) {
         if (*in == 0) {
-          buf.append(FilterChar(0));
+          out.append(FilterChar(0));
           ++in;
         } else {
           NormLookupRet<E,FilterChar> ret = norm_lookup<E>(data, in, stop, (const byte *)"?", in);
           const FilterChar * end = ret.last + 1;
           unsigned width = 0;
           for (; in != end; ++in) width += in->width;
-          buf.append(FilterChar(ret.to[0], width));
+          out.append(FilterChar(ret.to[0], width));
           for (unsigned i = 1; i < E::max_to && ret.to[i]; ++i) {
-            buf.append(FilterChar(ret.to[i],0));
+            out.append(FilterChar(ret.to[i],0));
           }
         }
       }
-      buf.append(0);
-      in = buf.pbegin();
-      stop = buf.pend();
-      return true;
     }
   };
 
@@ -881,6 +852,10 @@ namespace acommon {
       }
       return no_err;
     }
+    void encode(const FilterChar * in, const FilterChar * stop, 
+                FilterCharVector & out) const {
+      abort();
+    }
   };
 
   //////////////////////////////////////////////////////////////////////
@@ -897,35 +872,122 @@ namespace acommon {
   // new_aspell_convert
   //
 
-  void Convert::generic_convert(const char * in, int size, CharVector & out)
+  void FullConvert::generic_convert(const char * in, int size, CharVector & out)
   {
     buf_.clear();
-    decode_->decode(in, size, buf_);
+    decode(in, size, buf_);
     FilterChar * start = buf_.pbegin();
     FilterChar * stop = buf_.pend();
-    if (!filter.empty())
-      filter.process(start, stop);
-    encode_->encode(start, stop, out);
+    filter(start, stop);
+    encode(start, stop, out);
   }
-
+  
   const char * fix_encoding_str(ParmStr enc, String & buf)
   {
+    const char * i   = strrchr(enc, '.');
+    const char * end = enc + enc.size();
+    if (i) i++; 
+    else   i = enc;
     buf.clear();
-    buf.reserve(enc.size() + 1);
-    for (size_t i = 0; i != enc.size(); ++i)
-      buf.push_back(asc_tolower(enc[i]));
+    buf.reserve(end - i);
+    for (; i != end; ++i)
+      buf.push_back(asc_tolower(*i));
 
     if (strncmp(buf.c_str(), "iso8859", 7) == 0)
       buf.insert(buf.begin() + 3, '-'); // For backwards compatibility
-    
+
     if (buf == "ascii" || buf == "ansi_x3.4-1968")
       return "iso-8859-1";
+    else if (buf == "utf8")
+      return "utf-8";
     else if (buf == "machine unsigned 16" || buf == "utf-16")
       return "ucs-2";
     else if (buf == "machine unsigned 32" || buf == "utf-32")
       return "ucs-4";
     else
       return buf.c_str();
+  }
+
+  const char * resolve_alias(const Config & c, ParmStr enc, String & buf)
+  {
+    String dir1 ,dir2,file_name;
+    fill_data_dir(&c, dir1, dir2);
+    find_file(file_name,dir1,dir2,enc, ".calias");
+    FStream f;
+    PosibErrBase err = f.open(file_name, "r");
+    if (err.get_err()) return enc.str();
+    char * p = get_nb_line(f, buf);
+    remove_comments(p);
+    unescape(p);
+    return p;
+  }
+
+  void get_base_enc(String & res, ParmStr enc)
+  {
+    size_t l = strcspn(enc, "|:/");
+    res.assign(enc, l);
+  }
+
+  struct Encoding {
+    String base;
+    String norm_form; 
+    Vector<String> layers; // such as "tex", "texinfo", etc
+  };
+
+  bool operator== (const Encoding & x, const Encoding & y)
+  {
+    if (x.base != y.base) return false;
+    if (x.norm_form != y.norm_form) return false;
+    if (x.layers != y.layers) return false;
+    return true;
+  }
+
+  PosibErr<void> decode_encoding_string(const Config & c,
+                                        ParmStr str, Encoding & enc)
+  {
+    String tmp;
+
+    const char * slash = strchr(str, '/');
+    const char * colon = strchr(str, ':');
+
+    if (colon && (!slash || slash > colon)) {
+      enc.base.assign(str, colon);
+      if (!slash)
+        enc.norm_form.assign(colon + 1);
+      else
+        enc.norm_form.assign(colon + 1, slash);
+    } else if (slash) {
+      enc.base.assign(str, slash);
+    } else {
+      enc.base.assign(str);
+    }
+
+    const char * s = fix_encoding_str(enc.base, tmp);
+    enc.base = resolve_alias(c, s, tmp);
+    
+    const char * layers = 0;
+    if (slash) layers = slash + 1;
+       
+    if (enc.norm_form.empty()) {
+      if (c.retrieve_bool("normalize").data || c.retrieve_bool("norm-required").data)
+        enc.norm_form = c.retrieve("norm-form");
+      else
+        enc.norm_form = "none";
+    }
+    if (enc.norm_form == "none" && c.retrieve_bool("norm-required").data)
+      enc.norm_form = "nfc";
+
+    // push "layers" encoding on extra list
+    if (layers) {
+      do {
+        slash = strchr(layers,'/');
+        if (slash) tmp.assign(layers, slash);
+        else       tmp.assign(layers);
+        enc.layers.push_back(resolve_alias(c, tmp.str(), tmp));
+        layers = slash + 1;
+      } while (slash);
+    }
+    return no_err;
   }
 
   bool ascii_encoding(const Config & c, ParmStr enc0)
@@ -948,29 +1010,125 @@ namespace acommon {
     return !file_exists(file_name);
   }
 
-  PosibErr<Convert *> internal_new_convert(const Config & c,
-                                           ParmString in, 
-                                           ParmString out,
-                                           bool if_needed,
-                                           Normalize norm)
+  static PosibErr<bool> add_conv_filters(const Config & c, FullConvert * & fc,
+                                         Vector<String> & els,
+                                         bool decoder, bool prev_err)
   {
-    String in_s;
-    in = fix_encoding_str(in, in_s);
+    Vector<String>::const_iterator i;
+    for (i = els.begin(); i != els.end(); ++i) 
+    {
+      const char * name0 = i->str();
+      const char * colon = strchr(name0, ':');
 
-    String out_s;
-    out = fix_encoding_str(out, out_s); 
+      String name;
+      name += "l-";
+      name += c.retrieve("lang").data;
+      name += "-";
+      unsigned pre_len = name.size();
+      if (colon) name.append(name0, colon);
+      else       name.append(name0);
+
+      GenConvFilterParms p(name);
+      p.file = p.name;
+      p.form = colon ? colon + 1 : "multi";
+      StackPtr<IndividualFilter> f(new_convert_filter(decoder, p));
+      PosibErr<bool> pe = f->setup((Config *)&c); // FIXME: Cast shold not
+                                                  // be necessary
+      if (pe.has_err(cant_read_file)) {
+        name.erase(0, pre_len);
+        p.name = p.file = name;
+        f.del();
+        f = new_convert_filter(decoder, p);
+        pe = f->setup((Config *)&c);
+      }
+
+      if (prev_err && pe.has_err(cant_read_file)) {return false;}
+      else if (pe.has_err()) return pe;
+      if (fc == 0) return make_err(not_simple_encoding, name);
+
+      if (pe.data) fc->add_filter(f.release());
+    }
+    return true;
+  }
+
+  PosibErr<Convert *> internal_new_convert(const Config & c,
+                                           ParmString in_s, ParmString out_s,
+                                           bool if_needed,
+                                           Normalize norm,
+                                           bool simple,
+                                           Convert::InitRet prev_err)
+  {
+    Encoding in, out;
+    RET_ON_ERR(decode_encoding_string(c, in_s,  in));
+    RET_ON_ERR(decode_encoding_string(c, out_s, out));
+    if      (in.base.empty())  in.base = out.base;
+    else if (out.base.empty()) out.base = in.base;
+    if (in.base.empty() /* implies out_e.base.empty() */)
+      in.base = out.base = "iso-8859-1";
 
     if (if_needed && in == out) return 0;
 
-    StackPtr<Convert> conv(new Convert);
-    switch (norm) {
-    case NormNone:
-      RET_ON_ERR(conv->init(c, in, out)); break;
-    case NormFrom:
-      RET_ON_ERR(conv->init_norm_from(c, in, out)); break;
-    case NormTo:
-      RET_ON_ERR(conv->init_norm_to(c, in, out)); break;
+    if (simple) {
+      if (! in.layers.empty()) return make_err(not_simple_encoding, in_s );
+      if (!out.layers.empty()) return make_err(not_simple_encoding, out_s);
     }
+
+    StackPtr<Convert> conv;
+    if (simple) conv = new SimpleConvert;
+    else        conv = new FullConvert;
+
+    Convert::InitRet ret;
+    if (norm == NormNone) {
+      ret = conv->init(c, in.base, out.base);
+    } else if (norm == NormFrom) {
+      if (in.norm_form == "none")
+        ret = conv->init(c, in.base, out.base);
+      else
+        ret = conv->init_norm_from(c, in.base, out.base);
+    } else if (norm == NormTo) {
+      if (out.norm_form == "none")
+        ret = conv->init(c, in.base, out.base);
+      else
+        ret = conv->init_norm_to(c, in.base, out.base, out.norm_form);
+    }
+
+    if (ret.error != Convert::NoError) 
+    {
+      if (ret.error == prev_err.error) {
+        return 0;
+      } else if (!prev_err.error && ret.error == Convert::UnknownDecoder)  {
+        String tmp = "/";
+        tmp += in_s;
+        PosibErr<Convert *> pe = internal_new_convert(c, tmp, out_s, if_needed, norm, simple, ret);
+        if (pe.has_err() || pe.data) {ret.error_obj.ignore_err(); return pe;}
+        return ret.error_obj;
+      } else if (!prev_err.error && ret.error == Convert::UnknownEncoder)  {
+        String tmp = "/";
+        tmp += out_s;
+        PosibErr<Convert *> pe = internal_new_convert(c, in_s, tmp, if_needed, norm, simple, ret);
+        if (pe.has_err() || pe.data) {ret.error_obj.ignore_err(); return pe;}
+        return ret.error_obj;
+      } else {
+        return ret.error_obj;
+      };
+    }
+
+    FullConvert * fc = (FullConvert *)(simple ? 0 : conv.get());
+    
+    {
+      PosibErr<bool> pe = add_conv_filters(c, fc, in.layers, true,
+                                           prev_err.error == Convert::UnknownDecoder);
+      if (pe.has_err()) return (PosibErrBase &)pe;
+      if (!pe.data) return 0;
+    } {
+      PosibErr<bool> pe = add_conv_filters(c, fc, out.layers, false,
+                                           prev_err.error == Convert::UnknownEncoder);
+      if (pe.has_err()) return (PosibErrBase &)pe;
+      if (!pe.data) return 0;
+    }
+     
+    //printf("%s => %s\n", conv->in_code(),  conv->out_code());
+
     return conv.release();
   }
 
@@ -1012,12 +1170,32 @@ namespace acommon {
 
   Convert::~Convert() {}
 
-  PosibErr<void> Convert::init(const Config & c, ParmStr in, ParmStr out)
+#define FAILED_decode  ret.error = UnknownDecoder
+#define FAILED_encode  ret.error = UnknownEncoder
+#define FAILED_neither ret.error = OtherError
+
+#define INIT_RET_ON_ERR(what, command) \
+  do {\
+    PosibErrBase pe(command);\
+    if (pe.has_err()) {\
+      InitRet ret;\
+      if (pe.prvw_err()->is_a(unknown_encoding)) FAILED_##what;\
+      else                                       ret.error = OtherError;\
+      ret.error_obj = PosibErrBase(pe);\
+      return ret;\
+    }\
+  } while(false)\
+
+#define INIT_NO_ERR InitRet();
+
+  Convert::InitRet Convert::init(const Config & c, ParmStr in, ParmStr out)
   {
-    RET_ON_ERR(setup(decode_c, &decode_cache, &c, in));
+    INIT_RET_ON_ERR(decode, setup(decode_c, &decode_cache, &c, in));
     decode_ = decode_c.get();
-    RET_ON_ERR(setup(encode_c, &encode_cache, &c, out));
+    in_code_ = decode_->key;
+    INIT_RET_ON_ERR(encode, setup(encode_c, &encode_cache, &c, out));
     encode_ = encode_c.get();
+    out_code_ = encode_->key;
 
     conv_ = 0;
     if (in == out) {
@@ -1031,51 +1209,46 @@ namespace acommon {
     }
 
     if (conv_)
-      RET_ON_ERR(conv_->init(decode_, encode_, c));
+      INIT_RET_ON_ERR(neither, conv_->init(decode_, encode_, c));
 
-    return no_err;
+    return INIT_NO_ERR;
   }
 
   
-  PosibErr<void> Convert::init_norm_from(const Config & c, ParmStr in, ParmStr out)
+  Convert::InitRet Convert::init_norm_from(const Config & c, ParmStr in, ParmStr out)
   {
-    if (!c.retrieve_bool("normalize") && !c.retrieve_bool("norm-required")) 
-      return init(c,in,out);
+    INIT_RET_ON_ERR(encode, setup(norm_tables_, &norm_tables_cache, &c, out));
 
-    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, out));
-
-    RET_ON_ERR(setup(decode_c, &decode_cache, &c, in));
+    INIT_RET_ON_ERR(decode, setup(decode_c, &decode_cache, &c, in));
     decode_ = decode_c.get();
+    in_code_ = decode_->key;
 
     if (c.retrieve_bool("norm-strict")) {
       encode_s = new EncodeNormLookup(norm_tables_->strict);
       encode_ = encode_s;
       encode_->key = out;
-      encode_->key += ":strict";
+      out_code_ = out;
+      in_code_ += "|strict";
     } else {
       encode_s = new EncodeNormLookup(norm_tables_->internal);
       encode_ = encode_s;
       encode_->key = out;
-      encode_->key += ":internal";
+      out_code_ = out;
+      in_code_ += "|norm";
     }
     conv_ = 0;
 
-    return no_err;
+    return INIT_NO_ERR;
   }
 
-  PosibErr<void> Convert::init_norm_to(const Config & c, ParmStr in, ParmStr out)
+  Convert::InitRet Convert::init_norm_to(const Config & c, ParmStr in, ParmStr out,
+                                      ParmStr norm_form)
   {
-    String norm_form = c.retrieve("norm-form");
-    if ((!c.retrieve_bool("normalize") || norm_form == "none")
-        && !c.retrieve_bool("norm-required"))
-      return init(c,in,out);
-    if (norm_form == "none" && c.retrieve_bool("norm-required"))
-      norm_form = "nfc";
+    INIT_RET_ON_ERR(decode, setup(norm_tables_, &norm_tables_cache, &c, in));
 
-    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, in));
-
-    RET_ON_ERR(setup(encode_c, &encode_cache, &c, out));
+    INIT_RET_ON_ERR(encode, setup(encode_c, &encode_cache, &c, out));
     encode_ = encode_c.get();
+    out_code_ = encode_->key;
 
     NormTables::ToUni::const_iterator i = norm_tables_->to_uni.begin();
     for (; i != norm_tables_->to_uni.end() && i->name != norm_form; ++i);
@@ -1084,12 +1257,13 @@ namespace acommon {
     decode_s = new DecodeNormLookup(i->ptr);
     decode_ = decode_s;
     decode_->key = in;
-    decode_->key += ':';
-    decode_->key += i->name;
+    in_code_ = decode_->key;
+    out_code_ += ':';
+    out_code_ += i->name;
 
     conv_ = 0;
 
-    return no_err;
+    return INIT_NO_ERR;
   }
 
   PosibErr<void> MBLen::setup(const Config &, ParmStr enc0)
@@ -1121,5 +1295,17 @@ namespace acommon {
     }
     return 0;
   }
-  
+
+  //////////////////////////////////////////////////////////////////////
+  //
+  // error checking utility function
+  //
+  PosibErrBase sanity_fail(const char * file, const char * func, 
+                           unsigned line, const char * check_str) 
+  {
+    char mesg[500];
+    snprintf(mesg, 500, "%s:%d: %s: Assertion \"%s\" failed.",
+             file,  line, func, check_str);
+    return make_err(bad_input_error, mesg);
+  }
 }

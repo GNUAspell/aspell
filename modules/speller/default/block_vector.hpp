@@ -16,7 +16,7 @@
 #include <stddef.h>
 //#include <iterator>
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   template <typename T>
   class BlockVector {
@@ -49,6 +49,6 @@ namespace aspeller {
     const_reference operator[](size_type i) const {return *(begin_ + i);}
   };
 
-}
+} }
 
 #endif

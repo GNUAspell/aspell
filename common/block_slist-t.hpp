@@ -12,7 +12,7 @@
 
 #include "block_slist.hpp"
 
-namespace acommon {
+namespace aspell {
 
   template <typename T>
   void BlockSList<T>::add_block(unsigned int num) 

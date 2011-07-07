@@ -16,7 +16,7 @@
 
 #include <stdio.h>
 
-namespace acommon {
+namespace aspell {
 
   class Config;
   class Speller;
@@ -31,21 +31,32 @@ namespace acommon {
     void clear();
     void reset();
     void process(FilterChar * & start, FilterChar * & stop);
-    void add_filter(IndividualFilter * filter);
-    // setup the filter where the string list is the list of 
-    // filters to use.
+    void add_filter(IndividualFilter * filter, bool own = true);
+
+    // 
+    Filter * shallow_copy();
+
     Filter();
     ~Filter();
 
- private:
+  private:
+
     typedef Vector<IndividualFilter *> Filters;
     Filters filters_;
+    Filters own_;
+
+  public:
+
+    typedef Filters::const_iterator Iterator;
+    Iterator begin() const {return filters_.begin();}
+    Iterator end()   const {return filters_.end();}
+
   };
 
   PosibErr<void> set_mode_from_extension(Config * config,
                                          ParmString filename,
                                          FILE * in = NULL);
-  
+ 
   PosibErr<void> setup_filter(Filter &, Config *, 
 			      bool use_decoder, 
 			      bool use_filter, 

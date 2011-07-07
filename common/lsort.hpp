@@ -29,7 +29,7 @@
 #ifndef ACOMMON_LSORT__HPP
 #define ACOMMON_LSORT__HPP
 
-namespace acommon {
+namespace aspell {
 
 using std::swap;
 

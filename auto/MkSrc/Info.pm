@@ -80,8 +80,8 @@ The %info structure is initialized as follows:
   group => {
     # a group is a colection of objects which should be grouped together
     # this generally means they will be in the same source file
-    options => ['no native'],
-    groups => ['enum', 'struct', 'union', 'func', 'class', 'errors']},
+    options => ['no native', 'no impl'],
+    groups => ['enum', 'struct', 'union', 'func', 'callback', 'class', 'errors']},
   enum => {
     # basic C enum
     options => ['desc', 'prefix'],
@@ -90,26 +90,38 @@ The %info structure is initialized as follows:
     # basic c struct
     options => ['desc', 'treat as object'],
     groups => undef,
-    creates_type => 'struct',},
+    creates_type => 'struct'},
   union => {
     # basic C union
     options => ['desc', 'treat as object'],
     groups => undef,
     creates_type => 'union'},
+  func => {
+    options => ['desc', 'no c impl'],
+    groups => undef},
+  callback => {
+    options => ['desc'],
+    groups => undef,
+    creates_type => 'callback'},
   class => {
     # C++ class
-    options => ['c impl headers'],
+    options => ['c impl headers', 'indirect', 'base'],
     groups => undef,
     creates_type => 'class'},
   errors => {}, # possible errors
   method => {
     # A class method
     options => ['desc', 'posib err', 'c func', 'const',
-		'c only', 'c impl', 'cxx impl'],
+		'c only', 'c impl', 'no c impl', 'cxx impl'],
     groups => undef},
   constructor => {
     # A class constructor
-    options => ['returns alt type', 'c impl', 'desc'],
+    options => ['desc', 'returns alt type', 
+                'no c impl', 'c impl', 'posib err', 'conversion'],
+    groups => 'types'},
+  'posib err constructor' => {
+    # A class constructor
+    options => ['desc', 'no c impl'],
     groups => 'types'},
   destructor => {
     # A class destructor

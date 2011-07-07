@@ -8,11 +8,6 @@ perl mk-doc.pl
 touch auto
 cd ..
 
-cd scripts/
-test -e preunzip || ln -s prezip preunzip
-test -e precat   || ln -s prezip precat
-cd ..
-
 autopoint -f || exit 1
 libtoolize --automake || exit 1
 aclocal -I m4 $ACLOCAL_FLAGS || exit 1

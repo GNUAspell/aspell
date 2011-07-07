@@ -10,10 +10,10 @@
 // purpose.  It is provided "as is" without express or implied
 // warranty.
 
-#ifndef acommon_hash_fun__hpp
-#define acommon_hash_fun__hpp
+#ifndef aspell_hash_fun__hpp
+#define aspell_hash_fun__hpp
 
-namespace acommon {
+namespace aspell {
   
   template <typename K> struct hash {};
 

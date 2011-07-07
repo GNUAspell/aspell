@@ -9,9 +9,9 @@
 #include "key_info.hpp"
 
 namespace {
-  using namespace acommon;
+  using namespace aspell;
 
-  class UrlFilter : public IndividualFilter {
+  class UrlFilter : public NormalFilter {
   public:
     PosibErr<bool> setup(Config *);
     void reset() {}
@@ -20,8 +20,8 @@ namespace {
 
   PosibErr<bool> UrlFilter::setup(Config *) 
   {
-    name_ = "url-filter";
-    order_num_ = 0.95;
+    set_name("url");
+    set_order_num(0.95);
     return true;
   }
 

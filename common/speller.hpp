@@ -22,31 +22,51 @@
 #include "posib_err.hpp"
 #include "parm_string.hpp"
 #include "char_vector.hpp"
+#include "check_info.hpp"
 
-namespace acommon {
+namespace aspell {
 
   typedef void * SpellerLtHandle;
 
   class Config;
   class WordList;
-  class Convert;
-  class Tokenizer;
+  class FullConvert;
   class Filter;
   class DocumentChecker;
+  class Checker;
 
-  struct CheckInfo {
-    const CheckInfo * next;
+  struct IntrCheckInfo {
+    mutable CheckInfo ext; // Stuff that is used by the C interface
+    mutable String str;    // buffer for use by the above
+    const IntrCheckInfo * next;
     ParmString word; // generally the root
+
+    const char * pre_add;
+    const char * inner_suf_add;
+    const char * outer_suf_add;
+
+    void get_suf(char * buf) const; 
+    // puts combined suffix in buf, len must be at least suf_add_len,
+    // doesn't null terminate
+
     short pre_strip_len;
     short pre_add_len;
-    const char * pre_add;
+
     short suf_strip_len;
     short suf_add_len;
-    const char * suf_add;
+
     short pre_flag;
     short suf_flag;
     short guess;
     short compound;
+
+    short inner_suf_strip_len;
+    short inner_suf_add_len;
+
+    short outer_suf_strip_len;
+    short outer_suf_add_len;
+
+    void clear();
   };
 
   class Speller : public CanHaveError
@@ -58,8 +78,8 @@ namespace acommon {
   public:
     String temp_str_0;
     String temp_str_1;
-    ClonePtr<Convert> to_internal_;
-    ClonePtr<Convert> from_internal_;
+    ClonePtr<FullConvert> to_internal_;
+    ClonePtr<FullConvert> from_internal_;
   protected:
     CopyPtr<Config> config_;
     Speller(SpellerLtHandle h);
@@ -76,23 +96,31 @@ namespace acommon {
     // the setup class will take over for config
     virtual PosibErr<void> setup(Config *) = 0;
 
-    // sets up the tokenizer class
-    // should be called only after this class is setup
-    virtual void setup_tokenizer(Tokenizer *) = 0;
+    virtual Checker * new_checker() = 0;
 
     ////////////////////////////////////////////////////////////////
     // 
     // Strings from this point on are expected to be in the 
-    // encoding specified by encoding()
+    // encoding specified by config->retrieve("encoding")
     //
 
     virtual PosibErr<bool> check(MutableString) = 0;
 
-    // these functions return information about the last word checked
-    virtual const CheckInfo * check_info() = 0;
-  
+    // this function return information about the last word checked
+    // The "ext" part of the struct is not filled in.  For that
+    // use check_info()
+    virtual const IntrCheckInfo * intr_check_info() = 0;
+
     virtual PosibErr<void> add_to_personal(MutableString) = 0;
     virtual PosibErr<void> add_to_session (MutableString) = 0;
+
+    PosibErr<void> add_lower_to_personal(MutableString str) {
+      return add_to_personal(to_lower(str));
+    }
+    
+    PosibErr<void> add_lower_to_session(MutableString str) {
+      return add_to_session(to_lower(str));
+    }
     
     // because the word lists may potently have to convert from one
     // encoding to another the pointer returned by the enumeration is only
@@ -115,6 +143,10 @@ namespace acommon {
 					     MutableString) = 0;
 
     virtual ~Speller();
+
+    // Reload the conversion filters.  Bit of a hack, I hope to find a
+    // better way
+    virtual PosibErr<void> reload_conv() = 0;
 
   };
 

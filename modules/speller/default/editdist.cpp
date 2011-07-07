@@ -10,7 +10,7 @@
 // usage AND running time is tightly asymptotically bounded by
 // strlen(a)*strlen(b)
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   short edit_distance(ParmString a0, ParmString b0,
 		      const EditDistanceWeights & w) 
@@ -53,4 +53,4 @@ namespace aspeller {
     }
     return e(a_size-1, b_size-1);
   }
-}
+} }

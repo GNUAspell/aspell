@@ -15,7 +15,7 @@
 
 #include "generic_copy_ptr-t.hpp"
 
-namespace acommon {
+namespace aspell {
 
   template <typename T>
   class CopyPtr 

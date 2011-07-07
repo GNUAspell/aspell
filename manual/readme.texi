@@ -20,6 +20,7 @@ The latest version can always be found at GNU Aspell's home page at
 * Curses Notes::                
 * Loadable Filter Notes::       
 * Using 32-Bit Dictionaries on a 64-Bit System::  
+* Upgrading from Aspell 0.60::  
 * Upgrading from Aspell 0.50::  
 * Upgrading from Aspell .33/Pspell .12::  
 * Upgrading from a Pre-0.50 snapshot::  
@@ -152,6 +153,18 @@ with:
 Error: The file ``@var{some-file}'' is not in the proper format. Incompatible hash function.
 @end quotation
 
+@node Upgrading from Aspell 0.60
+@appendixsec Upgrading from Aspell 0.60
+
+The dictionary format has NOT changes however the filter interface
+HAS.  For this reasons things are now, by default, installed in
+lib/aspel-0.61 (instead of lib/aspell-0.60) you can just copy the dict
+files....
+
+The Aspell 0.61 should be binary compatible with Aspell 0.60.  A few
+symbols were removed from the library, but they are most likely unused
+as they were generally useless and poorly documented.
+
 @node Upgrading from Aspell 0.50
 @appendixsec Upgrading from Aspell 0.50
 
@@ -179,20 +192,20 @@ The flag @option{-l} is now a shortcut for @option{--lang}, instead of
 @anchor{Binary Compatibility}
 @appendixsubsec Binary Compatibility
 
-The Aspell 0.60 library is binary compatible with the Aspell 0.50
+The Aspell 0.61 library is binary compatible with the Aspell 0.50
 library.  For this reason I chose @emph{not} to increment the major
 version number (so-name) of the shared library by default which means
 programs that were compiled for Aspell 0.50 will also work for Aspell
-0.60.  However, this means that having both Aspell 0.50 and Aspell 0.60
-installed at the same time can be pragmatic.  If you wish to allow both
-Aspell 0.50 and 0.60 to be installed at the same time then you can use
-the configure option @option{--incremented-soname} which will increment
-so-name.  You should only use this option if you know what you are
-doing.  It is up to you to somehow ensure that both the Aspell 0.50 and
-0.60 executables can coexist.
+0.61.  However, this means that having both Aspell 0.50 and Aspell
+0.61 installed at the same time can be pragmatic.  If you wish to
+allow both Aspell 0.50 and 0.61 to be installed at the same time then
+you can use the configure option @option{--incremented-soname} which
+will increment so-name.  You should only use this option if you know
+what you are doing.  It is up to you to somehow ensure that both the
+Aspell 0.50 and 0.61 executables can coexist.
 
 If after incrementing the so-name you wish to allow programs compiled
-for Aspell 0.50 to use Aspell 0.60 instead (thus implying that Aspell
+for Aspell 0.50 to use Aspell 0.61 instead (thus implying that Aspell
 0.50 is not installed) then you can use a special compatibility library
 which can be found in the @file{lib5} directory.  This directory will
 not be entered when building or installing Aspell so you must manually
@@ -200,9 +213,9 @@ build and install this library.  You should build it after the rest of
 Aspell is built.  The order in which this library is installed, with
 relation to the rest of Aspell, is also important.  If it is installed
 @emph{after} the rest of Aspell then new programs will link to the old
-library (which will work for Aspell 0.50 or 0.60) when built, if
+library (which will work for Aspell 0.50 or 0.61) when built, if
 installed @emph{before}, new programs will link with the new library
-(Aspell 0.60 only).
+(Aspell 0.61 only).
 
 @node Upgrading from Aspell .33/Pspell .12
 @appendixsec Upgrading from Aspell .33/Pspell .12

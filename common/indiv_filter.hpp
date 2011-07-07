@@ -13,7 +13,7 @@
 #include "posib_err.hpp"
 #include "filter_char.hpp"
 
-namespace acommon {
+namespace aspell {
 
   class Config;
 
@@ -36,13 +36,20 @@ namespace acommon {
       handle = h; 
       return *this;
     }
+    // only valid when handle == 0
+    FilterHandle(const FilterHandle & other) {
+      assert(other.handle == NULL);
+      handle = NULL;
+    }
+      
   private:
-    FilterHandle(const FilterHandle &);
     void operator = (const FilterHandle &);
     void * handle;
   };  
 
   class IndividualFilter {
+    friend class ConversionFilter;
+    friend class NormalFilter;
   public:
 
     // sets up the filter 
@@ -83,16 +90,44 @@ namespace acommon {
     virtual ~IndividualFilter() {}
 
     const char * name() const {return name_.str();}
+    const char * base_name() const {return base_name_.str();}
     double order_num() const {return order_num_;}
+
+    enum What {Encoder, Filter, Decoder};
+    What what() const {return what_;}
 
     FilterHandle handle;
 
   protected:
+    // set the name and type of filter, after called base_name, name,
+    // and what will be defined
+    void set_order_num(double on) {order_num_ = on;}
 
-    IndividualFilter() : name_(0), order_num_(0.50) {}
-    
-    String name_; // must consist of 'a-z|0-9'
+  private:
+    // IndividualFilter should not be inherited from except for 
+    // by NormalFilter and ConversionFilter
+    IndividualFilter();
+
+    String base_name_;      // must consist of 'a-z|0-9'
+    String name_;
     double order_num_; // between 0 and 1 exclusive
+    What what_;        // an encoder, filter, or decoder?
+  };
+
+  class NormalFilter : public IndividualFilter {
+  protected:
+    NormalFilter() {}
+    void set_name(ParmStr name);
+  };
+
+  // "ConversionFilter::process" can not have any state.  However it IS
+  // allowed to use an internal buffer, therefore "process" is still not
+  // thread safe or const
+  class ConversionFilter : public IndividualFilter {
+  protected:
+    ConversionFilter() {}
+    void set_name(ParmStr name, What);
+    
   };
 
 }

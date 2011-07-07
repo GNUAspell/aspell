@@ -9,7 +9,7 @@
 
 #include <assert.h>
 
-namespace acommon {
+namespace aspell {
   
   template <typename T>
   class StackPtr {

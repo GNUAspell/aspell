@@ -5,7 +5,7 @@
 
 #include <sys/stat.h>
 
-namespace aspeller {
+namespace aspell { namespace sp {
   
   class Dict::Id {
   public: // but don't use
@@ -24,6 +24,6 @@ namespace aspeller {
     return *id_ == o;
   }
 
-}
+} }
 
 #endif

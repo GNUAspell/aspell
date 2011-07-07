@@ -9,7 +9,7 @@
 
 #include "settings.h"
 
-#include "cache-t.hpp"
+#include "cache.hpp"
 #include "asc_ctype.hpp"
 #include "config.hpp"
 #include "enumeration.hpp"
@@ -37,7 +37,7 @@
 #  include <dlfcn.h>
 #endif
 
-namespace acommon
+namespace aspell
 {
 #include "static_filters.src.cpp"
 
@@ -127,7 +127,7 @@ namespace acommon
 
     StackPtr<IndividualFilter> ifilter;
 
-    filter.clear();
+    //filter.clear();
 
     while ((filter_name = els.next()) != 0) {
       //fprintf(stderr, "Loading %s ... \n", filter_name);

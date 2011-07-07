@@ -10,7 +10,7 @@
 #include "string.hpp"
 #include "ostream.hpp"
 
-namespace acommon
+namespace aspell
 {
   typedef String CharVector;
 }

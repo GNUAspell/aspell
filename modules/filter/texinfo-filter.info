@@ -7,6 +7,8 @@ ASPELL >=0.60
 DESCRIPTION filter for dealing with Texinfo documents
 
 STATIC filter
+STATIC encoder
+STATIC decoder
 
 OPTION ignore
 TYPE list
@@ -28,6 +30,7 @@ DEFAULT option
 DEFAULT url
 DEFAULT uref
 DEFAULT email
+DEFAULT include
 DEFAULT verbatiminclude
 DEFAULT xref
 DEFAULT ref
@@ -49,4 +52,10 @@ DEFAULT display
 DEFAULT snalldisplay
 DEFAULT format
 DEFAULT smallformat
+ENDOPTION
+
+OPTION form
+TYPE string
+DESCRIPTION The prefered form that output should be in 
+DEFAULT multi
 ENDOPTION

@@ -1,9 +1,9 @@
 #include <assert.h>
 
 #include "stack_ptr.hpp"
-#include "cache-t.hpp"
+#include "cache.hpp"
 
-namespace acommon {
+namespace aspell {
 
 static StackPtr<Mutex> global_cache_lock(new Mutex);
 static GlobalCacheBase * first_cache = 0;

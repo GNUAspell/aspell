@@ -7,7 +7,7 @@
 #include "error.hpp"
 #include "can_have_error.hpp"
 
-namespace acommon {
+namespace aspell {
 
   CanHaveError::CanHaveError(Error * e)
     : err_(e)

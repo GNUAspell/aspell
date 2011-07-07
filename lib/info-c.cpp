@@ -6,7 +6,7 @@
 
 #include "info.hpp"
 
-namespace acommon {
+namespace aspell {
 
 class Config;
 struct DictInfo;

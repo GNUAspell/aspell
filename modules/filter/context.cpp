@@ -21,13 +21,13 @@
 #include "string_list.hpp"
 #include "vector.hpp"
 
-using namespace acommon;
+using namespace aspell;
 
 namespace {
 
   enum filterstate {hidden=0, visible=1};
   
-  class ContextFilter : public IndividualFilter {
+  class ContextFilter : public NormalFilter {
     filterstate state;
     Vector<String> opening;
     Vector<String> closing;
@@ -61,7 +61,7 @@ namespace {
   }
     
   PosibErr<bool> ContextFilter::setup(Config * config){
-    name_ = "context-filter";
+    set_name("context");
     StringList delimiters;
     StringEnumeration * delimiterpairs;
     const char * delimiterpair=NULL;

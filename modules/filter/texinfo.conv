@@ -1,0 +1,398 @@
+# Generated from mk-texinfo.conv.pl
+name texinfo
+table
+. @-
+. @/
+À @`A @`{A}
+Á @'A @'{A}
+Â @^A @^{A}
+Ã @~A @~{A}
+Ä @"A @"{A}
+Å @AA{} @ringaccent{A}
+Æ @AE{}
+Ç @,{C}
+È @`E @`{E}
+É @'E @'{E}
+Ê @^E @^{E}
+Ë @"E @"{E}
+Ì @`I @`{I}
+Í @'I @'{I}
+Î @^I @^{I}
+Ï @"I @"{I}
+Ñ @~N @~{N}
+Ò @`O @`{O}
+Ó @'O @'{O}
+Ô @^O @^{O}
+Õ @~O @~{O}
+Ö @"O @"{O}
+Ø @O{}
+Ù @`U @`{U}
+Ú @'U @'{U}
+Û @^U @^{U}
+Ü @"U @"{U}
+Ý @'Y @'{Y}
+ß @ss{}
+à @`a @`{a}
+á @'a @'{a}
+â @^a @^{a}
+ã @~a @~{a}
+ä @"a @"{a}
+å @aa{} @ringaccent{a}
+ç @,{c}
+è @`e @`{e}
+é @'e @'{e}
+ê @^e @^{e}
+ë @"e @"{e}
+ì @`{@dotless{i}} @`i @`{i}
+í @'{@dotless{i}} @'i @'{i}
+î @^{@dotless{i}} @^i @^{i}
+ï @"{@dotless{i}} @"i @"{i}
+ñ @~n @~{n}
+ò @`o @`{o}
+ó @'o @'{o}
+ô @^o @^{o}
+õ @~o @~{o}
+ö @"o @"{o}
+ø @o{}
+ù @`u @`{u}
+ú @'u @'{u}
+û @^u @^{u}
+ü @"u @"{u}
+ý @'y @'{y}
+ÿ @"y @"{y}
+Ā @=A @={A}
+ā @=a @={a}
+Ă @u{A}
+ă @u{a}
+Ć @'C @'{C}
+ć @'c @'{c}
+Ĉ @^C @^{C}
+ĉ @^c @^{c}
+Ċ @dotaccent{C}
+ċ @dotaccent{c}
+Č @v{C}
+č @v{c}
+Ď @v{D}
+ď @v{d}
+Ē @=E @={E}
+ē @=e @={e}
+Ĕ @u{E}
+ĕ @u{e}
+Ė @dotaccent{E}
+ė @dotaccent{e}
+Ě @v{E}
+ě @v{e}
+Ĝ @^G @^{G}
+ĝ @^g @^{g}
+Ğ @u{G}
+ğ @u{g}
+Ġ @dotaccent{G}
+ġ @dotaccent{g}
+Ģ @,{G}
+ģ @,{g}
+Ĥ @^H @^{H}
+ĥ @^h @^{h}
+Ĩ @~I @~{I}
+ĩ @~{@dotless{i}} @~i @~{i}
+Ī @=I @={I}
+ī @={@dotless{i}} @=i @={i}
+Ĭ @u{I}
+ĭ @u{@dotless{i}} @u{i}
+İ @dotaccent{I}
+ı @dotless{i}
+Ĵ @^J @^{J}
+ĵ @^{@dotless{j}} @^j @^{j}
+Ķ @,{K}
+ķ @,{k}
+Ĺ @'L @'{L}
+ĺ @'l @'{l}
+Ļ @,{L}
+ļ @,{l}
+Ľ @v{L}
+ľ @v{l}
+Ł @L{}
+ł @l{}
+Ń @'N @'{N}
+ń @'n @'{n}
+Ņ @,{N}
+ņ @,{n}
+Ň @v{N}
+ň @v{n}
+Ō @=O @={O}
+ō @=o @={o}
+Ŏ @u{O}
+ŏ @u{o}
+Ő @H{O}
+ő @H{o}
+Œ @OE{}
+œ @oe{}
+Ŕ @'R @'{R}
+ŕ @'r @'{r}
+Ŗ @,{R}
+ŗ @,{r}
+Ř @v{R}
+ř @v{r}
+Ś @'S @'{S}
+ś @'s @'{s}
+Ŝ @^S @^{S}
+ŝ @^s @^{s}
+Ş @,{S}
+ş @,{s}
+Š @v{S}
+š @v{s}
+Ţ @,{T}
+ţ @,{t}
+Ť @v{T}
+ť @v{t}
+Ũ @~U @~{U}
+ũ @~u @~{u}
+Ū @=U @={U}
+ū @=u @={u}
+Ŭ @u{U}
+ŭ @u{u}
+Ů @ringaccent{U}
+ů @ringaccent{u}
+Ű @H{U}
+ű @H{u}
+Ŵ @^W @^{W}
+ŵ @^w @^{w}
+Ŷ @^Y @^{Y}
+ŷ @^y @^{y}
+Ÿ @"Y @"{Y}
+Ź @'Z @'{Z}
+ź @'z @'{z}
+Ż @dotaccent{Z}
+ż @dotaccent{z}
+Ž @v{Z}
+ž @v{z}
+Ǎ @v{A}
+ǎ @v{a}
+Ǐ @v{I}
+ǐ @v{@dotless{i}} @v{i}
+Ǒ @v{O}
+ǒ @v{o}
+Ǔ @v{U}
+ǔ @v{u}
+Ǖ @={@"U} @={@"{U}}
+ǖ @={@"u} @={@"{u}}
+Ǘ @'{@"U} @'{@"{U}}
+ǘ @'{@"u} @'{@"{u}}
+Ǚ @v{@"U} @v{@"{U}}
+ǚ @v{@"u} @v{@"{u}}
+Ǜ @`{@"U} @`{@"{U}}
+ǜ @`{@"u} @`{@"{u}}
+Ǟ @={@"A} @={@"{A}}
+ǟ @={@"a} @={@"{a}}
+Ǡ @={@dotaccent{A}}
+ǡ @={@dotaccent{a}}
+Ǣ @={@AE{}}
+Ǧ @v{G}
+ǧ @v{g}
+Ǩ @v{K}
+ǩ @v{k}
+ǰ @v{@dotless{j}} @v{j}
+Ǵ @'G @'{G}
+ǵ @'g @'{g}
+Ǹ @`N @`{N}
+ǹ @`n @`{n}
+Ǻ @'{@AA{}} @'{@ringaccent{A}}
+ǻ @'{@aa{}} @'{@ringaccent{a}}
+Ǽ @'{@AE{}}
+Ǿ @'{@O{}}
+ǿ @'{@o{}}
+Ȟ @v{H}
+ȟ @v{h}
+Ȧ @dotaccent{A}
+ȧ @dotaccent{a}
+Ȩ @,{E}
+ȩ @,{e}
+Ȫ @={@"O} @={@"{O}}
+ȫ @={@"o} @={@"{o}}
+Ȭ @={@~O} @={@~{O}}
+ȭ @={@~o} @={@~{o}}
+Ȯ @dotaccent{O}
+ȯ @dotaccent{o}
+Ȱ @={@dotaccent{O}}
+ȱ @={@dotaccent{o}}
+Ȳ @=Y @={Y}
+ȳ @=y @={y}
+Ḃ @dotaccent{B}
+ḃ @dotaccent{b}
+Ḅ @udotaccent{B}
+ḅ @udotaccent{b}
+Ḇ @ubaraccent{B}
+ḇ @ubaraccent{b}
+Ḉ @'{@,{C}}
+ḉ @'{@,{c}}
+Ḋ @dotaccent{D}
+ḋ @dotaccent{d}
+Ḍ @udotaccent{D}
+ḍ @udotaccent{d}
+Ḏ @ubaraccent{D}
+ḏ @ubaraccent{d}
+Ḑ @,{D}
+ḑ @,{d}
+Ḕ @`{@=E} @`{@={E}}
+ḕ @`{@=e} @`{@={e}}
+Ḗ @'{@=E} @'{@={E}}
+ḗ @'{@=e} @'{@={e}}
+Ḝ @u{@,{E}}
+ḝ @u{@,{e}}
+Ḟ @dotaccent{F}
+ḟ @dotaccent{f}
+Ḡ @=G @={G}
+ḡ @=g @={g}
+Ḣ @dotaccent{H}
+ḣ @dotaccent{h}
+Ḥ @udotaccent{H}
+ḥ @udotaccent{h}
+Ḧ @"H @"{H}
+ḧ @"h @"{h}
+Ḩ @,{H}
+ḩ @,{h}
+Ḯ @'{@"I} @'{@"{I}}
+ḯ @'{@"{@dotless{i}}} @'{@"i} @'{@"{i}}
+Ḱ @'K @'{K}
+ḱ @'k @'{k}
+Ḳ @udotaccent{K}
+ḳ @udotaccent{k}
+Ḵ @ubaraccent{K}
+ḵ @ubaraccent{k}
+Ḷ @udotaccent{L}
+ḷ @udotaccent{l}
+Ḹ @={@udotaccent{L}}
+ḹ @={@udotaccent{l}}
+Ḻ @ubaraccent{L}
+ḻ @ubaraccent{l}
+Ḿ @'M @'{M}
+ḿ @'m @'{m}
+Ṁ @dotaccent{M}
+ṁ @dotaccent{m}
+Ṃ @udotaccent{M}
+ṃ @udotaccent{m}
+Ṅ @dotaccent{N}
+ṅ @dotaccent{n}
+Ṇ @udotaccent{N}
+ṇ @udotaccent{n}
+Ṉ @ubaraccent{N}
+ṉ @ubaraccent{n}
+Ṍ @'{@~O} @'{@~{O}}
+ṍ @'{@~o} @'{@~{o}}
+Ṏ @"{@~O} @"{@~{O}}
+ṏ @"{@~o} @"{@~{o}}
+Ṑ @`{@=O} @`{@={O}}
+ṑ @`{@=o} @`{@={o}}
+Ṓ @'{@=O} @'{@={O}}
+ṓ @'{@=o} @'{@={o}}
+Ṕ @'P @'{P}
+ṕ @'p @'{p}
+Ṗ @dotaccent{P}
+ṗ @dotaccent{p}
+Ṙ @dotaccent{R}
+ṙ @dotaccent{r}
+Ṛ @udotaccent{R}
+ṛ @udotaccent{r}
+Ṝ @={@udotaccent{R}}
+ṝ @={@udotaccent{r}}
+Ṟ @ubaraccent{R}
+ṟ @ubaraccent{r}
+Ṡ @dotaccent{S}
+ṡ @dotaccent{s}
+Ṣ @udotaccent{S}
+ṣ @udotaccent{s}
+Ṥ @dotaccent{@'S} @dotaccent{@'{S}}
+ṥ @dotaccent{@'s} @dotaccent{@'{s}}
+Ṧ @dotaccent{@v{S}}
+ṧ @dotaccent{@v{s}}
+Ṩ @dotaccent{@udotaccent{S}}
+ṩ @dotaccent{@udotaccent{s}}
+Ṫ @dotaccent{T}
+ṫ @dotaccent{t}
+Ṭ @udotaccent{T}
+ṭ @udotaccent{t}
+Ṯ @ubaraccent{T}
+ṯ @ubaraccent{t}
+Ṹ @'{@~U} @'{@~{U}}
+ṹ @'{@~u} @'{@~{u}}
+Ṻ @"{@=U} @"{@={U}}
+ṻ @"{@=u} @"{@={u}}
+Ṽ @~V @~{V}
+ṽ @~v @~{v}
+Ṿ @udotaccent{V}
+ṿ @udotaccent{v}
+Ẁ @`W @`{W}
+ẁ @`w @`{w}
+Ẃ @'W @'{W}
+ẃ @'w @'{w}
+Ẅ @"W @"{W}
+ẅ @"w @"{w}
+Ẇ @dotaccent{W}
+ẇ @dotaccent{w}
+Ẉ @udotaccent{W}
+ẉ @udotaccent{w}
+Ẋ @dotaccent{X}
+ẋ @dotaccent{x}
+Ẍ @"X @"{X}
+ẍ @"x @"{x}
+Ẏ @dotaccent{Y}
+ẏ @dotaccent{y}
+Ẑ @^Z @^{Z}
+ẑ @^z @^{z}
+Ẓ @udotaccent{Z}
+ẓ @udotaccent{z}
+Ẕ @ubaraccent{Z}
+ẕ @ubaraccent{z}
+ẖ @ubaraccent{h}
+ẗ @"t @"{t}
+ẘ @ringaccent{w}
+ẙ @ringaccent{y}
+Ạ @udotaccent{A}
+ạ @udotaccent{a}
+Ấ @'{@^A} @'{@^{A}}
+ấ @'{@^a} @'{@^{a}}
+Ầ @`{@^A} @`{@^{A}}
+ầ @`{@^a} @`{@^{a}}
+Ẫ @~{@^A} @~{@^{A}}
+ẫ @~{@^a} @~{@^{a}}
+Ậ @^{@udotaccent{A}}
+ậ @^{@udotaccent{a}}
+Ắ @'{@u{A}}
+ắ @'{@u{a}}
+Ằ @`{@u{A}}
+ằ @`{@u{a}}
+Ẵ @~{@u{A}}
+ẵ @~{@u{a}}
+Ặ @u{@udotaccent{A}}
+ặ @u{@udotaccent{a}}
+Ẹ @udotaccent{E}
+ẹ @udotaccent{e}
+Ẽ @~E @~{E}
+ẽ @~e @~{e}
+Ế @'{@^E} @'{@^{E}}
+ế @'{@^e} @'{@^{e}}
+Ề @`{@^E} @`{@^{E}}
+ề @`{@^e} @`{@^{e}}
+Ễ @~{@^E} @~{@^{E}}
+ễ @~{@^e} @~{@^{e}}
+Ệ @^{@udotaccent{E}}
+ệ @^{@udotaccent{e}}
+Ị @udotaccent{I}
+ị @udotaccent{i}
+Ọ @udotaccent{O}
+ọ @udotaccent{o}
+Ố @'{@^O} @'{@^{O}}
+ố @'{@^o} @'{@^{o}}
+Ồ @`{@^O} @`{@^{O}}
+ồ @`{@^o} @`{@^{o}}
+Ỗ @~{@^O} @~{@^{O}}
+ỗ @~{@^o} @~{@^{o}}
+Ộ @^{@udotaccent{O}}
+ộ @^{@udotaccent{o}}
+Ụ @udotaccent{U}
+ụ @udotaccent{u}
+Ỳ @`Y @`{Y}
+ỳ @`y @`{y}
+Ỵ @udotaccent{Y}
+ỵ @udotaccent{y}
+Ỹ @~Y @~{Y}
+ỹ @~y @~{y}

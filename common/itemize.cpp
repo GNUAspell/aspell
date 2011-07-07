@@ -18,7 +18,7 @@
 //       If '\' is used than what about when the option file is parsed
 //         as it strips away all '\' escapes.
 
-namespace acommon {
+namespace aspell {
 
   struct ItemizeItem {
     char   action;

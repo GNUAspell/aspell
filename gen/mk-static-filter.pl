@@ -133,12 +133,17 @@ printf STATICFILTERS "\n  const unsigned int standard_filters_size = ".
 
 #create KeyInfo structures for each static filter
 while ($filter = shift @filterhashes) {
+
+# Only create a KeyInfo static if there are options.
+  @options = grep !/(?:NAME|(?:DE|EN)CODER|FILTER|DESCRIPTION)/ ,keys %{$filter};
+  next unless $#options >= 0;
+
   printf STATICFILTERS "\n  static KeyInfo ".${$filter}{"NAME"}."_options[] = {\n";
 
 #create KeyInfo structs and begin end handles
   $firstopt = 1;
-  while (($name,$option)=each %{$filter}) {
-    ($name=~/(?:NAME|(?:DE|EN)CODER|FILTER|DESCRIPTION)/) && next;
+  foreach $name (@options) {
+    $option = $filter->{$name};
     ( $firstopt != 1 ) && ( printf STATICFILTERS ",\n" );
     $firstopt = 0;
     printf STATICFILTERS "    {\n".
@@ -180,9 +185,15 @@ while ($filter = shift @rallfilters) {
   $firstopt = 0;
   printf STATICFILTERS "    {\n".
                        "      \"$filter\",0,\n".
-                       "      \"".${${filters}{$filter}}{DESCRIPTION}."\",\n" .
-                       "      ${filter}_options_begin,${filter}_options_end\n" .
-                       "    }";
+                       "      \"".${${filters}{$filter}}{DESCRIPTION}."\",\n";
+  # Check for no options
+  @options = grep !/(?:NAME|(?:DE|EN)CODER|FILTER|DESCRIPTION)/, keys %{$filters{$filter}};
+  if ($#options >= 0) {
+    printf STATICFILTERS "      ${filter}_options_begin,${filter}_options_end\n";
+  } else {
+    printf STATICFILTERS "      0,0\n";
+  }
+  printf STATICFILTERS "    }";
 } 
 printf STATICFILTERS    "\n  };\n";
 printf STATICFILTERS "\n  const ConfigModule * filter_modules_begin = ".
@@ -194,4 +205,5 @@ printf STATICFILTERS "\n  const size_t filter_modules_size = ".
                           "sizeof(filter_modules);\n";
 
 close STATICFILTERS;
+
 

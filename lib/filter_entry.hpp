@@ -3,7 +3,7 @@
 
 #include "indiv_filter.hpp"
 
-namespace acommon {
+namespace aspell {
   
   typedef IndividualFilter * (FilterFun) ();
 

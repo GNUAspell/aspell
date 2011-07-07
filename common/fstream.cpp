@@ -14,7 +14,7 @@
 #include "fstream.hpp"
 #include "errors.hpp"
 
-namespace acommon {
+namespace aspell {
 
   PosibErr<void> FStream::open(ParmStr name, const char * mode)
   {
@@ -68,6 +68,17 @@ namespace acommon {
     while (c = getc(file_), c != EOF && !asc_isspace(c))
       str += static_cast<char>(c);
     ungetc(c, file_);
+    return *this;
+  }
+  FStream & FStream::operator<< (const char * str)
+  {
+    fputs(str, file_);
+    return *this;
+  }
+
+  FStream & FStream::operator<< (const String &str)
+  {
+    fputs(str.c_str(), file_);
     return *this;
   }
 

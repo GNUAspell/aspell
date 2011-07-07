@@ -91,7 +91,7 @@ sub advance ( ) {
     $line =~ s/\#.*$//;
     $line =~ s/^(\t*)//;
     $level = $base_level + length($1);
-      $line =~ s/\s*$//;
+    $line =~ s/\s*$//;
     ++$base_level if $line =~ s/^\{$//;
     --$base_level if $line =~ s/^\}$//;
     $line =~ s/\\([{}])/$1/g;
@@ -163,6 +163,10 @@ sub prep ( $ $ $ ) {
     my $d = $lst->[$i];
     if (exists $methods{$d->{type}}) {
       splice @$lst, $i, 1, copy_methods($d, $data, $stack->{class}{name});
+    } elsif ($d->{type} eq 'posib err constructor') {
+      $d->{type} = 'constructor';
+      $d->{'posib err'} = true;
+      splice @$lst, $i + 1, 0, {type => 'constructor', 'conversion' => true};
     } else {
       prep $d, $group, $stack;
       ++$i;

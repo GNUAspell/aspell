@@ -10,7 +10,7 @@
 #include "copy_ptr.hpp"
 #include "error.hpp"
 
-namespace acommon {
+namespace aspell {
 
 struct Error;
 

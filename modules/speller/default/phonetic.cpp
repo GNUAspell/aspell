@@ -1,32 +1,33 @@
 // Copyright 2000 by Kevin Atkinson under the terms of the LGPL
 
-#include "language.hpp"
+#include "file_util.hpp"
+#include "file_data_util.hpp"
+#include "clone_ptr.hpp"
+#include "posib_err.hpp"
+
+#include "lang_impl.hpp"
 #include "phonetic.hpp"
 #include "phonet.hpp"
 
-#include "file_util.hpp"
-#include "file_data_util.hpp"
-#include "clone_ptr-t.hpp"
-
-namespace aspeller {
+namespace aspell { namespace sp {
   
   class SimpileSoundslike : public Soundslike {
   private:
-    const Language * lang;
+    const LangImpl * lang;
     char first[256];
     char rest[256];
   public:
-    SimpileSoundslike(const Language * l) : lang(l) {}
+    SimpileSoundslike(const LangImpl * l) : lang(l) {}
 
     PosibErr<void> setup(Conv &) {
       memcpy(first, lang->sl_first_, 256);
       memcpy(rest,  lang->sl_rest_, 256);
       return no_err;
     }
-    
     String soundslike_chars() const {
+      int i;
       bool chars_set[256] = {0};
-      for (int i = 0; i != 256; ++i) 
+      for ( i = 0; i != 256; ++i) 
       {
         char c = first[i];
         if (c) chars_set[static_cast<unsigned char>(c)] = true;
@@ -34,7 +35,7 @@ namespace aspeller {
         if (c) chars_set[static_cast<unsigned char>(c)] = true;
       }
       String     chars_list;
-      for (int i = 0; i != 256; ++i) 
+      for ( i = 0; i != 256; ++i) 
       {
         if (chars_set[i]) 
           chars_list += static_cast<char>(i);
@@ -72,9 +73,9 @@ namespace aspeller {
 
   class NoSoundslike : public Soundslike {
   private:
-    const Language * lang;
+    const LangImpl * lang;
   public:
-    NoSoundslike(const Language * l) : lang(l) {}
+    NoSoundslike(const LangImpl * l) : lang(l) {}
 
     PosibErr<void> setup(Conv &) {return no_err;}
     
@@ -97,9 +98,9 @@ namespace aspeller {
 
   class StrippedSoundslike : public Soundslike {
   private:
-    const Language * lang;
+    const LangImpl * lang;
   public:
-    StrippedSoundslike(const Language * l) : lang(l) {}
+    StrippedSoundslike(const LangImpl * l) : lang(l) {}
 
     PosibErr<void> setup(Conv &) {return no_err;}
     
@@ -122,12 +123,12 @@ namespace aspeller {
 
   class PhonetSoundslike : public Soundslike {
 
-    const Language * lang;
+    const LangImpl * lang;
     StackPtr<PhonetParms> phonet_parms;
     
   public:
 
-    PhonetSoundslike(const Language * l) : lang(l) {}
+    PhonetSoundslike(const LangImpl * l) : lang(l) {}
 
     PosibErr<void> setup(Conv & iconv) {
       String file;
@@ -182,7 +183,7 @@ namespace aspeller {
   
   PosibErr<Soundslike *> new_soundslike(ParmString name, 
                                         Conv & iconv,
-                                        const Language * lang)
+                                        const LangImpl * lang)
   {
     Soundslike * sl;
     if (name == "simple" || name == "generic") {
@@ -204,5 +205,5 @@ namespace aspeller {
       return sl;
     }
   }
-}
+} }
 

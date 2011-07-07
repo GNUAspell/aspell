@@ -3,6 +3,9 @@
 // license version 2.0 or 2.1.  You should have received a copy of the
 // LGPL license along with this library if you did not you can find it
 // at http://www.gnu.org/.
+#ifdef WIN32PORT
+#include "minwin.h" //minimum windows declarations.
+#endif
 
 #include "settings.h"
 
@@ -12,7 +15,7 @@
 #endif
 
 #include "stack_ptr.hpp"
-#include "cache-t.hpp"
+#include "cache.hpp"
 #include "string.hpp"
 #include "vector.hpp"
 #include "config.hpp"
@@ -30,7 +33,7 @@
 
 #include "gettext.h"
 
-namespace acommon {
+namespace aspell {
 
   class FilterMode {
   public:
@@ -120,7 +123,7 @@ namespace acommon {
       c->filter_mode_notifier = this;
     }
     
-    ModeNotifierImpl * clone(Config * c) const {return new ModeNotifierImpl(*this, c);}
+    Notifier * clone(Config * c) const {return new ModeNotifierImpl(*this, c);}
 
     PosibErr<void> item_updated(const KeyInfo * ki, ParmStr);
     PosibErr<void> list_updated(const KeyInfo * ki);
@@ -240,7 +243,7 @@ namespace acommon {
       for ( Vector<MagicString>::iterator it = magicKeys.begin() ;
             it != magicKeys.end() ; it++ ) {
         PosibErr<bool> magicMatch = it->matchFile(in,ext);
-        if (    magicMatch 
+        if (    magicMatch.data 
              || magicMatch.has_err() ) {
           if ( closeFile ) {
             fclose ( in );
@@ -583,7 +586,7 @@ namespace acommon {
 
       FStream toParse;
 
-      RET_ON_ERR(toParse.open(possModeFile.str(),"rb"));
+      RET_ON_ERR(toParse.open(possModeFile.str(),"r"));
 
       String buf;
       DataPair dp;

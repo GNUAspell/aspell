@@ -8,16 +8,17 @@
 #include <assert.h>
 #include <string.h>
 #include <ctype.h>
+#if ! defined(WIN32) && ! defined(_WIN32)
 #include <dirent.h>
+#endif
 
 // POSIX includes
 #ifdef __bsdi__
  /* BSDi defines u_intXX_t types in machine/types.h */
 #include <machine/types.h>
 #endif
-#ifdef WIN32
-#  include <windows.h>
-#  include <winbase.h>
+#if defined(WIN32) || defined(_WIN32)
+#include "minwin.h" //minimum windows declarations.
 #endif
 
 #include "iostream.hpp"
@@ -39,8 +40,9 @@
 
 #include "gettext.h"
 
-namespace acommon {
+namespace aspell {
 
+#if ! defined(WIN32) && ! defined(_WIN32)
   class Dir {
     DIR * d_;
     Dir(const Dir &);
@@ -50,7 +52,17 @@ namespace acommon {
     Dir(DIR * d) : d_(d) {}
     ~Dir() {if (d_) closedir(d_);}
   };
-
+#else
+  class Dir {
+    HANDLE d_;
+    Dir(const Dir &);
+    Dir & operator=(const Dir &);
+  public:
+    operator HANDLE () {return d_;}
+    Dir(HANDLE * d) : d_(d) {}
+    ~Dir() {if (d_) CloseHandle(d_);}
+  };
+#endif
   /////////////////////////////////////////////////////////////////
   //
   // Lists of Info Lists
@@ -177,6 +189,9 @@ namespace acommon {
 
     StringListEnumeration els = list_all.for_dirs.elements_obj();
     const char * dir;
+#if ! defined(WIN32) && ! defined(_WIN32)
+
+    //unix version
     while ( (dir = els.next()) != 0) {
       Dir d(opendir(dir));
       if (d==0) continue;
@@ -200,6 +215,40 @@ namespace acommon {
 	RET_ON_ERR(proc_info(list_all, config, name, name_size, in));
       }
     }
+#else
+    //windows version
+    while ( (dir = els.next()) != 0) {
+      String pattern = dir;
+      pattern += "\\*.*";
+      WIN32_FIND_DATA data;
+      HANDLE hFind = FindFirstFile(pattern.c_str(),&data);
+      if (INVALID_HANDLE_VALUE == hFind)
+         continue;
+
+      do {
+        if ((strcmp(".", data.cFileName)==0) ||
+         (strcmp("..", data.cFileName) == 0))
+        continue; //special directories
+
+        const char * name = data.cFileName;
+        const char * dot_loc = strrchr(name, '.');
+        unsigned int name_size = dot_loc == 0 ? strlen(name) :  dot_loc - name;
+   
+        // check if it ends in suffix
+        if (strcmp(name + name_size, ".asmi") != 0)
+          continue;
+   
+        String path;
+        path += dir;
+        path += '/';
+        path += name;
+        FStream in;
+        RET_ON_ERR(in.open(path, "r"));
+        RET_ON_ERR(proc_info(list_all, config, name, name_size, in));
+      } while (FindNextFile(hFind,&data));
+      FindClose(hFind);
+    } //while
+#endif
     return no_err;
   }
 
@@ -338,6 +387,8 @@ namespace acommon {
 
     els = list_all.dict_dirs.elements_obj();
     const char * dir;
+#if ! defined(WIN32) && ! defined(_WIN32)
+    //unix version
     while ( (dir = els.next()) != 0) {
       Dir d(opendir(dir));
       if (d==0) continue;
@@ -358,6 +409,36 @@ namespace acommon {
 			     dir, name, name_size, i->module));
       }
     }
+#else
+    //windows version
+    while ( (dir = els.next()) != 0) {
+      String pattern = dir;
+      pattern += "\\*.*";
+      WIN32_FIND_DATA data;
+      HANDLE hFind = FindFirstFile(pattern.c_str(),&data);
+      if (INVALID_HANDLE_VALUE == hFind)
+         continue;
+    
+      do {
+        const char * name = data.cFileName;
+        unsigned int name_size = strlen(name);
+
+        if ((strcmp(".", name)==0) || (strcmp("..", name) == 0))
+          continue; //special directories
+
+        const DictExt * i = find_dict_ext(list_all.dict_exts,
+                ParmString(name, name_size));
+        if (i == 0) // does not end in one of the extensions in list
+           continue;
+
+        name_size -= i->ext_size;
+   
+        RET_ON_ERR(proc_file(list_all, config, 
+           dir, name, name_size, i->module));
+      } while (FindNextFile(hFind,&data));
+      FindClose(hFind);
+    }
+#endif
     return no_err;
   }
 
@@ -419,11 +500,11 @@ namespace acommon {
       //FIXME: Check for null and return an error on an unknown module
       module = &(mod->c_struct);
     }
-    to_add->c_struct.module = module;
+    to_add->c_struct.module = const_cast<ModuleInfo *>(module);
   
     if (p0 + 1 < p1)
       to_add->variety.assign(p0+1, p1 - p0 - 1);
-    to_add->c_struct.variety = to_add->variety.c_str();
+    to_add->c_struct.jargon = to_add->variety.c_str();
   
     if (p1 != p2) 
       to_add->size_str.assign(p1, 2);
@@ -453,7 +534,7 @@ namespace acommon {
     int res = strcmp(rhs.code, lhs.code);
     if (res < 0) return true;
     if (res > 0) return false;
-    res = strcmp(rhs.variety,lhs.variety);
+    res = strcmp(rhs.jargon,lhs.jargon);
     if (res < 0) return true;
     if (res > 0) return false;
     if (rhs.size < lhs.size) return true;

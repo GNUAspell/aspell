@@ -1,3 +1,4 @@
+
 #include <string.h>
 #include <assert.h>
 
@@ -14,13 +15,16 @@
 // license along with this library if you did not you can find
 // it at http://www.gnu.org/.
 
-namespace acommon {
+namespace aspell {
 
-  // needed for darwin
+  // These template instantiations are needed for darwin but VC6 has
+  // problems with them
+#ifndef _MSC_VER
   template HashTable<StringMap::Parms>::iterator 
            HashTable<StringMap::Parms>::find_i(char const* const&, bool&);
   template std::pair<HashTable<StringMap::Parms>::iterator,bool>
            HashTable<StringMap::Parms>::insert(const StringPair &);
+#endif
   template void HashTable<StringMap::Parms>::init(unsigned int);
   template void HashTable<StringMap::Parms>::del(void);
   template HashTable<StringMap::Parms>::size_type

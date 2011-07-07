@@ -3,26 +3,25 @@
 #ifndef ASPELLER_LANGUAGE__HPP
 #define ASPELLER_LANGUAGE__HPP
 
+
 #include "affix.hpp"
 #include "cache.hpp"
 #include "config.hpp"
 #include "convert.hpp"
+#include "language.hpp"
+#include "objstack.hpp"
 #include "phonetic.hpp"
 #include "posib_err.hpp"
 #include "stack_ptr.hpp"
 #include "string.hpp"
-#include "objstack.hpp"
 #include "string_enumeration.hpp"
-
 #include "iostream.hpp"
 
-using namespace acommon;
+namespace aspell { 
 
-namespace acommon {
   struct CheckInfo;
-}
 
-namespace aspeller {
+namespace sp {
 
   struct SuggestRepl {
     const char * substr;
@@ -60,7 +59,7 @@ namespace aspeller {
 
   enum StoreAs {Stripped, Lower};
 
-  class Language : public Cacheable {
+  class LangImpl : public Cacheable, public LangBase {
   public:
     typedef const Config CacheConfig;
     typedef String       CacheKey;
@@ -118,8 +117,8 @@ namespace aspeller {
     StringBuffer buf_;
     Vector<SuggestRepl> repls_;
 
-    Language(const Language &);
-    void operator=(const Language &);
+    LangImpl(const LangImpl &);
+    void operator=(const LangImpl &);
 
   public: // but don't use
 
@@ -128,7 +127,8 @@ namespace aspeller {
 
   public:
 
-    Language() {}
+    LangImpl() {}
+    ~LangImpl();
     PosibErr<void> setup(const String & lang, const Config * config);
     void set_lang_defaults(Config & config) const;
 
@@ -137,9 +137,9 @@ namespace aspeller {
     const char * charmap() const {return charmap_.c_str();}
     const char * data_encoding() const {return data_encoding_.c_str();}
 
-    const Convert * mesg_conv() const {return mesg_conv_.ptr;}
-    const Convert * to_utf8() const {return to_utf8_.ptr;}
-    const Convert * from_utf8() const {return from_utf8_.ptr;}
+    const SimpleConvert * mesg_conv() const {return mesg_conv_.ptr;}
+    const SimpleConvert * to_utf8() const {return to_utf8_.ptr;}
+    const SimpleConvert * from_utf8() const {return from_utf8_.ptr;}
 
     int to_uni(char c) const {return to_uni_[to_uchar(c)];}
 
@@ -278,6 +278,11 @@ namespace aspeller {
       else return soundslike_->to_soundslike(res,str,len);
     }
 
+    char * to_soundslike(char * str) const {
+      soundslike_->to_soundslike(str,str,strlen(str));
+      return str;
+    }
+
     const char * soundslike_chars() const {return soundslike_chars_.c_str();}
 
     //
@@ -325,11 +330,12 @@ namespace aspeller {
 
     CasePattern case_pattern(const char * str, unsigned size) const;
 
-    void fix_case(CasePattern case_pattern, char * str)
+    char * fix_case(CasePattern case_pattern, char * str) const
     {
-      if (!str[0]) return;
+      if (!str[0]) return str;
       if (case_pattern == AllUpper) to_upper(str,str);
       else if (case_pattern == FirstUpper) *str = to_title(*str);
+      return str;
     }
     void fix_case(CasePattern case_pattern, 
                   char * res, const char * str) const;
@@ -340,8 +346,10 @@ namespace aspeller {
     // for cache
     //
 
-    static inline PosibErr<Language *> get_new(const String & lang, const Config * config) {
-      StackPtr<Language> l(new Language());
+    static inline PosibErr<LangImpl *> get_new(const String & lang,
+                                               const Config * config) {
+      //abort(); // FIXME!
+      StackPtr<LangImpl> l(new LangImpl());
       RET_ON_ERR(l->setup(lang, config));
       return l.release();
     }
@@ -349,18 +357,16 @@ namespace aspeller {
     bool cache_key_eq(const String & l) const  {return name_ == l;}
   };
 
-  typedef Language LangImpl;
-
   struct MsgConv : public ConvP
   {
-    MsgConv(const Language * l) : ConvP(l->mesg_conv()) {}
-    MsgConv(const Language & l) : ConvP(l.mesg_conv()) {}
+    MsgConv(const LangImpl * l) : ConvP(l->mesg_conv()) {}
+    MsgConv(const LangImpl & l) : ConvP(l.mesg_conv()) {}
   };
 
   struct InsensitiveCompare {
     // compares to strings without regards to casing or special characters
-    const Language * lang;
-    InsensitiveCompare(const Language * l = 0) : lang(l) {}
+    const LangImpl * lang;
+    InsensitiveCompare(const LangImpl * l = 0) : lang(l) {}
     operator bool () const {return lang;}
     int operator() (const char * a, const char * b) const
     { 
@@ -377,20 +383,20 @@ namespace aspeller {
 
   struct InsensitiveEqual {
     InsensitiveCompare cmp;
-    InsensitiveEqual(const Language * l = 0) : cmp(l) {}
+    InsensitiveEqual(const LangImpl * l = 0) : cmp(l) {}
     bool operator() (const char * a, const char * b) const
     {
       return cmp(a,b) == 0;
     }
   };
-  
+
   template <typename HASH_INT = size_t>
   struct InsensitiveHash {
     // hashes a string without regards to casing or special begin
     // or end characters
-    const Language * lang;
+    const LangImpl * lang;
     InsensitiveHash() {}
-    InsensitiveHash(const Language * l)
+    InsensitiveHash(const LangImpl * l)
 	: lang(l) {}
     HASH_INT operator() (const char * s) const
     {
@@ -405,24 +411,24 @@ namespace aspeller {
   };
 
   struct SensitiveCompare {
-    const Language * lang;
+    const LangImpl * lang;
     bool case_insensitive;
     bool ignore_accents; // unused
     bool begin; // if not begin we are checking the end of the word
     bool end;   // if not end we are checking the beginning of the word
                 // if both false we are checking the middle of a word
-    SensitiveCompare(const Language * l = 0) 
+    SensitiveCompare(const LangImpl * l = 0) 
       : lang(l), case_insensitive(false), ignore_accents(false),
         begin(true), end(true) {}
     bool operator() (const char * word, const char * inlist) const;
   };
 
   struct CleanAffix {
-    const Language * lang;
+    const LangImpl * lang;
     OStream * log;
     MsgConv msgconv1;
     MsgConv msgconv2;
-    CleanAffix(const Language * lang0, OStream * log0);
+    CleanAffix(const LangImpl * lang0, OStream * log0);
     char * operator() (ParmStr word, char * aff);
   };
 
@@ -434,7 +440,7 @@ namespace aspeller {
       SimpleString aff;
     };
     WordListIterator(StringEnumeration * in,
-                     const Language * lang,
+                     const LangImpl * lang,
                      OStream * log);
     // init may set "norm-strict" to true which is why it is not const
     PosibErr<void> init (Config & config);
@@ -448,7 +454,7 @@ namespace aspeller {
     bool skip_invalid_words;
     bool clean_affixes;
     StringEnumeration * in;
-    const Language * lang;
+    const LangImpl * lang;
     ConvEC iconv;
     OStream * log;
     Value val;
@@ -460,19 +466,18 @@ namespace aspeller {
     CleanAffix clean_affix;
   };
 
-  String get_stripped_chars(const Language & l);
+  String get_stripped_chars(const LangImpl & l);
 
-  String get_clean_chars(const Language & l);
+  String get_clean_chars(const LangImpl & l);
   
-  PosibErr<void> check_if_valid(const Language & l, ParmStr word);
-  PosibErr<void> validate_affix(const Language & l, ParmStr word, ParmStr aff);
+  PosibErr<void> check_if_valid(const LangImpl & l, ParmStr word);
+  PosibErr<void> validate_affix(const LangImpl & l, ParmStr word, ParmStr aff);
 
   bool find_language(Config & c);
 
-  PosibErr<Language *> new_language(const Config &, ParmStr lang = 0);
+  PosibErr<LangImpl *> new_lang_impl(const Config &, ParmStr lang = 0);
 
   PosibErr<void> open_affix_file(const Config &, FStream & o);
-}
-
+}}
 
 #endif

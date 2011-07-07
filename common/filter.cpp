@@ -13,12 +13,13 @@
 #include "strtonum.hpp"
 #include "errors.hpp"
 #include "asc_ctype.hpp"
+#include "stack_ptr.hpp"
 
 #ifdef HAVE_LIBDL
 #  include <dlfcn.h>
 #endif
 
-namespace acommon {
+namespace aspell {
 
   FilterHandle::~FilterHandle() 
   {
@@ -28,7 +29,7 @@ namespace acommon {
 
   Filter::Filter() {}
 
-  void Filter::add_filter(IndividualFilter * filter)
+  void Filter::add_filter(IndividualFilter * filter, bool own)
   {
     Filters::iterator cur, end;
     cur = filters_.begin();
@@ -37,6 +38,7 @@ namespace acommon {
       ++cur;
     }
     filters_.insert(cur, filter);
+    if (own) own_.push_back(filter);
   }
 
   void Filter::reset()
@@ -60,12 +62,24 @@ namespace acommon {
   void Filter::clear()
   {
     Filters::iterator cur, end;
-    cur = filters_.begin();
-    end = filters_.end();
-    for (; cur != end; ++cur){
+    cur = own_.begin();
+    end = own_.end();
+    for (; cur != end; ++cur)
       delete *cur;
-    }
     filters_.clear();
+    own_.clear();
+  }
+
+  Filter * Filter::shallow_copy()
+  {
+    StackPtr<Filter> fil(new Filter);
+    fil->filters_.resize(filters_.size());
+    for (unsigned i = 0; i != filters_.size(); ++i) 
+    {
+      fil->filters_[i] = filters_[i];
+      if (!fil->filters_[i]) return 0;
+    }
+    return fil.release();
   }
 
   Filter::~Filter() 
@@ -135,5 +149,31 @@ namespace acommon {
       return no_err;
     }
   }
+
+  //
+  //
+  //
+
+  IndividualFilter::IndividualFilter()
+  {
+  }
+
+  void NormalFilter::set_name(ParmStr n)
+  {
+    base_name_ = n;
+    what_ = Filter;
+    name_ = base_name_;
+    name_ += "-filter";
+  }
+
+  void ConversionFilter::set_name(ParmStr n, What w)
+  {
+    base_name_ = n;
+    what_ = w;
+    name_ = base_name_;
+    assert(w != Filter);
+    name_ += what_ == Encoder ? "-encoder" : "-decoder";
+  }
+
 }
 

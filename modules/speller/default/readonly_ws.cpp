@@ -37,14 +37,14 @@ using std::pair;
 
 #include "settings.h"
 
+#include "file_util.hpp"
+#include "fstream.hpp"
 #include "block_vector.hpp"
 #include "config.hpp"
 #include "data.hpp"
 #include "data_util.hpp"
 #include "errors.hpp"
-#include "file_util.hpp"
-#include "fstream.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
 #include "stack_ptr.hpp"
 #include "objstack.hpp"
 #include "vector.hpp"
@@ -79,6 +79,8 @@ typedef size_t hash_int_t;
 #ifndef MAP_FAILED 
 #define MAP_FAILED (-1)
 #endif
+
+using namespace aspell;
 
 #ifdef HAVE_MMAP
 
@@ -117,7 +119,7 @@ static byte HAVE_AFFIX_FLAG = 1 << 7;
 static byte HAVE_CATEGORY_FLAG = 1 << 6;
 
 static byte DUPLICATE_FLAG = 1 << 4;
-// this flag is set when there is is more than one word for a
+// this flag is set when there is more than one word for a
 // particulear "clean" word such as "jello" "Jello".  It is set on all
 // but the last word of the group.  Ie, if it is set than the next
 // word when converted to its "clean" form equals the same value.
@@ -180,7 +182,7 @@ static inline bool duplicate_flag(const char * d) {
 
 namespace {
 
-  using namespace aspeller;
+  using namespace aspell::sp;
 
   /////////////////////////////////////////////////////////////////////
   // 
@@ -202,7 +204,7 @@ namespace {
     struct WordLookupParms {
       const char * block_begin;
       WordLookupParms() {}
-      typedef BlockVector<const u32int> Vector;
+      typedef BlockVector<const u32int> Vec;
       typedef u32int                    Value;
       typedef const char *              Key;
       static const bool is_multi = false;
@@ -382,7 +384,7 @@ namespace {
   static const char * const cur_check_word = "aspell default speller rowl 1.10";
 
   struct DataHead {
-    // all sizes except the last four must to divisible by:
+    // all sizes except the last four must to divisible by "align":
     static const unsigned int align = 16;
     char check_word[64];
     u32int endian_check; // = 12345678
@@ -749,13 +751,13 @@ namespace {
 
 }  
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   Dictionary * new_default_readonly_dict() {
     return new ReadOnlyDict();
   }
   
-}
+} }
 
 namespace {
 
@@ -773,7 +775,7 @@ namespace {
   //       no soundslike
   //       invisible soundslike
 
-  using namespace aspeller;
+  using namespace aspell::sp;
 
   struct WordData {
     static const unsigned struct_size;
@@ -792,7 +794,7 @@ namespace {
 
   struct SoundslikeLess {
     InsensitiveCompare icomp;
-    SoundslikeLess(const Language * l) : icomp(l) {}
+    SoundslikeLess(const LangImpl * l) : icomp(l) {}
     bool operator() (WordData * x, WordData * y) const {
       int res = strcmp(x->sl, y->sl);
       if (res != 0) return res < 0;
@@ -805,7 +807,7 @@ namespace {
   struct WordLookupParms {
     const char * block_begin;
     WordLookupParms() {}
-    typedef acommon::Vector<u32int> Vector;
+    typedef aspell::Vector<u32int>      Vec;
     typedef u32int              Value;
     typedef const char *        Key;
     static const bool is_multi = false;
@@ -829,7 +831,7 @@ namespace {
   }
 
   PosibErr<void> create (StringEnumeration * els,
-			 const Language & lang,
+			 const LangImpl & lang,
                          Config & config) 
   {
     assert(sizeof(u16int) == 2);
@@ -840,11 +842,11 @@ namespace {
                              strcmp(lang.soundslike_name(), "simple") == 0);
 
     bool affix_compress = (lang.affix() && 
-                           config.retrieve_bool("affix-compress"));
+                           config.retrieve_bool("affix-compress").data);
 
     bool partially_expand = (affix_compress &&
                              !full_soundslike &&
-                             config.retrieve_bool("partially-expand"));
+                             config.retrieve_bool("partially-expand").data);
 
     bool invisible_soundslike = false;
     if (partially_expand)
@@ -1021,27 +1023,21 @@ namespace {
     InsensitiveEqual ieq(&lang);
     while (cur) {
       if (strcmp(prev->word, cur->word) == 0) {
-        // merge affix info if necessary
         if (!prev->aff && cur->aff) {
+          // merge affix info into previous word
           prev->flags |= HAVE_AFFIX_FLAG;
           prev->aff = cur->aff;
           prev->data_size += strlen(prev->aff) + 1;
+          prev->next = cur->next;
         } else if (prev->aff && cur->aff) {
-          unsigned l1 = strlen(prev->aff);
-          unsigned l2 = strlen(cur->aff);
-          char * aff = (char *)buf.alloc(l1 + l2 + 1);
-          memcpy(aff, prev->aff, l1);
-          prev->aff = aff;
-          aff += l1;
-          for (const char * p = cur->aff; *p; ++p) {
-            if (memchr(prev->aff, *p, l1)) continue;
-            *aff = *p;
-            ++aff;
-          }
-          *aff = '\0';
-          prev->data_size = prev->word_size + (aff - prev->aff) + 2;
+          // don't merge affix info, store both entries
+          prev->flags |= DUPLICATE_FLAG;
+          ++num_entries;
+          prev = cur;
+        } else {
+          // ignore this word
+          prev->next = cur->next;
         }
-        prev->next = cur->next;
       } else {
         if (ieq(prev->word, cur->word)) prev->flags |= DUPLICATE_FLAG;
         else ++uniq_entries;
@@ -1256,17 +1252,17 @@ namespace {
 
 }
 
-namespace aspeller {
+namespace aspell { namespace sp {
   PosibErr<void> create_default_readonly_dict(StringEnumeration * els,
                                               Config & config)
   {
-    CachePtr<Language> lang;
-    PosibErr<Language *> res = new_language(config);
+    CachePtr<LangImpl> lang;
+    PosibErr<LangImpl *> res = new_lang_impl(config);
     if (res.has_err()) return res;
     lang.reset(res.data);
     lang->set_lang_defaults(config);
     RET_ON_ERR(create(els,*lang,config));
     return no_err;
   }
-}
+} }
 

@@ -4,15 +4,13 @@
 #include "cache.hpp"
 #include "matrix.hpp"
 
-namespace acommon {
+namespace aspell {
+
   class Config;
-}
 
-namespace aspeller {
+namespace sp {
 
-  class Language;
-
-  using namespace acommon;
+  class LangImpl;
 
   struct TypoEditDistanceInfo : public Cacheable {
     int missing; // the cost of having to insert a character
@@ -47,17 +45,17 @@ namespace aspeller {
 
     String keyboard;
     typedef const Config CacheConfig;
-    typedef const Language CacheConfig2;
+    typedef const LangImpl CacheConfig2;
     typedef const char * CacheKey;
     bool cache_key_eq(const char * kb) const {return keyboard == kb;}
-    static PosibErr<TypoEditDistanceInfo *> get_new(const char *, const Config *, const Language *);
+    static PosibErr<TypoEditDistanceInfo *> get_new(const char *, const Config *, const LangImpl *);
   private:
     TypoEditDistanceInfo(const TypoEditDistanceInfo &);
     void operator=(const TypoEditDistanceInfo &);
   };
 
   PosibErr<void> setup(CachePtr<const TypoEditDistanceInfo> & res,
-                       const Config * c, const Language * l, ParmString kb);
+                       const Config * c, const LangImpl * l, ParmString kb);
 
   // edit_distance finds the shortest edit distance. 
   // Preconditions:
@@ -73,6 +71,6 @@ namespace aspeller {
   short typo_edit_distance(ParmString word, 
 			   ParmString target,
 			   const TypoEditDistanceInfo & w);
-}
+}}
 
 #endif

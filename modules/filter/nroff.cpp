@@ -25,13 +25,13 @@
 #include "indiv_filter.hpp"
 #include "string_map.hpp"
 #include "mutable_container.hpp"
-#include "clone_ptr-t.hpp"
+#include "clone_ptr.hpp"
 #include "filter_char_vector.hpp"
 
 namespace {
-  using namespace acommon;
+  using namespace aspell;
 
-  class NroffFilter : public IndividualFilter
+  class NroffFilter : public NormalFilter
   {
   private:
     enum filter_state {
@@ -84,8 +84,8 @@ namespace {
 
   PosibErr<bool> NroffFilter::setup(Config * opts) 
   {
-    name_ = "nroff-filter";
-    order_num_ = 0.2;
+    set_name("nroff");
+    set_order_num(0.20);
     reset();
     return true;
   }

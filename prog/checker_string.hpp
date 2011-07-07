@@ -11,9 +11,8 @@
 #include "vector.hpp"
 #include "string.hpp"
 #include "simple_string.hpp"
-#include "document_checker.hpp"
 
-using namespace acommon;
+using namespace aspell;
 
 class CheckerString {
 public:
@@ -26,26 +25,27 @@ public:
   };
 
   typedef Vector<Line> Lines;
-  CheckerString(AspellSpeller * speller, FILE * in, FILE * out, int lines);
+  CheckerString(AspellChecker * checker, AspellSpeller * speller, 
+                FILE * in, FILE * out, int lines);
   ~CheckerString();
 
 public: // but don't use
-  void inc(Lines::iterator & i) {
+  void inc(Line * & i) {
     ++i;
-    if (i == lines_.end())
-      i = lines_.begin();
+    if (i == lines_.pend())
+      i = lines_.pbegin();
   }
-  void dec(Lines::iterator & i) {
-    if (i == lines_.begin())
-      i = lines_.end();
+  void dec(Line * & i) {
+    if (i == lines_.pbegin())
+      i = lines_.pend();
     --i;
   }
-  void next_line(Lines::iterator & i) {
+  void next_line(Line * & i) {
     inc(i);
     if (i == end_)
       read_next_line();
   }
-  bool off_end(Lines::iterator i) {
+  bool off_end(Line * i) {
     return i == end_;
   }
 public:
@@ -53,7 +53,7 @@ public:
   class LineIterator {
   public:
     CheckerString * cs_;
-    Lines::iterator line_;
+    Line * line_;
 
     SimpleString * operator-> () {return &line_->disp;}
 
@@ -65,7 +65,7 @@ public:
 
     LineIterator() {}
 
-    LineIterator(CheckerString * cs, Lines::iterator l) : cs_(cs), line_(l) {}
+    LineIterator(CheckerString * cs, Line * l) : cs_(cs), line_(l) {}
   };
 
   LineIterator cur_line() {return LineIterator(this, cur_line_);}
@@ -84,15 +84,15 @@ public:
   }
 
 private:
-  Lines::iterator first_line() {
-    Lines::iterator i = end_;
+  Line * first_line() {
+    Line * i = end_;
     inc(i);
     return i;
   }
 
   bool read_next_line();
 
-  Lines::iterator cur_line_;
+  Line * cur_line_;
   Lines lines_;
 
   String::iterator real_word_begin_;
@@ -103,14 +103,13 @@ private:
   FILE * in_;
   FILE * out_;
 
-  CopyPtr<DocumentChecker> checker_;
+  AspellChecker * checker_;
   AspellSpeller * speller_;
-  Lines::iterator end_;
-  int diff_;
-  Token tok_;
-  bool has_repl_;
+  Line * end_;
 
   void fix_display_str();
+
+  static void checker_callback(void *, void *);
 };
 
 

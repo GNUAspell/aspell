@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <cstdio>
 
-namespace acommon {
+namespace aspell {
 
   struct StringListNode {
     // private data structure

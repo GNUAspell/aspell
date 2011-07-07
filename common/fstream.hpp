@@ -17,7 +17,8 @@
 // NOTE: See iostream.hpp for the standard stream (ie standard input,
 //       output, error)
 
-namespace acommon {
+namespace aspell {
+
   class String;
 
   class FStream : public IStream, public OStream
@@ -90,6 +91,8 @@ namespace acommon {
     FStream & operator>> (String &);
     FStream & operator>> (unsigned int &);
     FStream & operator>> (int &);
+    FStream & operator<< (const char *);
+    FStream & operator<< (const String &);
     FStream & operator<< (ParmStr);
     FStream & operator<< (unsigned int);
     FStream & operator<< (int);

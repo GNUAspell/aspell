@@ -7,7 +7,7 @@
 #include "string_list.hpp"
 //#include "iostream.hpp"
 
-namespace acommon {
+namespace aspell {
 
   void StringList::copy(const StringList & other)
   {

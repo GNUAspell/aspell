@@ -7,7 +7,7 @@
 #ifndef ASC_CTYPE__HPP
 #define ASC_CTYPE__HPP
 
-namespace acommon {
+namespace aspell {
 
   static inline bool asc_isspace(int c) 
   {

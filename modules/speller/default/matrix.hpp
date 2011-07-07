@@ -3,7 +3,7 @@
 
 #include <vector>
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   class ShortMatrix {
     int x_size;
@@ -17,6 +17,6 @@ namespace aspeller {
     short & operator() (int x, int y) {return data[x + y*x_size];}
   };
 
-}
+} }
 
 #endif

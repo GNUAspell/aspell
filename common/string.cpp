@@ -15,10 +15,11 @@
 #  endif
 #endif
 
+#include "settings.h"
 #include "string.hpp"
 #include "asc_ctype.hpp"
 
-namespace acommon {
+namespace aspell {
   
   // reserve space for at least s+1 characters
   void String::reserve_i(size_t s)

@@ -1,11 +1,11 @@
 \input texinfo   @c -*-texinfo-*-
 
 @setfilename aspell.info
-@settitle GNU Aspell 0.60.7-pre
+@settitle GNU Aspell 0.61-cvs
 @syncodeindex pg cp
 @documentencoding ISO-8859-1
 @documentdescription
-Aspell 0.60.7-pre spell checker user's manual.
+Aspell 0.61-cvs spell checker user's manual.
 @end documentdescription
 
 @copying
@@ -21,18 +21,18 @@ Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.1 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts and no Back-Cover Texts.  A
-copy of the license is included in the section entitled "GNU Free
-Documentation License".
+copy of the license is included in the section entitled ``GNU Free
+Documentation License''.
 @end quotation
 @end copying
 
 @dircategory GNU Packages
 @direntry
-* Aspell: (aspell).        GNU Aspell spelling checker
+* Aspell: (aspell).        GNU Aspell spell checker
 @end direntry
 
 @titlepage
-@title GNU Aspell 0.60.7-pre
+@title GNU Aspell 0.61-cvs
 @author Kevin Atkinson (@email{kevina@@gnu.org})
 @page
 @vskip 0pt plus 1filll
@@ -43,7 +43,7 @@ Documentation License".
 
 @ifnottex
 @node Top
-@top GNU Aspell 0.60.7-pre
+@top GNU Aspell 0.61-cvs
 This is the user's manual for Aspell
 
 GNU Aspell is a spell checker designed to eventually replace Ispell.
@@ -264,12 +264,19 @@ errors.
 @item
 Lower memory footprint
 
+@c FIXME: Is this ALWAYS true?
+
 @item
 Ability to deal with arbitrary multi-character letters such as old
 ASCII encodings of accented letters.
 
+@c FIXME: This is no longer the case... But Ispell may handle them 
+@c differently.
+
 @item
 Perhaps better support for spell checking (La)TeX files.
+
+@c FIXME: Is this really the case.
 
 @end itemize
 
@@ -292,7 +299,7 @@ being posted to the mailing lists.
 @chapter Basic Usage
 
 For a quick reference on the Aspell utility use the command
-@command{aspell --help}.
+@samp{aspell --help}.
 
 @menu
 * Spellchecking Individual Files::  
@@ -538,6 +545,8 @@ The only major area where Ispell is superior to Aspell is in the
 handling of multi character letters such as old ASCII encoding of
 accented characters.
 
+@c FIXME: This may no longer be the case....
+
 However, Aspell can handle UTF-8 documents far better than Ispell
 can.
 
@@ -549,9 +558,9 @@ can.
 The easiest way to use Aspell with Emacs or XEmacs is to add this
 line:
 
-@verbatim
+@example
 (setq-default ispell-program-name "aspell")
-@end verbatim
+@end example
 
 to the end of your @file{.emacs} file.
 
@@ -559,9 +568,9 @@ For some reason version 3.0 of ispell.el (the lisp program that
 (x)emacs uses) wants to reverse the suggestion list.  To fix this add
 this line:
 
-@verbatim
+@example
 (setq-default ispell-extra-args '("--reverse"))
-@end verbatim
+@end example
 
 after the previous line in your .emacs file and it should solve the problem.
 
@@ -586,9 +595,9 @@ utility.
 To use Aspell in VIM you simply need to add the following line to your
 @file{.vimrc} file:
 
-@verbatim
+@example
 map ^T :w!<CR>:!aspell check %<CR>:e! %<CR>
-@end verbatim
+@end example
 
 I use @kbd{Ctrl-T} since that's the way you spell check in
 @command{pico}.  In order to add a control character to your
@@ -598,11 +607,12 @@ I use @kbd{Ctrl-T} since that's the way you spell check in
 A more useful way to use Aspell, IMHO, is in combination with Newsbody
 (@uref{http://www.image.dk/~byrial/newsbody/}) which is how I use it
 since VIM is my editor for my mailer and my news reader.
-@verbatim
+
+@example
 map ^T\\1\\2<CR>:e! %<CR>
 map \\1 :w!<CR>
 map \\2 :!newsbody -qs -n % -p aspell check \\%f<CR>
-@end verbatim
+@end example
 
 @subsection With Pine
 
@@ -876,7 +886,7 @@ values of: 10=tiny, 20=really small, 30=small, 40=med-small, 50=med,
 @item variety
 @i{(list)}
 Any extra information to distinguish two different words lists that
-have the same lang and size.
+have the same language and size.
 
 @item word-list-path
 @i{(list)}
@@ -1069,8 +1079,10 @@ being readable text in LaTeX output from Aspell.
 @i{(boolean)}
 check @TeX{} comments
 
-@c @item tex-multi-byte
-@c (@i{list}) TeX multi byte letter en|decoding
+@item tex-form
+@i{(string)} The preferred form that output should be in.  Either
+@samp{single} or @samp{multi} to use @TeX{} commands to encode
+non-ASCII characters.
 
 @end table
 
@@ -1085,6 +1097,23 @@ Texinfo parameters and environments not corresponding to readable text.
 @item texinfo-ignore-env
 @i{(list)} Texinfo environments to ignore.
 
+@end table
+
+@subsubsection genconv
+This filter converts text from a single character encoding (such as
+Unicode) to a multi character encoding (such as old ASCII encoded used
+to encode accents).  It can also be used to convert text the other way
+around.
+
+@table @b
+@item genconv-file
+@i{(string)} 
+The data file to use for the conversion.
+
+@item genconv-form
+@i{(string)} The preferred form that output should be in.  Currently
+either @samp{single} or @samp{multi} to use the multi character
+encoding.
 @end table
 
 @subsubsection context
@@ -1414,52 +1443,16 @@ rem-tex-command foo
 will remove the command foo, if present, from the list of @TeX{}
 commands.
 
-The TeX filter mode is also available via @option{latex} alias name.
+The @TeX{} filter can also understand @TeX{} commands which are used
+to encode accents or other non-ASCII characters, and is able to skip over
+the @TeX{} hyphen command.  Exactly what it understands is given by
+the @file{tex.conv} file.
 
-@c The TeXfilter mode also contains a decoding and a encoding filter for
-@c @emph{babel} character codes like the German Umlauts:
+By default, when giving suggestions for a misspelled word, the @TeX{}
+commands will not be used to encode non-ASCII characters.  To use
+the @TeX{} commands simply set the @option{tex-form} to @samp{multi}.
 
-@c @itemize @bullet
-@c @item
-@c @code{@"a} -> @code{\"a} -> @code{"a}
-
-@c @item
-@c @code{@"o} -> @code{\"o} -> @code{"o}
-
-@c @item
-@c @code{@"u} -> @code{\"u} -> @code{"u}
-
-@c @item
-@c @code{@"s} -> @code{\"s} -> @code{"s}
-@c @end itemize
-@c @end quotation
-
-
-@c @quotation
-@c @option{add|rem-tex-multi-byte} conversion
-
-@c Changes list of multi character coded TeX(babel) characters recognized
-@c by Aspell.  In case of German umlauts mentioned above this would mean
-@c that Aspell would decode from their multi character representation to
-@c their proper single char representation.  Given the German word
-@c @code{St@"arke} (strength) which within TeX/LaTeXdocument has to be
-@c written as @code{St"arke} or as @code{St\"arke} would split it into
-@c the two words @code{St} and @code{arke} if it does not know anything
-@c about the multi character encoding @code{"a} or @code{\"a} of
-@c @code{@"a}.  On the other hand if it knows about it than Aspell will
-@c recognize the word properly and will not try to make any strange
-@c suggestion.
-
-@c Each multi character coding conversion has to be specified the
-@c following way:
-@c @example
-@c @i{char}:@i{rep}[:@i{rep}[@dots{}]]
-@c @end example
-@c where @code{@i{char}} is the character encoded by multiple characters
-@c and rep stands for a specific representation of that character.  For
-@c each character may be specified as many representations as available
-@c for it.
-@c @end quotation
+The @TeX{} filter mode is also available via @option{latex} alias name.
 
 @subsubsection Texinfo Filter
 
@@ -1481,6 +1474,16 @@ parameter of the @command{@@item} command as if the parameter was also
 the parameter of the @command{@@code} command.
 
 The Texinfo filter will also skip over the @samp{\input texinfo} line.
+
+The Texinfo filter can also understand Texinfo commands which are used
+to encode accents or other non-ASCII characters, and is able to skip over
+the Texinfo hyphen command.  Exactly what it understands is given by
+the @file{texinfo.conv} file.
+
+By default, when giving suggestions for a misspelled word, the Texinfo
+commands will be used to encode non-ASCII characters, since Texinfo
+does not work well with non-ASCII characters. To avoid using
+Texinfo commands set the @option{tex-form} to @samp{single}.
 
 @subsubsection Nroff Filter
 
@@ -1513,6 +1516,62 @@ escapes
 @item Arguments to extended charset escape in both traditional
 (@code{\(}) and extended (@code{\[comp1 comp2 @dots{}]}) form.
 @end itemize
+
+@subsubsection Genconv Filter
+
+The @emph{genconv} (Generic Convert) filter converts text from a
+single character encoding (such as Unicode) to a multi character
+encoding (such as old ASCII encoded used to encode accents).  It can
+also be used to convert text the other way around.
+
+The data file used is given by the @option{genconv-file} option.
+
+The @option{genconv-form} sets the preferred form that output should be
+in.  Currently either @samp{single} or @samp{multi} to use the multi
+character encoding.
+
+@heading Format of the Genconv data file
+
+A genconv data file should have have an extension of @file{.conv} and
+have the folling format
+
+@example
+name @var{name}
+table
+@var{data}
+@end example
+
+@noindent
+Where name is the name of the conversion and should be the same as the
+base name of the file, ie the file should be named
+@file{@var{name}.conv}.  
+
+@var{data} is the actual data for the conversion which is a white
+space delimited table.  Non-ASCII characters are expected to be in
+UTF-8.  The first column is the single character encoding of letter
+which will generally consist of a single Unicode character encoded in
+UTF-8.  The second column is the preferred multi-character encoding of
+the letter; setting the @option{genconv-form} to @samp{multi} will use
+the encoding in this column.  The remaining columns are alternate
+multi-character encodings that should be recognized.
+
+A @samp{.} in the first column has a special meaning.  It represents
+the empty string.  Strings found in the other columns of this row will
+be converted to nothing.  This is usefull for removing discretionary
+hyphens such as the @TeX{} @samp{\-}.  If you need to include a
+literal @samp{.} use @samp{\.}.
+
+As an example here is a small part of the @TeX{} conversion file,
+@file{tex.conv}:
+
+@example
+name tex
+table
+. \\-
+@ae{} \\ae
+@,{c} \\c@{c@}
+@"u \\"u \\"@{u@}
+@end example
 
 @subsubsection Context Filter
 
@@ -1685,9 +1744,9 @@ prompt.  If you get an error about @file{/usr/bin/perl} not being
 found, then instead try @command{perl @var{bindir}/aspell-import}.  When
 running the script if you get a message like:
 
-@verbatim
+@example
 Error: No word lists can be found for the language "de".
-@end verbatim
+@end example
 
 This means that you have not installed support for the given language,
 in this case @code{de} for German.  To rectify the situation download
@@ -1902,43 +1961,34 @@ the word.  Note that prefixes are always expanded.
 The @command{munch-list} command will reduce the size of word list via
 affix compression.  It will reduce a list of words to a minimal (or
 close to it) set of roots and affixes that will match the same list of
-words.  The list of words is read from standard input and the result,
+words.  In some cases the set of words returned is, provably, the
+minimum number possible.  In the typical case the number of words
+returned is within 1% of the optimum number.
+
+The list of words is read from standard input and the result,
 the ``munched'' list, is written to standard out.  It's usage is:
 
 @example
-aspell munch-list [keep] [single|multi] [simple] < @var{infile} > @var{outfile}
+aspell munch-list [keep] [single|multi] < @var{infile} > @var{outfile}
 @end example
 
 @noindent
-where @option{simple}, @option{single}, @option{multi}, and
-@option{keep} are literal values.
-
-The default algorithm used should give near optimum results.  In some
-cases the set of words returned is, provably, the minimum number
-possible.  In the typical case the number of words returned is within
-1% of the optimum number.
+where @option{keep}, @option{single}, and @option{multi} 
+are literal values.
 
 By default Aspell will remove redundant affix flags.  The @option{keep}
 flag will avoid removing them, which can be useful if you want to
 include all possible expansions for each base word.
 
 When cross products are involved it may be beneficial to list a base
-word more than once.  Unfortunately, the current version of Aspell can
-not correctly handle multiple base words in a dictionary.  Therefore,
-the current default behavior is to only include the one with the most
-expansions.  All of them can be included via the @option{multi} flag.
-Once Aspell is able to handle multiple base words the default will be
-to include them all.  The @option{single} flag can be used to only
+word more than once.  While Aspell 0.61 and better can correctly
+handle multiple base words in a dictionary, Aspell 0.60 can not.
+Therefore, the current default behavior is to only include the one
+with the most expansions.  All of them can be included via the
+@option{multi} flag, but be aware that the word lists will not work
+correctly with Aspell 0.60.  A future version of Aspell may default to
+including them all.  The @option{single} flag can be used to only
 include one of them.
-
-The @option{simple} flag will select an alternate faster algorithm.
-This algorithm is very similar to the @command{munch} command
-distributed with MySpell (the Open Office spell checker), however, it
-doesn't give nearly as good results.  It does okay for the English
-word list but not for some other languages such as German; the normal
-algorithm reduced a list of 312,002 German words to 79,420 base words
-while the simple algorithm only reduced it to 115,927 words.  This
-algorithm may disappear in a future version of Aspell.
 
 @node Format of the Personal and Replacement Dictionaries
 @section Format of the Personal and Replacement Dictionaries
@@ -2400,7 +2450,7 @@ particular command.  Aspell currently supports the following commands:
 @item @code{cs @var{option},@var{value}} @tab Change a configuration option.
 @item @code{cr @var{option}} @tab Prints the value of a configuration option.
 @item @code{pp}
- @tab Returns a list of all words in the current personal wordlist.
+ @tab Returns a list of all words in the current personal word list.
 @item @code{ps}
  @tab Returns a list of all words in the current session dictionary.
 @item @code{l} @tab Returns the current language name.
@@ -2532,8 +2582,8 @@ file name (without the @file{.dat}).
 word lists to be formatted in.  If possible choose from one of the
 standard ones provided with Aspell.  These are @samp{iso-8859-*},
 @samp{koi8-*}, or @samp{viscii}.  If your language does not require
-any non-ascii characters choose @samp{iso-8859-1}.  If one of these
-standard character sets is not suitable for your language then you can
+any non-ASCII characters choose @samp{iso-8859-1}.  If one of these
+standard character sets is not suitable for your language than you can
 create a new one.  @xref{Creating A New Character Set}.
 
 The optional fields are as follows:
@@ -3187,6 +3237,8 @@ the next to the last character in the word must @emph{not} be any of the
 following "a", "e", "i", "o" or "u".  The second condition is that
 the last character of the word must end in "y".
 
+FIXME: Add info in two-fold suffix stripping and CIRCUMFIX flag.
+
 @subsection When Compared With Ispell
 
 Now for comparison purposes, here is the same information from the
@@ -3634,7 +3686,7 @@ Hangul letters individual letters, known as jamo, are grouped together
 in syllable blocks.  Unicode allows Hangul to be stored in one of three
 ways, (A) Individual jamo letters (Hangul Compatibility Jamo, U+3130 -
 U+318F), (D) decomposed jamo (Hangul Jamo, U+1100 - U+11FF), and (C)
-precoposed sylable blocks (Hangul Syllables, U+AC00 - U+D7AF).  In order
+precomposed syllable blocks (Hangul Syllables, U+AC00 - U+D7AF).  In order
 for Aspell to work with Hangul it needs to be form A.  Unfortunately the
 existing Normalization code in Aspell will not be able to adequately
 deal with converting Hangul from form D and C to form A and back again.
@@ -3736,7 +3788,7 @@ South African Languages Web,
 @uref{http://www.languages.web.za/}
 
 @item
-The Languages and Writing Systems of Africa (Global Advisor Newsletter),
+The Languages and Writing Systems of Africa (Global Adviser Newsletter),
 @uref{http://www.intersolinc.com/@/newsletters/africa.htm}
 
 @end itemize
@@ -3992,10 +4044,6 @@ me. Good C++ skills are needed for most of these tasks involving
 coding.
 
 @itemize @bullet
-@item
-Create a generic filter to handle multi-character letters such as
-@samp{"a} or @samp{\"a} for @"a.  This filter should make use of the
-already exiting normalization code if possible.
 @item
 Make Aspell @strong{Thread safe}. Even though Aspell itself is not
 multi-threaded I would like it to be thread safe so that it can be
@@ -4263,6 +4311,27 @@ a C++ program.
 
 @node ChangeLog
 @appendix ChangeLog
+
+@heading Changes from 0.60.5 to 0.61 (???)
+@itemize @bullet
+@item
+Added a generic conversion (genconv) filter for converting from old
+multi-charter ASCII encodings to single-character encoding such as
+Unicode.
+@item
+Added support for recognizing TeX and Texinfo commands used to encode
+non-ASCII letters as well as support for skipping over Tex hyphens.
+@item
+Rewrote the document checker interface to correctly handle the case
+when the replacement is more than one word.
+@item
+Be able to store the same base word multiple times ie ``foo/x'',
+``foo/y'', which makes sense when cross products are involved.
+@item
+Support for two-fold suffix stripping.
+@item
+Other minor enhancements and bug fixes.
+@end itemize
 
 @heading Changes from 0.60.6.1 to 0.60.7 (??, 2011)
 @itemize @bullet
@@ -5285,7 +5354,7 @@ global configuration file, and finally the compiled-in defaults.
 
 @item
 Totally reworked the language class in preparation for my new language
-code.  See @url{http://aspell.sourceforge.net/international/} for more
+code.  See @uref{http://aspell.sourceforge.net/international/} for more
 information of what I have in store.
 
 @item
@@ -5749,8 +5818,8 @@ Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.1 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts and no Back-Cover Texts.  A
-copy of the license is included in the section entitled "GNU Free
-Documentation License".
+copy of the license is included in the section entitled ``GNU Free
+Documentation License''.
 
 The library and utility program is copyright @copyright{} 2000--2006 by
 Kevin Atkinson.  You can redistribute it and/or modify it under the

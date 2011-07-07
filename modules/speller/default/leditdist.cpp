@@ -34,7 +34,7 @@
     ++a0; ++b0;             \
   }
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   int limit_edit_distance(const char * a, const char * b, 
 			  int limit, const EditDistanceWeights & w)
@@ -64,10 +64,10 @@ namespace aspeller {
       }
 
       if (*a == '\0') {
-
+        
 	do {
 	  score += w.del2;
-	  if (score >= min) goto FINISH;
+	  if (score >= min || score > limit) goto FINISH;
 	  ++b;
 	} while (*b != '\0');
 	min = score;
@@ -76,7 +76,7 @@ namespace aspeller {
 	
 	do {
 	  score += w.del1;
-	  if (score >= min) goto FINISH;
+	  if (score >= min || score > limit) goto FINISH;
 	  ++a;
 	} while (*a != '\0');
 	min = score;
@@ -303,6 +303,6 @@ namespace aspeller {
     }
     return EditDist(min, amax);
   }
-}
+} }
 
 

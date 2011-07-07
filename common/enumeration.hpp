@@ -13,7 +13,8 @@
 #ifndef __autil_enumeration__
 #define __autil_enumeration__
 
-#include "clone_ptr-t.hpp"
+#include "settings.h"
+#include "clone_ptr.hpp"
 
 // An enumeration is an efficient way to iterate through elements much
 // like a forward iterator.  The at_end method is a convince method
@@ -40,7 +41,7 @@
 // If you really love iterators you can very easily wrap an enumeration 
 // in a forward iterator.  
 
-namespace acommon {
+namespace aspell {
 
   template <typename Val>
   class Enumeration {

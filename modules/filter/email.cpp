@@ -14,9 +14,9 @@
 
 namespace {
 
-  using namespace acommon;
+  using namespace aspell;
 
-  class EmailFilter : public IndividualFilter 
+  class EmailFilter : public NormalFilter 
   {
     bool prev_newline;
     bool in_quote;
@@ -62,8 +62,8 @@ namespace {
 
   PosibErr<bool> EmailFilter::setup(Config * opts) 
   {
-    name_ = "email-filter";
-    order_num_ = 0.85;
+    set_name("email");
+    set_order_num(0.85);
     is_quote_char.conv.setup(*opts, "utf-8", "ucs-4", NormNone);
     opts->retrieve_list("f-email-quote", &is_quote_char);
     margin = opts->retrieve_int("f-email-margin");

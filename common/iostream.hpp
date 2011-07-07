@@ -9,7 +9,7 @@
 
 #include "fstream.hpp"
 
-namespace acommon {
+namespace aspell {
 
   // These streams for the time being will be based on stdin, stdout,
   // and stderr respectfully.  So it is safe to use the standard C

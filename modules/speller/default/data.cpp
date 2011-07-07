@@ -6,19 +6,19 @@
 
 #include "config.hpp"
 #include "convert.hpp"
+#include "file_util.hpp"
+#include "fstream.hpp"
 #include "data.hpp"
 #include "data_id.hpp"
 #include "errors.hpp"
-#include "file_util.hpp"
-#include "fstream.hpp"
-#include "language.hpp"
+#include "lang_impl.hpp"
 #include "speller_impl.hpp"
-#include "cache-t.hpp"
+#include "cache.hpp"
 #include "vararray.hpp"
 
 #include "gettext.h"
 
-namespace aspeller {
+namespace aspell { namespace sp {
 
   GlobalCache<Dictionary> dict_cache("dictionary");
 
@@ -58,7 +58,7 @@ namespace aspeller {
     }
   }
 
-  PosibErr<void> Dictionary::attach(const Language &l) {
+  PosibErr<void> Dictionary::attach(const LangImpl &l) {
     if (lang_ && strcmp(l.name(),lang_->name()) != 0)
       return make_err(mismatched_language, lang_->name(), l.name());
     if (!lang_) lang_.copy(&l);
@@ -93,7 +93,7 @@ namespace aspeller {
   PosibErr<void> Dictionary::set_check_lang (ParmString l, Config & config)
   {
     if (lang_ == 0) {
-      PosibErr<Language *> res = new_language(config, l);
+      PosibErr<LangImpl *> res = new_lang_impl(config, l);
       if (res.has_err()) return res;
       lang_.reset(res.data);
       lang_->set_lang_defaults(config);
@@ -157,17 +157,21 @@ namespace aspeller {
   class DictStringEnumeration : public StringEnumeration 
   {
     ClonePtr<Dict::Enum> real_;
+    const LangImpl  * lang_;
+    String temp_str;
   public:
-    DictStringEnumeration(Dict::Enum * r) : real_(r) {}
+    DictStringEnumeration(Dict::Enum * r, const LangImpl  * l) 
+      : real_(r), lang_(l) {}
     
     bool at_end() const {
       return real_->at_end();
     }
     const char * next() {
-      // FIXME: It's not this simple when affixes are involved
+      temp_str.clear();
       WordEntry * w =  real_->next(); 
       if (!w) return 0;
-      return w->word;
+      w->write(temp_str, *lang_);
+      return temp_str.str();
     }
     StringEnumeration * clone() const {
       return new DictStringEnumeration(*this);
@@ -238,7 +242,7 @@ namespace aspeller {
   {
     Enum * e = detailed_elements();
     if (!e) return 0;
-    return new DictStringEnumeration(e);
+    return new DictStringEnumeration(e, lang());
   }
   
   Dict::Enum * Dictionary::detailed_elements() const
@@ -324,13 +328,13 @@ namespace aspeller {
   } while (false)
 
   OStream & WordEntry::write (OStream & o,
-                              const Language & l,
+                              const LangImpl & l,
                               Convert * c) const
   {
     CharVector buf;
     write_conv(word);
     if (aff && *aff) {
-      o << '/';
+      o << '/'; // FIXME: This isn't write for UCS-2,4
       write_conv(aff);
     }
     return o;
@@ -464,5 +468,5 @@ namespace aspeller {
     return res;
   }
 
-}
+} }
 
