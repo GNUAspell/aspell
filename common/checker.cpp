@@ -93,27 +93,14 @@ namespace aspell {
                         unsigned size, unsigned ignore, 
                         void * which)
   {
-    if (size > ignore) {
-      Segment * seg = fill_segment(0, str, size, filter_);
-      seg->ignore = ignore;
-      seg->which = which;
-      seg->id = last_id++;
-      seg->prev = last;
-      last->next = seg;
-      last = seg;
-      if (!span_strings_) add_separator();
-    } else {
-      if (filter_) {
-        proc_str_.clear();
-        conv_->decode(str, size, proc_str_);
-        proc_str_.append(0);
-        FilterChar * begin = proc_str_.pbegin();
-        FilterChar * end   = proc_str_.pend() - 1;
-        filter_->process(begin, end);
-      }
-      if (which)
-        string_freed_callback_(string_freed_callback_data_, which);
-    }
+    Segment * seg = fill_segment(0, str, size, filter_);
+    seg->ignore = ignore;
+    seg->which = which;
+    seg->id = last_id++;
+    seg->prev = last;
+    last->next = seg;
+    last = seg;
+    if (!span_strings_) add_separator();
   }
 
   // precond: at least one segment already in list
@@ -169,7 +156,8 @@ namespace aspell {
       else                last = next_seg;
     }
     unsigned tok_width = token.end.offset - token.begin.offset;
-    unsigned seg_width = FilterChar::sum(seg->begin, seg->end);
+    // segments include the '\0' as part of the string, thus use end-1
+    unsigned seg_width = FilterChar::sum(seg->begin, seg->end - 1);
     int diff = seg_width - tok_width;
     Segment * c = seg->next;
     while (c && c->id == seg->id) {
