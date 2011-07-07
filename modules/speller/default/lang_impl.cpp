@@ -142,8 +142,8 @@ namespace aspell { namespace sp {
     //
     // fill in tables
     //
-    unsigned int i;
-    for ( i = 0; i != 256; ++i) {
+
+    for (unsigned int i = 0; i != 256; ++i) {
       p = get_nb_line(char_data, temp);
       if (!p || strtoul(p, &p, 16) != i) 
         return make_err(bad_file_format, char_data_name);
@@ -167,14 +167,14 @@ namespace aspell { namespace sp {
       char_info_[i] = inf;
     }
 
-    for ( i = 0; i != 256; ++i) {
+    for (unsigned int i = 0; i != 256; ++i) {
       de_accent_[i] = to_plain_[i] == 0 ? to_uchar(i) : to_plain_[i];
     }
 
     to_plain_[0] = 0x10; // to make things slightly easier
     to_plain_[1] = 0x10;
 
-    for ( i = 0; i != 256; ++i) {
+    for (unsigned int i = 0; i != 256; ++i) {
       to_stripped_[i] = to_plain_[(unsigned char)to_lower_[i]];
     }
     
@@ -195,7 +195,7 @@ namespace aspell { namespace sp {
       clean_is = to_lower_;
     }
 
-    for ( i = 0; i != 256; ++i) {
+    for (unsigned i = 0; i != 256; ++i) {
       to_clean_[i] = char_type_[i] > NonLetter ? clean_is[i] : 0;
       if ((unsigned char)to_clean_[i] == i) char_info_[i] |= CLEAN;
     }
@@ -305,7 +305,7 @@ namespace aspell { namespace sp {
       if (num_repl > 0)
         have_repl_ = true;
 
-      for ( i = 0; i != num_repl; ++i) {
+      for (size_t i = 0; i != num_repl; ++i) {
         bool res = getdata_pair(REPL, d, buf);
         assert(res); // FIXME
         aspell::to_lower(d.key);
@@ -554,14 +554,13 @@ namespace aspell { namespace sp {
   String get_stripped_chars(const LangImpl & lang) {
     bool chars_set[256] = {0};
     String     chars_list;
-    int i;
-    for (i = 0; i != 256; ++i) 
+    for (int i = 0; i != 256; ++i) 
     {
       char c = static_cast<char>(i);
 	if (lang.is_alpha(c) || lang.special(c).any)
 	  chars_set[static_cast<unsigned char>(lang.to_stripped(c))] = true;
     }
-    for (i = 1; i != 256; ++i) 
+    for (int i = 1; i != 256; ++i) 
     {
       if (chars_set[i]) 
 	chars_list += static_cast<char>(i);
@@ -572,14 +571,13 @@ namespace aspell { namespace sp {
   String get_clean_chars(const LangImpl & lang) {
     bool chars_set[256] = {0};
     String     chars_list;
-    int i;
-    for (i = 0; i != 256; ++i) 
+    for (int i = 0; i != 256; ++i) 
     {
       char c = static_cast<char>(i);
       if (lang.is_alpha(c) || lang.special(c).any) 
         chars_set[static_cast<unsigned char>(lang.to_clean(c))] = true;
     }
-    for (i = 1; i != 256; ++i) 
+    for (int i = 1; i != 256; ++i) 
     {
       if (chars_set[i]) {
 	chars_list += static_cast<char>(i);

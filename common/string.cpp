@@ -15,7 +15,6 @@
 #  endif
 #endif
 
-#include "settings.h"
 #include "string.hpp"
 #include "asc_ctype.hpp"
 

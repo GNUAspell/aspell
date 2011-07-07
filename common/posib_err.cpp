@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "settings.h"
 //#include "iostream.hpp"
 
 #include "posib_err.hpp"

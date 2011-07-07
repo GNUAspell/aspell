@@ -43,7 +43,6 @@
 #include <cstdlib>
 #include <new>
 
-#include "settings.h"
 #include "hash.hpp"
 #include "block_slist-t.hpp"
 
@@ -108,7 +107,7 @@ namespace aspell {
   template <class P>
   void HashTable<P>::erase(iterator to_erase) 
   {
-    NodePool::del_node((*to_erase.n)->data);
+    (*to_erase.n)->data.~Value();
     Node * tmp = *to_erase.n;
     *to_erase.n = (*to_erase.n)->next;
     node_pool_.remove_node(tmp);
@@ -124,7 +123,7 @@ namespace aspell {
     Node * n = *first;
     while (n != 0 && parms_.equal(parms_.key(n->data), k)) {
       Node * tmp = n;
-      NodePool::del_node(n);
+      n->data.~Value();
       n = n->next;
       node_pool_.remove_node(tmp);
       ++num_erased;
@@ -178,7 +177,7 @@ namespace aspell {
     for (Node * * i = table_; i != table_end_; ++i) {
       Node * n = *i;
       while (n != 0) {
-        NodePool::del_node(n);
+	n->data.~Value();
 	n = n->next;
       }
     }

@@ -159,7 +159,6 @@ AM_GNU_GETTEXT_VERSION([0.16.1])
 AH_TOP([#ifndef ASPELL_SETTINGS__H
 #define ASPELL_SETTINGS__H])
 AH_BOTTOM([#define C_EXPORT extern "C"])
-AH_BOTTOM([#define TYPENAME typename])
 AH_BOTTOM([#endif /* ASPELL_SETTINGS__H */])
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

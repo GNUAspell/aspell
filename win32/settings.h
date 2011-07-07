@@ -102,20 +102,3 @@
 #  define ASPELL_API  __declspec(dllimport)
 #endif /*_DLL */
 
-// Microsoft VC6.0 does not allow typename except when directly
-// declaring a template param.  The other supporte compilers (Borlands
-// BCB5.5 and GNU C++) require or allow it anywhere in the template
-// decl. The macro TYPENAME is defines to whatever works.
-#ifdef _MSC_VER
-#define TYPENAME
-#else
-#define TYPENAME typename
-#endif
-
-// Microsoft Visual C 6.0 stdio.h does not declare snprintf, rather
-// it declares _snprintf. We define snprintf for VC builds here.
-// snprintf is not standard, but it is common.
-#ifdef _MSC_VER
-#define snprintf _snprintf
-#define vsnprintf _vsnprintf
-#endif

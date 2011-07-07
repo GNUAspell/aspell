@@ -720,7 +720,7 @@ void pipe()
   aspell::sp::SpellerImpl * real_speller = reinterpret_cast<aspell::sp::SpellerImpl *>(speller);
   Config * config = real_speller->config();
   MBLen mb_len;
-  if (!config->retrieve_bool("byte-offsets").data) 
+  if (!config->retrieve_bool("byte-offsets")) 
     mb_len.setup(*config, config->retrieve("encoding"));
   if (do_time)
     COUT << _("Time to load word list: ")
@@ -1673,7 +1673,7 @@ int put_word_expand_1(void * d, const AspellWord * w)
 
 int put_word_expand_2(void * d, const AspellWord * w)
 {
-  const char * str = (const char *)(d);
+  const char * str = static_cast<const char *>(d);
   COUT << str << ' ' << w->str << '\n';
   return true;
 }

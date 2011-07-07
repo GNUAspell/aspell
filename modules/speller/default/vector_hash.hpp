@@ -23,7 +23,7 @@ namespace aspell { namespace sp {
 
   //
   // This hash table is implemnted as a Open Address Hash Table
-  // which uses a vector like object to store its data.  So
+  // which uses a Vector like object to store its data.  So
   // it might even be considered an adapter
   //
   
@@ -43,11 +43,17 @@ namespace aspell { namespace sp {
   //  typename Value;
   class VHTIterator 
   {
+    template <class T>
+    friend bool operator== (VHTIterator<T>, VHTIterator<T>);
+#ifndef REL_OPS_POLLUTION
+    template <class T>
+    friend bool operator!= (VHTIterator<T>, VHTIterator<T>);
+#endif
   public: //but don't use
     typedef typename Parms::TableIter       TableIter;
     typedef typename Parms::HashTable       HashTable;
     TableIter   pos;
-    const HashTable * hash_table;
+    HashTable * hash_table; 
   public:
     //typedef std::bidirectional_iterator_tag             iterator_category;
     typedef typename Parms::Value                       value_type;
@@ -58,8 +64,8 @@ namespace aspell { namespace sp {
 
     //VHTIterator vector_iterator() const {return pos;}
   public:
-    VHTIterator(TableIter p, const HashTable *ht) : pos(p), hash_table(ht) {}
-    VHTIterator(TableIter p, const HashTable *ht, bool) 
+    VHTIterator(TableIter p, HashTable *ht) : pos(p), hash_table(ht) {}
+    VHTIterator(TableIter p, HashTable *ht, bool) 
       : pos(p), hash_table(ht) 
     {
       while (pos != hash_table->vector().end()
@@ -67,7 +73,7 @@ namespace aspell { namespace sp {
 	++pos;
     }
     
-    const value_type & operator * () const  {return *pos;}
+    value_type & operator * () const  {return *pos;}
     value_type * operator -> () const {return &*pos;}
     
     bool at_end() const {return pos == hash_table->vector().end();}
@@ -128,9 +134,9 @@ namespace aspell { namespace sp {
   ////////////////////////////////////////////////////////
 
   // Parms is expected to have the following methods
-  //   typename Vec
-  //   typedef Vec::value_type Value
-  //   typedef Vec::size_type  Size
+  //   typename Vector
+  //   typedef Vector::value_type Value
+  //   typedef Vector::size_type  Size
   //   typename Key
   //   bool is_multi;
   //   Size hash(Key)
@@ -141,21 +147,20 @@ namespace aspell { namespace sp {
 
   template <class Parms>
   class VectorHashTable {
-    typedef typename Parms::Vec           Vec;
+    typedef typename Parms::Vector           Vector;
   public:
-    typedef typename Parms::Vec           vector_type;
-    typedef typename Vec::value_type      value_type;
-    typedef typename Vec::size_type       size_type;
-    typedef typename Vec::difference_type difference_type;
+    typedef typename Parms::Vector           vector_type;
+    typedef typename Vector::value_type      value_type;
+    typedef typename Vector::size_type       size_type;
+    typedef typename Vector::difference_type difference_type;
 
-    // This typedef causes problems with VC6
-    //typedef typename Vec::pointer         pointer;
-    typedef typename Vec::reference       reference;
-    typedef typename Vec::const_reference const_reference;
+    typedef typename Vector::pointer         pointer;
+    typedef typename Vector::reference       reference;
+    typedef typename Vector::const_reference const_reference;
 
-    typedef typename Parms::Key           key_type;
+    typedef typename Parms::Key              key_type;
   public: // but don't use
-    typedef VectorHashTable<Parms>        HashTable;
+    typedef VectorHashTable<Parms>           HashTable;
   private:
     Parms parms_;
 
@@ -166,19 +171,19 @@ namespace aspell { namespace sp {
   public:
     // These public functions are very dangerous and should be used with
     // great care as the modify the internal structure of the object
-    Vec & vector()       {return vector_;}
-    const Vec & vector() const {return vector_;}
+    Vector & vector()       {return vector_;}
+    const Vector & vector() const {return vector_;}
     parms_type & parms() {return parms_;}
     void recalc_size();
     void set_size(size_type s) {size_  = s;} 
 
   private:
-    Vec         vector_;
+    Vector      vector_;
     size_type   size_;
 
   public: // but don't use
-    typedef typename Vec::iterator       vector_iterator;
-    typedef typename Vec::const_iterator const_vector_iterator;
+    typedef typename Vector::iterator       vector_iterator;
+    typedef typename Vector::const_iterator const_vector_iterator;
   
   private:
     int hash1(const key_type &d) const {
@@ -218,22 +223,9 @@ namespace aspell { namespace sp {
 
     std::pair<iterator, bool> insert(const value_type &);
     bool have(const key_type &) const;
-    iterator find(const key_type & key) 
-    {
-      MutableFindIterator it(this, key);
-      if (!it.at_end()) 
-        return iterator(vector_.begin() + it.i, this);
-      else
-        return end();
-    }
-    const_iterator find(const key_type & key) const 
-    {
-      ConstFindIterator it(this, key);
-      if (!it.at_end()) 
-        return const_iterator(vector_.begin() + it.i, this);
-      else
-        return end();
-    }
+
+    iterator find(const key_type&);
+    const_iterator find(const key_type&) const;
   
     size_type erase(const key_type &key);
     void erase(const iterator &p);
@@ -256,30 +248,10 @@ namespace aspell { namespace sp {
       int i;
       int hash2;
       FindIterator() {}
-    FindIterator(const HashTable * ht, const key_type & k)
-     : vector(&ht->vector())
-     , parms(&ht->parms())
-     , key(k)
-     , i(ht->hash1(k))
-     , hash2(ht->hash2(k))
-    {
-      if (!parms->is_nonexistent((*vector)[i])
-       && !parms->equal(parms->key((*vector)[i]), key))
-        adv();
-    }
-
-
+      FindIterator(const HashTable * ht, const key_type & k);
     public:
       bool at_end() const {return parms->is_nonexistent((*vector)[i]);}
-    void adv()
-    {
-      do {
-        i = (i + hash2) % vector->size();
-      }
-      while (!parms->is_nonexistent((*vector)[i]) &&
-       !parms->equal(parms->key((*vector)[i]), key));
-    }
-
+      void adv();
       FindIterator & operator ++() {adv(); return *this;}
     };
     friend class FindIterator;

@@ -137,7 +137,7 @@ namespace aspell { namespace sp {
   {
     w0.clear(); // FIXME: is this necessary?
     const char * x = w;
-    while (*x != '\0' && (x-w.str()) < static_cast<int>(ignore_count)) ++x;
+    while (*x != '\0' && (x-w) < static_cast<int>(ignore_count)) ++x;
     if (*x == '\0') {w0.word = w; return true;}
     WS::const_iterator i   = check_ws.begin();
     WS::const_iterator end = check_ws.end();
@@ -472,8 +472,8 @@ namespace aspell { namespace sp {
     assert (config_ == 0);
     config_.reset(c);
 
-    ignore_repl = config_->retrieve_bool("ignore-repl").data;
-    ignore_count = config_->retrieve_int("ignore").data;
+    ignore_repl = config_->retrieve_bool("ignore-repl");
+    ignore_count = config_->retrieve_int("ignore");
 
     DictList to_add;
     RET_ON_ERR(add_data_set(config_->retrieve("master-path"), *config_, &to_add, this));
@@ -545,12 +545,12 @@ namespace aspell { namespace sp {
     unconditional_run_together_ = config_->retrieve_bool("run-together");
     run_together = unconditional_run_together_;
     
-    run_together_limit_  = config_->retrieve_int("run-together-limit").data;
+    run_together_limit_  = config_->retrieve_int("run-together-limit");
     if (run_together_limit_ > 8) {
       config_->replace("run-together-limit", "8");
       run_together_limit_ = 8;
     }
-    run_together_min_    = config_->retrieve_int("run-together-min").data;
+    run_together_min_    = config_->retrieve_int("run-together-min");
 
     config_->add_notifier(new ConfigNotifier(this));
 

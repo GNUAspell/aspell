@@ -108,7 +108,7 @@ namespace aspell { namespace sp {
     token.e.seg = cur_.seg;
     token.e.pos = cur_.pos;
 
-    token.correct = speller->check(word).data;
+    token.correct = speller->check(word);
 
     free_segments(0, prev_.seg);
 

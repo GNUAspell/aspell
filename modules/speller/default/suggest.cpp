@@ -655,7 +655,7 @@ namespace {
       new_word[i+1] = new_word[i];
       new_word[i] = '\0';
       
-      if (sp->check(new_word).data && sp->check(new_word + i + 1).data) {
+      if (sp->check(new_word) && sp->check(new_word + i + 1)) {
         for (size_t j = 0; j != parms->split_chars.size(); ++j)
         {
           new_word[i] = parms->split_chars[j];
@@ -1007,12 +1007,12 @@ namespace {
     int min_score = 0;
     int count = 0;
 
-    for (NearMisses::iterator mi = scored_near_misses.begin();
-         mi != scored_near_misses.end(); ++mi)
+    for (NearMisses::iterator i = scored_near_misses.begin();
+         i != scored_near_misses.end(); ++i)
     {
-      if (!mi->soundslike)
-        mi->soundslike = to_soundslike(mi->word, strlen(mi->word));
-      already_have.insert(mi->soundslike);
+      if (!i->soundslike)
+        i->soundslike = to_soundslike(i->word, strlen(i->word));
+      already_have.insert(i->soundslike);
     }
 
     for (SpellerImpl::WS::const_iterator i = sp->suggest_ws.begin();
@@ -1060,12 +1060,12 @@ namespace {
       }
     }
     
-    for (Candidates::iterator ci = candidates.begin();
-         ci != candidates.end();
-         ++ci)
+    for (Candidates::iterator i = candidates.begin();
+         i != candidates.end();
+         ++i)
     {
-      //COUT.printf("ngram: %s %d\n", candidate->soundslike, candidate->score);
-      add_sound(ci->i, &ci->info, ci->soundslike);
+      //COUT.printf("ngram: %s %d\n", i->soundslike, i->score);
+      add_sound(i->i, &i->info, i->soundslike);
     }
   }
 
@@ -1431,9 +1431,9 @@ namespace {
  	  dup_pair = duplicates_check.insert(fix_case(i->repl_list->word, buf));
  	  if (dup_pair.second && 
  	      ((pos = dup_pair.first->find(' '), pos == String::npos)
- 	       ? sp->check(*dup_pair.first).data
- 	       : (sp->check((String)dup_pair.first->substr(0,pos)).data 
- 		  && sp->check((String)dup_pair.first->substr(pos+1)).data) ))
+ 	       ? (bool)sp->check(*dup_pair.first)
+ 	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
+ 		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
  	    near_misses_final->push_back(*dup_pair.first);
  	} while (i->repl_list->adv());
       } else {

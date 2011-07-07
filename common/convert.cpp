@@ -10,7 +10,6 @@
 #include <string.h>
 #include <math.h>
 
-#include "settings.h"
 #include "asc_ctype.hpp"
 #include "convert_impl.hpp"
 #include "fstream.hpp"
@@ -969,12 +968,12 @@ namespace aspell {
     if (slash) layers = slash + 1;
        
     if (enc.norm_form.empty()) {
-      if (c.retrieve_bool("normalize").data || c.retrieve_bool("norm-required").data)
+      if (c.retrieve_bool("normalize") || c.retrieve_bool("norm-required"))
         enc.norm_form = c.retrieve("norm-form");
       else
         enc.norm_form = "none";
     }
-    if (enc.norm_form == "none" && c.retrieve_bool("norm-required").data)
+    if (enc.norm_form == "none" && c.retrieve_bool("norm-required"))
       enc.norm_form = "nfc";
 
     // push "layers" encoding on extra list

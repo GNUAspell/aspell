@@ -123,7 +123,7 @@ namespace aspell {
       c->filter_mode_notifier = this;
     }
     
-    Notifier * clone(Config * c) const {return new ModeNotifierImpl(*this, c);}
+    ModeNotifierImpl * clone(Config * c) const {return new ModeNotifierImpl(*this, c);}
 
     PosibErr<void> item_updated(const KeyInfo * ki, ParmStr);
     PosibErr<void> list_updated(const KeyInfo * ki);
@@ -243,7 +243,7 @@ namespace aspell {
       for ( Vector<MagicString>::iterator it = magicKeys.begin() ;
             it != magicKeys.end() ; it++ ) {
         PosibErr<bool> magicMatch = it->matchFile(in,ext);
-        if (    magicMatch.data 
+        if (    magicMatch 
              || magicMatch.has_err() ) {
           if ( closeFile ) {
             fclose ( in );

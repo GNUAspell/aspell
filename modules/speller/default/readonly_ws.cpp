@@ -204,7 +204,7 @@ namespace {
     struct WordLookupParms {
       const char * block_begin;
       WordLookupParms() {}
-      typedef BlockVector<const u32int> Vec;
+      typedef BlockVector<const u32int> Vector;
       typedef u32int                    Value;
       typedef const char *              Key;
       static const bool is_multi = false;
@@ -807,9 +807,9 @@ namespace {
   struct WordLookupParms {
     const char * block_begin;
     WordLookupParms() {}
-    typedef aspell::Vector<u32int>      Vec;
-    typedef u32int              Value;
-    typedef const char *        Key;
+    typedef aspell::Vector<u32int> Vector;
+    typedef u32int                 Value;
+    typedef const char *           Key;
     static const bool is_multi = false;
     Key key(Value v) const {return block_begin + v;}
     InsensitiveHash<hash_int_t> hash;
@@ -842,11 +842,11 @@ namespace {
                              strcmp(lang.soundslike_name(), "simple") == 0);
 
     bool affix_compress = (lang.affix() && 
-                           config.retrieve_bool("affix-compress").data);
+                           config.retrieve_bool("affix-compress"));
 
     bool partially_expand = (affix_compress &&
                              !full_soundslike &&
-                             config.retrieve_bool("partially-expand").data);
+                             config.retrieve_bool("partially-expand"));
 
     bool invisible_soundslike = false;
     if (partially_expand)

@@ -13,8 +13,17 @@
 #ifndef __autil_enumeration__
 #define __autil_enumeration__
 
-#include "settings.h"
 #include "clone_ptr.hpp"
+
+// Microsoft VC6.0 does not allow typename except when directly
+// declaring a template param.  The other supporte compilers (Borlands
+// BCB5.5 and GNU C++) require or allow it anywhere in the template
+// decl. The macro TYPENAME is defines to whatever works.
+#ifdef _MSC_VER
+#define TYPENAME
+#else
+#define TYPENAME typename
+#endif
 
 // An enumeration is an efficient way to iterate through elements much
 // like a forward iterator.  The at_end method is a convince method

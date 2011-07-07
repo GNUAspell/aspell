@@ -64,9 +64,6 @@ namespace aspell {
     operator const char * () const {
       return str_;
     }
-#ifdef __BORLANDC__ //BorlandC considered parm[idx] ambigous
-    const char & operator[] (int index) const { return str_[index]; }
-#endif
     const char * str () const {
       return str_;
     }

@@ -366,7 +366,7 @@ namespace aspell {
 
     const Entry * cur = lookup(ki->name);
 
-    String value = cur ? cur->value : get_default(ki);
+    String value(cur ? cur->value : get_default(ki));
 
     if (value == "false") return false;
     else                  return true;
@@ -699,7 +699,7 @@ namespace aspell {
           } else { // sep == '|'
             assert(replace[0] == '$');
             const char * env = getenv(replace.c_str()+1);
-            final_str += env ? env : second.c_str();
+            final_str += env ? env : second;
           }
           replace = "";
           in_replace = false;

@@ -912,7 +912,7 @@ WordAff * AffixMgr::expand(ParmString word, ParmString aff,
   WordAff * cur = head;
   cur->word = buf.dup(word);
   cur->aff  = suf;
-  for (const byte *c = (const byte *)aff.str(), *end = c + aff.size();
+  for (const byte * c = (const byte *)aff.str(), *end = c + aff.size();
        c != end; 
        ++c) 
   {

@@ -91,8 +91,6 @@ namespace aspell {
     FStream & operator>> (String &);
     FStream & operator>> (unsigned int &);
     FStream & operator>> (int &);
-    FStream & operator<< (const char *);
-    FStream & operator<< (const String &);
     FStream & operator<< (ParmStr);
     FStream & operator<< (unsigned int);
     FStream & operator<< (int);

@@ -95,7 +95,6 @@ namespace aspell { namespace sp {
   PosibErr<TypoEditDistanceInfo *> 
   TypoEditDistanceInfo::get_new(const char * kb, const Config * cfg, const LangImpl * l)
   {
-    int i;
     FStream in;
     String file, dir1, dir2;
     fill_data_dir(cfg, dir1, dir2);
@@ -108,7 +107,7 @@ namespace aspell { namespace sp {
     Vector<CharPair> data;
 
     char to_stripped[256];
-    for ( i = 0; i <= 255; ++i)
+    for (int i = 0; i <= 255; ++i)
       to_stripped[i] = l->to_stripped(i);
 
     String buf;
@@ -144,7 +143,7 @@ namespace aspell { namespace sp {
     memset(w->to_normalized_, 0, sizeof(w->to_normalized_));
 
     int c = 1;
-    for ( i = 0; i <= 255; ++i) {
+    for (int i = 0; i <= 255; ++i) {
       if (l->is_alpha(i)) {
 	if (w->to_normalized_[(uchar)to_stripped[i]] == 0) {
 	  w->to_normalized_[i] = c;
@@ -155,7 +154,7 @@ namespace aspell { namespace sp {
 	}
       }
     }
-    for ( i = 0; i != 256; ++i) {
+    for (int i = 0; i != 256; ++i) {
       if (w->to_normalized_[i]==0) w->to_normalized_[i] = c;
     }
     w->max_normalized = c;
@@ -166,14 +165,14 @@ namespace aspell { namespace sp {
     w->repl .init(c, c, w->data);
     w->extra.init(c, c, w->data + cc);
     
-    for ( i = 0; i != c; ++i) {
+    for (int i = 0; i != c; ++i) {
       for (int j = 0; j != c; ++j) {
         w->repl (i,j) = w->repl_dis2;
         w->extra(i,j) = w->extra_dis2;
       }
     }
     
-    for ( i = 0; i != data.size(); ++i) {
+    for (unsigned i = 0; i != data.size(); ++i) {
       const char * d = data[i].d;
       w->repl (w->to_normalized(d[0]),
                w->to_normalized(d[1])) = w->repl_dis1;
@@ -185,7 +184,7 @@ namespace aspell { namespace sp {
                w->to_normalized(d[0])) = w->extra_dis1;
     }
     
-    for ( i = 0; i != c; ++i) {
+    for (int i = 0; i != c; ++i) {
       w->repl(i,i) = 0;
       w->extra(i,i) = w->extra_dis1;
     }

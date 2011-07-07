@@ -83,17 +83,17 @@ namespace {
     return new MakeEnumeration<Parms>(wss.begin(), wss.end());
   }
 
-  template <class P>
-  class EnumImpl : public P::Enum {
+  template <class Parms>
+  class EnumImpl : public Parms::Enum {
     Wss::const_iterator i;
     Wss::const_iterator end;
-    ClonePtr<typename P::Enum> els;
+    ClonePtr<typename Parms::Enum> els;
   public:
-    typedef typename P::Enum        Base;
-    typedef typename P::Enum::Value Value;
+    typedef typename Parms::Enum        Base;
+    typedef typename Parms::Enum::Value Value;
 
     EnumImpl(Wss::const_iterator i0, Wss::const_iterator end0)
-      : i(i0), end(end0) {if (i != end) els.reset(P::elements(*i));}
+      : i(i0), end(end0) {if (i != end) els.reset(Parms::elements(*i));}
     
     bool at_end() const {
       return i == end;
@@ -105,7 +105,7 @@ namespace {
       if (str) return str;
       ++i; 
       if (i == end) return 0; 
-      els.reset(P::elements(*i));
+      els.reset(Parms::elements(*i));
       goto loop;
     }
     Base * clone() const {
