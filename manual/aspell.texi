@@ -4312,7 +4312,7 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.5 to 0.61 (???)
+@heading Changes from 0.60.?? to 0.61 (???)
 @itemize @bullet
 @item
 Added a generic conversion (genconv) filter for converting from old
