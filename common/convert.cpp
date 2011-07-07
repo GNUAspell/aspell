@@ -344,11 +344,28 @@ namespace acommon {
     }
   };
 
+# define sanity(check) \
+    if (!(check)) return sanity_fail(__FILE__, FUNC, __LINE__, #check)
+
+  static PosibErrBase sanity_fail(const char * file, const char * func, 
+                                  unsigned line, const char * check_str) 
+  {
+    char mesg[500];
+    snprintf(mesg, 500, "%s:%d: %s: Assertion \"%s\" failed.",
+             file,  line, func, check_str);
+    return make_err(bad_input_error, mesg);
+  }
+# define CREATE_NORM_TABLE(T, in, buf, res) \
+  do { PosibErr<NormTable<T> *> pe( create_norm_table<T>(in,buf) );\
+       if (pe.has_err()) return PosibErrBase(pe); \
+       res = pe.data; } while(false)
+
   template <class T>
   static PosibErr< NormTable<T> * > create_norm_table(IStream & in, String & buf)
   {
+    const char FUNC[] = "create_norm_table";
     const char * p = get_nb_line(in, buf);
-    assert(*p == 'N');
+    sanity(*p == 'N');
     ++p;
     int size = strtoul(p, (char **)&p, 10);
     VARARRAY(T, d, size);
@@ -361,14 +378,14 @@ namespace acommon {
     while (p = get_nb_line(in, buf), *p != '.') {
       Uni32 f = strtoul(p, (char **)&p, 16);
       cur->from = static_cast<typename T::From>(f);
-      assert(f == cur->from);
+      sanity(f == cur->from);
       tally0.add(f);
       tally1.add(f);
       tally2.add(f);
       ++p;
-      assert(*p == '>');
+      sanity(*p == '>');
       ++p;
-      assert(*p == ' ');
+      sanity(*p == ' ');
       ++p;
       unsigned i = 0;
       if (*p != '-') {
@@ -376,19 +393,19 @@ namespace acommon {
           const char * q = p;
           Uni32 t = strtoul(p, (char **)&p, 16);
           if (q == p) break;
-          assert(i < d->max_to);
+          sanity(i < d->max_to);
           cur->to[i] = static_cast<typename T::To>(t);
-          assert(t == static_cast<Uni32>(cur->to[i]));
+          sanity(t == static_cast<Uni32>(cur->to[i]));
         } 
       } else {
         cur->to[0] = 0;
         cur->to[1] = T::to_non_char;
       }
       if (*p == ' ') ++p;
-      if (*p == '/') cur->sub_table = create_norm_table<T>(in,buf);
+      if (*p == '/') CREATE_NORM_TABLE(T, in, buf, cur->sub_table);
       ++cur;
     }
-    assert(cur - d == size);
+    sanity(cur - d == size);
     Tally * which = &tally0;
     if (which->max > tally1.max) which = &tally1;
     if (which->max > tally2.max) which = &tally2;
@@ -415,6 +432,57 @@ namespace acommon {
     return final;
   }
 
+  static PosibErr<void> init_norm_tables(FStream & in, NormTables * d) 
+  {
+    const char FUNC[] = "init_norm_tables";
+    String l;
+    get_nb_line(in, l);
+    remove_comments(l);
+    sanity (l == "INTERNAL");
+    get_nb_line(in, l);
+    remove_comments(l);
+    sanity (l == "/");
+    CREATE_NORM_TABLE(FromUniNormEntry, in, l, d->internal);
+    get_nb_line(in, l);
+    remove_comments(l);
+    sanity (l == "STRICT");
+    char * p = get_nb_line(in, l);
+    remove_comments(l);
+    if (l == "/") {
+      CREATE_NORM_TABLE(FromUniNormEntry, in, l, d->strict_d);
+      d->strict = d->strict_d;
+    } else {
+      sanity(*p == '=');
+      ++p; ++p;
+      sanity(strcmp(p, "INTERNAL") == 0);
+      d->strict = d->internal;
+    }
+    while (get_nb_line(in, l)) {
+      remove_comments(l);
+      d->to_uni.push_back(NormTables::ToUniTable());
+      NormTables::ToUniTable & e = d->to_uni.back();
+      e.name.resize(l.size());
+      for (unsigned i = 0; i != l.size(); ++i)
+        e.name[i] = asc_tolower(l[i]);
+      char * p = get_nb_line(in, l);
+      remove_comments(l);
+      if (l == "/") {
+        CREATE_NORM_TABLE(ToUniNormEntry, in, l, e.data);
+        e.ptr = e.data;
+      } else {
+        sanity(*p == '=');
+        ++p; ++p;
+        for (char * q = p; *q; ++q) *q = asc_tolower(*q);
+        Vector<NormTables::ToUniTable>::iterator i = d->to_uni.begin();
+        while (i->name != p && i != d->to_uni.end()) ++i;
+        sanity(i != d->to_uni.end());
+        e.ptr = i->ptr;
+        get_nb_line(in, l);
+      }
+    }  
+    return no_err;
+  }
+
   PosibErr<NormTables *> NormTables::get_new(const String & encoding, 
                                              const Config * config)
   {
@@ -433,51 +501,13 @@ namespace acommon {
 
     NormTables * d = new NormTables;
     d->key = encoding;
-    String l;
-    get_nb_line(in, l);
-    remove_comments(l);
-    assert (l == "INTERNAL");
-    get_nb_line(in, l);
-    remove_comments(l);
-    assert (l == "/");
-    d->internal = create_norm_table<FromUniNormEntry>(in, l);
-    get_nb_line(in, l);
-    remove_comments(l);
-    assert (l == "STRICT");
-    char * p = get_nb_line(in, l);
-    remove_comments(l);
-    if (l == "/") {
-      d->strict_d = create_norm_table<FromUniNormEntry>(in, l);
-      d->strict = d->strict_d;
-    } else {
-      assert(*p == '=');
-      ++p; ++p;
-      assert(strcmp(p, "INTERNAL") == 0);
-      d->strict = d->internal;
+    err = init_norm_tables(in, d);
+    if (err.has_err()) {
+      return make_err(bad_file_format, file_name, err.get_err()->mesg);
     }
-    while (get_nb_line(in, l)) {
-      remove_comments(l);
-      d->to_uni.push_back(ToUniTable());
-      ToUniTable & e = d->to_uni.back();
-      e.name.resize(l.size());
-      for (unsigned i = 0; i != l.size(); ++i)
-        e.name[i] = asc_tolower(l[i]);
-      char * p = get_nb_line(in, l);
-      remove_comments(l);
-      if (l == "/") {
-        e.ptr = e.data = create_norm_table<ToUniNormEntry>(in,l);
-      } else {
-        assert(*p == '=');
-        ++p; ++p;
-        for (char * q = p; *q; ++q) *q = asc_tolower(*q);
-        Vector<ToUniTable>::iterator i = d->to_uni.begin();
-        while (i->name != p && i != d->to_uni.end()) ++i;
-        assert(i != d->to_uni.end());
-        e.ptr = i->ptr;
-        get_nb_line(in, l);
-      }
-    }  
+
     return d;
+
   }
 
   NormTables::~NormTables()
@@ -814,7 +844,7 @@ namespace acommon {
     ToUniLookup lookup;
     void decode(const char * in, int size, FilterCharVector & out) const {
       const char * stop = in + size; // this is OK even if size == -1
-      while (*in && in != stop) {
+      while (in != stop && *in) {
         out.append(from_utf8(in, stop));
       }
     }
@@ -822,7 +852,7 @@ namespace acommon {
                              FilterCharVector & out, ParmStr orig) const {
       const char * begin = in;
       const char * stop = in + size; // this is OK even if size == -1
-      while (*in && in != stop) {
+      while (in != stop && *in) {
         FilterChar c = from_utf8(in, stop, (Uni32)-1);
         if (c == (Uni32)-1) {
           char m[70];

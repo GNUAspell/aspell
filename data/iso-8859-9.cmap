@@ -1,6 +1,6 @@
 INTERNAL
 /
-N 954
+N 955
 0000 > 00
 0001 > 01
 0002 > 02
@@ -898,6 +898,7 @@ N 954
 2008 > 20 # compat
 2009 > 20 # compat
 200A > 20 # compat
+2019 > 27 # compat
 2024 > 2E # compat
 2025 > 2E 2E # compat
 2026 > 2E 2E 2E # compat

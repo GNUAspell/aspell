@@ -56,9 +56,7 @@ CheckerString::CheckerString(AspellSpeller * speller,
   has_repl_ = false;
 
   checker_.reset(new_document_checker(reinterpret_cast<Speller *>(speller)));
-  if (cur_line_->real.size()) {
-      checker_->process(cur_line_->real.data(), cur_line_->real.size());
-  }
+  checker_->process(cur_line_->real.data(), cur_line_->real.size());
 }
 
 CheckerString::~CheckerString()

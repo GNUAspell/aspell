@@ -1,11 +1,11 @@
 \input texinfo   @c -*-texinfo-*-
 
 @setfilename aspell.info
-@settitle GNU Aspell 0.60.6.1
+@settitle GNU Aspell 0.60.7-pre
 @syncodeindex pg cp
 @documentencoding ISO-8859-1
 @documentdescription
-Aspell 0.60.6.1 spell checker user's manual.
+Aspell 0.60.7-pre spell checker user's manual.
 @end documentdescription
 
 @copying
@@ -32,7 +32,7 @@ Documentation License".
 @end direntry
 
 @titlepage
-@title GNU Aspell 0.60.6.1
+@title GNU Aspell 0.60.7-pre
 @author Kevin Atkinson (@email{kevina@@gnu.org})
 @page
 @vskip 0pt plus 1filll
@@ -43,7 +43,7 @@ Documentation License".
 
 @ifnottex
 @node Top
-@top GNU Aspell 0.60.6.1
+@top GNU Aspell 0.60.7-pre
 This is the user's manual for Aspell
 
 GNU Aspell is a spell checker designed to eventually replace Ispell.
@@ -1817,10 +1817,15 @@ the options @option{--dont-skip-invalid-words} and
 @option{--dont-clean-affixes} can be specified to turn the warnings into
 errors.
 
-The compiled dictionary file are endian order dependent.  When a
-dictionary is loaded the endian order is checked.  Please do not
-distribute the compiled dictionaries unless you are only distributing
-them for a particular platform such as you would a binary.
+The compiled dictionaries are platform dependent.  They depend on the
+endian order and (unless compiled with the
+@option{--enable-32-bit-hash-fun} option) the size of the
+@code{size_t} type as it used in the hash function; this 
+type is generally different on 32 and 64-bit systems.  When a
+dictionary is loaded the endian order and compatibility of the hash
+function is checked.  Please do not distribute the compiled
+dictionaries unless you are only distributing them for a particular
+platform such as you would a binary.
 
 Aspell is now also able to use special @code{multi} dictionaries.  for
 more information @ref{How Aspell Selects an Appropriate Dictionary}.
@@ -4259,10 +4264,35 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
+@heading Changes from 0.60.6.1 to 0.60.7 (??, 2011)
+@itemize @bullet
+@item
+Add partial support for recognizing the Unicode apostrophe (') in
+words.  In particular Aspell will accept the Unicode apostrophe when
+the language uses an ISO Latin charset that doesn't already have a
+Unicode apostrophe.  For now, Aspell will still use the ASCII version
+in suggestions.
+@item
+Detect when a dictionary compiled on a 32-bit machine is used on a
+64-bit one (and vise versa), as due to an oversight, compiled
+dictionaries depend on more than the endianness.  Also added a compile
+time option to remove this dependency, but at the cost of breaking
+compatibility with already compiled dictionaries on 64-bit systems.
+@item
+Fix a bug which caused Aspell to crash when passing in a null string
+to almost any of the C API functions.  This should not happen if the
+size is also zero as the pointer should never be derefrenced.
+@item
+In addition to outputting a warning when building with NDEBUG defined,
+also include NDEBUG in the version string.
+@item
+Other minor updates and bug fixes.
+@end itemize
+
 @heading Changes from 0.60.6 to 0.60.6.1 (July 4, 2011)
 @itemize @bullet
 @item
-Update to Automake 1.10.3.
+Update to Automake 1.10.3
 @item
 Fix a bug which caused a race condition (leading to a likely crash)
 when two threads try to update the dictionary cache at the same time.

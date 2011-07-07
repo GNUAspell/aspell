@@ -43,9 +43,7 @@ Documentation License".
 @node Top, Style Guidelines, (dir), (dir)
 @top Notes
 This manual is designed for those who wish to develop Aspell.  It is
-currently very sketchy.  However, it should improve over time.  The
-latest version of this document can be found at
-@uref{http://savannah.gnu.org/download/aspell/manual/devel/devel.html}.
+currently very sketchy.  However, it should improve over time.
 
 @menu
 * Style Guidelines::            

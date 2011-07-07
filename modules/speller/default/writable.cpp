@@ -31,7 +31,7 @@ typedef const char * Str;
 typedef unsigned char byte;
 
 struct Hash {
-  InsensitiveHash f;
+  InsensitiveHash<> f;
   Hash(const Language * l) : f(l) {}
   size_t operator() (Str s) const {
     return f(s);

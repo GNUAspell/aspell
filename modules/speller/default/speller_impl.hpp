@@ -197,8 +197,8 @@ namespace aspeller {
     GuessInfo guess_info;
 
     SensitiveCompare s_cmp;
-    SensitiveCompare s_cmp_begin;
-    SensitiveCompare s_cmp_middle;
+    SensitiveCompare s_cmp_begin;  // These (s_cmp_begin,middle,end)
+    SensitiveCompare s_cmp_middle; // are used by the affix code.
     SensitiveCompare s_cmp_end;
 
     typedef Vector<const Dict *> WS;

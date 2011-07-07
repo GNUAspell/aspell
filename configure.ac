@@ -1,4 +1,4 @@
-AC_INIT(GNU Aspell, 0.60.6.1)
+AC_INIT(GNU Aspell, 0.60-cvs)
 AC_CONFIG_SRCDIR(prog/aspell.cpp)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
@@ -70,6 +70,9 @@ AC_ARG_ENABLE(compile-in-filters,
 AC_ARG_ENABLE(filter-version-control,
   [  --disable-filter-version-control])
 
+AC_ARG_ENABLE(32-bit-hash-fun,
+  AS_HELP_STRING([--enable-32-bit-hash-fun],[use 32-bit hash function for compiled dictionaries]))
+
 AC_ARG_ENABLE(pspell-compatibility,
   AS_HELP_STRING([--disable-pspell-compatibility],[don't install pspell compatibility libraries]))
 
@@ -132,6 +135,11 @@ fi
 
 AM_CONDITIONAL(COMPILE_IN_FILTERS, 
   [test "$enable_compile_in_filters" = "yes"])
+
+if test "$enable_32_bit_hash_fun" = "yes"
+then
+  AC_DEFINE(USE_32_BIT_HASH_FUN, 1, [Defined if 32-bit hash function should be used for compiled dictionaries.])
+fi
 
 AM_CONDITIONAL(PSPELL_COMPATIBILITY,  
   [test "$enable_pspell_compatibility" != "no"])

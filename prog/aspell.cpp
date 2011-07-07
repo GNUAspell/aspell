@@ -1394,8 +1394,8 @@ void filter()
 //
 
 void print_ver () {
-  COUT.put("@(#) International Ispell Version 3.1.20 " 
-           "(but really Aspell " VERSION ")\n");
+  printf("@(#) International Ispell Version 3.1.20 " 
+         "(but really Aspell %s)\n", aspell_version_string());
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -2853,7 +2853,7 @@ void print_help (bool verbose) {
   if (verbose) {
     printf(_("\n"
              "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-             "\n"), VERSION);
+             "\n"), aspell_version_string());
     for (unsigned i = 0; i < help_text_size; ++i)
       puts(gt_(help_text[i]));
   } else {

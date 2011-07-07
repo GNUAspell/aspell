@@ -358,6 +358,15 @@ class: config
 #		/
 #		bool
 }
+group: version
+{
+/
+func: version string
+	desc => Returns a version string, which may include additional
+		information on how Aspell was compiled.
+	/
+	string
+}
 group: error
 {
 /
