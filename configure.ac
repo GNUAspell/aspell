@@ -85,7 +85,7 @@ dnl [  --enable-aspell5-compatibility  install aspell 0.50 compatibility librari
 dnl
 
 AC_PROG_CXX
-if test "$GXX" = "yes" && expr "$CXXFLAGS" : '.*-O' > /dev/null
+if test "$GXX" = "yes" && expr x"$CXXFLAGS" : '.*-O' > /dev/null
 then
   CXXFLAGS="$CXXFLAGS -fno-exceptions"
 fi
@@ -152,7 +152,7 @@ dnl         "$enable_aspell5_compatibility" = "yes"])
 dnl GETTEXT
 
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.16.1])
+AM_GNU_GETTEXT_VERSION([0.18.3])
 
 AH_TOP([#ifndef ASPELL_SETTINGS__H
 #define ASPELL_SETTINGS__H])

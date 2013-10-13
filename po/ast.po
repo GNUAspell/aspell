@@ -6,14 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2008-04-06 22:35-0600\n"
+"POT-Creation-Date: 2011-07-04 03:25-0600\n"
 "PO-Revision-Date: 2010-02-28 22:09+0200\n"
-"Last-Translator: Marcos Alvarez Costales <marcos.alvarez.costales@gmail.com>\n"
+"Last-Translator: Marcos Alvarez Costales <marcos.alvarez.costales@gmail."
+"com>\n"
 "Language-Team: Asturian <ubuntu-l10n-ast@lists.ubuntu.com>\n"
+"Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ast\n"
 "X-Generator: Virtaal 0.3.1\n"
 
 #: common/info.cpp:232
@@ -24,37 +25,37 @@ msgstr "un númberu ente 0 y 1"
 msgid "in the form \"<name> <value>\""
 msgstr "na forma \"<nome> <valor>\""
 
-#: common/config.cpp:73
+#: common/config.cpp:74
 msgid "string"
 msgstr "testu"
 
-#: common/config.cpp:73
+#: common/config.cpp:74
 msgid "integer"
 msgstr "enteru"
 
-#: common/config.cpp:73
+#: common/config.cpp:74
 msgid "boolean"
 msgstr "booleanu"
 
-#: common/config.cpp:73
+#: common/config.cpp:74
 msgid "list"
 msgstr "llista"
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
-#: common/config.cpp:977
+#: common/config.cpp:978
 msgid "either \"true\" or \"false\""
 msgstr "o \"true\" o \"false\""
 
-#: common/config.cpp:996
+#: common/config.cpp:997
 msgid "a positive integer"
 msgstr "un númberu enteru positivu"
 
-#: common/config.cpp:1124
+#: common/config.cpp:1125
 msgid "# default: "
 msgstr "# por defeutu:"
 
-#: common/config.cpp:1187
+#: common/config.cpp:1188
 #, c-format
 msgid ""
 "\n"
@@ -75,271 +76,279 @@ msgstr ""
 "# quedó configurao d'esta miente:\n"
 "\n"
 
-#: common/config.cpp:1285
+#: common/config.cpp:1286
 msgid "ASPELL_CONF env var"
 msgstr "variable d'entornu ASPELL_CONF"
 
 #. TRANSLATORS: The remaing strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
-#: common/config.cpp:1359
+#: common/config.cpp:1360
 msgid "main configuration file"
 msgstr "ficheru de configuración principal"
 
-#: common/config.cpp:1361
+#: common/config.cpp:1362
 msgid "location of main configuration file"
 msgstr "allugamientu del ficheru de configuración principal"
 
-#: common/config.cpp:1364
+#: common/config.cpp:1365
 msgid "location of language data files"
 msgstr "allugamientu de los ficheros de datos d'idioma"
 
-#: common/config.cpp:1366
+#: common/config.cpp:1367
 msgid "create dictionary aliases"
 msgstr "crear alies de diccionariu"
 
-#: common/config.cpp:1368
+#: common/config.cpp:1369
 msgid "location of the main word list"
 msgstr "allugamientu del pallabreru principal"
 
-#: common/config.cpp:1370
+#: common/config.cpp:1371
 msgid "encoding to expect data to be in"
 msgstr "codificación esperada pa los datos"
 
-#: common/config.cpp:1372
+#: common/config.cpp:1373
 msgid "add or removes a filter"
 msgstr "amiesta o desanicia un filtru"
 
-#: common/config.cpp:1374
+#: common/config.cpp:1375
 msgid "path(s) aspell looks for filters"
 msgstr "camín/caminos onde aspell gueta los filtros"
 
-#: common/config.cpp:1378
+#: common/config.cpp:1379
 msgid "filter mode"
 msgstr "mou de filtru"
 
-#: common/config.cpp:1380
+#: common/config.cpp:1381
 msgid "extra dictionaries to use"
 msgstr "diccionarios adicionales a usar"
 
-#: common/config.cpp:1382
+#: common/config.cpp:1383
 msgid "location for personal files"
 msgstr "allugamientu de los ficheros personales"
 
-#: common/config.cpp:1384
+#: common/config.cpp:1385
 msgid "ignore words <= n chars"
 msgstr "inorar pallabres con <= de n caráuteres"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1387
+#: common/config.cpp:1388
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
 msgstr "inorar tildes al comprobar les pallabres -- ANGUAÑO INORAES"
 
-#: common/config.cpp:1389
+#: common/config.cpp:1390
 msgid "ignore case when checking words"
 msgstr "inorar mayúscules/minúscules al comprobar les pallabres"
 
-#: common/config.cpp:1391
+#: common/config.cpp:1392
 msgid "ignore commands to store replacement pairs"
 msgstr "inorar comandos de guardáu de les pareyes de troquéu"
 
-#: common/config.cpp:1393 common/config.cpp:1460
+#: common/config.cpp:1394 common/config.cpp:1461
 msgid "extra information for the word list"
 msgstr "información adicional pal pallabreru"
 
-#: common/config.cpp:1395
+#: common/config.cpp:1396
 msgid "keyboard definition to use for typo analysis"
 msgstr "definición del tecláu pal análisis d'errores ortográficos"
 
-#: common/config.cpp:1397
+#: common/config.cpp:1398
 msgid "language code"
 msgstr "códigu del idioma"
 
-#: common/config.cpp:1399
+#: common/config.cpp:1400
 msgid "deprecated, use lang instead"
 msgstr "obsoletu, usar lang en cuenta d'él"
 
-#: common/config.cpp:1401
+#: common/config.cpp:1402
 msgid "location of local language data files"
 msgstr "allugamientu de los ficheros de datos del idioma llocal"
 
-#: common/config.cpp:1403
+#: common/config.cpp:1404
 msgid "base name of the main dictionary to use"
 msgstr "nome del diccionariu principal a usar"
 
-#: common/config.cpp:1407
+#: common/config.cpp:1408
 msgid "set module name"
 msgstr "afitar el nome del módulu"
 
-#: common/config.cpp:1409
+#: common/config.cpp:1410
 msgid "search order for modules"
 msgstr "orde de busca pa los módulos"
 
-#: common/config.cpp:1411
+#: common/config.cpp:1412
 msgid "enable Unicode normalization"
 msgstr "activar normalización Unicode"
 
-#: common/config.cpp:1413
+#: common/config.cpp:1414
 msgid "Unicode normalization required for current lang"
 msgstr "necesítase normalización Unicode pal idioma actual"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
-#: common/config.cpp:1417
+#: common/config.cpp:1418
 msgid "Unicode normalization form: none, nfd, nfc, comp"
 msgstr "Normalización Unicode: none, nfd, nfc, comp"
 
-#: common/config.cpp:1419
+#: common/config.cpp:1420
 msgid "avoid lossy conversions when normalization"
 msgstr "evitar conversiones con perda al normalizar"
 
-#: common/config.cpp:1421
+#: common/config.cpp:1422
 msgid "personal configuration file"
 msgstr "ficheru de configuración personal"
 
-#: common/config.cpp:1424
+#: common/config.cpp:1425
 msgid "personal dictionary file name"
 msgstr "nome de ficheru del diccionariu personal"
 
-#: common/config.cpp:1427
+#: common/config.cpp:1428
 msgid "prefix directory"
 msgstr "direutoriu de prefixos"
 
-#: common/config.cpp:1429
+#: common/config.cpp:1430
 msgid "replacements list file name"
 msgstr "nome de ficheru de la llista de troqueo"
 
-#: common/config.cpp:1432
+#: common/config.cpp:1433
 msgid "consider run-together words legal"
 msgstr "considerar llegales les pallabres compuestes"
 
-#: common/config.cpp:1434
+#: common/config.cpp:1435
 msgid "maximum number that can be strung together"
 msgstr "númberu másimu que pue ser aunao"
 
-#: common/config.cpp:1436
+#: common/config.cpp:1437
 msgid "minimal length of interior words"
 msgstr "llonxitú mínima de les pallabres interiores"
 
-#: common/config.cpp:1438
+#: common/config.cpp:1439
 msgid "save replacement pairs on save all"
 msgstr "guardar les pareyes de troquéu en guardar too"
 
-#: common/config.cpp:1440
+#: common/config.cpp:1441
 msgid "set the prefix based on executable location"
 msgstr "afitar el prefixu acordies col allugamientu del executable"
 
-#: common/config.cpp:1442
+#: common/config.cpp:1443
 msgid "size of the word list"
 msgstr "tamañu del palla"
 
-#: common/config.cpp:1444
+#: common/config.cpp:1445
 msgid "no longer used"
 msgstr "yá nun s'usa"
 
-#: common/config.cpp:1446
+#: common/config.cpp:1447
 msgid "suggestion mode"
 msgstr "mou de suxerencies"
 
 #. TRANSLATORS: "sug-mode" is a literal value and should not be
 #. translated.
-#: common/config.cpp:1450
+#: common/config.cpp:1451
 msgid "edit distance to use, override sug-mode default"
-msgstr "distancia d'edición a usar, nun se tien en cuenta el sug-mode por defeutu"
+msgstr ""
+"distancia d'edición a usar, nun se tien en cuenta el sug-mode por defeutu"
 
-#: common/config.cpp:1452
+#: common/config.cpp:1453
 msgid "use typo analysis, override sug-mode default"
-msgstr "usar l'análisis d'errores ortrográficos, nun se tien en cuenta el sug-mode por defeutu"
+msgstr ""
+"usar l'análisis d'errores ortrográficos, nun se tien en cuenta el sug-mode "
+"por defeutu"
 
-#: common/config.cpp:1454
+#: common/config.cpp:1455
 msgid "use replacement tables, override sug-mode default"
 msgstr "usar tables de troquéu, nun se tien en cuenta el sug-mode por defeutu"
 
-#: common/config.cpp:1456
+#: common/config.cpp:1457
 msgid "characters to insert when a word is split"
 msgstr "caráuteres a amestar cuando se dixebra una pallabra"
 
-#: common/config.cpp:1458
+#: common/config.cpp:1459
 msgid "use personal, replacement & session dictionaries"
 msgstr "usar los diccionarios personal, de troquéu y de sesión"
 
-#: common/config.cpp:1462
+#: common/config.cpp:1463
 msgid "search path for word list information files"
 msgstr "camín de busca pa los ficheros d'información del pallabreru"
 
-#: common/config.cpp:1464
+#: common/config.cpp:1465
 msgid "enable warnings"
 msgstr "activar avisos"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1474
+#: common/config.cpp:1475
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
 msgstr "indicador pa les marque d'afixos nos pallabreros -- ANGUAÑO INORÁU"
 
-#: common/config.cpp:1476
+#: common/config.cpp:1477
 msgid "use affix compression when creating dictionaries"
 msgstr "usar compresión d'afixos al crear diccionarios"
 
-#: common/config.cpp:1478
+#: common/config.cpp:1479
 msgid "remove invalid affix flags"
 msgstr "desaniciar marques d'afixos non válides"
 
-#: common/config.cpp:1480
+#: common/config.cpp:1481
 msgid "attempts to clean words so that they are valid"
 msgstr "fai por llimpiar les pallabres pa que seyan válides"
 
-#: common/config.cpp:1482
+#: common/config.cpp:1483
 msgid "compute soundslike on demand rather than storing"
 msgstr "calcular l'asemeyanza fonética cuando seya necesario"
 
-#: common/config.cpp:1484
+#: common/config.cpp:1485
 msgid "partially expand affixes for better suggestions"
 msgstr "espander parcialmente los afixos pa sacar suxerencies meyores"
 
-#: common/config.cpp:1486
+#: common/config.cpp:1487
 msgid "skip invalid words"
 msgstr "omitir pallabres non válides"
 
-#: common/config.cpp:1488
+#: common/config.cpp:1489
 msgid "check if affix flags are valid"
 msgstr "comprobar si les marques d'afixos son válides"
 
-#: common/config.cpp:1490
+#: common/config.cpp:1491
 msgid "check if words are valid"
 msgstr "comprobar si les pallabres son válides"
 
-#: common/config.cpp:1497
+#: common/config.cpp:1498
 msgid "create a backup file by appending \".bak\""
 msgstr "crear una copia de seguridá amestando «.bak» al nome del ficheru"
 
-#: common/config.cpp:1499
+#: common/config.cpp:1500
 msgid "use byte offsets instead of character offsets"
-msgstr "usar desplazamientos de byte en cuenta de desplazamientos de caráuteres"
+msgstr ""
+"usar desplazamientos de byte en cuenta de desplazamientos de caráuteres"
 
-#: common/config.cpp:1501
+#: common/config.cpp:1502
 msgid "create missing root/affix combinations"
 msgstr "crear combinaciones raiz/afixu que falten"
 
-#: common/config.cpp:1503
+#: common/config.cpp:1504
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
 msgstr "mapa de tecláu pal mou de revisión: «aspell» o «ispell»"
 
-#: common/config.cpp:1505
+#: common/config.cpp:1506
 msgid "reverse the order of the suggest list"
 msgstr "invertir l'orde de la llista de suxerencies"
 
-#: common/config.cpp:1507
+#: common/config.cpp:1508
 msgid "suggest possible replacements"
 msgstr "suxerir los troqueos posibles"
 
-#: common/config.cpp:1509
+#: common/config.cpp:1510
 msgid "time load time and suggest time in pipe mode"
 msgstr "tiempu de carga y de suxerencia nel mou pipe"
 
 #: common/convert.cpp:303 common/convert.cpp:429
 #, c-format
-msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr "Esto tamién podría significar que'l ficheru «%s» nun se pudo abrir pa lleelu o que nun esiste."
+msgid ""
+"This could also mean that the file \"%s\" could not be opened for reading or "
+"does not exist."
+msgstr ""
+"Esto tamién podría significar que'l ficheru «%s» nun se pudo abrir pa lleelu "
+"o que nun esiste."
 
 #: common/convert.cpp:552 common/convert.cpp:659 common/convert.cpp:705
 #, c-format
@@ -347,8 +356,8 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "El códigu Unicode U+%04X nun ta soportáu."
 
 #: common/convert.cpp:829
-#, c-format
-msgid "Invalid UTF-8 sequence at position %d."
+#, fuzzy, c-format
+msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Secuencia UTF-8 non válida nel allugamientu %d."
 
 #: common/errors.cpp:27
@@ -407,8 +416,12 @@ msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
 msgstr "La clave «%key:1» nun ye %accepted:2 y, poro, nun ye válida."
 
 #: common/errors.cpp:147
-msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
-msgstr "El valor «%value:2» nun ye %accepted:3 y, poro, nun ye válidu pa la clave «%key:1»."
+msgid ""
+"The value \"%value:2\" is not %accepted:3 and is thus invalid for the key "
+"\"%key:1\"."
+msgstr ""
+"El valor «%value:2» nun ye %accepted:3 y, poro, nun ye válidu pa la clave "
+"«%key:1»."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
@@ -427,20 +440,33 @@ msgid "The key \"%key:1\" is not a list."
 msgstr "La clave «%key:1» nun ye una llista."
 
 #: common/errors.cpp:195
-msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
-msgstr "La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «reset-»."
+msgid ""
+"The key \"%key:1\" does not take any parameters when prefixed by a \"reset-"
+"\"."
+msgstr ""
+"La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «reset-»."
 
 #: common/errors.cpp:203
-msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
-msgstr "La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «enable-»."
+msgid ""
+"The key \"%key:1\" does not take any parameters when prefixed by an \"enable-"
+"\"."
+msgstr ""
+"La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «enable-»."
 
 #: common/errors.cpp:211
-msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
-msgstr "La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «dont-» nin «disable-»."
+msgid ""
+"The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" "
+"or \"disable-\"."
+msgstr ""
+"La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «dont-» nin "
+"«disable-»."
 
 #: common/errors.cpp:219
-msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
-msgstr "La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «clear-»."
+msgid ""
+"The key \"%key:1\" does not take any parameters when prefixed by a \"clear-"
+"\"."
+msgstr ""
+"La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «clear-»."
 
 #: common/errors.cpp:235
 #, c-format
@@ -479,13 +505,20 @@ msgstr "La condición «%cond:1» nun ye válida."
 
 #: common/errors.cpp:299
 #, c-format
-msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
-msgstr "La condición «%cond:1» nun garantiza que se puea obtener siempre «%strip:2»."
+msgid ""
+"The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be "
+"stripped."
+msgstr ""
+"La condición «%cond:1» nun garantiza que se puea obtener siempre «%strip:2»."
 
 #: common/errors.cpp:307
 #, c-format
-msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
-msgstr "El ficheru «%file:1» nun tien el formatu afechiscu. Esperábase que'l ficheru tuviera en «%exp:2» en cuenta d'en «%got:3»."
+msgid ""
+"The file \"%file:1\" is not in the proper format. Expected the file to be in "
+"\"%exp:2\" not \"%got:3\"."
+msgstr ""
+"El ficheru «%file:1» nun tien el formatu afechiscu. Esperábase que'l ficheru "
+"tuviera en «%exp:2» en cuenta d'en «%got:3»."
 
 #: common/errors.cpp:323
 #, c-format
@@ -517,7 +550,8 @@ msgstr "La marca d'afixu «%aff:1» nun ye válida pa la pallabra «%word:2»."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "La marca d'afixu «%aff:1» nun pue ser aplicada a la pallabra «%word:2»."
+msgstr ""
+"La marca d'afixu «%aff:1» nun pue ser aplicada a la pallabra «%word:2»."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -614,21 +648,28 @@ msgstr "Fallu de «%mode:1» al estender los moos d'Aspell (¿Memoria escosada?)
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr "«%mode:1»: nun s'afitó l'aniciu pa la busca máxica col «%magic:2» máxicu."
+msgstr ""
+"«%mode:1»: nun s'afitó l'aniciu pa la busca máxica col «%magic:2» máxicu."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr "«%mode:1»: nun s'afitó'l rangu pa la busca máxica col «%magic:2» máxicu."
+msgstr ""
+"«%mode:1»: nun s'afitó'l rangu pa la busca máxica col «%magic:2» máxicu."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr "«%mode:1»: nun hai disponible espresión máxica dala pal «%magic:2» máxicu."
+msgstr ""
+"«%mode:1»: nun hai disponible espresión máxica dala pal «%magic:2» máxicu."
 
 #: common/errors.cpp:675
-msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
-msgstr "«%mode:1»: «%magic:2» máxicu: espresión regular incorreuta depués del especificador d'allugamientu; regexp informa: «%regerr:3»."
+msgid ""
+"\"%mode:1\": Magic \"%magic:2\": bad regular expression after location "
+"specifier; regexp reports: \"%regerr:3\"."
+msgstr ""
+"«%mode:1»: «%magic:2» máxicu: espresión regular incorreuta depués del "
+"especificador d'allugamientu; regexp informa: «%regerr:3»."
 
 #: common/errors.cpp:691
 #, c-format
@@ -723,15 +764,16 @@ msgstr "Namái se pue especificar un nome de ficheru."
 msgid "Could not open the file \"%s\" for reading"
 msgstr "Nun se pudo abrir el ficheru «%s» pa lleelu"
 
-#: prog/aspell.cpp:1000
-#, c-format
-msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr "Nun se pudo abrir el ficheru «%s» pa escribilu. El ficheru nun quedó guardáu."
-
-#: prog/aspell.cpp:1013
+#: prog/aspell.cpp:998
 #, c-format
 msgid "Invalid keymapping: %s"
 msgstr "Mapa de tecláu non válidu: %s"
+
+#: prog/aspell.cpp:1020
+#, c-format
+msgid "Could not open the file \"%s\" for writing. File not saved."
+msgstr ""
+"Nun se pudo abrir el ficheru «%s» pa escribilu. El ficheru nun quedó guardáu."
 
 #: prog/aspell.cpp:1033
 msgid "Ignore"
@@ -775,160 +817,176 @@ msgstr "¿Tas seguru de que quies encaboxar (s/n)?"
 msgid "Yy"
 msgstr "SsYy"
 
-#: prog/aspell.cpp:1141
+#: prog/aspell.cpp:1148
 msgid "With: "
 msgstr "Con:"
 
-#: prog/aspell.cpp:1158
+#: prog/aspell.cpp:1165
 msgid "Sorry that is an invalid choice!"
 msgstr "¡Sentímoslo, esa ye una escoyeta non válida!"
 
-#: prog/aspell.cpp:1379
+#: prog/aspell.cpp:1386
 msgid "Sorry \"filter\" is currently unimplemented.\n"
 msgstr "Sentímoslo, anguaño «filter» nun ta implementáu.\n"
 
-#: prog/aspell.cpp:1513
+#: prog/aspell.cpp:1520
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "Sentímoslo, tovía nun se pue entemecer un pallabreru principal."
 
-#: prog/aspell.cpp:1537
+#: prog/aspell.cpp:1544
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "Sentímoslo, anguaño «create/merge personal» nun ta implementáu.\n"
 
-#: prog/aspell.cpp:1546 prog/aspell.cpp:1602
+#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "Sentímoslo, nun se va sobreescribir «%s»"
 
-#: prog/aspell.cpp:1593
+#: prog/aspell.cpp:1600
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "Sentímoslo, anguaño «create/merge repl» nun ta implementáu.\n"
 
-#: prog/aspell.cpp:1865
+#: prog/aspell.cpp:1872
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "«%s» nun ye una marca válida pal comandu «munch-list»."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2792
+#: prog/aspell.cpp:2799
 msgid "Usage: aspell [options] <command>"
 msgstr "Usu: aspell [opciones] <comandu>"
 
-#: prog/aspell.cpp:2793
+#: prog/aspell.cpp:2800
 msgid "<command> is one of:"
 msgstr "<comandu> ye ún de los siguientes:"
 
-#: prog/aspell.cpp:2794
+#: prog/aspell.cpp:2801
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage           amuesa un mensax d'usu breve"
 
-#: prog/aspell.cpp:2795
+#: prog/aspell.cpp:2802
 msgid "  help             display a detailed help message"
 msgstr "  help               amuesa un mensax d'aida detalláu"
 
-#: prog/aspell.cpp:2796
+#: prog/aspell.cpp:2803
 msgid "  -c|check <file>  to check a file"
 msgstr "  -c|check <ficheru> pa comprobar un ficheru"
 
-#: prog/aspell.cpp:2797
+#: prog/aspell.cpp:2804
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe            mou de compatibilidá con «ispell -a»"
 
-#: prog/aspell.cpp:2798
+#: prog/aspell.cpp:2805
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr "  [dump] config      vuelca la configuración actual al stdout"
 
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2806
 msgid "  config <key>     prints the current value of an option"
 msgstr "  config <clave>     amuesa el valor actual d'una opción"
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2807
 msgid "  [dump] dicts | filters | modes"
 msgstr "  [dump] dicts | filters | modes"
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2808
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr "    llista los diccionarios / filtros / moos disponibles"
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2809
 msgid "[options] is any of the following:"
 msgstr "[options] ye una de les siguientes:"
 
-#: prog/aspell.cpp:2815
-msgid "  list             produce a list of misspelled words from standard input"
-msgstr "  list               xenera una llista de pallabres mal escrites dende la entrada estándar"
+#: prog/aspell.cpp:2822
+msgid ""
+"  list             produce a list of misspelled words from standard input"
+msgstr ""
+"  list               xenera una llista de pallabres mal escrites dende la "
+"entrada estándar"
 
-#: prog/aspell.cpp:2818
-msgid "  soundslike       returns the sounds like equivalent for each word entered"
-msgstr "  soundslike         torna l'asemeyanza fonética de cada pallabra introducida"
+#: prog/aspell.cpp:2825
+msgid ""
+"  soundslike       returns the sounds like equivalent for each word entered"
+msgstr ""
+"  soundslike         torna l'asemeyanza fonética de cada pallabra introducida"
 
-#: prog/aspell.cpp:2819
+#: prog/aspell.cpp:2826
 msgid "  munch            generate possible root words and affixes"
-msgstr "  munch              xenera les raíces y afixos posibles de les pallabres"
+msgstr ""
+"  munch              xenera les raíces y afixos posibles de les pallabres"
 
-#: prog/aspell.cpp:2820
+#: prog/aspell.cpp:2827
 msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]       espande les marques d'afixos"
 
-#: prog/aspell.cpp:2821
-msgid "  clean [strict]   cleans a word list so that every line is a valid word"
-msgstr "  clean [strict]     llimpia un pallabreru pa que cada llinia seya una pallabra válida"
+#: prog/aspell.cpp:2828
+msgid ""
+"  clean [strict]   cleans a word list so that every line is a valid word"
+msgstr ""
+"  clean [strict]     llimpia un pallabreru pa que cada llinia seya una "
+"pallabra válida"
 
-#: prog/aspell.cpp:2823
+#: prog/aspell.cpp:2830
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version         amuesta una llinia cola versión"
 
-#: prog/aspell.cpp:2824
+#: prog/aspell.cpp:2831
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]"
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2832
 msgid "    reduce the size of a word list via affix compression"
-msgstr "    amenorga'l tamañu d'un pallabreru al traviés de la compresión d'afixos"
+msgstr ""
+"    amenorga'l tamañu d'un pallabreru al traviés de la compresión d'afixos"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2833
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr "  conv <orixe> <destín> [<triba-norm>]"
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2834
 msgid "    converts from one encoding to another"
 msgstr "    convierte d'una codificación a otra"
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2835
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr "  norm (<mapa-norm> | <orixe> <mapa-norm> <destín>) [<triba-norm>]"
 
-#: prog/aspell.cpp:2829
+#: prog/aspell.cpp:2836
 msgid "    perform Unicode normalization"
 msgstr "    fai la normalización Unicode"
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2839
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<nome>]"
 
-#: prog/aspell.cpp:2833
-msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
-msgstr "    vuelca, crea o entemez un diccionariu principal, personal o de troqueos."
+#: prog/aspell.cpp:2840
+msgid ""
+"    dumps, creates or merges a master, personal, or replacement dictionary."
+msgstr ""
+"    vuelca, crea o entemez un diccionariu principal, personal o de troqueos."
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2837
-msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
-msgstr "  <triba-norm>     triba de normalización que se va usar: none, internal o strict"
+#: prog/aspell.cpp:2844
+msgid ""
+"  <norm-form>      normalization form to use, either none, internal, or "
+"strict"
+msgstr ""
+"  <triba-norm>     triba de normalización que se va usar: none, internal o "
+"strict"
 
-#: prog/aspell.cpp:2847
-#, c-format
+#: prog/aspell.cpp:2854
+#, fuzzy, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
 "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2881
+#: prog/aspell.cpp:2888
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -940,7 +998,7 @@ msgstr ""
 "    opción «-d» o «master». Tamién se puen escoyer indireutamente al\n"
 "    traviés de les opciones «lang», «variety» y «size».\n"
 
-#: prog/aspell.cpp:2902
+#: prog/aspell.cpp:2909
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -949,7 +1007,7 @@ msgstr ""
 "    Los filtros puen amestase o desaniciase al traviés de la opción\n"
 "    «filter».\n"
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2916
 #, c-format
 msgid ""
 "\n"
@@ -959,7 +1017,7 @@ msgstr ""
 "  filtru %s: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2926
+#: prog/aspell.cpp:2933
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
@@ -968,9 +1026,11 @@ msgid ""
 "    type from the extension, and possibility the contents, of the file.\n"
 msgstr ""
 "Moos de filtru disponibles:\n"
-"    Los moos de filtru son combinaciones reconfiguraes de filtros optimizaos\n"
+"    Los moos de filtru son combinaciones reconfiguraes de filtros "
+"optimizaos\n"
 "    pa ficheros d'una triba específica. Un mou escuéyese al traviés de la\n"
-"    opción \"mode\". Esto faise implícitamente si Aspell ye pa identificar la\n"
+"    opción \"mode\". Esto faise implícitamente si Aspell ye pa identificar "
+"la\n"
 "    mena de ficheru per aciu de la estensión, y si ye dable, del conteníu\n"
 "    del ficheru.\n"
 
@@ -979,113 +1039,113 @@ msgid "Error: Stdin not a terminal."
 msgstr "Fallu: Stdin nun ye un terminal."
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:769
+#: prog/check_funs.cpp:774
 msgid "Enter"
 msgstr "Intro"
 
-#: prog/check_funs.cpp:771
+#: prog/check_funs.cpp:776
 msgid "Accept Changes"
 msgstr "Aceutar cambeos"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:774
+#: prog/check_funs.cpp:779
 msgid "Backspace"
 msgstr "Retrocesu"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:776
+#: prog/check_funs.cpp:781
 msgid "Control-H"
 msgstr "Control-H"
 
-#: prog/check_funs.cpp:777
+#: prog/check_funs.cpp:782
 msgid "Delete the previous character"
 msgstr "Borra'l caráuter anterior"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:780
+#: prog/check_funs.cpp:785
 msgid "Left"
 msgstr "Esquierda"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:782
+#: prog/check_funs.cpp:787
 msgid "Control-B"
 msgstr "Control-B"
 
-#: prog/check_funs.cpp:783
+#: prog/check_funs.cpp:788
 msgid "Move Back one space"
 msgstr "Retrocede un espaciu"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:786
+#: prog/check_funs.cpp:791
 msgid "Right"
 msgstr "Drecha"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:788
+#: prog/check_funs.cpp:793
 msgid "Control-F"
 msgstr "Control-F"
 
-#: prog/check_funs.cpp:789
+#: prog/check_funs.cpp:794
 msgid "Move Forward one space"
 msgstr "Avanza un espaciu"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:792
+#: prog/check_funs.cpp:797
 msgid "Home"
 msgstr "Aniciu"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:794
+#: prog/check_funs.cpp:799
 msgid "Control-A"
 msgstr "Control-A"
 
-#: prog/check_funs.cpp:795
+#: prog/check_funs.cpp:800
 msgid "Move to the beginning of the line"
 msgstr "Va al aniciu de la llinia"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:798
+#: prog/check_funs.cpp:803
 msgid "End"
 msgstr "Fin"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:800
+#: prog/check_funs.cpp:805
 msgid "Control-E"
 msgstr "Control-E"
 
-#: prog/check_funs.cpp:801
+#: prog/check_funs.cpp:806
 msgid "Move to the end of the line"
 msgstr "Va a lo cabero de la llinia"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:804
+#: prog/check_funs.cpp:809
 msgid "Delete"
 msgstr "Suprimir"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:806
+#: prog/check_funs.cpp:811
 msgid "Control-D"
 msgstr "Control-D"
 
-#: prog/check_funs.cpp:807
+#: prog/check_funs.cpp:812
 msgid "Delete the next character"
 msgstr "Borra'l caráuter siguiente"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:811
+#: prog/check_funs.cpp:816
 msgid "Control-K"
 msgstr "Control-K"
 
-#: prog/check_funs.cpp:812
+#: prog/check_funs.cpp:817
 msgid "Kill all characters to the EOL"
 msgstr "Desanicia tolos caráuteres hasta'l final de llinia"
 
 #. TRANSLATORS: This is a literal Key.
-#: prog/check_funs.cpp:816
+#: prog/check_funs.cpp:821
 msgid "Control-C"
 msgstr "Control-C"
 
-#: prog/check_funs.cpp:817
+#: prog/check_funs.cpp:822
 msgid "Abort This Operation"
 msgstr "Encaboxa esta operación"
 
@@ -1109,7 +1169,8 @@ msgstr "El caráuter «%s» (U+%02X) nun pue apaecer al entamu d'una pallabra."
 #: modules/speller/default/language.cpp:494
 #: modules/speller/default/language.cpp:503
 #, c-format
-msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
+msgid ""
+"The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr "El caráuter «%s» (U+%02X) ha tar siguíu por un caráuter alfabéticu."
 
 #: modules/speller/default/language.cpp:496
@@ -1122,8 +1183,13 @@ msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "El caráuter «%s» (U+%02X) nun pue apaecer en mediu d'una pallabra."
 
 #: modules/speller/default/language.cpp:508
-msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr "El caráuter «\\\r» (U+0D) nun pue apaecer al final d'una pallabra. Esto probablemente seya porque'l ficheru tea usando'l fin de llinia MS-DOS en cuenta del d'Unix."
+msgid ""
+"The character '\\r' (U+0D) may not appear at the end of a word. This "
+"probably means means that the file is using MS-DOS EOL instead of Unix EOL."
+msgstr ""
+"El caráuter «\\\r» (U+0D) nun pue apaecer al final d'una pallabra. Esto "
+"probablemente seya porque'l ficheru tea usando'l fin de llinia MS-DOS en "
+"cuenta del d'Unix."
 
 #: modules/speller/default/language.cpp:511
 #, c-format
@@ -1170,13 +1236,18 @@ msgstr "Asemeyanza fonética incorreuta."
 msgid "Wrong soundslike version."
 msgstr "Versión d'asemeyanza fonética incorreuta."
 
-#: modules/speller/default/readonly_ws.cpp:855
+#: modules/speller/default/readonly_ws.cpp:853
 msgid "Affix flags found in word but no affix file given."
-msgstr "Atopáronse marque d'afixos na pallabra pero nun s'afitó nengún ficheru d'afixos."
+msgstr ""
+"Atopáronse marque d'afixos na pallabra pero nun s'afitó nengún ficheru "
+"d'afixos."
 
-#: modules/speller/default/readonly_ws.cpp:893
-msgid "The total word length, with soundslike data, is larger than 240 characters."
-msgstr "La llonxitú total de la pallabra, contando los datos de l'asemeyanza fonética, ye mayor de 240 caráuteres."
+#: modules/speller/default/readonly_ws.cpp:891
+msgid ""
+"The total word length, with soundslike data, is larger than 240 characters."
+msgstr ""
+"La llonxitú total de la pallabra, contando los datos de l'asemeyanza "
+"fonética, ye mayor de 240 caráuteres."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
@@ -1190,15 +1261,15 @@ msgstr "ún d'ente ultra, fast, normal, slow o bad-spellers"
 msgid "is not one of the allowed types"
 msgstr "nun ye nenguna de les tribes permitíes"
 
-#: modules/speller/default/speller_impl.cpp:233
+#: modules/speller/default/speller_impl.cpp:241
 msgid "The personal word list is unavailable."
 msgstr "Nun ta disponible'l pallabreru personal."
 
-#: modules/speller/default/speller_impl.cpp:240
+#: modules/speller/default/speller_impl.cpp:248
 msgid "The session word list is unavailable."
 msgstr "Nun ta disponible'l pallabreru de la sesión."
 
-#: modules/speller/default/speller_impl.cpp:247
+#: modules/speller/default/speller_impl.cpp:255
 msgid "The main word list is unavailable."
 msgstr "Nun ta disponible'l pallabreru principal."
 

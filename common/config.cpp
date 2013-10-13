@@ -1123,7 +1123,7 @@ namespace acommon {
     : out(o), first(false)
   {
     first_prefix = _("# default: ");
-    num_blanks = strlen(first_prefix - 1);
+    num_blanks = strlen(first_prefix) - 1;
   }
 
   PosibErr<bool> ListDefaultDump::add(ParmStr d) 

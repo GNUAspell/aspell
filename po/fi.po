@@ -1,20 +1,21 @@
 # Finnish messages for aspell.
 # Copyright © 2010 Kevin Atkinson
+# Copyright © 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the aspell package.
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.6\n"
+"Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2011-07-04 03:25-0600\n"
-"PO-Revision-Date: 2011-03-06 09:03+0200\n"
+"POT-Creation-Date: 2011-07-04 20:06-0600\n"
+"PO-Revision-Date: 2011-07-11 11:21+0200\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: common/info.cpp:232
@@ -23,7 +24,7 @@ msgstr "numero 0:n ja 1:n välillä"
 
 #: common/info.cpp:569
 msgid "in the form \"<name> <value>\""
-msgstr "muodossa \"<nimi> <arvo>\""
+msgstr "muodossa ”<nimi> <arvo>”"
 
 #: common/config.cpp:74
 msgid "string"
@@ -35,7 +36,7 @@ msgstr "kokonaisluku"
 
 #: common/config.cpp:74
 msgid "boolean"
-msgstr "boolean"
+msgstr "totuusarvo"
 
 #: common/config.cpp:74
 msgid "list"
@@ -279,7 +280,7 @@ msgstr "indikaattori liitelipuille sanaluetteloissa -- NYKYISIN OHITETAAN"
 
 #: common/config.cpp:1477
 msgid "use affix compression when creating dictionaries"
-msgstr "käytä liitetiivistystä sanakirjoja luotaessa"
+msgstr "käytä liitepakkausta sanakirjoja luotaessa"
 
 #: common/config.cpp:1479
 msgid "remove invalid affix flags"
@@ -323,7 +324,7 @@ msgstr "luo puuttuvat sanavartalo/liite-yhdistelmät"
 
 #: common/config.cpp:1504
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
-msgstr "näppäinkartoitus tarkistustilalle: ”aspell” tai ”ispell”"
+msgstr "näppäinkuvaus tarkistustilalle: ”aspell” tai ”ispell”"
 
 #: common/config.cpp:1506
 msgid "reverse the order of the suggest list"
@@ -337,21 +338,17 @@ msgstr "suosittele mahdollisia korvauksia"
 msgid "time load time and suggest time in pipe mode"
 msgstr "aikalatausaika ja suositusaika putkitilassa"
 
-#: common/convert.cpp:303 common/convert.cpp:429
+#: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
-msgid ""
-"This could also mean that the file \"%s\" could not be opened for reading or "
-"does not exist."
-msgstr ""
-"Tämä voisi myös tarkoittaa, että tiedostoa ”%s” ei voitu avata lukemista "
-"varten tai sitä ei ole olemassa."
+msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
+msgstr "Tämä voisi myös tarkoittaa, että tiedostoa ”%s” ei voitu avata lukemista varten tai sitä ei ole olemassa."
 
-#: common/convert.cpp:552 common/convert.cpp:659 common/convert.cpp:705
+#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Unicode-merkkiä U+%04X ei tueta."
 
-#: common/convert.cpp:829
+#: common/convert.cpp:859
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Virheellinen UTF-8 -sekvenssi sijainnissa %ld."
@@ -413,12 +410,8 @@ msgstr "Valitsin ”%key:1” ei ole %accepted:2 ja se on siten virheellinen."
 
 #  Tämän lauseen suomennoksen jäsentäminen ei onnistu. Testattaessa vain %accepted:3-teksti näkyy suomenkielisenä.
 #: common/errors.cpp:147
-msgid ""
-"The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%"
-"key:1\"."
-msgstr ""
-"Arvo ”%value:2” ei ole %accepted:3 ja se on siten virheellinen valitsimelle "
-"”%key:1”."
+msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
+msgstr "Arvo ”%value:2” ei ole %accepted:3 ja se on siten virheellinen valitsimelle ”%key:1”."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
@@ -437,34 +430,20 @@ msgid "The key \"%key:1\" is not a list."
 msgstr "Valitsin ”%key:1” ei ole luettelo."
 
 #: common/errors.cpp:195
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"reset-"
-"\"."
-msgstr ""
-"Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”reset-”."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
+msgstr "Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”reset-”."
 
 #: common/errors.cpp:203
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by an \"enable-"
-"\"."
-msgstr ""
-"Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on "
-"”enable-”."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
+msgstr "Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”enable-”."
 
 #: common/errors.cpp:211
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" "
-"or \"disable-\"."
-msgstr ""
-"Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”dont-” "
-"tai ”disable-”."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
+msgstr "Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”dont-” tai ”disable-”."
 
 #: common/errors.cpp:219
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"clear-"
-"\"."
-msgstr ""
-"Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”clear-”."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
+msgstr "Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”clear-”."
 
 #: common/errors.cpp:235
 #, c-format
@@ -494,7 +473,7 @@ msgstr "Odotettiin kieltä ”%lang:1” mutta saatiin ”%prev:2”."
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr "Liite '%aff:1' on rikkoutunut."
+msgstr "Liite ’%aff:1’ on rikkoutunut."
 
 #: common/errors.cpp:291
 #, c-format
@@ -503,19 +482,13 @@ msgstr "Ehto ”%cond:1” on virheellinen."
 
 #: common/errors.cpp:299
 #, c-format
-msgid ""
-"The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be "
-"stripped."
+msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
 msgstr "Ehto ”%cond:1” ei takaa, että ”%strip:2” voidaan aina riisua."
 
 #: common/errors.cpp:307
 #, c-format
-msgid ""
-"The file \"%file:1\" is not in the proper format. Expected the file to be in "
-"\"%exp:2\" not \"%got:3\"."
-msgstr ""
-"Tiedosto ”%file:1” ei ole oikeaa muotoa. Tiedoston odotettiin olevan ”%"
-"exp:2” ei ”%got:3”."
+msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
+msgstr "Tiedosto ”%file:1” ei ole oikeaa muotoa. Tiedoston odotettiin olevan ”%exp:2” ei ”%got:3”."
 
 #: common/errors.cpp:323
 #, c-format
@@ -543,11 +516,11 @@ msgstr "Sana ”%word:1” on virheellinen."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr "Liitelippu '%aff:1' on virheellinen sanalle ”%word:2”."
+msgstr "Liitelippu ’%aff:1’ on virheellinen sanalle ”%word:2”."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "Liitelippu '%aff:1' ei voida liittää sanaan ”%word:2”."
+msgstr "Liitelippu ’%aff:1’ ei voida liittää sanaan ”%word:2”."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -634,7 +607,7 @@ msgstr "”%mode:1”-virhe"
 #: common/errors.cpp:627
 #, c-format
 msgid "Unknown mode: \"%mode:1\"."
-msgstr "Tuntematon tila: \"%mode:1\"."
+msgstr "Tuntematon tila: ”%mode:1”."
 
 #: common/errors.cpp:635
 #, c-format
@@ -644,15 +617,12 @@ msgstr "”%mode:1”-virhe, kun laajennetaan Aspell-tiloja. (muisti loppui?)"
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr ""
-"”%mode:1”: annetulla ”%magic:2”-magiikalla ei ole alkua magiikkaetsinnälle."
+msgstr "”%mode:1”: annetulla ”%magic:2”-magiikalla ei ole alkua magiikkaetsinnälle."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr ""
-"”%mode:1”: annetulla ”%magic:2”-magiikalla ei ole lukualuetta "
-"magiikkaetsintään."
+msgstr "”%mode:1”: annetulla ”%magic:2”-magiikalla ei ole lukualuetta magiikkaetsintään."
 
 #: common/errors.cpp:667
 #, c-format
@@ -660,12 +630,8 @@ msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
 msgstr "”%mode:1”: ”%magic:2”-magiikalla ei ole maagista lauseketta."
 
 #: common/errors.cpp:675
-msgid ""
-"\"%mode:1\": Magic \"%magic:2\": bad regular expression after location "
-"specifier; regexp reports: \"%regerr:3\"."
-msgstr ""
-"”%mode:1”: Magiikka ”%magic:2”: väärä säännöllinen lauseke sijaintimääreen "
-"jälkeen; regexp ilmoittaa: ”%regerr:3”."
+msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
+msgstr "”%mode:1”: Magiikka ”%magic:2”: väärä säännöllinen lauseke sijaintimääreen jälkeen; regexp ilmoittaa: ”%regerr:3”."
 
 #: common/errors.cpp:691
 #, c-format
@@ -763,14 +729,12 @@ msgstr "Ei voitu avata tiedostoa ”%s” lukemista varten"
 #: prog/aspell.cpp:998
 #, c-format
 msgid "Invalid keymapping: %s"
-msgstr "Virheellinen näppäinkartoitus: %s"
+msgstr "Virheellinen näppäinkuvaus: %s"
 
 #: prog/aspell.cpp:1020
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr ""
-"Ei voitu avata tiedostoa ”%s” kirjoittamista varten. Tiedostoa ei "
-"tallennettu."
+msgstr "Ei voitu avata tiedostoa ”%s” kirjoittamista varten. Tiedostoa ei tallennettu."
 
 #: prog/aspell.cpp:1033
 msgid "Ignore"
@@ -889,26 +853,19 @@ msgstr "  [dump] dicts | filters | modes"
 
 #: prog/aspell.cpp:2808
 msgid "    lists available dictionaries / filters / filter modes"
-msgstr ""
-"    luettelee saatavilla olevat sanakirjat / suodattimet / suodatintilat"
+msgstr "    luettelee saatavilla olevat sanakirjat / suodattimet / suodatintilat"
 
 #: prog/aspell.cpp:2809
 msgid "[options] is any of the following:"
 msgstr "[valitsimet] ovat mikä tahansa seuraavista:"
 
 #: prog/aspell.cpp:2822
-msgid ""
-"  list             produce a list of misspelled words from standard input"
-msgstr ""
-"  list                tuottaa luettelon vakiosyötteeseen "
-"väärinkirjoitetuista sanoista"
+msgid "  list             produce a list of misspelled words from standard input"
+msgstr "  list                tuottaa luettelon vakiosyötteeseen väärinkirjoitetuista sanoista"
 
 #: prog/aspell.cpp:2825
-msgid ""
-"  soundslike       returns the sounds like equivalent for each word entered"
-msgstr ""
-"  soundslike          palauttaa äänenkaltaisen yhtäläisyyden jokaiselle "
-"kirjoitetulle sanalle"
+msgid "  soundslike       returns the sounds like equivalent for each word entered"
+msgstr "  soundslike          palauttaa äänenkaltaisen yhtäläisyyden jokaiselle kirjoitetulle sanalle"
 
 #: prog/aspell.cpp:2826
 msgid "  munch            generate possible root words and affixes"
@@ -919,11 +876,8 @@ msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]        laajentaa liitelippuja"
 
 #: prog/aspell.cpp:2828
-msgid ""
-"  clean [strict]   cleans a word list so that every line is a valid word"
-msgstr ""
-"  clean [strict]      puhdistaa sanaluetteloa niin että jokainen rivi on "
-"kelvollinen sana"
+msgid "  clean [strict]   cleans a word list so that every line is a valid word"
+msgstr "  clean [strict]      puhdistaa sanaluetteloa niin että jokainen rivi on kelvollinen sana"
 
 #: prog/aspell.cpp:2830
 msgid "  -v|version       prints a version line"
@@ -935,7 +889,7 @@ msgstr "  munch-list [simple] [single|multi] [keep]"
 
 #: prog/aspell.cpp:2832
 msgid "    reduce the size of a word list via affix compression"
-msgstr "    pienentää sanaluettelon kokoa liitteiden tiivistämisellä"
+msgstr "    pienentää sanaluettelon kokoa liitteiden pakkauksella"
 
 #: prog/aspell.cpp:2833
 msgid "  conv <from> <to> [<norm-form>]"
@@ -947,9 +901,7 @@ msgstr "    muuntaa lähdekoodauksesta kohdekoodaukseen"
 
 #: prog/aspell.cpp:2835
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
-msgstr ""
-"  norm (<normalisointikartta> | <lähde> <normalisointikartta> <kohde>) "
-"[<normalisointimuoto>]"
+msgstr "  norm (<normalisointikuvaus> | <lähde> <normalisointikuvaus> <kohde>) [<normalisointimuoto>]"
 
 #: prog/aspell.cpp:2836
 msgid "    perform Unicode normalization"
@@ -960,20 +912,14 @@ msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<nimi>]"
 
 #: prog/aspell.cpp:2840
-msgid ""
-"    dumps, creates or merges a master, personal, or replacement dictionary."
-msgstr ""
-"    tulostaa, luo tai yhdistää pää-, henkilökohtaisen, tai korvaussanakirjan."
+msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
+msgstr "    tulostaa, luo tai yhdistää pää-, henkilökohtaisen, tai korvaussanakirjan."
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
 #: prog/aspell.cpp:2844
-msgid ""
-"  <norm-form>      normalization form to use, either none, internal, or "
-"strict"
-msgstr ""
-"  <normalisointimuoto> käytettävä normalisointimuoto on joko none, internal, "
-"tai strict"
+msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
+msgstr "  <normalisointimuoto> käytettävä normalisointimuoto on joko none, internal, tai strict"
 
 #: prog/aspell.cpp:2854
 #, c-format
@@ -983,7 +929,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2114, Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2011, Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888
@@ -1026,7 +972,7 @@ msgid ""
 msgstr ""
 "Käytettävissä olevat suodatintilat:\n"
 "    Suodatintilat ovat suodattimien optiomoinnin uudelleenasetuksen\n"
-"    yhdistelmiä tietyntyyppisille tiedostoille. Tila valitaan \"mode\"\n"
+"    yhdistelmiä tietyntyyppisille tiedostoille. Tila valitaan ”mode”\n"
 "    -valitsimella. Tämä tapahtuu implisiittisesti jos Aspell kykenee\n"
 "    tunnistamaan tiedostotyypin tiedostotarkentimesta ja mahdollisesti\n"
 "    tiedoston sisällöstä.\n"
@@ -1161,14 +1107,13 @@ msgstr "Tyhjä merkkijono."
 #: modules/speller/default/language.cpp:492
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
-msgstr "Merkki '%s' (U+%02X) ei ehkä esiinny sanan alussa."
+msgstr "Merkki ’%s’ (U+%02X) ei ehkä esiinny sanan alussa."
 
 #: modules/speller/default/language.cpp:494
 #: modules/speller/default/language.cpp:503
 #, c-format
-msgid ""
-"The character '%s' (U+%02X) must be followed by an alphabetic character."
-msgstr "Merkkiä '%s' (U+%02X) on seurattava aakkosnumeerinen merkki."
+msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
+msgstr "Merkkiä ’%s’ (U+%02X) on seurattava aakkosnumeerinen merkki."
 
 #: modules/speller/default/language.cpp:496
 msgid "Does not contain any alphabetic characters."
@@ -1177,42 +1122,37 @@ msgstr "Ei sisällä yhtään aakkosnumeerista merkkiä."
 #: modules/speller/default/language.cpp:501
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
-msgstr "Merkki '%s' (U+%02X) ei ehkä esiinny sanan keskellä."
+msgstr "Merkki ’%s’ (U+%02X) ei ehkä esiinny sanan keskellä."
 
 #: modules/speller/default/language.cpp:508
-msgid ""
-"The character '\\r' (U+0D) may not appear at the end of a word. This "
-"probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr ""
-"Merkki '\\r' (U+0D) ei ehkä esiinny sanan lopussa. Tämä luultavasti "
-"tarkoittaa, että tiedosto käyttää MS-DOS EOL -rivinloppumerkkiä eikä Unix "
-"EOL -rivinloppumerkkiä."
+msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
+msgstr "Merkki ’\\r’ (U+0D) ei ehkä esiinny sanan lopussa. Tämä luultavasti tarkoittaa, että tiedosto käyttää MS-DOS EOL -rivinloppumerkkiä eikä Unix EOL -rivinloppumerkkiä."
 
 #: modules/speller/default/language.cpp:511
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
-msgstr "Merkki '%s' (U+%02X) ei ehkä esiinny sanan lopussa."
+msgstr "Merkki ’%s’ (U+%02X) ei ehkä esiinny sanan lopussa."
 
 #: modules/speller/default/language.cpp:543
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
-msgstr "Varoitus: Virheellisen liitteen '%s' poistaminen sanasta %s.\n"
+msgstr "Varoitus: Virheellisen liitteen ’%s’ poistaminen sanasta %s.\n"
 
 #: modules/speller/default/language.cpp:544
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr "Varoitus: Poistetaan sopimaton liite '%s' sanasta %s.\n"
+msgstr "Varoitus: Poistetaan sopimaton liite ’%s’ sanasta %s.\n"
 
-#: modules/speller/default/language.cpp:674
+#: modules/speller/default/language.cpp:675
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr "Varoitus: %s ohitetaan merkkijono.\n"
 
-#: modules/speller/default/language.cpp:732
+#: modules/speller/default/language.cpp:733
 msgid "The total length is larger than 240 characters."
 msgstr "Yhteispituus on suurempi kuin 240 merkkiä."
 
-#: modules/speller/default/language.cpp:736
+#: modules/speller/default/language.cpp:737
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "Varoitus: %s Ohitetaan sana.\n"
@@ -1222,26 +1162,28 @@ msgid "Possibly incorrect count."
 msgstr "Mahdollisesti väärä lukumäärä."
 
 #: modules/speller/default/readonly_ws.cpp:362
+msgid "Incompatible hash function."
+msgstr "Yhteensopimaton tiivistefunktio."
+
+#: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
 msgstr "Väärä tavujärjestys."
 
-#: modules/speller/default/readonly_ws.cpp:385
+#: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
 msgstr "Väärä äänenkaltainen."
 
-#: modules/speller/default/readonly_ws.cpp:391
+#: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
 msgstr "Väärä äänenkaltainen versio."
 
-#: modules/speller/default/readonly_ws.cpp:853
+#: modules/speller/default/readonly_ws.cpp:934
 msgid "Affix flags found in word but no affix file given."
 msgstr "Liiteliput löytyivät sanassa, mutta liitetiedostoa ei ole annettu."
 
-#: modules/speller/default/readonly_ws.cpp:891
-msgid ""
-"The total word length, with soundslike data, is larger than 240 characters."
-msgstr ""
-"Kokonaissanapituus, äänenkaltaisella tiedolla, on laajempi kuin 240 merkkiä."
+#: modules/speller/default/readonly_ws.cpp:972
+msgid "The total word length, with soundslike data, is larger than 240 characters."
+msgstr "Kokonaissanapituus, äänenkaltaisella tiedolla, on laajempi kuin 240 merkkiä."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
@@ -1269,7 +1211,7 @@ msgstr "Pääsanaluettelo ei ole saatavilla."
 
 #: modules/filter/tex.cpp:255 modules/filter/tex.cpp:262
 msgid "a string of 'o','O','p',or 'P'"
-msgstr "seuraavien merkkien merkkijono: 'o','O','p',tai 'P'"
+msgstr "seuraavien merkkien merkkijono: ’o’,’O’,’p’,tai ’P’"
 
 #. TRANSLATORS: Like the strings in config.cpp, all strings in *-filter.opt
 #. should be under 50 characters, begin with a lower case character and 
@@ -1413,9 +1355,5 @@ msgstr "tila ohittaa verkko-osoitetyyppiset rakennelmat (oletustila)"
 #~ msgid "enter Debctrl mode."
 #~ msgstr "siirry Debctrl-tilaan."
 
-#~ msgid ""
-#~ "The value \"%value:2\" is not \"%accepted:3\" and is thus invalid for the "
-#~ "key \"%key:1\"."
-#~ msgstr ""
-#~ "Arvo ”%value:2” ei ole ”%accepted:3” ja se on siten virheellinen "
-#~ "valitsimelle ”%key:1”."
+#~ msgid "The value \"%value:2\" is not \"%accepted:3\" and is thus invalid for the key \"%key:1\"."
+#~ msgstr "Arvo ”%value:2” ei ole ”%accepted:3” ja se on siten virheellinen valitsimelle ”%key:1”."

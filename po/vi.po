@@ -1,21 +1,27 @@
 # Vietnamese translation of Aspell.
 # Copyright © 2008 Kevin Atkinson
-# This file is distributed under the same license as the aspell-0.60.6 package.
+# Copyright © 2012 Free Software Foundation, Inc.
+# This file is distributed under the same license as the aspell package.
 # Clytie Siddall <clytie@riverland.net.au>, 2006-2008.
-# 
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2012.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.6\n"
+"Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2011-07-04 03:25-0600\n"
-"PO-Revision-Date: 2008-05-02 16:43+0930\n"
-"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"POT-Creation-Date: 2011-07-04 20:06-0600\n"
+"PO-Revision-Date: 2012-03-13 14:59+0700\n"
+"Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: LocFactoryEditor 1.7b3\n"
+"X-Poedit-Language: Vietnamese\n"
+"X-Poedit-Country: VIET NAM\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -337,21 +343,17 @@ msgstr "góp ý từ thay thế có thể"
 msgid "time load time and suggest time in pipe mode"
 msgstr "tính thời gian tải và thời gian góp ý khi trong chế độ ống dẫn"
 
-#: common/convert.cpp:303 common/convert.cpp:429
+#: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
-msgid ""
-"This could also mean that the file \"%s\" could not be opened for reading or "
-"does not exist."
-msgstr ""
-"Cũng có thể nghĩa là không thể mở tập tin « %s » để đọc, hoặc nó không tồn "
-"tại."
+msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
+msgstr "Cũng có thể nghĩa là không thể mở tập tin « %s » để đọc, hoặc nó không tồn tại."
 
-#: common/convert.cpp:552 common/convert.cpp:659 common/convert.cpp:705
+#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Điểm mã Unicode U+%04X không được hỗ trợ."
 
-#: common/convert.cpp:829
+#: common/convert.cpp:859
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Dãy UTF-8 không hợp lệ tại vị trí %ld."
@@ -412,12 +414,8 @@ msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
 msgstr "Khóa « %key:1 » không phải %accepted:2 thì không hợp lệ."
 
 #: common/errors.cpp:147
-msgid ""
-"The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%"
-"key:1\"."
-msgstr ""
-"Giá trị « %value:2 » không phải %accepted:3 thì không hợp lệ đối với khóa « %"
-"key:1 »."
+msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
+msgstr "Giá trị « %value:2 » không phải %accepted:3 thì không hợp lệ đối với khóa « %key:1 »."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
@@ -436,34 +434,20 @@ msgid "The key \"%key:1\" is not a list."
 msgstr "Khóa « %key:1 » không phải là danh sách."
 
 #: common/errors.cpp:195
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"reset-"
-"\"."
-msgstr ""
-"Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « reset- » (lập lại)."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
+msgstr "Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « reset- » (lập lại)."
 
 #: common/errors.cpp:203
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by an \"enable-"
-"\"."
-msgstr ""
-"Khóa « %key:1 » không chấp nhận tham số nào khi có tiền tố « enable- » (hiệu "
-"lực)."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
+msgstr "Khóa « %key:1 » không chấp nhận tham số nào khi có tiền tố « enable- » (hiệu lực)."
 
 #: common/errors.cpp:211
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" "
-"or \"disable-\"."
-msgstr ""
-"Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « dont- » (đừng) hay "
-"« disable- » (tắt)."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
+msgstr "Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « dont- » (đừng) hay « disable- » (tắt)."
 
 #: common/errors.cpp:219
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"clear-"
-"\"."
-msgstr ""
-"Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « clear- » (xóa)."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
+msgstr "Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « clear- » (xóa)."
 
 #: common/errors.cpp:235
 #, c-format
@@ -502,20 +486,13 @@ msgstr "Điều kiện « %cond:1 » không hợp lệ."
 
 #: common/errors.cpp:299
 #, c-format
-msgid ""
-"The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be "
-"stripped."
-msgstr ""
-"Điều kiện « %cond:1 » không bảo đảm luôn luôn có thể tước « %strip:2 »."
+msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
+msgstr "Điều kiện « %cond:1 » không bảo đảm luôn luôn có thể tước « %strip:2 »."
 
 #: common/errors.cpp:307
 #, c-format
-msgid ""
-"The file \"%file:1\" is not in the proper format. Expected the file to be in "
-"\"%exp:2\" not \"%got:3\"."
-msgstr ""
-"Tập tin « %file:1 » không co dạng thức đúng. Ngờ tập tin dạng « %exp:2 » "
-"không phải « %got:3 »."
+msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
+msgstr "Tập tin « %file:1 » không co dạng thức đúng. Ngờ tập tin dạng « %exp:2 » không phải « %got:3 »."
 
 #: common/errors.cpp:323
 #, c-format
@@ -644,30 +621,21 @@ msgstr "Gặp lỗi « %mode:1 » khi mở rộng chế độ Aspell. (Hết b�
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr ""
-"« %mode:1 »: chưa đặt đầu tìm kiếm mã thuật đối với « %magic:2 » mã thuật."
+msgstr "« %mode:1 »: chưa đặt đầu tìm kiếm mã thuật đối với « %magic:2 » mã thuật."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr ""
-"« %mode:1 »: chưa đặt phạm vị tìm kiếm mã thuật đối với « %magic:2 » mã "
-"thuật."
+msgstr "« %mode:1 »: chưa đặt phạm vị tìm kiếm mã thuật đối với « %magic:2 » mã thuật."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr ""
-"« %mode:1 »: không có biểu thức mã thuật sẵn sàng đối với « %magic:2 » mã "
-"thuật."
+msgstr "« %mode:1 »: không có biểu thức mã thuật sẵn sàng đối với « %magic:2 » mã thuật."
 
 #: common/errors.cpp:675
-msgid ""
-"\"%mode:1\": Magic \"%magic:2\": bad regular expression after location "
-"specifier; regexp reports: \"%regerr:3\"."
-msgstr ""
-"« %mode:1 »: mã thuật « %magic:2 »: biểu thức chính quy sai nằm sau đồ ghi "
-"rõ địa điểm; regexp thông báo: « %regerr:3 »."
+msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
+msgstr "« %mode:1 »: mã thuật « %magic:2 »: biểu thức chính quy sai nằm sau đồ ghi rõ địa điểm; regexp thông báo: « %regerr:3 »."
 
 #: common/errors.cpp:691
 #, c-format
@@ -832,9 +800,7 @@ msgstr "Tiếc là chưa có thể phối danh sách từ chính."
 
 #: prog/aspell.cpp:1544
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
-msgstr ""
-"Tiếc là chưa thi hành khả năng « create/merge personal » (tạo/phối cá "
-"nhân).\n"
+msgstr "Tiếc là chưa thi hành khả năng « create/merge personal » (tạo/phối cá nhân).\n"
 
 #: prog/aspell.cpp:1553 prog/aspell.cpp:1609
 #, c-format
@@ -843,14 +809,12 @@ msgstr "Tiếc là không thể ghi đè « %s »"
 
 #: prog/aspell.cpp:1600
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
-msgstr ""
-"Tiếc là chưa thi hành khả năng « create/merge repl » (tạo/phối thay thế).\n"
+msgstr "Tiếc là chưa thi hành khả năng « create/merge repl » (tạo/phối thay thế).\n"
 
 #: prog/aspell.cpp:1872
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
-msgstr ""
-"« %s » không phải là cờ hợp lệ đối với lệnh « munch-list » (nhai danh sách)."
+msgstr "« %s » không phải là cờ hợp lệ đối với lệnh « munch-list » (nhai danh sách)."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
@@ -884,8 +848,7 @@ msgstr "  [dump] config    _đổ cấu hình_ hiện thời ra thiết bị xu�
 
 #: prog/aspell.cpp:2806
 msgid "  config <key>     prints the current value of an option"
-msgstr ""
-"  config <khóa>     in ra giá trị hiện thời của tùy chọn đó (_cấu hình_)"
+msgstr "  config <khóa>     in ra giá trị hiện thời của tùy chọn đó (_cấu hình_)"
 
 #: prog/aspell.cpp:2807
 msgid "  [dump] dicts | filters | modes"
@@ -900,14 +863,11 @@ msgid "[options] is any of the following:"
 msgstr "[tùy_chọn ...] có thể:"
 
 #: prog/aspell.cpp:2822
-msgid ""
-"  list             produce a list of misspelled words from standard input"
-msgstr ""
-"  list             tạo _danh sách_ các từ sai chính tả từ thiết bị nhập chuẩn"
+msgid "  list             produce a list of misspelled words from standard input"
+msgstr "  list             tạo _danh sách_ các từ sai chính tả từ thiết bị nhập chuẩn"
 
 #: prog/aspell.cpp:2825
-msgid ""
-"  soundslike       returns the sounds like equivalent for each word entered"
+msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr "  soundslike       trả lời điều _nghe như_ mỗi từ đã nhập"
 
 #: prog/aspell.cpp:2826
@@ -919,8 +879,7 @@ msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     _mở rộng_ cờ affix"
 
 #: prog/aspell.cpp:2828
-msgid ""
-"  clean [strict]   cleans a word list so that every line is a valid word"
+msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 "  clean [strict]   _xoá sạch_ danh sách từ để mỗi dòng là một từ hợp lệ\n"
 "\t(_chính xác_)"
@@ -962,16 +921,13 @@ msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<name>]"
 
 #: prog/aspell.cpp:2840
-msgid ""
-"    dumps, creates or merges a master, personal, or replacement dictionary."
+msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr "    đổ, tạo hay hoà trộn từ điển kiểu chính, cá nhân hay thay thế"
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
 #: prog/aspell.cpp:2844
-msgid ""
-"  <norm-form>      normalization form to use, either none, internal, or "
-"strict"
+msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr ""
 "  <norm-form>      _kiểu tiêu chuẩn hóa_ cần dùng, hoặc none (không có),\n"
 "\tinternal (nội bộ), hay strict (chính xác)"
@@ -1167,8 +1123,7 @@ msgstr "Không cho phép ký tự « %s » (U+%02X) bắt đầu từ."
 #: modules/speller/default/language.cpp:494
 #: modules/speller/default/language.cpp:503
 #, c-format
-msgid ""
-"The character '%s' (U+%02X) must be followed by an alphabetic character."
+msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr "Ký tự « %s » (U+%02X) phải có ký tự abc nằm sau nó."
 
 #: modules/speller/default/language.cpp:496
@@ -1181,9 +1136,7 @@ msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "Không cho phép ký tự « %s » (U+%02X) nằm ở giữa trong từ."
 
 #: modules/speller/default/language.cpp:508
-msgid ""
-"The character '\\r' (U+0D) may not appear at the end of a word. This "
-"probably means means that the file is using MS-DOS EOL instead of Unix EOL."
+msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
 msgstr ""
 "Không cho phép ký tự « \\r » (U+0D) kết thúc từ. Có thể nghĩa là tập tin\n"
 "đó dùng ký tự kết thúc dòng kiểu MS-DOS thay thế kiểu Unix."
@@ -1203,16 +1156,16 @@ msgstr "Cảnh báo : đang gỡ bỏ phụ tố không hợp lệ « %s » ra t
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr "Cảnh báo : đang gỡ bỏ phụ tố không thể áp dụng « %s » ra từ %s.\n"
 
-#: modules/speller/default/language.cpp:674
+#: modules/speller/default/language.cpp:675
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr "Cảnh báo : %s đang bỏ qua chuỗi.\n"
 
-#: modules/speller/default/language.cpp:732
+#: modules/speller/default/language.cpp:733
 msgid "The total length is larger than 240 characters."
 msgstr "Tổng độ dài hơn 240 ký tự."
 
-#: modules/speller/default/language.cpp:736
+#: modules/speller/default/language.cpp:737
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "Cảnh báo : %s đang bỏ qua từ.\n"
@@ -1222,24 +1175,27 @@ msgid "Possibly incorrect count."
 msgstr "Có lẽ số đếm không đúng."
 
 #: modules/speller/default/readonly_ws.cpp:362
+msgid "Incompatible hash function."
+msgstr "Hàm băm không tương thích."
+
+#: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
 msgstr "Thứ tự byte trong số đa byte không phải là đúng."
 
-#: modules/speller/default/readonly_ws.cpp:385
+#: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
 msgstr "Điều soundslike (nghe như) không đúng."
 
-#: modules/speller/default/readonly_ws.cpp:391
+#: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
 msgstr "Phiên bản soundslike (nghe như) không đúng."
 
-#: modules/speller/default/readonly_ws.cpp:853
+#: modules/speller/default/readonly_ws.cpp:934
 msgid "Affix flags found in word but no affix file given."
 msgstr "Đã tìm cờ affix (phụ tố) trong từ nhưng không có tập tin affix đưa ra."
 
-#: modules/speller/default/readonly_ws.cpp:891
-msgid ""
-"The total word length, with soundslike data, is larger than 240 characters."
+#: modules/speller/default/readonly_ws.cpp:972
+msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Tổng độ dài từ, gồm dữ liệu soundslike (nghe như), hơn 240 ký tự."
 
 #: modules/speller/default/multi_ws.cpp:58
@@ -1353,11 +1309,11 @@ msgstr "môi trường Texinfo cần bỏ qua"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
-msgstr "bộ lọc để bỏ qua các đồ kiểu địa chỉ Mạng"
+msgstr "bộ lọc để bỏ qua các địa chỉ Mạng URL như là các cấu trúc"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr "chế độ để kiểm tra chú thích C++ và đồ nghĩa chữ trong chuỗi"
+msgstr "chế độ để kiểm tra chú thích C++ và chuỗi văn bản"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
