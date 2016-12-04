@@ -71,7 +71,9 @@ sub create_cc_file ( % )  {
 
 ---
   my $hm = "ASPELL_". to_upper($p{name})."__".to_upper($p{ext});
-  $file .= "#ifndef $hm\n#define $hm\n\n" if $p{header};
+  $file .= "#ifndef $hm\n#define $hm\n\n" if $p{header} && $p{name} ne 'errors';
+  # hack to avoid including aerror_* symbols as two different type of symbols
+  $file .= "#if !defined($hm) && !defined(ASPELL_ASPELL__H)\n#define $hm\n\n" if $p{header} && $p{name} eq 'errors';
   $file .= "#include \"aspell.h\"\n" if $p{type} eq 'cxx';
   $file .= "#include \"settings.h\"\n" if $p{type} eq 'native_impl' && $p{name} eq 'errors';
   $file .= "#include \"gettext.h\"\n" if $p{type} eq 'native_impl' && $p{name} eq 'errors';
