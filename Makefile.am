@@ -249,12 +249,12 @@ filter_DATA = $(fltfiles)
 # settings.h added as a dependency so it will get recreated if
 #   the COMPILE_IN_FILTERS option changes
 gen/static_filters.src.cpp: ${static_optfiles} gen/mk-static-filter.pl gen/settings.h
-	${PERLPROG} gen/mk-static-filter.pl ${static_optfiles}
+	${PERLPROG} ${srcdir}/gen/mk-static-filter.pl $(addprefix ${srcdir}/,${static_optfiles})
 
-lib/new_filter.cpp: gen/static_filters.src.cpp
+${srcdir}/lib/new_filter.cpp: gen/static_filters.src.cpp
 
 gen/filter.pot: gen/mk-filter-pot.pl ${static_optfiles} ${dynamic_optfiles}
-	${PERLPROG} gen/mk-filter-pot.pl
+	${PERLPROG} ${srcdir}/gen/mk-filter-pot.pl
 
 EXTRA_DIST += ${static_optfiles} ${dynamic_optfiles} ${fltfiles} \
               gen/mk-static-filter.pl gen/mk-filter-pot.pl\
@@ -267,10 +267,10 @@ CLEANFILES = gen/static_filters.src.cpp
 # Mk Dirs Target 
 #
 
-common/config.cpp: gen/dirs.h
+${srcdir}/common/config.cpp: gen/dirs.h
 
 gen/dirs.h: gen/mk-dirs_h.pl
-	cd gen; perl mk-dirs_h.pl ${prefix} ${pkgdatadir} ${pkglibdir}  ${sysconfdir} >  dirs.h
+	perl ${srcdir}/gen/mk-dirs_h.pl ${prefix} ${pkgdatadir} ${pkglibdir}  ${sysconfdir} >  gen/dirs.h
 
 EXTRA_DIST += gen/mk-dirs_h.pl
 CLEANFILES += gen/dirs.h
