@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2011-07-04 03:25-0600\n"
+"POT-Creation-Date: 2016-12-11 21:38-0500\n"
 "PO-Revision-Date: 2008-11-11 10:15+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -335,21 +336,17 @@ msgstr "saran mungkin penggantian"
 msgid "time load time and suggest time in pipe mode"
 msgstr "waktu load waktu dan waktu saran dalam mode pipe"
 
-#: common/convert.cpp:303 common/convert.cpp:429
+#: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
-msgid ""
-"This could also mean that the file \"%s\" could not be opened for reading or "
-"does not exist."
-msgstr ""
-"Ini dapat juga berarti kalau berkas \"%s\" tidak dapat dibuka untuk "
-"pembacaan atau juga tidak ada."
+msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
+msgstr "Ini dapat juga berarti kalau berkas \"%s\" tidak dapat dibuka untuk pembacaan atau juga tidak ada."
 
-#: common/convert.cpp:552 common/convert.cpp:659 common/convert.cpp:705
+#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kode unicode menunjuk ke U+%04X tidak didukung."
 
-#: common/convert.cpp:829
+#: common/convert.cpp:859
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Urutan UTF-8 di posisi %ld tidak valid."
@@ -410,12 +407,8 @@ msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
 msgstr "Tombol \"%key:1\" tidak %accepted:2 dan ini juga tidak valid."
 
 #: common/errors.cpp:147
-msgid ""
-"The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%"
-"key:1\"."
-msgstr ""
-"Nilai \"%value:2\" tidak %accepted:3 dan ini juga tidak valid untuk kunci \"%"
-"key:1\"."
+msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
+msgstr "Nilai \"%value:2\" tidak %accepted:3 dan ini juga tidak valid untuk kunci \"%key:1\"."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
@@ -434,36 +427,20 @@ msgid "The key \"%key:1\" is not a list."
 msgstr "Tombol \"%key:1\" tidak ada dalam daftar."
 
 #: common/errors.cpp:195
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"reset-"
-"\"."
-msgstr ""
-"Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali oleh "
-"sebuah \"reset-\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
+msgstr "Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali oleh sebuah \"reset-\"."
 
 #: common/errors.cpp:203
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by an \"enable-"
-"\"."
-msgstr ""
-"Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan "
-"sebuah \"enable-\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
+msgstr "Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan sebuah \"enable-\"."
 
 #: common/errors.cpp:211
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" "
-"or \"disable-\"."
-msgstr ""
-"Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan "
-"sebuah \"dont-\" atau \"disable-\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
+msgstr "Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan sebuah \"dont-\" atau \"disable-\"."
 
 #: common/errors.cpp:219
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"clear-"
-"\"."
-msgstr ""
-"Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan "
-"sebuah \"clear-\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
+msgstr "Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan sebuah \"clear-\"."
 
 #: common/errors.cpp:235
 #, c-format
@@ -502,20 +479,13 @@ msgstr "Kondisi \"%cond:1\" tidak valid."
 
 #: common/errors.cpp:299
 #, c-format
-msgid ""
-"The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be "
-"stripped."
-msgstr ""
-"Kondisi \"%cond:1\" tidak menjamin jika \"%strip:2\" dapat selalu dihapus."
+msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
+msgstr "Kondisi \"%cond:1\" tidak menjamin jika \"%strip:2\" dapat selalu dihapus."
 
 #: common/errors.cpp:307
 #, c-format
-msgid ""
-"The file \"%file:1\" is not in the proper format. Expected the file to be in "
-"\"%exp:2\" not \"%got:3\"."
-msgstr ""
-"Berkas \"%file:1\" tidak dapat format yang baik. Diduga berkas berada dalam "
-"\"%exp:2\" bukan \"%got:3\"."
+msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
+msgstr "Berkas \"%file:1\" tidak dapat format yang baik. Diduga berkas berada dalam \"%exp:2\" bukan \"%got:3\"."
 
 #: common/errors.cpp:323
 #, c-format
@@ -644,30 +614,21 @@ msgstr "\"%mode:1\" error ketika extend mode aspell. (kehabisan memori?)"
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr ""
-"\"%mode:1\": tidak ada awal untuk magik pencarian diberikan oleh magik \"%"
-"magic:2\"."
+msgstr "\"%mode:1\": tidak ada awal untuk magik pencarian diberikan oleh magik \"%magic:2\"."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr ""
-"\"%mode:1\": tidak dalam jangkauan untuk pencarian magik diberikan untuk "
-"magik \"%magic:2\"."
+msgstr "\"%mode:1\": tidak dalam jangkauan untuk pencarian magik diberikan untuk magik \"%magic:2\"."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr ""
-"\"%mode:1\": tidak ada ekspresi magik yang tersedia untuk magik \"%magic:2\"."
+msgstr "\"%mode:1\": tidak ada ekspresi magik yang tersedia untuk magik \"%magic:2\"."
 
 #: common/errors.cpp:675
-msgid ""
-"\"%mode:1\": Magic \"%magic:2\": bad regular expression after location "
-"specifier; regexp reports: \"%regerr:3\"."
-msgstr ""
-"\"%mode:1\": Magic \"%magic:2\": ekspresi regular buruk setelah "
-"penspesifikasi lokasi; regexp melaporkan: \"%regerr:3\"."
+msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
+msgstr "\"%mode:1\": Magic \"%magic:2\": ekspresi regular buruk setelah penspesifikasi lokasi; regexp melaporkan: \"%regerr:3\"."
 
 #: common/errors.cpp:691
 #, c-format
@@ -729,8 +690,7 @@ msgstr "Aksi tidak diketahui: %s"
 #: prog/aspell.cpp:395
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
-msgstr ""
-"Error: Anda harus menspesifikasikan paling tidak %d parameter untuk \"%s\".\n"
+msgstr "Error: Anda harus menspesifikasikan paling tidak %d parameter untuk \"%s\".\n"
 
 #: prog/aspell.cpp:637
 msgid "Invalid Input"
@@ -771,8 +731,7 @@ msgstr "Pemetaan kunci tidak valid: %s"
 #: prog/aspell.cpp:1020
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr ""
-"Tidak dapat membuka berkas \"%s\" untuk penulisan. Berkas tidak disimpan."
+msgstr "Tidak dapat membuka berkas \"%s\" untuk penulisan. Berkas tidak disimpan."
 
 #: prog/aspell.cpp:1033
 msgid "Ignore"
@@ -897,15 +856,13 @@ msgid "[options] is any of the following:"
 msgstr "[opsi] adalah salah satu dari berikut:"
 
 #: prog/aspell.cpp:2822
-msgid ""
-"  list             produce a list of misspelled words from standard input"
+msgid "  list             produce a list of misspelled words from standard input"
 msgstr ""
 "  list             menghasilkan sebuah daftar dari kata yang salah sebut\n"
 "                   dari standar masukan"
 
 #: prog/aspell.cpp:2825
-msgid ""
-"  soundslike       returns the sounds like equivalent for each word entered"
+msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr ""
 "  soundslike       mengembalikan sound like ekuivalen untuk setiap kata\n"
 "                   yang dimasukan"
@@ -919,8 +876,7 @@ msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     ekspan affix flags"
 
 #: prog/aspell.cpp:2828
-msgid ""
-"  clean [strict]   cleans a word list so that every line is a valid word"
+msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 "  clean [strict]   bersihkan sebuah daftar kata jadi setiap baris adalah\n"
 "                   sebuah kata valid"
@@ -958,20 +914,14 @@ msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<nama>]"
 
 #: prog/aspell.cpp:2840
-msgid ""
-"    dumps, creates or merges a master, personal, or replacement dictionary."
-msgstr ""
-"    dumps, buat atau gabungkan sebuah master, personal, atau kamus pengganti."
+msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
+msgstr "    dumps, buat atau gabungkan sebuah master, personal, atau kamus pengganti."
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
 #: prog/aspell.cpp:2844
-msgid ""
-"  <norm-form>      normalization form to use, either none, internal, or "
-"strict"
-msgstr ""
-"  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none, "
-"internal, atau strict"
+msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
+msgstr "  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none, internal, atau strict"
 
 #: prog/aspell.cpp:2854
 #, c-format
@@ -993,8 +943,7 @@ msgid ""
 msgstr ""
 "Kamus yang tersedia:\n"
 "    Kamus bisaa dipilih secara langsung melalui opsi \"-d\" atau \"master\"\n"
-"    . Mereka juga dapat dipilih secara tidak langsung melalui opsi \"lang"
-"\",\n"
+"    . Mereka juga dapat dipilih secara tidak langsung melalui opsi \"lang\",\n"
 "    \"variety\", dan \"size\".\n"
 
 #: prog/aspell.cpp:2909
@@ -1028,8 +977,7 @@ msgstr ""
 "    dioptimasi untuk berkas dari tipe yang dispesifikasikan. Sebuah mode\n"
 "    dipilih melalui opsi \"mode\".\n"
 "    Ini akan terjadi secara implisit jika Aspell mampu untuk\n"
-"    mengidentifikasikan tipe berkas dari ekstensi, dan kemungkinan isinya, "
-"dari berkas\n"
+"    mengidentifikasikan tipe berkas dari ekstensi, dan kemungkinan isinya, dari berkas\n"
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
@@ -1166,8 +1114,7 @@ msgstr "Karakter '%s' (U+%02X) tidak boleh muncul diawal dari sebuah kata."
 #: modules/speller/default/language.cpp:494
 #: modules/speller/default/language.cpp:503
 #, c-format
-msgid ""
-"The character '%s' (U+%02X) must be followed by an alphabetic character."
+msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr "Karakter '%s' (U+%02X) harus diikuti oleh sebuah karakter alphabet."
 
 #: modules/speller/default/language.cpp:496
@@ -1180,13 +1127,8 @@ msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "Karakter '%s' (U+%02X) tidak boleh muncul ditengah dari sebuah kata."
 
 #: modules/speller/default/language.cpp:508
-msgid ""
-"The character '\\r' (U+0D) may not appear at the end of a word. This "
-"probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr ""
-"Karakter '\\r' (U+0D) tidak boleh muncul diakhir dari sebuah kata. Ini "
-"mungkin berarti bahwa berkas tersebut menggunakan MS-DOS EOL daripada Unix "
-"EOL."
+msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
+msgstr "Karakter '\\r' (U+0D) tidak boleh muncul diakhir dari sebuah kata. Ini mungkin berarti bahwa berkas tersebut menggunakan MS-DOS EOL daripada Unix EOL."
 
 #: modules/speller/default/language.cpp:511
 #, c-format
@@ -1203,16 +1145,16 @@ msgstr "Peringatan: Menghapus affix '%s' tidak valid dari kata %s.\n"
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr "Peringatan: Menghapus affix '%s' tidak teraplikasi dari kata %s.\n"
 
-#: modules/speller/default/language.cpp:674
+#: modules/speller/default/language.cpp:675
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr "Peringatan: %s Melewatkan string.\n"
 
-#: modules/speller/default/language.cpp:732
+#: modules/speller/default/language.cpp:733
 msgid "The total length is larger than 240 characters."
 msgstr "Panjang total lebih besar dari 240 karakter."
 
-#: modules/speller/default/language.cpp:736
+#: modules/speller/default/language.cpp:737
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "Peringatan: %s Melewatkan kata.\n"
@@ -1222,27 +1164,28 @@ msgid "Possibly incorrect count."
 msgstr "Mungkin jumlah tidak benar."
 
 #: modules/speller/default/readonly_ws.cpp:362
+msgid "Incompatible hash function."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
 msgstr "Pengurutan endian salah."
 
-#: modules/speller/default/readonly_ws.cpp:385
+#: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
 msgstr "Soundslike salah."
 
-#: modules/speller/default/readonly_ws.cpp:391
+#: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
 msgstr "Versi soundslike salah."
 
-#: modules/speller/default/readonly_ws.cpp:853
+#: modules/speller/default/readonly_ws.cpp:934
 msgid "Affix flags found in word but no affix file given."
-msgstr ""
-"Opsi affix ditemukan dalam kata tetapi tidak ada berkas affix yang diberikan."
+msgstr "Opsi affix ditemukan dalam kata tetapi tidak ada berkas affix yang diberikan."
 
-#: modules/speller/default/readonly_ws.cpp:891
-msgid ""
-"The total word length, with soundslike data, is larger than 240 characters."
-msgstr ""
-"Panjang total kata, dengan data soundslike, lebih besar dari 240 karakter."
+#: modules/speller/default/readonly_ws.cpp:972
+msgid "The total word length, with soundslike data, is larger than 240 characters."
+msgstr "Panjang total kata, dengan data soundslike, lebih besar dari 240 karakter."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."

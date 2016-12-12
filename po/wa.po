@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.2-b20041203\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2011-07-04 03:25-0600\n"
+"POT-Creation-Date: 2016-12-11 21:38-0500\n"
 "PO-Revision-Date: 2004-12-06 17:51+0100\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
+"Language: wa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,8 +132,7 @@ msgstr "passer houte des mots di moens di n caracteres"
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1388
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
-msgstr ""
-"èn nén tni conte des accints po verifyî les mots -- ÈN ROTE NÉN POL MOUMINT"
+msgstr "èn nén tni conte des accints po verifyî les mots -- ÈN ROTE NÉN POL MOUMINT"
 
 #: common/config.cpp:1390
 msgid "ignore case when checking words"
@@ -335,19 +335,17 @@ msgstr ""
 msgid "time load time and suggest time in pipe mode"
 msgstr ""
 
-#: common/convert.cpp:303 common/convert.cpp:429
+#: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
-msgid ""
-"This could also mean that the file \"%s\" could not be opened for reading or "
-"does not exist."
+msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr ""
 
-#: common/convert.cpp:552 common/convert.cpp:659 common/convert.cpp:705
+#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Li caractere unicôde U+%04X n' est nén sopoirté."
 
-#: common/convert.cpp:829
+#: common/convert.cpp:859
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Secwince UTF-8 nén valide al pôzucion %ld."
@@ -408,9 +406,7 @@ msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
 msgstr ""
 
 #: common/errors.cpp:147
-msgid ""
-"The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%"
-"key:1\"."
+msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
 msgstr ""
 
 #: common/errors.cpp:163
@@ -430,27 +426,19 @@ msgid "The key \"%key:1\" is not a list."
 msgstr "Li clé «%key:1» n' est nén ene djivêye."
 
 #: common/errors.cpp:195
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"reset-"
-"\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
 msgstr ""
 
 #: common/errors.cpp:203
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by an \"enable-"
-"\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
 msgstr ""
 
 #: common/errors.cpp:211
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" "
-"or \"disable-\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
 msgstr ""
 
 #: common/errors.cpp:219
-msgid ""
-"The key \"%key:1\" does not take any parameters when prefixed by a \"clear-"
-"\"."
+msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
 msgstr ""
 
 #: common/errors.cpp:235
@@ -490,16 +478,12 @@ msgstr ""
 
 #: common/errors.cpp:299
 #, c-format
-msgid ""
-"The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be "
-"stripped."
+msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
 msgstr ""
 
 #: common/errors.cpp:307
 #, c-format
-msgid ""
-"The file \"%file:1\" is not in the proper format. Expected the file to be in "
-"\"%exp:2\" not \"%got:3\"."
+msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
 msgstr ""
 
 #: common/errors.cpp:323
@@ -642,9 +626,7 @@ msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
 msgstr ""
 
 #: common/errors.cpp:675
-msgid ""
-"\"%mode:1\": Magic \"%magic:2\": bad regular expression after location "
-"specifier; regexp reports: \"%regerr:3\"."
+msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
 msgstr ""
 
 #: common/errors.cpp:691
@@ -873,15 +855,11 @@ msgid "[options] is any of the following:"
 msgstr "[tchuzes] c' est ene des tchuzes ki shuvèt:"
 
 #: prog/aspell.cpp:2822
-msgid ""
-"  list             produce a list of misspelled words from standard input"
-msgstr ""
-"  list             fwait-st ene djivêye di mots avou des flotches so "
-"l' intrêye standård"
+msgid "  list             produce a list of misspelled words from standard input"
+msgstr "  list             fwait-st ene djivêye di mots avou des flotches so l' intrêye standård"
 
 #: prog/aspell.cpp:2825
-msgid ""
-"  soundslike       returns the sounds like equivalent for each word entered"
+msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr ""
 
 #: prog/aspell.cpp:2826
@@ -893,8 +871,7 @@ msgid "  expand [1-4]     expands affix flags"
 msgstr ""
 
 #: prog/aspell.cpp:2828
-msgid ""
-"  clean [strict]   cleans a word list so that every line is a valid word"
+msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 
 #: prog/aspell.cpp:2830
@@ -930,16 +907,13 @@ msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr ""
 
 #: prog/aspell.cpp:2840
-msgid ""
-"    dumps, creates or merges a master, personal, or replacement dictionary."
+msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr ""
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
 #: prog/aspell.cpp:2844
-msgid ""
-"  <norm-form>      normalization form to use, either none, internal, or "
-"strict"
+msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr ""
 
 #: prog/aspell.cpp:2854
@@ -961,10 +935,8 @@ msgid ""
 "    \"variety\", and \"size\" options.\n"
 msgstr ""
 "Motîs k' i gn a:\n"
-"    Les motîs polèt esse tchoezi directumint avou l' tchuze «-d» ou "
-"«master».\n"
-"    I polèt eto esse tchoezi indirectumint avou l' tchuze "
-"«lang» (lingaedje),\n"
+"    Les motîs polèt esse tchoezi directumint avou l' tchuze «-d» ou «master».\n"
+"    I polèt eto esse tchoezi indirectumint avou l' tchuze «lang» (lingaedje),\n"
 "    «variety» (variyante) ou co «size» (grandeu).\n"
 
 #: prog/aspell.cpp:2909
@@ -973,8 +945,7 @@ msgid ""
 "    Filters can be added or removed via the \"filter\" option.\n"
 msgstr ""
 "Passetes k' i gn a (eyet leus tchuzes):\n"
-"    Les passetes polèt esse radjoutêyes ou oistêyes avou l' tchuze "
-"«filter».\n"
+"    Les passetes polèt esse radjoutêyes ou oistêyes avou l' tchuze «filter».\n"
 
 #: prog/aspell.cpp:2916
 #, c-format
@@ -996,8 +967,7 @@ msgid ""
 msgstr ""
 "Môdes passet k' i gn a:\n"
 "    Les môdes passete sont des rarindjmints des passetes optimijhîs po\n"
-"    des fitchîs d' en sôre dinêye. On môde est tchoezi avou l' tchuze "
-"«mode».\n"
+"    des fitchîs d' en sôre dinêye. On môde est tchoezi avou l' tchuze «mode».\n"
 "    Aspell tchoezixh tot seu li bon môde s' il arive a ricnoxhe li sôre do\n"
 "    fitchî a pårti di s' cawete, ou di çou k' i gn a-st å dvins.\n"
 
@@ -1136,10 +1106,8 @@ msgstr "Li caractere «%s» (U+%04X) èn pout nén esse al comince d' on mot."
 #: modules/speller/default/language.cpp:494
 #: modules/speller/default/language.cpp:503
 #, c-format
-msgid ""
-"The character '%s' (U+%02X) must be followed by an alphabetic character."
-msgstr ""
-"Li caractere «%s» (U+%04X) doet esse shuvou d' on caractere alfabetike."
+msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
+msgstr "Li caractere «%s» (U+%04X) doet esse shuvou d' on caractere alfabetike."
 
 #: modules/speller/default/language.cpp:496
 msgid "Does not contain any alphabetic characters."
@@ -1151,13 +1119,8 @@ msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "Li caractere «%s» (U+%04X) èn pout nén esse å mitan d' on mot."
 
 #: modules/speller/default/language.cpp:508
-msgid ""
-"The character '\\r' (U+0D) may not appear at the end of a word. This "
-"probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr ""
-"Li caractere «\\r» (U+000D) èn pout nén esse al fén d' on mot. Probåblumint "
-"ki c' est paski l' fitchî eploye des féns d' roye MS-DOS el plaece di féns "
-"d' roye Unix."
+msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
+msgstr "Li caractere «\\r» (U+000D) èn pout nén esse al fén d' on mot. Probåblumint ki c' est paski l' fitchî eploye des féns d' roye MS-DOS el plaece di féns d' roye Unix."
 
 #: modules/speller/default/language.cpp:511
 #, c-format
@@ -1174,16 +1137,16 @@ msgstr ""
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr ""
 
-#: modules/speller/default/language.cpp:674
+#: modules/speller/default/language.cpp:675
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr ""
 
-#: modules/speller/default/language.cpp:732
+#: modules/speller/default/language.cpp:733
 msgid "The total length is larger than 240 characters."
 msgstr "Li longueur totåle est di pus d' 240 caracteres."
 
-#: modules/speller/default/language.cpp:736
+#: modules/speller/default/language.cpp:737
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr ""
@@ -1193,29 +1156,28 @@ msgid "Possibly incorrect count."
 msgstr ""
 
 #: modules/speller/default/readonly_ws.cpp:362
+msgid "Incompatible hash function."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
 msgstr ""
 
-#: modules/speller/default/readonly_ws.cpp:385
+#: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
 msgstr "Mwais soundslike."
 
-#: modules/speller/default/readonly_ws.cpp:391
+#: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
 msgstr "Mwaijhe modêye des dnêyes fonetikes (soundslike)."
 
-#: modules/speller/default/readonly_ws.cpp:853
+#: modules/speller/default/readonly_ws.cpp:934
 msgid "Affix flags found in word but no affix file given."
-msgstr ""
-"Des drapeas trovés dins l' djivêye di mots, mins pont d' fitchî d' definixha "
-"des drapeas."
+msgstr "Des drapeas trovés dins l' djivêye di mots, mins pont d' fitchî d' definixha des drapeas."
 
-#: modules/speller/default/readonly_ws.cpp:891
-msgid ""
-"The total word length, with soundslike data, is larger than 240 characters."
-msgstr ""
-"Li longueur totåle doi mot, avou les dnêyes fonetikes, est di pus d' 240 "
-"caracteres."
+#: modules/speller/default/readonly_ws.cpp:972
+msgid "The total word length, with soundslike data, is larger than 240 characters."
+msgstr "Li longueur totåle doi mot, avou les dnêyes fonetikes, est di pus d' 240 caracteres."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
@@ -1330,8 +1292,7 @@ msgstr "passete po passer houte des mots rshonnant a des hårdêyes (URLs)"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr ""
-"môde pol verifiaedje des comintaires eyet tchinnes di tecse des fitchîs C++"
+msgstr "môde pol verifiaedje des comintaires eyet tchinnes di tecse des fitchîs C++"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
@@ -1355,9 +1316,7 @@ msgstr "môde pol verifiaedje des documints Nroff"
 
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
-msgstr ""
-"môde pol verifiaedje des comintaires eyet tchinnes di tecse dins des fitchîs "
-"perl"
+msgstr "môde pol verifiaedje des comintaires eyet tchinnes di tecse dins des fitchîs perl"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"
