@@ -25,6 +25,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: KBabel 1.0.1\n"
 
 #: common/info.cpp:232
@@ -362,9 +363,10 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Ишораи юникоди U+%04X дастгирӣ нашуда истодааст."
 
 #: common/convert.cpp:859
-#, c-format
+#, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "Пайравии нодурусти UTF-8 бо адреси %ld."
+msgstr "Пайравии нодурусти UTF-8 бо адреси %d."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
@@ -691,6 +693,7 @@ msgstr "гузаштан ба тартиботи TeX"
 
 #: prog/aspell.cpp:206
 #, fuzzy
+#| msgid "enter TeX mode."
 msgid "enter Nroff mode."
 msgstr "гузаштан ба тартиботи TeX"
 
@@ -705,6 +708,7 @@ msgstr " ягон параметреро қабул накарда истода�
 
 #: prog/aspell.cpp:332 prog/aspell.cpp:392
 #, fuzzy, c-format
+#| msgid "You must specify a parameter for %s"
 msgid "You must specify a parameter for \"%s\"."
 msgstr "Шумо бояд ягон параметре барои %s нишон диҳед"
 
@@ -719,6 +723,7 @@ msgstr "Амалиёти номуайян: %s"
 
 #: prog/aspell.cpp:395
 #, fuzzy, c-format
+#| msgid "You must specify a parameter for %s"
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr "Шумо бояд ягон параметре барои %s нишон диҳед"
 
@@ -1310,6 +1315,7 @@ msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 
 #: modules/filter/texinfo-filter.info:13
 #, fuzzy
+#| msgid "ignore commands to store replacement pairs"
 msgid "Texinfo commands to ignore the parameters of"
 msgstr "аҳамият надодани фармониятҳо барои нигоҳ доштани иввази ду адад"
 

@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -347,9 +348,10 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kode unicode menunjuk ke U+%04X tidak didukung."
 
 #: common/convert.cpp:859
-#, c-format
+#, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "Urutan UTF-8 di posisi %ld tidak valid."
+msgstr "Urutan UTF-8 di posisi %d tidak valid."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
@@ -924,14 +926,18 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none, internal, atau strict"
 
 #: prog/aspell.cpp:2854
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Hak Cipta 2000-2011 oleh Kevin Atkinson.\n"
+"Aspell %s.  Hak Cipta 2000-2004 oleh Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888

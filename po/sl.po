@@ -1,7 +1,7 @@
 # -*- mode: po; coding: utf-8; -*- Slovenian translations for aspell.
 # This file is distributed under the same license as the aspell package.
 # Martin Srebotnjak <miles@filmsi.net>, 2005, 2008.
-# $Id$
+# $Id: aspell-0.60.6.sl.po,v 1.4 2008/05/05 07:39:49 srebotnjak Exp $
 #
 msgid ""
 msgstr ""
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-SourceCharset: ISO-8859-1\n"
@@ -351,9 +352,10 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kodni znak Unicode U+%04X ni podprt."
 
 #: common/convert.cpp:859
-#, c-format
+#, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "Neveljavna koda UTF-8 na mestu %ld."
+msgstr "Neveljavna koda UTF-8 na mestu %d."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
@@ -922,14 +924,18 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <oblika-norm>      oblika normalizacije, vrednosti: none, internal ali strict"
 
 #: prog/aspell.cpp:2854
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2004 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888

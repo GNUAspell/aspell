@@ -18,6 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -91,6 +92,7 @@ msgstr "разьмяшччэньне файлаў даньняў мовы"
 
 #: common/config.cpp:1367
 #, fuzzy
+#| msgid "extra dictionaries to use"
 msgid "create dictionary aliases"
 msgstr "дадатковыя слоўнікі для выкарыстаньня"
 
@@ -108,11 +110,13 @@ msgstr "дадае ці выдаляе фільтар"
 
 #: common/config.cpp:1375
 #, fuzzy
+#| msgid "path(es) aspell looks for filters (.so/.dll/.flt);"
 msgid "path(s) aspell looks for filters"
 msgstr "шлях(і) для прагляду фільтараў (.so/.dll/.flt);"
 
 #: common/config.cpp:1379
 #, fuzzy
+#| msgid "enter TeX mode."
 msgid "filter mode"
 msgstr "рэжым TeX."
 
@@ -131,6 +135,7 @@ msgstr "ігнараваньне словаў <= n сымбаляў"
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1388
 #, fuzzy
+#| msgid "ignore accents when checking words"
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
 msgstr "ігнараваньне акцэнтаў у часе праверкі словаў"
 
@@ -168,11 +173,13 @@ msgstr "асноўная назва слоўніка"
 
 #: common/config.cpp:1408
 #, fuzzy
+#| msgid "Set module name"
 msgid "set module name"
 msgstr "Усталяваньне назвы модуля"
 
 #: common/config.cpp:1410
 #, fuzzy
+#| msgid "Search order for modules"
 msgid "search order for modules"
 msgstr "Накірунак пошуку для модуляў"
 
@@ -200,6 +207,7 @@ msgstr "пэрсанальны канфігурацыйны файл"
 
 #: common/config.cpp:1425
 #, fuzzy
+#| msgid "personal word list file name"
 msgid "personal dictionary file name"
 msgstr "назва асабістага файла сьпісу словаў"
 
@@ -217,6 +225,7 @@ msgstr "разгледзеныя складаныя словы правільн�
 
 #: common/config.cpp:1435
 #, fuzzy
+#| msgid "maxium numbers that can be strung together"
 msgid "maximum number that can be strung together"
 msgstr "максымальная колькасьць якая мусіць зьвязана разам"
 
@@ -256,6 +265,7 @@ msgstr ""
 
 #: common/config.cpp:1455
 #, fuzzy
+#| msgid "save replacement pairs on save all"
 msgid "use replacement tables, override sug-mode default"
 msgstr "захаваньне параў замены ў часе захаваньня"
 
@@ -269,6 +279,7 @@ msgstr ""
 
 #: common/config.cpp:1463
 #, fuzzy
+#| msgid "Search path for word list information files"
 msgid "search path for word list information files"
 msgstr "Шлях пошуку для сьпісаў словаў"
 
@@ -327,6 +338,7 @@ msgstr ""
 
 #: common/config.cpp:1504
 #, fuzzy
+#| msgid "keymapping for check mode, one of aspell ispell"
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
 msgstr "мапаваньне клявішаў для рэжыма праверкі, адно з aspell ispell"
 
@@ -349,6 +361,7 @@ msgstr ""
 
 #: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, fuzzy, c-format
+#| msgid "The encoding \"%encod:1\" is not supported."
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Кадаваньне \"%encod:1\" не падтрымліваецца."
 
@@ -418,21 +431,25 @@ msgstr "Значэньне \"%value:2\" не %accepted:3 і таму не рэч
 
 #: common/errors.cpp:163
 #, fuzzy
+#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a string."
 msgstr "Ключ \"%key:1\" невядомы."
 
 #: common/errors.cpp:171
 #, fuzzy
+#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not an integer."
 msgstr "Ключ \"%key:1\" невядомы."
 
 #: common/errors.cpp:179
 #, fuzzy
+#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a boolean."
 msgstr "Ключ \"%key:1\" невядомы."
 
 #: common/errors.cpp:187
 #, fuzzy
+#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a list."
 msgstr "Ключ \"%key:1\" невядомы."
 
@@ -484,6 +501,7 @@ msgstr ""
 
 #: common/errors.cpp:291
 #, fuzzy, c-format
+#| msgid "The word \"%word:1\" is invalid."
 msgid "The condition \"%cond:1\" is invalid."
 msgstr "Слова \"%word:1\" нерэчаіснае."
 
@@ -494,6 +512,7 @@ msgstr ""
 
 #: common/errors.cpp:307
 #, fuzzy, c-format
+#| msgid "The file \"%file:1\" is not in the proper format."
 msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
 msgstr "Файл \"%file:1\" у памылковым фармаце."
 
@@ -514,6 +533,7 @@ msgstr "Пераўтварэньне з \"%encod:1\" у \"%encod2:2\" не па�
 
 #: common/errors.cpp:379
 #, fuzzy, c-format
+#| msgid "The word \"%word:1\" is invalid."
 msgid "The string \"%str:1\" is invalid."
 msgstr "Слова \"%word:1\" нерэчаіснае."
 
@@ -527,6 +547,7 @@ msgstr ""
 
 #: common/errors.cpp:403
 #, fuzzy
+#| msgid "The file \"%file:1\" can not be opened for reading."
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
 msgstr "Файл \"%file:1\" не можа быць адкрыты для чытаньня."
 
@@ -536,16 +557,19 @@ msgstr ""
 
 #: common/errors.cpp:467
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\" dlopen returned \"%return:3\"."
 msgid "dlopen returned \"%return:1\"."
 msgstr "%where:1: \"%filter:2\" dlopen вярнула \"%return:3\"."
 
 #: common/errors.cpp:475
 #, fuzzy, c-format
+#| msgid "%where:1: The file \"%filter:2\" does not contain any filter."
 msgid "The file \"%filter:1\" does not contain any filters."
 msgstr "%where:1: Файл \"%filter:2\" не ўтрымлівае фільтараў."
 
 #: common/errors.cpp:483
 #, fuzzy, c-format
+#| msgid "The file \"%file:1\" can not be opened"
 msgid "The filter \"%filter:1\" does not exist."
 msgstr "Файл \"%file:1\" не можа быць адкрыты"
 
@@ -555,26 +579,31 @@ msgstr ""
 
 #: common/errors.cpp:499
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\": Line %line:3 Aspell version does not match filter's requirement."
 msgid "Aspell version does not match filter's requirement."
 msgstr "%where:1: \"%filter:2\": Радок %line:3 Вэрсыя Aspell не мае падтрымкі фільтараў."
 
 #: common/errors.cpp:507
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\" Line %line:3 Filter option already exists."
 msgid "Filter option already exists."
 msgstr "%where:1: \"%filter:2\" Радок %line:3 Выбар фільтара ўжо існуе."
 
 #: common/errors.cpp:515
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\" %line:3 Use option modifiers only within named Option."
 msgid "Use option modifiers only within named option."
 msgstr "%where:1: \"%filter:2\" %line:3 Выкарыстоўвайце выбар мадыфікатараў толькі у названым выбары."
 
 #: common/errors.cpp:523
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\" %line:3 Option modifier unknown."
 msgid "Option modifier unknown."
 msgstr "%where:1: \"%filter:2\" %line:3 Невядомы выбар мадыфікатара."
 
 #: common/errors.cpp:531
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\" error setting filter description."
 msgid "Error setting filter description."
 msgstr "%where:1: \"%filter:2\" памылка усталяваньня апісаньня фільтра."
 
@@ -602,6 +631,7 @@ msgstr ""
 
 #: common/errors.cpp:595
 #, fuzzy
+#| msgid "%where:1: \"%filter:2\": Line %line:3 Aspell version does not match filter's requirement."
 msgid "Aspell version does not match mode's requirement."
 msgstr "%where:1: \"%filter:2\": Радок %line:3 Вэрсыя Aspell не мае падтрымкі фільтараў."
 
@@ -626,6 +656,7 @@ msgstr ""
 
 #: common/errors.cpp:635
 #, fuzzy, c-format
+#| msgid "%where:1: \"%filter:2\" error while extend Aspell options. (out of memory?)"
 msgid "\"%mode:1\" error while extend Aspell modes. (out of memory?)"
 msgstr "%where:1: \"%filter:2\" памылка пашыраных выбараў Aspell. (недахоп памяці?)"
 
@@ -650,6 +681,7 @@ msgstr ""
 
 #: common/errors.cpp:691
 #, fuzzy, c-format
+#| msgid "%action:1: `%expression:2' is not a valid regular expression."
 msgid "\"%expression:1\" is not a valid regular expression."
 msgstr "%action:1: `%expression:2' не зьяўляецца дапушчальным сталым выразам."
 
@@ -659,6 +691,7 @@ msgstr "Памылка без апрацоўкі: "
 
 #: prog/aspell.cpp:97
 #, fuzzy, c-format
+#| msgid "Error: "
 msgid "Error: %s\n"
 msgstr "Памылка: "
 
@@ -672,6 +705,7 @@ msgstr "рэжым э-пошты."
 
 #: prog/aspell.cpp:204
 #, fuzzy
+#| msgid "enter TeX mode."
 msgid "enter HTML mode."
 msgstr "рэжым TeX."
 
@@ -681,6 +715,7 @@ msgstr "рэжым TeX."
 
 #: prog/aspell.cpp:206
 #, fuzzy
+#| msgid "enter TeX mode."
 msgid "enter Nroff mode."
 msgstr "рэжым TeX."
 
@@ -695,6 +730,7 @@ msgstr " не патрабуе ніякіх парамэтраў."
 
 #: prog/aspell.cpp:332 prog/aspell.cpp:392
 #, fuzzy, c-format
+#| msgid "You must specify a parameter for %s"
 msgid "You must specify a parameter for \"%s\"."
 msgstr "Вы мусіце пазначыць парамэтар для %s"
 
@@ -709,6 +745,7 @@ msgstr "Невядомае дзеяньне: %s"
 
 #: prog/aspell.cpp:395
 #, fuzzy, c-format
+#| msgid "You must specify a parameter for %s"
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr "Вы мусіце пазначыць парамэтар для %s"
 
@@ -727,6 +764,7 @@ msgstr "Час загрузкі сьпісу словаў: "
 
 #: prog/aspell.cpp:929
 #, fuzzy, c-format
+#| msgid "Suggestion Time: "
 msgid "Suggestion Time: %f\n"
 msgstr "Час прапанаваньня: "
 
@@ -750,6 +788,7 @@ msgstr "Недапушчальнае мапаваньне клявішаў:·%s"
 
 #: prog/aspell.cpp:1020
 #, fuzzy, c-format
+#| msgid "Could not open the file \"%s\"  for writing. File not saved."
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "Немагчыма адкрыць файл \"%s\"  для запісу. Файл не захаваны."
 
@@ -787,6 +826,7 @@ msgstr "ВЫйсьці"
 
 #: prog/aspell.cpp:1116
 #, fuzzy
+#| msgid "Are you sure you want to abort? "
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "Вы сапраўды жадаеце адкінуць?"
 
@@ -1072,6 +1112,7 @@ msgstr ""
 
 #: prog/check_funs.cpp:812
 #, fuzzy
+#| msgid "email quote characters"
 msgid "Delete the next character"
 msgstr "сымбалі дужак э.пошты"
 
@@ -1118,6 +1159,7 @@ msgstr ""
 
 #: modules/speller/default/language.cpp:496
 #, fuzzy
+#| msgid " does not take any parameters."
 msgid "Does not contain any alphabetic characters."
 msgstr " не патрабуе ніякіх парамэтраў."
 
@@ -1201,11 +1243,13 @@ msgstr ""
 
 #: modules/speller/default/speller_impl.cpp:241
 #, fuzzy
+#| msgid "personal word list file name"
 msgid "The personal word list is unavailable."
 msgstr "назва асабістага файла сьпісу словаў"
 
 #: modules/speller/default/speller_impl.cpp:248
 #, fuzzy
+#| msgid "personal word list file name"
 msgid "The session word list is unavailable."
 msgstr "назва асабістага файла сьпісу словаў"
 
@@ -1222,6 +1266,7 @@ msgstr ""
 #. not include any trailing punctuation marks.
 #: modules/filter/context-filter.info:7
 #, fuzzy
+#| msgid "Filter for hiding delimited contexts from Aspell"
 msgid "experimental filter for hiding delimited contexts"
 msgstr "Фільтар для хаваньня ад Aspell абмежаванага кантэксту"
 
@@ -1232,6 +1277,7 @@ msgstr "даданьне/выдаленьне межаў пазначаных п
 
 #: modules/filter/context-filter.info:21
 #, fuzzy
+#| msgid "swaps visible and invisible text;(starts invisible)"
 msgid "swaps visible and invisible text"
 msgstr "абмен бачнага і нябачнага тэксту;( пачатак з бачнага)"
 
@@ -1253,6 +1299,7 @@ msgstr ""
 
 #: modules/filter/html-filter.info:15
 #, fuzzy
+#| msgid "sgml attributes to always check."
 msgid "HTML attributes to always check"
 msgstr "атрыбуты sgml для сталае праверкі."
 
@@ -1270,6 +1317,7 @@ msgstr ""
 
 #: modules/filter/sgml-filter.info:15
 #, fuzzy
+#| msgid "sgml attributes to always check."
 msgid "SGML attributes to always check"
 msgstr "атрыбуты sgml для сталае праверкі."
 
@@ -1279,6 +1327,7 @@ msgstr ""
 
 #: modules/filter/tex-filter.info:7
 #, fuzzy
+#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "filter for dealing with TeX/LaTeX documents"
 msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
 
@@ -1296,6 +1345,7 @@ msgstr ""
 
 #: modules/filter/texinfo-filter.info:13
 #, fuzzy
+#| msgid "ignore commands to store replacement pairs"
 msgid "Texinfo commands to ignore the parameters of"
 msgstr "ігнараваньне камандаў у захаваньні параў замены"
 
@@ -1341,6 +1391,7 @@ msgstr ""
 
 #: modules/filter/modes/tex.amf:7
 #, fuzzy
+#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "mode for checking TeX/LaTeX documents"
 msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
 

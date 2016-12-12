@@ -1,19 +1,20 @@
 # GNU Aspell asturian translations.
 # Copyright (C) 2010 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
-# MARCOS ALVAREZ COSTALES <marcos.alvarez.costales@gmail.com>, 2010.
+# Marquinos <maacub@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2016-12-11 21:38-0500\n"
 "PO-Revision-Date: 2010-02-28 22:09+0200\n"
-"Last-Translator: Marcos Alvarez Costales <marcos.alvarez.costales@gmail.com>\n"
+"Last-Translator: Marquinos <maacub@gmail.com>\n"
 "Language-Team: Asturian <ubuntu-l10n-ast@lists.ubuntu.com>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Virtaal 0.3.1\n"
 
 #: common/info.cpp:232
@@ -348,6 +349,7 @@ msgstr "El códigu Unicode U+%04X nun ta soportáu."
 
 #: common/convert.cpp:859
 #, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Secuencia UTF-8 non válida nel allugamientu %d."
 
@@ -919,6 +921,10 @@ msgstr "  <triba-norm>     triba de normalización que se va usar: none, interna
 
 #: prog/aspell.cpp:2854
 #, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"

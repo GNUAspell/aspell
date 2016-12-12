@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -347,9 +348,10 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "El codi U+%04X d’Unicode no està implementat."
 
 #: common/convert.cpp:859
-#, c-format
+#, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "La seqüència UTF-8 que es troba a la posició %ld no és vàlida."
+msgstr "La seqüència UTF-8 que es troba a la posició %d no és vàlida."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
@@ -882,6 +884,7 @@ msgstr "  -v|version         mostra una línia amb la versió"
 
 #: prog/aspell.cpp:2831
 #, fuzzy
+#| msgid "  munch-list [simple] [single|multi] [keep]\n"
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]\n"
 
@@ -920,14 +923,18 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>        tipus de normalització: none, internal, o strict"
 
 #: prog/aspell.cpp:2854
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 per Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2004 per Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888

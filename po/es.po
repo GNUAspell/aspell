@@ -18,6 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: common/info.cpp:232
@@ -352,9 +353,10 @@ msgid "The Unicode code point U+%04X is unsupported."
 msgstr "El código Unicode U+%04X no está permitido"
 
 #: common/convert.cpp:859
-#, c-format
+#, fuzzy, c-format
+#| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "Secuencia UTF-8 incorrecta en la posición %ld."
+msgstr "Secuencia UTF-8 incorrecta en la posición %d."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
@@ -932,14 +934,18 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <forma-norm> forma de normalización a utilizar, ya sea none, internal o strict"
 
 #: prog/aspell.cpp:2854
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s. Copyright 2000-2011 por Kevin Atkinson.\n"
+"Aspell %s. Copyright 2000-2004 por Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888
