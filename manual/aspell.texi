@@ -284,9 +284,8 @@ Instructions for joining the various mailing lists (and an archive of
 them) can be found off the Aspell home page at
 @uref{http://aspell.net}.
 
-Bug reports should be submitted via the Sourceforge Tracker at
-@uref{http://sourceforge.net/@/tracker/?group_id=245} rather than
-being posted to the mailing lists.
+Bug reports can also be submitted via GitHub at
+@uref{https://github.com/GNUAspell/aspell/}.
 
 @node Basic Usage
 @chapter Basic Usage
@@ -4248,7 +4247,7 @@ And I replied:
 @quotation
 Yes I have considered something like that but not for the personal
 dictionaries but rather the replacement word list in order to get
-better test data for @uref{http://aspell.sourceforge.net/test/}.
+better test data for @uref{http://aspell.net/test/}.
 @end quotation
 
 The problem is I don't know of a good way to do this since Aspell can
