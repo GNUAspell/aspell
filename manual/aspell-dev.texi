@@ -4,7 +4,7 @@
 @settitle Aspell Developer's Manual
 @setchapternewpage off
 @syncodeindex pg cp
-@documentencoding ISO-8859-1
+@documentencoding UTF-8
 @documentdescription
 Aspell spell checker developer's manual.
 @end documentdescription

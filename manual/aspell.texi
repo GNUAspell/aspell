@@ -3,7 +3,7 @@
 @setfilename aspell.info
 @settitle GNU Aspell 0.60.7-pre
 @syncodeindex pg cp
-@documentencoding ISO-8859-1
+@documentencoding UTF-8
 @documentdescription
 Aspell 0.60.7-pre spell checker user's manual.
 @end documentdescription
