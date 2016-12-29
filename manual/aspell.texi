@@ -4263,7 +4263,7 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.6.1 to 0.60.7 (??, 2011)
+@heading Changes from 0.60.6.1 to 0.60.7 (??, 2017)
 @itemize @bullet
 @item
 Add partial support for recognizing the Unicode apostrophe (') in
@@ -4284,6 +4284,12 @@ size is also zero as the pointer should never be derefrenced.
 @item
 In addition to outputting a warning when building with NDEBUG defined,
 also include NDEBUG in the version string.
+@item
+Various compile fixes for newer version of Gcc and Clang.
+@item
+Fix VPATH builds.
+@item
+Use utf-8 encoding for manual instead of iso-8859-1.
 @item
 Other minor updates and bug fixes.
 @end itemize
