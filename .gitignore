@@ -12,6 +12,9 @@ Makefile
 # make dist generated files
 /README
 /aspell-*.tar.gz
+/aspell-*.tar.gz.sig
+/aspell-*.directive
+/aspell-*.directive.asc
 
 /inst/
 
