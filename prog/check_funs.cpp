@@ -647,7 +647,7 @@ static void print_truncate(FILE * out, const char * word, int width) {
     }
   }
   if (i == width-1) {
-    if (word == '\0')
+    if (*word == '\0')
       put(out,' ');
     else if (word[len] == '\0')
       put(out, word, len);
