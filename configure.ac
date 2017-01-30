@@ -1,4 +1,4 @@
-AC_INIT(GNU Aspell, 0.60-git)
+AC_INIT(GNU Aspell, 0.60.7-rc1)
 AC_CONFIG_SRCDIR(prog/aspell.cpp)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
