@@ -77,10 +77,11 @@ using namespace std;
 
 namespace {
 
-  // The internal, C++ version of the external Suggest/AspellSuggest
-  // struct.  I don't use that struct because I want the convenience
-  // of automatically allocated space for the strings.
-  typedef vector<pair<String,int> > NearMissesFinal;
+  struct SuggestionPlus {
+    String word;
+    int    score;
+  };
+  typedef vector<SuggestionPlus> NearMissesFinal;
 
   template <class Iterator>
   inline Iterator preview_next (Iterator i) {
@@ -1238,16 +1239,16 @@ namespace {
  	       ? (bool)sp->check(*dup_pair.first)
  	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
  		  && sp->check((String)dup_pair.first->substr(pos+1))) )) {
-            near_misses_final->push_back(
-                pair<String,int>(*dup_pair.first, i->score));
+            SuggestionPlus sug_plus = {*dup_pair.first, i->score};
+            near_misses_final->push_back(sug_plus);
           }
  	} while (i->repl_list->adv());
       } else {
         fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
 	if (dup_pair.second) {
-          near_misses_final->push_back(
-              pair<String,int>(*dup_pair.first, i->score));
+          SuggestionPlus sug_plus = {*dup_pair.first, i->score};
+          near_misses_final->push_back(sug_plus);
         }
       }
     }
@@ -1264,7 +1265,7 @@ namespace {
       Parms(Iterator e) : end(e) {}
       bool endf(Iterator e) const {return e == end;}
       Value end_state() const {return 0;}
-      Value deref(Iterator i) const {return i->first.c_str();}
+      Value deref(Iterator i) const {return i->word.c_str();}
     };
   public:
     NearMissesFinal suggestions;
@@ -1309,9 +1310,9 @@ namespace {
       Suggestion * next() {
         if (at_end()) return 0;
 
-        data_.word = pos_->first.c_str();
-        data_.word_len = pos_->first.size();
-        data_.score = pos_->second;
+        data_.word = pos_->word.c_str();
+        data_.word_len = pos_->word.size();
+        data_.score = pos_->score;
 
         ++pos_;
         return &data_;
