@@ -1,5 +1,5 @@
 // This file is part of The New Aspell
-// Copyright (C) 2000-2001,2011 by Kevin Atkinson under the GNU LGPL
+// Copyright (C) 2000-2006,2011 by Kevin Atkinson under the GNU LGPL
 // license version 2.0 or 2.1.  You should have received a copy of the
 // LGPL license along with this library if you did not you can find it
 // at http://www.gnu.org/.
@@ -131,6 +131,11 @@ namespace aspeller {
   PosibErr<const WordList *> SpellerImpl::suggest(MutableString word) 
   {
     return &suggest_->suggest(word);
+  }
+
+  PosibErr<const SuggestionList *> SpellerImpl::scored_suggest(MutableString word) 
+  {
+    return &suggest_->scored_suggest(word);
   }
 
   bool SpellerImpl::check_simple (ParmString w, WordEntry & w0) 
@@ -739,4 +744,3 @@ namespace aspeller {
     return new SpellerImpl();
   }
 }
-

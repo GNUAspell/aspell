@@ -1,5 +1,5 @@
 // This file is part of The New Aspell
-// Copyright (C) 2001 by Kevin Atkinson under the GNU LGPL license
+// Copyright (C) 2001-2006 by Kevin Atkinson under the GNU LGPL license
 // version 2.0 or 2.1.  You should have received a copy of the LGPL
 // license along with this library if you did not you can find
 // it at http://www.gnu.org/.
@@ -22,6 +22,7 @@
 #include "posib_err.hpp"
 #include "parm_string.hpp"
 #include "char_vector.hpp"
+#include "suggestion_list.hpp"
 
 namespace acommon {
 
@@ -107,9 +108,10 @@ namespace acommon {
     virtual PosibErr<void> clear_session() = 0;
 
     virtual PosibErr<const WordList *> suggest(MutableString) = 0;
+    virtual PosibErr<const SuggestionList *> scored_suggest(MutableString) = 0;
     // return null on error
     // the word list returned by suggest is only valid until the next
-    // call to suggest
+    // call to suggest or scored_suggest
   
     virtual PosibErr<void> store_replacement(MutableString, 
 					     MutableString) = 0;

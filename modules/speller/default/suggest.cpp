@@ -1,4 +1,4 @@
-// Copyright 2000-2005 by Kevin Atkinson under the terms of the LGPL
+// Copyright 2000-2006 by Kevin Atkinson under the terms of the LGPL
 
 // suggest.cpp Suggestion code for Aspell
 
@@ -62,6 +62,9 @@
 #include "suggest.hpp"
 #include "vararray.hpp"
 #include "string_list.hpp"
+#include "suggestion.hpp"
+#include "suggestion_list.hpp"
+#include "suggestion_enumeration.hpp"
 
 #include "gettext.h"
 
@@ -74,7 +77,10 @@ using namespace std;
 
 namespace {
 
-  typedef vector<String> NearMissesFinal;
+  // The internal, C++ version of the external Suggest/AspellSuggest
+  // struct.  I don't use that struct because I want the convenience
+  // of automatically allocated space for the strings.
+  typedef vector<pair<String,int> > NearMissesFinal;
 
   template <class Iterator>
   inline Iterator preview_next (Iterator i) {
@@ -286,9 +292,10 @@ namespace {
       : Score(l,w,p), threshold(1), max_word_length(0), sp(m) {
       memset(check_info, 0, sizeof(check_info));
     }
-    void get_suggestions(NearMissesFinal &sug);
+    void get_suggestions(NearMissesFinal & sug);
   };
 
+  // Return a list of suggestions (with scores) for word, sorted by score.
   void Working::get_suggestions(NearMissesFinal & sug) {
 
     if (original.word.size() * parms->edit_distance_weights.max >= 0x8000)
@@ -377,6 +384,7 @@ namespace {
 
     transfer();
   }
+
 
   // Forms a word by combining CheckInfo fields.
   // Will grow the grow the temp in the buffer.  The final
@@ -1196,6 +1204,8 @@ namespace {
     }
   }
 
+  // Transfer the final suggestion list to the stored output ptr.,
+  // *near_misses_final.
   void Working::transfer() {
 
 #  ifdef DEBUG_SUGGEST
@@ -1227,19 +1237,26 @@ namespace {
  	      ((pos = dup_pair.first->find(' '), pos == String::npos)
  	       ? (bool)sp->check(*dup_pair.first)
  	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
- 		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
- 	    near_misses_final->push_back(*dup_pair.first);
+ 		  && sp->check((String)dup_pair.first->substr(pos+1))) )) {
+            near_misses_final->push_back(
+                pair<String,int>(*dup_pair.first, i->score));
+          }
  	} while (i->repl_list->adv());
       } else {
         fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
-	if (dup_pair.second )
-	  near_misses_final->push_back(*dup_pair.first);
+	if (dup_pair.second) {
+          near_misses_final->push_back(
+              pair<String,int>(*dup_pair.first, i->score));
+        }
       }
     }
   }
-  
-  class SuggestionListImpl : public SuggestionList {
+
+  // This is for the class which ultimately builds on WordList
+  // and is returned to the user as a WordList, so the elements() method
+  // must return a StringEnumeration.
+  class SuggestWordListImpl : public SuggestWordList {
     struct Parms {
       typedef const char *                    Value;
       typedef NearMissesFinal::const_iterator Iterator;
@@ -1247,14 +1264,14 @@ namespace {
       Parms(Iterator e) : end(e) {}
       bool endf(Iterator e) const {return e == end;}
       Value end_state() const {return 0;}
-      Value deref(Iterator i) const {return i->c_str();}
+      Value deref(Iterator i) const {return i->first.c_str();}
     };
   public:
     NearMissesFinal suggestions;
 
-    SuggestionList * clone() const {return new SuggestionListImpl(*this);}
-    void assign(const SuggestionList * other) {
-      *this = *static_cast<const SuggestionListImpl *>(other);
+    SuggestWordList * clone() const {return new SuggestWordListImpl(*this);}
+    void assign(const SuggestWordList * other) {
+      *this = *static_cast<const SuggestWordListImpl *>(other);
     }
 
     bool empty() const { return suggestions.empty(); }
@@ -1265,9 +1282,70 @@ namespace {
     }
   };
 
+  // This is for the class which builds on SuggestionList
+  // and is returned to the user as a SuggestionList, so the elements() method
+  // must return a SuggestionEnumeration.
+  class SuggestionListImpl : public SuggestionList {
+   public:
+    SuggestWordListImpl words;  // For its Suggestion list
+
+   private:
+    class EnumerationImpl : public SuggestionEnumeration {
+      NearMissesFinal::const_iterator pos_;  // Steps through suggested words.
+      NearMissesFinal::const_iterator end_;  // When we're done w/ current
+      Suggestion data_;                  // For repackaging current data.
+
+    public:
+      SuggestionEnumeration * clone() const {
+        return new EnumerationImpl(*this);
+      }
+
+      EnumerationImpl(const SuggestionListImpl * base) :
+          pos_(base->words.suggestions.begin()),
+          end_(base->words.suggestions.end())
+      {}
+
+      bool at_end() const { return pos_ == end_; }
+      Suggestion * next() {
+        if (at_end()) return 0;
+
+        data_.word = pos_->first.c_str();
+        data_.word_len = pos_->first.size();
+        data_.score = pos_->second;
+
+        ++pos_;
+        return &data_;
+      }
+
+      void assign(const SuggestionEnumeration * other) {
+        *this = *static_cast<const EnumerationImpl *>(other);
+      }
+    };
+
+  public:
+
+    SuggestionList * clone() const {return new SuggestionListImpl(*this);}
+
+    void assign(const SuggestionList * other) {
+      *this = *static_cast<const SuggestionListImpl *>(other);
+    }
+
+    bool empty() const { return words.suggestions.empty(); }
+    unsigned int size() const { return words.suggestions.size(); }
+    SuggestionEnumeration * elements() const {
+      return new EnumerationImpl(this);
+    }
+
+    void reset() {
+      words.suggestions.resize(0);
+    }
+  };
+
+
+  // Central class of this file: build suggestion lists.
   class SuggestImpl : public Suggest {
     SpellerImpl * speller_;
-    SuggestionListImpl  suggestion_list;
+    SuggestionListImpl   scored_suggestion_list;
     SuggestParms parms_;
   public:
     PosibErr<void> setup(SpellerImpl * m);
@@ -1286,7 +1364,8 @@ namespace {
       //return sws.score;
       return -1;
     }
-    SuggestionList & suggest(const char * word);
+    SuggestWordList & suggest(const char * word);
+    SuggestionList & scored_suggest(const char * word);
   };
   
   PosibErr<void> SuggestImpl::setup(SpellerImpl * m)
@@ -1316,20 +1395,27 @@ namespace {
     return no_err;
   }
 
-  SuggestionList & SuggestImpl::suggest(const char * word) { 
+  // Return a list of suggestions (with scores).
+  SuggestionList & SuggestImpl::scored_suggest(const char * word) {
 #   ifdef DEBUG_SUGGEST
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
     parms_.set_original_word_size(strlen(word));
-    suggestion_list.suggestions.resize(0);
-    Working sug(speller_, &speller_->lang(),word,&parms_);
-    sug.get_suggestions(suggestion_list.suggestions);
+    scored_suggestion_list.reset();
+    Working sug(speller_, &speller_->lang(), word, &parms_);
+    sug.get_suggestions(scored_suggestion_list.words.suggestions);
 #   ifdef DEBUG_SUGGEST
     COUT << "^^^^^^^^^^^  end suggest " << word << "  ^^^^^^^^^^^\n";
 #   endif
-    return suggestion_list;
+    return scored_suggestion_list;
   }
-  
+
+  // Return a list of suggestions (without scores).
+  SuggestWordList & SuggestImpl::suggest(const char * word) {
+    scored_suggest(word);
+    return scored_suggestion_list.words;
+  }
+
 }
 
 namespace aspeller {
@@ -1427,4 +1513,10 @@ namespace aspeller {
     }
     word_weight = 100 - soundslike_weight;
   }
+}
+
+namespace acommon {
+  // This is a function with an auto-generated demand.  Not sure
+  // where to define it.
+  SuggestionList * new_suggestion_list() { return new SuggestionListImpl(); }
 }

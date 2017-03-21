@@ -1,5 +1,5 @@
 // Aspell main C++ include file
-// Copyright 1998-2000 by Kevin Atkinson under the terms of the LGPL.
+// Copyright 1998-2006 by Kevin Atkinson under the terms of the LGPL.
 
 #ifndef __aspeller_speller__
 #define __aspeller_speller__
@@ -141,8 +141,9 @@ namespace aspeller {
     PosibErr<void> clear_session();
 
     PosibErr<const WordList *> suggest(MutableString word);
+    PosibErr<const SuggestionList *> scored_suggest(MutableString word);
     // the suggestion list and the elements in it are only 
-    // valid until the next call to suggest.
+    // valid until the next call to suggest or scored_suggest.
 
     PosibErr<void> store_replacement(MutableString mis, 
 				     MutableString cor);

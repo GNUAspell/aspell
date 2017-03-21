@@ -2221,7 +2221,7 @@ AspellWordList * suggestions = aspell_speller_suggest(spell_checker,
                                                       @var{word}, @var{size});
 AspellStringEnumeration * elements = aspell_word_list_elements(suggestions);
 const char * word;
-while ( (word = aspell_string_enumeration_next(aspell_elements)) != NULL )
+while ( (word = aspell_string_enumeration_next(elements)) != NULL )
 @{
   // add to suggestion list
 @}
@@ -2230,7 +2230,30 @@ delete_aspell_string_enumeration(elements);
 
 Notice how @code{elements} is deleted but @code{suggestions} is not.
 The value returned by @code{suggestions} is only valid to the next
-call to @code{suggest}.  Once a replacement is made the
+call to @code{suggest}.
+
+If you want to sort the Aspell words by some additional criterion before
+presenting them, you should also take into account the ``score'' that
+Aspell used to sort them.  The score gives the ``distance'' of the
+suggestion from the original, with increasing scores giving increasing
+distances.  To cycle through a list of suggestions with scores,
+instead of the above example, copy this code:
+@smallexample
+AspellSuggestionList * suggestions = aspell_speller_scored_suggest(
+                                                      spell_checker,
+                                                      @var{word}, @var{size});
+AspellSuggestionEnumeration * elements =
+                              aspell_suggestion_list_elements(suggestions);
+const AspellSuggestion * sugg;
+while ( (sugg = aspell_suggestion_enumeration_next(elements)) != NULL )
+@{
+  // Add to suggestion list sugg->word, of length sugg->word_len, and
+  // with score sugg->score.
+@}
+delete_aspell_suggestion_enumeration(elements);
+@end smallexample
+
+Once a replacement is made the
 @code{store_repl} method should be used to communicate the replacement
 pair back to the spell checker (for the reason, @pxref{Notes on
 Storing Replacement Pairs}).  Its usage is as follows:

@@ -3,7 +3,7 @@
 #	       generate interface code.
 #
 # This file is part of The New Aspell
-# Copyright (C) 2001-2005 by Kevin Atkinson under the GNU LGPL
+# Copyright (C) 2001-2006 by Kevin Atkinson under the GNU LGPL
 # license version 2.0 or 2.1.  You should have received a copy of the
 # LGPL license along with this library if you did not you can find it
 # at http://www.gnu.org/.
@@ -714,9 +714,19 @@ class: speller
 		posib err
 		desc => Return NULL on error.
 			The word list returned by suggest is only
-			valid until the next call to suggest.
+			valid until the next call to suggest or scored_suggest.
 		/
 		const word list
+		encoded string: word
+
+	method: scored suggest
+
+		posib err
+		desc => Return NULL on error.
+			The word list returned by scored_suggest is only
+			valid until the next call to suggest or scored_suggest.
+		/
+		const suggestion list
 		encoded string: word
 
 	method: store replacement
@@ -905,6 +915,7 @@ group: string enumeration
 class: string enumeration
 	c impl headers => convert
 	/
+
 	copyable methods
 	method: at end
 		const
@@ -1063,6 +1074,96 @@ class: string pair enumeration
 	enumeration methods
 	copyable methods
 }
+
+group: suggestion
+{
+/
+struct: suggestion
+	/
+	string: word
+		default => ""
+	int: word len
+		default => 0
+	int: score
+		desc => How likely is this word given the original word?
+}
+group: suggestion enumeration
+{
+/
+class: suggestion enumeration
+	c impl headers => suggestion
+	/
+
+	cxx member: from internal
+		headers => convert
+		what => class Convert * from_internal_
+		default => 0
+		desc => Conversion routine to external representation.
+		/
+
+	cxx member: temp str
+		what => String temp_str_
+		default => ""
+		desc => Holds the string in external format when converted.
+		/
+
+	copyable methods
+
+	method: at end
+		const
+		/
+		bool
+
+	method: next
+		c impl =>
+			const Suggestion * s = ths->next();
+			if (s == 0 || ths->from_internal_ == 0) \{
+			  return s;
+			\} else \{
+			  ths->temp_str_.clear();
+			  ths->from_internal_->convert(s->word, -1, ths->temp_str_);
+			  ths->from_internal_->append_null(ths->temp_str_);
+			  (const_cast<Suggestion *>(s))->word = ths->temp_str_.data();
+			  return s;
+			\}
+		/
+		const suggestion
+}
+
+group: suggestion list
+{
+/
+class: suggestion list
+	c impl headers => suggestion enumeration
+	/
+	constructor
+
+	method: empty
+		const
+		/
+		bool
+
+	method: size
+		const
+		/
+		unsigned int
+
+	method: elements
+		const
+		c impl =>
+			SuggestionEnumeration * els = ths->elements();
+			els->from_internal_ = ths->from_internal_;
+			return els;
+		/
+		suggestion enumeration
+
+	copyable methods
+
+	cxx member: from internal
+		what => class Convert * from_internal_
+		default => 0
+}
+
 group: cache
 {
 /
