@@ -108,10 +108,10 @@ namespace acommon {
     virtual PosibErr<void> clear_session() = 0;
 
     virtual PosibErr<const WordList *> suggest(MutableString) = 0;
-    virtual PosibErr<const SuggestionList *> scored_suggest(MutableString) = 0;
+    virtual PosibErr<const SuggestionList *> suggest_plus(MutableString) = 0;
     // return null on error
     // the word list returned by suggest is only valid until the next
-    // call to suggest or scored_suggest
+    // call to suggest or suggest_plus
   
     virtual PosibErr<void> store_replacement(MutableString, 
 					     MutableString) = 0;

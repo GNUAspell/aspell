@@ -133,9 +133,9 @@ namespace aspeller {
     return &suggest_->suggest(word);
   }
 
-  PosibErr<const SuggestionList *> SpellerImpl::scored_suggest(MutableString word) 
+  PosibErr<const SuggestionList *> SpellerImpl::suggest_plus(MutableString word) 
   {
-    return &suggest_->scored_suggest(word);
+    return &suggest_->suggest_plus(word);
   }
 
   bool SpellerImpl::check_simple (ParmString w, WordEntry & w0) 

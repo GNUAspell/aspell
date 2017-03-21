@@ -714,17 +714,17 @@ class: speller
 		posib err
 		desc => Return NULL on error.
 			The word list returned by suggest is only
-			valid until the next call to suggest or scored_suggest.
+			valid until the next call to suggest or suggest_plus.
 		/
 		const word list
 		encoded string: word
 
-	method: scored suggest
+	method: suggest plus
 
 		posib err
 		desc => Return NULL on error.
-			The word list returned by scored_suggest is only
-			valid until the next call to suggest or scored_suggest.
+			The word list returned by suggest_plus is only
+			valid until the next call to suggest or suggest_plus.
 		/
 		const suggestion list
 		encoded string: word

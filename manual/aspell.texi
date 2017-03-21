@@ -2239,7 +2239,7 @@ suggestion from the original, with increasing scores giving increasing
 distances.  To cycle through a list of suggestions with scores,
 instead of the above example, copy this code:
 @smallexample
-AspellSuggestionList * suggestions = aspell_speller_scored_suggest(
+AspellSuggestionList * suggestions = aspell_speller_suggest_plus(
                                                       spell_checker,
                                                       @var{word}, @var{size});
 AspellSuggestionEnumeration * elements =

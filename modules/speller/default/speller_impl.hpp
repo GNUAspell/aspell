@@ -141,9 +141,9 @@ namespace aspeller {
     PosibErr<void> clear_session();
 
     PosibErr<const WordList *> suggest(MutableString word);
-    PosibErr<const SuggestionList *> scored_suggest(MutableString word);
+    PosibErr<const SuggestionList *> suggest_plus(MutableString word);
     // the suggestion list and the elements in it are only 
-    // valid until the next call to suggest or scored_suggest.
+    // valid until the next call to suggest or suggest_plus.
 
     PosibErr<void> store_replacement(MutableString mis, 
 				     MutableString cor);

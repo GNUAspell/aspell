@@ -34,7 +34,7 @@ namespace aspeller {
     virtual PosibErr<void> set_mode(ParmString) = 0;
     virtual double score(const char * base, const char * other) = 0;
     virtual SuggestWordList & suggest(const char * word) = 0;
-    virtual SuggestionList & scored_suggest(const char * word) = 0;
+    virtual SuggestionList & suggest_plus(const char * word) = 0;
     virtual ~Suggest() {}
   };
   

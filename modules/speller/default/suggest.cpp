@@ -1365,7 +1365,7 @@ namespace {
       return -1;
     }
     SuggestWordList & suggest(const char * word);
-    SuggestionList & scored_suggest(const char * word);
+    SuggestionList & suggest_plus(const char * word);
   };
   
   PosibErr<void> SuggestImpl::setup(SpellerImpl * m)
@@ -1396,7 +1396,7 @@ namespace {
   }
 
   // Return a list of suggestions (with scores).
-  SuggestionList & SuggestImpl::scored_suggest(const char * word) {
+  SuggestionList & SuggestImpl::suggest_plus(const char * word) {
 #   ifdef DEBUG_SUGGEST
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
@@ -1412,7 +1412,7 @@ namespace {
 
   // Return a list of suggestions (without scores).
   SuggestWordList & SuggestImpl::suggest(const char * word) {
-    scored_suggest(word);
+    suggest_plus(word);
     return scored_suggestion_list.words;
   }
 
