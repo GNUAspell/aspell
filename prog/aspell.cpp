@@ -252,7 +252,7 @@ Conv uiconv;
 
 int main (int argc, const char *argv[]) 
 {
-  options = new_config(); // this needs to be here becuase of a bug
+  options = new_config(); // this needs to be here because of a bug
                           // with static initlizers on Darwin.
 #ifdef USE_LOCALE
   setlocale (LC_ALL, "");
@@ -1992,7 +1992,7 @@ void munch_list_simple()
       ci = ci->next;
     }
     // now add the base to the keep list if one exists
-    // otherwise just keep the orignal word
+    // otherwise just keep the original word
     if (best) {
       SML_Table::iterator b = table.find(best->word);
       assert(b != table.end());
@@ -2637,7 +2637,7 @@ void munch_list_complete(bool multi, bool simplify)
       if (working.size() > 0 && working.size() == prev_working_size)
       {
         to_keep.push_back(working[0]);
-        //CERR.printf("Making greedy choice! Chosing %s/%s.\n",
+        //CERR.printf("Making greedy choice! Choosing %s/%s.\n",
         //            working[0]->word, working[0]->aff);
         merge(to_keep_exp, working[0]->exp);
         working.erase(working.begin(), working.begin() + 1);

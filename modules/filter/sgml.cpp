@@ -5,7 +5,7 @@
 // license along with this library if you did not you can find
 // it at http://www.gnu.org/.
 //
-// The orignal filter was written by Kevin Atkinson.
+// The original filter was written by Kevin Atkinson.
 // Tom Snyder rewrote the filter to support skipping SGML tags
 //
 // This filter enables the spell checking of sgml, html, and xhtml files

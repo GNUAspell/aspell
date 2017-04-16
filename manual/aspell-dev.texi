@@ -741,7 +741,7 @@ have to fulfill in order to implicitly activate the entire mode
 at least one such line is required.  Each magic line has the following
 format:
 @example
-MAGIC /<magic key>/<fileextention>[/<fileextention>]
+MAGIC /<magic key>/<fileextension>[/<fileextension>]
 @end example
 
 The magic key consist of three `:' separated fields.
@@ -754,8 +754,8 @@ If mode selection should only occurred on basis of the listed file
 extensions the magic key should consist of the ``<noregex>'' special
 string.
 
-At least one <fileextention> is required per MAGIC line.
-<fileextention> may not be empty and should not contain a leading `.'
+At least one <fileextension> is required per MAGIC line.
+<fileextension> may not be empty and should not contain a leading `.'
 as this is assumed implicitly.
 
 Multiple MAGIC lines are allowed. Modes may be extended limited by additional

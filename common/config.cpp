@@ -1354,7 +1354,7 @@ namespace acommon {
     {"actual-dict-dir", KeyInfoString, "<dict-dir^master>", 0}
     , {"actual-lang",     KeyInfoString, "", 0} 
     , {"conf",     KeyInfoString, "aspell.conf",
-       /* TRANSLATORS: The remaing strings in config.cpp should be kept
+       /* TRANSLATORS: The remaining strings in config.cpp should be kept
           under 50 characters, begin with a lower case character and not
           include any trailing punctuation marks. */
        N_("main configuration file")}

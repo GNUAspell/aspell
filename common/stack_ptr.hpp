@@ -22,7 +22,7 @@ namespace acommon {
     // and operator* and StackPtr(T *) will be used.  The explicit
     // doesn't protect us here due to PosibErr
     StackPtr(const StackPtr & other);
-    // becuase I am paranoid
+    // because I am paranoid
     StackPtr & operator=(const StackPtr & other);
 
   public:

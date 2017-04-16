@@ -202,7 +202,7 @@ struct CondsLookupParms {
 typedef HashTable<CondsLookupParms> CondsLookup;
 
 // normalizes and checks the cond_str
-// returns the lenth of the new string or -1 if invalid
+// returns the length of the new string or -1 if invalid
 static int normalize_cond_str(char * str)
 {
   char * s = str;
@@ -452,7 +452,7 @@ PosibErr<void> AffixMgr::parse_file(const char * affpath, Conv & iconv)
   // prefix is not found (call it nextne).
 
   // Since we have built ordered lists, all that remains is to
-  // properly intialize the nextne and nexteq pointers that relate
+  // properly initialize the nextne and nexteq pointers that relate
   // them
 
   process_pfx_order();
@@ -1404,7 +1404,7 @@ specific character position in the word.
 For prefixes, it does this by setting bit 0 if that char is valid 
 in the first position, bit 1 if valid in the second position, and so on. 
 
-If a bit is not set, then that char is not valid for that postion in the
+If a bit is not set, then that char is not valid for that position in the
 word.
 
 If working with suffixes bit 0 is used for the character closest 

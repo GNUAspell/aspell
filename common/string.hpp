@@ -321,7 +321,7 @@ namespace acommon {
       erase(begin_ + pos, begin_ + pos + s);
     }
 
-    //FIXME: Make this more efficent by rewriting the implemenation
+    //FIXME: Make this more efficient by rewriting the implementation
     //       to work with raw memory rather than using vector<char>
     template <typename Itr>
     void replace(iterator start, iterator stop, Itr rstart, Itr rstop) 

@@ -72,7 +72,7 @@ namespace acommon {
   // -- setting a boolean value to an empty string is the same as setting 
   //    it to true
   //
-  // lset - sets a list, items seperated by ':'
+  // lset - sets a list, items separated by ':'
   // rem, remove - removes item from a list
   // add - add an item to a list
   // clear - removes all items from a list
@@ -207,7 +207,7 @@ namespace acommon {
 
     PosibErr<String> retrieve(ParmStr key) const;
 
-    // will also retrive a list, with one value per line
+    // will also retrieve a list, with one value per line
     PosibErr<String> retrieve_any(ParmStr key) const;
   
     bool have (ParmStr key) const;
