@@ -60,7 +60,7 @@ namespace acommon {
     // Will return false if there is no more data
     bool append_line(String &, char d);
 
-    // These perform raw io with any sort of formating
+    // These perform raw io with any sort of formatting
     bool read(void *, unsigned int i);
     void write(ParmStr);
     void write(char c);

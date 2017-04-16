@@ -29,7 +29,7 @@ namespace aspeller {
   
   ////////////////////////////////////////////////////////
   //                                                    //
-  //          Vector Hash Table Interator               //
+  //          Vector Hash Table Iterator               //
   //                                                    //
   ////////////////////////////////////////////////////////
   //

@@ -103,7 +103,7 @@ public:
   char * dup(ParmString str) {return dup_top(str);}
 
   // alloc_temp allocates an object from the bottom which can be
-  // resized untill it is commited.  If the resizing will involve
+  // resized until it is committed.  If the resizing will involve
   // moving the object than the data will be copied in the same way
   // realloc does.  Any previously allocated objects are aborted when
   // alloc_temp is called.

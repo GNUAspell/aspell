@@ -114,10 +114,10 @@ namespace aspeller {
     bool soundslike_root_only; // true when affix compression is used AND
                                // the stored soundslike corresponds to the
                                // root word only
-    bool fast_scan;  // can effectly scan for all soundslikes (or
+    bool fast_scan;  // can effectively scan for all soundslikes (or
                      // clean words if have_soundslike is false)
                      // with an edit distance of 1 or 2
-    bool fast_lookup; // can effectly find all words with a given soundslike
+    bool fast_lookup; // can effectively find all words with a given soundslike
                       // when the SoundslikeWord is not given
     
     typedef WordEntryEnumeration        Enum;
