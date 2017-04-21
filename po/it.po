@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2016-12-11 21:38-0500\n"
-"PO-Revision-Date: 2008-05-01 21:36+0200\n"
-"Last-Translator: Cristian Rigamonti <cri@linux.it>\n"
+"PO-Revision-Date: 2017-04-20 10:53+0200\n"
+"Last-Translator: Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -613,7 +614,7 @@ msgstr "Modalità sconosciuta: \"%mode:1\"."
 #: common/errors.cpp:635
 #, c-format
 msgid "\"%mode:1\" error while extend Aspell modes. (out of memory?)"
-msgstr "\"%mode:1\" errore nell'estensione modalità di Aspell (memoria esaurita?)."
+msgstr "\"%mode:1\" errore nell'estensione modalità di Aspell (memoria esaurita?)"
 
 #: common/errors.cpp:651
 #, c-format
@@ -675,7 +676,7 @@ msgstr "Opzione non valida: %s"
 
 #: prog/aspell.cpp:319
 msgid " does not take any parameters."
-msgstr "non accetta alcun parametro."
+msgstr " non accetta alcun parametro."
 
 #: prog/aspell.cpp:332 prog/aspell.cpp:392
 #, c-format
@@ -922,18 +923,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      normalizzazione da usare: essere \"none\", \"internal\", o \"strict\""
 
 #: prog/aspell.cpp:2854
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2004 Kevin Atkinson.\n"
+"Aspell %s. Copyright 2000-2011 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2888
@@ -1166,7 +1163,7 @@ msgstr "Possibile conteggio errato."
 
 #: modules/speller/default/readonly_ws.cpp:362
 msgid "Incompatible hash function."
-msgstr ""
+msgstr "Funzione di hash incompatibile."
 
 #: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
@@ -1217,7 +1214,7 @@ msgid "a string of 'o','O','p',or 'P'"
 msgstr "una stringa 'o','O','p',o 'P'"
 
 #. TRANSLATORS: Like the strings in config.cpp, all strings in *-filter.opt
-#. should be under 50 characters, begin with a lower case character and 
+#. should be under 50 characters, begin with a lower case character and
 #. not include any trailing punctuation marks.
 #: modules/filter/context-filter.info:7
 msgid "experimental filter for hiding delimited contexts"
@@ -1341,4 +1338,4 @@ msgstr "modalità per controllare i documenti Texinfo"
 
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
-msgstr "modalità per saltare URL e costrutti simili"
+msgstr "modalità per saltare URL e costrutti simili (default)"
