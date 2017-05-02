@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2016-12-11 21:38-0500\n"
-"PO-Revision-Date: 2017-04-20 10:53+0200\n"
+"PO-Revision-Date: 2017-05-02 10:36+0200\n"
 "Last-Translator: Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -80,7 +80,7 @@ msgstr ""
 
 #: common/config.cpp:1286
 msgid "ASPELL_CONF env var"
-msgstr "var. di ambiente ASPELL_CONF"
+msgstr "var. d'ambiente ASPELL_CONF"
 
 #. TRANSLATORS: The remaing strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
@@ -184,13 +184,13 @@ msgstr "abilita la normalizzazione Unicode"
 
 #: common/config.cpp:1414
 msgid "Unicode normalization required for current lang"
-msgstr "normalizzazione Unicode richiesta per la lingua"
+msgstr "la normalizzazione Unicode è richiesta per la lingua"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
 #: common/config.cpp:1418
 msgid "Unicode normalization form: none, nfd, nfc, comp"
-msgstr "Forma di normalizzazione: none, nfd, nfc, comp"
+msgstr "Forme di normalizzazione: none, nfd, nfc, comp"
 
 #: common/config.cpp:1420
 msgid "avoid lossy conversions when normalization"
@@ -348,13 +348,12 @@ msgstr "Questo potrebbe anche significare che il file \"%s\" non può essere aper
 #: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
-msgstr "Il code point Unicode U+%04X non è supportato."
+msgstr "Il code point unicode U+%04X non è supportato."
 
 #: common/convert.cpp:859
-#, fuzzy, c-format
-#| msgid "Invalid UTF-8 sequence at position %d."
+#, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr "Sequenza UTF-8 non valida alla posizione %d."
+msgstr "Sequenza UTF-8 non valida alla posizione %ld."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
