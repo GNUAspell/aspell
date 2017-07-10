@@ -148,6 +148,14 @@ namespace acommon {
     return ACCESS(name, F_OK) == 0;
   }
 
+  bool is_regular_file(String name) {
+    struct stat sb;
+    if(stat(name.c_str(), &sb) != 0) {
+      return false;
+    }
+    return S_ISREG(sb.st_mode) != 0;
+  }
+
   bool rename_file(ParmString orig_name, ParmString new_name)
   {
     remove(new_name);

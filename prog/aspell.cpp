@@ -980,6 +980,11 @@ void check()
   new_name = file_name;
   new_name += ".new";
 
+  if(!is_regular_file(file_name )) {
+    print_error(_("\"%s\" is not a regular file"), file_name);
+    exit(-1);
+  }
+
   in = fopen(file_name.c_str(), "r");
   if (!in) {
     print_error(_("Could not open the file \"%s\" for reading"), file_name);

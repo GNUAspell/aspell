@@ -32,6 +32,7 @@ namespace acommon {
   void truncate_file(FStream & f, ParmString name);
   bool remove_file(ParmString name);
   bool file_exists(ParmString name);
+  bool is_regular_file(String name);
   bool rename_file(ParmString orig, ParmString new_name);
   // will return NULL if path is NULL.
   const char * get_file_name(const char * path);
