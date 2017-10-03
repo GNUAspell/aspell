@@ -1,0 +1,90 @@
+version: 0.60.6.1.{build}
+image: Visual Studio 2015
+
+environment:
+    matrix:
+        - PlatformToolset: mingw-w64
+
+platform:
+    #- x64
+    - x86
+
+configuration:
+    - Release
+    #- Debug
+
+install:
+    - if "%platform%"=="x64" set archi=amd64
+    - if "%platform%"=="x86" set archi=x86
+    - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %archi%
+
+    - ps: |
+        if ($env:PLATFORMTOOLSET -match "mingw-w64") {
+            if($env:PLATFORM -match "x86") {
+                $env:Path += ";C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32\bin"
+                $env:Path += ";C:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32\i686-w64-mingw32\lib"
+            }
+            if($env:PLATFORM -match "x64") {
+                $env:Path += ";C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin"
+                $env:Path += ";C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\x86_64-w64-mingw32\lib"
+            }
+            $env:Path += ";C:\cygwin64\bin"
+            $env:Path = $env:Path.Replace('C:\Program Files\Git\usr\bin;','')
+            g++ --version
+            mingw32-make --version
+        }
+build:
+    parallel: true
+    verbosity: minimal
+
+before_build:
+- ps: |
+    Write-Output "Configuration: $env:CONFIGURATION"
+    Write-Output "Platform: $env:PLATFORM"
+
+build_script:
+- cd "%APPVEYOR_BUILD_FOLDER%"
+- cd auto
+- perl mk-src.pl
+- cd "%APPVEYOR_BUILD_FOLDER%"\win32
+- ps: |
+    mingw32-make
+    mingw32-make install
+
+after_build:
+- cd "%APPVEYOR_BUILD_FOLDER%"
+- ps: |
+
+    if ($env:PLATFORMTOOLSET -match "mingw-w64")
+    {
+        Push-AppveyorArtifact "c:/aspell/aspell.exe" -FileName "aspell.exe"
+        Push-AppveyorArtifact "c:/aspell/aspell-15.dll" -FileName "aspell-15.dll"
+
+        if ($($env:APPVEYOR_REPO_TAG) -eq "true" -and $env:PLATFORMTOOLSET -eq "mingw-w64" -and $env:CONFIGURATION -eq "Release")
+        {
+            $ZipFileName = "aspell_$($env:APPVEYOR_REPO_TAG_NAME)_$env:PLATFORM.zip"
+            md deploy -Force | Out-Null
+            md deploy\aspell -Force | Out-Null
+            Copy-Item c:/aspell/*.* deploy\aspell\
+            7z a $ZipFileName .\deploy\*
+            Remove-Item deploy\aspell\*.*
+        }
+    }
+
+artifacts:
+  - path: aspell_*.zip
+    name: releases
+
+deploy:
+    provider: GitHub
+    description: ''
+    auth_token:
+        secure: TODO
+    artifact: releases
+    draft: false
+    prerelease: false
+    force_update: true
+    on:
+        appveyor_repo_tag: true
+        PlatformToolset: mingw-w64
+        configuration: Release

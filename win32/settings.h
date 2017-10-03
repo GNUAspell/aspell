@@ -90,3 +90,5 @@
 
 /* Version number of package */
 #define VERSION "0.50.3"
+
+#define C_EXPORT extern "C"

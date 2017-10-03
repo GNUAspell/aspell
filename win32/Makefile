@@ -62,12 +62,12 @@ ifdef WIN32_RELOCATABLE
 endif
 
 # cygwin: built native w32 code
-NOCYGWIN=-mno-cygwin
+#NOCYGWIN=-mno-cygwin
 
 ################################################################################
 
 LIBVERSION=15
-ASPELLVERSION=0-50-3
+ASPELLVERSION=0-60-6
 
 CCOMPILER=gcc
 CPPCOMPILER=g++
@@ -88,6 +88,8 @@ VPATH=	$(top_srcdir)/common:\
 	$(top_srcdir)/modules/speller/default:\
 	$(top_srcdir)/modules/tokenizer:\
 	$(top_srcdir)/lib:\
+	$(top_srcdir)/gen:\
+	$(top_srcdir)/win32/gen:\
 	$(top_srcdir)/prog
 INCLUDES = \
 	-I. \
@@ -96,6 +98,8 @@ INCLUDES = \
 	-I$(top_srcdir)/modules/filter \
 	-I$(top_srcdir)/modules/speller/default \
 	-I$(top_srcdir)/modules/tokenizer \
+	-I$(top_srcdir)/gen \
+	-I$(top_srcdir)/win32 \
 	$(CURSES_INCLUDE)
 
 FLAGS=$(DEBUGFLAG) $(BITFIELD) $(NOCYGWIN) $(OPTIMIZATION)
@@ -139,14 +143,15 @@ clean: \
 ASPELL_COMMON_A_NAME=aspell-common-$(ASPELLVERSION).a
 
 aspell_common_OBJECTS = \
+	cache.o \
 	string.o \
 	getdata.o \
 	itemize.o \
 	file_util.o \
-	string_buffer.o \
 	string_map.o \
 	string_list.o \
 	config.o \
+	version.o \
 	posib_err.o \
 	errors.o \
 	error.o \
@@ -159,16 +164,21 @@ aspell_common_OBJECTS = \
 	speller.o \
 	document_checker.o \
 	filter.o \
-	strtonum.o
+	objstack.o \
+	strtonum.o \
+	gettext_init.o \
+	file_data_util.o
 
+
+cache.o:	cache.cpp
 string.o:	string.cpp
 getdata.o:	getdata.cpp
 itemize.o:	itemize.cpp
 file_util.o:	file_util.cpp
-string_buffer.o:	string_buffer.cpp
 string_map.o:	string_map.cpp
 string_list.o:	string_list.cpp
 config.o:	config.cpp
+version.o:	version.cpp
 posib_err.o:	posib_err.cpp
 errors.o:	errors.cpp
 error.o:	error.cpp
@@ -181,29 +191,26 @@ tokenizer.o:	tokenizer.cpp
 speller.o:	speller.cpp
 document_checker.o:	document_checker.cpp
 filter.o:	filter.cpp
+objstack.o:	objstack.cpp
 strtonum.o:	strtonum.cpp
+gettext_init.o:	gettext_init.cpp
+file_data_util.o:	file_data_util.cpp
 
-dirs.h: mk-dirs_h
-	echo '#define PREFIX "${prefix}"'            >  dirs.h
-	./mk-dirs_h ${prefix} DICT_DIR ${pkglibdir}  >> dirs.h
-	./mk-dirs_h ${prefix} DATA_DIR ${pkgdatadir} >> dirs.h
-	./mk-dirs_h ${prefix} CONF_DIR ${sysconfdir} >> dirs.h
 
-mk-dirs_h: mk-dirs_h.cpp
-	$(NATIVE_CXX) $< $(LIBS) -o $@
+gen/dirs.h:
+	perl ${top_srcdir}/gen/mk-dirs_h.pl ${prefix} ${pkgdatadir} ${pkglibdir}  ${sysconfdir} >  ${top_srcdir}/gen/dirs.h
 
-config.cpp: dirs.h
+${top_srcdir}/common/config.cpp: gen/dirs.h
 
 aspell_common_a: $(ASPELL_COMMON_A_NAME) 
-$(ASPELL_COMMON_A_NAME): dirs.h $(aspell_common_OBJECTS)
+$(ASPELL_COMMON_A_NAME): gen/dirs.h $(aspell_common_OBJECTS)
 	$(AR) $(ARFLAGS) \
 	$@ \
 	$(aspell_common_OBJECTS)
 aspell_common_clean:
 	-rm $(aspell_common_OBJECTS) \
 	$(ASPELL_COMMON_A_NAME) \
-	mk-dirs_h.exe mk-dirs_h \
-	dirs.h
+	${top_srcdir}/gen/dirs.h
 
 #######################################################################
 # {{{1	aspell-filter-standard
@@ -213,15 +220,21 @@ aspell_filter_standard_EXTRALIBS = \
 	$(ASPELL_COMMON_A_NAME)
 
 aspell_filter_standard_OBJECTS = \
-	email.o \
 	url.o \
+	email.o \
 	tex.o \
 	sgml.o \
+	context.o \
+	nroff.o \
+	texinfo.o \
 
-email.o:	email.cpp
 url.o:	url.cpp
+email.o:	email.cpp
 tex.o:	tex.cpp
 sgml.o:	sgml.cpp
+context.o:	context.cpp
+nroff.o:	nroff.cpp
+texinfo.o:	texinfo.cpp
 
 aspell_filter_standard_a: $(ASPELL_FILTER_STANDARD_A_NAME)
 $(ASPELL_FILTER_STANDARD_A_NAME): $(aspell_filter_standard_OBJECTS)
@@ -240,43 +253,35 @@ aspell_speller_default_EXTRALIBS = \
 	$(ASPELL_COMMON_A_NAME)
 
 aspell_speller_default_OBJECTS = \
-	data.o \
-	leditdist.o \
-	primes.o \
-	writable_base.o \
-	editdist.o \
-	speller_impl.o \
 	readonly_ws.o \
-	writable_repl.o \
-	file_data_util.o \
-	multi_ws.o \
-	split.o \
-	writable_ws.o \
-	l2editdist.o \
-	phonet.o \
 	suggest.o \
-	language.o \
+	data.o \
+	multi_ws.o \
 	phonetic.o \
+	writable.o \
+	speller_impl.o \
+	phonet.o \
 	typo_editdist.o \
+	editdist.o \
+	primes.o \
+	language.o \
+	leditdist.o \
+	affix.o \
 
-data.o:	data.cpp
-leditdist.o:	leditdist.cpp
-primes.o:	primes.cpp
-writable_base.o:	writable_base.cpp
-editdist.o:	editdist.cpp
-speller_impl.o:	speller_impl.cpp
 readonly_ws.o:	readonly_ws.cpp
-writable_repl.o:	writable_repl.cpp
-file_data_util.o:	file_data_util.cpp
-multi_ws.o:	multi_ws.cpp
-split.o:	split.cpp
-writable_ws.o:	writable_ws.cpp
-l2editdist.o:	l2editdist.cpp
-phonet.o:	phonet.cpp
 suggest.o:	suggest.cpp
-language.o:	language.cpp
+data.o:	data.cpp
+multi_ws.o:	multi_ws.cpp
 phonetic.o:	phonetic.cpp
+writable.o:	writable.cpp
+speller_impl.o:	speller_impl.cpp
+phonet.o:	phonet.cpp
 typo_editdist.o:	typo_editdist.cpp
+editdist.o:	editdist.cpp
+primes.o:	primes.cpp
+language.o:	language.cpp
+leditdist.o:	leditdist.cpp
+affix.o:	affix.cpp
 
 aspell_speller_default_a: $(ASPELL_SPELLER_DEFAULT_A_NAME)
 $(ASPELL_SPELLER_DEFAULT_A_NAME): $(aspell_speller_default_OBJECTS)
@@ -338,34 +343,58 @@ aspell_dll_OBJECTS = \
 	string_pair_enumeration-c.o \
 	find_speller.o \
 	new_checker.o \
-	new_filter.o \
 	new_config.o \
 	string_enumeration-c.o \
 	word_list-c.o \
 	filter-c.o \
 	document_checker-c.o \
+	new_filter.o \
+	new_fmode.o \
 
-can_have_error-c.o:	can_have_error-c.cpp
-info-c.o:	info-c.cpp
-string_list-c.o:	string_list-c.cpp
-config-c.o:	config-c.cpp
-speller-c.o:	speller-c.cpp
-string_map-c.o:	string_map-c.cpp
-error-c.o:	error-c.cpp
-mutable_container-c.o:	mutable_container-c.cpp
-string_pair_enumeration-c.o:	string_pair_enumeration-c.cpp
-find_speller.o:	find_speller.cpp
-new_checker.o:	new_checker.cpp
-new_filter.o:	new_filter.cpp
-new_config.o:	new_config.cpp
-string_enumeration-c.o:	string_enumeration-c.cpp
-word_list-c.o:	word_list-c.cpp
 filter-c.o:	filter-c.cpp
+word_list-c.o:	word_list-c.cpp
+info-c.o:	info-c.cpp
+mutable_container-c.o:	mutable_container-c.cpp
+error-c.o:	error-c.cpp
 document_checker-c.o:	document_checker-c.cpp
+string_map-c.o:	string_map-c.cpp
+new_config.o:	new_config.cpp
+config-c.o:	config-c.cpp
+string_enumeration-c.o:	string_enumeration-c.cpp
+can_have_error-c.o:	can_have_error-c.cpp
+new_filter.o:	new_filter.cpp
+new_fmode.o:	new_fmode.cpp
+string_list-c.o:	string_list-c.cpp
+find_speller.o:	find_speller.cpp
+speller-c.o:	speller-c.cpp
+string_pair_enumeration-c.o:	string_pair_enumeration-c.cpp
+new_checker.o:	new_checker.cpp
+
+static_optfiles = ${top_srcdir}/modules/filter/url-filter.info
+
+### Add the .info file your filter comes with
+optfiles = \
+  ${top_srcdir}/modules/filter/email-filter.info\
+  ${top_srcdir}/modules/filter/tex-filter.info\
+  ${top_srcdir}/modules/filter/sgml-filter.info\
+  ${top_srcdir}/modules/filter/html-filter.info\
+  ${top_srcdir}/modules/filter/context-filter.info\
+  ${top_srcdir}/modules/filter/nroff-filter.info\
+  ${top_srcdir}/modules/filter/texinfo-filter.info
+
+static_optfiles += ${optfiles}
+
+# settings.h added as a dependency so it will get recreated if
+#   the COMPILE_IN_FILTERS option changes
+gen/static_filters.src.cpp: ${static_optfiles} ${top_srcdir}/gen/mk-static-filter.pl
+	perl ${top_srcdir}/gen/mk-static-filter.pl ${static_optfiles}
+
+${top_srcdir}/lib/new_filter.cpp: gen/static_filters.src.cpp
+
 
 aspell_dll: $(ASPELL_DLL_NAME)
 $(ASPELL_DLL_NAME): $(aspell_dll_OBJECTS)
-	$(CC) $(FLAGS) \
+	$(CXX) $(FLAGS) \
 	-shared \
 	$(aspell_dll_LDFLAGS) \
 	$+ \
@@ -375,7 +404,8 @@ aspell_dll_clean:
 	-rm $(aspell_dll_OBJECTS) \
 	$(ASPELL_DLL_NAME) \
 	$(ASPELL_DLL_LIB_NAME) \
-	$(ASPELL_DLL_DEF_NAME)
+	$(ASPELL_DLL_DEF_NAME) \
+	${top_srcdir}/gen/static_filters.src.cpp
 
 ################################################################################
 # {{{1	pspell-dll
@@ -395,7 +425,7 @@ dummy.o:	dummy.cpp
 
 pspell_dll: $(PSPELL_DLL_NAME)
 $(PSPELL_DLL_NAME): $(pspell_dll_OBJECTS)
-	$(CC) $(FLAGS) \
+	$(CXX) $(FLAGS) \
 	-shared \
 	$(pspell_dll_LDFLAGS) \
 	$+ \
@@ -426,7 +456,7 @@ checker_string.o:	checker_string.cpp
 
 aspell_exe: $(ASPELL_EXE_NAME)
 $(ASPELL_EXE_NAME): $(aspell_exe_OBJECTS)
-	$(CC) $(FLAGS) \
+	$(CXX) $(FLAGS) \
 	$+ \
 	$(aspell_exe_EXTRALIBS) \
 	$(CURSES_LIB) \
@@ -446,7 +476,7 @@ compress.o:	compress.c
 
 word_list_compress_exe: $(WORD_LIST_COMPRESS_EXE_NAME)
 $(WORD_LIST_COMPRESS_EXE_NAME): $(word_list_compress_OBJECTS)
-	$(CC) $(FLAGS) \
+	$(CXX) $(FLAGS) \
 	$+ \
 	$(LIBS) -o $@
 word_list_compress_clean:
@@ -492,15 +522,16 @@ regfile_clean:
 	-rm $(REGFILE_NAME)
 install: regfile
 	-mkdir $(installdir)
-	-mkdir $(installdir)/$(pkglibdir)
-	-mkdir $(installdir)/$(pkgdatadir)
+	-mkdir $(pkglibdir)
+	-mkdir $(pkgdatadir)
 	-cp  $(WORD_LIST_COMPRESS_EXE_NAME) \
 	    $(ASPELL_EXE_NAME) \
 	    $(PSPELL_DLL_NAME) \
 	    $(ASPELL_DLL_NAME) \
 	    $(installdir)
-	-cp $(top_srcdir)/data/*.dat $(installdir)/$(pkgdatadir)
-	-cp $(top_srcdir)/data/*.kbd $(installdir)/$(pkgdatadir)
+	-cp $(top_srcdir)/data/*.cmap $(pkgdatadir)
+	-cp $(top_srcdir)/data/*.cset $(pkgdatadir)
+	-cp $(top_srcdir)/data/*.kbd $(pkgdatadir)
 	-cp $(REGFILE_NAME) $(installdir)
 	
 
