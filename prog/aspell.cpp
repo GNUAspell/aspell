@@ -61,6 +61,12 @@
 #include "hash-t.hpp"
 #include "hash_fun.hpp"
 
+#if ENABLE_NLS
+#define printf printf
+#include "libintl.h"
+#undef printf
+#endif
+
 #include "gettext.h"
 
 using namespace acommon;
