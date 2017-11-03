@@ -74,7 +74,7 @@ Developer's manual.  Unfortunately, doing a @command{make clean} will
 erase them.  This is due to a limitation of automake which is not
 easily fixed.  If makeinfo is installed they can easily be rebuild
 with @command{make aspell.html aspell-dev.html}, or you can unpack
-them from the tarbar.
+them from the tarball.
 
 @node Curses Notes
 @appendixsec Curses Notes
