@@ -82,15 +82,15 @@ them from the tarbar.
 If you are having problems compiling @file{check_funs.cpp} then the
 most likely reason is due to incompatibilities with the curses
 implementation on your system.  You should first try disabling the
-``wide'' curses library by with the @option{--disable-wide-curses}
+``wide'' curses library with the @option{--disable-wide-curses}
 configure option.  By doing so you will lose support for properly
 displaying UTF-8 characters but you may still be able to get the full
-screen interface.  If this fails than you can disable curses support
+screen interface.  If this fails then you can disable curses support
 altogether with the @option{--disable-curses} configure option.  By
 doing this you will lose the nice full screen interface but hopefully
 you will be able to at least get Aspell to compile correctly.
 
-If the curses library is installed in a non-standard location than you
+If the curses library is installed in a non-standard location then you
 can specify the library and include directory with
 @option{--enable-curses=@var{lib}} and
 @option{--enable-curses-include=@var{dir}}.
@@ -111,7 +111,7 @@ or the name of the library (for example
 @appendixsubsec Unicode Support
 
 In order for Aspell to correctly spell check UTF-8 documents in full
-screen mode the "wide" version of the curses library must be
+screen mode the ``wide'' version of the curses library must be
 installed.  This is different from the normal version of curses
 library, and is normally named @file{libcursesw} (with a @samp{w} at
 the end) or @file{libncursesw}.  UTF-8 documents will not display
