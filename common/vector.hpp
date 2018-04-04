@@ -36,13 +36,13 @@ namespace acommon
     }
     T * data() {return &*this->begin();}
     T * data(int pos) {return &*this->begin() + pos;}
-    T * data_end() {return &this->back()+1;}
+    T * data_end() {return this->empty() ? &*this->begin() : &this->back()+1;}
 
     T * pbegin() {return &*this->begin();}
-    T * pend()   {return &this->back()+1;}
+    T * pend()   {return this->empty() ? &*this->begin() : &this->back()+1;}
 
     const T * pbegin() const {return &*this->begin();}
-    const T * pend()   const {return &this->back()+1;}
+    const T * pend()   const {return this->empty() ? &*this->begin() : &this->back()+1;}
 
     template <typename U>
     U * datap() { 
