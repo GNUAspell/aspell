@@ -8,81 +8,96 @@
 # cases it should duplicate the execution of your original 1.0 config.
 version: 2
 jobs:
-  build:
+  build_jessie:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
-    shell: /bin/bash --login
-    # CircleCI 2.0 does not support environment variables that refer to each other the same way as 1.0 did.
-    # If any of these refer to each other, rewrite them so that they don't or see https://circleci.com/docs/2.0/env-vars/#interpolating-environment-variables-to-set-other-environment-variables .
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    # In CircleCI 1.0 we used a pre-configured image with a large number of languages and other packages.
-    # In CircleCI 2.0 you can now specify your own image, or use one of our pre-configured images.
-    # The following configuration line tells CircleCI to use the specified docker image as the runtime environment for you job.
-    # We have selected a pre-built image that mirrors the build environment we use on
-    # the 1.0 platform, but we recommend you choose an image more tailored to the needs
-    # of each job. For more information on choosing an image (or alternatively using a
-    # VM instead of a container) see https://circleci.com/docs/2.0/executor-types/
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-      command: /sbin/init
+    - image: circleci/buildpack-deps:jessie
     steps:
-    # Machine Setup
-    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
-    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly. In 2.0 you can choose where in the course of a job your code should be checked out.
     - checkout
-    # Prepare for artifact and test results  collection equivalent to how it was done on 1.0.
-    # In many cases you can simplify this from what is generated here.
-    # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
-    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-    # Dependencies
-    #   This would typically go in either a build or a build-and-test job when using workflows
-    # Restore the dependency cache
-    - restore_cache:
-        keys:
-        # This branch if available
-        - v1-dep-{{ .Branch }}-
-        # Default branch if not
-        - v1-dep-master-
-        # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
-        - v1-dep-
-    # This is based on your 1.0 configuration file or project settings
-    - run: sudo apt-get install autopoint texinfo clang-3.5 g++-4.4 g++-4.8 g++-multilib
-    - run: sudo apt-get purge aspell
-    # Save dependency cache
-    - save_cache:
-        key: v1-dep-{{ .Branch }}-{{ epoch }}
-        paths:
-        # This is a broad list of cache paths to include many possible development environments
-        # You can probably delete some of these entries
-        - vendor/bundle
-        - ~/virtualenvs
-        - ~/.m2
-        - ~/.ivy2
-        - ~/.bundle
-        - ~/.go_workspace
-        - ~/.gradle
-        - ~/.cache/bower
-    # Test
-    #   This would typically be a build job when using workflows, possibly combined with build
-    # This is based on your 1.0 configuration file or project settings
+    #
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib 
+    - run: sudo apt-get -y purge aspell
+    #
     - run: ./autogen
-    # This is based on your 1.0 configuration file or project settings
-    - run: CXX=g++-4.8 CC=gcc-4.8 ./sanity-check.sh
-    - run: CXX=g++-4.4 CC=gcc-4.4 ./sanity-check.sh
+    - run: ./sanity-check.sh
     - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
     - run: CXX=clang++-3.5 CC=clang-3.5 ./sanity-check.sh
+    - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
     - run: ./config-opt && make -j2
-    # Teardown
-    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
-    # Save test results
-    - store_test_results:
-        path: /tmp/circleci-test-results
-    # Save artifacts
-    - store_artifacts:
-        path: /tmp/circleci-artifacts
-    - store_artifacts:
-        path: /tmp/circleci-test-results
+
+
+  build_18_04:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    #shell: /bin/bash --login
+    # To see the list of pre-built images that CircleCI provides for most common languages see
+    # https://circleci.com/docs/2.0/circleci-images/
+    docker:
+    - image: circleci/buildpack-deps:18.04
+    steps:
+    # Machine Setup
+    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
+    #   of this that are relevant in each
+    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly.
+    # In 2.0 you can choose where in the course of a job your code should be checked out.
+    - checkout
+    #
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
+        g++-4.8 g++-5 g++-6 clang-3.9 clang-4.0 clang-5.0 clang-6.0 
+    - run: sudo apt-get -y purge aspell
+    #
+    - run: ./autogen
+    - run: ./sanity-check.sh
+    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run: CXX=g++-4.8 CC=gcc-4.8 ./sanity-check.sh
+    - run: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
+    - run: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
+    - run: CXX=clang++-3.9 CC=clang-3.9 ./sanity-check.sh
+    - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
+    - run: CXX=clang++-5.0 CC=clang-5.0 ./sanity-check.sh
+    - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
+    - run: ./config-opt && make -j2
+
+  build_19_04:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    #shell: /bin/bash --login
+    # To see the list of pre-built images that CircleCI provides for most common languages see
+    # https://circleci.com/docs/2.0/circleci-images/
+    docker:
+    - image: circleci/buildpack-deps:19.04
+    steps:
+    # Machine Setup
+    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
+    #   of this that are relevant in each
+    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly.
+    # In 2.0 you can choose where in the course of a job your code should be checked out.
+    - checkout
+    #
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
+         g++-6 g++-7 clang-6.0 clang-7 clang-8
+    - run: sudo apt-get -y purge aspell
+    #
+    - run: ./autogen
+    - run: ./sanity-check.sh
+    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
+    - run: CXX=g++-7 CC=gcc-7 ./sanity-check.sh
+    - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
+    - run: CXX=clang++-7 CC=clang-7 ./sanity-check.sh
+    - run: CXX=clang++-8 CC=clang-8 ./sanity-check.sh
+    - run: ./config-opt && make -j2
+
+workflows:
+  version: 2
+  sanity_check:
+    jobs:
+      - build_jessie
+      - build_18_04
+      - build_19_04
