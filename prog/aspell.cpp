@@ -1,5 +1,5 @@
 // This file is part of The New Aspell Copyright (C)
-// 2002,2003,2004,2011 by Kevin Atkinson under the GNU LGPL license
+// 2002,2003,2004,2011,2019 by Kevin Atkinson under the GNU LGPL license
 // version 2.0 or 2.1.  You should have received a copy of the LGPL
 // license along with this library if you did not you can find it at
 // http://www.gnu.org/.
@@ -1570,7 +1570,7 @@ void personal () {
 
     Config * config = options;
     Dictionary * per = new_default_writable_dict();
-    per->load(config->retrieve("personal-path"), *config);
+    EXIT_ON_ERR(per->load(config->retrieve("personal-path"), *config));
     StackPtr<WordEntryEnumeration> els(per->detailed_elements());
     StackPtr<Convert> conv(setup_conv(per->lang(), config));
 
