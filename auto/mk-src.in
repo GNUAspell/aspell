@@ -956,7 +956,7 @@ struct: dict info
 			the dictionary: 10=tiny, 20=really small,
 			30=small, 40=med-small, 50=med, 60=med-large,
 			70=large, 80=huge, 90=insane.  Please check
-			the README in aspell-lang-200?????.tar.bz2 or
+			the README in aspell-lang-20??????.tar.bz2 or
 			see SCOWL (http://wordlist.sourceforge.net)
 			for an example of how these sizes are used.
 	module info: module

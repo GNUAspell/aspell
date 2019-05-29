@@ -51,7 +51,7 @@ currently very sketchy.  However, it should improve over time.
 * C++ Standard Library::        
 * Templates::                   
 * Error Handling::              
-* Source Code Layout ::         
+* Source Code Layout::         
 * Strings::                     
 * Smart Pointers::              
 * I/O::                         
@@ -74,7 +74,7 @@ currently very sketchy.  However, it should improve over time.
 * C++ Standard Library::        
 * Templates::                   
 * Error Handling::              
-* Source Code Layout ::         
+* Source Code Layout::         
 * Strings::
 * Smart Pointers::              
 * I/O::                         
@@ -95,8 +95,8 @@ right side of the screen.
 @node How to Submit a Patch, C++ Standard Library, Style Guidelines, Top
 @chapter How to Submit a Patch
 
-Bug reports and patches should be submitted via the Sourceforge Tracker
-at @uref{http://sourceforge.net/@/tracker/?group_id=245} rather than
+Bug reports and patches should be submitted via GitHub Issues
+at @uref{https://github.com/GNUAspell/aspell/issues} rather than
 being posted to any of the mailing lists.
 
 The mailing lists are good if you need to check something out or need
@@ -148,7 +148,7 @@ The PosibErr class is used extensively throughout Aspell.  Please
 refer to the Aspell source for examples of using PosibErr until better
 documentation is written.
 
-@node Source Code Layout , Strings, Error Handling, Top
+@node Source Code Layout, Strings, Error Handling, Top
 @chapter Source Code Layout 
 
 @table @file
@@ -203,7 +203,7 @@ Example programs demonstrating the use of the Aspell library.
 @end table
 
 
-@node  Strings, Smart Pointers, Source Code Layout , Top
+@node  Strings, Smart Pointers, Source Code Layout, Top
 @chapter Strings
 
 @section String
