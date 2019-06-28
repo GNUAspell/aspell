@@ -16,7 +16,7 @@ namespace aspeller {
 
   static inline void clear_check_info(CheckInfo & ci)
   {
-    memset(&ci, 0, sizeof(ci));
+    memset(static_cast<void *>(&ci), 0, sizeof(ci));
   }
 
   struct GuessInfo

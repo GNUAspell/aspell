@@ -19,13 +19,13 @@ namespace acommon
   Tokenizer::~Tokenizer()
   {}
 
-  void Tokenizer::reset (FilterChar * begin, FilterChar * end) 
+  void Tokenizer::reset (FilterChar * start, FilterChar * stop)
   {
-    bool can_encode = conv_->encode(begin, end, buf_);
+    bool can_encode = conv_->encode(start, stop, buf_);
     assert(can_encode);
     end_pos = 0;
-    word_end = begin;
-    end = end;
+    word_end = start;
+    end = stop;
   }
 
 }

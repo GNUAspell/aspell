@@ -3,8 +3,6 @@
 
 namespace acommon {
 
-using namespace std;
-
 void ObjStack::setup_chunk()
 {
   bottom = first_free->data;

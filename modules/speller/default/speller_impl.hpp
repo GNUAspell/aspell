@@ -27,7 +27,7 @@ namespace acommon {
 namespace aspeller {
 
   class Language;
-  class SensitiveCompare;
+  struct SensitiveCompare;
   class Suggest;
 
   enum SpecialId {main_id, personal_id, session_id, 

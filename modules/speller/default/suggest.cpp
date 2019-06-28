@@ -409,7 +409,7 @@ namespace {
         add_nearmiss(i, sw, 0, score, -1, do_count);
     }
     if (sp->affix_compress) {
-      CheckInfo ci; memset(&ci, 0, sizeof(ci));
+      CheckInfo ci; memset(static_cast<void *>(&ci), 0, sizeof(ci));
       bool res = lang->affix()->affix_check(LookupInfo(sp, LookupInfo::Clean), str, ci, 0);
       if (!res) return;
       form_word(ci);
@@ -459,7 +459,7 @@ namespace {
       res = check_word(i, word_end, ci + 1, pos + 1);
       if (res) return res;
     }
-    memset(ci, 0, sizeof(CheckInfo));
+    memset(static_cast<void *>(ci), 0, sizeof(CheckInfo));
     return 0;
   }
 

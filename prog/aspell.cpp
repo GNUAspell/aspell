@@ -234,7 +234,7 @@ static const PossibleOption * find_option(const char * begin, const char * end) 
 static const PossibleOption * find_option(const char * str) {
   const PossibleOption * i = possible_options;
   while (i != possible_options_end 
-	 && !strcmp(str, i->name) == 0)
+	 && strcmp(str, i->name) != 0)
     ++i;
   return i;
 }
