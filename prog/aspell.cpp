@@ -2839,7 +2839,7 @@ static const char * usage_text[] =
   N_("<command> is one of:"),
   N_("  -?|usage         display a brief usage message"),
   N_("  help             display a detailed help message"),
-  N_("  -c|check <file>  to check a file"),
+  N_("  -c|check <file>  spellchecks a file"),
   N_("  -a|pipe          \"ispell -a\" compatibility mode"),
   N_("  [dump] config    dumps the current configuration to stdout"),
   N_("  config <key>     prints the current value of an option"),
