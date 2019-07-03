@@ -491,7 +491,7 @@ int main (int argc, const char *argv[])
 
   
 static Convert * setup_conv(const aspeller::Language * lang,
-                                      Config * config)
+                            Config * config)
 {
   if (config->retrieve("encoding") != "none") {
     PosibErr<Convert *> pe = new_convert_if_needed(*config,
@@ -504,7 +504,7 @@ static Convert * setup_conv(const aspeller::Language * lang,
     return 0;
   }
 }
- 
+
 static Convert * setup_conv(Config * config,
                             const aspeller::Language * lang)
 {
@@ -1386,12 +1386,46 @@ void normlz()
 
 void filter()
 {
-  //assert(setvbuf(stdin, 0, _IOLBF, 0) == 0);
-  //assert(setvbuf(stdout, 0, _IOLBF, 0) == 0);
-  CERR << _("Sorry \"filter\" is currently unimplemented.\n");
-  exit(3);
-}
+  line_buffer();
 
+  String enc = options->retrieve("encoding");
+  if (enc == "none")
+    enc="utf-8";
+  String encoding;
+  fix_encoding_str(enc, encoding);
+
+  EXIT_ON_ERR_SET(Decode::get_new(encoding, options.get()),
+                  StackPtr<Decode>, iconv);
+  EXIT_ON_ERR_SET(Encode::get_new(encoding, options.get()),
+                  StackPtr<Encode>, oconv);
+
+  StackPtr<Filter> filter(new Filter);
+  EXIT_ON_ERR(setup_filter(*filter, options.get(), true, true, false));
+
+  CharVector buf;
+  FilterCharVector proc_str;
+
+  int c;
+  for (;;) {
+    buf.clear();
+    while (c = getchar(), c != '\n' && c != EOF)
+      buf.push_back(static_cast<char>(c));
+    if (c == EOF) break;
+    buf.push_back('\n');
+    buf.push_back('\0');
+    proc_str.clear();
+    iconv->decode(buf.data(), buf.size()-1, proc_str);
+    proc_str.append(0);
+    FilterChar * begin = proc_str.pbegin();
+    FilterChar * end   = proc_str.pend() - 1;
+    filter->process(begin, end);
+    buf.clear();
+    oconv->encode(begin,end,buf);
+    if (buf.empty() || buf.back() != '\n')
+      buf.push_back('\n');
+    COUT.write(buf);
+  }
+}
 
 ///////////////////////////
 //
@@ -2831,7 +2865,7 @@ static const char * help_text[] =
   N_("  munch            generate possible root words and affixes"),
   N_("  expand [1-4]     expands affix flags"),
   N_("  clean [strict]   cleans a word list so that every line is a valid word"),
-  //N_("  filter           passes standard input through filters"),
+  N_("  filter           filters input as if it was being spellchecked"),
   N_("  -v|version       prints a version line"),
   N_("  munch-list [simple] [single|multi] [keep]"),
   N_("    reduce the size of a word list via affix compression"),

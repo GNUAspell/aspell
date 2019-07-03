@@ -4272,6 +4272,8 @@ a C++ program.
 @heading Changes from 0.60.7 to 0.68.8 (???)
 @itemize @bullet
 @item
+Implement @code{aspell filter} command.
+@item
 Remove unused @option{sug-edit-dist} option.
 @end itemize
 
