@@ -1006,16 +1006,20 @@ void check()
     exit(1);
   }
 
-#ifdef USE_FILE_INO
   {
     struct stat st;
     fstat(fileno(in), &st);
+    if (!S_ISREG(st.st_mode)) {
+      print_error(_("\"%s\" is not a regular file"), file_name);
+      exit(-1);
+    }
+#ifdef USE_FILE_INO
     int fd = open(new_name.c_str(), O_WRONLY | O_CREAT | O_TRUNC, st.st_mode);
     if (fd >= 0) out = fdopen(fd, "w");
-  }
 #else
-  out = fopen(new_name.c_str(), "w");
+    out = fopen(new_name.c_str(), "w");
 #endif
+  }
   if (!out) {
     print_error(_("Could not open the file \"%s\" for writing. File not saved."), file_name);
     exit(-1);
