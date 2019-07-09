@@ -902,6 +902,10 @@ Extra dictionaries to use.
 create dictionary aliases.  Each entry has the form @samp{@var{from}
 @var{to}}.  Will override any system dictionaries that are present.
 
+@item dont-use-other-dicts
+@i{(boolean)}
+Disable use of personal, replacement & session dictionaries.
+
 @end table
 
 @subsection Encoding Options
