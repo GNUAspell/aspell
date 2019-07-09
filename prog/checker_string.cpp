@@ -59,8 +59,19 @@ CheckerString::CheckerString(AspellSpeller * speller,
   checker_->process(cur_line_->real.data(), cur_line_->real.size());
 }
 
+void CheckerString::abort() {
+  fclose(in_);
+  in_ = 0;
+  if (out_) {
+    fclose(out_);
+    out_ = 0;
+  }
+}
+
 CheckerString::~CheckerString()
 {
+  if (!in_ && !out_)
+    return;
   if (out_)
     for (cur_line_ = first_line(); !off_end(cur_line_); next_line(cur_line_))
     {

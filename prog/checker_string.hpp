@@ -77,6 +77,8 @@ public:
   bool next_misspelling();
   void replace(ParmString repl); // encoded in "real" encoding
 
+  void abort();
+
   char * get_real_word(String & w) {
     w.clear();
     w.insert(w.end(), real_word_begin_, real_word_begin_ + real_word_size_);

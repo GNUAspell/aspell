@@ -1195,7 +1195,7 @@ exit_loop:
   }
 abort_loop:
   {
-    state.del(); // to close the file handles
+    state->abort(); // to close the file handles
     delete_aspell_speller(speller);
 
     remove_file(new_name);
