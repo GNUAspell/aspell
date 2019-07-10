@@ -58,7 +58,7 @@ each proc sub should take the following argv
   cxx impl: use this as the cxx impl instead of the default
   returns alt type: the constructor returns some type other than
     the object from which it is a member of
-  no native: do not attemt to create a native implementation
+  no native: do not attempt to create a native implementation
   treat as object: treat as a object rather than a pointer
 
 The %info structure is initialized as follows:

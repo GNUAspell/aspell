@@ -393,7 +393,7 @@ public:
 
   bool lookup(ParmString word, const SensitiveCompare *, WordEntry &) const;
 
-  bool clean_lookup(const char * sondslike, WordEntry &) const;
+  bool clean_lookup(ParmString sondslike, WordEntry &) const;
 
   bool soundslike_lookup(const WordEntry & soundslike, WordEntry &) const;
   bool soundslike_lookup(ParmString soundslike, WordEntry &) const;
@@ -429,7 +429,7 @@ bool WritableDict::lookup(ParmString word, const SensitiveCompare * c,
   return false;
 }
 
-bool WritableDict::clean_lookup(const char * sl, WordEntry & o) const
+bool WritableDict::clean_lookup(ParmString sl, WordEntry & o) const
 {
   o.clear();
   pair<WordLookup::iterator, WordLookup::iterator> p(word_lookup->equal_range(sl));

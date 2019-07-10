@@ -1,4 +1,4 @@
-AC_INIT(GNU Aspell, 0.60.7-rc1)
+AC_INIT(GNU Aspell, 0.60.7-rc2)
 AC_CONFIG_SRCDIR(prog/aspell.cpp)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
@@ -121,8 +121,8 @@ then
   AC_DEFINE(COMPILE_IN_FILTER, 1, [Defined if filters should be compiled in])
 fi
 
-find_cvs=`expr "$PACKAGE_VERSION" : '.*cvs'`
-if test "$find_cvs" -gt 0
+find_git=`expr "$PACKAGE_VERSION" : '.*git'`
+if test "$find_git" -gt 0
 then
   enable_filter_version_control=no
 fi

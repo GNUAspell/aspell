@@ -1,5 +1,5 @@
 // This file is part of The New Aspell Copyright (C)
-// 2002,2003,2004,2011 by Kevin Atkinson under the GNU LGPL license
+// 2002,2003,2004,2011,2019 by Kevin Atkinson under the GNU LGPL license
 // version 2.0 or 2.1.  You should have received a copy of the LGPL
 // license along with this library if you did not you can find it at
 // http://www.gnu.org/.
@@ -234,7 +234,7 @@ static const PossibleOption * find_option(const char * begin, const char * end) 
 static const PossibleOption * find_option(const char * str) {
   const PossibleOption * i = possible_options;
   while (i != possible_options_end 
-	 && !strcmp(str, i->name) == 0)
+	 && strcmp(str, i->name) != 0)
     ++i;
   return i;
 }
@@ -252,7 +252,7 @@ Conv uiconv;
 
 int main (int argc, const char *argv[]) 
 {
-  options = new_config(); // this needs to be here becuase of a bug
+  options = new_config(); // this needs to be here because of a bug
                           // with static initlizers on Darwin.
 #ifdef USE_LOCALE
   setlocale (LC_ALL, "");
@@ -1006,16 +1006,20 @@ void check()
     exit(1);
   }
 
-#ifdef USE_FILE_INO
   {
     struct stat st;
     fstat(fileno(in), &st);
+    if (!S_ISREG(st.st_mode)) {
+      print_error(_("\"%s\" is not a regular file"), file_name);
+      exit(-1);
+    }
+#ifdef USE_FILE_INO
     int fd = open(new_name.c_str(), O_WRONLY | O_CREAT | O_TRUNC, st.st_mode);
     if (fd >= 0) out = fdopen(fd, "w");
-  }
 #else
-  out = fopen(new_name.c_str(), "w");
+    out = fopen(new_name.c_str(), "w");
 #endif
+  }
   if (!out) {
     print_error(_("Could not open the file \"%s\" for writing. File not saved."), file_name);
     exit(-1);
@@ -1195,7 +1199,7 @@ exit_loop:
   }
 abort_loop:
   {
-    state.del(); // to close the file handles
+    state->abort(); // to close the file handles
     delete_aspell_speller(speller);
 
     remove_file(new_name);
@@ -1570,7 +1574,7 @@ void personal () {
 
     Config * config = options;
     Dictionary * per = new_default_writable_dict();
-    per->load(config->retrieve("personal-path"), *config);
+    EXIT_ON_ERR(per->load(config->retrieve("personal-path"), *config));
     StackPtr<WordEntryEnumeration> els(per->detailed_elements());
     StackPtr<Convert> conv(setup_conv(per->lang(), config));
 
@@ -1992,7 +1996,7 @@ void munch_list_simple()
       ci = ci->next;
     }
     // now add the base to the keep list if one exists
-    // otherwise just keep the orignal word
+    // otherwise just keep the original word
     if (best) {
       SML_Table::iterator b = table.find(best->word);
       assert(b != table.end());
@@ -2637,7 +2641,7 @@ void munch_list_complete(bool multi, bool simplify)
       if (working.size() > 0 && working.size() == prev_working_size)
       {
         to_keep.push_back(working[0]);
-        //CERR.printf("Making greedy choice! Chosing %s/%s.\n",
+        //CERR.printf("Making greedy choice! Choosing %s/%s.\n",
         //            working[0]->word, working[0]->aff);
         merge(to_keep_exp, working[0]->exp);
         working.erase(working.begin(), working.begin() + 1);

@@ -16,6 +16,8 @@ public: // but don't use
   const char * name;
   GlobalCacheBase * next;
   GlobalCacheBase * * prev;
+  // The global cache lock must exist while any cache instance is active
+  static Mutex global_cache_lock;
 protected:
   Cacheable * first;
   void del(Cacheable * d);

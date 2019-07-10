@@ -239,7 +239,7 @@ Parms is any of:
 
   mode: code generation mode
   no_aspell: if true do not include aspell in the name
-  this_name: name for the paramater representing the current object
+  this_name: name for the parameter representing the current object
 
 =item call_c_method CLASS ITEM PARMS ; %ACCUM
 

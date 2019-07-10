@@ -27,7 +27,7 @@ namespace aspeller {
   // respectfully.
 
   // The running time is asymptotically bounded above by 
-  // (3^l)*n where l is the limit and n is the maxium of strlen(a),strlen(b)
+  // (3^l)*n where l is the limit and n is the maximum of strlen(a),strlen(b)
   // Based on my informal tests, however, the n does not really matter
   // and the running time is more like (3^l).
 

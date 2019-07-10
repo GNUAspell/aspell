@@ -14,7 +14,7 @@ This is the user's manual for Aspell
 GNU Aspell is a spell checker designed to eventually replace Ispell.
 It can either be used as a library or as an independent spell checker.
 
-Copyright @copyright{} 2000--2011 Kevin Atkinson.
+Copyright @copyright{} 2000--2019 Kevin Atkinson.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -901,6 +901,10 @@ Extra dictionaries to use.
 @i{(list)}
 create dictionary aliases.  Each entry has the form @samp{@var{from}
 @var{to}}.  Will override any system dictionaries that are present.
+
+@item dont-use-other-dicts
+@i{(boolean)}
+Disable use of personal, replacement & session dictionaries.
 
 @end table
 
@@ -4263,7 +4267,7 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.6.1 to 0.60.7 (??, 2017)
+@heading Changes from 0.60.6.1 to 0.60.7 (July ??, 2019)
 @itemize @bullet
 @item
 Add partial support for recognizing the Unicode apostrophe (') in
@@ -4281,6 +4285,9 @@ compatibility with already compiled dictionaries on 64-bit systems.
 Fix a bug which caused Aspell to crash when passing in a null string
 to almost any of the C API functions.  This should not happen if the
 size is also zero as the pointer should never be derefrenced.
+@item
+Fix a bug that caused Aspell to crash with a SEGFAULT when built with
+mingw-w64.
 @item
 In addition to outputting a warning when building with NDEBUG defined,
 also include NDEBUG in the version string.

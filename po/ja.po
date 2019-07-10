@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2017-01-29 16:14-0500\n"
+"POT-Creation-Date: 2019-07-10 05:18-0400\n"
 "PO-Revision-Date: 2011-07-09 12:22+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -83,7 +83,7 @@ msgstr ""
 msgid "ASPELL_CONF env var"
 msgstr "ASPELL_CONF 環境変数"
 
-#. TRANSLATORS: The remaing strings in config.cpp should be kept
+#. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
 #: common/config.cpp:1360
@@ -732,196 +732,202 @@ msgstr "読み込み用にファイル \"%s\" を開くことができません"
 msgid "Invalid keymapping: %s"
 msgstr "無効なキーマップです: %s"
 
-#: prog/aspell.cpp:1020
+#: prog/aspell.cpp:1013
+#, fuzzy, c-format
+#| msgid "\"%expression:1\" is not a valid regular expression."
+msgid "\"%s\" is not a regular file"
+msgstr "\"%expression:1\" は有効な正規表現ではありません。"
+
+#: prog/aspell.cpp:1024
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "\"%s\" を書き込みモードで開けませんでした。ファイルは保存されていません。"
 
-#: prog/aspell.cpp:1033
+#: prog/aspell.cpp:1037
 msgid "Ignore"
 msgstr "無視"
 
-#: prog/aspell.cpp:1034
+#: prog/aspell.cpp:1038
 msgid "Ignore all"
 msgstr "すべて無視"
 
-#: prog/aspell.cpp:1035
+#: prog/aspell.cpp:1039
 msgid "Replace"
 msgstr "置換"
 
-#: prog/aspell.cpp:1036
+#: prog/aspell.cpp:1040
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1041
 msgid "Add"
 msgstr "追加"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1042
 msgid "Add Lower"
 msgstr "小文字にして追加"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1043
 msgid "Abort"
 msgstr "中断"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1044
 msgid "Exit"
 msgstr "終了"
 
-#: prog/aspell.cpp:1116
+#: prog/aspell.cpp:1120
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "本当に中断してよろしいですか (y/n)?"
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1124
 msgid "Yy"
 msgstr "Yy"
 
-#: prog/aspell.cpp:1148
+#: prog/aspell.cpp:1152
 msgid "With: "
 msgstr "置換文字列: "
 
-#: prog/aspell.cpp:1165
+#: prog/aspell.cpp:1169
 msgid "Sorry that is an invalid choice!"
 msgstr "残念、無効な選択です!"
 
-#: prog/aspell.cpp:1386
+#: prog/aspell.cpp:1390
 msgid "Sorry \"filter\" is currently unimplemented.\n"
 msgstr "残念、\"filter\" は現在実装されていません。\n"
 
-#: prog/aspell.cpp:1520
+#: prog/aspell.cpp:1524
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "マスター単語リストをマージできません。すみません。"
 
-#: prog/aspell.cpp:1544
+#: prog/aspell.cpp:1548
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "残念、\"create/merge personal\" は現在実装されていません。\n"
 
-#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
+#: prog/aspell.cpp:1557 prog/aspell.cpp:1613
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "すみません、 \"%s\" を上書きしません"
 
-#: prog/aspell.cpp:1600
+#: prog/aspell.cpp:1604
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "残念、\"create/merge repl\" は現在実装されていません。\n"
 
-#: prog/aspell.cpp:1872
+#: prog/aspell.cpp:1876
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" は \"munch-list\" コマンドに対する有効なフラグではありません。"
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2803
 msgid "Usage: aspell [options] <command>"
 msgstr "使い方: aspell [オプション] <コマンド>"
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2804
 msgid "<command> is one of:"
 msgstr "<コマンド> は次のうちの１つです:"
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2805
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage         短い使用方法の表示"
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2806
 msgid "  help             display a detailed help message"
 msgstr "  help             詳しい使用方法の表示"
 
-#: prog/aspell.cpp:2803
+#: prog/aspell.cpp:2807
 msgid "  -c|check <file>  to check a file"
 msgstr "  -c|check <ファイル>  ファイルをチェック"
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2808
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe          \"ispell -a\" 互換モード"
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2809
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr "  [dump] config    現在のすべての設定を標準出力に表示する"
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2810
 msgid "  config <key>     prints the current value of an option"
 msgstr "  config <key>     指定したオプションの現在の値を表示する"
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2811
 msgid "  [dump] dicts | filters | modes"
 msgstr "  [dump] dicts | filters | modes"
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2812
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr "    利用可能な辞書/フィルタ/フィルタモード の一覧を表示する"
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2813
 msgid "[options] is any of the following:"
 msgstr "[オプション] には以下のものがあります:"
 
-#: prog/aspell.cpp:2822
+#: prog/aspell.cpp:2826
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr "  list             標準入力からスペルの間違った単語のリストを作成する"
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2829
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr "  soundslike       入力したそれぞれの単語に対する疑似音声を返す"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2830
 msgid "  munch            generate possible root words and affixes"
 msgstr "  munch            語幹と接辞の候補を生成する"
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2831
 msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     接辞フラグを拡張する"
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2832
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr "  clean [strict]   単語リストを掃除し、すべての行の単語を有効にする"
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2834
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version       バージョンを表示"
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2835
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]"
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2836
 msgid "    reduce the size of a word list via affix compression"
 msgstr "    接辞を圧縮して単語リストのサイズを減らす"
 
-#: prog/aspell.cpp:2833
+#: prog/aspell.cpp:2837
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr "  conv <from> <to> [<norm-form>]"
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2838
 msgid "    converts from one encoding to another"
 msgstr "    エンコーディングを他のものに変換する"
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2839
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2840
 msgid "    perform Unicode normalization"
 msgstr "    Unicode 正規化を行う"
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2843
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<名前>]"
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2844
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr "    マスター/個人用/置換用の辞書を、表示/生成/マージする。"
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2848
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      正規化の形式 none, internal, strict のいずれか"
 
-#: prog/aspell.cpp:2854
+#: prog/aspell.cpp:2858
 #, c-format
 msgid ""
 "\n"
@@ -932,7 +938,7 @@ msgstr ""
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2888
+#: prog/aspell.cpp:2892
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -944,7 +950,7 @@ msgstr ""
 "  を使用します。\"lang\", \"variety\", \"size\" オプションを使用して\n"
 "  間接的に指定することもできます。\n"
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2913
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -952,7 +958,7 @@ msgstr ""
 "利用可能なフィルタ (と関連するオプション)\n"
 "  フィルタは \"filter\" オプションで追加/除去できます。\n"
 
-#: prog/aspell.cpp:2916
+#: prog/aspell.cpp:2920
 #, c-format
 msgid ""
 "\n"
@@ -962,7 +968,7 @@ msgstr ""
 "  %s フィルタ: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2933
+#: prog/aspell.cpp:2937
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"

@@ -82,7 +82,7 @@ namespace {
   }
   
   //
-  // OriginalWord stores infomation about the original misspelled word
+  // OriginalWord stores information about the original misspelled word
   //   for convince and speed.
   //
   struct OriginalWord {
@@ -380,7 +380,7 @@ namespace {
 
   // Forms a word by combining CheckInfo fields.
   // Will grow the grow the temp in the buffer.  The final
-  // word must be null terminated and commited.
+  // word must be null terminated and committed.
   // It returns a MutableString of what was appended to the buffer.
   MutableString Working::form_word(CheckInfo & ci) 
   {
@@ -409,7 +409,7 @@ namespace {
         add_nearmiss(i, sw, 0, score, -1, do_count);
     }
     if (sp->affix_compress) {
-      CheckInfo ci; memset(&ci, 0, sizeof(ci));
+      CheckInfo ci; memset(static_cast<void *>(&ci), 0, sizeof(ci));
       bool res = lang->affix()->affix_check(LookupInfo(sp, LookupInfo::Clean), str, ci, 0);
       if (!res) return;
       form_word(ci);
@@ -459,7 +459,7 @@ namespace {
       res = check_word(i, word_end, ci + 1, pos + 1);
       if (res) return res;
     }
-    memset(ci, 0, sizeof(CheckInfo));
+    memset(static_cast<void *>(ci), 0, sizeof(CheckInfo));
     return 0;
   }
 
@@ -478,7 +478,7 @@ namespace {
         t[0] = lang->to_lower(t[0]);
     }
     char * end = (char *)buffer.grow_temp(1);
-    char * beg = (char *)buffer.temp_ptr(); // since the orignal string may of moved
+    char * beg = (char *)buffer.temp_ptr(); // since the original string may of moved
     *end = 0;
     buffer.commit_temp();
     add_nearmiss(beg, end - beg, 0, 0, score, -1, do_count);

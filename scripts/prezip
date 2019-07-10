@@ -137,7 +137,7 @@ h )
 
    -h --help        display help
    -d --decompress  force decompression
-   -z --compress    dorce compression
+   -z --compress    force compression
    -L --license     display software license
    -V --version     display version
 

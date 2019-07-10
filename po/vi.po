@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2017-01-29 16:14-0500\n"
+"POT-Creation-Date: 2019-07-10 05:18-0400\n"
 "PO-Revision-Date: 2012-03-13 14:59+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "ASPELL_CONF env var"
 msgstr "ASPELL_CONF env var (biến môi trường cấu hình trình Aspell)"
 
-#. TRANSLATORS: The remaing strings in config.cpp should be kept
+#. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
 #: common/config.cpp:1360
@@ -736,204 +736,210 @@ msgstr "Không thể mở tập tin « %s » để đọc."
 msgid "Invalid keymapping: %s"
 msgstr "Ảnh xạ khóa không hợp lệ: %s"
 
-#: prog/aspell.cpp:1020
+#: prog/aspell.cpp:1013
+#, fuzzy, c-format
+#| msgid "\"%expression:1\" is not a valid regular expression."
+msgid "\"%s\" is not a regular file"
+msgstr "« %expression:1 » không phải là biểu thức chính quy hợp lệ."
+
+#: prog/aspell.cpp:1024
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "Không thể mở tập tin « %s » để ghi nên chưa lưu tập tin."
 
-#: prog/aspell.cpp:1033
+#: prog/aspell.cpp:1037
 msgid "Ignore"
 msgstr "Bỏ qua"
 
-#: prog/aspell.cpp:1034
+#: prog/aspell.cpp:1038
 msgid "Ignore all"
 msgstr "Bỏ qua hết"
 
-#: prog/aspell.cpp:1035
+#: prog/aspell.cpp:1039
 msgid "Replace"
 msgstr "Thay thế"
 
-#: prog/aspell.cpp:1036
+#: prog/aspell.cpp:1040
 msgid "Replace all"
 msgstr "Thay thế hết"
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1041
 msgid "Add"
 msgstr "Thêm"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1042
 msgid "Add Lower"
 msgstr "Thêm thấp hơn"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1043
 msgid "Abort"
 msgstr "Hủy bỏ"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1044
 msgid "Exit"
 msgstr "Thoát"
 
-#: prog/aspell.cpp:1116
+#: prog/aspell.cpp:1120
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "Bạn có chắc muốn hủy bỏ không? (c/k) "
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1124
 msgid "Yy"
 msgstr "Cc"
 
-#: prog/aspell.cpp:1148
+#: prog/aspell.cpp:1152
 msgid "With: "
 msgstr "Với: "
 
-#: prog/aspell.cpp:1165
+#: prog/aspell.cpp:1169
 msgid "Sorry that is an invalid choice!"
 msgstr "Tiếc là lựa chọn đó không hợp lệ."
 
-#: prog/aspell.cpp:1386
+#: prog/aspell.cpp:1390
 msgid "Sorry \"filter\" is currently unimplemented.\n"
 msgstr "Tiếc là chưa thi hành khả năng « filter » (lọc).\n"
 
-#: prog/aspell.cpp:1520
+#: prog/aspell.cpp:1524
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "Tiếc là chưa có thể phối danh sách từ chính."
 
-#: prog/aspell.cpp:1544
+#: prog/aspell.cpp:1548
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "Tiếc là chưa thi hành khả năng « create/merge personal » (tạo/phối cá nhân).\n"
 
-#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
+#: prog/aspell.cpp:1557 prog/aspell.cpp:1613
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "Tiếc là không thể ghi đè « %s »"
 
-#: prog/aspell.cpp:1600
+#: prog/aspell.cpp:1604
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "Tiếc là chưa thi hành khả năng « create/merge repl » (tạo/phối thay thế).\n"
 
-#: prog/aspell.cpp:1872
+#: prog/aspell.cpp:1876
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "« %s » không phải là cờ hợp lệ đối với lệnh « munch-list » (nhai danh sách)."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2803
 msgid "Usage: aspell [options] <command>"
 msgstr "Cách sử dụng: aspell [tùy_chọn ...] <lệnh>"
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2804
 msgid "<command> is one of:"
 msgstr "<lệnh> là một của :"
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2805
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage         hiển thị thông điệp ngắn về _cách sử dụng_"
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2806
 msgid "  help             display a detailed help message"
 msgstr "  help             hiển thị thông điệp _trợ giup_ chi tiết"
 
-#: prog/aspell.cpp:2803
+#: prog/aspell.cpp:2807
 msgid "  -c|check <file>  to check a file"
 msgstr "  -c|check <tập_tin>  _kiểm tra_ tập tin này"
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2808
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe          chế độ tương thích « ispell -a » (ống dẫn)"
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2809
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr "  [dump] config    _đổ cấu hình_ hiện thời ra thiết bị xuất chuẩn"
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2810
 msgid "  config <key>     prints the current value of an option"
 msgstr "  config <khóa>     in ra giá trị hiện thời của tùy chọn đó (_cấu hình_)"
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2811
 msgid "  [dump] dicts | filters | modes"
 msgstr "  [dump] dicts | filters | modes"
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2812
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr "    liệt kê các từ điển / bộ lọc / chế độ lọc sẵn sàng"
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2813
 msgid "[options] is any of the following:"
 msgstr "[tùy_chọn ...] có thể:"
 
-#: prog/aspell.cpp:2822
+#: prog/aspell.cpp:2826
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr "  list             tạo _danh sách_ các từ sai chính tả từ thiết bị nhập chuẩn"
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2829
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr "  soundslike       trả lời điều _nghe như_ mỗi từ đã nhập"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2830
 msgid "  munch            generate possible root words and affixes"
 msgstr "  munch            tạo ra từ gốc và affix (thêm vào) có thể (_nhai_)"
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2831
 msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     _mở rộng_ cờ affix"
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2832
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 "  clean [strict]   _xoá sạch_ danh sách từ để mỗi dòng là một từ hợp lệ\n"
 "\t(_chính xác_)"
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2834
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version       in ra dòng _phiên bản_"
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2835
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr ""
 "  munch-list [simple] [single|multi] [keep]\n"
 "\t(nhai danh sách, đơn giản, đơn, đa, giữ)"
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2836
 msgid "    reduce the size of a word list via affix compression"
 msgstr "    giảm kích cỡ của danh sách từ bằng cách nén kiểu affix"
 
-#: prog/aspell.cpp:2833
+#: prog/aspell.cpp:2837
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr "  conv <bảng mã này> <bảng mã khác> [<kiểu tiêu chuẩn>] (_chuyển đổi_)"
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2838
 msgid "    converts from one encoding to another"
 msgstr "    chuyển đổi từ bảng mã này sang bảng mã khác"
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2839
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr ""
 "  norm (<lược đồ tiêu chuẩn> | <điều này> <lược đồ tiêu chuẩn> <điều khác>)\n"
 "\t[<kiểu tiêu chuẩn>]"
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2840
 msgid "    perform Unicode normalization"
 msgstr "    tiêu chuẩn hóa kiểu Unicode"
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2843
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<name>]"
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2844
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr "    đổ, tạo hay hoà trộn từ điển kiểu chính, cá nhân hay thay thế"
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2848
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr ""
 "  <norm-form>      _kiểu tiêu chuẩn hóa_ cần dùng, hoặc none (không có),\n"
 "\tinternal (nội bộ), hay strict (chính xác)"
 
-#: prog/aspell.cpp:2854
+#: prog/aspell.cpp:2858
 #, c-format
 msgid ""
 "\n"
@@ -944,7 +950,7 @@ msgstr ""
 "Aspell %s.  Tác quyền © năm 2000-2011 của Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2888
+#: prog/aspell.cpp:2892
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -956,7 +962,7 @@ msgstr ""
 "hay « master » (chính). Cũng co thể chọn gián tiếp từ điển bằng\n"
 "tùy chọn « lang » (ngôn ngữ), « variety » (loại), và « size » (kích cỡ).\n"
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2913
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -964,7 +970,7 @@ msgstr ""
 "Bộ lọc sẵn sàng (và tùy chọn tương ứng):\n"
 "    Có thể thêm hoặc gỡ bỏ bộ lọc bằng tùy chọn « filter » (lọc).\n"
 
-#: prog/aspell.cpp:2916
+#: prog/aspell.cpp:2920
 #, c-format
 msgid ""
 "\n"
@@ -974,7 +980,7 @@ msgstr ""
 "  %s lọc: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2933
+#: prog/aspell.cpp:2937
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
