@@ -9,6 +9,12 @@ DESCRIPTION filter for Markdown/CommonMark documents
 
 STATIC filter
 
+OPTION skip-ref-labels
+TYPE bool
+DESCRIPTION skip link labels in link reference definitions
+DEFAULT true
+ENDOPTION
+
 OPTION multiline-tags
 TYPE bool
 DESCRIPTION support tags that span multiple lines outside of HTML blocks

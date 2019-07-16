@@ -96,18 +96,26 @@ inline void blank(FilterChar & chr) {
 }
 
 struct Iterator {
+  FilterChar * line_start;
   FilterChar * i;
   FilterChar * end;
   int line_pos;
   int indent;
   Iterator(FilterChar * start, FilterChar * stop)
-    : i(start), end(stop), line_pos(), indent() {}
+    : line_start(start), i(start), end(stop), line_pos(), indent() {}
   void * pos() {return i;}
-  unsigned int operator[](unsigned x) const {
-    if (i + x >= end) return '\0';
-    if (*i == '\r' || *i == '\n') return '\0';
-    else return i[x];
+  unsigned int operator[](int x) const {
+    if (x < 0) {
+      if (i + x >= line_start) return i[x];
+      else return '\0';
+    } else {
+      if (i + x >= end) return '\0';
+      if (*i == '\r' || *i == '\n') return '\0';
+      else return i[x];
+    }
   }
+  bool prev_isspace() const {return i == line_start || asc_isspace(i[-1]);}
+  bool escaped() const {return operator[](-1) == '\\';}
   unsigned int operator *() const {return operator[](0); }
   bool eol() const {return operator*() == '\0';}
   bool at_end() const {return i >= end;}
@@ -115,6 +123,10 @@ struct Iterator {
     if (i == end) return 0;
     if (*i == '\t') return 4  - (line_pos % 4);
     return 1;
+  }
+  // u_eq = not escaped and equal
+  bool u_eq(char chr) {
+    return !escaped() && operator*() == chr;
   }
   bool eq(const char * str) {
     int i = 0;
@@ -124,7 +136,7 @@ struct Iterator {
   }
   void inc() {
     indent = 0;
-    if (i == end) return;
+    if (eol()) return;
     line_pos += width();
     ++i;
   }
@@ -181,10 +193,11 @@ void Iterator::next_line() {
     ++i;
   }
   line_pos = 0;
+  line_start = i;
 }
 
 //
-// Markdown blocks and inlines
+// Markdown blocks
 // 
 
 struct BlockQuote : Block {
@@ -344,17 +357,7 @@ struct SingleLineBlock : Block {
     case '#':
       return new SingleLineBlock();
       break;
-    case '[': {
-      Iterator i = itr;
-      i.adv();
-      if (*i == ']') break;
-      while (*i != ']') {
-        i.adv();
-      }
-      i.inc();
-      if (*i != ':') break;
-      return new SingleLineBlock();
-    }
+
     }
     return NULL;
   }
@@ -362,6 +365,10 @@ struct SingleLineBlock : Block {
   bool leaf() const {return true;}
   void dump() const {CERR.printf("SingleLineBlock\n");}
 };
+
+//
+// MultilineInline 
+// 
 
 struct MultilineInline {
   virtual MultilineInline * close(Iterator & itr) = 0;
@@ -371,7 +378,7 @@ struct MultilineInline {
 struct InlineCode : MultilineInline {
   int marker_len;
   MultilineInline * open(Iterator & itr) {
-    if (*itr == '`') {
+    if (itr.u_eq('`')) {
       int i = 1;
       while (itr[i] == '`')
         ++i;
@@ -397,6 +404,10 @@ struct InlineCode : MultilineInline {
     return this;
   }
 };
+
+//
+// Html handling
+//
 
 struct HtmlComment : MultilineInline {
   MultilineInline * open(Iterator & itr) {
@@ -432,10 +443,10 @@ bool parse_tag_close(Iterator & itr) {
 // note: does _not_ eat trialing whitespaceb
 bool parse_tag_name(Iterator & itr, String & tag) {
   if (asc_isalpha(*itr)) {
-    tag += static_cast<char>(*itr);
+    tag += asc_tolower(*itr);
     itr.inc();
     while (asc_isalpha(*itr) || asc_isdigit(*itr) || *itr == '-') {
-      tag += static_cast<char>(*itr);
+      tag += asc_tolower(*itr);
       itr.inc();
     }
     return true;
@@ -443,72 +454,20 @@ bool parse_tag_name(Iterator & itr, String & tag) {
   return false;
 }
 
-enum ParseTagState {
-  Invalid,Between,AfterName,AfterEq,InSingleQ,InDoubleQ,Valid
-};
-
-// note: does _not_ eat trialing whitespace
-ParseTagState parse_attribute(Iterator & itr, ParseTagState state) {
-  switch (state) {
-    // note: this switch is being used as a computed goto to make
-    //   restoring state straightforward without restructuring the code
-  case Between:
-    if (asc_isalpha(*itr) || *itr == '_' || *itr == ':') {
-      itr.inc();
-      while (asc_isalpha(*itr) || asc_isdigit(*itr)
-             || *itr == '_' || *itr == ':' || *itr == '.' || *itr == '-')
-        itr.inc();
-    case AfterName:
-      itr.eat_space();
-      if (itr.eol()) return AfterName;
-      if (*itr != '=') return Invalid;
-      state = AfterEq;
-      itr.inc();
-    case AfterEq:
-      itr.eat_space();
-      if (itr.eol()) return AfterEq;
-      if (*itr == '\'') {
-        itr.inc();
-      case InSingleQ:
-        while (!itr.eol() && *itr != '\'')
-          itr.inc();
-        if (itr.eol()) return InSingleQ;
-        if (*itr != '\'') return Invalid;
-        itr.inc();
-      } else if (*itr == '"') {
-        itr.inc();
-      case InDoubleQ:
-        while (!itr.eol() && *itr != '"')
-          itr.inc();
-        if (itr.eol()) return InDoubleQ;
-        if (*itr != '"') return Invalid;
-        itr.inc();
-      } else {
-        void * pos = itr.pos();
-        while (!itr.eol() && !asc_isspace(*itr)
-               && *itr != '"' && *itr != '\'' && *itr != '='
-               && *itr != '<' && *itr != '>' && *itr != '`')
-          itr.inc();
-        if (pos == itr.pos()) return Invalid;
-      }
-    }
-    return Between;
-  case Valid: case Invalid:
-    // should not happen
-    abort();
-  }
-}
-
 struct HtmlTag : MultilineInline {
-  HtmlTag(bool mlt) : multi_line_tags(mlt), start_pos(NULL), last(NULL,NULL) {}
+  HtmlTag(bool mlt) : start_pos(NULL), last(NULL,NULL), multi_line(mlt) {}
   void * start_pos; // used for caching
   Iterator last;    // ditto
   String name;
   bool closing;
-  ParseTagState state;
-  bool multi_line_tags;
-  void reset() {
+  enum State {Invalid,Between,AfterName,AfterEq,InSingleQ,InDoubleQ,BeforeClose,Valid};
+  State state;
+  bool multi_line;
+  void clear_cache() {
     start_pos = NULL;
+  }
+  void reset() {
+    clear_cache();
     name.clear();
     closing = false;
     state = Invalid;
@@ -549,15 +508,15 @@ struct HtmlTag : MultilineInline {
   }
   MultilineInline * close(const Iterator & itr0, Iterator & itr) {
     while (!itr.eol()) {
-      if (state == Between) {
-        bool leading_space = asc_isspace(*itr);
-        if (leading_space)
-          itr.eat_space();
+      if (state == Between || state == BeforeClose) {
+        itr.eat_space();
+        bool leading_space = itr.prev_isspace();
         
         if (parse_tag_close(itr))
           return valid(itr0, itr);
-        
-        if (itr.line_pos != 0 && !leading_space)
+
+        if ((state == BeforeClose && !itr.eol())
+            || (itr.line_pos != 0 && !leading_space))
           return invalid(itr0, itr);
       }
 
@@ -585,9 +544,62 @@ struct HtmlTag : MultilineInline {
   }
   MultilineInline * incomplete(const Iterator & itr0, Iterator & itr) {
     last = itr;
-    if (multi_line_tags)
+    if (multi_line)
       return this;
     return invalid(itr0, itr);
+  }
+
+  // note: does _not_ eat trialing whitespace
+  static State parse_attribute(Iterator & itr, State state) {
+    switch (state) {
+      // note: this switch is being used as a computed goto to make
+      //   restoring state straightforward without restructuring the code
+    case Between:
+      if (asc_isalpha(*itr) || *itr == '_' || *itr == ':') {
+        itr.inc();
+        while (asc_isalpha(*itr) || asc_isdigit(*itr)
+               || *itr == '_' || *itr == ':' || *itr == '.' || *itr == '-')
+          itr.inc();
+      case AfterName:
+        itr.eat_space();
+        if (itr.eol()) return AfterName;
+        if (*itr != '=') return Invalid;
+        itr.inc();
+      case AfterEq:
+        itr.eat_space();
+        if (itr.eol()) return AfterEq;
+        if (*itr == '\'') {
+          itr.inc();
+        case InSingleQ:
+          while (!itr.eol() && *itr != '\'')
+            itr.inc();
+          if (itr.eol()) return InSingleQ;
+          if (*itr != '\'') return Invalid;
+          itr.inc();
+        } else if (*itr == '"') {
+          itr.inc();
+        case InDoubleQ:
+          while (!itr.eol() && *itr != '"')
+            itr.inc();
+          if (itr.eol()) return InDoubleQ;
+          if (*itr != '"') return Invalid;
+          itr.inc();
+        } else {
+          void * pos = itr.pos();
+          while (!itr.eol() && !asc_isspace(*itr)
+                 && *itr != '"' && *itr != '\'' && *itr != '='
+                 && *itr != '<' && *itr != '>' && *itr != '`')
+            itr.inc();
+          if (pos == itr.pos()) return Invalid;
+        }
+        return Between;
+      }
+    case BeforeClose:
+      return BeforeClose;
+    case Valid: case Invalid:
+      // should not happen
+      abort();
+    }
   }
 };
 
@@ -616,7 +628,7 @@ struct RawHtmlBlock : Block {
     if (done) return NEVER;
     while (!itr.eol()) {
       tag.open(itr);
-      if (tag.state == Valid && tag.closing && tag.name == tag_name) {
+      if (tag.state == HtmlTag::Valid && tag.closing && tag.name == tag_name) {
         done = true;
         while (!itr.eol()) itr.inc();
         return NEVER;
@@ -636,7 +648,7 @@ Block * start_html_block(Iterator & itr, HtmlTag & tag,
   tag.open(itr0, itr);
   if (!tag.closing && raw_tags.have(tag.name))
     return new RawHtmlBlock(itr,tag.name);
-  if ((tag.state == Valid && itr.eol())
+  if ((tag.state == HtmlTag::Valid && itr.eol())
       || start_tags.have(tag.name)) {
     return new HtmlBlock(itr);
   }
@@ -644,14 +656,213 @@ Block * start_html_block(Iterator & itr, HtmlTag & tag,
   return NULL;
 }
 
+//
+// Link handling
+// 
+
+struct Link : MultilineInline {
+  Link(bool s) : skip_ref_labels(s) {reset();}
+  enum State {Invalid, BeforeUrl, AfterUrl, InSingleQ, InDoubleQ, InParanQ, AfterQuote, Valid};
+  State state;
+  bool skip_ref_labels;
+  struct LineState {
+    Iterator itr0;
+    FilterChar * blank_start;
+    FilterChar * blank_stop;
+    LineState(const Iterator & itr0)
+      : itr0(itr0), blank_start(NULL), blank_stop(NULL) {}
+  };
+  void reset() {
+    state = Invalid;
+  }
+  MultilineInline * open(Iterator & itr) {
+    reset();
+    if (itr.u_eq(']')) {
+      // no space allowed between ']' and '(' or '[';
+      if (itr[1] == '(') {
+        itr.adv(2);
+        return close(itr);
+      } else if (skip_ref_labels && itr[1] == '[') {
+        LineState st(itr);
+        itr.adv(2);
+        st.blank_start = itr.i;
+        while (!itr.eol() && !itr.u_eq(']'))
+          itr.adv();
+        st.blank_stop = itr.i;
+        if (!itr.eol())
+          return valid(st,itr);
+        else
+          return invalid(st, itr);
+      }
+    }
+    state = Invalid;
+    return NULL;
+  }
+  
+  static State parse_url(LineState & st, Iterator & itr, char close) {
+    if (itr.eol())
+      return BeforeUrl;
+    if (itr.u_eq('<')) {
+      st.blank_start = itr.i;
+      itr.adv();
+      while (!itr.eol() && !itr.u_eq('>'))
+        itr.adv();
+      if (itr.eol())
+        return Invalid;
+      itr.adv();
+      st.blank_stop = itr.i;
+    } else {
+      st.blank_start = itr.i;
+      while (!itr.eol() && !itr.u_eq(close) && !asc_isspace(*itr))
+        itr.inc();
+      st.blank_stop = itr.i;
+      itr.eat_space();
+    }
+    return AfterUrl;
+  }
+  static State parse_label(State state, Iterator & itr) {
+    switch (state) {
+    default:
+      if (itr.u_eq('\'')) {
+        itr.inc();
+        state = InSingleQ;
+      case InSingleQ:
+        while (!itr.eol() && !itr.u_eq('\''))
+          itr.inc();
+        if (itr.eol())
+          return state;
+        itr.adv();
+        state = AfterQuote;
+      } else if (itr.u_eq('\"')) {
+        itr.inc();
+        state = InDoubleQ;
+      case InDoubleQ:
+        while (!itr.eol() && !itr.u_eq('"'))
+          itr.inc();
+        if (itr.eol())
+          return state;
+        itr.adv();
+        state = AfterQuote;
+      } else if (itr.u_eq('(')) {
+        state = InParanQ;
+      case InParanQ:
+        while (!itr.eol() && !itr.u_eq(')'))
+          itr.inc();
+        if (itr.eol())
+          return state;
+        itr.adv();
+        state = AfterQuote;
+      }
+    }
+    return state;
+  }
+  Link * parse_url_label(Iterator & itr, char close) {
+    LineState st(itr);
+    itr.eat_space();
+    switch (state) {
+    default:
+      state = parse_url(st,itr,close);
+      if (state == Invalid) return invalid(st, itr);
+      if (itr.eol()) return incomplete(st, itr);
+    case AfterUrl:
+      if (close != '\0' ? itr.u_eq(close) : itr.eol())
+        return valid(st, itr);
+    case InSingleQ: case InDoubleQ:
+      state = parse_label(state, itr);
+      if (state == Invalid) return invalid(st, itr);
+      if (itr.eol()) return incomplete(st, itr);
+    case AfterQuote:
+      if (close != '\0' ? itr.u_eq(close) : itr.eol())
+        return valid(st, itr);
+      return invalid(st, itr);
+    }    
+  }
+  MultilineInline * close(Iterator & itr) {
+    return parse_url_label(itr, ')');
+  }
+  static void blank(const LineState & st) {
+    for (FilterChar * i = st.blank_start; i != st.blank_stop; ++i) {
+      ::blank(*i);
+    }
+  }
+  Link * valid(const LineState & st, Iterator & itr) {
+    itr.adv(); // skip over closing tag
+    blank(st);
+    state = Valid;
+    return NULL;
+  }
+  Link * invalid(const LineState & st, Iterator & itr) {
+    state = Invalid;
+    itr = st.itr0;
+    return NULL;
+  }
+  Link * incomplete(const LineState & st, Iterator & itr) {
+    blank(st);
+    return this;
+  }
+};
+
+struct LinkRefDefinition : Block {
+  Link link;
+  Link * multiline;
+  LinkRefDefinition() : link(false) {}
+  static LinkRefDefinition * start_block(Iterator & itr, bool skip_ref_labels) {
+    Link::LineState st(itr);
+    if (*itr == '[') {
+      itr.adv();
+      st.blank_start = itr.i;
+      if (*itr == ']') goto fail;
+      while (!itr.eol() && !itr.u_eq(']')) {
+        itr.adv();
+      }
+      st.blank_stop = itr.i;
+      itr.inc();
+      if (*itr != ':') goto fail;
+      itr.adv();
+      LinkRefDefinition * obj = new LinkRefDefinition();
+      obj->multiline = obj->link.parse_url_label(itr, '\0');
+      if (obj->link.state == Link::Invalid) {
+        delete obj;
+        goto fail;
+      }
+      if (skip_ref_labels)
+        Link::blank(st);
+      return obj;
+    }
+  fail:
+    itr = st.itr0;
+    return NULL;
+  }
+  KeepOpenState proc_line(Iterator & itr) {
+    if (!multiline)
+      return NEVER;
+    void * pos = itr.pos();
+    multiline = multiline->parse_url_label(itr, '\0');
+    if (multiline)
+      return MAYBE;
+    return NEVER;
+  }
+  void dump() const {CERR.printf("LinkRefDefination\n");}
+  bool leaf() const {return true;}
+};
+
+//
+//
+//
+
 struct MultilineInlineState {
-  MultilineInlineState(bool mlt) : ptr(), tag(mlt) {}
+  MultilineInlineState(bool mlt, bool s) : ptr(), tag(mlt), link(s) {}
   MultilineInline * ptr;
   InlineCode inline_code;
   HtmlComment comment;
   HtmlTag tag;
+  Link link;
+  void clear_cache() {
+    tag.clear_cache();
+  }
   void reset() {
     tag.reset();
+    link.reset();
   }
 };
 
@@ -660,9 +871,10 @@ struct MultilineInlineState {
 //
 
 PosibErr<bool> MarkdownFilter::setup(Config * cfg) {
+  bool skip_ref_labels = cfg->retrieve_bool("f-markdown-skip-ref-labels");
   bool multiline_tags = cfg->retrieve_bool("f-markdown-multiline-tags");
   delete inline_state;
-  inline_state = new MultilineInlineState(multiline_tags);
+  inline_state = new MultilineInlineState(multiline_tags, skip_ref_labels);
   raw_start_tags.clear();
   cfg->retrieve_list("f-markdown-raw-start-tags",  &raw_start_tags);
   block_start_tags.clear();
@@ -684,18 +896,17 @@ MarkdownFilter::~MarkdownFilter() {
 }
 
 void MarkdownFilter::process(FilterChar * & start, FilterChar * & stop) {
-  inline_state->reset(); // to clear cached values
+  inline_state->clear_cache();
   Iterator itr(start,stop);
   bool blank_line = false;
-  while (!itr.at_end()) {
+  while (!itr.at_end()) { 
+    itr.eat_space();
     if (inline_state->ptr) {
-#ifdef DEBUG_FILTER
-      CERR.printf("*** continuing multi-line inline %s\n", typeid(*inline_state->ptr).name());
-#endif
-      inline_state->ptr = inline_state->ptr->close(itr);
+      if (itr.eol())
+        inline_state->ptr = NULL;
+      else
+        inline_state->ptr = inline_state->ptr->close(itr);
     } else {
-      itr.eat_space();
-      
       Block * blk = &root;
       Block::KeepOpenState keep_open;
       for (; blk; blk = blk->next) {
@@ -752,12 +963,16 @@ void MarkdownFilter::process(FilterChar * & start, FilterChar * & stop) {
     // now process line, mainly blank inline code and handle html tags
       
     while (!itr.eol()) {
-      inline_state->ptr = inline_state->inline_code.open(itr);
-      if (inline_state->ptr) break;
-      inline_state->ptr = inline_state->comment.open(itr);
-      if (inline_state->ptr) break;
-      inline_state->ptr = inline_state->tag.open(itr);
-      if (inline_state->ptr) break;
+      void * pos = itr.pos();
+#define TRY(what) \
+  inline_state->ptr = inline_state->what.open(itr);  \
+  if (inline_state->ptr) break; \
+  if (itr.pos() != pos) continue
+      TRY(inline_code);
+      TRY(comment);
+      TRY(tag);
+      TRY(link);
+#undef TRY
       if (*itr == '<' || *itr == '>')
         itr.blank_adv();
       else
@@ -777,6 +992,7 @@ Block * MarkdownFilter::start_block(Iterator & itr) {
     || (nblk = FencedCodeBlock::start_block(itr))
     || (nblk = BlockQuote::start_block(itr))
     || (nblk = ListItem::start_block(itr))
+    || (nblk = LinkRefDefinition::start_block(itr, inline_state->link.skip_ref_labels))
     || (nblk = SingleLineBlock::start_block(itr))
     || (nblk = start_html_block(itr, inline_state->tag, block_start_tags, raw_start_tags));
   return nblk;
