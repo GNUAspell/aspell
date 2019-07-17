@@ -92,6 +92,15 @@ namespace aspeller {
     CharPair(char a, char b) {d[0] = a; d[1] = b;}
   };
 
+  void TypoEditDistanceInfo::set_max() {
+    if (missing > max) max = missing;
+    if (swap    > max) max = swap;
+    if (repl_dis1 > max) max = repl_dis1;
+    if (repl_dis2 > max) max = repl_dis2;
+    if (extra_dis1 > max) max = extra_dis1;
+    if (extra_dis2 > max) max = extra_dis2;
+  }
+
   PosibErr<TypoEditDistanceInfo *> 
   TypoEditDistanceInfo::get_new(const char * kb, const Config * cfg, const Language * l)
   {

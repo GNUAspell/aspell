@@ -26,6 +26,8 @@ namespace aspeller {
     int extra_dis1;// 
     int extra_dis2;//
 
+    int max; // maximum edit dist
+
     unsigned char to_normalized_[256];
     int max_normalized;
 
@@ -41,7 +43,8 @@ namespace aspeller {
       : missing(m), swap(s), data(0) 
       , repl_dis1(r1), repl_dis2(r)
       , extra_dis1(e1), extra_dis2(e)
-    {}
+      , max(-1) {set_max();}
+    void set_max();
   public:
     ~TypoEditDistanceInfo() {if (data) free(data);}
 

@@ -99,6 +99,8 @@ namespace {
   //   they are being processed.
   //
 
+  static const char * NO_SOUNDSLIKE = "";
+
   struct ScoreWordSound {
     char * word;
     char * word_clean;
@@ -108,8 +110,9 @@ namespace {
     int           word_score;
     int           soundslike_score;
     bool          count;
+    bool          split; // true the result of splitting a word
     WordEntry * repl_list;
-    ScoreWordSound() {repl_list = 0;}
+    ScoreWordSound() {repl_list = 0; }
     ~ScoreWordSound() {delete repl_list;}
   };
 
@@ -232,7 +235,7 @@ namespace {
     void add_nearmiss(char * word, unsigned word_size, WordInfo word_info,
                       const char * sl,
                       int w_score, int sl_score,
-                      bool count = do_count, WordEntry * rl = 0);
+                      bool count = do_count, WordEntry * rl = 0, bool split = false);
     void add_nearmiss(SpellerImpl::WS::const_iterator, const WordEntry & w, 
                       const char * sl,
                       int w_score, int sl_score, bool count = do_count);
@@ -248,6 +251,16 @@ namespace {
     int weighted_average(int soundslike_score, int word_score) {
       return (parms->word_weight*word_score 
 	      + parms->soundslike_weight*soundslike_score)/100;
+    }
+    int typo_weighted_average(int soundslike_score, int word_score) {
+      if (word_score < 100) {
+        const int factor = 8;
+        int soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
+        return (parms->word_weight*word_score 
+                + soundslike_weight*soundslike_score)/100;
+      } else {
+        return weighted_average(soundslike_score,word_score);
+      }
     }
     int skip_first_couple(NearMisses::iterator & i) {
       int k = 0;
@@ -490,7 +503,7 @@ namespace {
                              WordInfo word_info,
                              const char * sl,
                              int w_score, int sl_score, 
-                             bool count, WordEntry * rl)
+                             bool count, WordEntry * rl, bool split)
   {
     if (word_size * parms->edit_distance_weights.max >= 0x8000) 
       return; // to prevent overflow in the editdist functions
@@ -506,12 +519,11 @@ namespace {
     ScoreWordSound & d = near_misses.front();
     d.word = word;
     d.soundslike = sl;
+    d.split = split;
     //d.word_size = word_size;
     
-    if (parms->use_typo_analysis) {
-      unsigned int l = word_size;
-      if (l > max_word_length) max_word_length = l;
-    }
+    unsigned int l = word_size;
+    if (l > max_word_length) max_word_length = l;
     
     if (!(word_info & ALL_CLEAN)) {
       d.word_clean = (char *)buffer.alloc(word_size + 1);
@@ -557,7 +569,7 @@ namespace {
   }
 
   void Working::try_split() {
-    const String & word       = original.word;
+    const String & word = original.word;
     
     if (word.size() < 4 || parms->split_chars.empty()) return;
     size_t i = 0;
@@ -578,9 +590,11 @@ namespace {
         for (size_t j = 0; j != parms->split_chars.size(); ++j)
         {
           new_word[i] = parms->split_chars[j];
-          add_nearmiss(buffer.dup(new_word), word.size() + 1, 0, 0,
-                       parms->edit_distance_weights.del2*3/2, -1,
-                       dont_count);
+          int score = parms->edit_distance_weights.max + 2;
+          add_nearmiss(buffer.dup(new_word), word.size() + 1,
+                       0, NO_SOUNDSLIKE,
+                       score, score,
+                       dont_count, 0, true);
         }
       }
     }
@@ -1166,31 +1180,49 @@ namespace {
 
     if (parms->use_typo_analysis) {
       int max = 0;
-      unsigned int j;
-
-      CharVector orig_norm, word;
-      orig_norm.resize(original.word.size() + 1);
-      for (j = 0; j != original.word.size(); ++j)
+      if (parms->have_keyboard_def_file) {
+        unsigned int j;
+        
+        CharVector orig_norm, word;
+        orig_norm.resize(original.word.size() + 1);
+        for (j = 0; j != original.word.size(); ++j)
           orig_norm[j] = parms->ti->to_normalized(original.word[j]);
-      orig_norm[j] = 0;
-      ParmString orig(orig_norm.data(), j);
-      word.resize(max_word_length + 1);
-      
-      for (i = scored_near_misses.begin();
-	   i != scored_near_misses.end() && i->score <= threshold;
-	   ++i)
-      {
-	for (j = 0; (i->word)[j] != 0; ++j)
-	  word[j] = parms->ti->to_normalized((i->word)[j]);
-	word[j] = 0;
-	int word_score 
-	  = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
-	i->score = weighted_average(i->soundslike_score, word_score);
-	if (max < i->score) max = i->score;
+        orig_norm[j] = 0;
+        ParmString orig(orig_norm.data(), j);
+        word.resize(max_word_length + 1);
+        
+        for (i = scored_near_misses.begin();
+             i != scored_near_misses.end() && i->score <= threshold;
+             ++i)
+        {
+          if (i->split) {
+            i->word_score = parms->ti->max + 2;
+            i->soundslike_score = i->word_score;
+            i->score = i->word_score;
+          } else {
+            for (j = 0; (i->word)[j] != 0; ++j)
+              word[j] = parms->ti->to_normalized((i->word)[j]);
+            word[j] = 0;
+            i->word_score 
+              = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+            i->score = typo_weighted_average(i->soundslike_score, i->word_score);
+          }
+          if (max < i->score) max = i->score;
+        }
+      } else {
+        for (i = scored_near_misses.begin();
+             i != scored_near_misses.end() && i->score <= threshold;
+             ++i)
+        {
+          if (!i->split)
+            i->score = typo_weighted_average(i->soundslike_score, i->word_score);
+          if (max < i->score) max = i->score;
+        }
       }
+      // fixme? why is this necessary
       threshold = max;
       for (;i != scored_near_misses.end() && i->score <= threshold; ++i)
-	i->score = threshold + 1;
+        i->score = threshold + 1;
 
       scored_near_misses.sort();
     }
@@ -1217,7 +1249,9 @@ namespace {
 #    ifdef DEBUG_SUGGEST
       //COUT.printf("%p %p: ",  i->word, i->soundslike);
       COUT << i->word << '\t' << i->score 
-           << '\t' << i->soundslike << "\n";
+           << '\t' << i->word_score
+           << '\t' << i->soundslike
+           << '\t' << i->soundslike_score << "\n";
 #    endif
       if (i->repl_list != 0) {
  	String::size_type pos;
@@ -1308,10 +1342,12 @@ namespace {
     }
 
     String keyboard = m->config()->retrieve("keyboard");
-    if (keyboard == "none")
-      parms_.use_typo_analysis = false;
-    else
+    if (keyboard == "none") {
+      parms_.have_keyboard_def_file = false;
+    } else {
+      parms_.have_keyboard_def_file = true;
       RET_ON_ERR(aspeller::setup(parms_.ti, m->config(), &m->lang(), keyboard));
+    }
 
     return no_err;
   }
@@ -1320,7 +1356,6 @@ namespace {
 #   ifdef DEBUG_SUGGEST
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
-    parms_.set_original_word_size(strlen(word));
     suggestion_list.suggestions.resize(0);
     Working sug(speller_, &speller_->lang(),word,&parms_);
     sug.get_suggestions(suggestion_list.suggestions);
@@ -1353,12 +1388,7 @@ namespace aspeller {
     edit_distance_weights.max = 100;
     edit_distance_weights.min =  90;
 
-    normal_soundslike_weight = 50;
-    small_word_soundslike_weight = 15;
-    small_word_threshold = 4;
-
-    soundslike_weight = normal_soundslike_weight;
-    word_weight       = 100 - normal_soundslike_weight;
+    soundslike_weight = 50;
 
     split_chars = " -";
 
@@ -1367,6 +1397,7 @@ namespace aspeller {
     span = 50;
     ngram_keep = 10;
     use_typo_analysis = true;
+    have_keyboard_def_file = false;
     use_repl_table = sp->have_repl;
     try_one_edit_word = true; // always a good idea, even when
                               // soundslike lookup is used
@@ -1394,8 +1425,7 @@ namespace aspeller {
       try_scan_2 = true;
       try_ngram = true;
       use_typo_analysis = false;
-      normal_soundslike_weight = 55;
-      small_word_threshold = 0;
+      soundslike_weight = 55;
       span = 125;
       limit = 1000;
       ngram_threshold = 1;
@@ -1411,6 +1441,7 @@ namespace aspeller {
       }
     }
 
+    word_weight = 100 - soundslike_weight;
     return no_err;
   }
 
@@ -1419,12 +1450,5 @@ namespace aspeller {
     return new SuggestParms(*this);
   }
 
-  void SuggestParms::set_original_word_size(int size) {
-    if (size <= small_word_threshold) {
-      soundslike_weight = small_word_soundslike_weight;
-    } else {
-      soundslike_weight = normal_soundslike_weight;
-    }
-    word_weight = 100 - soundslike_weight;
-  }
 }
+
