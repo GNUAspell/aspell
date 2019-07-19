@@ -904,7 +904,9 @@ create dictionary aliases.  Each entry has the form @samp{@var{from}
 
 @item dont-use-other-dicts
 @i{(boolean)}
-Disable use of personal, replacement & session dictionaries.
+
+Disable use of personal, replacement & session dictionaries.  Any
+dictionaries specified using @samp{extra-dicts} will still be used.
 
 @end table
 
