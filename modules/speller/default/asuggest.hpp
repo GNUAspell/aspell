@@ -19,7 +19,7 @@ namespace aspeller {
     EditDistanceWeights     edit_distance_weights;
     CachePtr<const TypoEditDistanceInfo> ti;
 
-    bool try_one_edit_word, try_scan_1, try_scan_2, try_ngram;
+    bool try_one_edit_word, try_scan_0, try_scan_1, try_scan_2, try_ngram;
 
     int ngram_threshold, ngram_keep;
 

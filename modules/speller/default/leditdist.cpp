@@ -198,6 +198,18 @@ namespace aspeller {
     }                                                             \
   }
 
+  EditDist limit0_edit_distance(const char * a, const char * b,
+				const EditDistanceWeights & ws)
+  {
+    while(*a == *b) {
+      if (*a == '\0')
+	return EditDist(0, a);
+      ++a; ++b;
+    }
+
+    return EditDist(LARGE_NUM, a);
+  }
+
   EditDist limit1_edit_distance(const char * a, const char * b,
 				const EditDistanceWeights & ws)
   {

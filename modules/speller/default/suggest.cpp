@@ -335,6 +335,22 @@ namespace {
 
     }
 
+    if (parms->try_scan_0) {
+      
+#ifdef DEBUG_SUGGEST
+      COUT.printl("TRYING SCAN 0");
+#endif
+      edit_dist_fun = limit0_edit_distance;
+      
+      if (sp->soundslike_root_only)
+        try_scan_root();
+      else
+        try_scan();
+
+      score_list();
+      
+    }
+
     if (parms->try_scan_1) {
       
 #ifdef DEBUG_SUGGEST
@@ -1404,23 +1420,28 @@ namespace aspeller {
     check_after_one_edit_word = false;
     ngram_threshold = 2;
     if (mode == "ultra") {
-      try_scan_1 = true;
+      try_scan_0 = true;
+      try_scan_1 = false;
       try_scan_2 = false;
       try_ngram = false;
     } else if (mode == "fast") {
+      try_scan_0 = false;
       try_scan_1 = true;
       try_scan_2 = false;
       try_ngram = false;
     } else if (mode == "normal") {
+      try_scan_0 = false;
       try_scan_1 = true;
       try_scan_2 = true;
       try_ngram = false;
     } else if (mode == "slow") {
+      try_scan_0 = false;
       try_scan_1 = false;
       try_scan_2 = true;
       try_ngram = true;
       ngram_threshold = sp->have_soundslike ? 1 : 2;
     } else if (mode == "bad-spellers") {
+      try_scan_0 = false;
       try_scan_1 = false;
       try_scan_2 = true;
       try_ngram = true;
@@ -1433,10 +1454,11 @@ namespace aspeller {
       return make_err(bad_value, "sug-mode", mode, _("one of ultra, fast, normal, slow, or bad-spellers"));
     }
     if (!sp->have_soundslike) {
-      // in this case try_scan_1 will not get better results than
+      // in this case try_scan_0/1 will not get better results than
       // try_one_edit_word
-      if (try_scan_1) {
+      if (try_scan_0 || try_scan_1) {
         check_after_one_edit_word = true;
+        try_scan_0 = false;
         try_scan_1 = false;
       }
     }
