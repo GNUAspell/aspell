@@ -273,15 +273,19 @@ namespace {
       return (parms->word_weight*word_score 
 	      + parms->soundslike_weight*soundslike_score)/100;
     }
-    int typo_weighted_average(int soundslike_score, int word_score) {
+    int adj_wighted_average(int soundslike_score, int word_score) {
+      int soundslike_weight = parms->soundslike_weight;
+      int word_weight = parms->word_weight;
       if (word_score < 100) {
         const int factor = 8;
-        int soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
-        return (parms->word_weight*word_score 
-                + soundslike_weight*soundslike_score)/100;
-      } else {
-        return weighted_average(soundslike_score,word_score);
+        soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
       }
+      //if (soundslike_score == 0) {
+      //  const int factor = 2;
+      //  word_weight = (parms->word_weight+factor-1)/factor;
+      //}
+      return (word_weight*word_score
+              + soundslike_weight*soundslike_score)/100;
     }
     int skip_first_couple(NearMisses::iterator & i) {
       int k = 0;
@@ -711,7 +715,7 @@ namespace {
     (*i)->soundslike_lookup(*sw, w);
 
     for (; !w.at_end(); w.adv()) {
-      
+
       ScoreInfo inf;
       inf.soundslike = sl;
       inf.soundslike_score = score;
@@ -1171,7 +1175,7 @@ namespace {
       if (i->soundslike_score >= LARGE_NUM) 
       {
         if (weighted_average(0, i->word_score) > threshold) goto cont2;
-        
+
         if (i->soundslike == 0) 
           i->soundslike = to_soundslike(i->word, strlen(i->word));
         
@@ -1250,7 +1254,7 @@ namespace {
             // if a repl. table was used we don't want to increase the score
             if (!i->repl_table || new_score < i->word_score)
               i->word_score = new_score;
-            i->score = typo_weighted_average(i->soundslike_score, i->word_score);
+            i->score = adj_wighted_average(i->soundslike_score, i->word_score);
           }
           if (max < i->score) max = i->score;
         }
@@ -1260,11 +1264,10 @@ namespace {
              ++i)
         {
           if (!i->split)
-            i->score = typo_weighted_average(i->soundslike_score, i->word_score);
+            i->score = adj_wighted_average(i->soundslike_score, i->word_score);
           if (max < i->score) max = i->score;
         }
       }
-      // fixme? why is this necessary
       threshold = max;
       for (;i != scored_near_misses.end() && i->score <= threshold; ++i)
         i->score = threshold + 1;
