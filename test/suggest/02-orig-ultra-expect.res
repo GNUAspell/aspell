@@ -17,7 +17,7 @@ adultry	adultery	1	4	adultery, adulatory, adulator, idolatry
 aggresive	aggressive	1	1	aggressive
 alchohol	alcohol	1	1	alcohol
 alchoholic	alcoholic	1	1	alcoholic
-allieve	alive	1	4	alive, Olive, olive, elev
+allieve	alive	1	6	alive, Olive, olive, Alva, elev, Olivia
 alot	a lot	0	17	alto, allot, aloft, alt, slot, Lot, lot, Aldo, Alta, Aleut, Eliot, aloud, ult, aloe, blot, clot, plot
 amature	amateur	3	5	armature, mature, amateur, immature, amatory
 ambivilant	ambivalent	1	1	ambivalent
@@ -86,12 +86,12 @@ comitte	committee	1	6	committee, comity, Comte, commute, comet, commit
 comittmen	commitment	0	2	committeemen, committeeman
 comittmend	commitment	1	1	commitment
 commerciasl	commercials	1	3	commercials, commercial, commercial's
-commited	committed	1	4	committed, commuted, commit ed, commit-ed
+commited	committed	1	5	committed, commuted, commit ed, commit-ed, commodity
 commitee	committee	1	6	committee, commute, commit, Comte, commode, comity
 companys	companies	3	3	company's, company, companies
 compicated	complicated	1	2	complicated, compacted
 comupter	computer	1	1	computer
-concensus	consensus	1	4	consensus, con census, con-census, consensus's
+concensus	consensus	1	6	consensus, con census, con-census, consensus's, consciences, conscience's
 congradulations	congratulations	1	2	congratulations, congratulation's
 conibation	contribution	0	0	
 consident	consistent	0	3	coincident, confident, constant
@@ -122,7 +122,7 @@ definately	definitely	1	2	definitely, defiantly
 dependeble	dependable	1	2	dependable, dependably
 descrption	description	1	1	description
 descrptn	description	0	0	
-desparate	desperate	1	2	desperate, disparate
+desparate	desperate	1	7	desperate, disparate, despaired, desperado, disparity, disport, dispirit
 dessicate	desiccate	1	5	desiccate, dissect, discoed, disquiet, diskette
 destint	distant	4	4	destiny, destined, destine, distant
 develepment	developments	0	1	development
@@ -245,7 +245,7 @@ hypotathese	hypothesis	0	0
 hystrical	hysterical	1	4	hysterical, historical, hysterically, historically
 ident	indent	1	6	indent, dent, addend, addenda, adenoid, attend
 illegitament	illegitimate	0	0	
-imbed	embed	2	2	imbued, embed
+imbed	embed	2	4	imbued, embed, embody, ambit
 imediaetly	immediately	1	1	immediately
 imfamy	infamy	1	1	infamy
 immenant	immanent	1	3	immanent, imminent, eminent
@@ -379,11 +379,11 @@ polypropalene	polypropylene	1	1	polypropylene
 possable	possible	2	6	passable, possible, passably, possibly, poss able, poss-able
 practicle	practical	2	3	practice, practical, practically
 pragmaticism	pragmatism	0	2	pragmatic ism, pragmatic-ism
-preceeding	preceding	1	2	preceding, proceeding
+preceeding	preceding	1	5	preceding, proceeding, presiding, presetting, persuading
 precion	precision	0	10	prison, person, pricing, piercing, porcine, persona, pressing, parson, Pearson, prizing
 precios	precision	0	4	precious, precis, precise, precis's
 preemptory	peremptory	1	2	peremptory, prompter
-prefices	prefixes	1	5	prefixes, prefaces, preface's, pref ices, pref-ices
+prefices	prefixes	1	12	prefixes, prefaces, preface's, pref ices, pref-ices, professes, prophecies, provisos, prophesies, privacy's, proviso's, prophecy's
 prefixt	prefixed	2	3	prefix, prefixed, prefix's
 presbyterian	Presbyterian	1	3	Presbyterian, Presbyterians, Presbyterian's
 presue	pursue	4	27	presume, peruse, pressie, pursue, Pres, pres, press, prose, preys, pares, parse, pores, praise, pries, purse, pyres, Prius, Pr's, pros, press's, pore's, pyre's, Peru's, prey's, pro's, pry's, Prius's

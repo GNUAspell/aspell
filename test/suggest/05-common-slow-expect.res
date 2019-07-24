@@ -6,9 +6,9 @@ abondon	abandon	1	14	abandon, abounding, abandons, bonding, abound, bounden, abo
 abondoned	abandoned	1	9	abandoned, abounded, abandons, abandon, condoned, abundant, abounding, bonded, intoned
 abondoning	abandoning	1	8	abandoning, abounding, condoning, bonding, intoning, abandon, aborning, abandons
 abondons	abandons	1	34	abandons, abandon, abounds, abounding, abandoned, bonbons, abundance, anodynes, bonding's, abundant, Anton's, anons, bonds, Bordon's, London's, bonbon's, Benton's, Bond's, abodes, anions, bond's, onions, abode's, Andean's, Bandung's, Landon's, anodyne's, Brandon's, bondman's, Antone's, Antony's, Onion's, anion's, onion's
-aborigene	aborigine	2	8	Aborigine, aborigine, Aborigines, aborigines, aubergine, Aborigine's, aborigine's, aboriginal
+aborigene	aborigine	2	12	Aborigine, aborigine, Aborigines, aborigines, aubergine, Aborigine's, aborigine's, aboriginal, abridge, Bergen, origin, O'Brien
 abreviated	abbreviated	1	7	abbreviated, abbreviates, abbreviate, obviated, brevetted, abrogated, alleviated
-abreviation	abbreviation	1	6	abbreviation, abbreviations, abbreviating, abbreviation's, aberration, obviation
+abreviation	abbreviation	1	11	abbreviation, abbreviations, abbreviating, abbreviation's, aberration, obviation, abrogation, alleviation, observation, aviation, abrasion
 abritrary	arbitrary	1	13	arbitrary, arbitrarily, arbitrate, arbitrage, arbitrager, arbitrator, obituary, Amritsar, barterer, arbiters, artery, Arbitron, arbiter's
 absense	absence	1	18	absence, ab sense, ab-sense, absences, absents, Ibsen's, absentee, absent, baseness, absentees, abases, abuses, basins, abuse's, sense, absence's, basin's, absentee's
 absolutly	absolutely	1	5	absolutely, absolute, absolutes, absolute's, absently
@@ -26,7 +26,7 @@ acccused	accused	1	9	accused, accursed, caucused, accessed, accuses, accuse, exc
 accelleration	acceleration	1	4	acceleration, accelerations, accelerating, acceleration's
 accension	accession	2	3	Ascension, accession, ascension
 accension	ascension	3	3	Ascension, accession, ascension
-acceptence	acceptance	1	4	acceptance, acceptances, acceptance's, accepting
+acceptence	acceptance	1	6	acceptance, acceptances, acceptance's, accepting, accepts, accepted
 acceptible	acceptable	1	5	acceptable, acceptably, unacceptable, accessible, unacceptably
 accessable	accessible	1	8	accessible, accessibly, access able, access-able, inaccessible, acceptable, guessable, inaccessibly
 accidentaly	accidentally	1	10	accidentally, accidental, Occidental, occidental, accidentals, accidental's, Occidentals, occidentals, Occidental's, occidental's
@@ -44,7 +44,7 @@ accomodate	accommodate	1	3	accommodate, accommodated, accommodates
 accomodated	accommodated	1	3	accommodated, accommodates, accommodate
 accomodates	accommodates	1	3	accommodates, accommodated, accommodate
 accomodating	accommodating	1	6	accommodating, accommodation, accommodatingly, unaccommodating, accumulating, accommodate
-accomodation	accommodation	1	4	accommodation, accommodations, accommodating, accommodation's
+accomodation	accommodation	1	5	accommodation, accommodations, accommodating, accommodation's, accumulation
 accomodations	accommodations	1	6	accommodations, accommodation's, accommodation, accumulations, accommodating, accumulation's
 accompanyed	accompanied	1	8	accompanied, accompany ed, accompany-ed, accompany, accompanies, accompanying, accompanist, unaccompanied
 accordeon	accordion	1	12	accordion, accord eon, accord-eon, according, accordions, accorded, accord, cordon, accordant, accordion's, accords, accord's
@@ -73,23 +73,23 @@ achivement	achievement	1	3	achievement, achievements, achievement's
 achivements	achievements	1	23	achievements, achievement's, achievement, pavements, movements, shipments, acquirement's, ailments, aliments, agreements, amusements, advisement's, pavement's, movement's, shipment's, ailment's, aliment's, agreement's, amusement's, atonement's, abasement's, abatement's, amazement's
 acknowldeged	acknowledged	1	5	acknowledged, acknowledges, acknowledge, acknowledging, unacknowledged
 acknowledgeing	acknowledging	1	4	acknowledging, acknowledge, acknowledged, acknowledges
-ackward	awkward	1	5	awkward, backward, award, Coward, coward
-ackward	backward	2	5	awkward, backward, award, Coward, coward
+ackward	awkward	1	9	awkward, backward, award, Coward, coward, backwards, awkwarder, awkwardly, Packard
+ackward	backward	2	9	awkward, backward, award, Coward, coward, backwards, awkwarder, awkwardly, Packard
 acomplish	accomplish	1	6	accomplish, accomplished, accomplishes, accomplice, accomplishing, complies
 acomplished	accomplished	1	5	accomplished, accomplishes, accomplish, unaccomplished, complied
-acomplishment	accomplishment	1	3	accomplishment, accomplishments, accomplishment's
+acomplishment	accomplishment	1	6	accomplishment, accomplishments, accomplishment's, compliment, accomplished, complement
 acomplishments	accomplishments	1	7	accomplishments, accomplishment's, accomplishment, compliments, compliment's, complements, complement's
-acording	according	1	4	according, cording, accordion, carding
+acording	according	1	20	according, cording, accordion, carding, acceding, affording, recording, accruing, aborting, awarding, corroding, Cardin, accordingly, crowding, acorn, carting, eroding, coding, coring, adoring
 acordingly	accordingly	1	8	accordingly, according, adoringly, acridly, cardinally, cardinal, cording, ordinal
-acquaintence	acquaintance	1	4	acquaintance, acquaintances, acquaintance's, acquainting
+acquaintence	acquaintance	1	6	acquaintance, acquaintances, acquaintance's, acquainting, acquaints, acquainted
 acquaintences	acquaintances	1	15	acquaintances, acquaintance's, acquaintance, acquaints, acquaintanceship, acquainting, quaintness, accountancy's, acquiescence's, audiences, audience's, quittance's, quaintness's, continence's, acquaintanceship's
-acquiantence	acquaintance	1	4	acquaintance, acquaintances, acquaintance's, acquainting
+acquiantence	acquaintance	1	7	acquaintance, acquaintances, acquaintance's, acquainting, acquaints, acquiescence, acquainted
 acquiantences	acquaintances	1	5	acquaintances, acquaintance's, acquaintance, acquiescence's, accountancy's
 acquited	acquitted	1	18	acquitted, acquired, acquit ed, acquit-ed, acquainted, acquits, acted, acquit, actuate, equated, actuated, requited, quieted, quoited, quoted, audited, acute, acuity
 activites	activities	1	3	activities, activates, activity's
 activly	actively	1	12	actively, activity, active, actives, acutely, actually, activate, actual, inactively, acridly, acidly, active's
 actualy	actually	1	8	actually, actual, acutely, actuary, actuality, factually, octal, factual
-acuracy	accuracy	1	3	accuracy, curacy, accuracy's
+acuracy	accuracy	1	11	accuracy, curacy, Accra's, accuracy's, inaccuracy, Accra, Crecy, auras, crazy, aura's, curacy's
 acused	accused	1	28	accused, caused, abused, amused, ac used, ac-used, accursed, accuses, axed, cased, accuse, cussed, accede, aced, used, acutes, caucused, accuser, aroused, acute, acted, arsed, focused, recused, abased, unused, Acosta, acute's
 acustom	accustom	1	6	accustom, custom, accustoms, accustomed, customs, custom's
 acustommed	accustomed	1	11	accustomed, accustoms, accustom, unaccustomed, customized, customer, costumed, accustoming, accosted, custom, stemmed
@@ -97,7 +97,7 @@ adavanced	advanced	1	5	advanced, advances, advance, advance's, affianced
 adbandon	abandon	1	11	abandon, abandons, abandoned, Danton, banding, abandoning, Albanian, Bandung, Edmonton, Anton, headband
 additinally	additionally	1	9	additionally, additional, atonally, idiotically, dotingly, medicinally, editorially, abidingly, auditing
 additionaly	additionally	1	2	additionally, additional
-addmission	admission	1	9	admission, add mission, add-mission, admissions, admission's, readmission, addition, emission, omission
+addmission	admission	1	14	admission, add mission, add-mission, admissions, admission's, readmission, addition, emission, omission, addiction, admiration, mission, Addison, audition
 addopt	adopt	1	6	adopt, adapt, adept, add opt, add-opt, adopts
 addopted	adopted	1	12	adopted, adapted, add opted, add-opted, addicted, adopter, adopts, adopt, opted, audited, readopted, adapter
 addoptive	adoptive	1	4	adoptive, adaptive, additive, addictive
@@ -112,19 +112,19 @@ addtional	additional	1	11	additional, additionally, additions, addition, atonal,
 adecuate	adequate	1	20	adequate, educate, actuate, adulate, acute, abdicate, advocate, educated, educates, adequately, decade, equate, attenuate, inadequate, ducat, adequacy, evacuate, reeducate, equated, acetate
 adhearing	adhering	1	25	adhering, ad hearing, ad-hearing, hearing, adjuring, adoring, adherent, admiring, inhering, adhesion, appearing, rehearing, abhorring, daring, haring, Adhara, adhere, adverting, Herring, adherence, endearing, herring, tearing, laddering, altering
 adherance	adherence	1	13	adherence, adherence's, adhering, adherent, adheres, adherents, utterance, adhere, durance, advance, appearance, adherent's, Adhara's
-admendment	amendment	1	3	amendment, amendments, amendment's
+admendment	amendment	1	10	amendment, amendments, admonishment, amendment's, adornment, Atonement, atonement, attendant, Commandment, commandment
 admininistrative	administrative	1	6	administrative, administrate, administratively, administrating, administrated, administrates
 adminstered	administered	1	7	administered, administers, administer, administrate, administrated, ministered, administering
 adminstrate	administrate	1	6	administrate, administrated, administrates, administrator, demonstrate, administrative
-adminstration	administration	1	5	administration, administrations, demonstration, administrating, administration's
+adminstration	administration	1	6	administration, administrations, demonstration, administrating, administration's, ministration
 adminstrative	administrative	1	7	administrative, demonstrative, administrate, administratively, administrating, administrated, administrates
-adminstrator	administrator	1	5	administrator, administrators, administrate, demonstrator, administrator's
+adminstrator	administrator	1	7	administrator, administrators, administrate, demonstrator, administrator's, administrated, administrates
 admissability	admissibility	1	4	admissibility, advisability, admissibility's, inadmissibility
 admissable	admissible	1	9	admissible, admissibly, admirable, advisable, unmissable, addressable, admirably, advisably, inadmissible
 admited	admitted	1	18	admitted, admired, admit ed, admit-ed, audited, admits, admit, addicted, edited, admixed, adapted, adopted, demoted, admittedly, emitted, omitted, animated, readmitted
 admitedly	admittedly	1	5	admittedly, admitted, animatedly, advisedly, admired
 adn	and	4	40	Adan, Aden, Dan, and, ADM, AFN, Adm, AD, ad, an, Adana, Auden, Attn, Eden, Edna, Odin, attn, ADD, Ada, Ann, add, ado, awn, ADC, ADP, adj, ads, adv, Dana, Dane, dang, ant, Andy, Dawn, dawn, Ind, end, ind, AD's, ad's
-adolecent	adolescent	1	3	adolescent, adolescents, adolescent's
+adolecent	adolescent	1	7	adolescent, adolescents, adolescent's, adolescence, adjacent, decent, docent
 adquire	acquire	2	24	adjure, acquire, ad quire, ad-quire, Esquire, esquire, admire, inquire, adore, adequate, squire, Aguirre, adjured, adjures, quire, adware, daiquiri, acquired, acquirer, acquires, attire, abjure, adhere, require
 adquired	acquired	2	16	adjured, acquired, admired, inquired, adored, squired, adjures, acquires, adjure, acquire, attired, augured, abjured, adhered, acquirer, required
 adquires	acquires	2	31	adjures, acquires, ad quires, ad-quires, Esquires, esquires, admires, inquires, adores, Esquire's, esquire's, squires, quires, adjured, daiquiris, acquirers, acquired, adjure, auguries, acquire, inquiries, attires, abjures, adheres, acquirer, requires, squire's, Aguirre's, quire's, daiquiri's, attire's
@@ -134,9 +134,9 @@ adresable	addressable	1	11	addressable, advisable, adorable, erasable, agreeable
 adresing	addressing	1	11	addressing, dressing, arsing, arising, advising, drowsing, adoring, arousing, arresting, arcing, undressing
 adress	address	1	50	address, dress, adores, address's, adders, Atreus, Andres's, adder's, addressee, dares, Andres, Ares's, Atreus's, Audrey's, areas, dressy, duress, Adar's, Ares, Dare's, ares, dare's, Aires's, Andre's, Andrews, actress, adorers, Oder's, cadres, padres, Aires, Audra's, are's, dross, tress, Andrea's, Andrews's, undress, cadre's, padre's, Aries's, area's, dress's, waders's, Ayers's, Andrei's, Andrew's, adorer's, Drew's, ides's
 adressable	addressable	1	11	addressable, erasable, advisable, adorable, admissible, reusable, agreeable, advisably, adjustable, accessible, admissibly
-adressed	addressed	1	4	addressed, dressed, addressee, undressed
-adressing	addressing	1	3	addressing, dressing, undressing
-adressing	dressing	2	3	addressing, dressing, undressing
+adressed	addressed	1	22	addressed, dressed, addresses, addressee, stressed, undressed, addressees, redressed, address, address's, arsed, dresses, caressed, unaddressed, readdressed, addressee's, dresser, pressed, aroused, drowsed, trussed, arrested
+adressing	addressing	1	16	addressing, dressing, stressing, undressing, redressing, dressings, arsing, caressing, readdressing, arising, pressing, arousing, drowsing, trussing, arresting, dressing's
+adressing	dressing	2	16	addressing, dressing, stressing, undressing, redressing, dressings, arsing, caressing, readdressing, arising, pressing, arousing, drowsing, trussing, arresting, dressing's
 adventrous	adventurous	1	14	adventurous, adventures, adventure's, adventuress, adventitious, adventurously, Advents, advents, unadventurous, Advent's, advent's, adventurers, adventuress's, adventurer's
 advertisment	advertisement	1	3	advertisement, advertisements, advertisement's
 advertisments	advertisements	1	5	advertisements, advertisement's, advertisement, advertising's, advisement's
@@ -145,7 +145,7 @@ adviced	advised	2	12	advice, advised, ad viced, ad-viced, adv iced, adv-iced, ad
 aeriel	aerial	3	22	Ariel, aerie, aerial, Uriel, oriel, Earle, aeries, Earl, earl, areal, aerially, Erie, Riel, airily, eerily, aerials, Aral, aerie's, April, eerie, Ariel's, aerial's
 aeriels	aerials	2	23	aeries, aerials, Ariel's, aerial's, oriels, aerie's, aerie ls, aerie-ls, earls, Ariel, Aries, Uriel's, oriel's, Earle's, Aprils, Erie's, aerial, Earl's, earl's, Riel's, Aral's, April's, Aries's
 afair	affair	1	21	affair, afar, fair, afire, Afr, AFAIK, Afro, affairs, aviary, fairy, safari, Avior, air, far, fir, Atari, Mayfair, affirm, afraid, unfair, affair's
-afficianados	aficionados	1	5	aficionados, aficionado's, officiants, officiant's, aficionado
+afficianados	aficionados	1	8	aficionados, aficionado's, officiants, officiant's, aficionado, officiant, officiates, officialdom's
 afficionado	aficionado	1	3	aficionado, aficionados, aficionado's
 afficionados	aficionados	1	13	aficionados, aficionado's, aficionado, officiants, officiant's, efficiencies, efficiency's, fascinates, affronts, efficient, affront's, Avicenna's, affinity's
 affilate	affiliate	1	7	affiliate, affiliated, affiliates, afloat, affiliate's, afflict, afflatus
@@ -172,20 +172,20 @@ agravate	aggravate	1	5	aggravate, aggravated, aggravates, Arafat, cravat
 agre	agree	1	11	agree, age, are, Agra, acre, ogre, auger, agar, eager, aggro, ague
 agred	agreed	1	27	agreed, aged, augured, agree, aired, acrid, egret, angered, accrued, argued, gored, greed, urged, Jared, cared, eared, oared, wagered, Agra, acre, arid, cred, grad, grid, ogre, Jarred, jarred
 agreeement	agreement	1	3	agreement, agreements, agreement's
-agreemnt	agreement	1	5	agreement, agreements, garment, argument, agreement's
+agreemnt	agreement	1	8	agreement, agreements, garment, argument, agreement's, augment, agreeing, argent
 agregate	aggregate	1	10	aggregate, aggregated, aggregates, segregate, aggregator, arrogate, abrogate, aggregate's, acreage, aigrette
 agregates	aggregates	1	16	aggregates, aggregate's, aggregated, segregates, aggregate, aggregators, arrogates, abrogates, acreages, aigrettes, aggregator's, aggravates, aggregator, acreage's, irrigates, aigrette's
 agreing	agreeing	1	18	agreeing, angering, auguring, arguing, wagering, aging, accruing, airing, aggrieving, Goering, badgering, goring, gringo, urging, caring, grin, oaring, garbing
 agression	aggression	1	9	aggression, digression, regression, accession, aggression's, aversion, abrasion, accretion, oppression
 agressive	aggressive	1	6	aggressive, digressive, regressive, aggressively, abrasive, oppressive
 agressively	aggressively	1	11	aggressively, aggressive, abrasively, oppressively, cursively, corrosively, progressively, expressively, impressively, repressively, excessively
-agressor	aggressor	1	6	aggressor, aggressors, aggressor's, agrees, egress, ogress
+agressor	aggressor	1	28	aggressor, aggressors, aggressor's, greaser, agrees, egress, ogress, accessory, greasier, grosser, assessor, oppressor, egress's, ogress's, egresses, grassier, ogresses, acres, ogres, Agra's, acre's, across, cursor, ogre's, guesser, Ares's, Aires's, Agnes's
 agricuture	agriculture	1	4	agriculture, caricature, agriculture's, agricultural
-agrieved	aggrieved	1	5	aggrieved, grieved, aggrieve, agreed, arrived
+agrieved	aggrieved	1	8	aggrieved, grieved, aggrieves, aggrieve, agreed, arrived, grieve, graved
 ahev	have	2	35	ahem, have, Ave, ave, AV, Av, ah, av, Ahab, ahead, HIV, HOV, aha, ATV, adv, UHF, uhf, hive, hove, ahoy, Azov, elev, heave, heavy, eave, eh, AVI, Ava, Eva, Eve, eve, aah, He, he, I've
-ahppen	happen	1	8	happen, Aspen, aspen, happens, open, append, Alpine, alpine
+ahppen	happen	1	15	happen, Aspen, aspen, happens, open, append, Alpine, alpine, happened, Pen, ape, app, happy, hen, pen
 ahve	have	1	85	have, Ave, ave, agave, hive, hove, ahem, AV, Av, ah, av, eave, above, alive, AVI, Ava, Eve, aha, eve, ATV, adv, UHF, uhf, I've, ahoy, Ahab, Alva, Havel, avow, haven, haves, ache, gave, HIV, HOV, shave, achieve, aver, Ashe, aah, halve, heave, VHF, ahead, vhf, He, Mohave, behave, he, Dave, Hale, Wave, cave, fave, hake, hale, hare, hate, haze, lave, nave, pave, rave, save, wave, AF, HF, Hf, IV, OH, UV, eh, hf, iv, oh, uh, avg, aye, hie, hoe, hue, Oahu, have's, Ave's, Av's
-aicraft	aircraft	1	10	aircraft, Craft, craft, Arafat, crafty, Kraft, croft, cruft, graft, aircraft's
+aicraft	aircraft	1	22	aircraft, Craft, craft, Arafat, crafty, Kraft, croft, cruft, graft, Ashcroft, adrift, acrobat, accurate, aircraft's, crafts, cravat, crufty, raft, airlift, Accra, Craft's, craft's
 aiport	airport	1	30	airport, apart, import, sport, Port, port, abort, rapport, Alpert, uproot, assort, deport, report, airports, Oort, Porto, aorta, apiary, APR, Apr, Art, apt, art, seaport, apron, impart, iPod, part, pert, airport's
 airbourne	airborne	1	17	airborne, forborne, auburn, arbor, Osborne, airbrush, arbors, inborn, arbor's, overborne, reborn, arboreal, Melbourne, borne, Barbour, tribune, Rayburn
 aircaft	aircraft	1	10	aircraft, airlift, Arafat, arcade, Craft, craft, aircraft's, raft, Kraft, graft
@@ -194,10 +194,10 @@ airporta	airports	1	3	airports, airport, airport's
 airrcraft	aircraft	1	18	aircraft, aircraft's, watercraft, Ashcroft, hovercraft, Craft, autocrat, craft, antiaircraft, aircraftman, aircraftmen, redraft, Ararat, aircrew, airlift, airport, aircrews, arrogant
 albiet	albeit	1	31	albeit, alibied, Albert, abet, Albireo, Albee, ambit, Aleut, allied, Alberta, Alberto, Albion, ablate, albino, abide, abut, alibi, alert, abate, alb, alt, elite, Elbert, alight, halibut, Alba, Elbe, abed, obit, Allie, Albee's
 alchohol	alcohol	1	5	alcohol, alcohols, alcohol's, alcoholic, Algol
-alchoholic	alcoholic	1	4	alcoholic, alcoholics, alcohol, alcoholic's
+alchoholic	alcoholic	1	6	alcoholic, alcoholics, alcohol, alcoholic's, alcohols, alcohol's
 alchol	alcohol	1	37	alcohol, Algol, algal, archly, achoo, asshole, Alcoa, alchemy, ahchoo, anchor, Alicia, aloofly, AOL, all, aloha, Alisha, ache, achy, allele, aloe, echo, AWOL, Aldo, Alpo, Rachel, acyl, also, alto, arch, ecol, glacial, Elul, Ochoa, allow, alloy, Algol's, achoo's
 alcholic	alcoholic	1	15	alcoholic, echoic, archaic, acrylic, Algol, Alcoa, melancholic, Algol's, alkali, Alaric, Altaic, archly, alkaloid, asshole, alchemy
-alcohal	alcohol	1	11	alcohol, alcohols, algal, Alcoa, aloha, Algol, alcohol's, alcoholic, alohas, Alcoa's, aloha's
+alcohal	alcohol	1	14	alcohol, alcohols, algal, Alcoa, aloha, Algol, alcohol's, alcoholic, alohas, Almohad, local, alkali, Alcoa's, aloha's
 alcoholical	alcoholic	3	4	alcoholically, alcoholics, alcoholic, alcoholic's
 aledge	allege	3	14	sledge, ledge, allege, pledge, algae, edge, Alec, alga, sludge, Lodge, lodge, alike, elegy, kludge
 aledged	alleged	2	8	sledged, alleged, fledged, pledged, edged, legged, lodged, kludged
@@ -253,16 +253,16 @@ amke	make	1	48	make, amok, Amie, smoke, acme, Mike, mike, Amen, Amer, amen, AK, 
 amking	making	1	59	making, asking, am king, am-king, smoking, aiming, among, miking, akin, imaging, amazing, amusing, awaking, inking, OKing, aging, amine, amino, eking, Amgen, Mekong, irking, makings, umping, Amiga, amigo, haymaking, lawmaking, smacking, arming, marking, masking, mocking, mucking, ramekin, unmaking, King, Ming, king, maxing, remaking, baking, caking, faking, macing, mating, raking, taking, waking, gaming, Amen, amen, imagine, laming, naming, taming, axing, jamming, making's
 ammend	amend	1	47	amend, emend, am mend, am-mend, amends, Amanda, Amen, amen, mend, manned, Amman, aimed, maned, Hammond, commend, Armand, almond, impend, Amerind, addend, append, ascend, attend, Amen's, amount, damned, AMD, Amman's, amended, amine, and, end, mined, emends, amenity, amid, mind, omen, dammed, hammed, jammed, lammed, rammed, Ahmed, Amgen, admen, armed
 ammended	amended	1	14	amended, emended, am mended, am-mended, mended, commended, impended, appended, ascended, attended, amounted, amend, ended, minded
-ammendment	amendment	1	3	amendment, amendments, amendment's
+ammendment	amendment	1	6	amendment, amendments, amendment's, Commandment, commandment, impediment
 ammendments	amendments	1	7	amendments, amendment's, amendment, commandments, impediments, commandment's, impediment's
 ammount	amount	1	21	amount, am mount, am-mount, amounts, Mount, mount, account, demount, remount, ammonia, immunity, Mont, amount's, amounted, aunt, seamount, Lamont, moment, Amman, among, mound
 ammused	amused	1	20	amused, amassed, am mused, am-mused, amuses, amuse, mused, moused, abused, amazed, accused, aroused, bemused, immured, mussed, massed, used, moussed, aimed, ammo's
-amoung	among	1	12	among, aiming, amount, amine, amino, mung, Amen, amen, Hmong, along, amour, Amman
+amoung	among	1	36	among, aiming, amount, amine, amino, mung, Amen, amen, Hmong, along, amour, Amman, ammonia, arming, mooing, immune, Ming, impugn, Oman, omen, amusing, Mon, mun, Omani, Damon, Ramon, amounts, Mona, Moon, moan, mono, moon, Mount, mound, mount, amount's
 amung	among	2	23	mung, among, aiming, amine, amino, Amen, amen, arming, Ming, Amman, amusing, mun, gaming, laming, naming, taming, amount, Amur, Oman, omen, amend, immune, Amen's
 analagous	analogous	1	8	analogous, analogues, analogs, analog's, analogies, analogy's, analogue's, analogue
 analitic	analytic	1	12	analytic, antic, analytical, Altaic, athletic, Baltic, analog, inelastic, unlit, Atlantic, fanatic, banality
 analogeous	analogous	1	9	analogous, analogies, analogues, analogs, analogue's, analog's, analogy's, analogously, analogue
-anarchim	anarchism	1	4	anarchism, anarchic, anarchy, anarchy's
+anarchim	anarchism	1	6	anarchism, anarchic, anarchy, anarchist, anarchy's, anarchism's
 anarchistm	anarchism	1	5	anarchism, anarchist, anarchists, anarchist's, anarchistic
 anbd	and	1	59	and, unbid, anybody, Andy, abed, anode, anted, Ind, ant, end, ind, Enid, ante, anti, abide, abode, nabbed, nabs, nab, Aeneid, Ann, AB, AD, Indy, NB, ND, Nb, Nd, ab, abet, abut, ad, an, aunt, ibid, undo, band, inbred, unbend, unbind, Land, Rand, Sand, hand, land, rand, sand, wand, ABA, ADD, Abe, Ana, NBA, Ned, add, aid, ain't, any, nod
 ancestory	ancestry	2	5	ancestor, ancestry, ancestors, ancestor's, ancestry's
@@ -293,7 +293,7 @@ anulled	annulled	1	48	annulled, angled, annealed, nailed, knelled, annelid, aile
 anwsered	answered	1	11	answered, aniseed, angered, ensured, insured, inserted, insert, assured, entered, inhered, antlered
 anyhwere	anywhere	1	13	anywhere, inhere, answer, anther, nowhere, Antwerp, answered, adhere, answers, anymore, anywise, unaware, answer's
 anytying	anything	5	12	untying, any tying, any-tying, anteing, anything, undying, bandying, candying, Antoine, uniting, envying, annoying
-aparent	apparent	1	4	apparent, parent, apart, aren't
+aparent	apparent	1	12	apparent, parent, apart, apartment, apparently, aren't, parents, arrant, unapparent, apron, print, parent's
 aparment	apartment	1	17	apartment, apparent, apartments, spearmint, parent, impairment, payment, garment, Paramount, paramount, apartment's, apart, parchment, armament, airmen, repayment, aren't
 apenines	Apennines	1	7	Apennines, openings, ape nines, ape-nines, Apennines's, adenine's, opening's
 aplication	application	1	12	application, applications, allocation, placation, implication, duplication, replication, application's, supplication, affliction, reapplication, explication
@@ -308,14 +308,14 @@ appartments	apartments	1	10	apartments, apartment's, apartment, departments, app
 appealling	appealing	2	17	appalling, appealing, appeal ling, appeal-ling, rappelling, appearing, appeasing, appareling, spelling, appallingly, appealingly, palling, pealing, applying, unappealing, appellant, impelling
 appealling	appalling	1	17	appalling, appealing, appeal ling, appeal-ling, rappelling, appearing, appeasing, appareling, spelling, appallingly, appealingly, palling, pealing, applying, unappealing, appellant, impelling
 appeareance	appearance	1	6	appearance, appearances, appearance's, reappearance, apparent, appearing
-appearence	appearance	1	6	appearance, appearances, appearance's, apparent, appearing, reappearance
+appearence	appearance	1	13	appearance, appearances, appearance's, apparent, appearing, reappearance, apprentice, appliance, appears, appeared, apparels, adherence, apparel's
 appearences	appearances	1	10	appearances, appearance's, appearance, reappearances, apprentices, appliances, reappearance's, apprentice's, appliance's, adherence's
 appenines	Apennines	1	10	Apennines, openings, happenings, Apennines's, opening's, adenine's, appendices, appends, happening's, appoints
 apperance	appearance	1	9	appearance, appearances, appliance, appearance's, prance, reappearance, appraise, assurance, utterance
 apperances	appearances	1	14	appearances, appearance's, appearance, appliances, prances, reappearances, appliance's, appraises, prance's, assurances, utterances, reappearance's, assurance's, utterance's
 applicaiton	application	1	9	application, applicator, applications, applicant, application's, Appleton, reapplication, applicants, applicant's
-applicaitons	applications	1	7	applications, application's, applicators, application, applicator's, applicants, applicant's
-appologies	apologies	1	6	apologies, apologias, apologize, apologizes, apologia's, apology's
+applicaitons	applications	1	10	applications, application's, applicators, application, applicator's, applicants, applicant's, reapplications, Appleton's, reapplication's
+appologies	apologies	1	11	apologies, apologias, apologize, apologizes, apologia's, apology's, apologized, typologies, apologia, apologist, applies
 appology	apology	1	6	apology, apologia, topology, typology, apology's, apply
 apprearance	appearance	1	4	appearance, appearances, appearance's, reappearance
 apprieciate	appreciate	1	5	appreciate, appreciated, appreciates, appreciator, appreciative
@@ -329,14 +329,14 @@ approxiately	approximately	1	6	approximately, appropriately, approximate, approx
 approximitely	approximately	1	4	approximately, approximate, approximated, approximates
 aprehensive	apprehensive	1	4	apprehensive, apprehensively, prehensile, comprehensive
 apropriate	appropriate	1	7	appropriate, appropriated, appropriates, appropriator, appropriately, inappropriate, expropriate
-aproximate	approximate	1	4	approximate, proximate, approximated, approximates
+aproximate	approximate	1	5	approximate, proximate, approximated, approximates, approximately
 aproximately	approximately	1	5	approximately, approximate, approximated, approximates, proximate
 aquaintance	acquaintance	1	3	acquaintance, acquaintances, acquaintance's
 aquainted	acquainted	1	19	acquainted, squinted, acquaints, aquatint, acquaint, acquitted, unacquainted, reacquainted, equated, quintet, quainter, accounted, anointed, aquatints, united, appointed, anted, jaunted, quaint
-aquiantance	acquaintance	1	3	acquaintance, acquaintances, acquaintance's
+aquiantance	acquaintance	1	10	acquaintance, acquaintances, acquaintance's, quittance, abundance, accountancy, Aquitaine, acquainting, Aquitaine's, Quinton's
 aquire	acquire	1	16	acquire, squire, quire, Aguirre, aquifer, acquired, acquirer, acquires, auger, Esquire, esquire, acre, afire, azure, inquire, require
-aquired	acquired	1	11	acquired, squired, augured, acquires, acquire, aired, acquirer, squared, inquired, required, attired
-aquiring	acquiring	1	10	acquiring, squiring, auguring, Aquarian, airing, squaring, inquiring, requiring, aquiline, attiring
+aquired	acquired	1	23	acquired, squired, augured, acquires, acquire, aired, acquirer, squared, inquired, queried, required, attired, acrid, quirked, agreed, Aguirre, abjured, adjured, queered, quire, reacquired, cured, quirt
+aquiring	acquiring	1	17	acquiring, squiring, auguring, Aquarian, airing, squaring, inquiring, requiring, aquiline, attiring, quirking, abjuring, adjuring, queering, reacquiring, Aquino, curing
 aquisition	acquisition	1	8	acquisition, acquisitions, Inquisition, inquisition, requisition, acquisition's, accusation, question
 aquitted	acquitted	1	29	acquitted, squatted, quieted, abutted, equated, acquired, quoited, quoted, squirted, audited, acquainted, agitate, agitated, acted, awaited, gutted, jutted, kitted, squinted, quilted, acquittal, quitter, requited, abetted, emitted, omitted, admitted, coquetted, addicted
 aranged	arranged	1	22	arranged, ranged, pranged, arranges, arrange, orangeade, arranger, oranges, Orange, orange, ranked, ringed, deranged, wronged, avenged, cranked, cringed, franked, fringed, pronged, Orange's, orange's
@@ -349,18 +349,18 @@ archaoelogy	archaeology	1	8	archaeology, archaeology's, archaeologist, archipela
 archaology	archaeology	1	13	archaeology, archaeology's, urology, eschatology, archaeologist, anthology, archaically, ecology, archaic, graphology, analogy, apology, radiology
 archeaologist	archaeologist	1	4	archaeologist, archaeologists, archaeologist's, archaeology's
 archeaologists	archaeologists	1	10	archaeologists, archaeologist's, archaeologist, urologists, archaeology's, anthologists, archaists, urologist's, anthologist's, archaist's
-archetect	architect	1	12	architect, architects, architect's, architecture, archest, archetype, ratcheted, archduke, arched, Arctic, arctic, archaic
+archetect	architect	1	3	architect, architects, architect's
 archetects	architects	1	18	architects, architect's, architect, architectures, architecture, archetypes, archetype's, archdeacons, architecture's, archdukes, arctics, archduke's, Arctic's, arctic's, protects, archaists, archdeacon's, archaist's
 archetectural	architectural	1	5	architectural, architecturally, architecture, architectures, architecture's
 archetecturally	architecturally	1	5	architecturally, architectural, architecture, architectures, architecture's
-archetecture	architecture	1	4	architecture, architectures, architecture's, architectural
+archetecture	architecture	1	7	architecture, architectures, architecture's, architectural, architect, architects, architect's
 archiac	archaic	1	24	archaic, Archie, Archean, arching, archive, archway, trochaic, arch, arch's, arches, archival, Aramaic, anarchic, Archie's, Arctic, arctic, Arabic, Orphic, arched, archer, archly, orchid, urchin, archery
 archictect	architect	1	6	architect, architects, architect's, architecture, Arctic, arctic
 architechturally	architecturally	1	5	architecturally, architectural, architecture, architectures, architecture's
-architechture	architecture	1	4	architecture, architectures, architecture's, architectural
+architechture	architecture	1	7	architecture, architectures, architecture's, architectural, architect, architects, architect's
 architechtures	architectures	1	4	architectures, architecture's, architecture, architectural
 architectual	architectural	1	6	architectural, architecturally, architecture, architects, architect, architect's
-archtype	archetype	1	6	archetype, arch type, arch-type, archetypes, archetype's, archetypal
+archtype	archetype	1	11	archetype, arch type, arch-type, archetypes, archetype's, archetypal, archduke, arched, Archie, retype, archly
 archtypes	archetypes	1	13	archetypes, archetype's, arch types, arch-types, archetype, archdukes, archetypal, arches, archduke's, retypes, archives, Archie's, archive's
 aready	already	1	81	already, ready, aired, array, areas, area, read, eared, oared, aerate, arid, arty, reedy, Araby, Brady, Grady, ahead, areal, bread, dread, tread, unready, arrayed, arsed, thready, arcade, armada, Freddy, airhead, area's, greedy, treaty, Art, art, arced, armed, arena, Ara, aorta, are, rad, red, Faraday, Freda, nerdy, abrade, abroad, agreed, aridly, artery, Erato, erode, erred, Hardy, Jared, bared, cared, dared, farad, fared, hardy, hared, lardy, pared, rared, tardy, tared, Eddy, Reed, Reid, Rudy, Urey, aria, eddy, redo, reed, road, urea, reads, unread, read's
 areodynamics	aerodynamics	1	3	aerodynamics, aerodynamics's, aerodynamic
@@ -369,12 +369,12 @@ arguement	argument	1	6	argument, arguments, agreement, augment, argent, argument
 arguements	arguments	1	7	arguments, argument's, agreements, argument, augments, agreement's, argent's
 arised	arose	12	21	raised, arises, arsed, arise, aroused, arced, arisen, erased, Aries, aired, airiest, arose, braised, praised, apprised, arid, airbed, arrest, parsed, riced, Aries's
 arival	arrival	1	12	arrival, rival, Orval, arrivals, aerial, Aral, archival, trivial, larval, Ariel, areal, arrival's
-armamant	armament	1	6	armament, armaments, Armand, armament's, adamant, rearmament
+armamant	armament	1	15	armament, armaments, Armand, armament's, adamant, ornament, armband, rearmament, firmament, argument, rampant, Armando, Armani, armada, arrant
 armistace	armistice	1	3	armistice, armistices, armistice's
 aroud	around	1	49	around, arid, aloud, proud, Arius, aired, arouse, shroud, Urdu, Rod, aroused, arty, erode, rod, abroad, argued, Art, aorta, art, avoid, droid, Artie, road, rood, rout, Aron, arum, crud, eared, oared, prod, trod, earbud, maraud, arced, armed, arsed, Freud, about, argue, aroma, arose, broad, brood, crowd, fraud, grout, trout, erred
 arrangment	arrangement	1	11	arrangement, arraignment, arrangements, ornament, armament, arraignments, argument, arrangement's, adornment, rearrangement, arraignment's
-arrangments	arrangements	1	7	arrangements, arraignments, arrangement's, arraignment's, ornaments, arrangement, ornament's
-arround	around	1	10	around, aground, surround, Arron, round, abound, ground, arrant, errand, Arron's
+arrangments	arrangements	1	16	arrangements, arraignments, arrangement's, arraignment's, ornaments, arrangement, armaments, arraignment, ornament's, arguments, adornments, armament's, rearrangements, argument's, adornment's, rearrangement's
+arround	around	1	14	around, aground, surround, Arron, round, abound, ground, arrant, errand, Arron's, orotund, Aron, ironed, Aaron
 artical	article	1	28	article, radical, critical, cortical, vertical, erotically, optical, articular, atrial, aortic, arrival, arterial, Attica, articled, articles, particle, erotica, piratical, heretical, apical, ironical, artful, nautical, farcical, tactical, Attica's, article's, erotica's
 artice	article	1	46	article, Artie, art ice, art-ice, Artie's, aortic, artier, artifice, artiste, airtime, arts, arise, Art's, Ortiz, art's, artsy, artist, artsier, entice, arced, articles, trice, Aries, attires, Arctic, Art, Patrice, arctic, art, artiest, parties, Rice, rice, attire, arctics, Ariz, amortize, arid, artiness, arty, article's, Arctic's, Atria's, arctic's, attire's, airtime's
 articel	article	1	18	article, articles, articled, Araceli, Ariel, Artie, Artie's, particle, artiest, artiste, artsier, artier, artful, artist, artisan, article's, atrial, Ariel's
@@ -386,7 +386,7 @@ asetic	ascetic	1	9	ascetic, aseptic, acetic, ascetics, Aztec, mastic, Attic, att
 asign	assign	1	27	assign, sign, easing, acing, using, assn, Asian, align, arsing, asking, ashing, assigns, assigned, sing, basing, casing, lasing, axing, sin, aging, aping, awing, USN, icing, basin, ensign, assign's
 aslo	also	1	13	also, ASL, Oslo, aisle, ESL, as lo, as-lo, AOL, Sal, Sol, sol, ASL's, Al's
 asociated	associated	1	8	associated, associates, associate, associate's, satiated, assisted, dissociated, isolated
-asorbed	absorbed	1	5	absorbed, adsorbed, airbed, ascribed, sorbet
+asorbed	absorbed	1	11	absorbed, adsorbed, airbed, ascribed, assorted, sorbet, adored, assured, disrobed, sobbed, sorted
 asphyxation	asphyxiation	1	4	asphyxiation, asphyxiations, asphyxiating, asphyxiation's
 assasin	assassin	1	24	assassin, assessing, assassins, assaying, Assisi, sassing, assassin's, assays, assign, amassing, assisting, assailing, assn, assuaging, assist, season, abasing, asses, Aswan, essaying, Assisi's, assail, assess, assay's
 assasinate	assassinate	1	3	assassinate, assassinated, assassinates
@@ -397,7 +397,7 @@ assasinations	assassinations	1	6	assassinations, assassination's, assassination,
 assasined	assassinated	4	13	assassinate, assassins, assassin, assassinated, assassin's, assisted, seasoned, assailed, assessed, assassinates, assigned, assisting, assayed
 assasins	assassins	1	14	assassins, assassin's, assassin, Assisi's, assigns, assessing, assists, seasons, assails, assign's, assaying, assist's, season's, Aswan's
 assassintation	assassination	1	4	assassination, assassinating, assassinations, assassination's
-assemple	assemble	1	10	assemble, Assembly, assembly, sample, ample, assembled, assembler, assembles, simple, assumable
+assemple	assemble	1	11	assemble, Assembly, assembly, sample, ample, assembled, assembler, assembles, simple, assumable, ampule
 assertation	assertion	1	13	assertion, dissertation, ascertain, asseveration, asserting, assertions, serration, aeration, dissertations, alteration, aspiration, assertion's, dissertation's
 asside	aside	1	31	aside, Assad, assize, as side, as-side, assayed, asset, issued, Aussie, asides, aide, side, assist, Assisi, acid, asst, assume, assure, Essie, abide, amide, Cassidy, wayside, inside, onside, upside, assign, beside, reside, aside's, Assad's
 assisnate	assassinate	1	13	assassinate, assistant, assisted, assist, assassinated, assassinates, assailant, assistance, assistants, assent, assists, assistant's, assist's
@@ -423,18 +423,18 @@ atheistical	atheistic	1	15	atheistic, theistic, acoustical, egoistical, athletic
 athiesm	atheism	1	4	atheism, theism, atheist, atheism's
 athiest	atheist	1	13	atheist, athirst, achiest, ashiest, atheists, theist, earthiest, atheism, itchiest, attest, pithiest, airiest, atheist's
 atorney	attorney	1	11	attorney, attorneys, tourney, atone, adorn, adorned, attorney's, torn, adore, atoned, atones
-atribute	attribute	1	5	attribute, tribute, attributed, attributes, attribute's
+atribute	attribute	1	8	attribute, tribute, attributed, attributes, attribute's, attributive, tributes, tribute's
 atributed	attributed	1	8	attributed, attributes, attribute, attribute's, tributes, tribute, unattributed, tribute's
-atributes	attributes	1	5	attributes, tributes, attribute's, attribute, tribute's
+atributes	attributes	1	10	attributes, tributes, attribute's, attributed, attribute, tribute's, attributives, tribute, arbutus, attributive's
 attaindre	attainder	1	4	attainder, attender, attained, attainder's
 attaindre	attained	3	4	attainder, attender, attained, attainder's
 attemp	attempt	1	36	attempt, at temp, at-temp, temp, tamp, Tempe, tempo, ATM, ATP, amp, sitemap, attempts, stamp, stomp, stump, atom, atop, item, attend, uptempo, Tampa, atoms, items, attest, Autumn, autumn, temps, tempt, damp, ate, ATM's, attempt's, attempted, atom's, item's, temp's
 attemped	attempted	1	8	attempted, attempt, at temped, at-temped, temped, attempts, tamped, attempt's
 attemt	attempt	1	24	attempt, attest, attend, attempts, ATM, EMT, admit, amt, automate, atom, attests, item, adept, atilt, atoms, items, fattest, aptest, Autumn, attempt's, autumn, ATM's, atom's, item's
-attemted	attempted	1	4	attempted, attested, attended, automated
-attemting	attempting	1	4	attempting, attesting, attending, automating
+attemted	attempted	1	6	attempted, attested, attended, automated, attempt, attenuated
+attemting	attempting	1	5	attempting, attesting, attending, automating, attenuating
 attemts	attempts	1	19	attempts, attests, attempt's, attends, attest, attempt, admits, automates, Artemis, ATM's, atoms, items, atom's, item's, adepts, autumns, adept's, Autumn's, autumn's
-attendence	attendance	1	8	attendance, attendances, attendees, attendee, attendance's, tendency, attending, attendee's
+attendence	attendance	1	15	attendance, attendances, attendees, attendee, attendance's, tendency, attending, attendant, attenders, attendants, attendee's, ascendance, attends, antecedence, attendant's
 attendent	attendant	1	9	attendant, attendants, attended, attending, attender, attendant's, Atonement, atonement, attendee
 attendents	attendants	1	25	attendants, attendant's, attendant, attenders, attendees, attainments, attendances, attendee's, attendance, ascendants, attended, attends, atonement's, amendments, attainment's, indents, antecedents, pendents, attendance's, attending, ascendant's, amendment's, indent's, antecedent's, pendent's
 attened	attended	1	11	attended, attend, attuned, attendee, attained, atoned, battened, fattened, attends, attender, tautened
@@ -482,7 +482,7 @@ baceause	because	1	30	because, beaus, cease, Backus, bemuse, Baez's, Bauhaus, bu
 backgorund	background	1	4	background, backgrounds, background's, backgrounder
 backrounds	backgrounds	1	20	backgrounds, back rounds, back-rounds, background's, background, backhands, backgrounders, backgrounder, backrooms, grounds, backhand's, backbones, backwoods, backrests, backboards, backgrounder's, ground's, backrest's, backbone's, backboard's
 bakc	back	1	45	back, Baku, bake, black, beak, balk, bank, bark, bask, backs, BC, Beck, Bk, Buck, Jack, KC, beck, bk, bock, buck, jack, kc, BASIC, Baker, Blake, baccy, baked, baker, bakes, balky, basic, beaks, brake, BBC, Bic, bag, Biko, Jake, bike, cake, back's, beak's, Bk's, Baku's, bake's
-banannas	bananas	2	5	bandannas, bananas, banana's, bandanna's, banana
+banannas	bananas	2	20	bandannas, bananas, banana's, bandanna's, banana, Ananias, mananas, bonanza, bonanzas, banyans, bandanna, banns, banyan's, manana's, bonanza's, Brianna's, banns's, Bataan's, Canaan's, nanny's
 bandwith	bandwidth	1	8	bandwidth, band with, band-with, bandwidths, bandit, bandits, sandwich, bandit's
 bankrupcy	bankruptcy	1	5	bankruptcy, bankrupt, bankrupts, bankrupt's, bankruptcy's
 banruptcy	bankruptcy	1	5	bankruptcy, bankrupts, bankrupt's, bankrupt, bankruptcy's
@@ -491,7 +491,7 @@ baout	bout	2	27	about, bout, Batu, boat, bait, beaut, bat, bot, but, buyout, bau
 basicaly	basically	1	41	basically, Biscay, basally, BASICs, basics, BASIC, Basil, basal, basic, basil, scaly, Barclay, rascally, Bacall, Baikal, basely, busily, sickly, PASCAL, Pascal, pascal, rascal, musically, BASIC's, basic's, bossily, musical, fiscally, basalt, baseball, basilica, musicale, fiscal, baggily, Scala, bacilli, briskly, scale, Biscay's, Basil's, basil's
 basicly	basically	1	21	basically, BASIC, Basil, basic, basil, basely, busily, BASICs, basics, basally, BASIC's, basic's, bossily, sickly, Biscay, baggily, Basel, basal, briskly, Basil's, basil's
 bcak	back	1	98	back, beak, backs, black, Baku, Beck, Buck, bake, beck, bock, buck, cake, balk, bank, bark, bask, BC, Bk, Jack, bk, jack, Blake, beaks, bleak, brake, break, busk, bag, becks, bucks, book, BC's, Becky, Bork, berk, bilk, blag, bonk, brag, bulk, bunk, scag, balky, Backus, Barack, back's, backed, backer, backup, Bic, Buick, Jacky, bx, Brock, block, brick, burka, CBC, calk, cask, BBC, aback, Baker, baked, baker, bakes, batik, BA, Ba, Biko, CA, Ca, Cage, Coke, Cook, Jake, bike, boga, ca, cage, ck, cock, coke, cook, gawk, AK, Bach, Mack, hack, lack, pack, quack, rack, sack, tack, wack, Bacon, baccy
-beachead	beachhead	1	9	beachhead, beached, batched, bleached, breached, behead, bashed, belched, benched
+beachead	beachhead	1	21	beachhead, beached, batched, bleached, breached, beaches, behead, bashed, belched, benched, leached, reached, bitched, botched, broached, beachheads, Beach, beach, ached, betcha, beachhead's
 beacuse	because	1	44	because, Backus, beaus, beaches, backs, beaks, becks, bemuse, recuse, beak's, cause, Backus's, Beau's, beau's, accuse, bakes, beauts, Baku's, Beck's, abacus, back's, base, beck's, became, ecus, beacons, Beach's, badges, bags, beach's, beagles, Becky's, BBC's, Bic's, bag's, Belau's, beaut's, abacus's, beacon's, bake's, beige's, Braque's, badge's, beagle's
 beastiality	bestiality	1	4	bestiality, bestiality's, bestially, bestial
 beatiful	beautiful	1	8	beautiful, beautifully, beatify, beatific, beautify, boastful, bagful, bountiful
@@ -527,8 +527,8 @@ belive	believe	1	16	believe, belie, belief, Belize, relive, be live, be-live, be
 belived	believed	1	16	believed, beloved, belied, blivet, relived, be lived, be-lived, beloveds, belief, believe, bellied, Blvd, blvd, lived, belled, beloved's
 belives	believes	1	24	believes, belies, beliefs, relives, be lives, be-lives, believers, beloveds, bevies, believe, bellies, blivets, belief's, lives, bevvies, elves, Belize's, Belize, beeves, belief, belles, believer's, beloved's, belle's
 belives	beliefs	3	24	believes, belies, beliefs, relives, be lives, be-lives, believers, beloveds, bevies, believe, bellies, blivets, belief's, lives, bevvies, elves, Belize's, Belize, beeves, belief, belles, believer's, beloved's, belle's
-belligerant	belligerent	1	4	belligerent, belligerents, belligerent's, belligerently
-bellweather	bellwether	1	5	bellwether, bell weather, bell-weather, bellwethers, bellwether's
+belligerant	belligerent	1	6	belligerent, belligerents, belligerency, belligerent's, belligerently, belligerence
+bellweather	bellwether	1	9	bellwether, bell weather, bell-weather, bellwethers, bellwether's, blather, leather, weather, blither
 bemusemnt	bemusement	1	6	bemusement, bemusement's, amusement, basement, bemused, bemusing
 beneficary	beneficiary	1	17	beneficiary, benefice, beneficiary's, benedictory, beneficially, benefices, beneficial, benefactor, benefit, benefice's, beneficiaries, breviary, beefier, bonfire, beefcake, benefactors, benefactor's
 beng	being	1	40	being, Ben, Eng, beg, binge, bang, bong, bung, Belg, Benz, Berg, Deng, bend, bent, berg, bank, bonk, bunk, Boeing, beings, benign, neg, Bean, bean, been, Bengal, Benny, beige, bingo, bongo, Ben's, bungee, bag, ban, big, bin, bog, bug, bun, being's
@@ -555,7 +555,7 @@ boaut	boat	1	13	boat, bout, beaut, Batu, bait, bat, bot, but, beauty, baud, beat
 boaut	about	0	13	boat, bout, beaut, Batu, bait, bat, bot, but, beauty, baud, beat, boot, boast
 bodydbuilder	bodybuilder	1	3	bodybuilder, bodybuilders, bodybuilder's
 bombardement	bombardment	1	3	bombardment, bombardments, bombardment's
-bombarment	bombardment	1	3	bombardment, bombardments, bombardment's
+bombarment	bombardment	1	8	bombardment, bombardments, bombardment's, disbarment, bombarded, debarment, bombarding, bombard
 bondary	boundary	1	19	boundary, bindery, nondairy, binary, binder, bounder, Bender, bender, bondage, boundary's, Bond, bond, notary, Sondra, blonder, bandy, bendy, boner, boneyard
 borke	broke	1	13	broke, Bork, bore, Burke, brake, Brooke, Borg, bark, berk, borne, barge, burka, Bork's
 boundry	boundary	1	16	boundary, bounder, foundry, bindery, bounty, bound, bounders, bounded, bounden, bounds, sundry, bound's, country, laundry, boundary's, bounder's
@@ -570,7 +570,7 @@ breifly	briefly	1	33	briefly, barfly, bravely, breezily, brief, barely, refile, 
 brethen	brethren	1	27	brethren, berthing, breathe, breathing, berthed, breathed, breather, breathes, Bremen, Breton, Bethune, Bergen, Britten, brothel, brother, berth, birthing, breath, brighten, urethane, Bertha, berths, Bethany, Bethe, breathy, broth, berth's
 bretheren	brethren	1	14	brethren, breather, breathers, brother, breather's, breathier, brothers, northern, birther, brother's, brotherly, birthers, bothering, birther's
 briliant	brilliant	1	10	brilliant, brilliants, reliant, brilliancy, brilliant's, brilliantly, Brant, brilliance, broiling, Bryant
-brillant	brilliant	1	7	brilliant, brill ant, brill-ant, brilliants, brilliant's, brilliantly, Brant
+brillant	brilliant	1	26	brilliant, brill ant, brill-ant, brilliants, brilliancy, brilliant's, brilliantly, Brant, brilliance, Rolland, Bryant, reliant, brigand, brunt, brilliantine, Brian, Brillouin, brill, bivalent, Brent, bland, blunt, brand, Briana, Brillo, billet
 brimestone	brimstone	1	9	brimstone, brimstone's, brownstone, birthstone, limestone, rhinestone, Firestone, Brampton, freestone
 Britian	Britain	1	30	Britain, Briton, Brian, Brittany, Boeotian, Britten, Frisian, Brain, Bruiting, Briana, Bruin, Brattain, Bryan, Bran, Brownian, Bruneian, Croatian, Titian, Breton, Bribing, Brogan, British, Brianna, Martian, Fruition, Ration, Mauritian, Haitian, Parisian, Britain's
 Brittish	British	1	9	British, Brutish, Britt's, Irtish, British's, Britisher, Britt, Brits, Brit's
@@ -607,11 +607,11 @@ Cambrige	Cambridge	1	6	Cambridge, Cambric, Cambrian, Cambering, Cambridge's, Cam
 camoflage	camouflage	1	5	camouflage, camouflaged, camouflager, camouflages, camouflage's
 campain	campaign	1	34	campaign, camping, cam pain, cam-pain, campaigns, campaigned, company, comping, Caspian, complain, sampan, clamping, cramping, crampon, champing, champion, Cayman, Champlain, caiman, campaign's, capon, campanile, captain, companion, comparing, Campinas, camp, capping, Japan, campy, cumin, gamin, japan, camping's
 campains	campaigns	1	13	campaigns, campaign's, Campinas, cam pains, cam-pains, campaign, camping's, companies, complains, camping, Caspian's, Campinas's, company's
-candadate	candidate	1	6	candidate, candidates, Candide, candida, candidate's, candidature
+candadate	candidate	1	18	candidate, candidates, Candide, candida, candidate's, candidature, antedate, candidacy, cantata, Canada, mandated, candid, cantatas, Candace, mandate, Canada's, Candide's, cantata's
 candiate	candidate	1	15	candidate, Candide, candida, candied, candid, Candace, Candice, mandate, cantata, candidates, Canute, candies, conduit, candidate's, Candide's
-candidiate	candidate	1	6	candidate, candidates, Candide, candida, candidate's, candidature
-cannister	canister	1	6	canister, Bannister, canisters, banister, gangster, canister's
-cannisters	canisters	1	8	canisters, canister's, canister, Bannister's, banisters, gangsters, banister's, gangster's
+candidiate	candidate	1	8	candidate, candidates, Candide, candida, candidate's, candidature, candidacy, candid
+cannister	canister	1	11	canister, Bannister, canisters, banister, gangster, canniest, canister's, canter, caster, cannier, consider
+cannisters	canisters	1	13	canisters, canister's, canister, Bannister's, banisters, gangsters, canters, casters, banister's, considers, gangster's, canter's, caster's
 cannnot	cannot	1	23	cannot, canto, Cannon, cannon, cant, connote, can't, Carnot, canned, gannet, Canon, canon, canny, Canton, Canute, canoed, canton, cannoned, cannons, canoe, canst, Cannon's, cannon's
 cannonical	canonical	1	5	canonical, canonically, conical, cannonball, cantonal
 cannotation	connotation	2	9	annotation, connotation, can notation, can-notation, connotations, annotations, notation, connotation's, annotation's
@@ -630,15 +630,15 @@ carefull	careful	2	8	carefully, careful, care full, care-full, carefuller, jarfu
 careing	caring	1	73	caring, jarring, Carina, careen, coring, curing, carding, carping, carting, carving, capering, carrion, catering, careening, careering, carrying, Creon, charring, crewing, cawing, caressing, craning, crating, craving, crazing, scarring, caroling, caroming, Goering, Karen, Karin, canoeing, carny, graying, jeering, scaring, Cardin, Carlin, crying, Waring, baring, caging, caking, caning, casein, casing, caving, daring, faring, gearing, haring, oaring, paring, raring, taring, Corina, Corine, Karina, goring, Carmine, Corning, carbine, careens, carmine, cording, corking, corning, curbing, curling, cursing, curving, garbing, caring's
 carismatic	charismatic	1	9	charismatic, prismatic, charismatics, aromatic, charismatic's, cosmetic, climatic, juristic, axiomatic
 carmel	caramel	3	10	Carmela, Carmelo, caramel, Camel, camel, Carmella, carrel, Carmen, carpel, cartel
-carniverous	carnivorous	1	6	carnivorous, carnivores, carnivore's, Carboniferous, carboniferous, carnivorously
+carniverous	carnivorous	1	20	carnivorous, carnivores, carnivore's, Carboniferous, carboniferous, carnivorously, carnivora, coniferous, cancerous, carnivore, carvers, carveries, caregivers, Carver's, carver's, cankerous, caregiver's, connivers, conniver's, Carboniferous's
 carreer	career	1	22	career, Carrier, carrier, carer, Currier, caterer, Carter, careers, carter, carriers, Greer, corer, crier, curer, Carrie, Carver, carder, carper, carver, career's, Carrier's, carrier's
 carrers	careers	1	26	careers, carriers, carters, carers, Carrier's, career's, carrier's, carer's, corers, criers, curers, carders, carpers, carvers, carrels, Carter's, carter's, Currier's, corer's, crier's, curer's, Carver's, carder's, carper's, carver's, carrel's
-Carribbean	Caribbean	1	21	Caribbean, Caribbeans, Caribbean's, Carbine, Cribbing, Caliban, Crimean, Carbines, Cribbed, Cribber, Crabbe, Crabbing, Carib, Arabian, Carbide, Crabbed, Crabber, Carrie, Carbine's, Ribbon, Crabbe's
+Carribbean	Caribbean	1	3	Caribbean, Caribbeans, Caribbean's
 Carribean	Caribbean	1	23	Caribbean, Caribbeans, Carbine, Carbon, Carrion, Caliban, Crimean, Carina, Caribbean's, Careen, Caribs, Carib, Carries, Arabian, Carrie, Corrine, Carib's, Cribbing, Carmen, Carrier, Carried, Caribou, Carrie's
 cartdridge	cartridge	1	4	cartridge, cartridges, partridge, cartridge's
 Carthagian	Carthaginian	1	8	Carthaginian, Carthage, Carthage's, Carthaginians, Cardigan, Cartesian, Arthurian, Carthaginian's
-carthographer	cartographer	1	4	cartographer, cartographers, cartographer's, cartography
-cartilege	cartilage	1	6	cartilage, cartilages, cartridge, cartage, cartilage's, cortege
+carthographer	cartographer	1	12	cartographer, cartographers, cartographer's, cartography, lithographer, cartographic, cryptographer, radiographer, choreographer, cartography's, cardiograph, orthography
+cartilege	cartilage	1	15	cartilage, cartilages, cartridge, cartage, cartilage's, cortege, cardiology, cartel, Cartier, catlike, sacrilege, carriage, Carlene, carting, catalog
 cartilidge	cartilage	1	9	cartilage, cartridge, cartilages, cartage, cartilage's, cartridges, catlike, Catiline, cartridge's
 cartrige	cartridge	1	10	cartridge, cartridges, partridge, cartage, Cartier, cartridge's, carriage, Cartwright, cartilage, cortege
 casette	cassette	1	14	cassette, Cadette, caste, gazette, cassettes, cast, Cassatt, cased, castle, Colette, Janette, musette, rosette, cassette's
@@ -657,8 +657,8 @@ Cataline	Catalina	1	13	Catalina, Catiline, Catalan, Caitlin, Catalonia, Chatline
 cathlic	catholic	2	13	Catholic, catholic, Catholics, cathodic, Catholic's, calico, catlike, garlic, colic, Cathleen, Gaelic, Gallic, Gothic
 catterpilar	caterpillar	2	5	Caterpillar, caterpillar, caterpillars, Caterpillar's, caterpillar's
 catterpilars	caterpillars	1	5	caterpillars, Caterpillar's, caterpillar's, Caterpillar, caterpillar
-cattleship	battleship	1	6	battleship, cattle ship, cattle-ship, battleships, battleship's, cattle's
-Ceasar	Caesar	1	4	Caesar, Cesar, Cease, Cesar's
+cattleship	battleship	1	7	battleship, cattle ship, cattle-ship, battleships, battleship's, cattle's, cattle
+Ceasar	Caesar	1	27	Caesar, Cesar, Cease, Cedar, Caesura, Ceases, Caesars, Censer, Censor, Ceased, Cellar, Chaser, Leaser, Quasar, Teaser, Saar, Caspar, Cesar's, Basra, ESR, Ce's, Sear, Seas, Cease's, Caesar's, CEO's, Sea's
 Celcius	Celsius	1	11	Celsius, Celsius's, Lucius, Cecil's, Celia's, Slices, Cells, Cecily's, Cell's, Cecile's, Slice's
 cementary	cemetery	3	16	cementer, commentary, cemetery, cementers, momentary, sedentary, cements, cement, cemented, century, sedimentary, cementer's, seminary, cement's, cementum, elementary
 cemetarey	cemetery	1	12	cemetery, cemeteries, cementer, cemetery's, Demeter, century, geometry, smeary, smeared, scimitar, sectary, symmetry
@@ -670,8 +670,8 @@ censur	censure	1	5	censure, censer, censor, census, sensor
 cententenial	centennial	1	10	centennial, centennially, centenarian, Continental, continental, intentional, contenting, intestinal, contentedly, sentimental
 centruies	centuries	1	21	centuries, sentries, centaurs, entries, century's, Centaurus, gentries, ventures, centaur's, centrism, centrist, centurions, centimes, censures, dentures, Centaurus's, venture's, centurion's, centime's, censure's, denture's
 centruy	century	1	10	century, sentry, centaur, center, entry, Gentry, gentry, Central, central, century's
-ceratin	certain	1	11	certain, keratin, creating, cretin, crating, curtain, pertain, aerating, berating, curating, gratin
-ceratin	keratin	2	11	certain, keratin, creating, cretin, crating, curtain, pertain, aerating, berating, curating, gratin
+ceratin	certain	1	32	certain, keratin, creating, cretin, crating, curtain, pertain, aerating, berating, curating, gratin, retain, Cretan, carting, carton, certainly, certainty, Creation, creation, rating, charting, treating, cert, Cardin, Martin, ascertain, martin, seating, lacerating, macerating, satin, strain
+ceratin	keratin	2	32	certain, keratin, creating, cretin, crating, curtain, pertain, aerating, berating, curating, gratin, retain, Cretan, carting, carton, certainly, certainty, Creation, creation, rating, charting, treating, cert, Cardin, Martin, ascertain, martin, seating, lacerating, macerating, satin, strain
 cerimonial	ceremonial	1	5	ceremonial, ceremonially, ceremonials, criminal, ceremonial's
 cerimonies	ceremonies	1	10	ceremonies, ceremonious, ceremony's, sermonize, sermonizes, sermons, ceremonials, sermon's, harmonies, ceremonial's
 cerimonious	ceremonious	1	11	ceremonious, ceremonies, acrimonious, ceremoniously, verminous, harmonious, ceremony's, ceremonials, parsimonious, ceremonial's, unceremonious
@@ -710,18 +710,18 @@ chuch	church	2	31	Church, church, chichi, Chuck, chuck, couch, shush, Chukchi, c
 churchs	churches	3	5	Church's, church's, churches, Church, church
 Cincinatti	Cincinnati	1	27	Cincinnati, Cincinnati's, Vincent, Insinuate, Cinchona, Incinerate, Vicinity, Ancient, Cinchonas, Cinching, Cinchona's, Consent, Incing, Concetta, Insanity, Insinuator, Zingiest, Mincing, Wincing, Coincident, Incited, Vincent's, Insinuated, Insinuates, Syncing, Incident, Cinnamon
 Cincinnatti	Cincinnati	1	11	Cincinnati, Cincinnati's, Insinuate, Incinerate, Ancient, Cinchona, Cinchonas, Insinuator, Insinuated, Insinuates, Cinchona's
-circulaton	circulation	1	4	circulation, circulating, circulatory, circulate
+circulaton	circulation	1	8	circulation, circulating, circulatory, circulate, circulated, circulates, circulations, circulation's
 circumsicion	circumcision	1	5	circumcision, circumcising, circumcisions, circumcise, circumcision's
 circut	circuit	1	13	circuit, circuity, circus, cir cut, cir-cut, circuits, circlet, circa, haircut, cirque, circle, circuit's, circus's
 ciricuit	circuit	1	8	circuit, circuity, circuits, circuitry, circuit's, circuital, circuited, circuity's
 ciriculum	curriculum	1	12	curriculum, circular, circle, circulate, circled, circles, circlet, curriculum's, cerium, cilium, circle's, circus
-civillian	civilian	1	4	civilian, civilians, civilian's, civilly
+civillian	civilian	1	15	civilian, civilians, civilian's, Sicilian, civilly, civility, civilize, villain, civilizing, civil, caviling, Gillian, Jillian, Lillian, zillion
 claer	clear	2	8	Clare, clear, Clair, Claire, Clara, caller, clayier, glare
 claerer	clearer	1	37	clearer, career, caterer, claret, Clare, carer, cleaner, cleared, cleaver, cleverer, clatter, Claire, clever, clayier, Carrier, carrier, claimer, clapper, clavier, clear, Clarke, blearier, caller, Calder, calmer, clears, clamberer, leerier, Clare's, Clair, Clara, corer, curer, glare, clear's, declarer, Claire's
 claerly	clearly	1	31	clearly, Carly, Clairol, cleanly, cleverly, clergy, claret, Clare, clear, closely, Clark, blearily, clearway, clerk, Carl, calmly, clears, crawly, clarify, clarity, Carla, Carlo, Clair, Clara, curly, Clare's, clear's, cleared, clearer, Claire, Clairol's
 claimes	claims	3	27	claimers, claimed, claims, climes, claim's, clime's, clams, clam's, claimer, claim es, claim-es, calms, claimer's, calm's, claim, clime, lames, limes, Claire's, clamps, climbs, Clem's, lame's, lime's, Jaime's, clamp's, climb's
 clas	class	2	65	Claus, class, claws, colas, clams, clans, claps, clasp, clad, clash, Las, Cl's, coals, Calais, classy, clause, cola's, cols, Cal's, calls, Callas, Clay's, callas, claw's, clay's, gals, Col's, Glass, Klaus, clews, close, cloys, clues, culls, glass, Clay, claw, clay, Alas, alas, clam, clan, clap, class's, galas, kolas, coal's, Claus's, calla's, Ca's, Cali's, Cole's, La's, la's, call's, UCLA's, clam's, clan's, clap's, gal's, CPA's, Cleo's, Clio's, Gila's, Ila's
-clasic	classic	1	10	classic, Vlasic, classics, class, clasp, classy, cleric, clinic, classic's, class's
+clasic	classic	1	37	classic, Vlasic, classics, class, clasp, Calais, Claus, calico, classy, cleric, clinic, carsick, clix, clack, classic's, classical, clause, claws, click, colas, colic, Clarice, caloric, clxi, Cl's, Gallic, cask, Claus's, class's, clxii, cola's, Cal's, Cali's, Clay's, claw's, clay's, Calais's
 clasical	classical	1	8	classical, classically, clausal, clerical, clinical, classic, classical's, lexical
 clasically	classically	1	7	classically, classical, clerically, clinically, elastically, classical's, basically
 cleareance	clearance	1	5	clearance, Clarence, clearances, clearance's, Clarence's
@@ -736,7 +736,7 @@ cognizent	cognizant	1	12	cognizant, cognoscente, cognoscenti, consent, cognizanc
 coincedentally	coincidentally	1	3	coincidentally, coincidental, incidentally
 colaborations	collaborations	1	9	collaborations, collaboration's, collaboration, calibrations, elaborations, collaborationist, coloration's, calibration's, elaboration's
 colateral	collateral	1	10	collateral, collaterally, co lateral, co-lateral, lateral, bilateral, clitoral, cultural, collateral's, literal
-colelctive	collective	1	5	collective, collectives, collective's, collectively, collectivize
+colelctive	collective	1	17	collective, collectives, collective's, collectively, collectivize, connective, corrective, convective, collecting, elective, correlative, calculative, collected, selective, collect, copulative, conductive
 collaberative	collaborative	1	6	collaborative, collaborate, collaboratively, collaborating, collaborated, collaborates
 collecton	collection	1	9	collection, collecting, collector, collect on, collect-on, collect, collects, collect's, collected
 collegue	colleague	1	7	colleague, college, collage, colleagues, colleges, colleague's, college's
@@ -749,16 +749,16 @@ colonizators	colonizers	1	13	colonizers, colonists, colonist's, colonizer's, col
 comander	commander	1	8	commander, commandeer, colander, pomander, commanders, commanded, coriander, commander's
 comander	commandeer	2	8	commander, commandeer, colander, pomander, commanders, commanded, coriander, commander's
 comando	commando	1	17	commando, command, commandos, commend, condo, commands, commando's, communed, cowman, Coronado, command's, commanded, commander, Candy, Mandy, candy, canto
-comandos	commandos	1	8	commandos, commando's, commands, command's, commando, commends, condos, condo's
+comandos	commandos	1	19	commandos, commando's, commands, command's, commando, commends, condos, command, condo's, commanders, comatose, cowman's, cantos, Coronado's, Candy's, Mandy's, candy's, canto's, commander's
 comany	company	1	37	company, cowman, Romany, coming, caiman, co many, co-many, com any, com-any, conman, Conan, Cayman, coma, common, cony, cowmen, many, Oman, command, commune, Cohan, Omani, Roman, comas, comfy, corny, roman, woman, cumin, Romano, colony, coma's, comedy, comely, comity, hominy, cowman's
 comapany	company	1	11	company, comping, company's, camping, Compaq, accompany, comply, Comoran, compare, compass, pompano
 comback	comeback	1	26	comeback, com back, com-back, comebacks, combat, cutback, comeback's, Combs, combs, Cormack, combo, comic, Combs's, callback, cashback, Compaq, comb's, combed, comber, combos, hogback, Cossack, combats, compact, combo's, combat's
 combanations	combinations	1	22	combinations, combination's, combination, combustion's, companions, emanations, commendations, compensations, carbonation's, coronations, nominations, commutations, compunctions, companion's, emanation's, commendation's, compensation's, coronation's, domination's, nomination's, commutation's, compunction's
 combinatins	combinations	1	15	combinations, combination's, combination, combating, combining, contains, combats, maintains, combatants, commendations, combat's, combings's, Comintern's, commendation's, combatant's
 combusion	combustion	1	21	combustion, commission, combination, compulsion, confusion, contusion, compassion, Communion, collusion, communion, combine, combing, combusting, commutation, commotion, combustion's, combining, combating, combust, cohesion, omission
-comdemnation	condemnation	1	5	condemnation, condemnations, condemnation's, commemoration, combination
+comdemnation	condemnation	1	11	condemnation, condemnations, condemnation's, contamination, commemoration, combination, commutation, contention, coordination, damnation, domination
 comemmorates	commemorates	1	6	commemorates, commemorated, commemorate, commemorators, commemorator's, commemorator
-comemoretion	commemoration	1	5	commemoration, commemorations, commemorating, commemoration's, commotion
+comemoretion	commemoration	1	6	commemoration, commemorations, commemorating, commemoration's, commotion, commiseration
 comision	commission	1	18	commission, commotion, omission, collision, commissions, cohesion, concision, mission, Communion, collusion, communion, corrosion, emission, common, compassion, coalition, remission, commission's
 comisioned	commissioned	1	16	commissioned, commissioner, combined, commissions, commission, cushioned, commission's, decommissioned, motioned, recommissioned, visioned, communed, conditioned, crimsoned, cautioned, occasioned
 comisioner	commissioner	1	9	commissioner, commissioners, missioner, commissioned, commissionaire, commoner, combiner, commission, commissioner's
@@ -785,22 +785,22 @@ commericial	commercial	1	4	commercial, commercially, commercials, commercial's
 commericially	commercially	1	5	commercially, commercial, commercials, commercial's, commercialize
 commerorative	commemorative	1	9	commemorative, commiserative, commemorate, comparative, commemorating, commutative, commemorated, commemorates, cooperative
 comming	coming	1	44	coming, cumming, common, commune, combing, comping, gumming, jamming, comings, coning, commingle, communing, commuting, Commons, Cummings, clamming, commons, cramming, chumming, cumin, commie, cooing, coding, coking, commit, coping, coring, cowing, coxing, doming, homing, cowman, cowmen, gaming, scamming, scumming, calming, camping, combine, command, commend, comment, common's, coming's
-comminication	communication	1	4	communication, communications, communicating, communication's
+comminication	communication	1	9	communication, communications, communicating, communication's, commendation, compunction, combination, commodification, complication
 commision	commission	1	13	commission, commotion, commissions, Communion, communion, collision, commission's, commissioned, commissioner, omission, common, decommission, recommission
 commisioned	commissioned	1	8	commissioned, commissioner, commissions, commission, commission's, decommissioned, recommissioned, communed
 commisioner	commissioner	1	9	commissioner, commissioners, commissioned, commissionaire, commission, commissioner's, commoner, commissions, commission's
 commisioning	commissioning	1	5	commissioning, decommissioning, recommissioning, commission, communing
-commisions	commissions	1	11	commissions, commission's, commotions, commission, commotion's, Communions, communions, collisions, Communion's, communion's, collision's
+commisions	commissions	1	20	commissions, commission's, commotions, commission, commotion's, Communions, communions, collisions, commissioners, omissions, Commons, Communion's, commons, communion's, decommissions, recommissions, collision's, omission's, common's, commissioner's
 commited	committed	1	27	committed, commuted, commit ed, commit-ed, commutes, commute, commits, vomited, commit, commented, committee, computed, committer, communed, commuter, commode, commute's, combated, competed, commend, omitted, Comte, commie, commodity, recommitted, coated, comity
 commitee	committee	1	18	committee, commute, commit, committees, committer, commuter, Comte, commie, commode, committed, commuted, commutes, comity, commits, commies, committee's, commute's, commie's
-commiting	committing	1	2	committing, commuting
+commiting	committing	1	22	committing, commuting, vomiting, commenting, computing, communing, combating, competing, commotion, omitting, coming, commit, recommitting, coating, cumming, combing, commits, comping, costing, smiting, commanding, commending
 committe	committee	1	12	committee, committed, committer, commute, commit, committees, comity, Comte, commie, committal, commits, committee's
-committment	commitment	1	4	commitment, commitments, commitment's, committeemen
+committment	commitment	1	9	commitment, commitments, commitment's, committeemen, committeeman, Commandment, commandment, committed, committeeman's
 committments	commitments	1	11	commitments, commitment's, commitment, commandments, committeeman's, condiments, compartments, commandment's, comportment's, condiment's, compartment's
 commmemorated	commemorated	1	4	commemorated, commemorates, commemorate, commemorator
 commongly	commonly	1	12	commonly, commingle, commonalty, communally, communal, commingled, commingles, common, commonality, Commons, commons, common's
 commonweath	commonwealth	2	6	Commonwealth, commonwealth, commonweal, commonwealths, commonwealth's, commonweal's
-commuications	communications	1	8	communications, communication's, commutations, communication, commutation's, complications, coeducation's, complication's
+commuications	communications	1	10	communications, communication's, commutations, communication, commutation's, complications, commotions, coeducation's, complication's, commotion's
 commuinications	communications	1	16	communications, communication's, communication, compunctions, communicating, communicators, commendations, compunction's, communicator's, combinations, commendation's, communicates, commutations, miscommunications, combination's, commutation's
 communciation	communication	1	7	communication, communications, commendation, communicating, communication's, commutation, compunction
 communiation	communication	1	10	communication, commutation, commendation, communications, Communion, combination, communion, calumniation, ammunition, communication's
@@ -855,7 +855,7 @@ conection	connection	1	9	connection, confection, convection, connections, concoc
 conesencus	consensus	1	7	consensus, consents, consent's, consciences, consensus's, ginseng's, conscience's
 confidental	confidential	1	6	confidential, confidently, confident, coincidental, confidentially, confidant
 confidentally	confidentially	1	6	confidentially, confidently, confident ally, confident-ally, coincidentally, confidential
-confids	confides	1	10	confides, confide, confided, confutes, confiders, confess, confider, confines, confider's, confine's
+confids	confides	1	25	confides, confide, confided, confutes, confiders, confess, comfits, confider, confines, confounds, condos, confabs, confers, confuse, condo's, comfit's, confider's, conifers, confetti's, confine's, Conrad's, confab's, coffins, conifer's, coffin's
 configureable	configurable	1	10	configurable, configure able, configure-able, conquerable, conferrable, configures, configure, conformable, configured, considerable
 confortable	comfortable	1	5	comfortable, conformable, conferrable, comfortably, convertible
 congradulations	congratulations	1	14	congratulations, congratulation's, congratulation, confabulations, congratulating, graduations, confabulation's, contradictions, congratulates, congregations, graduation's, granulation's, contradiction's, congregation's
@@ -867,7 +867,7 @@ Conneticut	Connecticut	1	5	Connecticut, Connect, Contact, Contiguity, Connecticu
 conotations	connotations	1	26	connotations, connotation's, co notations, co-notations, connotation, contortions, notations, cogitations, contagions, conditions, contusions, annotations, denotations, contortion's, notation's, confutation's, cogitation's, contains, contentions, contagion's, condition's, contusion's, annotation's, denotation's, contention's, contrition's
 conquerd	conquered	1	5	conquered, conquers, conquer, conjured, concurred
 conquerer	conqueror	1	9	conqueror, conjurer, conquered, conquer er, conquer-er, conquer, conquerors, conquers, conqueror's
-conquerers	conquerors	1	6	conquerors, conqueror's, conjurers, conjurer's, conquers, conqueror
+conquerers	conquerors	1	8	conquerors, conqueror's, conjurers, conjurer's, conquers, conqueror, conjurer, conjures
 conqured	conquered	1	10	conquered, conjured, concurred, conquers, conquer, Concorde, contoured, conjure, Concord, concord
 conscent	consent	1	30	consent, con scent, con-scent, cons cent, cons-cent, consents, convent, conceit, concept, concert, content, cognoscente, cognoscenti, constant, crescent, nascent, conscience, consent's, consented, Concetta, concerto, condescend, consed, consequent, coalescent, unsent, consonant, concede, consign, consing
 consciouness	consciousness	1	9	consciousness, consciousness's, conscious, conciseness, consciousnesses, conscience, consciences, consigns, conscience's
@@ -879,13 +879,13 @@ consenquently	consequently	1	7	consequently, consequent, conveniently, consonant
 consentrate	concentrate	1	7	concentrate, consent rate, consent-rate, concentrated, concentrates, concentrate's, consecrate
 consentrated	concentrated	1	7	concentrated, consent rated, consent-rated, concentrates, concentrate, concentrate's, consecrated
 consentrates	concentrates	1	7	concentrates, concentrate's, consent rates, consent-rates, concentrated, concentrate, consecrates
-consept	concept	1	10	concept, consent, concepts, consed, consort, conceit, concert, consist, consult, concept's
+consept	concept	1	22	concept, consent, concepts, consed, consort, conceit, concert, consist, consult, onset, canst, concept's, consents, contempt, Concetta, cosset, Quonset, conses, corset, congest, contest, consent's
 consequentually	consequently	2	3	consequentially, consequently, consequential
 consequeseces	consequences	1	10	consequences, consequence's, consequence, consensuses, conquests, consciences, conquest's, conspectuses, conscience's, concusses
 consern	concern	1	28	concern, concerns, conserve, consign, concert, consent, consort, conserving, consing, concern's, concerned, constrain, Conner, censer, concerto, confer, conger, conker, consed, conses, coonskin, Cancer, Jansen, Jensen, Jonson, cancer, Connery, Conner's
-conserned	concerned	1	4	concerned, conserved, concerted, consorted
-conserning	concerning	1	5	concerning, conserving, concerting, consigning, consorting
-conservitive	conservative	2	5	Conservative, conservative, conservatives, conservative's, conservatively
+conserned	concerned	1	23	concerned, conserved, concerted, consented, consorted, concerns, concern, concernedly, consent, constrained, condemned, conserves, concern's, conserve, convened, consigned, construed, conferred, contemned, converged, conversed, converted, conserve's
+conserning	concerning	1	16	concerning, conserving, concerting, consenting, consigning, consorting, constraining, condemning, convening, construing, conferring, contemning, converging, conversing, converting, concertina
+conservitive	conservative	2	8	Conservative, conservative, conservatives, conservative's, conservatively, conservatoire, constrictive, neoconservative
 consiciousness	consciousness	1	4	consciousness, consciousnesses, consciousness's, conspicuousness
 consicousness	consciousness	1	4	consciousness, conspicuousness, consciousness's, conspicuousness's
 considerd	considered	1	4	considered, considers, consider, considerate
@@ -895,7 +895,7 @@ consistant	consistent	1	13	consistent, consist ant, consist-ant, constant, consu
 consistantly	consistently	1	5	consistently, constantly, insistently, consistent, inconsistently
 consituencies	constituencies	1	11	constituencies, consistencies, consistences, constituency's, consequences, consistence's, consciences, Constance's, consistency's, consequence's, conscience's
 consituency	constituency	1	6	constituency, consistency, constancy, consistence, Constance, constituency's
-consituted	constituted	1	3	constituted, constitute, constitutes
+consituted	constituted	1	7	constituted, constitute, constitutes, consisted, construed, consulted, constipated
 consitution	constitution	2	15	Constitution, constitution, constitutions, condition, consultation, constipation, contusion, connotation, confutation, consolation, construction, constituting, constitution's, constitutional, reconstitution
 consitutional	constitutional	1	8	constitutional, constitutionally, constitutionals, conditional, constructional, Constitution, constitution, constitutional's
 consolodate	consolidate	1	5	consolidate, consolidated, consolidates, consolidator, consulate
@@ -904,20 +904,20 @@ consonent	consonant	1	7	consonant, consent, consonants, Continent, continent, co
 consonents	consonants	1	8	consonants, consonant's, consents, continents, consonant, consent's, Continent's, continent's
 consorcium	consortium	1	11	consortium, consortium's, consortia, conformism, consorting, conscious, consumerism, consort, censorious, consorts, consort's
 conspiracys	conspiracies	3	3	conspiracy's, conspiracy, conspiracies
-conspiriator	conspirator	1	8	conspirator, conspirators, conspirator's, inspiratory, conspiratorial, conservator, conciliator, constrictor
+conspiriator	conspirator	1	3	conspirator, conspirators, conspirator's
 constaints	constraints	1	19	constraints, constants, constant's, cons taints, cons-taints, constraint's, constant, constrains, constraint, consultants, contestants, contains, consents, contents, consultant's, contestant's, Constantine's, consent's, content's
-constanly	constantly	1	6	constantly, constancy, constant, Constable, constable, Constance
+constanly	constantly	1	9	constantly, constancy, constant, Constable, constable, Constance, constants, constancy's, constant's
 constarnation	consternation	1	11	consternation, consternation's, constriction, construction, concatenation, contamination, consideration, consecration, conservation, constipation, constellation
 constatn	constant	1	12	constant, constrain, Constantine, constants, constraint, contain, consultant, contestant, constant's, constantly, consent, content
 constinually	continually	1	13	continually, continual, conditionally, constantly, continua, constabulary, congenially, consolingly, continuously, Constable, constable, congenitally, continuity
-constituant	constituent	1	6	constituent, constituents, constitute, constant, constituent's, constituting
+constituant	constituent	1	10	constituent, constituents, constitute, constant, constituency, constituent's, constituting, consultant, constituted, contestant
 constituants	constituents	1	13	constituents, constituent's, constituent, constitutes, constants, consultants, constant's, constituency's, constituency, contestants, constitute, consultant's, contestant's
 constituion	constitution	2	11	Constitution, constitution, constituting, constitutions, constituent, constitute, constitution's, constitutional, constipation, constituency, reconstitution
 constituional	constitutional	1	6	constitutional, constitutionally, constitutionals, Constitution, constitution, constitutional's
 consttruction	construction	1	12	construction, constriction, constructions, constrictions, constructing, construction's, constructional, contraction, Reconstruction, deconstruction, reconstruction, constriction's
 constuction	construction	1	7	construction, constriction, conduction, constructions, Constitution, constitution, construction's
 consulant	consultant	1	11	consultant, consul ant, consul-ant, consulate, consult, constant, consonant, consultants, consent, consulting, consultant's
-consumate	consummate	1	6	consummate, consulate, consummated, consummates, consumed, consume
+consumate	consummate	1	9	consummate, consulate, consummated, consummates, consumed, consume, consumer, consummately, consumes
 consumated	consummated	1	5	consummated, consummates, consummate, consumed, consulted
 contaiminate	contaminate	1	7	contaminate, contaminated, contaminates, contaminator, contaminant, decontaminate, recontaminate
 containes	contains	3	9	containers, contained, contains, continues, container, contain es, contain-es, container's, contain
@@ -947,8 +947,8 @@ controversal	controversial	1	7	controversial, controversy, controversially, cont
 controversey	controversy	1	7	controversy, contrivers, controversies, contriver's, controverts, controvert, controversy's
 controvertial	controversial	1	7	controversial, controversially, controvertible, controverting, controverts, controvert, uncontroversial
 controvery	controversy	1	5	controversy, controvert, contriver, contrivers, contriver's
-contruction	construction	1	8	construction, contraction, constriction, contrition, counteraction, contractions, conduction, contraction's
-conveinent	convenient	1	11	convenient, Continent, continent, conveniently, convenience, convening, convent, convened, covenant, confident, convergent
+contruction	construction	1	15	construction, contraction, constriction, contrition, counteraction, contractions, conduction, contraption, constructions, contortion, contradiction, contribution, contracting, contraction's, construction's
+conveinent	convenient	1	13	convenient, Continent, continent, conveniently, convenience, convening, convent, convened, covenant, confident, convergent, convene, inconvenient
 convenant	covenant	1	7	covenant, convenient, convent, convening, consonant, covenants, covenant's
 convential	conventional	1	9	conventional, convention, congenital, confidential, conventicle, conventionally, congenial, convectional, convent
 convertables	convertibles	1	14	convertibles, convertible's, convertible, conferrable, constables, converters, conventicles, Constable's, constable's, conferral's, converter's, inevitable's, conventicle's, convertibility's
@@ -961,7 +961,7 @@ coorperation	cooperation	1	7	cooperation, corporation, corporations, cooperating
 coorperation	corporation	2	7	cooperation, corporation, corporations, cooperating, cooperation's, operation, corporation's
 coorperations	corporations	1	3	corporations, cooperation's, corporation's
 copmetitors	competitors	1	9	competitors, competitor's, competitor, commutators, compositors, commentators, commutator's, compositor's, commentator's
-coputer	computer	1	12	computer, copter, capture, pouter, copier, copters, Coulter, counter, cuter, copper, cotter, copter's
+coputer	computer	1	29	computer, copter, capture, pouter, copier, copters, Coulter, counter, cuter, commuter, Jupiter, copper, cotter, captor, couture, coaster, corrupter, computers, Cooper, Cowper, cooper, cutter, putter, compute, Potter, copter's, potter, scouter, computer's
 copywrite	copyright	4	13	copywriter, copy write, copy-write, copyright, copywriters, cooperate, pyrite, copyrighted, copywriter's, typewrite, cowrie, copyrights, copyright's
 coridal	cordial	1	15	cordial, cordially, cordials, chordal, coral, cortical, coronal, coital, corral, bridal, cradle, corneal, cordial's, cord, cardinal
 cornmitted	committed	1	27	committed, remitted, cremated, commuted, connoted, formatted, permitted, transmitted, Cronkite, recommitted, conceited, confuted, cornered, cornfield, cordite, counted, gritted, commented, manumitted, ornamented, germinated, reanimated, confided, corseted, credited, Cronkite's, tormented
@@ -985,9 +985,9 @@ coudl	could	1	39	could, caudal, coddle, cuddle, cuddly, cold, cloud, coil, coita
 coudl	cloud	7	39	could, caudal, coddle, cuddle, cuddly, cold, cloud, coil, coital, Gould, COD, COL, Cod, Col, Godel, cod, col, cud, godly, cloudy, coldly, couple, loudly, Cody, coal, coda, code, coed, coll, cool, cowl, cull, goodly, cods, cuds, curl, Gouda, cod's, cud's
 councellor	counselor	2	9	councilor, counselor, concealer, chancellor, councilors, counselors, canceler, councilor's, counselor's
 councellor	councilor	1	9	councilor, counselor, concealer, chancellor, councilors, counselors, canceler, councilor's, counselor's
-councellors	counselors	2	6	councilors, counselors, councilor's, counselor's, concealers, concealer's
-councellors	councilors	1	6	councilors, counselors, councilor's, counselor's, concealers, concealer's
-counries	countries	1	17	countries, counties, couriers, Canaries, canaries, curies, canneries, corries, cowries, curries, coteries, courier's, Curie's, curie's, Connie's, cowrie's, coterie's
+councellors	counselors	2	12	councilors, counselors, councilor's, counselor's, concealers, chancellors, concealer's, councilor, counselor, cancelers, chancellor's, canceler's
+councellors	councilors	1	12	councilors, counselors, councilor's, counselor's, concealers, chancellors, concealer's, councilor, counselor, cancelers, chancellor's, canceler's
+counries	countries	1	52	countries, counties, couriers, Canaries, canaries, curies, canneries, corries, cowries, curries, coiners, Congress, congress, coteries, counters, Connors, courier's, course, cronies, Curie's, coiner's, curie's, carnies, coronaries, cones, congeries, cores, cries, cures, concise, sunrise, Connie's, cowrie's, Conner's, caries, curios, juries, Januaries, country's, courses, coterie's, counter's, Corine's, cone's, core's, cure's, Corrine's, Conrail's, Canaries's, curia's, curio's, course's
 countains	contains	1	11	contains, fountains, mountains, contain, fountain's, mountain's, counties, counting, curtains, countries, curtain's
 countires	countries	1	8	countries, counties, counters, counter's, country's, courtiers, couture's, courtier's
 coururier	courier	4	9	couturier, courtier, Currier, courier, couriers, Carrier, carrier, Currier's, courier's
@@ -1013,14 +1013,14 @@ critized	criticized	1	26	criticized, critiqued, curtsied, criticize, cruised, cr
 critizing	criticizing	1	33	criticizing, critiquing, cruising, crating, crazing, crusting, gritting, crediting, curtailing, curtaining, carting, unitizing, criticize, kibitzing, cratering, girting, Cristina, cauterizing, cresting, creating, curating, curtsying, writing, citizen, privatizing, prizing, cretins, grating, grazing, spritzing, crisping, digitizing, cretin's
 crockodiles	crocodiles	1	18	crocodiles, crocodile's, crocodile, cockatiels, crackles, cocktails, cocktail's, cockles, crackle's, cradles, cockades, cockatiel's, grackles, cockle's, cradle's, cockade's, grackle's, Cronkite's
 crowm	crown	1	26	crown, Crow, crow, corm, carom, cram, crime, Crows, crowd, crows, cream, groom, creme, Com, ROM, Rom, com, crumb, Crow's, crow's, comm, craw, crew, grow, roam, room
-crtical	critical	2	2	cortical, critical
+crtical	critical	2	10	cortical, critical, critically, vertical, critic, catcall, cordial, cuticle, radical, crucial
 crucifiction	crucifixion	2	21	Crucifixion, crucifixion, calcification, Crucifixions, crucifixions, jurisdiction, gratification, versification, Crucifixion's, crucifixion's, purification, rectification, reunification, certification, reification, codification, pacification, ramification, ratification, clarification, calcification's
 crusies	cruises	1	14	cruises, cruses, Cruise's, cruise's, Crusoe's, crises, curses, crisis, cruse's, crushes, curse's, crazies, crosses, crisis's
 culiminating	culminating	1	6	culminating, calumniating, eliminating, fulminating, culmination, laminating
 cumulatative	cumulative	1	9	cumulative, commutative, qualitative, consultative, cumulatively, mutative, accumulative, emulative, copulative
 curch	church	2	36	Church, church, crutch, crush, Burch, lurch, creche, cur ch, cur-ch, clutch, crouch, couch, crotch, crunch, crash, cur, catch, Zurich, curacy, cure, Curt, arch, curb, curd, curl, curs, curt, scorch, Curie, Curry, coach, curia, curie, curio, curry, cur's
 curcuit	circuit	1	29	circuit, circuity, circuits, Curt, cricket, curt, croquet, cruet, cruft, crust, credit, crudity, correct, pursuit, corrupt, currant, current, cacti, circuit's, eruct, curate, curium, curd, grit, Curie, curia, curie, curio, recruit
-currenly	currently	1	4	currently, currency, current, greenly
+currenly	currently	1	20	currently, currency, current, greenly, curtly, cornily, cruelly, curly, crudely, cravenly, queenly, Cornell, currant, carrel, jarringly, corneal, currents, cursedly, currency's, current's
 curriculem	curriculum	1	4	curriculum, curricula, curricular, curriculum's
 cxan	cyan	27	79	Can, can, clan, cans, Cain, Xian, cane, coxing, cozen, Scan, scan, Cohan, Conan, Crane, Cuban, Kazan, clang, clean, crane, czar, CNN, Jan, Kan, San, con, ctn, cyan, CNS, Chan, Texan, coax, ocean, Cains, Conn, Jean, Joan, Juan, Sean, axon, coin, coon, exon, jean, koan, oxen, Khan, Klan, Kwan, canny, corn, gran, khan, cons, Cox, cox, Can's, Caxton, Xi'an, can's, canes, cant, canoe, Kans, CA, Ca, Ca's, ca, Saxon, clans, taxon, waxen, Cain's, can't, cane's, CNN's, Jan's, Kan's, con's, clan's
 cyclinder	cylinder	1	20	cylinder, cylinders, colander, cyclone, cinder, cylinder's, cyclones, cycling, seconder, blinder, clinger, clinker, slander, slender, collider, Cyclades, decliner, recliner, calendar, cyclone's
@@ -1047,10 +1047,10 @@ decomposits	decomposes	1	12	decomposes, composites, composts, decomposed, decomp
 decress	decrees	1	22	decrees, decrease, decries, decree's, depress, degrees, digress, decreases, Decker's, decors, cress, decor's, dress, decorous, decree, degree's, duress, egress, Deere's, decrease's, Delores's, Derek's
 decribe	describe	1	19	describe, decried, decries, scribe, decree, described, describer, describes, crib, derive, decreed, decrees, Derby, decry, derby, tribe, deride, degree, decree's
 decribed	described	1	11	described, decried, decreed, cribbed, describes, describe, descried, decries, derived, describer, derided
-decribes	describes	1	5	describes, decries, derbies, decrees, decree's
+decribes	describes	1	13	describes, decries, derbies, scribes, decrees, scribe's, describers, describe, descries, cribs, decree's, crib's, describer's
 decribing	describing	1	9	describing, decrying, decreeing, cribbing, deriving, decorating, decreasing, deriding, ascribing
 dectect	detect	1	14	detect, deject, detects, decadent, defect, detest, deduct, detract, deflect, deftest, detected, detector, dejected, dejects
-defendent	defendant	1	6	defendant, dependent, defendants, defended, defending, defendant's
+defendent	defendant	1	10	defendant, dependent, defendants, defended, defending, defender, defendant's, dependents, decedent, dependent's
 defendents	defendants	1	10	defendants, defendant's, dependents, dependent's, defendant, defenders, decedents, dependent, defender's, decedent's
 deffensively	defensively	1	6	defensively, offensively, defensibly, defensive, defensible, defensive's
 deffine	define	1	19	define, diffing, doffing, duffing, def fine, def-fine, defined, definer, defines, deafen, Devin, defile, effing, refine, Divine, divine, defying, reffing, tiffing
@@ -1076,11 +1076,11 @@ demenor	demeanor	1	28	demeanor, Demeter, demon, demean, demeanor's, dementia, do
 demographical	demographic	5	8	demographically, demo graphical, demo-graphical, demographics, demographic, demographic's, demographics's, geographical
 demolision	demolition	1	8	demolition, demolishing, demolitions, delusion, demolish, demolition's, demotion, emulsion
 demorcracy	democracy	1	10	democracy, Democrat, democrat, democracy's, Democrats, democrats, democracies, Democrat's, democrat's, demography
-demostration	demonstration	1	4	demonstration, demonstrations, demonstrating, demonstration's
+demostration	demonstration	1	22	demonstration, demonstrations, demonstrating, demonstration's, fenestration, prostration, demodulation, distortion, registration, domestication, detestation, devastation, distraction, menstruation, desperation, destruction, moderation, Restoration, desecration, destination, restoration, desertion
 denegrating	denigrating	1	14	denigrating, desecrating, degenerating, downgrading, denigration, degrading, generating, delegating, venerating, decorating, penetrating, reintegrating, negating, integrating
 densly	densely	1	40	densely, tensely, den sly, den-sly, dens, Denali, Hensley, density, dense, tensile, dankly, denial, denser, Denis, deans, den's, denials, Denise, deny, Dons, TESL, dins, dons, duns, tens, tenuously, Dena's, Denis's, Denny, Dean's, Deon's, dean's, denial's, Dan's, Don's, din's, don's, dun's, ten's, Denny's
-deparment	department	1	5	department, debarment, deportment, deferment, determent
-deparments	departments	1	7	departments, department's, debarment's, deferments, deportment's, deferment's, determent's
+deparment	department	1	12	department, debarment, deportment, deferment, determent, departments, spearmint, decrement, detriment, repayment, department's, debarment's
+deparments	departments	1	15	departments, department's, debarment's, deferments, department, deportment's, decrements, detriments, debarment, deferment's, determent's, repayments, spearmint's, detriment's, repayment's
 deparmental	departmental	1	9	departmental, departmentally, detrimental, temperamental, departments, department, parental, debarment, department's
 dependance	dependence	1	8	dependence, dependency, repentance, dependencies, dependence's, despondence, depending, dependency's
 dependancy	dependency	1	7	dependency, dependence, dependency's, despondency, depending, codependency, dependence's
@@ -1102,19 +1102,19 @@ descuss	discuss	1	41	discuss, discus's, discus, discuses, desks, discs, desk's, 
 desgined	designed	1	12	designed, destined, designer, designate, designated, defined, descend, descried, destine, descanted, desired, declined
 deside	decide	1	34	decide, beside, deride, desire, reside, deiced, desired, seaside, DECed, bedside, deist, dosed, side, defied, denied, decided, decider, decides, desist, despite, destine, Desiree, decode, delude, demode, denude, dissed, dossed, residue, deice, aside, decade, design, divide
 desigining	designing	1	8	designing, deigning, destining, resigning, designating, designing's, signing, redesigning
-desinations	destinations	2	5	designations, destinations, designation's, destination's, desalination's
+desinations	destinations	2	20	designations, destinations, designation's, destination's, delineations, detonations, desalination's, definitions, donations, designation, destination, decimation's, delineation's, desiccation's, desolation's, detonation's, definition's, divination's, domination's, donation's
 desintegrated	disintegrated	1	4	disintegrated, disintegrates, disintegrate, reintegrated
 desintegration	disintegration	1	5	disintegration, disintegrating, disintegration's, reintegration, integration
-desireable	desirable	1	4	desirable, desirably, desire able, desire-able
+desireable	desirable	1	21	desirable, desirably, desire able, desire-able, decidable, disable, miserable, durable, describable, decipherable, deliverable, measurable, Desiree, derivable, testable, disagreeable, despicable, dissemble, deniable, undesirable, definable
 desitned	destined	1	9	destined, distend, destines, destine, designed, desisted, descend, destiny, delinted
-desktiop	desktop	1	3	desktop, desktops, desktop's
+desktiop	desktop	1	22	desktop, desktops, desktop's, desertion, deskill, desolation, desk, skip, doeskin, dystopi, dissection, digestion, desks, section, skimp, deskills, doeskins, desk's, desiccation, diction, duskier, doeskin's
 desorder	disorder	1	16	disorder, deserter, disorders, Deirdre, desired, destroyer, disordered, decider, disorder's, disorderly, sorter, deserters, distorter, decoder, reorder, deserter's
 desoriented	disoriented	1	13	disoriented, disorientate, disorients, disorient, disorientated, reoriented, disorientates, designated, disjointed, oriented, deserted, descended, dissented
-desparate	desperate	1	2	desperate, disparate
-desparate	disparate	2	2	desperate, disparate
+desparate	desperate	1	9	desperate, disparate, separate, despaired, desecrate, disparage, desperado, disparity, depart
+desparate	disparate	2	9	desperate, disparate, separate, despaired, desecrate, disparage, desperado, disparity, depart
 despatched	dispatched	1	6	dispatched, dispatches, dispatcher, dispatch, dispatch's, despaired
 despict	depict	1	7	depict, despite, despot, despotic, respect, depicts, desist
-despiration	desperation	1	5	desperation, respiration, aspiration, desecration, desperation's
+despiration	desperation	1	11	desperation, respiration, aspiration, desecration, despoliation, separation, desertion, desperation's, perspiration, expiration, respiration's
 dessicated	desiccated	1	17	desiccated, dedicated, dissected, dissipated, desiccates, desisted, descanted, desiccate, dissociated, desecrated, designated, desolated, depicted, descaled, dislocated, decimated, defecated
 dessigned	designed	1	15	designed, design, deigned, reassigned, assigned, resigned, designs, dissing, dossing, redesigned, signed, design's, destine, designer, destined
 destablized	destabilized	1	4	destabilized, destabilizes, destabilize, stabilized
@@ -1128,7 +1128,7 @@ determinining	determining	1	10	determining, determination, determinant, determin
 detremental	detrimental	1	8	detrimental, detrimentally, determent, detriments, detriment, determent's, detriment's, determinate
 devasted	devastated	5	16	divested, devastate, deviated, feasted, devastated, devised, devoted, demisted, desisted, detested, devastates, fasted, defeated, dusted, tasted, tested
 develope	develop	3	4	developed, developer, develop, develops
-developement	development	1	5	development, developments, development's, developmental, redevelopment
+developement	development	1	8	development, developments, development's, developmental, redevelopment, envelopment, elopement, devilment
 developped	developed	1	11	developed, developer, develops, develop, redeveloped, flopped, developing, enveloped, devolved, deviled, undeveloped
 develpment	development	1	6	development, developments, devilment, development's, developmental, redevelopment
 devels	delves	8	64	devils, devil's, bevels, levels, revels, drivels, defiles, delves, deaves, feels, develops, bevel's, decals, devalues, develop, diesels, level's, reveals, revel's, deals, dells, devil, dives, doves, duels, evils, drivel's, Dave's, Devi's, dive's, dove's, defers, divers, dowels, duvets, feel's, gavels, hovels, navels, novels, ravels, Del's, defile's, decal's, diesel's, Dell's, deal's, dell's, duel's, evil's, Devin's, Devon's, Dover's, Havel's, Ravel's, Tevet's, diver's, dowel's, duvet's, gavel's, hovel's, navel's, novel's, ravel's
@@ -1163,10 +1163,10 @@ difficulity	difficulty	1	5	difficulty, difficult, difficultly, difficulty's, dif
 diffrent	different	1	18	different, diff rent, diff-rent, diffident, diffract, differently, differing, difference, differed, afferent, efferent, deferment, divergent, disorient, affront, deforest, divalent, referent
 dificulties	difficulties	1	5	difficulties, difficulty's, faculties, difficult, difficulty
 dificulty	difficulty	1	5	difficulty, difficult, difficultly, difficulty's, faculty
-dimenions	dimensions	1	6	dimensions, dominions, dimension's, dominion's, Simenon's, disunion's
+dimenions	dimensions	1	16	dimensions, dominions, dimension's, dominion's, Simenon's, minions, dimension, Dominion, dominion, diminutions, amnions, disunion's, minion's, Damion's, diminution's, amnion's
 dimention	dimension	1	12	dimension, diminution, domination, damnation, mention, dimensions, detention, diminutions, demotion, dimension's, dimensional, diminution's
 dimentional	dimensional	1	8	dimensional, dimensions, dimension, directional, dimension's, diminutions, diminution, diminution's
-dimentions	dimensions	1	9	dimensions, dimension's, diminutions, diminution's, mentions, dimension, domination's, damnation's, mention's
+dimentions	dimensions	1	14	dimensions, dimension's, diminutions, diminution's, mentions, dimension, detentions, domination's, damnation's, mention's, demotions, diminution, detention's, demotion's
 dimesnional	dimensional	1	12	dimensional, monsoonal, disunion, dominions, Dominion, dominion, demeaning, medicinal, disunion's, demoniacal, dominion's, decennial
 diminuitive	diminutive	1	7	diminutive, diminutives, diminutive's, definitive, nominative, ruminative, diminution
 diosese	diocese	1	15	diocese, disease, doses, disuse, douses, daises, dose's, dosses, dowses, dioceses, dices, dozes, Duse's, doze's, diocese's
@@ -1181,7 +1181,7 @@ disapeared	disappeared	1	19	disappeared, diapered, disparate, dispersed, disappe
 disapointing	disappointing	1	10	disappointing, disjointing, disappointingly, discounting, dismounting, disporting, disorienting, disappoint, disputing, disuniting
 disappearred	disappeared	1	11	disappeared, disappear red, disappear-red, disappears, disappear, disappearing, diapered, disapproved, dispersed, disbarred, despaired
 disaproval	disapproval	1	9	disapproval, disprovable, disapproval's, disapprove, disprove, disapproved, disapproves, disproved, disproves
-disasterous	disastrous	1	5	disastrous, disasters, disaster's, disaster, disastrously
+disasterous	disastrous	1	3	disastrous, disasters, disaster's
 disatisfaction	dissatisfaction	1	3	dissatisfaction, satisfaction, dissatisfaction's
 disatisfied	dissatisfied	1	4	dissatisfied, dissatisfies, satisfied, unsatisfied
 disatrous	disastrous	1	16	disastrous, destroys, distress, distrust, disarrays, distorts, dilators, dipterous, lustrous, bistros, dilator's, estrous, desirous, bistro's, disarray's, distress's
@@ -1210,14 +1210,14 @@ disproportiate	disproportionate	1	6	disproportionate, disproportion, disproporti
 disricts	districts	1	14	districts, district's, distracts, disrupts, directs, dissects, destructs, district, disorients, diarists, disquiets, destruct's, diarist's, disquiet's
 dissagreement	disagreement	1	3	disagreement, disagreements, disagreement's
 dissapear	disappear	1	14	disappear, Diaspora, diaspora, disappears, diaper, disappeared, dissever, disrepair, dosser, despair, spear, disaster, Dipper, dipper
-dissapearance	disappearance	1	3	disappearance, disappearances, disappearance's
+dissapearance	disappearance	1	17	disappearance, disappearances, disappearance's, disappearing, disappears, disperse, appearance, disparages, disarrange, dispense, dissonance, disparage, disparate, dispraise, reappearance, disservice, dissidence
 dissapeared	disappeared	1	16	disappeared, diapered, dissipated, disparate, dispersed, dissevered, disappears, disappear, disparaged, despaired, speared, dissipate, disbarred, disarrayed, dispelled, displayed
 dissapearing	disappearing	1	13	disappearing, diapering, dissipating, dispersing, dissevering, disparaging, despairing, spearing, disbarring, disarraying, dispelling, displaying, misspeaking
 dissapears	disappears	1	22	disappears, Diasporas, diasporas, disperse, disappear, diapers, Diaspora's, diaspora's, dissevers, diaper's, dossers, Spears, despairs, spears, disasters, dippers, disrepair's, despair's, spear's, disaster's, Dipper's, dipper's
 dissappear	disappear	1	11	disappear, disappears, disappeared, Diaspora, diaspora, Dipper, dapper, diaper, dipper, sapper, disappearing
 dissappears	disappears	1	16	disappears, disappear, disappeared, Diasporas, diasporas, Diaspora's, diaspora's, disperse, diapers, dippers, sappers, disappearing, dissevers, Dipper's, diaper's, dipper's
 dissappointed	disappointed	1	5	disappointed, disappoints, disappoint, disjointed, disappointing
-dissarray	disarray	1	4	disarray, disarrays, disarray's, disarrayed
+dissarray	disarray	1	9	disarray, disarrays, disarray's, disarrayed, diary, disarraying, starry, disarm, disbar
 dissobediance	disobedience	1	6	disobedience, disobedience's, dissidence, disobedient, dissonance, discordance
 dissobediant	disobedient	1	7	disobedient, disobediently, disobedience, dissident, dissonant, discordant, disobeying
 dissobedience	disobedience	1	4	disobedience, disobedience's, disobedient, dissidence
@@ -1228,16 +1228,16 @@ distingished	distinguished	1	4	distinguished, distinguishes, distinguish, undist
 distingishes	distinguishes	1	4	distinguishes, distinguished, distinguish, destinies
 distingishing	distinguishing	1	9	distinguishing, distinguish, astonishing, diminishing, distinguished, distinguishes, distension, distention, extinguishing
 distingquished	distinguished	1	3	distinguished, distinguishes, distinguish
-distrubution	distribution	1	6	distribution, distributions, distributing, distribution's, distributional, redistribution
+distrubution	distribution	1	10	distribution, distributions, distributing, distribution's, distributional, redistribution, destruction, distraction, distortion, disruption
 distruction	destruction	1	13	destruction, distraction, distractions, distinction, distortion, distribution, instruction, destructing, distracting, destruction's, distraction's, disruption, detraction
 distructive	destructive	1	16	destructive, distinctive, distributive, instructive, destructively, disruptive, restrictive, obstructive, district, destructing, distracting, destructed, distracted, destruct, distract, directive
 ditributed	distributed	1	6	distributed, attributed, distributes, distribute, tribute, redistributed
 diversed	diverse	1	11	diverse, diverged, diverted, divorced, divers ed, divers-ed, divers, diversely, diversity, reversed, diver's
 diversed	diverged	2	11	diverse, diverged, diverted, divorced, divers ed, divers-ed, divers, diversely, diversity, reversed, diver's
 divice	device	1	33	device, Divine, divide, divine, devise, div ice, div-ice, divorce, dives, Davies, advice, dice, dive, devices, divides, divines, novice, deice, Dixie, Davis, divas, edifice, diving, vivace, Devi's, deface, diva's, dive's, Divine's, device's, divide's, divine's, Davis's
-divison	division	1	5	division, divisor, devising, Davidson, Dickson
-divisons	divisions	1	6	divisions, divisors, division's, divisor's, Davidson's, Dickson's
-doccument	document	1	4	document, documents, document's, documented
+divison	division	1	31	division, divisor, devising, Davidson, Dickson, divisions, Divine, disown, divan, divine, diving, Davis, Devin, Devon, Dyson, divas, dives, divisors, Dixon, Dawson, devise, divines, Davis's, division's, Devi's, diva's, dive's, divisor's, Divine's, divine's, diving's
+divisons	divisions	1	22	divisions, divisors, division's, divisor's, disowns, divans, divines, Davidson's, Dickson's, division, divisor, devises, divan's, Divine's, devise's, divine's, diving's, Devin's, Devon's, Dyson's, Dixon's, Dawson's
+doccument	document	1	9	document, documents, document's, documented, documentary, decrement, comment, docent, documenting
 doccumented	documented	1	11	documented, documents, document, document's, decremented, commented, documentary, demented, documenting, undocumented, tormented
 doccuments	documents	1	13	documents, document's, document, documented, decrements, documentary, comments, docents, documenting, torments, comment's, docent's, torment's
 docrines	doctrines	1	34	doctrines, doctrine's, Dacrons, Dacron's, decries, Corine's, declines, crones, drones, doctrine, Dorian's, dories, dourness, goriness, ocarinas, cranes, Corinne's, Corrine's, dowries, decline's, endocrines, Darin's, decrees, crone's, drone's, Corina's, Darrin's, ocarina's, Crane's, crane's, Doreen's, endocrine's, daring's, decree's
@@ -1246,7 +1246,7 @@ documenatry	documentary	1	8	documentary, documentary's, document, documented, do
 doens	does	8	64	Downs, downs, doyens, dozens, Dons, dens, dons, does, Deon's, dines, down's, doyen's, Denis, Don's, deans, den's, dense, dins, don's, donas, dongs, Danes, dunes, tones, Donn's, dawns, doings, towns, duns, tens, tons, Doe's, doe's, doers, teens, Dean's, Dion's, dean's, din's, Donne's, dozen's, Downs's, Downy's, Dawn's, dawn's, town's, Dena's, Dona's, dona's, dong's, Dan's, dun's, ten's, ton's, Dane's, dune's, tone's, Deena's, Donna's, Donny's, doer's, doing's, Dunn's, teen's
 doesnt	doesn't	1	32	doesn't, docent, dissent, descent, decent, dent, dost, deist, dozens, docents, dozenth, sent, dint, dist, don't, dozen, DST, descant, dosed, doziest, stent, does, dosing, descend, cent, dust, tent, test, docent's, Doe's, doe's, dozen's
 doign	doing	1	39	doing, deign, Dion, ding, dong, Don, dding, din, don, Donn, down, dung, doyen, doling, doming, doping, dosing, doting, dozing, Deon, Dina, Dino, Dionne, Dona, Odin, dine, dona, done, toeing, toying, dingo, dingy, Ting, dang, doings, ting, tong, dying, doing's
-dominaton	domination	1	5	domination, dominating, Dominion, dominate, dominion
+dominaton	domination	1	10	domination, dominating, Dominion, dominate, dominion, dominated, dominates, dominant, damnation, domination's
 dominent	dominant	1	15	dominant, dominants, eminent, diminuendo, imminent, Dominion, dominate, dominion, dominant's, dominantly, domineer, dominance, dominions, prominent, dominion's
 dominiant	dominant	1	14	dominant, dominants, Dominion, dominion, dominions, dominate, Dominican, dominant's, dominantly, dominance, Dominicans, Domitian, dominion's, Dominican's
 donig	doing	1	43	doing, dong, Deng, tonic, doings, ding, dining, donging, donning, downing, Doug, dink, dongs, Don, dding, dig, dog, don, Donnie, toning, Dona, Donn, Toni, dang, dona, done, donkey, dung, tong, Dons, dons, dank, dunk, Donna, Donne, Donny, Tonia, dogie, Don's, don's, don't, doing's, dong's
@@ -1257,7 +1257,7 @@ doulbe	double	1	18	double, Dolby, Doyle, doable, doubly, Dole, dole, Dollie, dou
 dowloads	downloads	1	58	downloads, download's, doodads, download, deltas, loads, dolts, reloads, Delta's, delta's, boatloads, diploids, dolt's, dildos, Dolores, dewlaps, dollars, dollops, dolor's, doodad's, wolds, load's, colloids, dollop's, payloads, towboats, towheads, dads, lads, dewlap's, diploid's, dodos, doled, doles, leads, toads, Douala's, dollar's, Dole's, dodo's, dole's, wold's, dead's, colloid's, payload's, towboat's, towhead's, dad's, lad's, old's, Donald's, Golda's, woad's, Loyd's, lead's, toad's, Dooley's, Toyoda's
 dramtic	dramatic	1	11	dramatic, drastic, dram tic, dram-tic, dramatics, traumatic, demotic, aromatic, dogmatic, drumstick, dramatics's
 Dravadian	Dravidian	1	13	Dravidian, Dravidian's, Arcadian, Tragedian, Barbadian, Dreading, Radian, Nevadian, Drafting, Ramadan, Draconian, Derivation, Grenadian
-dreasm	dreams	1	11	dreams, dream, drams, dreamy, dress, dram, deism, treas, dream's, Drew's, dram's
+dreasm	dreams	1	20	dreams, dream, drams, dreamy, dress, dram, dressy, deism, treas, dream's, reams, truism, dress's, drums, trams, Drew's, dram's, drum's, ream's, tram's
 driectly	directly	1	17	directly, erectly, strictly, direct, directory, directs, directed, directer, director, dirtily, correctly, direly, priestly, rectal, dactyl, rectally, indirectly
 drnik	drink	1	11	drink, drunk, drank, drinks, dink, rink, trunk, brink, dank, dunk, drink's
 druming	drumming	1	33	drumming, dreaming, during, Deming, drumlin, riming, trimming, drying, deeming, trumping, driving, droning, drubbing, drugging, framing, griming, priming, terming, doming, tramming, truing, arming, Truman, damming, dimming, dooming, draping, drawing, daring, dumping, Turing, drum, ruing
@@ -1317,10 +1317,10 @@ embargos	embargoes	2	5	embargo's, embargoes, embargo, embarks, umbrage's
 embarras	embarrass	1	19	embarrass, embers, ember's, umbras, embarks, embarrasses, embarrassed, embrace, umbra's, Amber's, amber's, embraces, umber's, embark, embargo's, embargoes, embryos, embrace's, embryo's
 embarrased	embarrassed	1	6	embarrassed, embarrasses, embarrass, embraced, unembarrassed, embarked
 embarrasing	embarrassing	1	8	embarrassing, embracing, embarrassingly, embarrass, embarking, embargoing, embarrassed, embarrasses
-embarrasment	embarrassment	1	3	embarrassment, embarrassments, embarrassment's
+embarrasment	embarrassment	1	6	embarrassment, embarrassments, embarrassment's, embarrassed, embroilment, embarrassing
 embezelled	embezzled	1	6	embezzled, embezzles, embezzle, embezzler, embroiled, embattled
 emblamatic	emblematic	1	9	emblematic, embalmed, emblematically, embalms, embalm, problematic, embalmer, embalming, emblem
-eminate	emanate	1	13	emanate, emirate, ruminate, eliminate, emanated, emanates, emulate, minute, dominate, laminate, nominate, imitate, urinate
+eminate	emanate	1	31	emanate, emirate, ruminate, eliminate, emanated, emanates, emulate, minute, dominate, innate, laminate, nominate, imitate, urinate, inmate, Monte, emote, Eminem, emaciate, emit, mint, minuet, eminent, manatee, germinate, terminate, Minot, amine, minty, effeminate, abominate
 eminated	emanated	1	21	emanated, ruminated, eliminated, minted, emanates, emulated, emanate, emitted, minuted, emended, dominated, laminated, nominated, imitated, urinated, emoted, emaciated, germinated, terminated, minded, abominated
 emision	emission	1	12	emission, emotion, omission, elision, emissions, emulsion, mission, remission, erosion, edition, evasion, emission's
 emited	emitted	1	21	emitted, emoted, omitted, edited, emit ed, emit-ed, emptied, meted, emote, muted, emits, emit, demoted, remitted, emailed, emitter, mated, embed, exited, limited, vomited
@@ -1360,8 +1360,8 @@ enduce	induce	3	15	educe, endue, induce, endues, entice, endure, ensue, endued, 
 ened	need	1	36	need, ended, end, ENE, Ned, Enid, Aeneid, owned, Ind, and, ind, eyed, eked, emend, en ed, en-ed, needy, ENE's, anode, endue, ends, endow, kneed, Ed, ND, Nd, earned, ed, en, endued, ensued, envied, evened, opened, e'en, end's
 enflamed	inflamed	1	13	inflamed, en flamed, en-flamed, enfiladed, inflames, inflame, enfilade, inflated, unframed, flamed, enfolded, unclaimed, inflate
 enforceing	enforcing	1	14	enforcing, enforce, reinforcing, endorsing, unfreezing, enforced, enforcer, enforces, unfrocking, informing, forcing, unfrozen, encoring, enforcement
-engagment	engagement	1	4	engagement, engagements, engagement's, engorgement
-engeneer	engineer	1	4	engineer, engender, engineers, engineer's
+engagment	engagement	1	10	engagement, engagements, engagement's, engorgement, enactment, encasement, enjoyment, enlargement, engaged, engaging
+engeneer	engineer	1	8	engineer, engender, engineers, engineered, engenders, engine, engineer's, ingenue
 engeneering	engineering	1	3	engineering, engendering, engineering's
 engieneer	engineer	1	8	engineer, engineers, engineered, engender, engine, engineer's, engines, engine's
 engieneers	engineers	1	7	engineers, engineer's, engineer, engenders, engineered, engines, engine's
@@ -1373,10 +1373,10 @@ enourmous	enormous	1	16	enormous, enormously, ginormous, anonymous, norms, onero
 enourmously	enormously	1	8	enormously, enormous, anonymously, onerously, venomously, penuriously, infamously, unanimously
 ensconsed	ensconced	1	6	ensconced, ens consed, ens-consed, ensconces, ensconce, incensed
 entaglements	entanglements	1	8	entanglements, entanglement's, entitlements, entanglement, entailment's, engagements, entitlement's, engagement's
-enteratinment	entertainment	1	3	entertainment, entertainments, entertainment's
+enteratinment	entertainment	1	7	entertainment, entertainments, entertainment's, internment, entertained, entertaining, entrapment
 entitity	entity	1	11	entity, entirety, entities, antiquity, antidote, entitle, gentility, entitled, entity's, entreaty, untidily
 entitlied	entitled	1	6	entitled, untitled, entitles, entitle, entitling, entailed
-entrepeneur	entrepreneur	1	6	entrepreneur, entrepreneurs, entrepreneur's, entrepreneurial, entertainer, interlinear
+entrepeneur	entrepreneur	1	3	entrepreneur, entrepreneurs, entrepreneur's
 entrepeneurs	entrepreneurs	1	11	entrepreneurs, entrepreneur's, entrepreneur, entrepreneurial, entertainers, entertainer's, interpreters, intervenes, entryphones, entrapment's, interpreter's
 enviorment	environment	1	12	environment, informant, environments, endearment, enforcement, envelopment, enticement, endowment, enjoyment, interment, enrichment, environment's
 enviormental	environmental	1	6	environmental, environmentally, environments, environment, incremental, environment's
@@ -1387,7 +1387,7 @@ enviornmental	environmental	1	5	environmental, environmentally, environments, en
 enviornmentalist	environmentalist	1	4	environmentalist, environmentalists, environmentalism, environmentalist's
 enviornmentally	environmentally	1	7	environmentally, environmental, environments, environment, environmentalist, environmentalism, environment's
 enviornments	environments	1	6	environments, environment's, environment, environmental, enthronements, enthronement's
-enviroment	environment	1	4	environment, environments, environment's, environmental
+enviroment	environment	1	14	environment, environments, environment's, environmental, enforcement, endearment, environs, increment, informant, envelopment, interment, enrichment, enrollment, enticement
 enviromental	environmental	1	6	environmental, environmentally, environments, environment, incremental, environment's
 enviromentalist	environmentalist	1	4	environmentalist, environmentalists, environmentalism, environmentalist's
 enviromentally	environmentally	1	4	environmentally, environmental, incrementally, instrumentally
@@ -1404,14 +1404,14 @@ equiped	equipped	1	14	equipped, equip ed, equip-ed, quipped, equips, equip, equa
 equippment	equipment	1	10	equipment, equipment's, equipped, elopement, equipping, requirement, acquirement, equivalent, escapement, augment
 equitorial	equatorial	1	27	equatorial, editorial, editorially, equators, pictorial, editorials, equator, equilateral, equator's, tutorial, equitable, equitably, equivocal, electoral, factorial, janitorial, territorial, Ecuadorian, inquisitorial, acquittal, atrial, authorial, pectoral, requital, editorial's, curatorial, clitoral
 equivelant	equivalent	1	9	equivalent, equivalents, equivalency, equivalent's, equivalently, equivalence, equipment, univalent, equivocate
-equivelent	equivalent	1	4	equivalent, equivalents, equivalent's, equivalently
+equivelent	equivalent	1	7	equivalent, equivalents, equivalency, equivalent's, equivalently, equivalence, univalent
 equivilant	equivalent	1	10	equivalent, equivalents, equivalency, equivalent's, equivalently, equivalence, equivocate, jubilant, univalent, vigilant
-equivilent	equivalent	1	4	equivalent, equivalents, equivalent's, equivalently
-equivlalent	equivalent	1	4	equivalent, equivalents, equivalent's, equivalently
+equivilent	equivalent	1	7	equivalent, equivalents, equivalency, equivalent's, equivalently, equivalence, univalent
+equivlalent	equivalent	1	7	equivalent, equivalents, equivalency, equivalent's, equivalently, equivalence, univalent
 erally	orally	3	13	really, rally, orally, early, aerially, aurally, er ally, er-ally, Earl, earl, Earle, Reilly, ally
 erally	really	1	13	really, rally, orally, early, aerially, aurally, er ally, er-ally, Earl, earl, Earle, Reilly, ally
 eratic	erratic	1	13	erratic, erotic, erotica, era tic, era-tic, Erato, Eric, erotics, aortic, operatic, heretic, Arctic, arctic
-eratically	erratically	1	2	erratically, erotically
+eratically	erratically	1	9	erratically, erotically, vertically, radically, operatically, piratically, critically, aromatically, oratorically
 eraticly	erratically	1	8	erratically, article, erotically, erratic, erotic, particle, erotica, irately
 erested	arrested	4	10	wrested, rested, Oersted, arrested, crested, erected, breasted, erased, rusted, forested
 erested	erected	6	10	wrested, rested, Oersted, arrested, crested, erected, breasted, erased, rusted, forested
@@ -1428,13 +1428,13 @@ essentual	essential	1	13	essential, eventual, essentially, essentials, accentual
 essesital	essential	1	42	essential, easiest, essayists, especial, essayist, assists, essentially, assist, pedestal, Estella, recital, siesta, societal, essayist's, festal, septal, vestal, assist's, assisted, distal, siestas, sisal, Epistle, epistle, assisting, assistive, eases, Ital, hospital, ital, assessed, messiest, suicidal, inositol, Estes, asses, steal, Estes's, siesta's, Essie's, ease's, ESE's
 estabishes	establishes	1	7	establishes, established, astonishes, establish, stashes, reestablishes, ostriches
 establising	establishing	1	7	establishing, stabilizing, destabilizing, establish, stabling, reestablishing, establishes
-ethnocentricm	ethnocentrism	2	2	ethnocentric, ethnocentrism
+ethnocentricm	ethnocentrism	2	3	ethnocentric, ethnocentrism, ethnocentrism's
 ethose	those	2	7	ethos, those, ethos's, echoes, enthuse, outhouse, these
 ethose	ethos	1	7	ethos, those, ethos's, echoes, enthuse, outhouse, these
 Europian	European	1	10	European, Utopian, Europa, Europeans, Europium, Eurasian, Europa's, Europe, European's, Turpin
 Europians	Europeans	1	11	Europeans, European's, Utopians, Europa's, European, Eurasians, Utopian's, Europium's, Eurasian's, Europe's, Turpin's
-Eurpean	European	1	5	European, Europeans, Europa, Europe, European's
-Eurpoean	European	1	5	European, Europeans, Europa, Europe, European's
+Eurpean	European	1	28	European, Europeans, Europa, Europe, European's, Urban, Eurasian, Europe's, Ripen, Turpin, Orphan, Erna, Iran, Europa's, Arena, Eureka, Erupt, Erupting, Eruption, Uprear, Urea, Earp, Erin, Oran, Open, Reopen, Upon, Efren
+Eurpoean	European	1	9	European, Europeans, Europa, Europe, European's, Europe's, Europa's, Eurasian, Upon
 evenhtually	eventually	1	4	eventually, eventual, eventfully, eventuality
 eventally	eventually	1	12	eventually, even tally, even-tally, event ally, event-ally, eventual, eventfully, eventuality, evenly, dentally, mentally, eventful
 eventially	eventually	1	9	eventually, essentially, eventual, eventfully, eventuality, initially, essential, reverentially, sequentially
@@ -1453,7 +1453,7 @@ exagerrates	exaggerates	1	11	exaggerates, execrates, exaggerated, exaggerate, ex
 exagerrating	exaggerating	1	10	exaggerating, execrating, exonerating, exaggeration, exacerbating, excoriating, excreting, exerting, exasperating, oxygenating
 examinated	examined	1	19	examined, eliminated, emanated, examines, examine, extenuated, inseminated, expatiated, exterminated, examiner, expiated, germinated, examination, exempted, extincted, abominated, culminated, exited, oxygenated
 exampt	exempt	1	14	exempt, exam pt, exam-pt, exempts, example, except, expat, exam, exampled, exempted, exact, exalt, exams, exam's
-exapansion	expansion	1	3	expansion, expansions, expansion's
+exapansion	expansion	1	13	expansion, expansions, expansion's, explanation, explosion, expulsion, extension, expanding, expiation, examination, expansionary, expression, expansive
 excact	exact	1	13	exact, excavate, expect, oxcart, exacts, exacted, extract, exalt, excreta, excrete, expat, except, extant
 excange	exchange	1	6	exchange, expunge, exchanged, exchanges, expanse, exchange's
 excecute	execute	1	12	execute, excite, executed, executes, except, expect, executor, excrete, excused, executive, execrate, excuse
@@ -1471,7 +1471,7 @@ excercise	exercise	1	7	exercise, exercises, exorcise, exercise's, exercised, exe
 exchanching	exchanging	1	18	exchanging, expanding, exchange, expansion, examining, expunging, exchanged, exchanges, exchange's, expending, extending, exaction, expounding, extension, expansions, extinction, extinguishing, expansion's
 excisted	existed	3	3	excised, excited, existed
 exculsivly	exclusively	1	6	exclusively, excursively, exclusivity, exclusive, exclusives, exclusive's
-execising	exercising	1	3	exercising, excising, exorcising
+execising	exercising	1	9	exercising, excising, exorcising, excusing, exciting, exceeding, excision, existing, excelling
 exection	execution	1	10	execution, exaction, ejection, exertion, executions, execration, election, erection, execution's, exaction's
 exectued	executed	1	8	executed, exacted, executes, execute, expected, ejected, exerted, execrated
 exeedingly	exceedingly	1	7	exceedingly, exactingly, excitingly, exceeding, exuding, expediently, jestingly
@@ -1488,12 +1488,12 @@ exerpts	excerpts	1	7	excerpts, exerts, exempts, excerpt's, experts, excepts, exp
 exersize	exercise	1	17	exercise, exorcise, exercised, exerciser, exercises, oversize, exerts, excise, exegesis, excessive, exercise's, expertise, excursive, exercising, extrusive, exorcised, exorcises
 exerternal	external	1	4	external, externally, externals, external's
 exhalted	exalted	1	10	exalted, exhaled, ex halted, ex-halted, exhausted, exulted, exhorted, exhales, exhale, exacted
-exhibtion	exhibition	1	4	exhibition, exhibitions, exhibiting, exhibition's
+exhibtion	exhibition	1	12	exhibition, exhibitions, exhibiting, exhibition's, exhaustion, exhumation, exhibitor, exhalation, expiation, exhibit, exhibits, exhibit's
 exibition	exhibition	1	17	exhibition, exhibitions, expiation, execution, exudation, exaction, excision, exertion, exhibiting, exhibition's, oxidation, exposition, exciton, excitation, expedition, expiration, ambition
 exibitions	exhibitions	1	23	exhibitions, exhibition's, exhibition, executions, exhibitionism, exhibitionist, excisions, exertions, expiation's, expositions, execution's, exudation's, exaction's, excision's, exertion's, expeditions, ambitions, oxidation's, exposition's, excitation's, expedition's, expiration's, ambition's
 exicting	exciting	1	6	exciting, exiting, exacting, executing, existing, expecting
 exinct	extinct	1	8	extinct, exact, exeunt, expect, exigent, extincts, exit, exist
-existance	existence	1	8	existence, existences, existence's, existing, Resistance, coexistence, resistance, assistance
+existance	existence	1	11	existence, existences, existence's, existing, Resistance, coexistence, existent, resistance, assistance, exists, instance
 existant	existent	1	13	existent, exist ant, exist-ant, extant, exultant, existing, oxidant, extent, existence, existed, coexistent, resistant, assistant
 existince	existence	1	5	existence, existences, existing, existence's, coexistence
 exliled	exiled	1	16	exiled, extolled, exhaled, excelled, exulted, expelled, exiles, exile, exalted, exclude, explode, exited, excised, excited, exile's, expired
@@ -1505,7 +1505,7 @@ expalin	explain	1	12	explain, explains, expelling, exhaling, explained, expulsio
 expeced	expected	1	13	expected, exposed, exceed, expelled, expect, expend, expired, expressed, Exocet, expects, expended, explode, expose
 expecially	especially	1	3	especially, especial, specially
 expeditonary	expeditionary	1	15	expeditionary, expediting, expediter, expeditions, expedition, expansionary, expository, expedition's, expediters, expediency, expedite, expiatory, expediently, expediter's, expenditure
-expeiments	experiments	1	5	experiments, experiment's, expedients, expedient's, experiment
+expeiments	experiments	1	13	experiments, experiment's, expedients, expedient's, exponents, experiment, escapements, exponent's, experimenters, expedient, escapement's, expends, experimenter's
 expell	expel	1	12	expel, expels, exp ell, exp-ell, expelled, excel, Aspell, Ispell, exile, expelling, expo, spell
 expells	expels	1	27	expels, exp ells, exp-ells, expel ls, expel-ls, expelled, expel, excels, exiles, expense, express, exile's, expos, expelling, Aspell's, Ispell's, spells, expo's, expats, extols, respells, expects, expends, experts, spell's, express's, expert's
 experiance	experience	1	7	experience, experienced, experiences, expedience, exuberance, experience's, inexperience
@@ -1516,7 +1516,7 @@ explaination	explanation	1	6	explanation, explanations, explication, exploitatio
 explaning	explaining	1	15	explaining, ex planing, ex-planing, explain, explains, enplaning, exploding, exploring, expanding, expelling, expunging, explained, reexplaining, exploiting, expiating
 explictly	explicitly	1	9	explicitly, explicate, explicable, explicated, explicates, explicit, explicating, exactly, expertly
 exploititive	exploitative	1	7	exploitative, expletive, exploited, exploitation, explosive, exploiting, exploitable
-explotation	exploitation	1	9	exploitation, exploration, exportation, explication, exaltation, exultation, expectation, explanation, exploitation's
+explotation	exploitation	1	10	exploitation, exploration, exportation, explication, exaltation, exultation, expectation, explanation, exploitation's, explosion
 expropiated	expropriated	1	12	expropriated, expropriate, expropriates, exported, extirpated, expiated, excoriated, expurgated, exploited, expropriator, expatiated, expatriated
 expropiation	expropriation	1	12	expropriation, expropriations, exportation, expiration, expropriating, extirpation, expropriation's, expiation, excoriation, expurgation, exposition, exploration
 exressed	expressed	1	32	expressed, exercised, expresses, exerted, egresses, exceed, excesses, accessed, exorcised, excised, excused, exposed, regressed, caressed, creased, exercise, erased, exerts, express, express's, crossed, greased, excreted, unexpressed, egress, excess, ogresses, egress's, engrossed, existed, grassed, grossed
@@ -1539,12 +1539,12 @@ eyar	year	1	59	year, ear, ERA, era, Eur, Eyre, UAR, AR, Ar, ER, Er, er, err, oar
 eyars	years	1	73	years, ears, eras, ear's, errs, oars, erase, Ayers, era's, Eyre's, euros, tears, year's, Ar's, Ares, Er's, Eris, Eros, Erse, airs, ares, auras, earls, earns, eyes, IRAs, ear, oar's, Sears, bears, dears, fears, gears, hears, nears, pears, rears, sears, wears, yrs, Iyar's, IRS, arras, Eyre, tear's, Ur's, air's, are's, eye's, euro's, Ara's, IRA's, Ira's, Ora's, Eire's, Lear's, aura's, bear's, dear's, fear's, gear's, pear's, rear's, sear's, wear's, Earl's, Earp's, Eeyore's, Ir's, earl's, Ezra's, Lyra's, Myra's
 eyasr	years	19	85	ESR, USSR, ears, ease, eyesore, East, easier, east, ear, erase, eraser, eras, easy, eyes, Iyar, teaser, Ieyasu, user, years, Ezra, Cesar, ESE, Eur, Eyre, UAR, essayer, leaser, year, yeas, erasure, errs, etas, oars, AR, Ar, As, ER, Easter, Er, Es, Esau, Sr, as, er, es, sear, Erse, era's, geyser, Eu's, eye's, Ayers, E's, ERA, OAS, air, arr, ass, era, err, essay, oar, Er's, Eris, Eros, IRAs, e'er, yea's, ear's, eta's, A's, Ezra's, Eyre's, AA's, As's, EPA's, Eva's, Ara's, IRA's, Ira's, Ora's, year's, Ar's, oar's, Iyar's
 faciliate	facilitate	1	12	facilitate, facility, facilities, vacillate, facilitated, facilitates, facile, affiliate, fascinate, oscillate, facility's, fusillade
-faciliated	facilitated	1	3	facilitated, facilitate, facilitates
+faciliated	facilitated	1	9	facilitated, facilitate, facilitates, vacillated, facilities, affiliated, fascinated, facility, facilitator
 faciliates	facilitates	1	4	facilitates, facilities, facilitate, facility's
 facilites	facilities	1	7	facilities, facility's, faculties, facilitates, facility, frailties, facilitate
 facillitate	facilitate	1	4	facilitate, facilitated, facilitates, facilitator
 facinated	fascinated	1	7	fascinated, fascinates, fascinate, fainted, faceted, feinted, sainted
-facist	fascist	1	21	fascist, racist, fanciest, fascists, fauvist, Faust, facets, fast, fist, faddist, fascism, laciest, paciest, raciest, faces, facet, foist, fayest, fascist's, face's, facet's
+facist	fascist	1	35	fascist, racist, fanciest, fascists, fauvist, Faust, facets, fast, fist, faddist, fascism, laciest, paciest, raciest, faces, facet, foist, fayest, fascias, fasts, faucets, fists, facts, fascist's, fascistic, feast, foists, face's, fascia's, Faust's, fast's, fist's, facet's, fact's, faucet's
 familes	families	1	34	families, family's, famines, females, fa miles, fa-miles, smiles, Miles, fails, files, miles, famine's, famishes, female's, fail's, family, Tamils, fables, fumbles, Tamil's, faille's, similes, tamales, smile's, fame's, file's, mile's, Camille's, Emile's, fable's, fumble's, Hamill's, simile's, tamale's
 familliar	familiar	1	7	familiar, familiars, familial, familiar's, familiarly, families, frillier
 famoust	famous	1	20	famous, famously, foamiest, Faust, fumiest, Maoist, foist, moist, fast, most, must, Samoset, gamest, Frost, frost, amount, fame's, fayest, lamest, tamest
@@ -1554,13 +1554,13 @@ fatc	fact	1	20	fact, FTC, fat, fate, fats, FDIC, Fiat, feat, fiat, AFDC, Tc, ft,
 faught	fought	3	19	fraught, aught, fought, fight, caught, naught, taught, fat, fut, flight, fright, haughty, naughty, Faust, fagot, fault, ought, faggot, faucet
 feasable	feasible	1	19	feasible, feasibly, fusible, guessable, reusable, erasable, fable, sable, disable, friable, passable, feeble, usable, freezable, Foosball, peaceable, savable, eatable, fixable
 Febuary	February	1	43	February, Rebury, Friary, Debar, Bury, Fear, Foobar, Fury, Fibular, Ferry, Furry, Femur, Fiber, Fairy, Floury, Flurry, Bray, Bear, Fray, Fibber, Barry, Fiery, February's, Ferrari, Ferraro, Berry, Feb, Bar, Beery, Bur, Foray, Bovary, Ferber, EBay, Barr, Burr, Bare, Boar, Faro, Forebear, Four, Fears, Fear's
-fedreally	federally	1	9	federally, fed really, fed-really, Federal, federal, Federals, federals, Federal's, federal's
+fedreally	federally	1	20	federally, fed really, fed-really, Federal, federal, funereally, Federals, federals, Federal's, Ferrell, federal's, frailly, feral, federalize, really, dearly, drolly, freely, frilly, severally
 feromone	pheromone	1	43	pheromone, freemen, ferrymen, forming, ermine, Fremont, forgone, hormone, firemen, foremen, Freeman, bromine, freeman, germane, farming, ferryman, firming, framing, pheromones, sermon, Furman, frogmen, ferment, romaine, Foreman, fireman, foreman, Fermi, Fromm, Romney, foregone, ceremony, from, Mormon, frozen, mermen, frogman, Ramon, Roman, frame, frown, roman, pheromone's
 fertily	fertility	2	34	fertile, fertility, fervidly, dirtily, heartily, pertly, fortify, fitly, fleetly, frilly, prettily, frostily, foretell, freely, frailty, ferule, fettle, firstly, frailly, feral, fertilize, fetal, forty, frail, frill, furtively, freckly, freshly, eerily, overtly, verily, fruity, futile, heftily
 fianite	finite	1	48	finite, faint, fiance, fainted, fainter, fiancee, feint, fined, font, Fannie, Dante, giant, unite, Fiat, faints, fanned, fate, fiat, fine, finitely, finned, fount, ante, finale, pantie, Canute, finality, find, minute, fondue, granite, Anita, definite, finis, innit, fiend, ignite, innate, Fichte, fajita, finial, fining, finish, sanity, vanity, lignite, faint's, finis's
 fianlly	finally	1	8	finally, Finlay, Finley, finely, final, finale, faintly, filly
 ficticious	fictitious	1	16	fictitious, factitious, judicious, factious, fictitiously, fictions, victorious, fastidious, factoids, fiction's, felicitous, factors, efficacious, factoid's, Fujitsu's, factor's
-fictious	fictitious	3	9	factious, fictions, fictitious, fiction's, fractious, facetious, fiction, factions, faction's
+fictious	fictitious	3	15	factious, fictions, fictitious, fiction's, fractious, facetious, fiction, factions, ficus, frictions, factitious, fichus, faction's, friction's, fichu's
 fidn	find	1	42	find, fin, fading, Fido, Finn, fiend, fond, fund, din, FUD, fain, fine, fun, futon, fend, FD, FDIC, Odin, Dion, Fiona, feign, finny, Biden, Fidel, widen, FDA, FWD, Fed, fad, fan, fed, fen, fit, fwd, tin, FDR, Fiat, fade, faun, fawn, fiat, Fido's
 fiel	feel	6	28	file, fuel, Fidel, field, fie, feel, fill, fowl, fail, fell, filo, foil, fol, FL, fl, filly, foal, foll, fool, foul, full, Kiel, Riel, fief, fall, flea, flee, flew
 fiel	field	4	28	file, fuel, Fidel, field, fie, feel, fill, fowl, fail, fell, filo, foil, fol, FL, fl, filly, foal, foll, fool, foul, full, Kiel, Riel, fief, fall, flea, flee, flew
@@ -1572,7 +1572,7 @@ fiels	files	1	40	files, fuels, Fields, fields, field, feels, fills, fowls, fuel'
 fiels	phials	0	40	files, fuels, Fields, fields, field, feels, fills, fowls, fuel's, fails, fells, flies, foils, file's, feel's, fill's, foals, fools, fouls, fulls, fiefs, fowl's, falls, fleas, flees, fail's, fell's, foil's, Fidel's, foal's, fool's, foul's, full's, field's, Kiel's, Riel's, fief's, filly's, fall's, flea's
 fiercly	fiercely	1	11	fiercely, freckly, firefly, firmly, freckle, fairly, freely, fiery, feral, fierce, ferule
 fightings	fighting	2	11	fighting's, fighting, fittings, sightings, fitting's, footings, lighting's, sighting's, weightings, footing's, fishing's
-filiament	filament	1	4	filament, filaments, filament's, lament
+filiament	filament	1	20	filament, filaments, filament's, lament, ailment, aliment, figment, fitment, firmament, fluent, foment, ligament, Flint, flint, filamentous, Lamont, filmed, flamed, flaunt, defilement
 fimilies	families	1	37	families, homilies, fillies, similes, females, family's, milieus, familiars, Miles, files, flies, miles, follies, fumbles, finales, simile's, female's, smiles, implies, Millie's, famines, fiddles, fizzles, familiar's, file's, mile's, fumble's, finale's, milieu's, Emile's, smile's, faille's, Emilia's, Emilio's, famine's, fiddle's, fizzle's
 finacial	financial	1	6	financial, finical, facial, finial, financially, final
 finaly	finally	2	9	Finlay, finally, final, finale, finely, Finley, finial, finals, final's
@@ -1581,7 +1581,7 @@ firends	friends	2	24	Friends, friends, fiends, Friend's, friend's, fronds, fir e
 firts	flirts	4	47	forts, first, firsts, flirts, firths, girts, firs, fits, farts, fort's, fortes, frats, frets, Fritz, fritz, fart's, fords, fiats, fir's, fires, firms, fists, forty's, fir ts, fir-ts, frat's, fret's, Frito's, first's, flirt's, dirt's, forte's, girt's, Ford's, fit's, ford's, frights, Fri's, firth's, Fiat's, fiat's, fire's, firm's, fist's, fright's, Fritz's, fritz's
 firts	first	2	47	forts, first, firsts, flirts, firths, girts, firs, fits, farts, fort's, fortes, frats, frets, Fritz, fritz, fart's, fords, fiats, fir's, fires, firms, fists, forty's, fir ts, fir-ts, frat's, fret's, Frito's, first's, flirt's, dirt's, forte's, girt's, Ford's, fit's, ford's, frights, Fri's, firth's, Fiat's, fiat's, fire's, firm's, fist's, fright's, Fritz's, fritz's
 fisionable	fissionable	1	3	fissionable, fashionable, fashionably
-flamable	flammable	1	7	flammable, blamable, flammables, flambe, claimable, flyable, flammable's
+flamable	flammable	1	11	flammable, blamable, flammables, flambe, claimable, flyable, flammable's, flambes, fallible, fumble, flambe's
 flawess	flawless	1	54	flawless, flawed, flaws, flaw's, flakes, flames, flares, Flowers, flowers, flake's, flame's, flare's, flyways, fleas, flees, Flowers's, flyway's, lawless, flashes, flatness, flays, flies, floes, floss, flows, flues, Falwell, flags, flans, flaps, flats, flosses, flower's, Flores's, flatus's, Lowe's, floe's, flow's, flue's, flab's, flag's, flak's, flan's, flap's, flat's, flea's, Dawes's, Fawkes's, flash's, Falwell's, flesh's, Fates's, Lewis's, floss's
 fleed	fled	1	18	fled, flees, feed, flee, fleet, flied, fueled, filed, felled, filled, flayed, fulled, bleed, freed, field, Floyd, flood, fluid
 fleed	freed	14	18	fled, flees, feed, flee, fleet, flied, fueled, filed, felled, filled, flayed, fulled, bleed, freed, field, Floyd, flood, fluid
@@ -1605,7 +1605,7 @@ Formalhaut	Fomalhaut	1	5	Fomalhaut, Formalist, Formality, Fomalhaut's, Formulate
 formallize	formalize	1	7	formalize, formalized, formalizes, normalize, formals, formally, formal's
 formallized	formalized	1	5	formalized, formalizes, formalize, normalized, formalist
 formaly	formally	1	13	formally, formal, firmly, formals, formula, formulae, format, formality, formal's, formalin, formerly, normally, normal
-formelly	formerly	2	5	formally, formerly, firmly, formal, formula
+formelly	formerly	2	21	formally, formerly, firmly, formal, formula, normally, formulae, foreplay, foretell, formless, freely, frilly, Hormel, formed, former, formality, Farrell, Ferrell, formals, frailly, formal's
 formidible	formidable	1	4	formidable, formidably, fordable, forcible
 formost	foremost	1	18	foremost, firmest, foremast, Formosa, for most, for-most, format, formats, Frost, forms, frost, Formosan, Forest, forest, form's, Forrest, Formosa's, format's
 forsaw	foresaw	1	79	foresaw, for saw, for-saw, forsake, firs, fores, fours, foresee, fora, forays, force, furs, foray, fossa, Farsi, fairs, fir's, fires, floras, fore's, four's, Warsaw, fords, fretsaw, Fr's, Rosa, froze, foes, fore, forks, forms, forts, foyers, foresail, Formosa, Frost, fares, fears, for, frays, frost, fur's, oversaw, frosh, horas, Forest, foray's, forest, Frau, fray, frosty, fair's, fire's, Ford's, Fri's, faro's, ford's, foe's, fort's, Fry's, foyer's, fry's, fare's, fear's, fork's, form's, Flora's, flora's, Dora's, fury's, FDR's, Frau's, fray's, frosh's, Ora's, Cora's, Lora's, Nora's, hora's
@@ -1615,7 +1615,7 @@ forunner	forerunner	1	9	forerunner, funner, runner, fernier, funnier, runnier, F
 foucs	focus	1	26	focus, ficus, fucks, fogs, fouls, fours, fog's, Fox, fox, focus's, fogy's, Fuchs, fuck's, locus, foul's, four's, foes, fuck, fuss, Fox's, foe's, fox's, ficus's, FICA's, Foch's, Fuji's
 foudn	found	1	25	found, fond, fund, fount, feuding, FUD, fun, futon, faun, feud, food, FUDs, furn, find, Fonda, feuds, foods, dun, fondue, font, Fundy, fend, founds, feud's, food's
 fougth	fought	1	31	fought, Fourth, fourth, forth, fifth, Goth, fogy, goth, froth, fog, fug, quoth, Faith, faith, foggy, filth, firth, fourths, cough, fogs, fuggy, South, mouth, south, youth, fount, fugue, fog's, fugal, fogy's, fourth's
-foundaries	foundries	1	5	foundries, boundaries, founders, founder's, foundry's
+foundaries	foundries	1	7	foundries, boundaries, founders, founder's, foundry's, quandaries, sundries
 foundary	foundry	1	7	foundry, founder, boundary, fonder, founders, foundry's, founder's
 Foundland	Newfoundland	8	13	Found land, Found-land, Foundling, Finland, Foundlings, Fondant, Fondled, Newfoundland, Fondling, Foundling's, Undulant, Founded, Founding
 fourties	forties	1	46	forties, fortes, four ties, four-ties, forte's, forts, Furies, furies, fourteens, fort's, fruits, fourths, sorties, forty's, fruit's, furriest, fortunes, fourteen, fourth's, Fourier's, furtive, futurities, fores, forte, fortieths, fortifies, fours, fries, fluorite's, mortise, fortress, farts, fords, sortie's, four's, fourteen's, routes, Ford's, fart's, ford's, fortune's, Frito's, fore's, Furies's, route's, fortieth's
@@ -1686,7 +1686,7 @@ gonig	going	1	27	going, gong, gonk, conic, goings, gonging, gowning, gongs, Gog,
 gouvener	governor	6	11	guvnor, convener, souvenir, goner, Governor, governor, gunner, evener, toughener, greener, goldener
 govement	government	3	15	movement, pavement, government, foment, garment, movements, governed, covenant, cavemen, comment, Clement, clement, casement, covalent, movement's
 govenment	government	1	8	government, governments, movement, covenant, government's, governmental, convenient, pavement
-govenrment	government	1	4	government, governments, government's, governmental
+govenrment	government	1	5	government, governments, government's, governmental, conferment
 goverance	governance	1	12	governance, governs, covariance, severance, governed, governess, overnice, govern, Governor, governor, grievance, governance's
 goverment	government	1	12	government, governments, ferment, governed, garment, conferment, movement, deferment, government's, governmental, govern, gourmet
 govermental	governmental	1	5	governmental, governments, government, government's, germinal
@@ -1698,7 +1698,7 @@ govornment	government	1	4	government, governments, government's, governmental
 gracefull	graceful	2	6	gracefully, graceful, grace full, grace-full, gratefully, grateful
 graet	great	2	21	grate, great, greet, gyrate, Greta, grade, groat, garret, caret, crate, Grady, grayed, grad, grit, Grant, graft, grant, cruet, greed, grout, kraut
 grafitti	graffiti	1	19	graffiti, graffito, graft, gravity, crafty, Craft, Kraft, craft, grafting, grafts, graphite, gritty, gravitate, gravid, Grafton, graft's, grafted, grafter, graffito's
-gramatically	grammatically	1	5	grammatically, dramatically, grammatical, traumatically, aromatically
+gramatically	grammatically	1	6	grammatically, dramatically, grammatical, traumatically, aromatically, pragmatically
 grammaticaly	grammatically	1	2	grammatically, grammatical
 grammer	grammar	2	6	crammer, grammar, grimmer, Kramer, grimier, groomer
 grat	great	2	37	grate, great, groat, Grant, Gray, graft, grant, gray, frat, rat, grad, grit, Greta, Grady, gyrate, girt, cart, kart, Croat, crate, grade, greet, grout, kraut, CRT, ghat, goat, GMAT, brat, carat, drat, grab, gram, gran, karat, prat, grid
@@ -1720,7 +1720,7 @@ guarentees	guarantees	1	12	guarantees, guarantee's, guaranties, grantees, guaran
 Guatamala	Guatemala	1	5	Guatemala, Guatemalan, Gautama, Gautama's, Guatemala's
 Guatamalan	Guatemalan	1	5	Guatemalan, Guatemalans, Guatemala, Guatemalan's, Guatemala's
 guerilla	guerrilla	1	12	guerrilla, gorilla, guerrillas, grill, grille, grills, guerrilla's, gorillas, krill, Guerra, grill's, gorilla's
-guerillas	guerrillas	1	9	guerrillas, guerrilla's, gorillas, guerrilla, grills, gorilla's, grill's, grilles, grille's
+guerillas	guerrillas	1	12	guerrillas, guerrilla's, gorillas, guerrilla, grills, gorilla's, grill's, grilles, grille's, gorilla, krill's, Guerra's
 guerrila	guerrilla	1	10	guerrilla, guerrillas, Guerra, guerrilla's, gorilla, Grail, grail, grill, gerbil, Guerra's
 guerrilas	guerrillas	1	11	guerrillas, guerrilla's, guerrilla, Guerra's, gorillas, grills, gerbils, Grail's, gerbil's, gorilla's, grill's
 guidence	guidance	1	11	guidance, audience, cadence, Gideon's, guidance's, guides, quince, guide's, guiding, guldens, gulden's
@@ -1730,7 +1730,7 @@ gunanine	guanine	1	13	guanine, gunning, Giannini, guanine's, ginning, Janine, Je
 gurantee	guarantee	1	15	guarantee, grantee, grandee, guaranteed, guarantees, granite, grantees, granter, Grant, grant, guaranty, granted, Durante, guarantee's, grantee's
 guranteed	guaranteed	1	10	guaranteed, granted, guarantied, grunted, guarantees, guarantee, grantees, grantee, guarantee's, grantee's
 gurantees	guarantees	1	18	guarantees, grantees, guarantee's, grantee's, guaranties, grandees, guaranteed, granters, guarantee, grants, grandee's, granite's, grantee, Grant's, grant's, guaranty's, Durante's, granter's
-guttaral	guttural	1	5	guttural, gutturals, guitar, gutter, guttural's
+guttaral	guttural	1	20	guttural, gutturals, guitars, gutters, guitar, gutter, guttural's, littoral, cultural, gestural, tutorial, guitar's, gutter's, guttered, guttier, utterly, curtail, neutral, cottar, cutter
 gutteral	guttural	1	10	guttural, gutters, gutter, gutturals, gutter's, guttered, guttier, utterly, cutter, guttural's
 haev	have	1	19	have, heave, heavy, hive, hove, HIV, HOV, halve, Ave, ave, Havel, haven, haves, shave, Ha, He, ha, he, have's
 haev	heave	2	19	have, heave, heavy, hive, hove, HIV, HOV, halve, Ave, ave, Havel, haven, haves, shave, Ha, He, ha, he, have's
@@ -1740,7 +1740,7 @@ hapen	happen	1	97	happen, haven, ha pen, ha-pen, hap en, hap-en, happens, heapin
 hapened	happened	1	41	happened, cheapened, hyphened, opened, pawned, ripened, happens, horned, happen, heaped, honed, penned, pwned, append, spawned, spend, harpooned, hand, japanned, pained, panned, pend, sharpened, dampened, hampered, hardened, hastened, hoped, hyped, pined, spanned, upend, hipped, hopped, depend, hymned, opined, honeyed, deepened, reopened, haven't
 hapening	happening	1	28	happening, happenings, cheapening, hyphening, opening, pawning, ripening, hanging, happening's, heaping, honing, penning, pwning, spawning, harpooning, paining, panning, sharpening, dampening, hampering, hardening, hastening, hoping, hyping, pining, spanning, hipping, hopping
 happend	happened	1	8	happened, happens, append, happen, hap pend, hap-pend, hipped, hopped
-happended	happened	2	4	appended, happened, hap pended, hap-pended
+happended	happened	2	10	appended, happened, hap pended, hap-pended, handed, pended, upended, depended, happen, append
 happenned	happened	1	18	happened, hap penned, hap-penned, happens, happen, penned, append, happening, japanned, appended, hyphened, panned, hennaed, harpooned, cheapened, spanned, pinned, punned
 harased	harassed	1	44	harassed, horsed, harasses, harass, hared, arsed, phrased, harasser, erased, harked, harmed, harped, parsed, harried, Tarazed, hares, haired, harnessed, hearse, hoarse, raised, Hearst, hairiest, hard, hoariest, hazard, hayseed, harts, Harte, hardest, harvest, hazed, hired, horas, horse, hosed, raced, razed, hare's, Harte's, Hart's, hart's, Hera's, hora's
 harases	harasses	1	20	harasses, harass, hearses, horses, hearse's, harassers, harassed, arrases, harasser, hares, horse's, harness, phrases, Harare's, Horace's, harasser's, hearsay's, hare's, phrase's, Hersey's
@@ -1748,7 +1748,7 @@ harasment	harassment	1	28	harassment, harassment's, garment, armament, horsemen,
 harassement	harassment	1	10	harassment, harassment's, horsemen, abasement, easement, harassed, basement, casement, horseman, harassing
 harras	harass	3	43	arras, Harris, harass, hares, Harry's, hare's, harries, harrows, hairs, horas, Harris's, hears, Herr's, hair's, Hera's, hers, harts, arrays, hrs, Haas, hora's, Harare, Harrods, Hart's, hart's, hurrahs, harrow's, Harry, harks, harms, harps, harry, hurry's, harm's, harp's, arras's, Ara's, Harare's, array's, Hadar's, Hagar's, hurrah's, O'Hara's
 harrased	harassed	1	26	harassed, horsed, harried, harnessed, harrowed, hurrahed, harasses, harass, erased, hared, harries, arsed, phrased, harasser, Harris, haired, harked, harmed, harped, parsed, Harris's, arrayed, hairiest, Harriet, hurried, Harry's
-harrases	harasses	2	11	arrases, harasses, hearses, harass, horses, hearse's, harries, Harare's, Harris's, horse's, Horace's
+harrases	harasses	2	25	arrases, harasses, hearses, harass, horses, hearse's, harries, Harare's, Harris's, harassers, harassed, harasser, hares, horse's, harness, phrases, hearsay's, Harris, Horace's, arras's, harasser's, Harry's, Hersey's, hare's, phrase's
 harrasing	harassing	1	25	harassing, Harrison, horsing, harrying, harnessing, harrowing, hurrahing, greasing, Harding, erasing, haring, arsing, phrasing, creasing, Herring, herring, arising, harking, harming, harping, parsing, arraying, arousing, hurrying, Harrison's
 harrasment	harassment	1	21	harassment, harassment's, armament, garment, horsemen, herdsmen, abasement, raiment, oarsmen, Parliament, parliament, Harrison, harassed, argument, fragment, ornament, rearmament, harassing, merriment, worriment, Harrison's
 harrassed	harassed	1	12	harassed, harasses, harasser, harnessed, grassed, harass, caressed, horsed, harried, harrowed, hurrahed, Harris's
@@ -1777,12 +1777,12 @@ herad	Hera	5	14	heard, herald, herd, Head, Hera, head, Herod, hard, heart, hoard
 heridity	heredity	1	13	heredity, aridity, humidity, crudity, erudite, hereditary, heredity's, hermit, torridity, Hermite, hardily, herding, acridity
 heroe	hero	3	38	heroes, here, hero, Herr, her, Hera, hare, hire, Herod, heron, heir, he roe, he-roe, heroine, hear, hoer, HR, hereof, hereon, hora, hr, hoe, roe, ere, throe, Heroku, Hersey, hearse, hero's, heroic, heroin, there, where, herb, herd, hers, how're, here's
 heros	heroes	2	34	hero's, heroes, herons, Herod, hers, Eros, hero, heirs, hears, hoers, hrs, Hera's, Herr's, heir's, here's, heresy, hoer's, herbs, herds, heron, zeros, hares, hires, Horus, horas, hare's, hire's, Herod's, heron's, herb's, herd's, Nero's, zero's, hora's
-hertzs	hertz	4	15	Hertz's, hertz's, Hertz, hertz, hearts, heart's, harts, herds, hurts, Hart's, hart's, herd's, hurt's, Huerta's, hearty's
+hertzs	hertz	4	30	Hertz's, hertz's, Hertz, hertz, hearts, heart's, harts, herds, hurts, Hart's, hart's, herd's, hurt's, Hearst's, Huerta's, hearties, hearty's, hers, Herr's, Hurst's, Harte's, Herod's, heats, Ritz's, chert's, Hera's, heat's, here's, hero's, Herzl's
 hesistant	hesitant	1	4	hesitant, resistant, assistant, headstand
 heterogenous	heterogeneous	1	5	heterogeneous, hydrogenous, heterogeneously, nitrogenous, erogenous
 hieght	height	1	39	height, heights, eight, hit, high, weight, heat, hied, haughty, Right, bight, fight, highs, light, might, night, right, sight, tight, wight, eighty, height's, heighten, hide, Hugh, heft, weighty, heist, hgt, hie, Heath, heath, Heidi, hid, high's, hilt, hint, hist, he'd
 hierachical	hierarchical	1	4	hierarchical, hierarchically, hierarchic, heretical
-hierachies	hierarchies	1	7	hierarchies, huaraches, huarache's, Hitachi's, hibachis, hierarchy's, hibachi's
+hierachies	hierarchies	1	29	hierarchies, huaraches, huarache's, Hitachi's, hibachis, hierarchy's, heartaches, hibachi's, reaches, hitches, earaches, breaches, hearties, preaches, searches, huarache, headaches, hierarchic, birches, perches, Heracles, heartache's, Archie's, Mirach's, Hershey's, Horace's, earache's, headache's, Richie's
 hierachy	hierarchy	1	20	hierarchy, huarache, Hershey, preachy, Hitachi, Mirach, hibachi, reach, hitch, harsh, heartache, hierarchy's, Hera, breach, hearth, hearty, hierarchic, preach, search, Heinrich
 hierarcical	hierarchical	1	4	hierarchical, hierarchically, hierarchic, farcical
 hierarcy	hierarchy	1	34	hierarchy, hierarchy's, Hersey, hearers, Horace, hearsay, heresy, horrors, hears, hearer's, literacy, horror's, Hilary, hearty, hierarchic, hierarchies, piracy, Harare, Harare's, Hera's, Herero, Herero's, Herr's, hearer, hearse, hearts, Hillary, Herrera's, Hiram's, heroics, heart's, Hilary's, hearty's, Hillary's
@@ -1793,9 +1793,9 @@ higest	highest	1	14	highest, hugest, digest, hokiest, hist, biggest, hippest, ho
 higway	highway	1	24	highway, hgwy, Segway, highways, hogwash, hugely, Hogan, hogan, hideaway, hallway, headway, Kiowa, Hagar, hijab, highly, wigwag, wigwam, Midway, airway, midway, Haggai, hickey, higher, highway's
 hillarious	hilarious	1	7	hilarious, Hilario's, Hillary's, Hilario, hilariously, Hilary's, hilarity's
 himselv	himself	1	32	himself, herself, hims, myself, Kislev, Hummel, homely, Hansel, Himmler, homes, damsel, itself, misled, Melva, helve, hums, HMS, damsels, Hummel's, hams, hassle, hems, self, Hansel's, Hume's, home's, hum's, damsel's, heme's, Ham's, ham's, hem's
-hinderance	hindrance	1	3	hindrance, hindrances, hindrance's
+hinderance	hindrance	1	10	hindrance, hindrances, hindrance's, Hondurans, Honduran's, hindering, endurance, hinders, Honduran, entrance
 hinderence	hindrance	1	7	hindrance, inference, hindrances, hindering, hinders, hindrance's, hindered
-hindrence	hindrance	1	17	hindrance, hindrances, hindrance's, hindering, inference, hinders, Hondurans, indigence, indolence, Honduran's, endurance, hundreds, hundred's, hinder, entrance, hinters, hinter's
+hindrence	hindrance	1	3	hindrance, hindrances, hindrance's
 hipopotamus	hippopotamus	1	3	hippopotamus, hippopotamus's, hippopotamuses
 hismelf	himself	1	38	himself, Ismael, self, Hummel, herself, homely, Hormel, hostel, smell, Himmler, smelt, hostels, myself, thyself, dismal, half, Hamlet, hamlet, hustle, Haskell, Ismael's, Hazel, hazel, smelly, Ismail, smells, simile, Hummel's, hassle, milf, HTML, Hormel's, Kislev, hostel's, smile, Small, small, smell's
 historicians	historians	1	8	historians, historian's, historian, rhetoricians, historicity's, distortions, rhetorician's, distortion's
@@ -1810,7 +1810,7 @@ housr	hours	1	37	hours, House, house, hour, hussar, hosier, housed, houses, Horu
 housr	house	3	37	hours, House, house, hour, hussar, hosier, housed, houses, Horus, hose, houri, Host, host, hoers, Hus, hos, horse, Hoosier, mouser, Ho's, hawser, ho's, hoer, hoes, hows, sour, hosp, husk, Hausa, hour's, Horus's, House's, house's, Hus's, hoe's, how's, hoer's
 howver	however	1	15	however, hover, Hoover, hoover, howler, heaver, hoofer, hovers, hoer, hove, how're, over, Hoovers, hoovers, Hoover's
 hsitorians	historians	1	8	historians, historian's, historian, histories, strains, history's, hysteria's, strain's
-hstory	history	1	5	history, story, Hester, store, history's
+hstory	history	1	22	history, story, Hester, store, Astor, hastier, hasty, history's, stir, stray, historic, hostelry, stormy, HST, Tory, satori, starry, destroy, star, stork, storm, story's
 hten	then	1	97	then, hen, ten, Hayden, hoyden, ht en, ht-en, Hymen, hyena, hymen, Haydn, Tenn, hate, hating, teen, HT, TN, hasten, hone, ht, tn, whiten, Helen, Horn, Hutton, Stein, hated, hater, hates, haven, hidden, horn, hotel, hymn, stein, steno, Han, Hon, Hun, den, hon, tan, tin, ton, tun, Hts, ctn, Horne, heron, harden, eaten, oaten, tine, tone, tune, Etna, heed, hied, hoed, hued, Aden, Attn, Eden, Eton, HTTP, Hahn, Heine, Hyde, Stan, attn, henna, stun, teeny, town, hat, hit, hot, hut, Stine, Stone, atone, heathen, stone, hatpin, hens, hieing, hoeing, tend, tens, tent, tern, hate's, hatting, hitting, hooting, hotting, Henan
 hten	hen	2	97	then, hen, ten, Hayden, hoyden, ht en, ht-en, Hymen, hyena, hymen, Haydn, Tenn, hate, hating, teen, HT, TN, hasten, hone, ht, tn, whiten, Helen, Horn, Hutton, Stein, hated, hater, hates, haven, hidden, horn, hotel, hymn, stein, steno, Han, Hon, Hun, den, hon, tan, tin, ton, tun, Hts, ctn, Horne, heron, harden, eaten, oaten, tine, tone, tune, Etna, heed, hied, hoed, hued, Aden, Attn, Eden, Eton, HTTP, Hahn, Heine, Hyde, Stan, attn, henna, stun, teeny, town, hat, hit, hot, hut, Stine, Stone, atone, heathen, stone, hatpin, hens, hieing, hoeing, tend, tens, tent, tern, hate's, hatting, hitting, hooting, hotting, Henan
 hten	the	0	97	then, hen, ten, Hayden, hoyden, ht en, ht-en, Hymen, hyena, hymen, Haydn, Tenn, hate, hating, teen, HT, TN, hasten, hone, ht, tn, whiten, Helen, Horn, Hutton, Stein, hated, hater, hates, haven, hidden, horn, hotel, hymn, stein, steno, Han, Hon, Hun, den, hon, tan, tin, ton, tun, Hts, ctn, Horne, heron, harden, eaten, oaten, tine, tone, tune, Etna, heed, hied, hoed, hued, Aden, Attn, Eden, Eton, HTTP, Hahn, Heine, Hyde, Stan, attn, henna, stun, teeny, town, hat, hit, hot, hut, Stine, Stone, atone, heathen, stone, hatpin, hens, hieing, hoeing, tend, tens, tent, tern, hate's, hatting, hitting, hooting, hotting, Henan
@@ -1832,8 +1832,8 @@ hvaing	having	1	21	having, heaving, hiving, haying, haling, haring, hating, have
 hvea	have	1	38	have, hive, hove, haves, hives, HIV, HOV, Eva, Head, Hera, head, heal, heap, hear, heat, heave, heavy, Ha, He, ha, he, Neva, Reva, Havel, haven, hived, hovel, hover, HF, Hf, hf, hew, hey, hie, hoe, hue, have's, hive's
 hvea	heave	16	38	have, hive, hove, haves, hives, HIV, HOV, Eva, Head, Hera, head, heal, heap, hear, heat, heave, heavy, Ha, He, ha, he, Neva, Reva, Havel, haven, hived, hovel, hover, HF, Hf, hf, hew, hey, hie, hoe, hue, have's, hive's
 hwihc	which	0	41	Wisc, Whig, hick, huh, wick, wig, Wicca, hoick, swig, twig, Vic, WAC, Wac, HHS, HRH, whisk, Hewitt, hawing, hewing, hike, wiki, Hahn, Huck, heck, hock, whack, wink, HSBC, HQ, Hg, Howe, haiku, Hawaii, havoc, twink, Waco, hack, hawk, hgwy, wack, Yahweh
-hwile	while	1	16	while, wile, whole, Wiley, hole, whale, Hale, Hill, Will, hail, hale, hill, vile, wale, will, wily
-hwole	whole	1	16	whole, hole, Howell, while, Howe, howl, Hoyle, holey, wile, whale, Hale, hale, holy, vole, wale, who'll
+hwile	while	1	58	while, wile, whole, Wiley, hole, whale, Hale, Hill, Howell, Will, hail, hale, hill, vile, wale, will, wily, Howe, heel, howl, Hoyle, voile, Twila, Willie, holey, swill, twill, whiled, whiles, Hillel, wheel, Hallie, Hollie, wail, Wilde, Wiles, wiled, wiles, awhile, Haley, Weill, Willa, Willy, hie, hilly, willy, Chile, White, whine, white, hailed, Hal, hilt, wild, wilt, who'll, while's, wile's
+hwole	whole	1	22	whole, hole, Howell, while, Howe, howl, Hoyle, holey, wile, whale, Hale, hale, holy, vole, wale, AWOL, howled, howler, wholes, wheel, who'll, whole's
 hydogen	hydrogen	1	19	hydrogen, halogen, Hayden, hoyden, Hogan, hedging, hogan, hygiene, hidden, Hodge, Hodgkin, hydrogen's, Hyde, doge, Hodges, doyen, hedge, hedged, Hodge's
 hydropilic	hydrophilic	1	5	hydrophilic, hydroponic, hydraulic, hydroponics, hydroplane
 hydropobic	hydrophobic	1	2	hydrophobic, hydroponic
@@ -1861,7 +1861,7 @@ illess	illness	1	36	illness, ills, ill's, illus, isles, alleys, isle's, oles, Ol
 illiegal	illegal	1	6	illegal, illegally, illegals, illegal's, legal, algal
 illution	illusion	1	19	illusion, allusion, dilution, pollution, illusions, elation, ablution, solution, ululation, Aleutian, illumine, illusion's, lotion, dilation, allusions, elocution, isolation, evolution, allusion's
 ilness	illness	1	22	illness, oiliness, Ilene's, illness's, unless, idleness, oldness, Olen's, lines, Ines's, lioness, Ines, line's, Aline's, vileness, wiliness, evilness, Elena's, Milne's, lens's, oiliness's, Linus's
-ilogical	illogical	1	4	illogical, logical, illogically, biological
+ilogical	illogical	1	11	illogical, logical, illogically, biological, elegiacal, logically, urological, ecological, etiological, ideological, analogical
 imagenary	imaginary	1	13	imaginary, image nary, image-nary, imagery, imaginal, Imogene, imagine, imagines, imagined, imaginably, imaging, imagery's, Imogene's
 imagin	imagine	1	27	imagine, imaging, imago, Amgen, imaginal, imagined, imagines, Imogene, image, Omani, imaged, images, Agni, Oman, again, aging, imagining, margin, imago's, Magi, Meagan, magi, main, making, imaginary, akin, image's
 imaginery	imaginary	1	6	imaginary, imagery, imagine, imagined, imagines, imaging
@@ -1887,7 +1887,7 @@ immidiately	immediately	1	4	immediately, immoderately, immediate, immodestly
 immitate	imitate	1	12	imitate, immediate, imitated, imitates, immolate, omitted, imitator, irritate, mutate, emitted, imitative, militate
 immitated	imitated	1	14	imitated, imitates, imitate, immolated, irritated, immigrated, mutated, omitted, militated, emitted, amputated, admitted, agitated, imitator
 immitating	imitating	1	13	imitating, immolating, irritating, immigrating, mutating, omitting, imitation, militating, emitting, amputating, admitting, agitating, imitative
-immitator	imitator	1	4	imitator, imitators, imitate, imitator's
+immitator	imitator	1	12	imitator, imitators, imitate, commutator, imitator's, agitator, imitated, imitates, immature, mediator, emitter, matador
 impecabbly	impeccably	1	8	impeccably, impeccable, implacably, impeachable, improbably, impeccability, implacable, amicably
 impedence	impedance	1	8	impedance, impudence, impotence, imprudence, impatience, impotency, impedance's, impudence's
 implamenting	implementing	1	11	implementing, imp lamenting, imp-lamenting, implanting, complementing, complimenting, implement, implements, implement's, implemented, implementer
@@ -1906,7 +1906,7 @@ inadquate	inadequate	1	8	inadequate, indicate, antiquate, adequate, inadequately
 inadvertant	inadvertent	1	3	inadvertent, inadvertently, inadvertence
 inadvertantly	inadvertently	1	6	inadvertently, inadvertent, inadvertence, intolerantly, indifferently, inadvertence's
 inagurated	inaugurated	1	13	inaugurated, inaugurates, inaugurate, infuriated, unguarded, ingrates, ingrate, ungraded, inaccurate, integrated, invigorated, incubated, ingrate's
-inaguration	inauguration	1	6	inauguration, inaugurations, inaugurating, inauguration's, angulation, integration
+inaguration	inauguration	1	17	inauguration, inaugurations, inaugurating, inauguration's, incursion, angulation, integration, invigoration, incarnation, incubation, abjuration, inoculation, ingrain, adjuration, figuration, inaction, narration
 inappropiate	inappropriate	1	4	inappropriate, unappropriated, appropriate, inappropriately
 inaugures	inaugurates	2	20	Ingres, inaugurates, inquires, inaugurals, injures, inaugural, ingress, injuries, auguries, inquiries, inaugurate, insures, augurs, inures, incurs, augur's, inaugural's, Ingres's, injury's, augury's
 inbalance	imbalance	2	10	unbalance, imbalance, in balance, in-balance, unbalanced, unbalances, imbalanced, imbalances, balance, imbalance's
@@ -1926,9 +1926,9 @@ incompatablity	incompatibility	1	5	incompatibility, incompatibly, incomparably, 
 incompatiblities	incompatibilities	1	5	incompatibilities, incompatibility's, incompatibles, incompatibility, incompatible's
 incompatiblity	incompatibility	1	4	incompatibility, incompatibly, incompatibility's, incompatible
 incompetance	incompetence	1	4	incompetence, incompetency, incompetence's, incompetency's
-incompetant	incompetent	1	4	incompetent, incompetents, incompetent's, incompetently
+incompetant	incompetent	1	7	incompetent, incompetents, incompetency, incompetent's, incompetently, incompetence, competent
 incomptable	incompatible	1	7	incompatible, incomparable, incompatibly, incompatibles, incomparably, indomitable, incompatible's
-incomptetent	incompetent	1	4	incompetent, incompetents, incompetent's, incompetently
+incomptetent	incompetent	1	6	incompetent, incompetents, incompetency, incompetent's, incompetently, incompetence
 inconsistant	inconsistent	1	5	inconsistent, inconstant, inconsistency, inconsistently, consistent
 incorperation	incorporation	1	5	incorporation, incarceration, incorporating, incorporation's, reincorporation
 incorportaed	incorporated	2	6	Incorporated, incorporated, incorporates, incorporate, unincorporated, reincorporated
@@ -1947,15 +1947,15 @@ indefinitly	indefinitely	1	6	indefinitely, indefinite, indefinably, infinitely, 
 indentical	identical	1	3	identical, identically, nonidentical
 indepedantly	independently	1	10	independently, indecently, independent, independents, indigently, indolently, independent's, indignantly, intently, intolerantly
 indepedence	independence	2	9	Independence, independence, inexpedience, Independence's, antecedence, independence's, independent, independents, independent's
-independance	independence	2	4	Independence, independence, Independence's, independence's
-independant	independent	1	4	independent, independents, independent's, independently
+independance	independence	2	8	Independence, independence, Independence's, independence's, independent, independents, dependence, independent's
+independant	independent	1	8	independent, independents, independent's, independently, Independence, independence, unrepentant, dependent
 independantly	independently	1	5	independently, independent, independents, independent's, dependently
 independece	independence	2	7	Independence, independence, independent, Independence's, independence's, independents, independent's
 independendet	independent	1	8	independent, independents, Independence, independence, independently, independent's, Independence's, independence's
-indictement	indictment	1	4	indictment, indictments, incitement, indictment's
+indictement	indictment	1	5	indictment, indictments, incitement, indictment's, inducement
 indigineous	indigenous	1	16	indigenous, endogenous, indigence, indigents, indignities, indigent's, indigence's, ingenious, Antigone's, indignity's, ingenuous, igneous, antigens, engines, antigen's, engine's
-indipendence	independence	2	4	Independence, independence, Independence's, independence's
-indipendent	independent	1	4	independent, independents, independent's, independently
+indipendence	independence	2	8	Independence, independence, Independence's, independence's, independent, independents, dependence, independent's
+indipendent	independent	1	7	independent, independents, independent's, independently, Independence, independence, dependent
 indipendently	independently	1	5	independently, independent, independents, independent's, dependently
 indespensible	indispensable	1	7	indispensable, indispensably, indispensables, indefensible, insensible, indispensable's, indefensibly
 indespensable	indispensable	1	4	indispensable, indispensably, indispensables, indispensable's
@@ -1963,7 +1963,7 @@ indispensible	indispensable	1	4	indispensable, indispensably, indispensables, in
 indisputible	indisputable	1	6	indisputable, indisputably, inhospitable, disputable, indigestible, disputably
 indisputibly	indisputably	1	5	indisputably, indisputable, inhospitably, disputably, disputable
 individualy	individually	1	5	individually, individual, individuals, individuality, individual's
-indpendent	independent	1	6	independent, ind pendent, ind-pendent, independents, independent's, independently
+indpendent	independent	1	9	independent, ind pendent, ind-pendent, independents, independent's, independently, Independence, independence, dependent
 indpendently	independently	1	5	independently, independent, independents, independent's, dependently
 indulgue	indulge	1	3	indulge, indulged, indulges
 indutrial	industrial	1	20	industrial, industrially, editorial, neutral, endometrial, industries, unnatural, Indira, integral, enteral, industrialize, natural, industry, internal, interval, notarial, tutorial, atrial, Indira's, Indra's
@@ -1986,28 +1986,28 @@ influented	influenced	1	13	influenced, inflected, inflicted, inflated, invented,
 infomation	information	1	10	information, intimation, inflation, innovation, invocation, animation, inflammation, infatuation, infection, information's
 informtion	information	1	7	information, infarction, information's, informational, informing, conformation, infraction
 infrantryman	infantryman	1	3	infantryman, infantrymen, infantryman's
-infrigement	infringement	1	5	infringement, infringements, infringement's, infrequent, increment
+infrigement	infringement	1	10	infringement, infringements, engorgement, infringement's, infrequent, enforcement, increment, enlargement, informant, fragment
 ingenius	ingenious	1	7	ingenious, ingenuous, ingenues, in genius, in-genius, ingenue's, ingenue
 ingreediants	ingredients	1	6	ingredients, ingredient's, ingredient, increments, inbreeding's, increment's
 inhabitans	inhabitants	1	8	inhabitants, inhabitant, inhabit ans, inhabit-ans, inhabitant's, inhabits, inhabiting, inhibits
 inherantly	inherently	1	9	inherently, incoherently, inherent, ignorantly, inertly, infernally, intently, internally, intolerantly
 inheritage	heritage	8	13	in heritage, in-heritage, inherit age, inherit-age, inherited, inherits, inherit, heritage, inheriting, inheritor, inheritable, inheritance, inhering
 inheritage	inheritance	12	13	in heritage, in-heritage, inherit age, inherit-age, inherited, inherits, inherit, heritage, inheriting, inheritor, inheritable, inheritance, inhering
-inheritence	inheritance	1	4	inheritance, inheritances, inheritance's, inheriting
+inheritence	inheritance	1	9	inheritance, inheritances, inheritance's, inheriting, intermittence, inherits, inference, inherited, insentience
 inital	initial	1	36	initial, Intel, until, in ital, in-ital, Ital, entail, ital, install, Unitas, Anita, natal, genital, initially, Anibal, animal, natl, India, Inuit, Italy, initials, innit, instill, unit, innately, int, Nita, anal, innate, inositol, into, finial, Anita's, initial's, it'll, Intel's
 initally	initially	1	16	initially, innately, install, genitally, initial, Italy, Intel, anally, dentally, mentally, entail, vitally, finitely, instill, ideally, installs
 initation	initiation	3	13	invitation, imitation, initiation, intuition, notation, intimation, indication, annotation, ionization, irritation, sanitation, agitation, animation
-initiaitive	initiative	1	4	initiative, initiatives, initiate, initiative's
+initiaitive	initiative	1	9	initiative, initiatives, intuitive, initiate, initiative's, initiating, initiated, initiates, initiate's
 inlcuding	including	1	25	including, inducting, unloading, encoding, inflicting, concluding, intruding, occluding, inclining, inflecting, unlocking, indicting, inlaying, inciting, incurring, invading, eluding, infecting, injecting, inoculating, inculcating, alluding, incoming, injuring, enacting
 inmigrant	immigrant	1	11	immigrant, in migrant, in-migrant, emigrant, immigrants, migrant, immigrate, indignant, immigrant's, emigrants, emigrant's
-inmigrants	immigrants	1	9	immigrants, in migrants, in-migrants, immigrant's, emigrants, immigrant, emigrant's, migrants, migrant's
+inmigrants	immigrants	1	11	immigrants, in migrants, in-migrants, immigrant's, emigrants, immigrant, emigrant's, migrants, immigrates, migrant's, emigrant
 innoculated	inoculated	1	8	inoculated, inoculates, inoculate, inculcated, inculpated, reinoculated, incubated, insulated
 inocence	innocence	1	9	innocence, incense, insolence, incidence, innocence's, incensed, incenses, nascence, incense's
 inofficial	unofficial	1	6	unofficial, unofficially, in official, in-official, official, nonofficial
 inot	into	1	36	into, ingot, int, not, onto, unto, Inuit, innit, unit, Ont, Indy, Ind, ant, ind, Minot, Inst, inst, knot, ain't, snot, Ito, ion, nit, iota, note, nowt, pinto, IN, IT, In, It, NT, OT, in, it, isn't
 inpeach	impeach	1	13	impeach, in peach, in-peach, inch, peach, unpack, unleash, peachy, epoch, inept, Apache, each, poach
 inpolite	impolite	1	28	impolite, in polite, in-polite, polite, unpolluted, inviolate, tinplate, inflate, implied, inlet, unpolished, unlit, implode, insulate, impolitely, impolitic, unbolt, inoculate, inbuilt, polity, incite, indite, inline, inputted, insole, invite, insult, isolate
-inprisonment	imprisonment	1	3	imprisonment, imprisonments, imprisonment's
+inprisonment	imprisonment	1	8	imprisonment, imprisonments, imprisonment's, environment, internment, apportionment, imprisoned, engrossment
 inproving	improving	1	8	improving, in proving, in-proving, unproven, approving, proving, disproving, reproving
 insectiverous	insectivorous	1	4	insectivorous, insectivores, insectivore's, insectivore
 insensative	insensitive	1	6	insensitive, insensate, insinuative, incentive, insensitively, nonsensitive
@@ -2020,14 +2020,14 @@ instade	instead	2	16	instate, instead, instated, unsteady, instar, unseated, ins
 instatance	instance	1	11	instance, insistence, instating, instates, instanced, instances, instate, insurance, inductance, insentience, instance's
 institue	institute	1	31	institute, instate, instituted, instituter, institutes, indite, instigate, onsite, unsuited, incited, instated, instates, incite, inside, instilled, insisted, instill, intuited, instead, intuit, insist, institute's, investiture, Inst, astute, inst, instant, instating, inset, intestate, statue
 instuction	instruction	1	8	instruction, induction, instigation, inspection, instructions, institution, intuition, instruction's
-instuments	instruments	1	13	instruments, instrument's, incitements, instrument, investments, incitement's, ointments, installments, instants, investment's, ointment's, installment's, instant's
+instuments	instruments	1	26	instruments, instrument's, incitements, instrument, investments, incitement's, ointments, installments, instants, inducements, investment's, instrumentals, ointment's, installment's, instant's, integuments, intents, interments, enlistments, inducement's, integument's, intent's, interment's, encystment's, enlistment's, instrumental's
 instutionalized	institutionalized	1	4	institutionalized, institutionalizes, institutionalize, sensationalized
 instutions	intuitions	1	20	intuitions, institutions, infatuations, insertions, intuition's, instructions, institution's, insinuations, infestations, infatuation's, insertion's, invitations, instruction's, instigation's, insinuation's, insulation's, inceptions, infestation's, invitation's, inception's
-insurence	insurance	2	5	insurgence, insurance, insurances, insurgency, insurance's
+insurence	insurance	2	13	insurgence, insurance, insurances, insurgency, inference, insolence, insurgences, insurance's, insures, insuring, coinsurance, reinsurance, insurgence's
 intelectual	intellectual	1	4	intellectual, intellectually, intellectuals, intellectual's
 inteligence	intelligence	1	6	intelligence, indulgence, intelligence's, intelligent, indigence, inelegance
 inteligent	intelligent	1	10	intelligent, indulgent, intelligently, intelligence, unintelligent, indigent, inelegant, intellect, intelligentsia, negligent
-intenational	international	1	4	international, intentional, intentionally, Internationale
+intenational	international	1	10	international, intentional, intentionally, Internationale, internationally, internationals, intention, intonation, unintentional, international's
 intepretation	interpretation	1	8	interpretation, interpretations, interrelation, interpretation's, reinterpretation, interpolation, integration, interrogation
 interational	international	1	6	international, Internationale, intentional, internationally, internationals, international's
 interbread	interbreed	2	7	interbred, interbreed, inter bread, inter-bread, interbreeds, interred, interfered
@@ -2047,7 +2047,7 @@ internation	international	5	15	inter nation, inter-nation, interaction, intentio
 interpet	interpret	1	14	interpret, Internet, internet, inter pet, inter-pet, intercept, interrupt, interest, intrepid, interred, Interpol, interact, interned, interprets
 interrim	interim	1	18	interim, inter rim, inter-rim, interring, intercom, anteroom, interred, intern, antrum, inter, interim's, interior, interj, inters, interview, enteric, introit, intermix
 interrugum	interregnum	1	13	interregnum, intercom, interim, interregnums, intrigue, interrogate, interring, interrupt, interregnum's, antrum, interj, intercoms, intercom's
-intertaining	entertaining	1	4	entertaining, intertwining, interlining, entertaining's
+intertaining	entertaining	1	6	entertaining, intertwining, interlining, interning, entertaining's, entertainingly
 interupt	interrupt	1	17	interrupt, int erupt, int-erupt, interrupts, intercept, intrepid, Internet, interact, interest, internet, interrupt's, interrupted, interrupter, interpret, Interpol, introit, intrude
 intervines	intervenes	1	14	intervenes, interlines, inter vines, inter-vines, interviews, intervened, intervene, interfiles, interview's, internees, interns, intern's, interview, internee's
 intevene	intervene	1	14	intervene, internee, intervened, intervenes, uneven, intern, intone, intense, internees, intend, intent, invent, novene, internee's
@@ -2055,7 +2055,7 @@ intial	initial	1	15	initial, uncial, initially, initials, until, inertial, entai
 intially	initially	1	32	initially, initial, uncial, initials, anally, infill, annually, initial's, initialed, inlay, until, inertial, install, instill, entail, inimically, Italy, anthill, inanely, initialing, initialize, minimally, Intel, finally, genitally, insatiably, biennially, genially, menially, lineally, essentially, O'Neill
 intrduced	introduced	1	7	introduced, introduces, intruded, introduce, intrudes, induced, reintroduced
 intrest	interest	1	14	interest, untruest, entrust, int rest, int-rest, interests, inters, unrest, wintriest, entreat, intros, introit, interest's, intro's
-introdued	introduced	1	3	introduced, intruded, introduce
+introdued	introduced	1	9	introduced, intruded, introduce, intrigued, intrudes, intrude, interluded, introduces, intruder
 intruduced	introduced	1	6	introduced, intruded, introduces, introduce, intrudes, reintroduced
 intrusted	entrusted	1	16	entrusted, interested, in trusted, in-trusted, int rusted, int-rusted, intruded, encrusted, untested, intrastate, trusted, untasted, entrust, instructed, interrupted, intuited
 intutive	intuitive	1	13	intuitive, inductive, initiative, intuited, inactive, intuit, intuitively, imitative, intuits, intrusive, annotative, intuiting, tentative
@@ -2073,7 +2073,7 @@ iresistably	irresistibly	1	4	irresistibly, irresistible, resistible, irritably
 iresistible	irresistible	1	3	irresistible, resistible, irresistibly
 iresistibly	irresistibly	1	3	irresistibly, irresistible, resistible
 iritable	irritable	1	7	irritable, irritably, writable, imitable, irrigable, heritable, veritable
-iritated	irritated	1	8	irritated, imitated, irritates, irritate, rotated, irrigated, urinated, agitated
+iritated	irritated	1	11	irritated, imitated, irritates, irritate, rotated, irrigated, urinated, irradiated, agitated, orated, orientated
 ironicly	ironically	2	5	ironical, ironically, ironic, ironclad, irenic
 irrelevent	irrelevant	1	6	irrelevant, irrelevancy, irrelevantly, relevant, irrelevance, irreverent
 irreplacable	irreplaceable	1	8	irreplaceable, implacable, irreparable, replaceable, irreproachable, implacably, irreparably, irrevocable
@@ -2096,7 +2096,7 @@ jstu	just	3	30	Stu, jest, just, CST, jut, sty, joist, joust, ST, St, st, jests, 
 jsut	just	1	44	just, jut, joust, Jesuit, jest, gust, CST, joist, Stu, gist, gusto, gusty, juts, jute, sit, suet, suit, ST, St, st, bust, dust, lust, must, oust, rust, Josue, cast, cost, Sgt, PST, SAT, SST, Sat, Set, cut, gut, jet, jot, sat, set, sot, J's, jut's
 Juadaism	Judaism	1	9	Judaism, Judaisms, Dadaism, Judaism's, Judas, Nudism, Sadism, Jainism, Judas's
 Juadism	Judaism	1	25	Judaism, Judaisms, Nudism, Sadism, Judaism's, Judas, Jainism, Autism, Dadaism, Jades, Quads, Judd's, Taoism, Quad's, Quietism, Cubism, Judo's, Dualism, Judas's, Cultism, Jedi's, Jodi's, Jude's, Judy's, Jade's
-judical	judicial	2	3	Judaical, judicial, juridical
+judical	judicial	2	10	Judaical, judicial, juridical, judicially, cubical, medical, radical, ducal, Judaic, decal
 judisuary	judiciary	1	27	judiciary, Janissary, disarray, diary, Judaism, judiciary's, usury, Judas, sudsier, Judas's, disarm, disbar, judicatory, dismay, gutsier, juster, guitar, juicer, quasar, judo's, guitars, Judd's, Jedi's, Jodi's, Jude's, Judy's, guitar's
 juducial	judicial	1	3	judicial, judicially, Judaical
 juristiction	jurisdiction	1	5	jurisdiction, jurisdictions, jurisdiction's, jurisdictional, rustication
@@ -2119,7 +2119,7 @@ laguages	languages	1	21	languages, language's, leakages, luggage's, gauges, leag
 larg	large	1	9	large, largo, lag, lark, lurgy, Lara, Lars, lard, lurk
 largst	largest	1	19	largest, larges, largos, largess, larks, large's, largo's, Lars, lags, lark's, last, lards, large, largo, lag's, largess's, lard's, Lara's, Lars's
 lastr	last	1	43	last, Lester, Lister, luster, laser, lasts, LSAT, lasted, later, least, Astor, aster, astir, blaster, plaster, latter, leaser, Castor, Castro, Easter, Master, baster, caster, castor, faster, last's, lastly, lustier, master, pastor, pastry, raster, taster, vaster, waster, lest, list, lost, lust, lased, loser, lusty, least's
-lattitude	latitude	1	6	latitude, attitude, altitude, latitudes, platitude, latitude's
+lattitude	latitude	1	7	latitude, attitude, altitude, latitudes, platitude, lassitude, latitude's
 launchs	launch	3	8	launch's, launches, launch, lunch's, lunches, Lynch's, haunch's, paunch's
 launhed	launched	1	27	launched, lunched, lunged, lounged, lanced, landed, laughed, lunkhead, lynched, leaned, lined, loaned, launches, Land, land, linked, linted, longed, launcher, lashed, lathed, lauded, flaunted, lancet, launder, latched, saunaed
 lavae	larvae	1	25	larvae, lavage, lava, lave, leave, lav, Love, live, love, Laval, levee, laves, Alva, larva, laved, lavs, Livia, lovey, Ava, Ave, ave, lava's, lvi, slave, Laue
@@ -2136,13 +2136,13 @@ legitmate	legitimate	1	8	legitimate, legit mate, legit-mate, legitimated, legiti
 lenght	length	1	28	length, Lent, lent, lento, lend, lint, light, legit, Knight, knight, linnet, Lents, lengthy, night, Len, let, linty, LNG, Lang, Lena, Leno, Long, ling, long, lung, Leigh, sleight, Lent's
 leran	learn	1	31	learn, Lean, lean, Lorna, Lorena, lorn, reran, Loren, learns, Lear, Lena, Erna, earn, Leann, Loraine, leering, LAN, Lateran, Leary, Len, Leona, ran, Verna, yearn, Lara, Leon, Lora, Lyra, lira, loan, Lear's
 lerans	learns	1	29	learns, leans, learn, earns, Lean's, lean's, Lear's, lens, Lorna's, yearns, Loren's, Lorena's, loans, Lara's, Lena's, Lora's, Lyra's, lira's, Leann's, LAN's, Lateran's, Len's, Erna's, Loraine's, Leon's, loan's, Leary's, Leona's, Verna's
-lieuenant	lieutenant	1	5	lieutenant, lieutenants, lenient, lieutenant's, L'Enfant
-leutenant	lieutenant	1	4	lieutenant, lieutenants, lieutenant's, tenant
+lieuenant	lieutenant	1	13	lieutenant, lieutenants, lenient, lieutenancy, lieutenant's, L'Enfant, Dunant, Levant, tenant, lineament, pennant, linen, linden
+leutenant	lieutenant	1	8	lieutenant, lieutenants, lieutenancy, lieutenant's, tenant, lutenist, Dunant, latent
 levetate	levitate	1	4	levitate, levitated, levitates, Levitt
 levetated	levitated	1	6	levitated, levitates, levitate, lactated, leveraged, vegetated
 levetates	levitates	1	8	levitates, levitated, levitate, lactates, leverages, Levitt's, vegetates, leverage's
 levetating	levitating	1	21	levitating, lactating, levitation, leveraging, elevating, eventuating, vegetating, levering, letting, reverting, leveling, federating, devastating, levitate, defeating, deviating, gestating, restating, levitated, levitates, levitation's
-levle	level	1	35	level, levee, leveled, leveler, lively, lovely, leave, levels, lever, levelly, Laval, bevel, revel, Lesley, Leslie, Levine, levees, levied, levier, levies, revile, Lela, Levi, Levy, Love, Lyle, lave, levy, live, love, Leila, Leola, Lille, level's, levee's
+levle	level	1	47	level, levee, leveled, leveler, lively, lovely, leave, levels, lever, levelly, Laval, bevel, revel, Lesley, Leslie, Levine, levees, levied, levier, levies, revile, Lela, Levi, Levy, Love, Lyle, lave, levy, live, love, Leila, Leola, Lille, Levis, ladle, lisle, level's, feel, Lee, delve, helve, lee, flee, levee's, Levi's, Levy's, levy's
 liasion	liaison	1	25	liaison, lesion, lotion, libation, ligation, elision, fission, mission, suasion, vision, liaising, lashing, liaisons, leashing, Lawson, lasing, lain, lion, Latino, lesions, dilation, illusion, elation, liaison's, lesion's
 liason	liaison	1	26	liaison, Lawson, lesson, liaising, lasing, liaisons, Larson, Lisbon, Liston, leasing, Lassen, Luzon, lion, Alison, lessen, loosen, Jason, Mason, bison, mason, Gleason, Wilson, Litton, reason, season, liaison's
 liasons	liaisons	1	29	liaisons, liaison's, lessons, Lawson's, lesson's, liaison, lions, lessens, loosens, Masons, masons, Larson's, Lisbon's, Liston's, reasons, seasons, Lassen's, Luzon's, lion's, Alison's, Jason's, Mason's, bison's, mason's, Gleason's, Wilson's, Litton's, reason's, season's
@@ -2163,7 +2163,7 @@ liquify	liquefy	1	22	liquefy, liquid, liquor, squiffy, liquids, quiff, liqueur, 
 liscense	license	1	23	license, licensee, licensed, licenses, listens, lessens, loosens, licensees, scenes, lichens, license's, liens, sense, listen's, Pliocenes, Lassen's, Lucien's, lichen's, licensee's, lien's, scene's, Nicene's, Pliocene's
 lisence	license	1	31	license, licensee, silence, essence, since, Lance, lance, loosens, seance, lenience, Laurence, listens, lessens, liens, salience, science, sense, licensed, licenses, listen's, Lawrence, nascence, Lassen's, lien's, likens, linens, livens, absence, nuisance, linen's, license's
 lisense	license	1	45	license, licensee, loosens, listens, lessens, liens, sense, licensed, licenses, likens, linens, livens, looseness, listen's, lines, lenses, Lassen's, lien's, loses, licensees, lens, sens, liaisons, linen's, lisle's, likeness, lases, license's, lioness, lions, Olsen's, linens's, Lucien's, Lisa's, line's, Len's, Lin's, Larsen's, Lisbon's, Liston's, liaison's, lens's, licensee's, lion's, Alison's
-listners	listeners	1	8	listeners, listener's, listens, Lister's, listener, listen's, luster's, Lester's
+listners	listeners	1	20	listeners, listener's, listens, Lister's, listener, listen's, luster's, stoners, Costner's, Lester's, Lister, Liston's, liners, liters, blisters, glisters, stoner's, liner's, liter's, blister's
 litature	literature	2	11	ligature, literature, stature, litter, littered, littler, ligatured, litterer, ligatures, lecture, ligature's
 literture	literature	1	15	literature, litterateur, literate, literature's, torture, litterer, loiterer, literary, literati, literates, litterateurs, L'Ouverture, littered, litterateur's, literate's
 littel	little	2	23	Little, little, lintel, litter, lit tel, lit-tel, littler, lately, lite, tittle, lithely, latte, libel, liter, Lionel, Litton, Mattel, latter, lattes, letter, Little's, little's, latte's
@@ -2180,10 +2180,10 @@ lonly	only	2	26	lonely, only, lolly, lowly, Leonel, Lionel, Langley, Lily, lily,
 lsat	last	2	31	LSAT, last, slat, Lat, SAT, Sat, lat, sat, least, lest, list, lost, lust, LSD, slate, lasts, ls at, ls-at, Las, Sta, SALT, lats, salt, blast, slit, slot, slut, last's, Lat's, La's, la's
 lveo	love	6	53	Leo, Levi, Love, lave, live, love, lvi, Levy, levy, levee, lovey, lvii, LIFO, lief, Leif, lav, Lvov, lei, Lego, Leno, Leon, Leos, leave, Le, Livy, lava, leaf, life, lo, laved, laves, level, lever, lived, liven, liver, lives, loved, lover, loves, LVN, Lao, Lea, Lee, Lew, Lie, lea, lee, lie, loo, Love's, love's, Leo's
 lvoe	love	2	58	Love, love, live, lovey, lave, lvi, levee, lvii, Lvov, life, Levi, lief, loved, lover, loves, lobe, Leo, Livy, lav, leave, Lie, lie, low, Lome, Lowe, clove, glove, lode, loge, lone, lope, lore, lose, floe, LIFO, Le, Levy, lava, levy, lo, loaf, Jove, Rove, cove, dove, hove, move, rove, wove, LVN, Lao, Lee, Lou, foe, lee, loo, Love's, love's
-Lybia	Libya	18	25	Labia, Lydia, Lib, Lb, BIA, Lube, Labial, LLB, Lab, Livia, Lucia, Luria, Nubia, Lbw, Lob, Lyra, Lobe, Libya, Libra, Lelia, Lidia, Lilia, Tibia, Libby, Lobby
-mackeral	mackerel	1	12	mackerel, mackerels, makers, Maker, maker, material, mackerel's, mocker, mayoral, mockery, Maker's, maker's
+Lybia	Libya	18	34	Labia, Lydia, Lib, Lb, BIA, Lube, Labial, LLB, Lab, Livia, Lucia, Luria, Nubia, Lbw, Lob, Lyra, Lobe, Libya, Libra, Lelia, Lidia, Lilia, Tibia, Libby, Lobby, Alba, BA, Ba, Bi, Elba, LA, La, Li, Lib's
+mackeral	mackerel	1	27	mackerel, mackerels, makers, Maker, maker, material, mockers, mackerel's, mocker, mayoral, mockery, Maker's, maker's, mineral, Marla, meagerly, cockerel, mocker's, pickerel, muckier, coral, moral, mural, smacker, marker, masker, mockery's
 magasine	magazine	1	9	magazine, magazines, Maxine, massing, migraine, magazine's, margarine, moccasin, maxing
-magincian	magician	1	6	magician, magicians, Manichean, magician's, magnesia, maintain
+magincian	magician	1	24	magician, magicians, Manichean, magician's, magnesia, maintain, Kantian, gentian, imagination, mansion, minivan, logician, marination, musician, pagination, magicking, Minoan, Mancini, mincing, Mancunian, manikin, imagining, magnesia's, minion
 magnificient	magnificent	1	5	magnificent, magnificently, magnificence, munificent, Magnificat
 magolia	magnolia	1	28	magnolia, majolica, Mongolia, Mazola, Paglia, magnolias, Magoo, Aglaia, Magi, Mali, Mowgli, magi, Manila, manila, Mogul, mogul, magpie, Magog, Marla, magic, magma, Magellan, maxilla, Magoo's, Maggie, magi's, muggle, magnolia's
 mailny	mainly	1	22	mainly, mailing, Milne, Marilyn, Malian, malign, manly, Malone, Milan, mauling, mail, main, many, Molina, Maine, Malay, moiling, mails, malty, milky, Manley, mail's
@@ -2210,7 +2210,7 @@ manouverability	maneuverability	1	7	maneuverability, maneuverability's, maneuver
 manouverable	maneuverable	1	13	maneuverable, mensurable, nonverbal, numerable, maneuverability, manageable, enumerable, inoperable, conquerable, innumerable, movable, recoverable, maneuver
 manouvers	maneuvers	1	25	maneuvers, maneuver's, maneuver, manures, maneuvered, manors, movers, Hanover's, hangovers, makeovers, manners, mangers, manure's, managers, manglers, monomers, manor's, mover's, hangover's, makeover's, Vancouver's, manner's, manger's, manager's, monomer's
 mantained	maintained	1	16	maintained, maintainer, contained, maintains, maintain, mainlined, mentioned, wantoned, mankind, mantled, attained, mandated, martinet, untanned, captained, suntanned
-manuever	maneuver	1	6	maneuver, maneuvers, maneuvered, maneuver's, manure, never
+manuever	maneuver	1	23	maneuver, maneuvers, maneuvered, maneuver's, manure, never, maunder, makeover, manner, manger, Mainer, naiver, mangier, Hanover, manager, mangler, manlier, minuter, meaner, moaner, maneuvering, hangover, mauve
 manuevers	maneuvers	1	24	maneuvers, maneuver's, maneuver, maneuvered, manures, maunders, manure's, makeovers, manners, mangers, Mainers, managers, manglers, moaners, hangovers, makeover's, manner's, manger's, Mainer's, mauve's, Hanover's, manager's, moaner's, hangover's
 manufacturedd	manufactured	1	9	manufactured, manufacture dd, manufacture-dd, manufactures, manufacture, manufacture's, manufacturer, manufacturers, manufacturer's
 manufature	manufacture	1	6	manufacture, manufactured, manufacturer, manufactures, miniature, manufacture's
@@ -2232,7 +2232,7 @@ masterbation	masturbation	1	7	masturbation, masturbating, masturbation's, macera
 mataphysical	metaphysical	1	5	metaphysical, metaphysically, metaphysics, metaphorical, metaphysics's
 materalists	materialist	3	15	materialists, materialist's, materialist, naturalists, materialism's, materialistic, naturalist's, medalists, moralists, muralists, paternalists, materializes, medalist's, moralist's, muralist's
 mathamatics	mathematics	1	7	mathematics, mathematics's, mathematical, asthmatics, asthmatic's, cathartics, cathartic's
-mathematican	mathematician	1	4	mathematician, mathematical, mathematics, mathematics's
+mathematican	mathematician	1	7	mathematician, mathematical, mathematics, mathematicians, mathematics's, mathematically, mathematician's
 mathematicas	mathematics	1	3	mathematics, mathematics's, mathematical
 matheticians	mathematicians	1	9	mathematicians, mathematician's, mathematician, morticians, magicians, mortician's, tacticians, magician's, tactician's
 mathmatically	mathematically	1	4	mathematically, mathematical, thematically, asthmatically
@@ -2251,10 +2251,10 @@ medievel	medieval	1	16	medieval, medical, medial, bedevil, marvel, devil, model,
 Mediteranean	Mediterranean	1	3	Mediterranean, Mediterraneans, Mediterranean's
 memeber	member	1	13	member, members, ember, remember, Meyerbeer, member's, mumbler, Amber, amber, umber, meeker, memoir, mummer
 menally	mentally	2	11	menially, mentally, meanly, manually, venally, men ally, men-ally, manly, menial, Manley, mealy
-meranda	veranda	2	4	Miranda, veranda, Melinda, Miranda's
-meranda	Miranda	1	4	Miranda, veranda, Melinda, Miranda's
+meranda	veranda	2	35	Miranda, veranda, Melinda, Grenada, errand, Rand, marinade, mend, rand, Brenda, Mariana, Granada, Mercado, mermaid, Mandy, Miranda's, Moran, Myrna, Randi, Randy, Ronda, manta, meant, randy, verandas, brand, grand, Amerind, remand, Marina, Merino, maraud, marina, merino, veranda's
+meranda	Miranda	1	35	Miranda, veranda, Melinda, Grenada, errand, Rand, marinade, mend, rand, Brenda, Mariana, Granada, Mercado, mermaid, Mandy, Miranda's, Moran, Myrna, Randi, Randy, Ronda, manta, meant, randy, verandas, brand, grand, Amerind, remand, Marina, Merino, maraud, marina, merino, veranda's
 mercentile	mercantile	1	2	mercantile, percentile
-messanger	messenger	1	11	messenger, mess anger, mess-anger, messengers, Sanger, manger, message, messenger's, messaged, messages, message's
+messanger	messenger	1	24	messenger, mess anger, mess-anger, messengers, Sanger, manger, message, messenger's, messaged, messages, manager, Kissinger, passenger, meager, meaner, Singer, Zenger, massacre, message's, monger, singer, massage, messier, messing
 messenging	messaging	1	8	messaging, lessening, massaging, messenger, messing, misspending, mismanaging, besieging
 metalic	metallic	1	14	metallic, Metallica, metabolic, metal, italic, metals, metric, metal's, metaled, talc, bimetallic, medal, medic, Metallica's
 metalurgic	metallurgic	1	6	metallurgic, metallurgical, metallurgy, metallurgist, metallurgy's, metallic
@@ -2264,32 +2264,32 @@ metamorphysis	metamorphosis	1	4	metamorphosis, metamorphoses, metamorphosis's, m
 metaphoricial	metaphorical	1	4	metaphorical, metaphorically, metaphoric, metaphysical
 meterologist	meteorologist	1	5	meteorologist, meteorologists, petrologist, meteorologist's, meteorology's
 meterology	meteorology	1	5	meteorology, petrology, meteorology's, meteorologic, macrology
-methaphor	metaphor	1	4	metaphor, metaphors, metaphor's, metaphoric
+methaphor	metaphor	1	7	metaphor, metaphors, metaphor's, metaphoric, methanol, meteor, semaphore
 methaphors	metaphors	1	20	metaphors, metaphor's, metaphor, metaphoric, megaphones, meteors, methods, megaphone's, semaphores, mothers, methanol's, matadors, methadone's, methane's, meteor's, method's, semaphore's, Mather's, mother's, matador's
 Michagan	Michigan	1	9	Michigan, Mohegan, Meagan, Michigan's, Michelin, Megan, Michiganite, McCain, Meghan
 micoscopy	microscopy	1	6	microscopy, microscope, microscopy's, microscopes, microscopic, microscope's
 mileau	milieu	1	24	milieu, mile, Millay, mole, mule, Miles, miles, mil, Malay, ilea, mileage, Male, Mill, Milo, Mlle, male, meal, mill, Milan, miler, melee, Millie, mile's, Miles's
 milennia	millennia	1	20	millennia, millennial, Molina, Milne, millennium, Melanie, Milan, milling, Minnie, Glenna, militia, menial, Leanna, Milken, Milne's, Lena, Minn, mien, mile, millennial's
-milennium	millennium	1	4	millennium, millenniums, millennium's, millennia
+milennium	millennium	1	9	millennium, millenniums, millennium's, millennia, biennium, millennial, selenium, minim, plenum
 mileu	milieu	1	45	milieu, mile, mole, mule, mil, Male, Mill, Milo, Mlle, male, mill, Millie, Miles, miler, miles, melee, Mel, milieus, lieu, mail, moil, Milne, ml, smiley, Mailer, Miller, Millet, mailed, mailer, mildew, mile's, milled, miller, millet, moiled, Emile, smile, mild, milf, milk, mils, milt, mil's, milieu's, Miles's
 miliary	military	1	44	military, molar, Malory, milliard, Mylar, miler, Millay, Moliere, Hilary, milady, Miller, miller, Millard, Hillary, milieu, millibar, Mallory, millinery, Mailer, Mary, liar, mailer, miry, midair, Molnar, milkier, molars, Leary, Malay, malaria, mealier, Milan, Mizar, familiar, milky, Mylars, milder, milers, milker, military's, molar's, Millay's, Mylar's, miler's
 milion	million	1	34	million, mullion, Milan, melon, Milton, minion, Malian, Mellon, malign, Molina, mailing, mi lion, mi-lion, mil ion, mil-ion, milling, moiling, millions, Milne, Malone, Milo, lion, Miltown, billion, gillion, mission, pillion, zillion, Jilin, Melton, Milken, milieu, million's, Milo's
 miliraty	military	1	12	military, militate, meliorate, milliard, Moriarty, Millard, milady, flirty, minority, migrate, hilarity, millrace
 millenia	millennia	1	15	millennia, mullein, millennial, Mullen, milling, Molina, Milne, million, mulling, Milken, millennium, villein, Milan, Millie, mullein's
 millenial	millennial	1	4	millennial, millennia, millennial's, menial
-millenium	millennium	1	4	millennium, millenniums, millennium's, millennia
-millepede	millipede	1	4	millipede, millipedes, milled, millipede's
+millenium	millennium	1	15	millennium, millenniums, millennium's, millennia, millennial, mullein, selenium, Mullen, milling, minim, mullein's, milliner, millings, plenum, milling's
+millepede	millipede	1	8	millipede, millipedes, milled, millipede's, filliped, millpond, Millet, millet
 millioniare	millionaire	1	7	millionaire, millionaires, billionaire, milliner, millionaire's, millionairess, millinery
 millitary	military	1	7	military, milliard, millibar, millinery, militarily, military's, Millard
 millon	million	1	41	million, Mellon, milling, mullion, Mullen, Milan, melon, Milton, Dillon, Villon, mullein, mulling, mill on, mill-on, millions, Milne, Malone, Mill, Milo, mill, Milken, Millie, Miltown, Maillol, billion, gillion, maillot, pillion, zillion, Mills, mills, Marlon, Melton, Millay, mallow, mellow, Mill's, mill's, million's, Milo's, Mellon's
 miltary	military	1	30	military, molter, milady, milder, Millard, militarily, military's, molar, milts, milt, solitary, dilatory, minatory, Malta, Mylar, maltier, malty, miler, miter, altar, milliard, Millay, Hilary, Malory, Miller, malady, miller, milt's, mallard, milady's
 minature	miniature	1	16	miniature, minuter, Minotaur, mintier, minatory, mi nature, mi-nature, minter, miniatures, mature, nature, denature, manure, minute, minaret, miniature's
 minerial	mineral	1	16	mineral, manorial, mine rial, mine-rial, monorail, minerals, Minerva, material, menial, Monera, minimal, inertial, miner, mineral's, imperial, managerial
-miniscule	minuscule	1	3	minuscule, minuscules, minuscule's
+miniscule	minuscule	1	14	minuscule, minuscules, minuscule's, meniscus, monocle, muscle, musicale, manacle, miscue, maniacal, misrule, miscall, manicure, meniscus's
 ministery	ministry	2	12	minister, ministry, minster, monastery, ministers, Munster, monster, minister's, ministered, minsters, ministry's, minster's
 minstries	ministries	1	23	ministries, monasteries, minsters, minstrels, monstrous, minster's, miniseries, ministry's, ministers, minstrel, monsters, minstrelsy, Mistress, Munster's, minister's, mistress, monster's, minstrel's, mysteries, minestrone's, minster, miseries, miniseries's
 minstry	ministry	1	28	ministry, minster, monastery, Munster, minister, monster, minatory, instr, mainstay, minsters, minstrel, Muenster, muenster, Mister, ministry's, minter, mister, instar, ministers, minster's, Misty, mastery, minty, minuter, misty, mystery, misery, minister's
-minumum	minimum	1	5	minimum, minimums, minim, minimum's, minima
+minumum	minimum	1	12	minimum, minimums, minim, minimum's, minima, minims, manumit, minicam, minim's, minimal, muumuu, minus
 mirrorred	mirrored	1	20	mirrored, mirror red, mirror-red, mirrors, mirror, mirror's, minored, mitered, motored, Mordred, moored, mirroring, mortared, murdered, married, marred, roared, martyred, murmured, majored
 miscelaneous	miscellaneous	1	4	miscellaneous, miscellanies, miscellaneously, miscellany's
 miscellanious	miscellaneous	1	4	miscellaneous, miscellanies, miscellany's, miscellaneously
@@ -2302,7 +2302,7 @@ misdameanors	misdemeanors	1	8	misdemeanors, misdemeanor's, misdemeanor, demeanor
 misdemenor	misdemeanor	1	3	misdemeanor, misdemeanors, misdemeanor's
 misdemenors	misdemeanors	1	11	misdemeanors, misdemeanor's, misdemeanor, moisteners, misnomers, moistener's, demeanor's, midsummer's, sideman's, misnomer's, Mesmer's
 misfourtunes	misfortunes	1	12	misfortunes, misfortune's, misfortune, fortunes, fortune's, misfeatures, misfires, Missourians, fourteens, Missourian's, misfire's, fourteen's
-misile	missile	1	16	missile, misfile, Mosley, miscible, misrule, missiles, mussel, Maisie, misled, Millie, mile, mislay, missal, mistily, simile, missile's
+misile	missile	1	85	missile, misfile, Mosley, Mosul, miscible, misrule, missiles, mussel, Maisie, Moseley, Moselle, misled, Millie, mile, mislay, missal, mistily, muscle, Mobile, fissile, middle, missive, misuse, mobile, motile, muesli, messily, muzzle, aisle, lisle, missilery, milieu, simile, mingle, miscue, Miles, miles, misfiled, misfiles, smile, Male, Mollie, Muse, Muslim, mail, male, missile's, moil, mole, mule, muse, musicale, muslin, sole, miser, mil, mislead, mails, moils, camisole, isle, mils, Mill, Milo, Miss, Mlle, mice, mill, miss, sale, sill, silo, Mills, mills, domicile, MI's, mi's, Maisie's, mail's, moil's, Millie's, mile's, mil's, Mill's, mill's
 Misouri	Missouri	1	19	Missouri, Miser, Mysore, Misery, Maori, Missouri's, Missourian, Sour, Maseru, Masseur, Measure, Minor, Visor, Moisture, Mizar, Maser, Mister, Misers, Miser's
 mispell	misspell	1	17	misspell, Ispell, mi spell, mi-spell, misspells, misplay, spell, misapply, Aspell, dispel, Moselle, miscall, misdeal, respell, misspelled, spill, Ispell's
 mispelled	misspelled	1	14	misspelled, dispelled, mi spelled, mi-spelled, misplayed, spelled, misapplied, miscalled, respelled, impelled, misspell, misled, misplaced, spilled
@@ -2336,13 +2336,13 @@ montanous	mountainous	1	5	mountainous, monotonous, Montana's, Montanans, Montana
 monts	months	4	47	Mont's, mints, mounts, months, Mons, Mont, mots, Monet's, Monty's, Mount's, mint's, mount's, Monte's, mantas, mantes, mantis, minds, mounds, Minot's, Mon's, Monte, Monty, moats, moots, fonts, molts, monks, mends, Manet's, mind's, mot's, mound's, month's, Moet's, Mona's, Mott's, moat's, mono's, Monk's, Mort's, font's, manta's, molt's, monk's, most's, wont's, mend's
 moreso	more	29	37	mores, Morse, More's, mires, moires, more's, mores's, mares, meres, Moreno, morose, morass, Moore's, mire's, moire's, more so, more-so, Moors, moors, morels, Mrs, Moor's, More, Moro, Moro's, mare's, mere's, moor's, more, morsel, Mr's, Morse's, Miro's, Moe's, morel's, Moreno's, Oreo's
 morgage	mortgage	1	20	mortgage, mortgagee, mirage, morgue, Morgan, corkage, mirages, mortgaged, mortgages, morgues, Marge, marge, merge, marriage, forage, morale, Margie, mirage's, mortgage's, morgue's
-morrocco	morocco	2	8	Morocco, morocco, Morocco's, Rocco, morocco's, Moroccan, Morrow, morrow
+morrocco	morocco	2	16	Morocco, morocco, Morocco's, Rocco, morocco's, Moroccan, sirocco, Merrick, Morrow, morrow, morrows, moronic, Morrow's, morrow's, MOOC, Moro
 morroco	morocco	2	19	Morocco, morocco, Marco, Merrick, Morrow, morrow, morrows, MOOC, Merck, Moro, moron, Margo, Morrow's, morrow's, Murrow, marrow, Moro's, Morocco's, morocco's
-mosture	moisture	1	17	moisture, mistier, posture, Mister, mister, moister, mustier, mature, Master, master, muster, mixture, gesture, pasture, mastery, mystery, moisture's
+mosture	moisture	1	23	moisture, mistier, posture, Mister, mister, moister, mustier, mature, Master, master, muster, mixture, mobster, monster, gesture, pasture, mastery, mystery, moisture's, moisturize, suture, most, imposture
 motiviated	motivated	1	8	motivated, motivates, motivate, mitigated, titivated, demotivated, motivator, mutilated
 mounth	month	1	19	month, Mount, mount, mouth, Mouthe, months, mouthy, moth, Mont, Mountie, Monte, Monty, Munch, mound, munch, mounts, month's, Mount's, mount's
 movei	movie	1	30	movie, move, moved, mover, moves, movies, Moe, mauve, moi, move's, moue, Jove, Love, Moet, More, Rove, cove, dove, hove, love, mode, mole, mope, more, mote, rove, wove, maven, movie's, Moe's
-movment	movement	1	6	movement, moment, movements, momenta, foment, movement's
+movment	movement	1	10	movement, moment, movements, momenta, monument, foment, movement's, moments, memento, moment's
 mroe	more	2	96	More, more, Moe, roe, Moore, mire, Marie, MRI, Miro, Moro, mare, mere, Mr, Moor, moor, moire, Mir, Mari, Mario, morel, mores, mote, morose, Maori, Mar, Mira, Morrow, Murrow, mar, marrow, miry, morrow, Ore, Rome, ore, moue, mow, roue, row, Mauro, Moet, Morse, mode, mole, mope, move, ME, MO, Mara, Mary, Me, Mo, Monroe, Mort, Myra, Re, me, mo, morn, re, Gore, Oreo, bore, core, fore, gore, lore, moray, pore, sore, tore, wore, yore, Marge, Marne, Merle, Myron, marge, merge, moron, ROM, Rom, Mae, Mao, Mme, Mrs, Rae, Roy, moi, moo, rue, Mr's, More's, more's, Miro's, Moro's
 mucuous	mucous	1	7	mucous, mucus, mucus's, mucks, muck's, Macao's, McCoy's
 muder	murder	2	29	Mulder, murder, nuder, muter, muddier, madder, miter, mutter, ruder, mater, meter, mud er, mud-er, maunder, milder, minder, muster, Madeira, Maude, moodier, udder, mud, mender, modern, molder, Muir, made, mode, mute
@@ -2354,15 +2354,15 @@ munbers	numbers	2	55	Numbers, numbers, miners, minibars, manners, maunders, memb
 muncipalities	municipalities	1	4	municipalities, municipality's, municipality, principalities
 muncipality	municipality	1	8	municipality, municipality's, municipally, municipal, municipalities, municipals, musicality, municipal's
 munnicipality	municipality	1	7	municipality, municipality's, municipally, municipal, municipalities, municipals, municipal's
-muscels	mussels	2	7	muscles, mussels, mussel's, muscle's, muses, Muse's, muse's
-muscels	muscles	1	7	muscles, mussels, mussel's, muscle's, muses, Muse's, muse's
-muscial	musical	1	6	musical, Musial, musicale, missal, mescal, mussel
-muscician	musician	1	4	musician, musicians, musician's, musicianly
+muscels	mussels	2	53	muscles, mussels, mussel's, muscle's, muses, musicals, muzzles, Muse's, missals, muse's, mussel, musses, musicales, missiles, mescals, measles, mules, muscled, maces, mouses, muscle, musics, musical's, Mses, Mace's, Meuse's, mace's, missal's, morsels, mouse's, mousses, muscatels, music's, Mosul's, Moses, mulls, muzzle's, Marcel's, mescal's, mousse's, muscly, Muriel's, Musial's, Russel's, musicale's, Mosley's, mule's, missile's, Mel's, morsel's, muscatel's, Moselle's, Moseley's
+muscels	muscles	1	53	muscles, mussels, mussel's, muscle's, muses, musicals, muzzles, Muse's, missals, muse's, mussel, musses, musicales, missiles, mescals, measles, mules, muscled, maces, mouses, muscle, musics, musical's, Mses, Mace's, Meuse's, mace's, missal's, morsels, mouse's, mousses, muscatels, music's, Mosul's, Moses, mulls, muzzle's, Marcel's, mescal's, mousse's, muscly, Muriel's, Musial's, Russel's, musicale's, Mosley's, mule's, missile's, Mel's, morsel's, muscatel's, Moselle's, Moseley's
+muscial	musical	1	13	musical, Musial, musicale, missal, mescal, musically, mussel, musicals, music, muscle, muscly, musical's, Musial's
+muscician	musician	1	5	musician, musicians, musician's, musicianly, magician
 muscicians	musicians	1	14	musicians, musician's, musician, magicians, musicianly, magician's, Mauritians, physicians, musicals, Mauritian's, muslin's, physician's, musical's, fustian's
 mutiliated	mutilated	1	10	mutilated, mutilates, mutilate, militated, mutated, mitigated, modulated, motivated, mutilator, humiliated
 myraid	myriad	1	34	myriad, maraud, my raid, my-raid, myriads, Murat, Myra, maid, raid, mermaid, Myra's, married, braid, Marat, merit, mired, morbid, Mari, myriad's, arid, marred, yard, MariaDB, Mayra, MRI, Maria, Marie, Mario, mad, maria, mid, rad, rid, pyramid
 mysef	myself	1	74	myself, mused, Muse, muse, mys, muses, massif, Mses, Myst, mosey, Josef, Meuse, Moses, maser, miser, mouse, mes, MSW, Mays, mus, MSG, Mysore, NSF, mystify, MS, Mesa, Mmes, Ms, Muse's, NYSE, SF, mesa, mess, ms, muse's, sf, moose, muff, muss, mayst, M's, mas, mos, FSF, MST, Massey, Mays's, mdse, MS's, Mace, Mass, Miss, Moss, mace, mass, maze, mice, miff, miss, moss, move, May's, Myles, may's, mu's, moves, Mae's, MA's, MI's, Mo's, ma's, mi's, Moe's, move's
-mysogynist	misogynist	1	5	misogynist, misogynists, misogynist's, misogynistic, misogyny's
+mysogynist	misogynist	1	7	misogynist, misogynists, misogynist's, misogynistic, misogamist, misogynous, misogyny's
 mysogyny	misogyny	1	9	misogyny, misogyny's, misogamy, misogynous, mahogany, massaging, messaging, masking, miscuing
 mysterous	mysterious	1	12	mysterious, mysteries, mystery's, musters, muster's, Masters, masters, misters, master's, mister's, Masters's, mastery's
 naieve	naive	1	29	naive, nave, naiver, Nivea, Nieves, native, Nev, naivete, niece, sieve, knave, Navy, Neva, naif, navy, nevi, waive, thieve, Knievel, navel, naves, nerve, never, nae, naively, naivety, nee, nave's, Nieves's
@@ -2388,7 +2388,7 @@ negociations	negotiations	1	6	negotiations, negotiation's, negotiation, negation
 negotation	negotiation	1	7	negotiation, negation, notation, negotiating, vegetation, negotiations, negotiation's
 neice	niece	1	64	niece, Nice, nice, deice, Noyce, noise, nieces, nicer, Rice, Venice, mice, niche, rice, Nisei, nee, nisei, nose, Ice, ice, piece, notice, novice, deuce, naive, Neo's, neighs, noose, Neil, Nick, Nike, Nile, dice, lice, neck, nick, nine, vice, NE's, NYSE, Ne's, NeWS, Ni's, news, Seine, seine, fence, hence, neigh, nonce, pence, Peace, gneiss, juice, peace, seize, voice, niece's, new's, newsy, noisy, Nice's, Neil's, neigh's, news's
 neice	nice	3	64	niece, Nice, nice, deice, Noyce, noise, nieces, nicer, Rice, Venice, mice, niche, rice, Nisei, nee, nisei, nose, Ice, ice, piece, notice, novice, deuce, naive, Neo's, neighs, noose, Neil, Nick, Nike, Nile, dice, lice, neck, nick, nine, vice, NE's, NYSE, Ne's, NeWS, Ni's, news, Seine, seine, fence, hence, neigh, nonce, pence, Peace, gneiss, juice, peace, seize, voice, niece's, new's, newsy, noisy, Nice's, Neil's, neigh's, news's
-neigborhood	neighborhood	1	3	neighborhood, neighborhoods, neighborhood's
+neigborhood	neighborhood	1	6	neighborhood, neighborhoods, neighborhood's, neighbored, Negroid, negroid
 neigbour	neighbor	1	20	neighbor, Nicobar, neighbors, Nagpur, peignoir, Negro, Niger, negro, neighbored, nigger, nigher, Niebuhr, seigneur, neighbor's, neighborly, niggler, Igor, newborn, gibber, Nicobar's
 neigbouring	neighboring	1	26	neighboring, ignoring, gibbering, newborn, neighing, figuring, numbering, belaboring, nickering, neighbor, engineering, Nigerian, Nigerien, boring, encoring, goring, ligaturing, injuring, neighbors, Goering, beggaring, liquoring, neighbor's, abjuring, newborns, newborn's
 neigbours	neighbors	1	24	neighbors, neighbor's, neighbor, Nicobar's, Negroes, peignoirs, Negros, Negro's, niggers, seigneurs, Negros's, nigglers, Nagpur's, peignoir's, Niger's, newborns, Nicobar, gibbers, nigger's, Niebuhr's, seigneur's, niggler's, Igor's, newborn's
@@ -2400,7 +2400,7 @@ neverthless	nevertheless	1	18	nevertheless, nerveless, breathless, mirthless, wo
 newletters	newsletters	1	20	newsletters, new letters, new-letters, newsletter's, newsletter, letters, netters, welters, letter's, wetters, litters, natters, neuters, nutters, welter's, wetter's, latter's, litter's, natter's, neuter's
 nightime	nighttime	1	9	nighttime, nightie, nigh time, nigh-time, nighties, nighttime's, night, nightmare, nightie's
 nineth	ninth	1	14	ninth, ninety, ninths, nine, nines, nine's, neath, none, ninth's, nth, tenth, ninetieth, Kenneth, Nina
-ninteenth	nineteenth	1	5	nineteenth, nineteenths, ninetieth, nineteen, nineteenth's
+ninteenth	nineteenth	1	9	nineteenth, nineteenths, ninetieth, nineteen, nineteenth's, nineteens, nineteen's, Nintendo, fifteenth
 ninty	ninety	1	42	ninety, minty, ninny, linty, nifty, ninth, Monty, mint, nit, int, unity, nutty, Mindy, nicety, runty, Nina, Nita, nine, Indy, dint, hint, into, lint, pint, tint, dainty, pointy, nanny, natty, Cindy, Lindy, Nancy, nasty, nines, ninja, pinto, windy, ninety's, ain't, ninny's, Nina's, nine's
 nkow	know	1	48	know, NOW, now, NCO, Nike, nook, nuke, known, knows, NJ, knock, nooky, Noe, Nokia, Norw, nowt, KO, Knox, NW, No, kW, knew, kw, no, knob, knot, Nikon, NC, nohow, Neo, Nikki, cow, new, Nos, Nov, TKO, nob, nod, non, nor, nos, not, NYC, nag, neg, now's, No's, no's
 nkwo	know	2	83	NCO, know, Knox, Nike, kiwi, nuke, Nikon, NJ, NOW, now, Neo, Nikki, naked, nuked, nukes, KO, NW, No, kW, kw, neg, no, nook, NC, Nokia, new, noway, NWT, Negro, TKO, kWh, negro, two, NYC, nag, Noe, nix, keno, knob, knock, knot, NATO, NeWS, Nero, Pkwy, known, knows, news, newt, nowt, pkwy, Nick, Nike's, kn, knew, neck, nick, nuke's, wk, NCAA, Nagy, wog, wok, WHO, nags, who, woe, woo, wow, K, N, WNW, cow, k, n, vow, Kano, NW's, ink, pinko, new's, now's, nag's
@@ -2430,7 +2430,7 @@ nuculear	nuclear	1	25	nuclear, unclear, nucleate, clear, buckler, niggler, nucle
 nuisanse	nuisance	1	7	nuisance, nuisances, Nisan's, Nissan's, Nisan, nuisance's, unison's
 numberous	numerous	1	6	numerous, Numbers, numbers, number's, Numbers's, cumbrous
 Nuremburg	Nuremberg	1	3	Nuremberg, Nirenberg, Nuremberg's
-nusance	nuisance	1	6	nuisance, nuance, nuisances, nuances, nuisance's, nuance's
+nusance	nuisance	1	10	nuisance, nuance, nuisances, nuances, Nisan's, nascence, nuisance's, seance, nuance's, nuanced
 nutritent	nutrient	1	2	nutrient, nutriment
 nutritents	nutrients	1	4	nutrients, nutriments, nutrient's, nutriment's
 nuturing	nurturing	1	10	nurturing, neutering, suturing, untiring, nutting, Turing, neutrino, maturing, nattering, tutoring
@@ -2438,7 +2438,7 @@ obediance	obedience	1	5	obedience, obeisance, abidance, obedience's, abeyance
 obediant	obedient	1	16	obedient, obeisant, obediently, ordinate, obedience, aberrant, obtain, obtained, pedant, Ibadan, obstinate, oxidant, obsidian, obtains, abundant, obeying
 obession	obsession	1	14	obsession, omission, obsessions, abrasion, Oberon, oblation, cession, occasion, session, obsessing, emission, obsession's, obsessional, obeying
 obssessed	obsessed	1	7	obsessed, abscessed, obsesses, assessed, obsess, possessed, obsolesced
-obstacal	obstacle	1	3	obstacle, obstacles, obstacle's
+obstacal	obstacle	1	23	obstacle, obstacles, obstacle's, optical, acoustical, egoistical, mystical, install, obstetrical, stoical, zodiacal, abstractly, monastical, obstinacy, abstract, bestowal, obstruct, onstage, astral, oxtail, logistical, abstain, austral
 obstancles	obstacles	1	10	obstacles, obstacle's, obstacle, obstinacy's, obstinacy, obstinately, abstainers, obstructs, abstainer's, Stengel's
 obstruced	obstructed	1	9	obstructed, obstruct, obstructs, obtruded, abstruse, obtrude, obscured, obtrudes, outraced
 ocasion	occasion	1	20	occasion, occasions, action, evasion, ovation, cation, location, vocation, oration, occasion's, occasional, occasioned, casino, occlusion, Casio, caution, cushion, Asian, avocation, evocation
@@ -2452,7 +2452,7 @@ ocassional	occasional	1	11	occasional, occasionally, vocational, occasions, occa
 ocassionally	occasionally	1	5	occasionally, occasional, vocationally, obsessionally, optionally
 ocassionaly	occasionally	1	14	occasionally, occasional, vocationally, vocational, occasions, occasion, obsessionally, obsessional, factional, occasion's, occasioned, optionally, avocational, optional
 ocassioned	occasioned	1	14	occasioned, cautioned, cushioned, occasions, accessioned, occasion, occasion's, impassioned, vacationed, auctioned, occasional, optioned, captioned, fashioned
-ocassions	occasions	1	36	occasions, occasion's, omissions, occasion, actions, Passions, passions, evasions, ovations, cations, occlusions, cessions, omission's, locations, vocations, cautions, cushions, orations, action's, accessions, Passion's, passion's, emissions, evasion's, ovation's, cation's, occlusion's, cession's, location's, vocation's, caution's, cushion's, oration's, accession's, scansion's, emission's
+ocassions	occasions	1	50	occasions, occasion's, omissions, occasion, actions, Passions, passions, evasions, ovations, cations, occlusions, cessions, omission's, locations, vocations, cautions, cushions, orations, action's, accessions, Passion's, passion's, casinos, emissions, caissons, evasion's, ovation's, cation's, occlusion's, Asians, cession's, location's, vocation's, Casio's, cassias, caution's, cushion's, oration's, accession's, scansion's, avocations, evocations, cassia's, emission's, caisson's, casino's, Asian's, cohesion's, avocation's, evocation's
 occaison	occasion	1	16	occasion, occasions, caisson, moccasin, orison, casino, accession, accusing, occasion's, Alison, occasional, occasioned, occlusion, Jason, Carson, Occam's
 occassion	occasion	1	8	occasion, occasions, accession, occlusion, occasion's, occasional, occasioned, omission
 occassional	occasional	1	7	occasional, occasionally, occasions, occasion, occasion's, occasioned, occupational
@@ -2465,11 +2465,11 @@ occour	occur	1	16	occur, occurs, OCR, accrue, scour, ocker, coir, ecru, Accra, c
 occurance	occurrence	1	10	occurrence, occupancy, occurrences, accordance, accuracy, occurs, assurance, occurrence's, occurring, durance
 occurances	occurrences	1	9	occurrences, occurrence's, occurrence, occupancy's, assurances, accordance's, accuracy's, assurance's, durance's
 occured	occurred	1	26	occurred, accrued, occur ed, occur-ed, occurs, cured, occur, accursed, occupied, acquired, accord, occlude, uncured, accused, scoured, secured, cored, augured, accrue, accurate, cred, curd, obscured, reoccurred, cared, oared
-occurence	occurrence	1	3	occurrence, occurrences, occurrence's
+occurence	occurrence	1	19	occurrence, occurrences, occurrence's, recurrence, concurrence, occupancy, occurring, currency, occurs, coherence, Clarence, accordance, nonoccurence, Laurence, opulence, accuracy, succulence, ocarinas, ocarina's
 occurences	occurrences	1	17	occurrences, occurrence's, occurrence, recurrences, currencies, concurrences, recurrence's, concurrence's, occupancy's, currency's, coherence's, Clarence's, accordance's, Laurence's, opulence's, accuracy's, succulence's
 occuring	occurring	1	15	occurring, accruing, curing, acquiring, ocarina, accusing, scouring, securing, coring, auguring, occur, obscuring, reoccurring, caring, oaring
 occurr	occur	1	20	occur, occurs, occurred, accrue, OCR, ocker, Accra, occupy, corr, Curry, cure, curry, occupier, Orr, cur, our, ocular, occurring, Carr, reoccur
-occurrance	occurrence	1	4	occurrence, occurrences, occurrence's, occurring
+occurrance	occurrence	1	10	occurrence, occurrences, occurrence's, occurring, occupancy, accordance, recurrence, concurrence, accuracy, currency
 occurrances	occurrences	1	14	occurrences, occurrence's, occurrence, recurrences, currencies, concurrences, occupancy's, accordance's, recurrence's, assurances, concurrence's, accuracy's, currency's, assurance's
 ocuntries	countries	1	15	countries, counties, country's, entries, counters, gantries, gentries, contrives, counter's, unties, Coventries, coquetries, aunties, Ontario's, auntie's
 ocuntry	country	1	18	country, counter, county, upcountry, contra, entry, Gantry, Gentry, gantry, gentry, unitary, count, country's, counters, cunt, Coventry, counter's, county's
@@ -2477,7 +2477,7 @@ ocurr	occur	1	20	occur, OCR, ocker, corr, Curry, cure, curry, ecru, Orr, acre, c
 ocurrance	occurrence	1	20	occurrence, occurrences, currency, recurrence, outrace, occurrence's, Torrance, occurring, concurrence, currant, durance, ocarinas, occupancy, assurance, accordance, currants, Terrance, ocarina's, Carranza, currant's
 ocurred	occurred	1	30	occurred, incurred, curried, cured, scurried, acquired, recurred, courted, scarred, cored, accrued, Creed, creed, scoured, cred, curd, carried, coursed, concurred, reoccurred, urged, cared, cried, erred, oared, curbed, curled, cursed, curved, uncured
 ocurrence	occurrence	1	6	occurrence, occurrences, currency, recurrence, occurrence's, concurrence
-offcers	officers	1	7	officers, offers, officer's, offer's, officer, offices, office's
+offcers	officers	1	15	officers, offers, officer's, offer's, officer, offices, office's, offsets, overs, offset's, effaces, offer, coffers, over's, coffer's
 offcially	officially	1	6	officially, official, facially, officials, unofficially, official's
 offereings	offerings	1	13	offerings, offering's, offering, offings, sufferings, offing's, Efren's, sovereigns, Efrain's, firings, suffering's, offspring's, sovereign's
 offical	official	1	19	official, offal, officially, focal, officials, fecal, bifocal, efficacy, office, apical, optical, officer, offices, ethical, fiscal, official's, FICA, office's, offal's
@@ -2497,7 +2497,7 @@ ommited	omitted	1	20	omitted, emitted, emoted, committed, commuted, vomited, moo
 ommiting	omitting	1	17	omitting, emitting, emoting, committing, commuting, vomiting, smiting, mooting, limiting, muting, outing, mating, meting, opting, admitting, matting, meeting
 ommitted	omitted	1	4	omitted, emitted, committed, admitted
 ommitting	omitting	1	4	omitting, emitting, committing, admitting
-omniverous	omnivorous	1	4	omnivorous, omnivores, omnivore's, omnivorously
+omniverous	omnivorous	1	7	omnivorous, omnivores, omnivore's, omnivorously, omnivore, onerous, coniferous
 omniverously	omnivorously	1	6	omnivorously, omnivorous, onerously, ominously, omnivores, omnivore's
 omre	more	2	43	More, more, Ore, ore, Omar, Amer, immure, ogre, mire, om re, om-re, Emery, emery, Oreo, Orr, ire, mare, mere, Moore, moire, omen, Homer, comer, homer, Amur, Moro, Mr, OR, emir, o'er, om, or, Emory, Oder, over, MRI, OMB, Ora, are, ere, oar, our, Omar's
 onot	note	15	44	onto, Ont, Ono, not, into, int, unto, unit, ant, knot, snot, ingot, anti, nit, note, nowt, Oort, Tonto, snoot, NT, ON, OT, Otto, ante, on, undo, Mont, cont, font, wont, onset, Ono's, ain't, aunt, NWT, Nat, net, nod, nut, oat, one, out, don't, won't
@@ -2511,8 +2511,8 @@ oposite	opposite	1	20	opposite, apposite, opposites, postie, posit, onsite, upsi
 oposition	opposition	2	9	Opposition, opposition, position, apposition, imposition, oppositions, deposition, reposition, opposition's
 oppenly	openly	1	21	openly, Opel, only, open, apply, opens, appeal, append, evenly, open's, opened, opener, penal, opine, panel, opulently, penile, Koppel, Penny, penny, Opel's
 oppinion	opinion	1	11	opinion, op pinion, op-pinion, opining, opinions, pinion, Onion, onion, opening, opinion's, pinon
-opponant	opponent	1	5	opponent, opponents, opponent's, appoint, pennant
-oppononent	opponent	1	3	opponent, opponents, opponent's
+opponant	opponent	1	12	opponent, opponents, opponent's, appoint, pennant, assonant, deponent, opining, poignant, opening, component, exponent
+oppononent	opponent	1	16	opponent, opponents, opponent's, appointment, deponent, Innocent, innocent, optioned, penitent, pennant, openest, opulent, pendent, pungent, apparent, poignant
 oppositition	opposition	2	7	Opposition, opposition, apposition, oppositions, opposition's, position, apposition's
 oppossed	opposed	1	14	opposed, apposed, opposes, oppose, opposite, oppressed, appeased, pissed, posed, apposes, appose, passed, poised, unopposed
 opprotunity	opportunity	1	10	opportunity, opportunist, opportunity's, importunity, opportunely, opportunists, orotundity, opportune, opportunities, opportunist's
@@ -2526,10 +2526,10 @@ optmizations	optimizations	1	4	optimizations, optimization's, optimization, item
 optomism	optimism	1	8	optimism, optimisms, optimist, optimums, optimum, optimism's, optimize, optimum's
 orded	ordered	11	29	eroded, orated, corded, forded, horded, lorded, worded, order, prided, oared, ordered, birded, boarded, girded, hoarded, graded, ordeal, traded, carded, herded, larded, ported, sordid, sorted, warded, added, aided, erred, outed
 organim	organism	1	14	organism, organic, organ, organize, organs, orgasm, origami, oregano, organ's, organdy, organza, organisms, uranium, organism's
-organiztion	organization	1	6	organization, organizations, organization's, organizational, organizing, reorganization
+organiztion	organization	1	8	organization, organizations, organization's, organizational, organizing, reorganization, urbanization, origination
 orgin	origin	1	24	origin, Orin, organ, Oregon, argon, urging, or gin, or-gin, org in, org-in, origins, orig, Orion, arguing, oregano, org, forging, gorging, organs, Erin, Oran, orgy, origin's, organ's
 orgin	organ	3	24	origin, Orin, organ, Oregon, argon, urging, or gin, or-gin, org in, org-in, origins, orig, Orion, arguing, oregano, org, forging, gorging, organs, Erin, Oran, orgy, origin's, organ's
-orginal	original	1	8	original, ordinal, originally, originals, virginal, urinal, marginal, original's
+orginal	original	1	15	original, ordinal, originally, originals, virginal, urinal, marginal, regional, organ, origin, original's, organs, aboriginal, unoriginal, organ's
 orginally	originally	1	11	originally, original, marginally, regionally, organically, organelle, originality, originals, ordinal, original's, vaginally
 oridinarily	ordinarily	1	5	ordinarily, ordinary, ordinaries, originally, ordinary's
 origanaly	originally	1	7	originally, original, originals, organelle, originality, organdy, original's
@@ -2557,7 +2557,7 @@ palce	palace	2	30	place, palace, Pace, pace, pale, pales, plaice, police, pals, 
 paleolitic	paleolithic	2	5	Paleolithic, paleolithic, politic, politico, Paleolithic's
 paliamentarian	parliamentarian	1	5	parliamentarian, parliamentarians, parliamentarian's, parliamentary, alimentary
 Palistian	Palestinian	17	18	Alsatian, Palliation, Pakistan, Palestine, Pulsation, Parisian, Palpation, Palsying, Pakistani, Palestrina, Placation, Faustian, Palatial, Position, Politician, Polishing, Palestinian, Aleutian
-Palistinian	Palestinian	1	13	Palestinian, Palestinians, Palestinian's, Palestrina, Palestine, Politician, Plasticine, Listening, Palestine's, Justinian, Pakistani, Glistening, Palestrina's
+Palistinian	Palestinian	1	3	Palestinian, Palestinians, Palestinian's
 Palistinians	Palestinians	1	12	Palestinians, Palestinian's, Palestinian, Palestrina's, Politicians, Palestine's, Pakistanis, Pakistani's, Politician's, Pakistan's, Plasticine's, Justinian's
 pallete	palette	2	30	pallet, palette, Paulette, palliate, palate, palled, pellet, pullet, pallets, pollute, plate, Platte, pallet's, pelleted, paled, ballet, mallet, wallet, Pilate, pallid, pilled, polite, polled, pulled, palmate, palpate, pellets, pullets, pellet's, pullet's
 pamflet	pamphlet	1	16	pamphlet, pamphlets, pallet, Hamlet, amulet, hamlet, pimpled, Pamela, mallet, pamphlet's, paled, leaflet, palled, pellet, piffle, pullet
@@ -2572,13 +2572,13 @@ parituclar	particular	1	7	particular, particulars, articular, particulate, parti
 parliment	parliament	2	7	Parliament, parliament, parliaments, parchment, Parliament's, parliament's, aliment
 parrakeets	parakeets	1	18	parakeets, parakeet's, parakeet, partakes, parapets, parquets, partakers, partaker's, parapet's, packets, parades, parquet's, parrots, Paraclete's, parade's, paraquat's, packet's, parrot's
 parralel	parallel	1	26	parallel, parallels, parable, paralegal, Parnell, parsley, parley, parole, parcel, parolee, payroll, parasol, paroled, paroles, percale, palely, parallel's, paralleled, paralyze, parlayed, Darrell, Farrell, Harrell, prole, parole's, plural
-parrallel	parallel	1	4	parallel, parallels, parallel's, paralleled
-parrallell	parallel	1	4	parallel, parallels, parallel's, paralleled
+parrallel	parallel	1	9	parallel, parallels, parallel's, paralleled, parable, paralegal, paralleling, parley, parole
+parrallell	parallel	1	7	parallel, parallels, parallel's, paralleled, paralegal, paralleling, parable
 partialy	partially	1	9	partially, partial, partials, partiality, partly, partial's, martially, Martial, martial
 particually	particularly	4	13	piratically, practically, particular, particularly, poetically, partially, particulate, piratical, vertically, operatically, patriotically, radically, parasitically
 particualr	particular	1	7	particular, particulars, articular, particulate, particular's, particularly, particle
 particuarly	particularly	1	11	particularly, particular, piratically, particularity, particulars, particular's, piratical, articular, particularize, practically, practicably
-particularily	particularly	1	3	particularly, particularity, particularize
+particularily	particularly	1	7	particularly, particularity, particularize, particular, particulars, particular's, particularity's
 particulary	particularly	1	6	particularly, particular, particulars, particularity, articular, particular's
 pary	party	6	41	pray, Peary, parry, parky, part, party, par, pry, pay, Parr, para, pare, Paar, pair, pear, prey, PR, Pr, pr, Perry, Peru, PRO, per, ppr, pro, PARC, Park, park, pars, Cary, Gary, Mary, nary, pacy, vary, wary, pore, pure, purr, pyre, par's
 pased	passed	1	23	passed, paused, parsed, pasted, phased, paced, posed, pissed, paste, poised, past, payed, based, cased, eased, lased, paged, paled, pared, paved, pawed, pasta, pasty
@@ -2591,7 +2591,7 @@ pattented	patented	1	25	patented, pat tented, pat-tented, parented, attended, pa
 pavillion	pavilion	1	4	pavilion, pavilions, pillion, pavilion's
 peageant	pageant	1	22	pageant, pageants, peasant, reagent, pageantry, paginate, pagan, pageant's, agent, Piaget, pagans, parent, patent, pedant, regent, Peugeot, pungent, pennant, piquant, sergeant, poignant, pagan's
 peculure	peculiar	1	35	peculiar, peculate, pecker, McClure, declare, picture, secular, peculator, peculiarly, culture, peeler, puller, peculated, peculates, ocular, pearlier, Clare, pecuniary, preclude, heckler, peddler, sculler, pedicure, secure, speculate, pickle, perjure, lecture, recluse, seclude, peccary, jocular, popular, recolor, regular
-pedestrain	pedestrian	1	3	pedestrian, pedestrians, pedestrian's
+pedestrain	pedestrian	1	8	pedestrian, pedestrians, pedestrian's, eyestrain, pedestrianize, restrain, Palestrina, pedestal
 peice	piece	1	80	piece, Price, price, Peace, peace, puce, Pace, pace, pence, deice, Pei's, poise, pieced, pieces, pricey, pees, pies, Pierce, Rice, apiece, pierce, rice, specie, Pei, pacey, pee, pie, pose, spice, Ice, ice, niece, pic, peaces, plaice, police, prize, pumice, pie's, pis, pecs, pics, Nice, Peck, Pele, Pete, Pike, dice, lice, mice, nice, peck, peke, pica, pick, pike, pile, pine, pipe, vice, Pisa, Pius, pacy, peas, peso, pews, pi's, piss, Percy, Ponce, place, ponce, piece's, pea's, pee's, pew's, poi's, pic's, Peace's, peace's
 penatly	penalty	1	25	penalty, neatly, penal, gently, pertly, potently, prenatal, petal, pliantly, prenatally, partly, natl, patently, pent, dental, mental, pantry, rental, peaty, pettily, pentacle, dentally, mentally, pedal, penalty's
 penisula	peninsula	1	19	peninsula, pencil, insula, peninsular, peninsulas, penis, sensual, penis's, penises, penile, perusal, Pensacola, peninsula's, pens, Pen's, pen's, pensively, Pena's, Penn's
@@ -2602,7 +2602,7 @@ pennisula	peninsula	1	9	peninsula, peninsular, peninsulas, Pennzoil, insula, pen
 pensinula	peninsula	1	10	peninsula, peninsular, peninsulas, personal, Pensacola, pensively, pleasingly, pressingly, peninsula's, passingly
 peom	poem	1	42	poem, prom, peon, pom, ppm, PM, Pm, pm, Pam, Pym, Perm, perm, geom, wpm, poems, pommy, promo, Poe, emo, Pei, pomp, poms, peso, PE, PO, Po, puma, EM, demo, em, memo, om, poet, POW, pea, pee, pew, poi, poo, pow, poem's, Poe's
 peoms	poems	1	52	poems, proms, peons, poms, poem's, PMS, PMs, perms, prom's, promos, PM's, Pm's, peon's, poem, emos, Pecos, pesos, Pam's, Poe's, Pym's, pom, pumas, demos, ems, memos, oms, poets, Pei's, Perm's, perm's, peso's, Po's, peas, pees, pews, poos, poss, pea's, pee's, pew's, PMS's, POW's, promo's, em's, om's, emo's, pomp's, poi's, puma's, demo's, memo's, poet's
-peopel	people	1	17	people, propel, peopled, peoples, Peel, Pope, peel, pope, Opel, popes, repel, papal, pupal, pupil, people's, Pope's, pope's
+peopel	people	1	34	people, propel, peopled, peoples, Peel, Pope, peel, pope, Opel, pepped, pepper, popes, repel, papal, pupal, pupil, Poole, peeped, peeper, pooped, Pele, Pole, peep, pole, PayPal, people's, Peale, Pol, pep, pol, pop, Pope's, pope's, plop
 peotry	poetry	1	42	poetry, Petra, pottery, Peter, peter, Perry, Petty, petty, potty, pewter, Peary, Pyotr, peaty, portray, retry, Pedro, Potter, piety, potter, pouter, paltry, pantry, pastry, pretty, Port, penury, pert, port, Tory, poet, poetry's, Perot, Porto, party, PET, per, pet, petrify, pot, poultry, pry, try
 perade	parade	2	37	pervade, parade, Prada, Prado, prate, pride, prude, pared, peered, prayed, pirate, preyed, pored, pried, Purdue, period, perked, permed, persuade, paraded, parader, parades, pureed, parred, peerage, pert, prat, prod, purred, Verde, erode, grade, trade, Perot, Pratt, operate, parade's
 percepted	perceived	14	19	receipted, precepts, preempted, precept, perceptive, persecuted, precept's, preceded, perverted, preceptor, presented, perceptual, prompted, perceived, perfected, permeated, persisted, prepped, pretested
@@ -2610,17 +2610,17 @@ percieve	perceive	1	4	perceive, perceived, perceives, receive
 percieved	perceived	1	6	perceived, perceives, perceive, received, preceded, precised
 perenially	perennially	1	20	perennially, perennial, personally, perennials, prenatally, perennial's, partially, Permalloy, paternally, Parnell, triennially, hernial, perkily, aerially, ceremonially, genially, menially, serially, terminally, parental
 perfomers	performers	1	10	performers, perfumers, perfumer's, performer's, perfumeries, perfumery's, perfumer, perfumes, perfume's, perfumery
-performence	performance	1	5	performance, performances, preference, performance's, performing
+performence	performance	1	10	performance, performances, preference, performance's, performing, performers, performer's, perforce, performs, preforming
 performes	performed	2	13	performers, performed, performs, preforms, performer, perform es, perform-es, preformed, performer's, perform, perforce, perfumes, perfume's
 performes	performs	3	13	performers, performed, performs, preforms, performer, perform es, perform-es, preformed, performer's, perform, perforce, perfumes, perfume's
 perhasp	perhaps	1	74	perhaps, per hasp, per-hasp, pariahs, hasp, rasp, Perth's, perch's, perches, paras, Perls, grasp, perks, perms, perusal, pervs, preheats, preps, precast, purchase, press, Peru's, peruse, Perl's, Perm's, parkas, perils, perk's, perm's, pariah's, resp, Prensa, prepays, prays, raspy, prams, prats, preheat, Peoria's, props, Persia's, persist, pertest, prenups, preys, para's, praise, prep's, hosp, piranhas, prepay, prey's, primps, prop, pros, Peary's, Perry's, Percy's, Perez's, Peron's, Perot's, parka's, peril's, Ptah's, pro's, pry's, press's, Oprah's, purdah's, pram's, Praia's, piranha's, prop's, prenup's
 perheaps	perhaps	1	19	perhaps, per heaps, per-heaps, preheats, preps, prep's, prepays, perches, heaps, peeps, reaps, preheat, rehears, reheats, props, heap's, peep's, prop's, preppy's
 perhpas	perhaps	1	12	perhaps, prepays, preps, preheats, prep's, props, prop's, peps, prepay, preppy's, pep's, Persia's
-peripathetic	peripatetic	1	3	peripatetic, peripatetics, peripatetic's
+peripathetic	peripatetic	1	9	peripatetic, peripatetics, prosthetic, peripatetic's, empathetic, parenthetic, prophetic, pathetic, apathetic
 peristent	persistent	1	17	persistent, president, present, percent, portent, penitent, percipient, precedent, presidents, pristine, resident, prescient, persistently, Preston, pretend, pertest, president's
 perjery	perjury	1	23	perjury, perjure, perkier, Parker, porker, perter, purger, perjured, perjurer, perjures, perky, porkier, periphery, prefer, Perrier, Perry, pecker, prudery, parer, perjury's, prier, purer, priory
 perjorative	pejorative	1	9	pejorative, procreative, pejoratives, prerogative, performative, preoperative, proactive, pejorative's, pejoratively
-permanant	permanent	1	8	permanent, permanents, remnant, preeminent, pregnant, permanent's, permanently, prominent
+permanant	permanent	1	13	permanent, permanents, remnant, permanency, preeminent, pregnant, permanent's, permanently, prominent, permanence, termagant, pertinent, predominant
 permenant	permanent	1	10	permanent, remnant, preeminent, pregnant, prominent, permanents, pertinent, permeate, predominant, permanent's
 permenantly	permanently	1	6	permanently, preeminently, prominently, pertinently, predominantly, permanent
 permissable	permissible	1	6	permissible, permissibly, permeable, perishable, permissively, impermissible
@@ -2628,14 +2628,14 @@ perogative	prerogative	1	8	prerogative, purgative, proactive, pejorative, prerog
 peronal	personal	1	30	personal, perennial, Peron, penal, neuronal, vernal, personally, pergola, Peron's, coronal, perinea, perusal, renal, personals, peril, perinatal, peritoneal, persona, personnel, Perl, paternal, pron, Pernod, portal, personae, prone, prong, prowl, supernal, personal's
 perosnality	personality	1	5	personality, personalty, personality's, personally, personalty's
 perphas	perhaps	8	50	pervs, prepays, Perth's, perch's, perches, preps, prophesy, perhaps, profs, prep's, seraphs, paras, prof's, proofs, proves, Perls, pariahs, perks, perms, Peron's, Perot's, Persia's, perishes, purchase, seraph's, Peru's, Peoria's, Perl's, Perm's, morphs, parkas, perils, perk's, perm's, Perry's, Percy's, Perez's, peril's, porch's, Provo's, para's, proof's, preppy's, Parthia's, morphia's, Praia's, Prada's, parka's, pariah's, privy's
-perpindicular	perpendicular	1	4	perpendicular, perpendiculars, perpendicular's, perpendicularly
+perpindicular	perpendicular	1	5	perpendicular, perpendiculars, perpendicular's, perpendicularly, perpendicularity
 perseverence	perseverance	1	8	perseverance, perseverance's, perseveres, preference, persevering, persevere, reverence, persevered
 persistance	persistence	1	5	persistence, Resistance, resistance, persistence's, persisting
 persistant	persistent	1	8	persistent, persist ant, persist-ant, resistant, persisting, persistently, persistence, persisted
 personel	personnel	1	19	personnel, personal, personae, personally, person, personals, persona, persons, person's, personas, personable, Pearson, personnel's, personage, Fresnel, parson, personal's, personalty, persona's
 personel	personal	2	19	personnel, personal, personae, personally, person, personals, persona, persons, person's, personas, personable, Pearson, personnel's, personage, Fresnel, parson, personal's, personalty, persona's
 personell	personnel	1	8	personnel, personally, personal, person ell, person-ell, personals, personnel's, personal's
-personnell	personnel	1	4	personnel, personally, personnel's, personal
+personnell	personnel	1	7	personnel, personally, personnel's, personal, personae, personals, personal's
 persuded	persuaded	1	15	persuaded, presided, persuades, perused, persuade, presumed, persuader, preceded, pursued, preside, pressed, resided, permuted, pervaded, Perseid
 persue	pursue	2	27	peruse, pursue, parse, purse, pressie, per sue, per-sue, perused, peruses, presume, Pres, pres, Perez, pears, peers, piers, prose, Perseus, Purus, press, Peru, Peru's, persuade, pear's, peer's, pier's, Pr's
 persued	pursued	2	14	perused, pursued, Perseid, persuade, pressed, preside, parsed, pursed, per sued, per-sued, presumed, peruse, preset, persuaded
@@ -2645,23 +2645,23 @@ persuits	pursuits	1	16	pursuits, pursuit's, per suits, per-suits, persist, persi
 pertubation	perturbation	1	9	perturbation, perturbations, probation, permutation, parturition, perturbation's, partition, perdition, perpetuation
 pertubations	perturbations	1	11	perturbations, perturbation's, perturbation, permutations, partitions, probation's, permutation's, parturition's, partition's, perdition's, perpetuation's
 pessiary	pessary	1	12	pessary, Peary, Persia, Prussia, Pissaro, peccary, pussier, bestiary, pushier, Perry, Persian, Persia's
-petetion	petition	1	18	petition, petitions, petering, petting, partition, perdition, Patton, Petain, detection, detention, petition's, petitioned, petitioner, potion, retention, pettish, repetition, deletion
+petetion	petition	1	46	petition, petitions, petering, petting, partition, perdition, portion, Patton, Petain, Peterson, detection, detention, petition's, petitioned, petitioner, potion, retention, pettish, protection, edition, pension, repetition, station, deletion, piton, rotation, citation, mutation, notation, position, sedation, sedition, pretension, patting, petitioning, pitting, potting, putting, tuition, depletion, Putin, deputation, repletion, reputation, pectin, petitionary
 Pharoah	Pharaoh	1	7	Pharaoh, Pharaohs, Pariah, Shariah, Pharaoh's, Sarah, Hurrah
 phenomenom	phenomenon	1	5	phenomenon, phenomena, phenomenal, phenomenons, phenomenon's
 phenomenonal	phenomenal	2	4	phenomenons, phenomenal, phenomenon, phenomenon's
 phenomenonly	phenomenally	3	5	phenomenon, phenomenons, phenomenally, phenomenon's, phenomenal
-phenomonenon	phenomenon	1	3	phenomenon, phenomenons, phenomenon's
-phenomonon	phenomenon	1	4	phenomenon, phenomenons, phenomenon's, phenomena
+phenomonenon	phenomenon	1	5	phenomenon, phenomenons, phenomenon's, phenomena, phenomenal
+phenomonon	phenomenon	1	6	phenomenon, phenomenons, phenomenon's, phenomena, phenomenal, pheromone
 phenonmena	phenomena	1	3	phenomena, phenomenal, phenomenon
 Philipines	Philippines	1	12	Philippines, Philippine's, Philippians, Philippines's, Philippine, Filipinos, Philippians's, Philips, Philippe's, Filipino's, Philip's, Philips's
-philisopher	philosopher	1	5	philosopher, philosophers, philosopher's, philosophizer, philosophy
+philisopher	philosopher	1	9	philosopher, philosophers, philosopher's, philosophizer, philosophies, philosophy, philosophic, philosophize, philosophy's
 philisophical	philosophical	1	3	philosophical, philosophically, philosophic
 philisophy	philosophy	1	6	philosophy, philosophy's, philosopher, philosophic, philosophies, philosophize
 Phillipine	Philippine	1	15	Philippine, Filliping, Philippines, Phillip, Philippe, Phillipa, Phillips, Filipino, Phillip's, Philippine's, Philippians, Phillipa's, Phillips's, Philip, Philippines's
 Phillipines	Philippines	1	14	Philippines, Philippine's, Philippians, Philippines's, Philippine, Phillips, Phillip's, Filipinos, Phillipa's, Phillips's, Philippians's, Philippe's, Filipino's, Philips's
 Phillippines	Philippines	1	9	Philippines, Philippine's, Phillip pines, Phillip-pines, Philippians, Philippines's, Philippine, Philippians's, Philippe's
 phillosophically	philosophically	1	3	philosophically, philosophical, philosophic
-philospher	philosopher	1	6	philosopher, philosophers, philosopher's, philosophizer, philosophy, phosphor
+philospher	philosopher	1	10	philosopher, philosophers, philosopher's, philosophizer, philosophies, philosophy, phosphor, philosophic, philosophize, philosophy's
 philosphies	philosophies	1	8	philosophies, philosophize, philosophizes, philosophy's, philosophized, philosophers, philosophizer, philosopher's
 philosphy	philosophy	1	7	philosophy, philosophy's, philosopher, philosophic, philosophies, philosophize, Phil's
 phongraph	phonograph	1	7	phonograph, phonographs, photograph, phonograph's, phonographic, photography, monograph
@@ -2674,30 +2674,30 @@ pinapple	pineapple	1	11	pineapple, pin apple, pin-apple, pineapples, Snapple, ni
 pinnaple	pineapple	1	2	pineapple, pinnacle
 pinoneered	pioneered	1	12	pioneered, pondered, pinioned, pioneers, pioneer, pioneer's, dinnered, pandered, peered, pinwheeled, pioneering, spinneret
 plagarism	plagiarism	1	8	plagiarism, plagiarisms, plagiarist, plagiarism's, vulgarism, plagiarize, paganism, plagiary's
-planation	plantation	1	5	plantation, placation, plantain, pollination, palpation
+planation	plantation	1	10	plantation, placation, plantain, pollination, palpation, plantations, planting, pagination, palliation, plantation's
 plantiff	plaintiff	1	13	plaintiff, plan tiff, plan-tiff, plaintiffs, planting, plaintive, pontiff, plaintiff's, plant, plantain, plants, plentiful, plant's
 plateu	plateau	1	40	plateau, plate, Pilate, Platte, palate, platy, plat, Plataea, played, Plato, plated, platen, plates, plateaus, plait, pleat, paled, Pate, late, pate, polite, plague, plaque, Pilates, palates, plaited, plate's, platted, platter, pleated, palled, pallet, plot, Patel, plats, plat's, plateau's, Pilate's, Platte's, palate's
 plausable	plausible	1	10	plausible, plausibly, playable, passable, pleasurable, pliable, laudable, palpable, palatable, passably
-playright	playwright	1	7	playwright, play right, play-right, playwrights, alright, playwright's, plight
+playright	playwright	1	10	playwright, play right, play-right, playwrights, alright, playwright's, plight, polarity, aright, lariat
 playwrite	playwright	3	14	play write, play-write, playwright, polarity, pyrite, playwrights, playmate, Platte, player, plaited, playwright's, polarize, playtime, parity
 playwrites	playwrights	3	20	play writes, play-writes, playwrights, playwright's, polarities, pyrites, playmates, parties, parities, playwright, polarity's, pyrite's, plaits, plates, plait's, playmate's, Platte's, plate's, pyrites's, parity's
 pleasent	pleasant	1	17	pleasant, plea sent, plea-sent, placenta, peasant, pleased, present, pleasing, planet, pleasantry, plant, please, plaint, pleasanter, pleasantly, pliant, pleases
-plebicite	plebiscite	1	3	plebiscite, plebiscites, plebiscite's
+plebicite	plebiscite	1	20	plebiscite, plebiscites, plebiscite's, publicity, pliability, plebes, elicit, Lucite, phlebitis, licit, pellucid, polemicist, fleabite, plebs, plaice, Felicity, felicity, lubricity, publicize, plebe's
 plesant	pleasant	1	15	pleasant, peasant, plant, pliant, pleasantry, present, palest, plaint, planet, pleasanter, pleasantly, pleasing, plenty, pleat, pleased
 poeoples	peoples	1	21	peoples, people's, peopled, people, poodles, propels, Poole's, Poles, poles, pools, poops, popes, poodle's, pool's, poop's, Pele's, Pole's, Pope's, pole's, pope's, Peale's
 poety	poetry	2	19	piety, poetry, poet, potty, Petty, peaty, petty, pity, PET, pet, pot, Pete, pout, poets, poesy, Patty, patty, putty, poet's
 poisin	poison	2	12	poising, poison, Poisson, Poussin, posing, pissing, poi sin, poi-sin, poisons, poise, poi's, poison's
 polical	political	2	21	polemical, political, poetical, helical, pelican, polecat, local, pollack, optical, plural, polka, police, policy, politely, PASCAL, Pascal, pascal, polkas, logical, topical, polka's
-polinator	pollinator	1	8	pollinator, pollinators, pollinate, pollinator's, plantar, planter, pointer, politer
+polinator	pollinator	1	16	pollinator, pollinators, pollinate, pollinator's, plantar, planter, pointer, politer, pollinated, pollinates, pointier, pliant, nominator, Pinter, planar, splinter
 polinators	pollinators	1	13	pollinators, pollinator's, pollinator, pollinates, planters, pointers, planter's, nominators, pointer's, splinters, nominator's, Pinter's, splinter's
 politican	politician	1	14	politician, political, politic an, politic-an, politicking, politics, politic, politico, politicos, politicians, politics's, pelican, politico's, politician's
 politicans	politicians	1	14	politicians, politic ans, politic-ans, politician's, politics, politics's, politicos, politico's, politician, politicking's, pelicans, politicking, political, pelican's
-poltical	political	1	5	political, poetical, politically, apolitical, polemical
+poltical	political	1	9	political, poetical, politically, apolitical, polemical, optical, politic, poetically, politico
 polute	pollute	2	34	polite, pollute, Pilate, polity, Pluto, plate, solute, volute, palate, plot, politer, polluted, polluter, pollutes, poled, pouted, Platte, Pole, lute, pilot, pole, polled, pout, pallet, pellet, pelt, plat, pullet, palette, flute, plume, Plato, platy, Paiute
 poluted	polluted	1	17	polluted, pouted, plotted, piloted, pelted, plated, plaited, polite, pollute, platted, pleated, poled, clouted, flouted, plodded, polled, potted
 polutes	pollutes	1	59	pollutes, polities, Pilates, plates, politesse, solutes, volutes, palates, plots, politest, polluters, polluted, Pilate's, polite, polity's, pollute, plot's, Plautus, Pluto's, Poles, lutes, pilots, plate's, poles, pouts, pallets, pellets, pelts, plats, polluter, pullets, solute's, volute's, palate's, palettes, pilot's, pout's, flutes, plumes, pluses, pelt's, plat's, platys, polluter's, Paiutes, Platte's, Pole's, lute's, pole's, Pilates's, palette's, flute's, plume's, Plato's, platy's, pallet's, pellet's, pullet's, Paiute's
 poluting	polluting	1	15	polluting, pouting, plotting, piloting, pelting, plating, plaiting, platting, pleating, poling, clouting, flouting, plodding, polling, potting
-polution	pollution	1	8	pollution, solution, potion, dilution, position, volition, portion, pollution's
+polution	pollution	1	12	pollution, solution, potion, dilution, position, volition, portion, lotion, polluting, population, pollution's, spoliation
 polyphonyic	polyphonic	1	3	polyphonic, polyphony, polyphony's
 pomegranite	pomegranate	1	3	pomegranate, pomegranates, pomegranate's
 pomotion	promotion	1	10	promotion, motion, potion, commotion, position, emotion, portion, demotion, promotions, promotion's
@@ -2708,7 +2708,7 @@ populare	popular	1	8	popular, populate, poplar, populace, popularize, popularly,
 populer	popular	1	29	popular, poplar, Popper, popper, populate, Doppler, popover, people, piper, puller, populace, spoiler, propeller, pauper, poplars, purpler, peopled, peoples, prowler, paler, paper, polar, popularly, fouler, pouter, peeler, pepper, people's, poplar's
 portayed	portrayed	1	10	portrayed, ported, portaged, pirated, prated, prayed, parted, portage, paraded, partied
 portraing	portraying	1	16	portraying, portaging, porting, mortaring, portrait, prorating, pottering, protruding, partaking, posturing, torturing, parting, pertain, portray, FORTRAN, perturbing
-Portugese	Portuguese	1	7	Portuguese, Portages, Protegees, Proteges, Portage's, Protege's, Portuguese's
+Portugese	Portuguese	1	8	Portuguese, Portages, Protegees, Proteges, Portage's, Protege's, Portuguese's, Protegee
 posess	possess	2	18	posses, possess, poses, pose's, pisses, poises, posies, posse's, passes, pusses, poise's, posers, Pisces's, posy's, poesy's, poser's, Moses's, Pusey's
 posessed	possessed	1	24	possessed, possesses, processed, pressed, possess, assessed, posses, passed, pissed, obsessed, posed, poses, pleased, repossessed, hostessed, poised, pose's, professed, sassed, sussed, posted, possessor, posited, posse's
 posesses	possesses	1	26	possesses, possess, possessed, posses, processes, poetesses, presses, possessors, assesses, passes, pisses, posse's, possessives, obsesses, poses, repossesses, poises, pose's, posies, possessor's, pusses, sasses, susses, poesy's, possessive's, poise's
@@ -2734,7 +2734,7 @@ possition	position	1	21	position, positions, possession, Opposition, opposition,
 Postdam	Potsdam	1	12	Potsdam, Post dam, Post-dam, Postdate, Postdoc, Posted, Postman, Pastrami, Postal, Potsdam's, Postbag, Postwar
 posthomous	posthumous	1	13	posthumous, posthumously, isthmus, pothooks, poisonous, pothook's, possums, potholes, isthmus's, possum's, asthma's, pothole's, postman's
 postion	position	1	13	position, potion, portion, post ion, post-ion, positions, piston, posting, Poseidon, Passion, passion, bastion, position's
-postive	positive	1	6	positive, postie, positives, posties, pastie, positive's
+postive	positive	1	29	positive, postie, positives, posties, posture, pastie, passive, posited, festive, pastime, postage, posting, restive, posit, piste, positive's, positively, stove, posted, poster, plosive, Post, post, posits, appositive, Steve, paste, stave, sportive
 potatos	potatoes	2	6	potato's, potatoes, potato, Potts, Potts's, potty's
 portait	portrait	1	44	portrait, portal, ported, potato, portent, parfait, pertain, portage, Pratt, parotid, portray, portraits, Porto, Portia, ports, Port, pirated, porosity, port, prat, profit, Porter, porter, portico, porting, portly, prated, partied, protect, protest, protein, portaged, fortuity, Port's, permit, port's, parted, portals, pertest, portend, Porto's, portrait's, Portia's, portal's
 potrait	portrait	1	19	portrait, patriot, trait, strait, putrid, potato, portraits, polarity, Port, port, prat, strati, Poirot, petard, protract, Petra, Pratt, Poiret, portrait's
@@ -2742,7 +2742,7 @@ potrayed	portrayed	1	19	portrayed, prayed, pottered, strayed, pirated, betrayed,
 poulations	populations	1	16	populations, population's, pulsations, pollution's, collations, pulsation's, copulation's, peculation's, population, potions, palliation's, postulations, collation's, spoliation's, potion's, postulation's
 poverful	powerful	1	11	powerful, overfull, overfly, overfill, powerfully, prayerful, potful, overflew, overflow, fearful, overrule
 poweful	powerful	1	6	powerful, woeful, Powell, potful, powerfully, hopeful
-powerfull	powerful	2	4	powerfully, powerful, power full, power-full
+powerfull	powerful	2	9	powerfully, powerful, power full, power-full, overfull, Powell, prayerfully, overfill, prayerful
 practial	practical	1	14	practical, partial, racial, parochial, partially, fractal, partials, practically, piratical, practice, Martial, martial, crucial, partial's
 practially	practically	1	9	practically, partially, racially, parochially, partial, piratically, practical, martially, crucially
 practicaly	practically	1	7	practically, practicably, practical, practicals, practicality, practicable, practical's
@@ -2750,7 +2750,7 @@ practicioner	practitioner	1	4	practitioner, practicing, practitioners, practitio
 practicioners	practitioners	1	6	practitioners, practitioner's, practitioner, practicing, prisoners, prisoner's
 practicly	practically	2	9	practical, practically, practicably, practicals, practicum, practicality, practical's, particle, practicable
 practioner	practitioner	1	26	practitioner, probationer, precautionary, practitioners, reactionary, vacationer, fraction, parishioner, traction, petitioner, precaution, auctioneer, fractions, probationers, partner, reaction, prisoner, precautions, fraction's, fractional, practitioner's, traction's, pardoner, preachier, precaution's, probationer's
-practioners	practitioners	1	13	practitioners, practitioner's, probationers, probationer's, practitioner, vacationers, fractions, parishioners, fraction's, traction's, reactionary's, vacationer's, parishioner's
+practioners	practitioners	1	31	practitioners, practitioner's, probationers, probationer's, practitioner, vacationers, fractions, parishioners, petitioners, precautions, fraction's, traction's, auctioneers, partners, reactions, precaution's, prisoners, probationer, reactionaries, reactionary's, vacationer's, pardoners, reaction's, parishioner's, precautionary, petitioner's, ructions, auctioneer's, partner's, prisoner's, pardoner's
 prairy	prairie	2	27	priory, prairie, pr airy, pr-airy, parity, parry, prier, prior, Peary, parer, pair, pray, prayer, friary, Praia, pairs, privy, praise, Parr, Perry, primary, par, pry, pair's, Praia's, parry's, priory's
 prarie	prairie	1	66	prairie, Perrier, parried, parries, prairies, Pearlie, parer, prier, praise, prate, pare, prayer, rare, Prague, Praia, Paris, parse, pearlier, prior, paired, parred, prater, prepare, Parr, pair, pear, prairie's, prorate, Carrier, Parrish, Price, barrier, carrier, farrier, harrier, padre, pared, pares, parring, price, pride, pried, pries, prime, prize, rarer, tarrier, priories, par, parry, purer, pairs, rapier, Parker, parser, Barrie, Carrie, Prakrit, Paar, para, pore, pray, pure, pyre, Parr's, pair's
 praries	prairies	1	28	prairies, parries, prairie's, priories, parties, parers, praise, priers, prairie, praises, prates, Paris, pares, prayers, pries, primaries, rares, friaries, Perrier's, parses, Pearlie's, parer's, prier's, praise's, prate's, prayer's, Paris's, Praia's
@@ -2758,10 +2758,10 @@ pratice	practice	1	36	practice, parties, prat ice, prat-ice, prates, Patrice, Pr
 preample	preamble	1	31	preamble, trample, pimple, preambled, preambles, rumple, crumple, preempt, purple, permeable, primal, propel, temple, ample, primped, primp, trampled, trampler, tramples, people, promptly, reemploy, preamble's, ramble, sample, pimply, primly, rumply, preemie, reapply, trample's
 precedessor	predecessor	1	6	predecessor, precedes, processor, predecessors, proceeds's, predecessor's
 preceed	precede	1	18	precede, preceded, proceed, priced, pierced, pressed, precedes, recede, preened, perched, precised, proceeds, Perseid, perused, preside, pieced, preyed, reseed
-preceeded	preceded	1	2	preceded, proceeded
+preceeded	preceded	1	9	preceded, proceeded, precedes, precede, receded, reseeded, presided, precedent, proceed
 preceeding	preceding	1	9	preceding, proceeding, receding, proceedings, reseeding, presiding, presetting, precedent, proceeding's
 preceeds	precedes	1	15	precedes, proceeds, preceded, precede, recedes, proceeds's, presides, proceed, reseeds, premeds, presets, precepts, Perseid's, premed's, precept's
-precentage	percentage	1	4	percentage, percentages, percentage's, parentage
+precentage	percentage	1	10	percentage, percentages, percentage's, parentage, percentile, percents, percent, personage, present, percent's
 precice	precise	1	18	precise, precis, prices, Price, precipice, price, precised, preciser, precises, prepuce, precious, precis's, precede, preface, premise, preside, Price's, price's
 precisly	precisely	1	10	precisely, preciously, precis, precise, precis's, precised, preciser, precises, Presley, prissily
 precurser	precursor	1	10	precursor, precursory, precursors, procurer, perjurer, preciser, procures, procurers, precursor's, procurer's
@@ -2782,12 +2782,12 @@ premission	permission	1	10	permission, remission, permissions, pr emission, pr-e
 preocupation	preoccupation	1	4	preoccupation, preoccupations, reoccupation, preoccupation's
 prepair	prepare	2	9	repair, prepare, preppier, prepaid, prep air, prep-air, prepay, prewar, proper
 prepartion	preparation	1	7	preparation, proportion, preparations, reparation, peroration, preparation's, preparing
-prepatory	preparatory	3	4	predatory, prefatory, preparatory, predator
+prepatory	preparatory	3	6	predatory, prefatory, preparatory, predator, peremptory, prepare
 preperation	preparation	1	12	preparation, perpetration, preparations, reparation, perpetuation, proportion, peroration, perspiration, preparation's, preservation, perforation, procreation
 preperations	preparations	1	17	preparations, preparation's, preparation, reparations, perpetration's, proportions, perorations, reparation's, perpetuation's, proportion's, perforations, peroration's, perspiration's, preservation's, perforation's, procreation's, reparations's
 preriod	period	1	62	period, Pernod, periods, prettied, prod, parried, peered, periled, prepaid, preside, Perot, Perrier, pried, prior, Perseid, preened, parred, proud, purred, Puerto, preyed, priority, reread, Pareto, perked, permed, premed, presto, pureed, putrid, perfidy, Pierrot, parer, prier, purer, praetor, patriot, pierced, prepped, pressed, preterit, purebred, retrod, Prado, prerecord, prorate, Reid, parody, parrot, period's, periodic, prepared, priory, reared, Jerrod, Pretoria, retried, Poirot, paired, pert, upreared, pretrial
 presedential	presidential	1	7	presidential, residential, Prudential, prudential, preferential, providential, credential
-presense	presence	1	14	presence, pretense, presences, presents, persons, preens, prescience, present, presets, prisons, person's, present's, presence's, prison's
+presense	presence	1	21	presence, pretense, presences, presents, persons, preens, prescience, present, presets, prisons, person's, personas, pareses, present's, presses, Perseus, pretenses, presence's, prison's, persona's, pretense's
 presidenital	presidential	1	5	presidential, presidents, residential, president, president's
 presidental	presidential	1	5	presidential, presidents, president, president's, residential
 presitgious	prestigious	1	7	prestigious, prodigious, prestige's, prestos, presto's, Preston's, presidium's
@@ -2803,7 +2803,7 @@ previvous	previous	1	21	previous, precious, revives, previews, provisos, preview
 pricipal	principal	1	11	principal, participial, principally, principle, principals, Priscilla, Percival, parricidal, participle, principal's, Principe
 priciple	principle	1	23	principle, participle, principal, principled, principles, Principe, Priscilla, precipice, prickle, propel, purple, participles, principle's, pricier, principals, Price, price, principally, recipe, ripple, participle's, principal's, Principe's
 priestood	priesthood	1	15	priesthood, priesthoods, prestos, priests, presto, priest, presto's, priest's, Preston, priestess, priestly, presided, Priestley, priesthood's, rested
-primarly	primarily	1	5	primarily, primary, primal, primly, primary's
+primarly	primarily	1	6	primarily, primary, primal, primly, primary's, primer
 primative	primitive	1	12	primitive, primate, primitives, proactive, formative, normative, primates, purgative, primitive's, primitively, preemptive, primate's
 primatively	primitively	1	13	primitively, proactively, primitive, preemptively, prematurely, primitives, permissively, primitive's, primarily, predicatively, privately, creatively, relatively
 primatives	primitives	1	8	primitives, primitive's, primates, primitive, primate's, purgatives, primaries, purgative's
@@ -2826,7 +2826,7 @@ probablistic	probabilistic	1	7	probabilistic, probability, probabilities, probab
 probablly	probably	1	7	probably, probable, provably, probables, probability, provable, probable's
 probalibity	probability	1	9	probability, proclivity, provability, potability, probity, portability, prohibit, probability's, publicity
 probaly	probably	1	19	probably, provably, probable, probate, probity, proudly, parable, parboil, provable, prob, drably, portal, portly, pebbly, problem, probe, prole, prowl, poorly
-probelm	problem	1	7	problem, prob elm, prob-elm, problems, problem's, prelim, probe
+probelm	problem	1	24	problem, prob elm, prob-elm, problems, problem's, prelim, probe, probed, probes, propel, probe's, parable, parboil, prole, propels, prowl, Pablum, pablum, prob, prom, Robles, corbel, proles, rebel
 proccess	process	1	35	process, proxies, princess, process's, progress, processes, prices, Price's, price's, princes, procures, produces, proceeds, proxy's, recces, crocuses, precises, promises, proposes, Prince's, prince's, produce's, profess, prowess, prose's, prances, Pericles's, princess's, prance's, proceeds's, progress's, precis's, promise's, Procter's, prophesy's
 proccessing	processing	1	13	processing, progressing, professing, precising, procession, pressing, prepossessing, proceeding, recessing, accessing, reprocessing, progestin, possessing
 procede	proceed	1	14	proceed, precede, priced, pro cede, pro-cede, proceeded, proceeds, proved, prized, procedure, preceded, precedes, recede, probed
@@ -2856,11 +2856,11 @@ proffesional	professional	1	8	professional, professionally, provisional, profess
 proffesor	professor	1	12	professor, proffer, professors, proffers, prophesier, processor, profess, proffer's, professor's, profs, profuse, prof's
 profilic	prolific	3	6	profiling, profile, prolific, profiled, profiles, profile's
 progessed	progressed	1	4	progressed, professed, processed, pressed
-programable	programmable	1	5	programmable, program able, program-able, programmables, programmable's
-progrom	pogrom	1	4	pogrom, program, programs, program's
-progrom	program	2	4	pogrom, program, programs, program's
-progroms	pogroms	1	5	pogroms, programs, program's, pogrom's, program
-progroms	programs	2	5	pogroms, programs, program's, pogrom's, program
+programable	programmable	1	12	programmable, program able, program-able, programmables, programmable's, procurable, preamble, programs, program, programmed, programmer, program's
+progrom	pogrom	1	10	pogrom, program, programs, proforma, preform, pogroms, program's, deprogram, reprogram, pogrom's
+progrom	program	2	10	pogrom, program, programs, proforma, preform, pogroms, program's, deprogram, reprogram, pogrom's
+progroms	pogroms	1	11	pogroms, programs, program's, pogrom's, program, progress, preforms, pogrom, deprograms, reprograms, progress's
+progroms	programs	2	11	pogroms, programs, program's, pogrom's, program, progress, preforms, pogrom, deprograms, reprograms, progress's
 prohabition	prohibition	2	6	Prohibition, prohibition, prohibitions, probation, prohibiting, prohibition's
 prominance	prominence	1	7	prominence, predominance, preeminence, provenance, permanence, prominence's, dominance
 prominant	prominent	1	8	prominent, predominant, preeminent, ruminant, permanent, prominently, remnant, dominant
@@ -2881,7 +2881,7 @@ propmted	prompted	1	20	prompted, promoted, preempted, purported, propertied, pro
 propoganda	propaganda	1	5	propaganda, propaganda's, propound, propounds, propagandize
 propogate	propagate	1	4	propagate, propagated, propagates, propagator
 propogates	propagates	1	7	propagates, propagated, propagate, propagators, propitiates, propagator's, propagator
-propogation	propagation	1	6	propagation, prorogation, proportion, proposition, provocation, propagation's
+propogation	propagation	1	8	propagation, prorogation, proportion, proposition, provocation, propagating, propagation's, prorogation's
 propostion	proposition	1	5	proposition, preposition, proportion, propositions, proposition's
 propotions	proportions	1	16	proportions, promotions, pro potions, pro-potions, proportion's, propositions, propitious, promotion's, portions, proposition's, proportion, prepositions, probation's, portion's, preposition's, propagation's
 propper	proper	1	22	proper, Popper, popper, preppier, prosper, cropper, dropper, propped, prop per, prop-per, proposer, pepper, ripper, roper, properer, prepare, rapper, ropier, groper, propel, wrapper, proper's
@@ -2901,10 +2901,10 @@ provded	provided	1	11	provided, proved, prodded, pervaded, provides, prided, pro
 provicial	provincial	1	9	provincial, prosocial, provincially, provincials, provisional, parochial, provincial's, provision, prevail
 provinicial	provincial	1	4	provincial, provincially, provincials, provincial's
 provisonal	provisional	1	18	provisional, provisionally, personal, provisions, provision, provisos, professional, proviso, promisingly, proviso's, processional, provision's, provisioned, provincial, prison, proposal, Provencal, province
-provisiosn	provision	2	6	provisions, provision, previsions, prevision, provision's, prevision's
+provisiosn	provision	2	8	provisions, provision, previsions, prevision, profusions, provision's, prevision's, profusion's
 proximty	proximity	1	4	proximity, proximate, proximal, proximity's
-pseudononymous	pseudonymous	1	4	pseudonymous, pseudonyms, pseudonym's, synonymous
-pseudonyn	pseudonym	1	6	pseudonym, pseudonyms, pseudonym's, pseudo, pseudy, pseudos
+pseudononymous	pseudonymous	1	5	pseudonymous, pseudonyms, pseudonym's, synonymous, pseudonym
+pseudonyn	pseudonym	1	14	pseudonym, pseudonyms, pseudonym's, pseudo, pseudy, pseudos, Poseidon, sundown, pseud, Sedna, Seton, Sudan, sedan, stony
 psuedo	pseudo	1	9	pseudo, pseud, pseudy, sued, suede, pseudos, pseuds, seed, suet
 psycology	psychology	1	11	psychology, mycology, psychology's, sexology, sociology, ecology, psephology, cytology, serology, sinology, musicology
 psyhic	psychic	1	39	psychic, psycho, spic, psych, psychics, sic, Psyche, psyche, Schick, Stoic, Syriac, stoic, sync, Spica, cynic, physic, sahib, sonic, Soc, hick, sick, soc, psychic's, psychical, psychotic, psyching, spec, psi, Pyrrhic, pic, sylphic, psychs, SAC, SEC, Sec, sac, sec, ski, psych's
@@ -2938,7 +2938,7 @@ qutie	quiet	5	18	quite, cutie, quote, quit, quiet, Quito, cute, jute, quid, quoi
 rabinnical	rabbinical	1	16	rabbinical, rabbinic, binnacle, biennial, bionically, canonical, biblical, finical, radical, tyrannical, rational, clinical, Rabin, satanical, baronial, sabbatical
 racaus	raucous	1	38	raucous, RCA's, racks, ragas, rack's, raga's, ruckus, recuse, fracas, rags, races, wracks, Rojas, rag's, rages, rakes, rec's, ricks, rocks, rucks, rajahs, recaps, Rama's, race's, wrack's, Rick's, Rico's, Riga's, Rock's, rage's, rake's, rick's, rock's, Roku's, fracas's, rajah's, recap's, ruckus's
 radiactive	radioactive	1	10	radioactive, reductive, radioactively, addictive, predicative, reactive, predictive, directive, radiate, radioactivity
-radify	ratify	1	18	ratify, ramify, edify, readily, radii, radio, reify, gratify, codify, modify, radial, radian, radios, radish, radium, radius, rarefy, radio's
+radify	ratify	1	51	ratify, ramify, edify, readily, radii, radio, reify, gratify, codify, modify, radial, radian, radios, radish, radium, radius, rarefy, taffy, raid, raft, rift, deify, raffia, ready, RAF, RIF, daffy, rad, raids, roadie, ruddy, Cardiff, Rudy, dandify, defy, diff, rife, riff, radially, rads, raid's, raided, raider, tariff, Ratliff, rectify, radio's, rainy, ratty, rad's, rarity
 raelly	really	1	23	really, rally, Reilly, rely, relay, real, royally, rarely, Riley, rel, realty, ally, Raul, Riel, orally, rail, reel, rill, roll, reply, cruelly, frailly, rally's
 rarified	rarefied	2	7	ratified, rarefied, ramified, reified, rarefies, purified, verified
 reaccurring	recurring	2	3	reoccurring, recurring, reacquiring
@@ -2947,7 +2947,7 @@ reacll	recall	1	45	recall, recalls, regally, regal, really, real, recoil, regale
 readmition	readmission	1	24	readmission, readmit ion, readmit-ion, readmitting, radiation, redaction, redemption, reanimation, rendition, reduction, tradition, remediation, retaliation, demotion, erudition, readmission's, remission, admission, edition, readmit, addition, reaction, sedition, perdition
 realitvely	relatively	1	9	relatively, restively, relative, relatives, creatively, relative's, relativity, reality, realities
 realsitic	realistic	1	21	realistic, realist, elastic, realists, realist's, relist, realest, ballistic, moralistic, relisting, legalistic, ritualistic, plastic, relists, realities, unrealistic, surrealistic, rustic, idealistic, reality, reality's
-realtions	relations	1	11	relations, relation's, reactions, reflations, relation, rations, reaction's, realigns, elation's, ration's, repletion's
+realtions	relations	1	26	relations, relation's, reactions, reflations, relation, rations, reaction's, realigns, Revelations, revelations, elation's, regulations, ration's, retaliations, revaluations, repletion's, Revelation's, realizations, revelation's, creations, regulation's, retaliation's, revaluation's, realization's, Creation's, creation's
 realy	really	2	16	relay, really, realty, real, rely, rally, rel, Reilly, reel, rial, realm, reals, reply, mealy, ready, real's
 realyl	really	1	21	really, regally, rally, relay, realty, recall, Reilly, real, rely, relays, realm, reals, reply, replay, real's, realer, royally, relay's, rel, relabel, rally's
 reasearch	research	1	7	research, research's, researched, researcher, researches, search, researching
@@ -2964,7 +2964,7 @@ reccommending	recommending	1	8	recommending, rec commending, rec-commending, rec
 reccuring	recurring	2	19	reoccurring, recurring, rec curing, rec-curing, reacquiring, requiring, recusing, securing, recouping, recovering, recruiting, curing, accruing, recording, occurring, procuring, rearing, recoloring, rescuing
 receeded	receded	1	16	receded, reseeded, recedes, recede, preceded, recessed, seceded, proceeded, recited, resided, received, rewedded, ceded, reascended, reseed, seeded
 receeding	receding	1	17	receding, reseeding, preceding, recessing, seceding, proceeding, reciting, residing, receiving, rereading, rewedding, resetting, ceding, Reading, reading, reascending, seeding
-recepient	recipient	1	7	recipient, recipients, receipt, recent, repent, percipient, recipient's
+recepient	recipient	1	11	recipient, recipients, receipt, recent, repent, percipient, recipient's, repaint, receipting, resilient, repined
 recepients	recipients	1	7	recipients, recipient's, recipient, receipts, repents, receipt's, repaints
 receving	receiving	1	16	receiving, reeving, receding, revving, reserving, deceiving, recessing, relieving, reviving, reweaving, reefing, reciting, reliving, removing, repaving, resewing
 rechargable	rechargeable	1	6	rechargeable, chargeable, remarkable, recharge, reparable, remarkably
@@ -2977,12 +2977,12 @@ reciding	residing	3	4	receding, reciting, residing, deciding
 reciepents	recipients	1	13	recipients, recipient's, receipts, recipient, repents, receipt's, residents, serpents, recipes, resents, recipe's, resident's, serpent's
 reciept	receipt	1	12	receipt, receipts, recipe, recipes, precept, recent, raciest, receipt's, receipted, recite, receptor, recipe's
 recieve	receive	1	13	receive, Recife, relieve, received, receiver, receives, revive, reeve, deceive, recede, recipe, recite, relive
-recieved	received	1	10	received, relieved, receives, receive, revived, deceived, receiver, receded, recited, relived
-reciever	receiver	1	10	receiver, reliever, receivers, receive, recover, deceiver, received, receives, reciter, receiver's
-recievers	receivers	1	11	receivers, receiver's, relievers, receiver, receives, recovers, deceivers, reliever's, reciters, deceiver's, reciter's
+recieved	received	1	13	received, relieved, receives, receive, revived, deceived, receiver, receded, recited, relived, perceived, recede, rived
+reciever	receiver	1	11	receiver, reliever, receivers, receive, recover, deceiver, received, receives, reciter, receiver's, river
+recievers	receivers	1	15	receivers, receiver's, relievers, receiver, receives, recovers, deceivers, reliever's, reciters, deceiver's, Rivers, revers, rivers, reciter's, river's
 recieves	receives	1	18	receives, relieves, receivers, received, receive, revives, Recife's, Reeves, reeves, deceives, receiver, recedes, receiver's, recipes, recites, relives, reeve's, recipe's
-recieving	receiving	1	8	receiving, relieving, reviving, reeving, deceiving, receding, reciting, reliving
-recipiant	recipient	1	6	recipient, recipients, repaint, precipitant, percipient, recipient's
+recieving	receiving	1	14	receiving, relieving, reviving, reeving, deceiving, receding, reciting, reliving, perceiving, riving, revising, reserving, reefing, sieving
+recipiant	recipient	1	8	recipient, recipients, repaint, precipitant, percipient, recipient's, receipting, resilient
 recipiants	recipients	1	8	recipients, recipient's, recipient, repaints, precipitants, receipts, precipitant's, receipt's
 recived	received	1	20	received, revived, recited, relived, receives, receive, revved, rived, revised, deceived, receiver, relieved, removed, Recife, recite, receded, repaved, resided, resized, Recife's
 recivership	receivership	1	6	receivership, receivership's, ridership, readership, receivers, receiver's
@@ -2993,7 +2993,7 @@ recomending	recommending	1	9	recommending, recommencing, regimenting, commending
 recomends	recommends	1	17	recommends, recommend, regiments, recommended, commends, recommences, regimens, regiment's, remands, reminds, recommence, regimen's, recounts, Redmond's, recommits, recount's, Richmond's
 recommedations	recommendations	1	12	recommendations, recommendation's, recommendation, accommodations, commendations, recommissions, reconditions, commutations, remediation's, accommodation's, commendation's, commutation's
 reconaissance	reconnaissance	1	5	reconnaissance, reconnaissances, Renaissance, renaissance, reconnaissance's
-reconcilation	reconciliation	1	4	reconciliation, reconciliations, conciliation, reconciliation's
+reconcilation	reconciliation	1	6	reconciliation, reconciliations, conciliation, reconciliation's, recompilation, reconciling
 reconized	recognized	1	16	recognized, recolonized, reconciled, reckoned, recognizes, recounted, recognize, reconsigned, rejoined, reconcile, recondite, recognizer, reconsider, recoiled, recopied, rejoiced
 reconnaissence	reconnaissance	1	3	reconnaissance, reconnaissances, reconnaissance's
 recontructed	reconstructed	1	8	reconstructed, recontacted, contracted, deconstructed, reconstructs, constructed, reconstruct, reconnected
@@ -3002,7 +3002,7 @@ recrational	recreational	1	14	recreational, rec rational, rec-rational, recreati
 recrod	record	1	34	record, retrod, rec rod, rec-rod, records, Ricardo, recross, recruit, recto, recd, regard, rector, reword, recurred, rec'd, regrade, scrod, Jerrod, reared, regrow, ramrod, cord, record's, recorder, rectory, regret, crowd, recur, ripcord, recorded, Regor, rerecord, recrossed, retro
 recuiting	recruiting	1	11	recruiting, reciting, requiting, reacting, reuniting, recounting, recusing, refuting, reputing, recanting, recasting
 recuring	recurring	1	18	recurring, requiring, reacquiring, recusing, securing, re curing, re-curing, reoccurring, curing, recording, recouping, rehiring, retiring, revering, rewiring, rearing, procuring, rogering
-recurrance	recurrence	1	4	recurrence, recurrences, recurrence's, recurring
+recurrance	recurrence	1	18	recurrence, recurrences, recurrence's, recurring, recurrent, reactance, occurrence, Terrance, reassurance, recreant, redcurrant, recreants, redcurrants, currency, recrudesce, rearrange, resurgence, recreant's
 rediculous	ridiculous	1	7	ridiculous, ridicules, meticulous, ridicule's, ridiculously, radicals, radical's
 reedeming	redeeming	1	19	redeeming, reddening, reediting, deeming, teeming, redyeing, Deming, redesign, rearming, resuming, Reading, reading, reaming, redoing, readying, redefine, reducing, renaming, rendering
 reenforced	reinforced	1	7	reinforced, re enforced, re-enforced, enforced, reinforces, reinforce, unforced
@@ -3012,38 +3012,38 @@ referal	referral	1	20	referral, re feral, re-feral, referable, referrals, refers
 refered	referred	2	4	refereed, referred, revered, referee
 referiang	referring	1	8	referring, revering, refereeing, refrain, reefing, preferring, refrains, refrain's
 refering	referring	1	13	referring, revering, refereeing, reefing, refrain, preferring, reforging, reforming, reversing, reverting, rearing, reeving, reffing
-refernces	references	1	9	references, reference's, reverences, referenced, reference, reverence's, preferences, preference's, deference's
+refernces	references	1	13	references, reference's, reverences, referenced, reference, reverence's, preferences, preference's, deference's, reverence, refreezes, referees, referee's
 referrence	reference	1	11	reference, reverence, referenced, references, preference, deference, recurrence, reference's, reverenced, reverences, reverence's
 referrs	refers	1	39	refers, reefers, referees, reefer's, reveres, revers, referee's, ref errs, ref-errs, refer rs, refer-rs, referrers, referral, referred, reverse, Revere's, reveries, refer, referrals, roofers, referee, reverts, prefers, referrer, revers's, roofer's, defers, Rivers, ravers, referrer's, rivers, rovers, reforms, reverie's, Rover's, river's, rover's, referral's, reform's
 reffered	referred	2	7	refereed, referred, revered, reffed, referee, offered, proffered
 refference	reference	1	11	reference, reverence, referenced, references, preference, deference, difference, reference's, reverenced, reverences, reverence's
 refrence	reference	1	12	reference, reverence, referenced, references, preference, deference, refreeze, reference's, reverenced, reverences, France, reverence's
-refrences	references	1	10	references, reference's, reverences, referenced, reference, reverence's, preferences, refreezes, preference's, deference's
-refrers	refers	1	10	refers, referrers, reefers, referees, reformers, referrer's, revers, reefer's, referee's, reformer's
+refrences	references	1	13	references, reference's, reverences, referenced, reference, reverence's, preferences, refreezes, preference's, deference's, reverence, Frances, France's
+refrers	refers	1	39	refers, referrers, reefers, referees, reformers, referrer's, refuters, rafters, refiners, revers, reefer's, referee's, reformer's, refuter's, roarers, riflers, reforges, referrals, firers, referrer, refreshers, reveres, rafter's, refiner's, refresh, refer, reverse, roofers, reorders, prefers, Revere's, roarer's, rifler's, firer's, refresher's, referral's, roofer's, reorder's, revers's
 refridgeration	refrigeration	1	3	refrigeration, refrigerating, refrigeration's
-refridgerator	refrigerator	1	4	refrigerator, refrigerators, refrigerate, refrigerator's
+refridgerator	refrigerator	1	6	refrigerator, refrigerators, refrigerate, refrigerator's, refrigerated, refrigerates
 refromist	reformist	1	7	reformist, reformists, reformat, reforms, rearmost, reforest, reform's
 refusla	refusal	1	19	refusal, refusals, refuels, refuses, refuel, refuse, refusal's, refused, rueful, refills, refs, refuse's, refile, refill, Rufus, ref's, Rufus's, ruefully, refill's
 regardes	regards	3	5	regrades, regarded, regards, regard's, regards's
-regluar	regular	1	6	regular, regulars, regular's, regularly, regulator, irregular
+regluar	regular	1	29	regular, regulars, regulate, regalia, Regulus, regular's, regularly, regulator, recluse, irregular, Regor, recolor, recur, regal, jugular, secular, regularity, realer, raglan, reliquary, Elgar, Regulus's, glare, regalia's, regularize, regard, ruler, rear, burglar
 reguarly	regularly	1	9	regularly, regally, beggarly, regular, regal, regale, regard, roguery, rectally
 regulaion	regulation	1	20	regulation, regaling, regulating, regulations, regain, region, raglan, repulsion, revulsion, regular, regulate, regulator, religion, rebellion, regulation's, relation, realign, recline, regalia, deregulation
 regulaotrs	regulators	1	8	regulators, regulator's, regulator, regulates, regulars, regulatory, regular's, regularity's
-regularily	regularly	1	3	regularly, regularity, regularize
-rehersal	rehearsal	1	4	rehearsal, reversal, rehearsals, rehearsal's
+regularily	regularly	1	8	regularly, regularity, regularize, regular, irregularly, regulars, regular's, regularity's
+rehersal	rehearsal	1	6	rehearsal, reversal, rehearsals, rehears, rehearsal's, rehearse
 reicarnation	reincarnation	1	9	reincarnation, reincarnations, Carnation, carnation, recreation, recantation, reincarnating, reincarnation's, incarnation
 reigining	reigning	1	15	reigning, regaining, rejoining, resigning, refining, reigniting, reining, reckoning, deigning, feigning, relining, repining, reclining, remaining, retaining
 reknown	renown	1	17	renown, re known, re-known, foreknown, reckoning, regrown, reckon, Reunion, known, rejoin, rennin, reunion, recon, resown, region, unknown, renown's
 reknowned	renowned	1	15	renowned, reckoned, rejoined, reconvened, tenoned, renown, renounced, renown's, regained, recounted, renewed, rezoned, reasoned, regnant, cannoned
 rela	real	1	19	real, relay, rel, rely, Riel, reel, rial, Bela, Lela, Reba, Rena, Reva, Vela, vela, rile, role, rule, rill, roll
-relaly	really	1	12	really, relay, regally, reliably, rally, Reilly, realty, relays, replay, real, rely, relay's
+relaly	really	1	27	really, relay, regally, reliably, rally, Reilly, realty, relays, replay, real, rely, realm, reals, regal, renal, reply, recall, regale, relaid, relate, resale, relabel, royally, rel, relay's, real's, rally's
 relatiopnship	relationship	1	3	relationship, relationships, relationship's
 relativly	relatively	1	6	relatively, relativity, relative, relatives, restively, relative's
 relected	reelected	1	10	reelected, reflected, elected, relegated, relocated, rejected, relented, selected, reacted, related
 releive	relieve	1	16	relieve, relive, receive, relieved, reliever, relieves, relief, relived, relives, reeve, believe, relative, reline, revive, release, reweave
 releived	relieved	1	13	relieved, relived, received, relieves, relieve, relives, relied, relive, believed, reliever, relined, revived, released
-releiver	reliever	1	14	reliever, receiver, redeliver, relievers, relieve, relive, believer, relieved, relieves, rollover, deliver, relived, relives, reliever's
-releses	releases	1	12	releases, release's, release, Reese's, recluses, relapses, recess, relies, reuses, recluse's, relapse's, reuse's
+releiver	reliever	1	18	reliever, receiver, redeliver, relievers, relieve, relive, believer, relieved, relieves, rollover, deliver, relived, relives, levier, reliever's, lever, liver, river
+releses	releases	1	65	releases, release's, release, released, Reese's, recluses, relapses, recesses, relieves, relishes, realizes, recess, relies, reuses, resews, relaxes, relists, rebuses, recuses, refuses, relates, relines, relives, reposes, revises, realness, reels, leases, repulses, recluse's, relapse's, reel's, Reese, reuse's, Elise's, wirelesses, reflexes, lases, lessees, loses, riles, rises, roles, roses, rules, ruses, trellises, Elysee's, recess's, refuse's, relish's, repose's, revise's, role's, rule's, lease's, repulse's, Elsie's, Reyes's, Lesa's, Rose's, lessee's, rise's, rose's, ruse's
 relevence	relevance	1	10	relevance, relevancy, relevance's, elevens, reliance, eleven's, irrelevance, reference, reverence, relevancy's
 relevent	relevant	1	23	relevant, rel event, rel-event, relent, reinvent, relevancy, eleventh, relieved, eleven, Levant, relevantly, relieving, relevance, element, elevens, reliant, relived, irrelevant, solvent, referent, reverent, reliving, eleven's
 reliablity	reliability	1	5	reliability, reliably, liability, reliability's, reliable
@@ -3054,12 +3054,12 @@ religously	religiously	1	4	religiously, religious, religious's, religiosity
 relinqushment	relinquishment	1	5	relinquishment, relinquishment's, replenishment, relinquished, relinquishing
 relitavely	relatively	1	26	relatively, restively, relatable, reliably, relative, reliable, relatives, relivable, relabel, lively, relive, relative's, relativity, creatively, remotely, reflectively, relived, relieve, repetitively, relives, festively, relieved, politely, rectally, reliever, relieves
 relized	realized	1	17	realized, relied, relined, relived, resized, realizes, realize, relies, relaxed, relisted, relieved, relished, released, relist, relayed, related, revised
-relpacement	replacement	1	4	replacement, replacements, placement, replacement's
+relpacement	replacement	1	5	replacement, replacements, placement, replacement's, repayment
 remaing	remaining	19	32	reaming, remaking, remain, roaming, riming, remains, ramming, rimming, romaine, renaming, teaming, Reading, creaming, dreaming, reading, reaping, rearing, Riemann, remaining, remapping, rhyming, rooming, beaming, seaming, remained, removing, rumbaing, Roman, Romania, roman, remand, remind
 remeber	remember	1	29	remember, ember, remover, member, remoter, remembers, reamer, reembark, renumber, rambler, timber, Amber, amber, umber, reefer, ribber, robber, rubber, rummer, bomber, camber, comber, cumber, dumber, limber, lumber, number, romper, somber
 rememberable	memorable	7	10	remember able, remember-able, remembrance, remembered, remembers, remember, memorable, reimbursable, remembering, memorably
-rememberance	remembrance	1	3	remembrance, remembrances, remembrance's
-remembrence	remembrance	1	10	remembrance, remembrances, remembrance's, remembering, remembers, remember, membranes, resemblance, membrane, membrane's
+rememberance	remembrance	1	5	remembrance, remembrances, remembrance's, remembering, remembers
+remembrence	remembrance	1	3	remembrance, remembrances, remembrance's
 remenant	remnant	1	7	remnant, ruminant, remnants, regnant, resonant, remnant's, remand
 remenicent	reminiscent	1	17	reminiscent, reminiscently, renascent, reminiscence, remnant, reminisced, reticent, preeminent, reinvent, reminiscing, eminent, omniscient, reminisce, ruminant, Menkent, senescent, romancing
 reminent	remnant	2	6	eminent, remnant, ruminant, preeminent, prominent, imminent
@@ -3080,19 +3080,19 @@ repid	rapid	4	25	repaid, tepid, Reid, rapid, reaped, rebid, redid, raped, roped,
 reponse	response	1	9	response, repose, repines, reopens, repine, reposes, rezones, repose's, rapine's
 reponsible	responsible	1	13	responsible, responsibly, irresponsible, possible, sensible, responsively, reconcile, risible, reasonable, defensible, reversible, irresponsibly, reprehensible
 reportadly	reportedly	1	7	reportedly, reported, reputedly, repeatedly, purportedly, reportage, reputably
-represantative	representative	2	4	Representative, representative, representatives, representative's
+represantative	representative	2	6	Representative, representative, representatives, representative's, unrepresentative, representation
 representive	representative	2	9	Representative, representative, representing, represented, represent, represents, representatives, repressive, representative's
 representives	representatives	1	10	representatives, representative's, represents, represented, Representative, representative, preventives, representing, represent, preventive's
 reproducable	reproducible	1	8	reproducible, predicable, reproachable, producible, reproductive, perdurable, eradicable, reputable
 reprtoire	repertoire	1	6	repertoire, repertoires, repertory, repertories, reporter, repertoire's
 repsectively	respectively	1	8	respectively, respective, reflectively, restively, prospectively, repetitively, respectfully, receptively
 reptition	repetition	1	11	repetition, reputation, repetitions, petition, repudiation, reposition, repatriation, rendition, repletion, reptilian, repetition's
-requirment	requirement	1	4	requirement, requirements, requirement's, regiment
+requirment	requirement	1	11	requirement, requirements, requirement's, recruitment, retirement, regiment, acquirement, equipment, recurrent, required, requiring
 requred	required	1	28	required, recurred, reacquired, requires, requited, rewired, require, reburied, rehired, retired, reared, record, regard, regret, recused, requite, revered, secured, regrade, rogered, reread, requiter, reoccurred, reorged, perjured, cured, rared, recur
 resaurant	restaurant	1	14	restaurant, restaurants, restraint, resurgent, resonant, reassurance, resent, resultant, restaurant's, reassuring, recreant, resort, retardant, resound
 resembelance	resemblance	1	4	resemblance, resemblances, resemblance's, semblance
 resembes	resembles	1	9	resembles, resemble, resumes, reassembles, resembled, resume's, remembers, racemes, raceme's
-resemblence	resemblance	1	6	resemblance, resemblances, resemblance's, resembles, semblance, resembling
+resemblence	resemblance	1	8	resemblance, resemblances, resemblance's, resembles, semblance, resembling, resemble, resembled
 resevoir	reservoir	1	19	reservoir, reservoirs, receiver, reserve, respire, reverie, reseller, reservoir's, Savior, savior, restore, savor, sever, recover, remover, resolver, Renoir, reliever, reefer
 resistable	resistible	1	21	resistible, resist able, resist-able, Resistance, resistance, irresistible, reusable, testable, refutable, relatable, reputable, resalable, resistant, repeatable, resealable, respectable, resolvable, irresistibly, presentable, detestable, rewindable
 resistence	resistance	2	9	Resistance, resistance, residence, persistence, resistances, residency, resistance's, existence, resisting
@@ -3118,13 +3118,13 @@ ressurection	resurrection	2	9	Resurrection, resurrection, resurrections, redirec
 ressurrection	resurrection	2	7	Resurrection, resurrection, resurrections, resurrecting, resurrection's, resection, restriction
 restaraunt	restaurant	1	14	restaurant, restraint, restaurants, restraints, restrain, restrained, restart, restrains, restrung, restarting, restaurant's, restraint's, retardant, registrant
 restaraunteur	restaurateur	1	14	restaurateur, restrainer, restaurateurs, restaurant, restraint, restrained, restaurants, restraints, restructure, restaurant's, restraint's, restrainers, restaurateur's, restrainer's
-restaraunteurs	restaurateurs	1	6	restaurateurs, restaurateur's, restrainers, restrainer's, restaurateur, restructures
+restaraunteurs	restaurateurs	1	9	restaurateurs, restaurateur's, restrainers, restrainer's, restaurants, restaurateur, restaurant's, restructures, restrainer
 restaraunts	restaurants	1	4	restaurants, restraints, restaurant's, restraint's
 restauranteurs	restaurateurs	1	5	restaurateurs, restaurateur's, restaurants, restaurateur, restaurant's
 restauration	restoration	2	18	Restoration, restoration, saturation, restorations, respiration, reiteration, repatriation, restriction, restarting, restitution, retardation, registration, restrain, Restoration's, restoration's, frustration, prostration, reparation
 restauraunt	restaurant	1	4	restaurant, restraint, restaurants, restaurant's
 resteraunt	restaurant	2	12	restraint, restaurant, restraints, restrain, restrained, restrains, restrung, restraint's, restaurants, registrant, restring, restaurant's
-resteraunts	restaurants	3	6	restraints, restraint's, restaurants, restaurant's, restrains, restraint
+resteraunts	restaurants	3	12	restraints, restraint's, restaurants, restaurant's, restrains, restraint, restarts, registrants, restaurant, restrings, restart's, registrant's
 resticted	restricted	1	10	restricted, rusticated, restocked, restated, respected, restarted, restitched, redacted, rusticate, resisted
 restraunt	restraint	1	11	restraint, restraints, restrain, restrained, restaurant, restrains, restrung, restart, restraint's, registrant, restring
 restraunt	restaurant	5	11	restraint, restraints, restrain, restrained, restaurant, restrains, restrung, restart, restraint's, registrant, restring
@@ -3142,7 +3142,7 @@ revolutionar	revolutionary	1	7	revolutionary, evolutionary, revolutions, revolut
 rewitten	rewritten	1	33	rewritten, written, rotten, rewoven, refitting, remitting, resitting, rewrite, rewriting, rewind, refitted, remitted, whiten, rewire, Britten, Wooten, witting, rewired, widen, sweeten, reattain, Dewitt, Hewitt, bitten, kitten, mitten, recite, witted, witter, rattan, redden, retain, ridden
 rewriet	rewrite	1	17	rewrite, rewrote, rewrites, rewired, reorient, reroute, regret, reared, retried, rewritten, write, rewire, retire, rewrite's, REIT, writ, retiree
 rhymme	rhyme	1	33	rhyme, rhymed, rhymer, rhymes, thyme, rummy, Rome, rime, chyme, ramie, rheum, REM, rem, rummer, rum, rheumy, rm, Mme, Romeo, rhyme's, romeo, hmm, rye, Rommel, rammed, rhythm, rimmed, RAM, ROM, Rom, ram, rim, Rhee
-rhythem	rhythm	1	6	rhythm, rhythms, rhyme, rhythm's, rhythmic, them
+rhythem	rhythm	1	13	rhythm, rhythms, rhyme, rhythm's, rhythmic, them, Reuther, thyme, Rather, rather, therm, rheum, theme
 rhythim	rhythm	1	4	rhythm, rhythms, rhythmic, rhythm's
 rhytmic	rhythmic	1	37	rhythmic, rhetoric, rhythm, rhythmical, totemic, atomic, ROTC, rhyming, rhythms, rheumatic, rhyme, rhymed, rhythm's, rustic, diatomic, rhymer, rhymes, mic, systemic, tic, readmit, remix, shtick, critic, erotic, uremic, HDMI, stymie, dynamic, robotic, rhyme's, remit, ragtime, ramie, retie, rheum, erratic
 rigeur	rigor	4	19	Roger, rigger, roger, rigor, roguery, Rodger, rugger, recur, ringer, Regor, rifer, tiger, Niger, Rigel, ricer, rider, riper, riser, river
@@ -3161,7 +3161,7 @@ runing	running	2	31	ruining, running, tuning, ruing, raining, reining, ringing, 
 runnung	running	1	24	running, ruining, ringing, rennin, cunning, dunning, gunning, punning, sunning, raining, ranging, reining, grinning, ruing, running's, runny, rounding, pruning, rung, rerunning, Reunion, reunion, unsung, Runyon
 russina	Russian	1	56	Russian, Russia, Rossini, reusing, rising, rousing, resin, rosin, raisin, Rosanna, Ruskin, trussing, raising, retsina, rusting, cussing, fussing, mussing, reissuing, rushing, sussing, Russians, ruins, Russo, reassign, Russ, resign, risen, ruin, ursine, Prussian, Susana, Russ's, resins, rosins, Hussein, ruing, Rubin, ruffian, using, rousting, Poussin, Russian's, ruin's, bruising, crossing, cruising, dressing, grassing, grossing, pressing, resin's, rosin's, Ruskin's, Russia's, Rossini's
 Russion	Russian	1	31	Russian, Russ ion, Russ-ion, Ration, Rushing, Russians, Fission, Mission, Suasion, Russia, Fusion, Prussian, Remission, Passion, Cession, Cushion, Session, Rossini, Recession, Ruin, Reunion, Russo, Russian's, Erosion, Rubin, Resin, Rosin, Revision, Ruskin, Russia's, Fruition
-rwite	write	1	20	write, rite, retie, wrote, rewrite, writ, REIT, Waite, White, rote, white, Rte, rte, wit, Ride, Rita, Witt, rate, ride, wide
+rwite	write	1	47	write, rite, retie, wrote, recite, rewire, rewrite, writ, REIT, Waite, White, rote, white, twit, Rte, rte, wit, route, rowed, Ride, Rita, Witt, rate, ride, wide, writhed, Rowe, rewed, rivet, wired, wrist, whitey, writer, writes, wet, writhe, riot, wait, whit, wire, rites, rt, whet, trite, writs, writ's, rite's
 rythem	rhythm	1	28	rhythm, them, Rather, Ruthie, rather, rhythms, therm, Ruth, rheum, theme, REM, Reuther, rem, Roth, Ruth's, writhe, anthem, Ruthie's, rhythm's, writhed, writhes, Gotham, Latham, Roth's, Rothko, fathom, redeem, writhe's
 rythim	rhythm	1	24	rhythm, Ruthie, rhythms, rhythmic, Ruth, rim, Roth, them, Ruth's, fathom, lithium, thrum, mythic, rhythm's, rime, Gotham, Latham, Rather, Roth's, Rothko, rather, therm, Ruthie's, myth
 rythm	rhythm	1	28	rhythm, rhythms, Ruth, Roth, rhythm's, rhythmic, rum, them, Ruthie, Ruth's, rm, RAM, REM, ROM, Rom, ram, rem, rim, myth, rpm, RTFM, Roth's, wrath, wroth, ream, roam, room, writhe
@@ -3198,12 +3198,12 @@ scandanavia	Scandinavia	1	3	Scandinavia, Scandinavian, Scandinavia's
 scaricity	scarcity	1	4	scarcity, sacristy, scariest, scarcity's
 scavanged	scavenged	1	6	scavenged, scavenges, scavenge, scavenger, savaged, scrounged
 schedual	schedule	1	15	schedule, Schedar, scheduled, scheduler, schedules, Scheat, sexual, scandal, caudal, reschedule, schedule's, scheduling, cecal, scull, steal
-scholarhip	scholarship	1	8	scholarship, scholar hip, scholar-hip, scholarships, scholarship's, scholar, scholars, scholar's
+scholarhip	scholarship	1	9	scholarship, scholar hip, scholar-hip, scholarships, scholarship's, scholar, scholars, scholar's, scholarly
 scholarstic	scholastic	1	6	scholastic, scholars tic, scholars-tic, scholars, sclerotic, scholar's
 scholarstic	scholarly	0	6	scholastic, scholars tic, scholars-tic, scholars, sclerotic, scholar's
 scientfic	scientific	1	10	scientific, scenic, unscientific, scientist, sciatic, scent, kinetic, scientifically, sciatica, nonscientific
 scientifc	scientific	1	11	scientific, scientist, scenic, unscientific, sciatic, scenting, scent, kinetic, scientifically, sciatica, nonscientific
-scientis	scientist	1	7	scientist, scents, scent's, cents, cent's, saints, saint's
+scientis	scientist	1	43	scientist, scents, scent's, cents, cent's, saints, saint's, snits, sciences, societies, silents, Senates, scent, senates, spinets, salients, scanties, scientists, silent's, ascents, sends, sonnets, scants, scenes, scions, spinet's, stents, stints, salient's, ascent's, science's, snit's, sonnet's, scene's, scion's, stent's, stint's, Senate's, Sendai's, senate's, Sinai's, Vicente's, scientist's
 scince	science	1	36	science, sconce, since, seance, sciences, sines, Vince, cine, scenes, scions, seines, sine, sins, Seine, scene, scion's, seine, Circe, cinch, mince, singe, slice, spice, wince, sense, sin's, sings, sinus, Spence, stance, science's, sine's, Seine's, scene's, seine's, sing's
 scinece	science	1	25	science, since, sciences, sconce, sines, scenes, seance, seines, sine's, sinews, silence, niece, scene, science's, Seine's, scene's, seine's, salience, sapience, sense, sincere, Spence, cine, sine, sinew's
 scirpt	script	1	50	script, spirit, scripts, Sept, Supt, scrip, sort, supt, crept, crypt, sport, spurt, Surat, carpet, scrips, slept, swept, cert, sculpt, spit, Seurat, scarp, scarped, skirt, shirt, snippet, sprat, sired, Sprite, scarps, sprite, rapt, script's, scripted, spat, spot, receipt, scrap, scrip's, Cipro, Sir, cir, cit, sip, sir, sit, strip, Sprint, sprint, scarp's
@@ -3225,7 +3225,7 @@ secretery	secretary	2	10	Secretary, secretary, secretory, secrete, secreted, sec
 sedereal	sidereal	1	11	sidereal, Federal, federal, several, Seders, Seder, surreal, Seder's, severely, cereal, serial
 seeked	sought	0	56	sleeked, peeked, reeked, seeded, seeker, seemed, seeped, sacked, segued, sicked, soaked, socked, sucked, seek ed, seek-ed, skied, seeks, sewed, skeet, seed, seek, eked, sneaked, specked, decked, sealed, seethed, skid, sexed, speed, steed, cheeked, skewed, slaked, smoked, snaked, spiked, staked, stoked, sulked, Seeger, beaked, leaked, necked, peaked, pecked, seabed, seamed, seared, seated, seined, seized, sieved, sagged, sighed, socket
 segementation	segmentation	1	6	segmentation, regimentation, sedimentation, segmentation's, augmentation, pigmentation
-seguoys	segues	1	11	segues, segue's, Sequoya, Sequoya's, sequoias, Sega's, sago's, Segways, Seiko's, sequoia's, Sepoy's
+seguoys	segues	1	46	segues, segue's, Sequoya, Sequoya's, sequoias, Sega's, sago's, Segways, Seiko's, souks, Sergio's, guys, sieges, egos, serous, sequoia's, Sepoy's, Seuss, sedge's, segue, siege's, MEGOs, ego's, wiseguys, sages, seagulls, sagas, scows, seeks, skuas, sucks, Eggo's, Lego's, sage's, saga's, Guy's, guy's, soy's, Segre's, Seoul's, sky's, Suzy's, seagull's, scow's, suck's, Seuss's
 seige	siege	1	36	siege, sedge, segue, Sega, sage, serge, Seine, beige, seine, seize, Seiko, sedgy, sieges, seek, Segre, singe, swig, see, Liege, liege, sieve, Seeger, Sergei, sewage, sledge, soigne, SEC, Sec, sag, sec, seq, sic, ski, sigh, siege's, sedge's
 seing	seeing	1	26	seeing, sewing, swing, sing, Seine, seine, suing, sign, Sung, song, sung, Sen, sen, sin, saying, Sang, Sean, sang, seen, sewn, sine, zing, sling, sting, being, senna
 seinor	senior	2	5	Senior, senior, senor, seiner, senora
@@ -3246,12 +3246,12 @@ sepina	subpoena	0	28	sepia, spin, seeping, spine, spiny, supine, Span, span, Spa
 sepulchure	sepulcher	1	5	sepulcher, sepulchered, sepulchers, sepulchral, sepulcher's
 sepulcre	sepulcher	1	28	sepulcher, splicer, splurge, sepulchers, speller, sepulchered, Sucre, sepulchral, deplore, suppler, skulker, spoiler, secure, speaker, spelunker, supplier, secular, sepulcher's, splutter, simulacra, lucre, sulkier, spurge, espalier, puller, sealer, seller, sculler
 sergent	sergeant	1	11	sergeant, Sargent, serpent, sergeants, regent, argent, urgent, reagent, servant, sergeant's, Sargent's
-settelement	settlement	1	6	settlement, sett element, sett-element, settlements, settlement's, resettlement
-settlment	settlement	1	4	settlement, settlements, settlement's, resettlement
+settelement	settlement	1	8	settlement, sett element, sett-element, settlements, settlement's, resettlement, battlement, statement
+settlment	settlement	1	9	settlement, settlements, settlement's, resettlement, statement, battlement, sediment, sentiment, settled
 severeal	several	1	11	several, severely, severally, severe, severed, severer, sidereal, cereal, sever, several's, serial
 severley	severely	1	9	severely, severally, Beverley, several, severe, Beverly, severed, severer, severity
 severly	severely	1	7	severely, several, severally, Beverly, sever, severe, several's
-sevice	service	1	14	service, device, Seville, devise, seduce, seize, suffice, slice, spice, novice, revise, seance, severe, sluice
+sevice	service	1	61	service, device, Seville, devise, seduce, seize, suffice, slice, spice, sieves, specie, novice, revise, seance, severe, sluice, devices, serviced, services, sieve, seven, sever, since, Stevie, deice, evince, saves, Sevres, sauce, Soviet, bevies, levies, seines, seizes, series, soviet, vice, save, secy, servile, size, Stacie, secs, sics, Seine, seine, Susie, sieve's, crevice, Felice, Stevie's, device's, service's, save's, Siva's, Seville's, sec'y, SEC's, sec's, Seine's, seine's
 shaddow	shadow	1	20	shadow, shadowy, shade, shadows, shad, shady, shoddy, shod, shallow, shaded, shads, Shaw, shadow's, show, Chad, chad, shed, shard, she'd, shad's
 shamen	shaman	2	33	shame, shaman, shaming, showmen, seamen, shaken, shamed, shames, shaven, sh amen, sh-amen, sham en, sham-en, Shane, Shawn, shamming, sham, Amen, amen, shamans, shame's, shammed, Shaun, sheen, showman, Haman, Hymen, hymen, semen, shams, stamen, sham's, shaman's
 shamen	shamans	20	33	shame, shaman, shaming, showmen, seamen, shaken, shamed, shames, shaven, sh amen, sh-amen, sham en, sham-en, Shane, Shawn, shamming, sham, Amen, amen, shamans, shame's, shammed, Shaun, sheen, showman, Haman, Hymen, hymen, semen, shams, stamen, sham's, shaman's
@@ -3291,7 +3291,7 @@ signifigant	significant	1	4	significant, significantly, significance, insignific
 signifigantly	significantly	1	3	significantly, significant, insignificantly
 signitories	signatories	1	6	signatories, dignitaries, signatures, signatory's, signature's, cosignatories
 signitory	signatory	1	11	signatory, dignitary, signature, seignior, signor, signatory's, signora, signore, signori, sanitary, cosignatory
-similarily	similarly	1	5	similarly, similarity, similar, summarily, similarity's
+similarily	similarly	1	2	similarly, similarity
 similiar	similar	1	33	similar, familiar, simile, similarly, Somalia, scimitar, similes, seemlier, smellier, Somalian, simulacra, sillier, simpler, seminar, smiling, smaller, Sicilian, molar, similarity, simulator, smile, solar, sicklier, simile's, timelier, slimier, dissimilar, Mylar, Samar, Somalia's, miler, slier, smear
 similiarity	similarity	1	4	similarity, familiarity, similarity's, similarly
 similiarly	similarly	1	6	similarly, familiarly, similar, similarity, smilingly, semiyearly
@@ -3301,7 +3301,7 @@ simplier	simpler	1	7	simpler, sampler, pimplier, simper, simple, supplier, simpl
 simultanous	simultaneous	1	13	simultaneous, simultaneously, simulators, simulations, simulator's, simulation's, simulates, sultans, simultaneity's, Multan's, sultan's, sultanas, sultana's
 simultanously	simultaneously	1	11	simultaneously, simultaneous, mutinously, simultaneity, tumultuously, simulators, glutinously, simulations, sumptuously, simulator's, simulation's
 sincerley	sincerely	1	4	sincerely, sincere, sincerer, sincerity
-singsog	singsong	1	25	singsong, sings, signs, singes, sing's, singsongs, songs, sins, snog, sinks, sangs, sin's, sines, singe, sinus, zings, Sung's, song's, sign's, singe's, singsong's, sink's, Sang's, sine's, zing's
+singsog	singsong	1	50	singsong, sings, signs, singes, sing's, singsongs, songs, sins, snog, sinks, sangs, sin's, sines, singe, sinus, zings, sinology, snogs, snugs, Sung's, sayings, sensor, song's, sign's, singe's, singing, snags, sinus's, singsonged, sinuses, slings, stings, swings, seeings, singsong's, sink's, Sang's, sine's, sing, zing's, Sn's, snug's, saying's, snag's, Singh's, sling's, sting's, swing's, ING's, Synge's
 sinse	sines	1	30	sines, sins, sine, sense, since, seines, Suns, signs, sin's, sings, sinus, sons, suns, zines, sans, sens, rinse, singe, Son's, Sun's, sign's, son's, sun's, Sn's, sine's, sing's, sinus's, San's, Seine's, seine's
 sinse	since	5	30	sines, sins, sine, sense, since, seines, Suns, signs, sin's, sings, sinus, sons, suns, zines, sans, sens, rinse, singe, Son's, Sun's, sign's, son's, sun's, Sn's, sine's, sing's, sinus's, San's, Seine's, seine's
 Sionist	Zionist	1	25	Zionist, Shiniest, Soonest, Monist, Pianist, Looniest, Sunniest, Inst, Sheeniest, Boniest, Piniest, Tiniest, Toniest, Winiest, Zionists, Agonist, Stoniest, Phoniest, Showiest, Tinniest, Unionist, Finest, Honest, Sanest, Zionist's
@@ -3331,7 +3331,7 @@ somtimes	sometimes	1	24	sometimes, sometime, smites, Semites, mistimes, centimes
 somwhere	somewhere	1	24	somewhere, smother, somber, nowhere, somehow, smothered, somewhat, sphere, smoker, simmer, simper, smasher, sower, smoother, smokier, cohere, smothers, Summer, summer, Sumner, Sumter, soother, summery, smother's
 sophicated	sophisticated	3	33	suffocated, supplicated, sophisticated, scatted, solicited, sophists, sophist, syndicated, sophist's, spectate, spited, sophisticate, sifted, silicate, skated, spectated, sphincter, depicted, located, shifted, spitted, salivated, copycatted, evicted, officiated, suffocate, satiated, placated, spirited, striated, selected, syndicate, convicted
 sorceror	sorcerer	1	5	sorcerer, sorcerers, sorcery, sorcerer's, sorcery's
-sorrounding	surrounding	1	7	surrounding, surroundings, rounding, sounding, surrounding's, grounding, surroundings's
+sorrounding	surrounding	1	10	surrounding, surroundings, rounding, sounding, surrounding's, grounding, resounding, surmounting, surround, surroundings's
 sotry	story	1	37	story, sorry, stray, satyr, store, stir, sitar, so try, so-try, stormy, sort, Tory, satori, star, dory, sooty, starry, sorta, Starr, sot, stare, stork, storm, straw, strew, stria, sty, try, stony, sentry, sultry, Soto, soar, sore, sour, stay, story's
 sotyr	satyr	1	35	satyr, story, sitar, star, stir, sitter, store, sorry, sot yr, sot-yr, stayer, setter, sootier, sooty, sour, suitor, suture, Starr, sot, stair, stare, steer, sty, satyrs, softer, sorter, satori, Soto, satire, soar, sots, Sadr, sot's, sty's, satyr's
 sotyr	story	2	35	satyr, story, sitar, star, stir, sitter, store, sorry, sot yr, sot-yr, stayer, setter, sootier, sooty, sour, suitor, suture, Starr, sot, stair, stare, steer, sty, satyrs, softer, sorter, satori, Soto, satire, soar, sots, Sadr, sot's, sty's, satyr's
@@ -3343,7 +3343,7 @@ sould	sold	2	32	should, sold, souls, soul, solid, soiled, soled, solidi, Gould, 
 sountrack	soundtrack	1	15	soundtrack, soundtracks, suntrap, sidetrack, soundtrack's, sundeck, Sondra, Sontag, struck, subtract, Saundra, counteract, contract, suntraps, Sondra's
 sourth	south	2	36	South, south, Fourth, fourth, sour, sort, sourish, sooth, North, forth, north, sorta, sours, worth, sour's, source, soured, sourer, sourly, Ruth, Seth, Surat, sloth, Souths, Southey, Truth, truth, soothe, sought, Roth, soar, sore, sure, sough, South's, south's
 sourthern	southern	1	11	southern, northern, southerns, Shorthorn, shorthorn, Southerner, southerner, sourer, southern's, sorter, soother
-souvenier	souvenir	1	4	souvenir, souvenirs, souvenir's, sunnier
+souvenier	souvenir	1	18	souvenir, souvenirs, souvenir's, sunnier, softener, seiner, slovenlier, stonier, Steiner, sullener, Senior, senior, sooner, Sumner, evener, sounder, soupier, funnier
 souveniers	souvenirs	1	23	souvenirs, souvenir's, souvenir, softeners, seiners, suaveness, seventies, seniors, softener's, sounders, tougheners, seiner's, stunners, conveners, Steiner's, scavengers, Senior's, senior's, Sumner's, sounder's, toughener's, convener's, scavenger's
 soveits	soviets	1	97	soviets, Soviet's, soviet's, Soviet, soviet, civets, covets, sifts, sockets, softies, stoves, civet's, sorts, spits, sets, sits, sots, stove's, Soave's, davits, duvets, rivets, savers, scents, severs, sonnets, uveitis, society's, solvents, sophist, saves, seats, setts, suits, safeties, sects, skits, slits, snits, stets, sophists, surfeits, socket's, save's, Sven's, ovoids, sevens, sleets, solids, soot's, suavity's, sweats, sweets, sort's, spit's, coverts, severity's, Set's, set's, softy's, sot's, savants, saver's, seven's, davit's, duvet's, rivet's, scent's, sonnet's, Soweto's, Stevie's, solvent's, Sophie's, safety's, seat's, suet's, suit's, Ovid's, Sept's, Shevat's, sect's, skit's, slit's, snit's, seventy's, sophist's, surfeit's, Sofia's, Sweet's, Tevet's, ovoid's, skeet's, sleet's, solid's, sweat's, sweet's, covert's
 sovereignity	sovereignty	1	6	sovereignty, sovereignty's, sovereign, sovereigns, sovereign's, serenity
@@ -3351,12 +3351,12 @@ soverign	sovereign	1	18	sovereign, severing, sobering, sovereigns, covering, hov
 soverignity	sovereignty	1	11	sovereignty, sovereignty's, sovereign, virginity, sovereigns, serenity, severity, sovereign's, reignite, severing, seventy
 soverignty	sovereignty	1	8	sovereignty, sovereignty's, sovereign, sovereigns, severity, sovereign's, severing, seventy
 spainish	Spanish	1	17	Spanish, Spain's, swinish, spinach, punish, Spain, Spanglish, Spanish's, spans, spins, span's, spawns, spin's, spines, spawn's, snappish, spine's
-speach	speech	2	8	peach, speech, peachy, search, spec, spinach, poach, speech's
+speach	speech	2	32	peach, speech, peachy, search, spec, spinach, poach, space, speak, spear, speck, splash, sketch, SPCA, patch, preach, sch, spa, Spica, epoch, sepal, each, sash, spay, speech's, speeches, spew, such, Peace, peace, perch, peach's
 specfic	specific	1	15	specific, specifics, specif, specify, pectic, specific's, spec, spic, Pacific, pacific, septic, psychic, speck, specs, spec's
 speciallized	specialized	1	6	specialized, specializes, specialize, socialized, specialties, specialist
 specifiying	specifying	1	3	specifying, speechifying, pacifying
 speciman	specimen	1	8	specimen, spaceman, specimens, spacemen, Superman, superman, specimen's, spaceman's
-spectauclar	spectacular	1	4	spectacular, spectaculars, spectacular's, spectacularly
+spectauclar	spectacular	1	8	spectacular, spectaculars, spectacular's, spectacularly, spectacle, spectacles, unspectacular, spectacle's
 spectaulars	spectaculars	1	13	spectaculars, spectacular's, spectacular, spectators, speculators, spectacularly, spectacles, specters, spectator's, speculator's, spectacle's, specter's, spectacles's
 spects	aspects	3	28	sects, specs, aspects, spec's, specks, spec ts, spec-ts, sect's, aspect's, specters, speck's, specs's, pacts, spats, spics, spits, spots, respects, suspects, Sept's, specter's, Pict's, pact's, spat's, spit's, spot's, respect's, suspect's
 spects	expects	0	28	sects, specs, aspects, spec's, specks, spec ts, spec-ts, sect's, aspect's, specters, speck's, specs's, pacts, spats, spics, spits, spots, respects, suspects, Sept's, specter's, Pict's, pact's, spat's, spit's, spot's, respect's, suspect's
@@ -3386,7 +3386,7 @@ startegies	strategies	1	6	strategies, strategics, strategy's, strategist, strate
 startegy	strategy	1	15	strategy, Starkey, started, starter, strategy's, strategic, startle, stratify, start, starred, starting, stared, starts, stately, start's
 stateman	statesman	1	11	statesman, state man, state-man, Staten, statement, statesmen, stamen, stuntman, stableman, sideman, statesman's
 statememts	statements	1	20	statements, statement's, statement, statemented, restatements, settlements, restatement's, misstatements, settlement's, statuettes, stalemates, staterooms, statutes, sweetmeats, stateroom's, statute's, misstatement's, statuette's, stalemate's, sweetmeat's
-statment	statement	1	8	statement, statements, statement's, statemented, Staten, stamen, restatement, testament
+statment	statement	1	19	statement, statements, statement's, statemented, Staten, stamen, restatement, testament, sentiment, stamens, student, treatment, sediment, statementing, statesmen, stent, Staten's, stamen's, misstatement
 steriods	steroids	1	10	steroids, steroid's, steroid, strides, asteroids, stereos, stereo's, Sterno's, asteroid's, stride's
 sterotypes	stereotypes	1	6	stereotypes, stereotype's, stereotyped, stereotype, startups, startup's
 stilus	stylus	3	15	stiles, stills, stylus, stile's, still's, stoles, stilts, stales, stalls, styles, stole's, stilt's, stylus's, stall's, style's
@@ -3448,27 +3448,27 @@ substracted	subtracted	1	8	subtracted, abstracted, substrates, substrate, obstru
 substracting	subtracting	1	7	subtracting, abstracting, obstructing, distracting, subtraction, subcontracting, substituting
 substraction	subtraction	1	10	subtraction, subs traction, subs-traction, abstraction, subtractions, substation, obstruction, subsection, subtracting, subtraction's
 substracts	subtracts	1	11	subtracts, subs tracts, subs-tracts, substrates, abstracts, abstract's, substrata, substrate's, subtract, substrate, obstructs
-subtances	substances	1	6	substances, substance's, stances, stance's, substance, subtenancy's
+subtances	substances	1	16	substances, substance's, stances, stance's, substance, sentences, subtends, stanches, stance, subteens, subtenancy's, sentence's, seances, subteen's, butane's, seance's
 subterranian	subterranean	1	23	subterranean, Siberian, subtenant, suborning, Hibernian, subtraction, straining, submersion, subversion, subtending, Siberians, subtenancy, strain, subtracting, subornation, suburban, Siberian's, saturnine, sectarian, Mediterranean, centenarian, subtrahend, Brownian
 suburburban	suburban	3	6	suburb urban, suburb-urban, suburban, barbarian, subscribing, barbering
 succceeded	succeeded	1	6	succeeded, succeeds, succeed, seceded, acceded, succeeding
 succcesses	successes	1	12	successes, success's, successors, accesses, success, surceases, sicknesses, successor's, successor, successive, surcease's, Scorsese's
 succedded	succeeded	1	7	succeeded, succeed, succeeds, scudded, acceded, seceded, suggested
-succeded	succeeded	1	4	succeeded, succeed, succeeds, seceded
-succeds	succeeds	1	5	succeeds, success, sicced, succeed, success's
+succeded	succeeded	1	7	succeeded, succeed, succeeds, acceded, seceded, sicced, scudded
+succeds	succeeds	1	16	succeeds, success, sicced, succeed, success's, Sucrets, scuds, suicides, secedes, scads, sucked, soccer's, Scud's, scud's, suicide's, scad's
 succesful	successful	1	8	successful, successfully, successive, unsuccessful, success, success's, successes, successor
 succesfully	successfully	1	4	successfully, successful, successively, unsuccessfully
 succesfuly	successfully	1	3	successfully, successful, successively
 succesion	succession	1	8	succession, successions, suggestion, accession, succession's, secession, suction, scansion
 succesive	successive	1	8	successive, successively, successes, success, successor, suggestive, success's, seclusive
-successfull	successful	2	4	successfully, successful, success full, success-full
+successfull	successful	2	8	successfully, successful, success full, success-full, successively, unsuccessfully, successive, unsuccessful
 successully	successfully	1	7	successfully, successful, successively, success, success's, successes, successor
 succsess	success	1	8	success, success's, successes, succeeds, schusses, susses, successor, SUSE's
 succsessfull	successful	2	6	successfully, successful, successively, unsuccessfully, successive, unsuccessful
 suceed	succeed	1	11	succeed, sauced, secede, sucked, sussed, suede, suicide, seed, soused, sued, seceded
 suceeded	succeeded	1	9	succeeded, seceded, seeded, secedes, secede, ceded, receded, scudded, succeed
-suceeding	succeeding	1	3	succeeding, seceding, seeding
-suceeds	succeeds	1	7	succeeds, secedes, suicides, seeds, seed's, suede's, suicide's
+suceeding	succeeding	1	7	succeeding, seceding, seeding, speeding, ceding, receding, scudding
+suceeds	succeeds	1	21	succeeds, secedes, suicides, seeds, speeds, steeds, cedes, scuds, sauced, sauces, seed's, suede's, suicide's, succeed, secede, suds, sauce's, speed's, steed's, Scud's, scud's
 sucesful	successful	1	11	successful, successfully, useful, zestful, stressful, sackful, suspenseful, sauces, houseful, sauce's, SUSE's
 sucesfully	successfully	1	4	successfully, successful, usefully, zestfully
 sucesfuly	successfully	1	18	successfully, successful, usefully, useful, successively, zestfully, zestful, stressful, scrofula, sackful, saucily, suavely, suspenseful, sauces, housefly, houseful, sauce's, SUSE's
@@ -3479,7 +3479,7 @@ sucessful	successful	1	4	successful, successfully, stressful, zestful
 sucessfull	successful	2	6	successfully, successful, stressful, zestfully, successively, zestful
 sucessfully	successfully	1	8	successfully, successful, zestfully, successively, usefully, stressful, lustfully, restfully
 sucessfuly	successfully	1	6	successfully, successful, successively, stressful, zestfully, zestful
-sucession	succession	1	5	succession, secession, cession, session, secession's
+sucession	succession	1	10	succession, secession, cession, session, cessation, recession, successions, suasion, secession's, succession's
 sucessive	successive	1	11	successive, recessive, excessive, decisive, successively, recessives, suppressive, possessive, submissive, suggestive, recessive's
 sucessor	successor	1	18	successor, scissor, successors, scissors, assessor, censor, sensor, Cesar, sauces, success, successor's, susses, saucers, sauce's, success's, SUSE's, saucer's, Suez's
 sucessot	successor	2	32	sauciest, successor, surest, cesspit, sickest, suavest, sauces, subsist, success, susses, subset, sunset, sauce's, nicest, sourest, suggest, spacesuit, surceased, scissor, success's, SUSE's, successes, sussed, safest, sagest, sanest, schist, serest, sliest, sorest, sunspot, Suez's
@@ -3500,7 +3500,7 @@ suplimented	supplemented	1	16	supplemented, splinted, alimented, supplements, su
 supose	suppose	1	23	suppose, spouse, sups, sup's, spies, sops, supposed, supposes, sips, soups, SUSE, pose, sip's, soup's, saps, spas, SOP's, sop's, SAP's, sap's, spy's, Sepoy's, spa's
 suposed	supposed	1	30	supposed, supposes, supped, suppose, posed, spiced, apposed, deposed, sussed, spored, disposed, spaced, soupiest, soused, opposed, reposed, espoused, poised, souped, spied, spouse, supposedly, supersede, surpassed, sopped, sped, sups, spumed, speed, sup's
 suposedly	supposedly	1	24	supposedly, supposed, speedily, spindly, supinely, cussedly, stupidly, cursedly, supposes, spottily, composedly, supped, supply, suppose, posed, spiced, spousal, sparsely, speedy, sussed, spored, supersede, postal, spaced
-suposes	supposes	1	9	supposes, spouses, spouse's, suppose, SOSes, poses, susses, SUSE's, pose's
+suposes	supposes	1	52	supposes, spouses, spouse's, supposed, suppose, SOSes, poses, spices, apposes, deposes, susses, spokes, spores, synopses, suppress, disposes, sepsis, spaces, souses, opposes, reposes, SUSE's, espouses, poises, pose's, posies, posses, sises, spice's, spies, spouse, supers, surpasses, pusses, sups, copses, opuses, spumes, spoke's, spore's, space's, sup's, Susie's, souse's, repose's, poise's, posse's, super's, copse's, spume's, Sosa's, posy's
 suposing	supposing	1	38	supposing, supping, posing, spicing, apposing, deposing, sussing, sporing, disposing, spacing, sousing, opposing, reposing, sipping, espousing, poising, souping, surpassing, sopping, spuming, sapping, spoiling, sponging, spoofing, spooking, spooling, spooning, spooring, spotting, spouting, purposing, supine, spring, spurring, spying, sassing, spaying, exposing
 supplamented	supplemented	1	8	supplemented, supp lamented, supp-lamented, supplanted, supplements, supplement, supplement's, supplemental
 suppliementing	supplementing	1	10	supplementing, supplement, supplanting, supplements, supplement's, supplemental, supplemented, supplementation, supplementary, splinting
@@ -3551,11 +3551,11 @@ survivers	survivors	2	14	survives, survivors, survivor's, survive rs, survive-rs
 survivied	survived	1	10	survived, survives, survive, surviving, survivor, skivvied, serviced, savvied, surveyed, survival
 suseptable	susceptible	1	16	susceptible, disputable, settable, suitable, hospitable, acceptable, separable, supportable, septal, stable, testable, reputable, insusceptible, respectable, suitably, stoppable
 suseptible	susceptible	1	7	susceptible, insusceptible, suggestible, susceptibility, hospitable, settable, suitable
-suspention	suspension	1	4	suspension, suspensions, suspending, suspension's
+suspention	suspension	1	7	suspension, suspensions, suspending, suspension's, subvention, suspecting, suspicion
 swaer	swear	1	38	swear, sewer, sower, swore, swears, aware, sweat, swearer, sweater, Ware, sear, ware, wear, seer, sward, swarm, saber, safer, sager, saner, saver, Sawyer, sawyer, swagger, swatter, war, rawer, sawed, scare, smear, snare, spare, spear, stare, Saar, soar, sway, weer
 swaers	swears	1	59	swears, sewers, sowers, sewer's, sower's, sweats, swearers, sweaters, Sears, sears, swear, wares, wears, Sayers, seers, swards, swarms, sabers, savers, sawyers, SARS, swaggers, swatters, wars, Spears, scares, smears, snares, spares, spears, stares, soars, sways, sweat's, swearer's, sweater's, Ware's, sear's, ware's, wear's, sway's, seer's, saber's, saver's, Sawyer's, sawyer's, swagger's, swatter's, war's, scare's, smear's, snare's, spare's, spear's, stare's, sward's, swarm's, Saar's, soar's
 swepth	swept	1	40	swept, swath, sweep, depth, Seth, swathe, Sept, sweeps, wept, swap, Sweet, septa, swarthy, sweat, sweep's, sweeper, sweet, slept, swipe, spathe, swaps, seethe, sleuth, sweaty, sweats, sweets, swiped, swipes, Sopwith, seep, swap's, Sep, swoop, swipe's, swaths, with, Sweet's, sweat's, sweet's, swath's
-swiming	swimming	1	17	swimming, swiping, swinging, swing, seaming, seeming, swamping, swarming, skimming, slimming, spuming, swigging, swilling, swishing, summing, swaying, swimming's
+swiming	swimming	1	30	swimming, swiping, swinging, swing, seaming, seeming, swamping, swarming, skimming, slimming, spuming, swigging, swilling, swishing, sowing, summing, swaying, Simon, sawing, sewing, simian, swimming's, swimmingly, swung, wimping, swim, swain, swami, swine, wising
 syas	says	1	93	says, seas, spas, slays, spays, stays, sways, suss, skuas, SASE, sass, saws, yaws, yeas, SARS, Saks, sacs, sags, sans, saps, say's, Sosa, sea's, soy's, sues, Nyasa, Salas, Sears, Silas, Suns, Sykes, dyes, sagas, seals, seams, sears, seats, ska's, sky's, soaks, soaps, soars, sodas, sofas, spa's, spy's, sty's, subs, suds, sums, suns, sups, SOS, SOs, Y's, sis, yes, sax, Suva's, SE's, SW's, Se's, Si's, sees, sews, sous, sows, SC's, SIDS, Sb's, Sc's, Sims, Sirs, Sm's, Sn's, Sr's, Xmas, byes, cyan, secs, sens, sets, sics, sims, sins, sips, sirs, sits, skis, sobs, sods, sols, sons
 symetrical	symmetrical	1	5	symmetrical, symmetrically, asymmetrical, metrical, symmetric
 symetrically	symmetrically	1	5	symmetrically, symmetrical, asymmetrically, metrically, isometrically
@@ -3566,7 +3566,7 @@ symmetricaly	symmetrically	1	5	symmetrically, symmetrical, asymmetrically, asymm
 synagouge	synagogue	1	5	synagogue, synagogues, synagogue's, synagogal, snagged
 syncronization	synchronization	1	3	synchronization, synchronizations, synchronization's
 synonomous	synonymous	1	5	synonymous, synonyms, synonym's, synonymy's, anonymous
-synonymns	synonyms	1	4	synonyms, synonym's, synonymous, synonymy's
+synonymns	synonyms	1	6	synonyms, synonym's, synonymous, synonymy's, synonym, synonymy
 synphony	symphony	1	15	symphony, syn phony, syn-phony, sunshiny, Xenophon, siphon, synchrony, synonym, symphony's, phony, symphonic, euphony, siphons, Xenophon's, siphon's
 syphyllis	syphilis	1	4	syphilis, Phyllis, syphilis's, Phyllis's
 sypmtoms	symptoms	1	9	symptoms, symptom's, symptom, stepmoms, septum's, sputum's, stepmom's, systems, system's
@@ -3574,7 +3574,7 @@ syrap	syrup	2	33	strap, syrup, serape, syrupy, scrap, satrap, Syria, trap, SAP, 
 sysmatically	systematically	1	13	systematically, schematically, systemically, cosmetically, statically, systematical, seismically, semantically, mystically, asthmatically, symmetrically, spasmodically, thematically
 sytem	system	1	11	system, stem, steam, steamy, stems, Ste, sate, seem, site, stew, stem's
 sytle	style	1	25	style, settle, stale, stile, stole, styli, Stael, steel, sidle, styled, styles, subtle, sutler, systole, STOL, Seattle, Steele, Ste, stall, still, sale, sate, site, sole, style's
-tabacco	tobacco	1	5	tobacco, Tabasco, tobaccos, Tobago, tobacco's
+tabacco	tobacco	1	12	tobacco, Tabasco, tobaccos, Tobago, taco, teabag, Tabascos, taboo, tieback, tobacco's, aback, Tabasco's
 tahn	than	1	41	than, tan, Hahn, tarn, tang, Han, Tran, TN, Utahan, tn, Khan, khan, Tahoe, Taine, tawny, Twain, taken, talon, train, twain, Dan, ten, tin, ton, tun, T'ang, Dawn, Tenn, dawn, teen, town, John, Kuhn, damn, darn, john, tern, torn, tron, turn, twin
 taht	that	1	40	that, tat, Tahiti, taut, Taft, baht, tact, tart, ta ht, ta-ht, hat, Tate, teat, twat, HT, ht, taught, Tahoe, tatty, tight, tacit, taint, tarot, tarty, taste, tasty, taunt, toast, trait, DAT, Tad, Tet, Tut, tad, tit, tot, tut, TNT, toot, tout
 talekd	talked	1	43	talked, tailed, stalked, talks, tacked, talk, balked, calked, talker, tanked, tasked, walked, talky, tiled, Talmud, talent, tallied, talk's, flaked, slaked, tilled, tolled, alkyd, caulked, tracked, tabled, tackled, toked, Toledo, tagged, tale, talkie, toiled, tooled, chalked, lacked, staled, talc, ticked, told, tucked, taxed, dialed
@@ -3595,20 +3595,20 @@ technolgy	technology	1	15	technology, technology's, ethnology, technically, tech
 teh	the	2	85	tech, the, Te, eh, Th, DH, tea, tee, NEH, Ted, Tet, meh, ted, tel, ten, duh, He, he, rehi, teeth, yeah, Tue, tie, toe, tr, H, T, h, t, teach, Leah, Tahoe, Te's, Tell, Tenn, Teri, Terr, Tess, Trey, Tues, teak, teal, team, tear, teas, teat, teed, teem, teen, tees, tell, terr, tied, tier, ties, toed, toes, tosh, tree, trey, tush, twee, DE, Doha, TA, Ta, Ti, Tu, Ty, ta, ti, to, NH, OH, TB, TD, TM, TN, TV, TX, Tb, Tc, Tl, Tm, ah
 tehy	they	1	98	they, thy, hey, Tet, Trey, tech, trey, try, Te, Ty, eh, tetchy, DH, Teddy, Terry, Troy, rehi, teary, teat, teddy, teeny, telly, terry, tray, troy, Tahoe, tea, tee, toy, NEH, Ted, meh, ted, tel, ten, teeth, duh, hwy, dewy, Te's, Tell, Tenn, Teri, Terr, Tess, Toby, Tony, Tory, defy, deny, teak, teal, team, tear, teas, teed, teem, teen, tees, tell, terr, tidy, tiny, tony, towhee, He, he, Doha, HT, ht, Hay, Tethys, Tu, Tue, hay, tie, toe, Taney, teach, the, H, T, h, hew, t, Th, Thea, thee, thew, whey, DE, Dy, HI, Ha, Ho, Huey, TA, Ta
 telelevision	television	1	4	television, televisions, televising, television's
-televsion	television	1	4	television, televisions, televising, television's
+televsion	television	1	13	television, televisions, televising, elevation, television's, deletion, delusion, lesion, televise, telephone, telephony, elision, tension
 telphony	telephony	1	10	telephony, telephone, tel phony, tel-phony, telephony's, telephoned, telephoner, telephones, telephonic, telephone's
 temerature	temperature	1	14	temperature, temperatures, temperate, temperature's, temerity, torture, departure, temerity's, numerator, premature, literature, mature, creature, treasure
 temparate	temperate	1	26	temperate, template, tempered, tempera, temperately, temperature, tempura, separate, temporary, temperas, temporal, tempted, desperate, disparate, tempera's, temporize, tempura's, demarcate, depart, tampered, temper, templates, impart, emirate, intemperate, template's
 temperarily	temporarily	1	6	temporarily, temperately, temporary, temporally, temporaries, temporary's
 temperment	temperament	1	6	temperament, temperaments, temperament's, temperamental, empowerment, tempered
 tempertaure	temperature	1	4	temperature, temperatures, temperate, temperature's
-temperture	temperature	1	4	temperature, temperatures, temperate, temperature's
+temperture	temperature	1	6	temperature, temperatures, temperate, temperature's, departure, tamperer
 temprary	temporary	1	19	temporary, Templar, tempera, temper, temporarily, temporary's, tempura, temperas, temperate, temporally, tempers, temporal, tempter, tamperer, Tipperary, tempera's, tempura's, temper's, Templar's
-tenacle	tentacle	1	8	tentacle, tenable, treacle, debacle, tensile, tinkle, manacle, tenably
+tenacle	tentacle	1	24	tentacle, tenable, treacle, debacle, tensile, tinkle, manacle, tenably, tentacled, tentacles, tackle, tangle, encl, teenage, toenail, Tyndale, pentacle, treacly, tonal, descale, uncle, Denali, tingle, tentacle's
 tenacles	tentacles	1	32	tentacles, tentacle's, debacles, tinkles, manacles, treacle's, tackles, tentacled, tentacle, debacle's, tangles, toenails, pentacles, tinkle's, descales, tenancies, uncles, toenail's, manacle's, tenable, enables, tingles, tackle's, binnacles, pinnacles, tangle's, Tyndale's, pentacle's, uncle's, tingle's, binnacle's, pinnacle's
 tendacy	tendency	3	8	tends, tenancy, tendency, tenacity, tend, tents, tensity, tent's
 tendancies	tendencies	2	7	tenancies, tendencies, tendency's, redundancies, attendances, tenancy's, attendance's
-tendancy	tendency	2	3	tenancy, tendency, tendency's
+tendancy	tendency	2	12	tenancy, tendency, tendons, tendon's, redundancy, tendency's, tendon, tenants, tending, attendance, tenancy's, tenant's
 tepmorarily	temporarily	1	5	temporarily, temporary, temporally, temporaries, temporary's
 terrestial	terrestrial	1	9	terrestrial, torrential, terrestrially, celestial, trestle, tarsal, bestial, Tiresias, Teresa's
 terriories	territories	1	15	territories, terrorize, terrorizes, terrors, terriers, terror's, terrifies, derrieres, terrier's, terrorized, terrorism, terrorist, derriere's, territory's, Terrie's
@@ -3623,9 +3623,9 @@ thast	that's	40	43	hast, that, theist, Thant, toast, Thad, Thais, thaws, haste, 
 theather	theater	3	11	Heather, heather, theater, thither, Thatcher, thatcher, tether, feather, leather, weather, whether
 theese	these	3	25	Therese, thees, these, thews, those, cheese, thew's, threes, Thebes, themes, theses, Thea's, thee, tees, Theresa, Th's, this, thus, theme's, there's, three's, Thieu's, tee's, Thebes's, then's
 theif	thief	1	35	thief, their, the if, the-if, theft, Thieu, the, chief, thieve, Thai, Thea, thee, thew, they, Leif, chef, them, then, thin, this, Thais, sheaf, thees, theme, there, these, theta, thews, thief's, Th, they'd, Thai's, Thea's, thew's, they've
-theives	thieves	1	19	thieves, thrives, thieved, thieve, Thebes, theirs, thees, hives, thief's, chives, heaves, themes, theses, hive's, they've, chive's, heave's, theme's, there's
+theives	thieves	1	26	thieves, thrives, thieved, thieve, Thebes, theirs, thees, hives, thief's, chives, heaves, themes, theses, heavies, sheaves, these, hive's, this, they've, chive's, heave's, theme's, there's, Thieu's, sheave's, thievery's
 themselfs	themselves	1	10	themselves, thyself, himself, thymuses, thimbles, damsels, thimble's, Thessaly's, self's, damsel's
-themslves	themselves	1	11	themselves, thimbles, resolves, enslaves, thymuses, selves, thimble's, resolve's, measles, Thessaly's, Thomson's
+themslves	themselves	1	19	themselves, thimbles, resolves, enslaves, thymuses, selves, thimble's, resolve's, measles, Thessaly's, salves, slaves, solves, Thomson's, salve's, slave's, Melva's, Kislev's, measles's
 ther	there	2	22	their, there, thee, therm, her, the, Thar, Thor, Thur, three, threw, theory, thru, ether, other, Thea, thew, they, them, then, tier, they're
 ther	their	1	22	their, there, thee, therm, her, the, Thar, Thor, Thur, three, threw, theory, thru, ether, other, Thea, thew, they, them, then, tier, they're
 ther	the	6	22	their, there, thee, therm, her, the, Thar, Thor, Thur, three, threw, theory, thru, ether, other, Thea, thew, they, them, then, tier, they're
@@ -3652,13 +3652,13 @@ thoughout	throughout	1	10	throughout, though out, though-out, thought, throughpu
 threatend	threatened	1	6	threatened, threatens, threaten, threat end, threat-end, threaded
 threatning	threatening	1	12	threatening, threading, threateningly, treating, threaten, threatens, heartening, retaining, throttling, thronging, truanting, training
 threee	three	1	29	three, there, threw, throe, threes, Therese, thee, their, throw, Sheree, tree, three's, thru, Thoreau, Tyree, thees, theme, these, Thrace, thread, threat, thresh, thrice, thrive, throes, throne, they're, there's, throe's
-threshhold	threshold	1	6	threshold, thresh hold, thresh-hold, thresholds, threshold's, threshed
+threshhold	threshold	1	8	threshold, thresh hold, thresh-hold, thresholds, threshold's, threshed, threefold, thrashed
 thrid	third	1	32	third, thyroid, thread, thirds, thrift, thready, throat, thru, thud, grid, triad, tried, trod, rid, thrived, thirty, their, throe, throw, thrice, thrill, thrive, torrid, Thad, threat, arid, trad, turd, three, threw, third's, they'd
 throrough	thorough	1	6	thorough, through, thorougher, thoroughly, though, trough
 throughly	thoroughly	1	9	thoroughly, through, thorough, roughly, toughly, throatily, truly, though, trough
-throught	thought	1	7	thought, through, thorough, throughout, throughput, throat, wrought
-throught	through	2	7	thought, through, thorough, throughout, throughput, throat, wrought
-throught	throughout	4	7	thought, through, thorough, throughout, throughput, throat, wrought
+throught	thought	1	17	thought, through, thorough, throughout, throughput, throat, wrought, brought, drought, thoughts, throaty, trough, trout, rethought, though, thrust, thought's
+throught	through	2	17	thought, through, thorough, throughout, throughput, throat, wrought, brought, drought, thoughts, throaty, trough, trout, rethought, though, thrust, thought's
+throught	throughout	4	17	thought, through, thorough, throughout, throughput, throat, wrought, brought, drought, thoughts, throaty, trough, trout, rethought, though, thrust, thought's
 througout	throughout	1	24	throughout, throughput, thoroughest, ragout, thorougher, throat, thrust, thought, through, thereabout, throughput's, thronged, forgot, thorough, Roget, argot, ergot, workout, rotgut, dugout, logout, throng, rouged, wrought
 thsi	this	1	22	this, Thai, Thais, thus, Th's, these, those, thous, thesis, Thai's, thaws, thees, thews, his, Si, Th, Thea's, thaw's, thew's, thou's, Ti's, ti's
 thsoe	those	1	19	those, these, throe, this, Th's, thus, hose, thole, the, thees, tho, thous, chose, whose, throes, thee, thou, thou's, throe's
@@ -3669,8 +3669,8 @@ tiem	Tim	3	26	time, item, Tim, tie, Diem, teem, tome, Tom, team, tom, tum, TM, T
 tihkn	think	0	83	token, ticking, taken, tin, hiking, Dijon, tick, Tehran, toking, twink, Tijuana, Timon, Titan, ticks, titan, tucking, tricking, thicken, Tina, Ting, diking, taking, tine, ting, tiny, ton, tun, twin, dink, tank, TN, hike, tighten, tithing, tn, John, Kuhn, john, tacking, tinny, toke, took, town, tuck, Aiken, Nikon, liken, trick, trike, Dhaka, Han, Hon, Hun, TKO, din, gin, hen, hon, kin, tan, ten, tic, trunk, Cohan, Cohen, tick's, Khan, khan, Dick, Dion, Tenn, dick, dike, hick, jinn, tack, take, teak, teen, tyke, Utahan, dinky, tinge
 tihs	this	1	86	this, DHS, Ti's, ti's, ties, tics, tins, tips, tits, his, tights, tings, tithes, ohs, HS, ts, Tu's, Tues, highs, tie's, toes, toss, tows, toys, Tim's, Titus, tails, techs, tic's, ticks, tides, tiers, tiffs, tiles, tills, times, tin's, tines, tip's, tipsy, tires, tit's, toils, tries, trios, Dis, T's, dis, HHS, TVs, VHS, tbs, Ting's, hits, ting's, tush's, Di's, Dias, Hiss, Ta's, Tass, Te's, Tess, Ty's, dies, hies, hiss, taus, teas, tees, tizz, ttys, TB's, TV's, Tb's, Tc's, Tl's, Tm's, oh's, H's, Tisha's, tithe's, Tao's, high's, tau's, toe's
 timne	time	1	26	time, tine, Timon, timing, mine, taming, Taine, tome, tone, tune, timed, timer, times, twine, Tim, tin, amine, Tina, Ting, dime, dine, tame, ting, tiny, Timon's, time's
-tiome	time	1	20	time, tome, Rome, rime, Tim, Tom, tom, chime, Lome, Nome, come, dime, dome, home, lime, mime, some, tame, tomb, Siam
-tiome	tome	2	20	time, tome, Rome, rime, Tim, Tom, tom, chime, Lome, Nome, come, dime, dome, home, lime, mime, some, tame, tomb, Siam
+tiome	time	1	92	time, tome, Rome, rime, Tim, Tom, tom, chime, Lome, Nome, come, dime, dome, home, lime, mime, some, tame, tomb, Siam, Timmy, gimme, gnome, theme, thyme, Moe, Romeo, Timor, Tommie, romeo, IMO, chyme, shame, ROM, Rom, rim, tum, ME, Me, me, timed, timer, times, tomes, Diem, TM, Tm, limo, om, poem, teem, them, Aimee, Somme, Timon, Tommy, chem, homey, limey, shim, tie, toe, Mme, Tia, Com, I'm, Jaime, Jim, Kim, OMB, Qom, aim, com, dim, him, mom, pom, sim, tam, vim, Chimu, chm, toms, moue, shoe, otiose, chrome, time's, tome's, Tim's, Tom's, tom's
+tiome	tome	2	92	time, tome, Rome, rime, Tim, Tom, tom, chime, Lome, Nome, come, dime, dome, home, lime, mime, some, tame, tomb, Siam, Timmy, gimme, gnome, theme, thyme, Moe, Romeo, Timor, Tommie, romeo, IMO, chyme, shame, ROM, Rom, rim, tum, ME, Me, me, timed, timer, times, tomes, Diem, TM, Tm, limo, om, poem, teem, them, Aimee, Somme, Timon, Tommy, chem, homey, limey, shim, tie, toe, Mme, Tia, Com, I'm, Jaime, Jim, Kim, OMB, Qom, aim, com, dim, him, mom, pom, sim, tam, vim, Chimu, chm, toms, moue, shoe, otiose, chrome, time's, tome's, Tim's, Tom's, tom's
 tje	the	1	94	the, Te, take, toke, tyke, TKO, Tojo, DJ, TX, Tc, Tue, tee, tie, toe, tag, tic, tog, tug, dyke, Jed, jet, Jew, Joe, TeX, Tex, jew, tea, Ted, Tet, teak, ted, tel, ten, tr, GTE, DEC, Dec, J, T, deg, j, t, tow, trek, Duke, Taegu, Tate, Tide, Trey, Tues, Tyre, dike, duke, tale, tame, tape, tare, teed, teem, teen, tees, tide, tied, tier, ties, tile, time, tine, tire, toed, toes, tole, tome, tone, toque, tore, tote, tree, trey, true, tube, tune, tuque, twee, type, JD, DE, GE, Ge, Jo, TA, Ta, Ti, Togo
 tjhe	the	1	88	the, Tahoe, take, toke, tyke, TeX, Tex, towhee, tiger, He, TKO, Te, Tojo, he, tag, tog, tug, DH, DJ, TX, Tc, tithe, kWh, Joe, Togo, Tue, doge, tee, tie, toe, toga, toque, tuque, THC, taken, taker, takes, toked, token, tokes, tykes, duh, tic, TQM, TWX, tax, tux, Tate, Tide, Tyre, tale, tame, tape, tare, tide, tile, time, tine, tire, tole, tome, tone, tore, tote, tree, true, tube, tune, twee, type, Dubhe, dyke, Doha, Duke, coho, dike, duke, tack, taco, teak, tick, took, tuck, Tc's, Tojo's, take's, toke's, tyke's
 tkae	take	1	54	take, toke, tyke, Tokay, TKO, tag, teak, taken, taker, takes, rake, tale, tea, Kate, Kaye, Taegu, Tate, dyke, stake, tame, tape, tare, TA, Ta, Te, ta, tack, taco, toga, IKEA, Jake, Wake, bake, cake, fake, hake, lake, make, sake, wake, Duke, TX, Tc, dike, duke, Kay, Tao, Tue, tau, tax, tee, tie, toe, take's
@@ -3685,7 +3685,7 @@ tolerence	tolerance	1	7	tolerance, Terence, tolerances, Terrence, Florence, Torr
 Tolkein	Tolkien	1	9	Tolkien, Talking, Token, Tolling, Tolkien's, Toking, Talkie, Toluene, Taken
 tomatos	tomatoes	2	8	tomato's, tomatoes, tomato, tomcats, Tomas, tomcat's, Tomas's, Toto's
 tommorow	tomorrow	1	21	tomorrow, tomorrows, Timor, tumor, Tommie, Morrow, morrow, tomorrow's, timorous, Moro, Timur, timer, Tommy, Timor's, tumorous, tamer, Murrow, marrow, tremor, tumors, tumor's
-tommorrow	tomorrow	1	7	tomorrow, tom morrow, tom-morrow, tomorrows, Morrow, morrow, tomorrow's
+tommorrow	tomorrow	1	11	tomorrow, tom morrow, tom-morrow, tomorrows, Morrow, morrow, tomorrow's, Timor, tumor, Murrow, marrow
 tongiht	tonight	1	40	tonight, toniest, tongued, tangiest, tonged, downright, Tlingit, tonging, Tonto, night, tight, tonight's, dinghy, Tobit, tiniest, tonality, Knight, Toni, knight, tong, nonwhite, tongue, tonier, Tonga, Tonia, tenuity, tensity, tongs, tonic, taint, tenet, toned, tonguing, taught, Tongan, Toni's, tong's, toning, Tonga's, Tonia's
 tormenters	tormentors	1	8	tormentors, tormentor's, torments, torment's, tormentor, trimesters, tormented, trimester's
 torpeados	torpedoes	2	8	torpedo's, torpedoes, torpedo, toreadors, treads, tornado's, tread's, toreador's
@@ -3703,7 +3703,7 @@ traditition	tradition	1	11	tradition, traditions, radiation, transition, eradica
 tradtionally	traditionally	1	4	traditionally, traditional, rationally, fractionally
 trafficed	trafficked	1	18	trafficked, traffic ed, traffic-ed, traduced, traffics, traced, traffic, traffic's, trafficker, taffies, travailed, trifled, traipsed, refaced, terrified, raffled, trailed, trained
 trafficing	trafficking	1	9	trafficking, traducing, tracing, trafficking's, travailing, trifling, traffic, traffics, traffic's
-trafic	traffic	1	7	traffic, tragic, traffics, terrific, Travis, tropic, traffic's
+trafic	traffic	1	13	traffic, tragic, traffics, terrific, Travis, tropic, tariff, track, traffic's, trick, Traci, RFC, trig
 trancendent	transcendent	1	5	transcendent, transcendental, transcendence, transcended, transcending
 trancending	transcending	1	14	transcending, transcendent, transcend, transecting, reascending, trending, transcends, transcendence, transcended, transiting, parascending, transacting, translating, transmuting
 tranform	transform	1	13	transform, transforms, transom, transform's, transformed, transformer, transfer, reform, inform, transfers, conform, preform, transfer's
@@ -3722,7 +3722,7 @@ transistion	transition	1	9	transition, translation, transmission, transposition,
 translater	translator	2	8	translate, translator, translated, translates, trans later, trans-later, translators, translator's
 translaters	translators	2	10	translates, translators, translator's, translate rs, translate-rs, translator, translated, translate, transactors, transactor's
 transmissable	transmissible	1	3	transmissible, transmittable, transmutable
-transporation	transportation	2	3	transpiration, transportation, transpiration's
+transporation	transportation	2	7	transpiration, transportation, transposition, transpiration's, transporting, transformation, transportation's
 tremelo	tremolo	1	21	tremolo, termly, trammel, tremolos, trimly, tremble, tremor, Terkel, termed, treble, dermal, Terrell, tremolo's, tremulous, Carmelo, tersely, remelt, trammels, tamely, timely, trammel's
 tremelos	tremolos	1	19	tremolos, tremolo's, tremulous, trammels, trammel's, tremolo, trembles, tremble's, tremors, dreamless, trebles, treeless, trellis, Terkel's, treble's, remelts, tremor's, Terrell's, Carmelo's
 triguered	triggered	1	13	triggered, rogered, triggers, trigger, trigger's, tinkered, targeted, tortured, tiered, figured, tricked, trucked, trudged
@@ -3769,7 +3769,7 @@ understoon	understood	1	17	understood, undertone, undersign, understand, Anderso
 undesireable	undesirable	1	4	undesirable, undesirably, undesirables, undesirable's
 undetecable	undetectable	1	17	undetectable, ineducable, untenable, undeniable, unteachable, indictable, uneatable, undecidable, unstable, unutterable, unalterable, undefinable, undesirable, unbeatable, unnoticeable, undetected, indefatigable
 undoubtely	undoubtedly	1	8	undoubtedly, undoubted, unsubtle, undauntedly, unitedly, indubitably, unduly, underbelly
-undreground	underground	1	3	underground, undergrounds, underground's
+undreground	underground	1	6	underground, undergrounds, underground's, undergrad, undergoing, undergone
 uneccesary	unnecessary	1	13	unnecessary, necessary, accessory, unclear, ancestry, unnecessarily, Unixes, incisor, uncles, unlaces, uncle's, UNESCO's, unease's
 unecessary	unnecessary	1	2	unnecessary, necessary
 unequalities	inequalities	1	10	inequalities, inequality's, inequities, ungulates, inequality, iniquities, qualities, unqualified, equality's, ungulate's
@@ -3779,7 +3779,7 @@ unforgiveable	unforgivable	1	6	unforgivable, unforgivably, unforgettable, forgiv
 unfortunatley	unfortunately	1	4	unfortunately, unfortunate, unfortunates, unfortunate's
 unfortunatly	unfortunately	1	4	unfortunately, unfortunate, unfortunates, unfortunate's
 unfourtunately	unfortunately	1	5	unfortunately, unfortunate, unfortunates, unfortunate's, fortunately
-unihabited	uninhabited	1	4	uninhabited, inhabited, inhibited, uninhibited
+unihabited	uninhabited	1	5	uninhabited, inhabited, inhibited, uninhibited, unabated
 unilateraly	unilaterally	1	2	unilaterally, unilateral
 unilatreal	unilateral	1	14	unilateral, unilaterally, bilateral, equilateral, unalterable, unalterably, unnatural, trilateral, unicameral, lateral, unaltered, enteral, unilateralism, unreal
 unilatreally	unilaterally	1	7	unilaterally, unilateral, bilaterally, unalterably, unnaturally, laterally, unalterable
@@ -3840,7 +3840,7 @@ upcomming	upcoming	1	10	upcoming, incoming, uncommon, oncoming, coming, cumming,
 upgradded	upgraded	1	6	upgraded, upgrades, upgrade, ungraded, upbraided, upgrade's
 usally	usually	1	36	usually, Sally, sally, us ally, us-ally, sully, usual, Udall, ally, easily, silly, causally, aurally, basally, nasally, ASL, usable, anally, orally, slay, allay, alley, alloy, acyl, visually, Sal, Sulla, USA, all, sly, casually, unusually, ally's, all's, Sally's, sally's
 useage	usage	1	32	usage, Osage, use age, use-age, usages, sage, sedge, siege, assuage, Sega, segue, sewage, USA, age, sag, usage's, use, Osages, fuselage, message, upstage, USCG, ease, edge, saga, sago, sake, sausage, serge, stage, ukase, Osage's
-usefull	useful	2	4	usefully, useful, use full, use-full
+usefull	useful	2	30	usefully, useful, use full, use-full, ireful, usual, houseful, awfully, eyeful, awful, usually, Ispell, seagull, Seville, EFL, ruefully, full, sell, Aspell, rueful, USAF, Seoul, lustfully, scull, skull, uvula, lustful, housefly, housefuls, houseful's
 usefuly	usefully	1	2	usefully, useful
 useing	using	1	79	using, unseeing, suing, issuing, seeing, USN, acing, icing, sing, assign, easing, busing, fusing, musing, Seine, seine, ousting, cussing, fussing, mussing, sussing, asking, eyeing, ashing, unsung, upping, Sung, sign, sung, design, oozing, resign, upswing, yessing, arsing, song, ursine, ushering, Ewing, eking, sewing, swing, unsaying, Sen, sen, sexing, sin, use, Hussein, resin, seizing, Usenet, guessing, saying, unseen, Essen, fessing, messing, Sang, Sean, sang, seen, sewn, sine, zing, abusing, amusing, causing, dousing, housing, lousing, mousing, pausing, reusing, rousing, sling, sousing, sting, Austin
 usualy	usually	1	5	usually, usual, usual's, sully, usury
@@ -3853,7 +3853,7 @@ vaieties	varieties	1	37	varieties, vetoes, vanities, moieties, virtues, Vitus, v
 vailidty	validity	1	6	validity, validate, validly, vapidity, valid, validity's
 valuble	valuable	1	8	valuable, voluble, volubly, valuables, violable, salable, soluble, valuable's
 valueable	valuable	1	10	valuable, value able, value-able, valuables, voluble, malleable, valuable's, violable, salable, volubly
-varations	variations	1	24	variations, variation's, vacations, variation, rations, versions, vibrations, narrations, vacation's, valuations, orations, gyrations, vocations, aeration's, ration's, version's, vibration's, narration's, valuation's, oration's, duration's, gyration's, venation's, vocation's
+varations	variations	1	26	variations, variation's, vacations, variation, rations, versions, vibrations, narrations, vacation's, valuations, orations, gyrations, vocations, aeration's, ration's, version's, vibration's, narration's, valuation's, oration's, duration's, gyration's, venation's, vocation's, variegation's, veneration's
 varient	variant	1	25	variant, variety, varmint, variants, varied, Orient, orient, parent, varlet, valiant, veriest, wariest, hairnet, warrant, vaunt, aren't, rent, vent, garnet, vagrant, variate, warned, variant's, weren't, warden
 variey	variety	1	18	variety, vary, varied, varies, Carey, var, vireo, Ware, very, ware, wary, Marie, verier, verify, verily, verity, warier, warily
 varing	varying	1	61	varying, baring, caring, Waring, veering, warring, daring, faring, haring, oaring, paring, raring, taring, vaping, wearing, wiring, barring, bearing, vatting, airing, bring, Vang, ring, vain, variant, verging, versing, warding, warming, warning, warping, Vern, earring, fairing, jarring, marring, pairing, parring, tarring, valuing, vanning, warn, wring, Darin, Karin, Marin, vying, Verna, Verne, fearing, gearing, hearing, nearing, rearing, roaring, searing, sharing, soaring, tearing, whoring, Waring's
@@ -3861,8 +3861,8 @@ varities	varieties	1	11	varieties, varsities, verities, parities, rarities, vani
 varity	variety	1	15	variety, varsity, verity, variate, warty, parity, rarity, vanity, varied, vary, arty, vert, wart, variety's, verity's
 vasall	vassal	1	50	vassal, basally, visually, basal, visual, vassals, nasally, vessel, wassail, nasal, casually, causally, vastly, casual, causal, Sally, sally, vassal's, Sal, Val, val, ASL, vestal, Faisal, Vassar, assail, Saul, Visa, Wall, sail, sale, sell, sill, vale, vase, veal, vial, visa, wall, vast, visuals, weasel, weaselly, vials, seawall, Va's, Val's, visual's, veal's, vial's
 vasalls	vassals	1	73	vassals, vassal's, Casals, visuals, Vesalius, vessels, visual's, wassails, nasals, nasal's, casuals, vassal, Casals's, casual's, vessel's, vestals, wassail's, assails, Sal's, Salas, Val's, Walls, basally, sails, sales, sells, sills, vales, vases, vials, visas, walls, ASL's, vasts, vestal's, visually, Basel's, Basil's, Faisal's, Vassar's, Vidal's, basil's, vanillas, weasels, Visa's, vase's, veal's, vial's, visa's, easels, vast's, vitals, vocals, seawalls, nasally, easel's, sisal's, vocal's, weasel's, Sally's, sally's, Saul's, Wall's, basalt's, sail's, sale's, sell's, sill's, vale's, wall's, seawall's, Vesalius's, vanilla's
-vegatarian	vegetarian	1	3	vegetarian, vegetarians, vegetarian's
-vegitable	vegetable	1	5	vegetable, veritable, vegetables, veritably, vegetable's
+vegatarian	vegetarian	1	10	vegetarian, vegetarians, vegetarian's, vegetation, sectarian, Victorian, vegetating, egalitarian, vectoring, veteran
+vegitable	vegetable	1	7	vegetable, veritable, vegetables, veritably, equitable, vegetable's, voidable
 vegitables	vegetables	1	14	vegetables, vegetable's, vegetable, veritable, vestibules, vocables, eatables, vestibule's, variables, vegetates, veritably, vocable's, eatable's, variable's
 vegtable	vegetable	1	14	vegetable, veg table, veg-table, vegetables, veritable, vegetable's, beatable, eatable, veritably, vestibule, vocable, settable, quotable, voidable
 vehicule	vehicle	1	5	vehicle, vehicular, vehicles, vesicle, vehicle's
@@ -3890,7 +3890,7 @@ villin	villein	3	7	Villon, villain, villein, villi, violin, villainy, willing
 vincinity	vicinity	1	8	vicinity, Vincent, infinity, insanity, virginity, vicinity's, Vincent's, asininity
 violentce	violence	1	8	violence, violent, violently, violence's, valence, violets, Violet's, violet's
 virutal	virtual	1	11	virtual, virtually, varietal, brutal, viral, vital, victual, ritual, Vistula, virtue, Vidal
-virtualy	virtually	1	2	virtually, virtual
+virtualy	virtually	1	17	virtually, virtual, victual, ritually, ritual, virtuously, vitally, viral, vital, Vistula, dirtily, virtue, virgule, virtues, victuals, virtue's, victual's
 virutally	virtually	1	5	virtually, virtual, brutally, vitally, ritually
 visable	visible	2	17	viable, visible, disable, visibly, vi sable, vi-sable, voidable, Isabel, usable, sable, kissable, viewable, violable, vocable, viably, risible, sizable
 visably	visibly	2	6	viably, visibly, visible, visually, viable, disable
@@ -3898,13 +3898,13 @@ visting	visiting	1	17	visiting, vising, vesting, visaing, listing, misting, wast
 vistors	visitors	1	31	visitors, visors, visitor's, victors, bistros, visitor, visor's, Victor's, castors, victor's, vistas, vista's, misters, pastors, sisters, vectors, bistro's, wasters, Castor's, castor's, Astor's, vestry's, history's, victory's, Lister's, Nestor's, mister's, pastor's, sister's, vector's, waster's
 vitories	victories	1	24	victories, votaries, vitrines, Tories, stories, vitreous, vitrine's, vitrifies, victors, vitrine, Victoria's, ivories, victorious, tries, Victor's, vestries, victor's, Torres, Vito's, dories, varies, vetoes, victory's, vitriol's
 volcanoe	volcano	2	7	volcanoes, volcano, vol canoe, vol-canoe, volcanic, volcano's, Vulcan
-voleyball	volleyball	1	3	volleyball, volleyballs, volleyball's
+voleyball	volleyball	1	9	volleyball, volleyballs, volleyball's, voluble, volubly, violable, valuable, verbally, verbal
 volontary	voluntary	1	8	voluntary, voluntarily, voluntary's, volunteer, voluptuary, Voltaire, votary, voluntaries
-volonteer	volunteer	1	5	volunteer, volunteers, volunteered, voluntary, volunteer's
+volonteer	volunteer	1	8	volunteer, volunteers, volunteered, voluntary, volunteer's, voltmeter, lintier, volunteering
 volonteered	volunteered	1	5	volunteered, volunteers, volunteer, volunteer's, volunteering
 volonteering	volunteering	1	21	volunteering, volunteer, volunteers, volunteer's, volunteered, volunteerism, splintering, wintering, orienteering, countering, bolstering, loitering, veneering, blundering, floundering, plundering, venturing, weltering, wondering, holstering, slandering
 volonteers	volunteers	1	9	volunteers, volunteer's, volunteer, volunteerism, volunteered, voluntaries, voltmeters, voluntary's, voltmeter's
-volounteer	volunteer	1	5	volunteer, volunteers, volunteered, voluntary, volunteer's
+volounteer	volunteer	1	6	volunteer, volunteers, volunteered, voluntary, volunteer's, volunteering
 volounteered	volunteered	1	6	volunteered, volunteers, volunteer, volunteer's, volunteering, floundered
 volounteering	volunteering	1	11	volunteering, volunteer, volunteers, floundering, volunteer's, volunteered, volunteerism, countering, blundering, plundering, laundering
 volounteers	volunteers	1	7	volunteers, volunteer's, volunteer, volunteerism, volunteered, voluntaries, voluntary's
@@ -3936,7 +3936,7 @@ whant	want	1	51	want, what, wand, went, wont, Thant, chant, whatnot, wants, whea
 whants	wants	1	64	wants, whats, want's, wands, chants, what's, haunts, WATS, vaunts, wand's, want, wont's, ants, Thant's, chant's, Watts, waits, wanes, watts, weans, whens, whets, whits, cants, hands, hints, hunts, pants, rants, wafts, wanks, warts, vents, wends, whatnot's, winds, when's, whines, wheat's, haunt's, vaunt's, ant's, shanty's, Wang's, Watt's, wait's, wane's, watt's, whit's, Hunt's, Kant's, Walt's, Wanda's, cant's, hand's, hint's, hunt's, pant's, rant's, waft's, wart's, vent's, wind's, whine's
 whcih	which	1	99	which, whiz, Whig, whisk, whist, Wis, wiz, whim, whip, whir, whit, whys, Whigs, WHO's, who's, whose, whoso, why's, WHO, high, weighs, who, huh, wig, wish, with, Ci, HI, WI, Wise, hi, viz, wise, Wisc, chis, wick, wisp, wist, weigh, whims, whips, whirs, whits, whoa, White, vice, watch, whack, whiff, while, whine, whiny, white, witch, his, whiz's, Hui, WWI, Wei, Wei's, Weiss, Wii, Wii's, hie, sci, why, CID, Cid, MCI, NIH, WAC, Wac, cir, cit, sch, shh, win, wit, xci, VHS, whacks, voice, was, Hugh, WWII, whee, whew, whey, whey's, Wu's, VI's, Whig's, Chi's, chi's, weigh's, Ci's, whack's, whim's, whip's
 wheras	whereas	1	23	whereas, wheres, wears, where's, whirs, whores, whir's, wars, weirs, whore's, hears, wear's, wherry's, Hera's, versa, wares, wires, Vera's, weir's, Ware's, ware's, wire's, war's
-wherease	whereas	1	6	whereas, wheres, where's, wherries, whores, whore's
+wherease	whereas	1	34	whereas, wheres, where's, wherries, whores, Therese, whereat, whore's, wherry's, grease, where, Theresa, erase, wheezes, verse, wares, wires, worse, wheeze, crease, here's, heresy, phrase, wheels, Varese, Ware's, ware's, wire's, there's, Hera's, Vera's, wheeze's, wheel's, Sheree's
 whereever	wherever	1	7	wherever, where ever, where-ever, wheresoever, wherefore, whenever, whoever
 whic	which	1	58	which, Whig, wick, whack, Vic, WAC, Wac, wig, chic, whim, whip, whir, whit, whiz, Wicca, Waco, WHO, Wisc, who, hick, WC, WI, wack, wiki, wog, wok, Whigs, whisk, whoa, White, chick, thick, whiff, while, whine, whiny, white, WWI, Wei, Wii, why, Bic, THC, Wis, mic, pic, sic, tic, win, wit, wiz, vac, wag, WWII, whee, whew, whey, Whig's
 whihc	which	1	30	which, Whig, Wisc, whisk, hick, wick, wig, whinge, Wicca, whack, Whigs, Vic, WAC, Wac, chic, whim, whip, whir, whit, whiz, hike, wiki, wink, White, whiff, while, whine, whiny, white, Whig's
@@ -3980,7 +3980,7 @@ worshipper	worshiper	1	9	worshiper, worship per, worship-per, worshipers, worshi
 worshipping	worshiping	1	21	worshiping, worship ping, worship-ping, reshipping, worship, shipping, whipping, worships, worship's, worshiped, worshiper, wiretapping, shopping, whopping, whupping, wrapping, reshaping, ripping, warping, warship, chipping
 worstened	worsened	1	17	worsened, worsted, christened, worsting, moistened, Rostand, worsens, worsen, corseted, coarsened, listened, portend, worsted's, shortened, whitened, fastened, hastened
 woudl	would	1	94	would, wold, loudly, Wood, waddle, woad, wood, wool, widely, woeful, wild, woody, Woods, woods, wield, Vidal, module, modulo, nodule, Wald, weld, wildly, wordily, woulds, wound, world, Gould, Will, could, toil, void, wail, wheedle, who'd, wide, will, wooed, Godel, VTOL, godly, modal, model, nodal, oddly, whorl, yodel, Wed, vol, wad, wed, wetly, woodlot, wot, wounds, Wilda, Wilde, loud, Douala, who'll, woolly, word, Weddell, Wood's, foul, soul, woad's, wood's, Tull, Wade, Wall, doll, dual, duel, dull, toll, tool, wade, wadi, wall, we'd, weal, weed, well, wolds, wordy, Waldo, dowel, towel, waldo, we'll, why'd, wound's, you'd, wold's
-wresters	wrestlers	1	39	wrestlers, rosters, restores, wrestler's, testers, wrestles, reciters, roasters, roisters, roosters, roster's, wrests, esters, wrestle's, Reuters, wrest's, writers, festers, jesters, pesters, renters, wasters, foresters, tester's, reciter's, roaster's, rooster's, Ester's, ester's, Brewster's, writer's, Hester's, Lester's, fester's, jester's, renter's, waster's, Forester's, forester's
+wresters	wrestlers	1	55	wrestlers, rosters, restores, wrestler's, testers, wrestles, reciters, roasters, roisters, roosters, roster's, wrests, esters, wrestle's, Reuters, wrest's, writers, festers, jesters, pesters, renters, wasters, foresters, resets, tester's, Worcesters, reciter's, roaster's, rooster's, Ester's, ester's, Brewster's, wrestler, registers, remasters, reset's, resisters, restorers, rests, writer's, Hester's, Lester's, fester's, jester's, renter's, waster's, Forester's, forester's, rest's, Chester's, Wooster's, Worcester's, register's, resister's, restorer's
 wriet	write	1	26	write, writ, wrote, REIT, rite, Wright, wright, riot, wrist, rote, Rte, rte, writer, Ride, Rita, ride, rivet, wrest, writs, Reid, rate, rt, writes, trite, wired, writ's
 writen	written	1	27	written, write, writing, whiten, writer, writes, rotten, writ en, writ-en, wrote, Rutan, Wren, ridden, rite, wren, writ, Britten, ripen, risen, rites, riven, widen, writs, Briton, Triton, writ's, rite's
 wroet	wrote	1	36	wrote, write, rote, writ, rot, Root, root, rout, REIT, rite, route, Rte, rte, riot, rode, rota, wort, Roget, wrest, rate, rt, wroth, rodeo, roe, wet, wot, Rod, rat, red, rod, rut, wrought, Bret, Robt, fret, trot

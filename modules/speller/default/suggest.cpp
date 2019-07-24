@@ -259,9 +259,15 @@ namespace {
                         const ScoreInfo &);
     bool have_score(int score) {return score < LARGE_NUM;}
     int needed_level(int want, int soundslike_score) {
-      int n = (100*want - parms->soundslike_weight*soundslike_score)
-	/(parms->word_weight*parms->edit_distance_weights.min);
-      return n > 0 ? n : 0;
+      // (word_weight*??? + soundlike_weight*soundslike_score)/100 <= want
+      // word_weight*??? + soundlike_weight*soundslike_score <= want*100
+      // word_weight*??? <= want*100 - soundlike_weight*soundslike_score
+      // ??? <= (want*100 - soundlike_weight*soundslike_score) / word_weight
+      // level = ceil(???/edit_distance_weights.min)
+      int n = 100*want - parms->soundslike_weight*soundslike_score;
+      if (n <= 0) return 0;
+      int d = parms->word_weight*parms->edit_distance_weights.min;
+      return (n-1)/d+1; // roundup
     }
     int weighted_average(int soundslike_score, int word_score) {
       return (parms->word_weight*word_score 
