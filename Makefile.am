@@ -248,7 +248,7 @@ filter_DATA = $(fltfiles)
 
 # settings.h added as a dependency so it will get recreated if
 #   the COMPILE_IN_FILTERS option changes
-gen/static_filters.src.cpp: ${static_optfiles} gen/mk-static-filter.pl gen/settings.h
+gen/static_filters.src.cpp: ${static_optfiles} gen/mk-static-filter.pl
 	${PERLPROG} ${srcdir}/gen/mk-static-filter.pl $(addprefix ${srcdir}/,${static_optfiles})
 
 ${srcdir}/lib/new_filter.cpp: gen/static_filters.src.cpp
