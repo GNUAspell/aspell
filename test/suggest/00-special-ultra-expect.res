@@ -1,4 +1,4 @@
-colour	color	0	20	cooler, collar, co lour, co-lour, col our, col-our, Collier, collier, Clair, clear, calorie, colliery, glory, caller, Claire, Clara, Clare, jollier, jowlier, galore
+colour	color	1	21	color, cooler, collar, co lour, co-lour, col our, col-our, Collier, collier, Clair, clear, calorie, colliery, glory, caller, Claire, Clara, Clare, jollier, jowlier, galore
 hjk	hijack	1	4	hijack, hajj, hajji, Hickok
 hjkk	hijack	1	4	hijack, hajj, Hickok, hajji
 jk	hijack	21	56	JFK, J, K, j, k, Gk, jg, Jake, joke, KC, kc, kg, Jack, Jock, jack, jock, jag, jig, jog, jug, hijack, Jo, ck, wk, AK, Bk, JD, JP, JV, Jr, Mk, OK, SK, UK, bk, jr, kike, pk, QC, cg, Jacky, Keck, jokey, kick, kook, keg, Coke, J's, cake, coke, Cook, cock, cook, gawk, geek, gook

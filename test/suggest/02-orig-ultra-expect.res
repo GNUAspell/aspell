@@ -37,7 +37,7 @@ aratictature	architecture	0	0
 archeype	archetype	1	2	archetype, airship
 aricticure	architecture	0	0	
 artic	arctic	4	10	aortic, Arctic, Attic, arctic, attic, erotic, Artie, antic, erotica, erratic
-ast	at	12	51	asst, Ats, SAT, Sat, sat, SST, As, At, ST, St, as, at, st, East, east, AZT, EST, est, asset, bast, cast, fast, hast, last, mast, past, vast, wast, PST, ass, ACT, AFT, ASL, Art, CST, DST, HST, MST, act, aft, alt, amt, ant, apt, art, ask, asp, oust, A's, As's, At's
+ast	at	12	52	asst, Ats, SAT, Sat, sat, SST, As, At, ST, St, as, at, st, East, east, AZT, EST, est, asset, bast, cast, fast, hast, last, mast, past, vast, wast, PST, ass, ACT, AFT, ASL, Art, CST, DST, HST, MST, act, aft, alt, amt, ant, apt, art, ask, asp, oust, A's, As's, ash, At's
 asterick	asterisk	1	2	asterisk, esoteric
 asymetric	asymmetric	1	2	asymmetric, isometric
 atentively	attentively	1	1	attentively
@@ -313,7 +313,7 @@ luser	laser	4	10	luster, lusher, user, laser, loser, lousier, leaser, lesser, lo
 maintanence	maintenance	1	3	maintenance, Montanans, Montanan's
 majaerly	majority	0	3	majorly, meagerly, mackerel
 majoraly	majority	0	3	majorly, meagerly, mackerel
-maks	masks	5	73	makes, mask, Marks, marks, masks, mks, mas, macs, mags, Mack's, make's, Mac's, Magus, mac's, mag's, mages, magus, micks, mikes, mocks, mucks, Max, max, MA's, Mass, Mays, ma's, make, mass, maws, Mars, Saks, mads, mams, mans, maps, mars, mats, oaks, yaks, Mg's, maxi, megs, mics, mugs, Mark's, mark's, mask's, Mick's, muck's, Mae's, Mai's, Mao's, Max's, May's, maw's, max's, may's, Man's, Mar's, Mike's, mad's, mage's, magi's, man's, map's, mat's, mike's, oak's, yak's, Meg's, MiG's, mug's
+maks	masks	5	75	makes, mask, Marks, marks, masks, mks, mas, macs, mags, Mack's, make's, Mac's, Magus, mac's, mag's, mages, magus, micks, mikes, mocks, mucks, Max, max, MA's, Mass, Mays, ma's, make, mass, maws, Mars, Saks, mads, mams, mans, maps, mars, mats, oaks, yaks, Mg's, maxi, megs, mics, mugs, ma ks, ma-ks, Mark's, mark's, mask's, Mick's, muck's, Mae's, Mai's, Mao's, Max's, May's, maw's, max's, may's, Man's, Mar's, Mike's, mad's, mage's, magi's, man's, map's, mat's, mike's, oak's, yak's, Meg's, MiG's, mug's
 mandelbrot	Mandelbrot	1	2	Mandelbrot, Mandelbrot's
 mant	want	33	38	Manet, manta, meant, many, Man, ant, man, mat, Mont, mint, Mandy, mayn't, Minot, Monet, Monte, Monty, Mount, maned, minty, mount, Mani, Mann, Matt, mane, Kant, cant, malt, mans, mart, mast, pant, rant, want, mend, mind, Man's, can't, man's
 marshall	marshal	2	11	Marshall, marshal, marshals, mar shall, mar-shall, mars hall, mars-hall, marsh all, marsh-all, Marshall's, marshal's
@@ -469,13 +469,13 @@ tem	team	1	42	team, teem, temp, term, REM, TM, Tm, rem, ten, them, EM, Te, em, D
 teo	two	2	45	toe, two, Te, to, Tao, tea, tee, too, WTO, tie, tow, Ti, Tue, ti, toy, DOE, Doe, T, doe, t, DE, TA, Ta, Tu, Ty, do, ta, TKO, Ted, Tet, ted, tel, ten, CEO, EEO, Geo, Leo, Neo, tho, DEA, Dee, dew, duo, tau, Te's
 teridical	theoretical	0	0	
 tesst	test	2	12	tests, test, Tess, testy, toast, Tessa, deist, taste, tasty, DST, Tess's, test's
-tets	tests	5	75	Tet's, teats, test, tents, tests, Tet, tats, teds, tits, tots, tuts, totes, teat's, Ted's, Titus, Tut's, Tutsi, tit's, toots, tot's, touts, tut's, tutus, stets, Te's, Tess, teas, tees, bets, diets, duets, gets, jets, lets, nets, pets, sets, tens, vets, wets, DDTs, dots, tads, Tate's, tote's, tent's, test's, toot's, tout's, TNT's, tea's, tee's, PET's, Set's, Tito's, Toto's, Tutu's, bet's, diet's, duet's, jet's, let's, net's, pet's, set's, ten's, tutu's, vet's, wet's, DAT's, Dot's, Tad's, Tod's, dot's, tad's
+tets	tests	5	76	Tet's, teats, test, tents, tests, texts, Tet, tats, teds, tits, tots, tuts, totes, teat's, Ted's, Titus, Tut's, Tutsi, tit's, toots, tot's, touts, tut's, tutus, stets, Te's, Tess, teas, tees, bets, diets, duets, gets, jets, lets, nets, pets, sets, tens, vets, wets, DDTs, dots, tads, Tate's, tote's, tent's, test's, toot's, tout's, TNT's, tea's, tee's, PET's, Set's, Tito's, Toto's, Tutu's, bet's, diet's, duet's, jet's, let's, net's, pet's, set's, ten's, tutu's, vet's, wet's, DAT's, Dot's, Tad's, Tod's, dot's, tad's
 thanot	than or	0	2	Thant, thinned
 theirselves	themselves	0	4	their selves, their-selves, theirs elves, theirs-elves
 theridically	theoretical	2	2	theoretically, theoretical
 thredically	theoretically	1	2	theoretically, theoretical
 thruout	throughout	0	8	throat, thru out, thru-out, throaty, threat, thyroid, thereat, thread
-ths	this	2	32	Th's, this, thus, HS, Th, ts, these, those, Thais, thaws, thees, thews, thous, Thu, the, tho, thy, T's, THC, Rh's, H's, Thai's, Thea's, thaw's, thew's, thou's, Ta's, Te's, Ti's, Tu's, Ty's, ti's
+ths	this	2	33	Th's, this, thus, Hts, HS, Th, ts, these, those, Thais, thaws, thees, thews, thous, Thu, the, tho, thy, T's, THC, Rh's, H's, Thai's, Thea's, thaw's, thew's, thou's, Ta's, Te's, Ti's, Tu's, Ty's, ti's
 titalate	titillate	1	4	titillate, totality, totaled, titled
 tommorrow	tomorrow	1	8	tomorrow, tom morrow, tom-morrow, Timor, tumor, timer, Timur, tamer
 tomorow	tomorrow	1	7	tomorrow, Timor, tumor, Timur, timer, Tamra, tamer
