@@ -151,23 +151,24 @@ namespace {
 
   typedef BasicList<ScoreWordSound> NearMisses;
  
-  class Score {
+  class Common {
   protected:
-    const Language * lang;
-    OriginalWord     original;
+    const Language *     lang;
+    OriginalWord         original;
     const SuggestParms * parms;
+    SpellerImpl    *     sp;
 
   public:
-    Score(const Language *l, const String &w, const SuggestParms * p)
-      : lang(l), original(), parms(p)
+    Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
+      : lang(l), original(), parms(p), sp(sp)
     {
       original.word = w;
       l->to_lower(original.lower, w.str());
       l->to_clean(original.clean, w.str());
       l->to_soundslike(original.soundslike, w.str());
       original.case_pattern = l->case_pattern(w);
-      
     }
+
     void fix_case(char * str) {
       lang->LangImpl::fix_case(original.case_pattern, str, str);
     }
@@ -176,7 +177,9 @@ namespace {
     }
   };
 
-  class Working : public Score {
+  class Suggestions;
+  
+  class Working : private Common {
    
     int threshold;
     int adj_threshold;
@@ -187,10 +190,8 @@ namespace {
 
     unsigned int max_word_length;
 
-    SpellerImpl  *     sp;
     NearMisses         scored_near_misses;
     NearMisses         near_misses;
-    NearMissesFinal  * near_misses_final;
 
     char * temp_end;
 
@@ -335,19 +336,33 @@ namespace {
     void transfer();
   public:
     Working(SpellerImpl * m, const Language *l,
-	    const String & w, const SuggestParms *  p)
-      : Score(l,w,p), threshold(1), max_word_length(0), sp(m) {
+	    const String & w, const SuggestParms * p)
+      : Common(l,w,p,m), threshold(1), max_word_length(0) {
       memset(check_info, 0, sizeof(check_info));
     }
-    void get_suggestions(NearMissesFinal &sug);
+    Suggestions * suggestions(); 
   };
 
-  void Working::get_suggestions(NearMissesFinal & sug) {
+  class Suggestions : private Common {
+  public:
+    Vector<ObjStack::Memory *> buf;
+    NearMisses                 scored_near_misses;
+    void transfer(NearMissesFinal &near_misses_final);
+    Suggestions(const Common & other)
+      : Common(other) {}
+    ~Suggestions() {
+      for (Vector<ObjStack::Memory *>::iterator i = buf.begin(), e = buf.end();
+           i != e; ++i)
+        ObjStack::dealloc(*i);
+    }
+  };
+
+  Suggestions * Working::suggestions() {
+
+    Suggestions * sug = new Suggestions(*this);
 
     if (original.word.size() * parms->edit_distance_weights.max >= 0x8000)
-      return; // to prevent overflow in the editdist functions
-
-    near_misses_final = & sug;
+      return sug; // to prevent overflow in the editdist functions
 
     try_split();
 
@@ -444,7 +459,11 @@ namespace {
 
   done:
 
-    transfer();
+    fine_tune_score(threshold);
+    scored_near_misses.sort(adj_score_lt);
+    sug->buf.push_back(buffer.freeze());
+    sug->scored_near_misses.swap(scored_near_misses);
+    return sug;
   }
 
   // Forms a word by combining CheckInfo fields.
@@ -1294,21 +1313,21 @@ namespace {
       }
       adj_threshold = threshold;
     }
+
+    for (; i != scored_near_misses.end(); ++i) {
+      if (i->adj_score > adj_threshold)
+        i->adj_score = LARGE_NUM;
+    }
   }
 
-  void Working::transfer() {
-    fine_tune_score(threshold);
-    scored_near_misses.sort(adj_score_lt);
-
+  void Suggestions::transfer(NearMissesFinal & near_misses_final) {
 #  ifdef DEBUG_SUGGEST
-    COUT << "\n" << "adj_threshold = " << adj_threshold << "\n";
     COUT << "\n" << "\n" 
 	 << original.word << '\t' 
 	 << original.soundslike << '\t'
 	 << "\n";
     String sl;
 #  endif
-
     int c = 1;
     hash_set<String,HashString<String> > duplicates_check;
     String buf;
@@ -1316,7 +1335,7 @@ namespace {
     pair<hash_set<String,HashString<String> >::iterator, bool> dup_pair;
     for (NearMisses::const_iterator i = scored_near_misses.begin();
 	 i != scored_near_misses.end() && c <= parms->limit
-           && ( i->adj_score <= adj_threshold || c <= 3 );
+           && ( i->adj_score < LARGE_NUM || c <= 3 );
 	 ++i, ++c) {
 #    ifdef DEBUG_SUGGEST
       //COUT.printf("%p %p: ",  i->word, i->soundslike);
@@ -1336,13 +1355,13 @@ namespace {
  	       ? (bool)sp->check(*dup_pair.first)
  	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
  		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
- 	    near_misses_final->push_back(*dup_pair.first);
+ 	    near_misses_final.push_back(*dup_pair.first);
  	} while (i->repl_list->adv());
       } else {
         fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
 	if (dup_pair.second )
-	  near_misses_final->push_back(*dup_pair.first);
+	  near_misses_final.push_back(*dup_pair.first);
       }
     }
   }
@@ -1431,8 +1450,11 @@ namespace {
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
     suggestion_list.suggestions.resize(0);
-    Working sug(speller_, &speller_->lang(),word,&parms_);
-    sug.get_suggestions(suggestion_list.suggestions);
+    Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
+    Suggestions * sugs = sug->suggestions();
+    delete sug;
+    sugs->transfer(suggestion_list.suggestions);
+    delete sugs;
 #   ifdef DEBUG_SUGGEST
     COUT << "^^^^^^^^^^^  end suggest " << word << "  ^^^^^^^^^^^\n";
 #   endif
