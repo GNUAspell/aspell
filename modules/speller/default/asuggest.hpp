@@ -42,6 +42,7 @@ namespace aspeller {
     SuggestParms() {}
 
     PosibErr<void> init(ParmString mode, SpellerImpl * sp);
+    PosibErr<void> init(ParmString mode, SpellerImpl * sp, Config *);
   };
   
   Suggest * new_default_suggest(const Speller *, const SuggestParms &);

@@ -1397,41 +1397,20 @@ namespace {
     SuggestionListImpl  suggestion_list;
     SuggestParms parms_;
   public:
-    PosibErr<void> setup(SpellerImpl * m);
+    SuggestImpl(SpellerImpl * sp) : speller_(sp) {}
+    PosibErr<void> setup(String mode = "");
     PosibErr<void> set_mode(ParmString mode) {
-      return parms_.init(mode, speller_);
+      return setup(mode);
     }
     SuggestionList & suggest(const char * word);
   };
   
-  PosibErr<void> SuggestImpl::setup(SpellerImpl * m)
+  PosibErr<void> SuggestImpl::setup(String mode)
   {
-    speller_ = m;
+    if (mode == "") 
+      mode = speller_->config()->retrieve("sug-mode");
     
-    String mode = m->config()->retrieve("sug-mode");
-    RET_ON_ERR(parms_.init(mode, speller_));
-    
-    if (m->config()->have("sug-typo-analysis"))
-      parms_.use_typo_analysis = m->config()->retrieve_bool("sug-typo-analysis");
-    if (m->config()->have("sug-repl-table"))
-      parms_.use_repl_table = m->config()->retrieve_bool("sug-repl-table");
-    
-    StringList sl;
-    m->config()->retrieve_list("sug-split-char", &sl);
-    StringListEnumeration els = sl.elements_obj();
-    const char * s;
-    parms_.split_chars.clear();
-    while ((s = els.next()) != 0) {
-      parms_.split_chars.push_back(*s);
-    }
-
-    String keyboard = m->config()->retrieve("keyboard");
-    if (keyboard == "none") {
-      parms_.have_keyboard_def_file = false;
-    } else {
-      parms_.have_keyboard_def_file = true;
-      RET_ON_ERR(aspeller::setup(parms_.ti, m->config(), &m->lang(), keyboard));
-    }
+    RET_ON_ERR(parms_.init(mode, speller_, speller_->config()));
 
     return no_err;
   }
@@ -1456,8 +1435,8 @@ namespace {
 
 namespace aspeller {
   PosibErr<Suggest *> new_default_suggest(SpellerImpl * m) {
-    StackPtr<SuggestImpl> s(new SuggestImpl);
-    RET_ON_ERR(s->setup(m));
+    StackPtr<SuggestImpl> s(new SuggestImpl(m));
+    RET_ON_ERR(s->setup());
     return s.release();
   }
 
@@ -1526,8 +1505,39 @@ namespace aspeller {
     }
 
     word_weight = 100 - soundslike_weight;
+    
     return no_err;
   }
 
+  PosibErr<void> SuggestParms::init(ParmString mode, SpellerImpl * sp, Config * config) {
+    RET_ON_ERR(init(mode,sp));
+
+    if (config->have("sug-typo-analysis"))
+      use_typo_analysis = config->retrieve_bool("sug-typo-analysis");
+    if (config->have("sug-repl-table"))
+      use_repl_table = config->retrieve_bool("sug-repl-table");
+    
+    StringList sl;
+    config->retrieve_list("sug-split-char", &sl);
+    StringListEnumeration els = sl.elements_obj();
+    const char * s;
+    split_chars.clear();
+    while ((s = els.next()) != 0) {
+      split_chars.push_back(*s);
+    }
+
+    if (use_typo_analysis) {
+      String keyboard = config->retrieve("keyboard");
+      if (keyboard == "none") {
+        have_keyboard_def_file = false;
+      } else {
+        have_keyboard_def_file = true;
+        RET_ON_ERR(aspeller::setup(ti, config, &sp->lang(), keyboard));
+      }
+    }
+    
+    return no_err;
+  }
+  
 }
 
