@@ -84,6 +84,16 @@ dnl [  --enable-aspell5-compatibility  install aspell 0.50 compatibility librari
 
 dnl
 
+AC_ARG_ENABLE([ossfuzzers],
+  [AS_HELP_STRING([--enable-ossfuzzers],
+    [Whether to generate the fuzzers for OSS-Fuzz])],
+  [have_ossfuzzers=yes], [have_ossfuzzers=no])
+AM_CONDITIONAL([USE_OSSFUZZERS], [test "x$have_ossfuzzers" = "xyes"])
+
+AC_SUBST([LIB_FUZZING_ENGINE])
+AM_CONDITIONAL([USE_OSSFUZZ_FLAG], [test "x$LIB_FUZZING_ENGINE" = "x-fsanitize=fuzzer"])
+AM_CONDITIONAL([USE_OSSFUZZ_STATIC], [test -f "$LIB_FUZZING_ENGINE"])
+
 AC_PROG_CXX
 if test "$GXX" = "yes" && expr x"$CXXFLAGS" : '.*-O' > /dev/null
 then
@@ -585,9 +595,9 @@ AC_TRY_COMPILE(
 AC_CONFIG_FILES([Makefile gen/Makefile common/Makefile lib/Makefile data/Makefile
                  auto/Makefile modules/Makefile modules/tokenizer/Makefile
                  modules/speller/Makefile modules/speller/default/Makefile
-		 interfaces/Makefile interfaces/cc/Makefile
-		 scripts/Makefile examples/Makefile
-		 prog/Makefile manual/Makefile po/Makefile.in m4/Makefile
+                 interfaces/Makefile interfaces/cc/Makefile
+                 scripts/Makefile examples/Makefile ossfuzz/Makefile
+                 prog/Makefile manual/Makefile po/Makefile.in m4/Makefile
                  modules/filter/Makefile myspell/Makefile lib5/Makefile
                  ])
 AC_OUTPUT
