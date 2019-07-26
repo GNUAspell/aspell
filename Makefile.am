@@ -246,8 +246,6 @@ noinst_DATA += $(static_optfiles) gen/filter.pot
 opt_DATA = $(dynamic_optfiles)
 filter_DATA = $(fltfiles)
 
-# settings.h added as a dependency so it will get recreated if
-#   the COMPILE_IN_FILTERS option changes
 gen/static_filters.src.cpp: ${static_optfiles} gen/mk-static-filter.pl
 	${PERLPROG} ${srcdir}/gen/mk-static-filter.pl $(addprefix ${srcdir}/,${static_optfiles})
 
