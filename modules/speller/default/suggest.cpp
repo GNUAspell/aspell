@@ -1398,20 +1398,8 @@ namespace {
     SuggestParms parms_;
   public:
     PosibErr<void> setup(SpellerImpl * m);
-    //SuggestImpl(SpellerImpl * m, const SuggestParms & p)
-    //  : speller_(m), parms_(p) 
-    //{parms_.fill_distance_lookup(m->config(), m->lang());}
     PosibErr<void> set_mode(ParmString mode) {
-      return parms_.set(mode, speller_);
-    }
-    double score(const char *base, const char *other) {
-      //parms_.set_original_size(strlen(base));
-      //Score s(&speller_->lang(),base,parms_);
-      //string sl = speller_->lang().to_soundslike(other);
-      //ScoreWordSound sws(other, sl.c_str());
-      //s.score(sws);
-      //return sws.score;
-      return -1;
+      return parms_.init(mode, speller_);
     }
     SuggestionList & suggest(const char * word);
   };
@@ -1419,7 +1407,10 @@ namespace {
   PosibErr<void> SuggestImpl::setup(SpellerImpl * m)
   {
     speller_ = m;
-    RET_ON_ERR(parms_.set(m->config()->retrieve("sug-mode"), speller_));
+    
+    String mode = m->config()->retrieve("sug-mode");
+    RET_ON_ERR(parms_.init(mode, speller_));
+    
     if (m->config()->have("sug-typo-analysis"))
       parms_.use_typo_analysis = m->config()->retrieve_bool("sug-typo-analysis");
     if (m->config()->have("sug-repl-table"))
@@ -1470,11 +1461,7 @@ namespace aspeller {
     return s.release();
   }
 
-  //Suggest * new_default_suggest(SpellerImpl * m, const SuggestParms & p) {
-  //  return new aspeller_default_suggest::SuggestImpl(m,p);
-  //}
-
-  PosibErr<void> SuggestParms::set(ParmString mode, SpellerImpl * sp) {
+  PosibErr<void> SuggestParms::init(ParmString mode, SpellerImpl * sp) {
 
     edit_distance_weights.del1 =  95;
     edit_distance_weights.del2 =  95;
@@ -1540,11 +1527,6 @@ namespace aspeller {
 
     word_weight = 100 - soundslike_weight;
     return no_err;
-  }
-
-    
-  SuggestParms * SuggestParms::clone() const {
-    return new SuggestParms(*this);
   }
 
 }

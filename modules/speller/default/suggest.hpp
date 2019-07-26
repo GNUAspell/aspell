@@ -32,7 +32,6 @@ namespace aspeller {
   class Suggest {
   public:
     virtual PosibErr<void> set_mode(ParmString) = 0;
-    virtual double score(const char * base, const char * other) = 0;
     virtual SuggestionList & suggest(const char * word) = 0;
     virtual ~Suggest() {}
   };

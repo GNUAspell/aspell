@@ -40,12 +40,8 @@ namespace aspeller {
     String split_chars;
 
     SuggestParms() {}
-    
-    PosibErr<void> set(ParmString mode, SpellerImpl * sp);
-    PosibErr<void> fill_distance_lookup(const Config * c, const Language & l);
-    
-    virtual ~SuggestParms() {}
-    virtual SuggestParms * clone() const;
+
+    PosibErr<void> init(ParmString mode, SpellerImpl * sp);
   };
   
   Suggest * new_default_suggest(const Speller *, const SuggestParms &);
