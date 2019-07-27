@@ -313,7 +313,7 @@ namespace {
       {
 	if (!i->count || cmp(prev_word, i->word) == 0) {
 	  ++i;
-	} else if (k == parms->skip) {
+	} else if (k >= parms->skip && i->score > parms->skip_score) {
 	  break;
 	} else {
           prev_word = i->word;
@@ -1468,6 +1468,7 @@ namespace aspeller {
     split_chars = " -";
 
     skip = 2;
+    skip_score = 10;
     limit = 100;
     span = 50;
     ngram_keep = 10;
@@ -1492,16 +1493,18 @@ namespace aspeller {
     } else if (mode == "slow") {
       try_scan_2 = true;
       try_ngram = true;
-      limit = 1000;
+      limit = 200;
       ngram_threshold = sp->have_soundslike ? 1 : 2;
     } else if (mode == "soundslike") {
       try_scan_2 = true;
       try_ngram = true;
       use_typo_analysis = false;
       soundslike_weight = 75;
-      //span = 125;
-      limit = 1000;
       ngram_threshold = 1;
+      skip = 0;
+      span = 100;
+      //span = 125;
+      limit = 200;
     } else {
       return make_err(bad_value, "sug-mode", mode, _("one of ultra, fast, normal, slow, bad-spellers or soundslike"));
     }

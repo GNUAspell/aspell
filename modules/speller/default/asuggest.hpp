@@ -31,7 +31,7 @@ namespace aspeller {
     int soundslike_weight;
     int word_weight;
 
-    int skip;
+    int skip, skip_score;
     int span;
     int limit;
 
