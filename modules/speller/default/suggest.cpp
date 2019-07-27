@@ -155,12 +155,11 @@ namespace {
   protected:
     const Language *     lang;
     OriginalWord         original;
-    const SuggestParms * parms;
     SpellerImpl    *     sp;
 
   public:
-    Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
-      : lang(l), original(), parms(p), sp(sp)
+    Common(const Language *l, const String &w, SpellerImpl * sp)
+      : lang(l), original(), sp(sp)
     {
       original.word = w;
       l->to_lower(original.lower, w.str());
@@ -180,6 +179,7 @@ namespace {
   class Suggestions;
   
   class Working : private Common {
+    const SuggestParms * parms;
    
     int threshold;
     int adj_threshold;
@@ -337,7 +337,7 @@ namespace {
   public:
     Working(SpellerImpl * m, const Language *l,
 	    const String & w, const SuggestParms * p)
-      : Common(l,w,p,m), threshold(1), max_word_length(0) {
+      : Common(l,w,m), parms(p), threshold(1), max_word_length(0) {
       memset(check_info, 0, sizeof(check_info));
     }
     Suggestions * suggestions(); 
@@ -347,13 +347,18 @@ namespace {
   public:
     Vector<ObjStack::Memory *> buf;
     NearMisses                 scored_near_misses;
-    void transfer(NearMissesFinal &near_misses_final);
+    void transfer(NearMissesFinal &near_misses_final, int limit);
     Suggestions(const Common & other)
       : Common(other) {}
     ~Suggestions() {
       for (Vector<ObjStack::Memory *>::iterator i = buf.begin(), e = buf.end();
            i != e; ++i)
         ObjStack::dealloc(*i);
+    }
+    void merge(Suggestions & other) {
+      buf.insert(buf.begin(), other.buf.begin(), other.buf.end());
+      other.buf.clear();
+      scored_near_misses.merge(other.scored_near_misses, adj_score_lt);
     }
   };
 
@@ -1308,7 +1313,7 @@ namespace {
     }
   }
 
-  void Suggestions::transfer(NearMissesFinal & near_misses_final) {
+  void Suggestions::transfer(NearMissesFinal & near_misses_final, int limit) {
 #  ifdef DEBUG_SUGGEST
     COUT << "\n" << "\n" 
 	 << original.word << '\t' 
@@ -1322,9 +1327,9 @@ namespace {
     String final_word;
     pair<hash_set<String,HashString<String> >::iterator, bool> dup_pair;
     for (NearMisses::const_iterator i = scored_near_misses.begin();
-	 i != scored_near_misses.end() && c <= parms->limit
+	 i != scored_near_misses.end() && c <= limit
            && ( i->adj_score < LARGE_NUM || c <= 3 );
-	 ++i, ++c) {
+	 ++i) {
 #    ifdef DEBUG_SUGGEST
       //COUT.printf("%p %p: ",  i->word, i->soundslike);
       COUT << i->word
@@ -1343,13 +1348,18 @@ namespace {
  	       ? (bool)sp->check(*dup_pair.first)
  	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
  		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
+          {
  	    near_misses_final.push_back(*dup_pair.first);
+            ++c;
+          }
  	} while (i->repl_list->adv());
       } else {
         fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
-	if (dup_pair.second )
+	if (dup_pair.second ) {
 	  near_misses_final.push_back(*dup_pair.first);
+          ++c;
+        }
       }
     }
   }
@@ -1384,6 +1394,8 @@ namespace {
     SpellerImpl * speller_;
     SuggestionListImpl  suggestion_list;
     SuggestParms parms_;
+    SuggestParms parms_extra_pass_;
+    bool dual_pass_mode;
   public:
     SuggestImpl(SpellerImpl * sp) : speller_(sp) {}
     PosibErr<void> setup(String mode = "");
@@ -1397,8 +1409,15 @@ namespace {
   {
     if (mode == "") 
       mode = speller_->config()->retrieve("sug-mode");
-    
-    RET_ON_ERR(parms_.init(mode, speller_, speller_->config()));
+
+    if (mode == "bad-spellers") {
+      dual_pass_mode = true;
+      RET_ON_ERR(parms_.init("soundslike", speller_, speller_->config()));
+      RET_ON_ERR(parms_extra_pass_.init("slow", speller_, speller_->config()));
+    } else {
+      dual_pass_mode = false;
+      RET_ON_ERR(parms_.init(mode, speller_, speller_->config()));
+    }
 
     return no_err;
   }
@@ -1411,7 +1430,13 @@ namespace {
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
     Suggestions * sugs = sug->suggestions();
     delete sug;
-    sugs->transfer(suggestion_list.suggestions);
+    if (dual_pass_mode) {
+      sug = new Working(speller_, &speller_->lang(),word, &parms_extra_pass_);
+      Suggestions * sugs2 = sug->suggestions();
+      sugs->merge(*sugs2);
+      delete sugs2;
+    }
+    sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
     COUT << "^^^^^^^^^^^  end suggest " << word << "  ^^^^^^^^^^^\n";
@@ -1469,7 +1494,7 @@ namespace aspeller {
       try_ngram = true;
       limit = 1000;
       ngram_threshold = sp->have_soundslike ? 1 : 2;
-    } else if (mode == "bad-spellers") {
+    } else if (mode == "soundslike") {
       try_scan_2 = true;
       try_ngram = true;
       use_typo_analysis = false;
@@ -1478,7 +1503,7 @@ namespace aspeller {
       limit = 1000;
       ngram_threshold = 1;
     } else {
-      return make_err(bad_value, "sug-mode", mode, _("one of ultra, fast, normal, slow, or bad-spellers"));
+      return make_err(bad_value, "sug-mode", mode, _("one of ultra, fast, normal, slow, bad-spellers or soundslike"));
     }
 
     if (!sp->have_soundslike) {

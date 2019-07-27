@@ -61,6 +61,8 @@ namespace acommon {
       data_.splice(data_.begin(),other.data_,cur);
       //data_.splice_after(data_.begin(), prev);
     }
+    template<class Pred>
+    void merge(BasicList & other, Pred pr) {data_.merge(other.data_, pr);}
   };
 
 }
