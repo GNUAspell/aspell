@@ -13,8 +13,7 @@
 static int enable_diags;
 
 #define FUZZ_DEBUG(FMT, ...)                                                  \
-        if (enable_diags)                                                     \
-        {                                                                     \
+        if (enable_diags) {                                                   \
           fprintf(stderr, FMT, ##__VA_ARGS__);                                \
           fprintf(stderr, "\n");                                              \
         }
@@ -35,8 +34,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
   // Enable or disable diagnostics based on the FUZZ_VERBOSE environment flag.
   enable_diags = (getenv("FUZZ_VERBOSE") != NULL);
 
-  if (size < NUM_COMMAND_BYTES)
-  {
+  if (size < NUM_COMMAND_BYTES) {
     goto EXIT_LABEL;
   }
 
@@ -47,10 +45,9 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
   data += FUZZ_LANG_CODE_LEN;
 
   // Determine the encoding.
-  switch (data[0] % 4)
-  {
+  switch (data[0] % 4) {
     case 0:
-      encoding = "iso-8859-*";
+      encoding = "iso-8859-1";
       break;
 
     case 1:
@@ -81,8 +78,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
   aspell_config_replace(spell_config, "encoding", encoding);
 
   possible_err = new_aspell_speller(spell_config);
-  if (aspell_error_number(possible_err) != 0)
-  {
+  if (aspell_error_number(possible_err) != 0) {
     // Failed on configuration.
     FUZZ_DEBUG("Failed to create speller: %s",
                aspell_error_message(possible_err));
@@ -95,8 +91,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 
   // Convert the spell checker to a document checker.
   doc_err = new_aspell_document_checker(spell_checker);
-  if (aspell_error(doc_err) != 0)
-  {
+  if (aspell_error(doc_err) != 0) {
     // Failed to convert to a document checker.
     FUZZ_DEBUG("Failed to create document checker: %s",
                aspell_error_message(doc_err));
@@ -141,18 +136,15 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 
 EXIT_LABEL:
 
-  if (doc_checker != NULL)
-  {
+  if (doc_checker != NULL) {
     delete_aspell_document_checker(doc_checker);
   }
 
-  if (spell_checker != NULL)
-  {
+  if (spell_checker != NULL) {
     delete_aspell_speller(spell_checker);
   }
 
-  if (spell_config != NULL)
-  {
+  if (spell_config != NULL) {
     delete_aspell_config(spell_config);
   }
 

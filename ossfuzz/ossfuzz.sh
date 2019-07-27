@@ -58,7 +58,7 @@ install_language() {
     LANG=$1
     DICT=$2
     pushd /tmp
-    wget -O- ftp://ftp.gnu.org/gnu/aspell/dict/${LANG}/$DICT.tar.bz2 | tar xfj -
+    wget -O- https://ftp.gnu.org/gnu/aspell/dict/${LANG}/$DICT.tar.bz2 | tar xfj -
     pushd $DICT
     ./configure
     make install

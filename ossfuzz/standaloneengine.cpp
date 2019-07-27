@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "testinput.h"
+#include "testinput.hpp"
 
 /**
  * Main procedure for standalone fuzzing engine.
@@ -13,15 +13,13 @@
 int main(int argc, char **argv)
 {
   int ii;
-  for(ii = 1; ii < argc; ii++)
-  {
+  for (ii = 1; ii < argc; ii++) {
     FILE *infile;
     printf("[%s] ", argv[ii]);
 
     /* Try and open the file. */
     infile = fopen(argv[ii], "rb");
-    if(infile)
-    {
+    if (infile) {
       uint8_t *buffer = NULL;
       size_t buffer_len;
 
@@ -36,8 +34,7 @@ int main(int argc, char **argv)
 
       /* Allocate a buffer for the file contents. */
       buffer = (uint8_t *)calloc(buffer_len, sizeof(uint8_t));
-      if(buffer)
-      {
+      if (buffer) {
         /* Read all the text from the file into the buffer. */
         fread(buffer, sizeof(uint8_t), buffer_len, infile);
         printf("Read %zu bytes, fuzzing.. ", buffer_len);
@@ -50,9 +47,7 @@ int main(int argc, char **argv)
         /* Free the buffer as it's no longer needed. */
         free(buffer);
         buffer = NULL;
-      }
-      else
-      {
+      } else {
         fprintf(stderr,
                 "[%s] Failed to allocate %zu bytes \n",
                 argv[ii],
@@ -62,9 +57,7 @@ int main(int argc, char **argv)
       /* Close the file as it's no longer needed. */
       fclose(infile);
       infile = NULL;
-    }
-    else
-    {
+    } else {
       /* Failed to open the file. Maybe wrong name or wrong permissions? */
       fprintf(stderr, "[%s] Open failed. \n", argv[ii]);
     }

@@ -24,9 +24,9 @@ noinst_LIBRARIES += \
 	libstandaloneengine.a
 endif
 
-aspell_fuzzer_SOURCES = aspell_fuzzer.cc testinput.h
+aspell_fuzzer_SOURCES = aspell_fuzzer.cpp
 aspell_fuzzer_CXXFLAGS = $(AM_CXXFLAGS) $(FUZZ_FLAG)
 aspell_fuzzer_LDFLAGS = $(AM_LDFLAGS) -static
 
-libstandaloneengine_a_SOURCES = standaloneengine.cc
+libstandaloneengine_a_SOURCES = standaloneengine.cpp testinput.hpp
 libstandaloneengine_a_CXXFLAGS = $(AM_CXXFLAGS)
