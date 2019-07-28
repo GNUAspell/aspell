@@ -40,13 +40,14 @@
 //   store the number of letters that are the same as the previous 
 //     soundslike so that it can possible be skipped
 
+#include <list>
+
 #include "getdata.hpp"
 
 #include "fstream.hpp"
 
 #include "speller_impl.hpp"
 #include "asuggest.hpp"
-#include "basic_list.hpp"
 #include "clone_ptr-t.hpp"
 #include "config.hpp"
 #include "data.hpp"
@@ -149,7 +150,7 @@ namespace {
     return compare(lhs, rhs) == 0;
   }
 
-  typedef BasicList<ScoreWordSound> NearMisses;
+  typedef std::list<ScoreWordSound> NearMisses;
  
   class Common {
   protected:
@@ -180,7 +181,11 @@ namespace {
   
   class Working : private Common {
     const SuggestParms * parms;
-   
+
+    int min_score;
+    int num_scored;
+    bool have_typo;
+    
     int threshold;
     int adj_threshold;
     int try_harder; // 0 means no, 1-2 means maybe, 3 means yes
@@ -190,8 +195,8 @@ namespace {
 
     unsigned int max_word_length;
 
-    NearMisses         scored_near_misses;
-    NearMisses         near_misses;
+    NearMisses      scored_near_misses;
+    NearMisses      near_misses;
 
     char * temp_end;
 
@@ -284,12 +289,18 @@ namespace {
       return (parms->word_weight*word_score 
 	      + parms->soundslike_weight*soundslike_score)/100;
     }
-    int adj_wighted_average(int soundslike_score, int word_score, int one_edit_max) {
+    void set_adj_wighted_average(NearMisses::iterator i, int one_edit_max) {
       int soundslike_weight = parms->soundslike_weight;
       int word_weight = parms->word_weight;
-      if (word_score <= one_edit_max) {
-        const int factor = word_score < 100 ? 8 : 2;
-        soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
+      if (i->word_score <= one_edit_max) {
+        if (i->word_score < 100) {
+          have_typo = true;
+          const int factor = 8;
+          soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
+        } else {
+          const int factor = 2;
+          soundslike_weight = (parms->soundslike_weight+factor-1)/factor;
+        }
       }
       // NOTE: Theoretical if the soundslike is might be beneficial to
       // adjust the word score so it doesn't contribute as much.  If
@@ -300,28 +311,8 @@ namespace {
       // words and there are just too many words with the same
       // soundlike.  In any case that what the special "soundslike"
       // and "bad-spellers" mode is for.
-      return (word_weight*word_score
-              + soundslike_weight*soundslike_score)/100;
-    }
-    int skip_first_couple(NearMisses::iterator & i) {
-      int k = 0;
-      InsensitiveCompare cmp(lang);
-      const char * prev_word = "";
-      while (preview_next(i) != scored_near_misses.end()) 
-	// skip over the first couple of items as they should
-	// not be counted in the threshold score.
-      {
-	if (!i->count || cmp(prev_word, i->word) == 0) {
-	  ++i;
-	} else if (k >= parms->skip && i->score > parms->skip_score) {
-	  break;
-	} else {
-          prev_word = i->word;
-	  ++k;
-	  ++i;
-	}
-      }
-      return k;
+      i->adj_score = (word_weight*i->word_score
+                      + soundslike_weight*i->soundslike_score)/100;
     }
 
     void try_split();
@@ -332,12 +323,14 @@ namespace {
     void try_ngram();
 
     void score_list();
+    void score_nearmiss(NearMisses::iterator & i, int try_for, int limit);
+    void set_threshold();
     void fine_tune_score(int thres);
     void transfer();
   public:
     Working(SpellerImpl * m, const Language *l,
 	    const String & w, const SuggestParms * p)
-      : Common(l,w,m), parms(p), threshold(1), max_word_length(0) {
+      : Common(l,w,m), parms(p), min_score(LARGE_NUM), num_scored(0), have_typo(false), threshold(-1), adj_threshold(-1), max_word_length(0) {
       memset(check_info, 0, sizeof(check_info));
     }
     Suggestions * suggestions(); 
@@ -395,6 +388,7 @@ namespace {
       // applied to typos, otherwise some typos that produce very
       // different soundslike may be missed
       fine_tune_score(LARGE_NUM);
+      set_threshold();
     }
 
     if (parms->try_scan_0) {
@@ -1094,94 +1088,26 @@ namespace {
     COUT.printl("SCORING LIST");
 #  endif
 
-    try_harder = 3;
-    if (near_misses.empty()) return;
-
     NearMisses::iterator i;
-    NearMisses::iterator prev;
-
-    near_misses.push_front(ScoreWordSound());
-    // the first item will NEVER be looked at.
-    scored_near_misses.push_front(ScoreWordSound());
-    scored_near_misses.front().score = -1;
-    // this item will only be looked at when sorting so 
-    // make it a small value to keep it at the front.
 
     int try_for = (parms->word_weight*parms->edit_distance_weights.max)/100;
-    while (true) {
+    while (threshold == -1 && !near_misses.empty()) {
       try_for += (parms->word_weight*parms->edit_distance_weights.max)/100;
+#    ifdef DEBUG_SUGGEST
+      COUT.printf("try_for = %d; size of scored/unscored %lu/%lu\n", try_for,
+                  scored_near_misses.size(), near_misses.size());
+#    endif
 
-      // put all pairs whose score <= initial_limit*max_weight
-      // into the scored list
-
-      prev = near_misses.begin();
-      i = prev;
-      ++i;
+      i = near_misses.begin();
       while (i != near_misses.end()) {
-
         //CERR.printf("%s %s %s %d %d\n", i->word, i->word_clean, i->soundslike,
         //            i->word_score, i->soundslike_score);
-
-        if (i->word_score >= LARGE_NUM) {
-          int sl_score = i->soundslike_score < LARGE_NUM ? i->soundslike_score : 0;
-          int level = needed_level(try_for, sl_score);
-          
-          if (level >= int(sl_score/parms->edit_distance_weights.min)) 
-            i->word_score = edit_distance(original.clean,
-                                          i->word_clean,
-                                          level, level,
-                                          parms->edit_distance_weights);
-        }
-        
-        if (i->word_score >= LARGE_NUM) goto cont1;
-
-        if (i->soundslike_score >= LARGE_NUM) 
-        {
-          if (weighted_average(0, i->word_score) > try_for) goto cont1;
-
-          if (i->soundslike == 0) i->soundslike = to_soundslike(i->word, strlen(i->word));
-
-          i->soundslike_score = edit_distance(original.soundslike, i->soundslike, 
-                                              parms->edit_distance_weights);
-        }
-
-        i->score = weighted_average(i->soundslike_score, i->word_score);
-
-        if (i->score > try_for + parms->span) goto cont1;
-
-        //CERR.printf("2>%s %s %s %d %d\n", i->word, i->word_clean, i->soundslike,
-        //            i->word_score, i->soundslike_score);
-
-        scored_near_misses.splice_into(near_misses,prev,i);
-        
-        i = prev; // Yes this is right due to the slice
-        ++i;
-
-        continue;
-        
-      cont1:
-        prev = i;
-        ++i;
+        score_nearmiss(i, try_for, try_for);
       }
-	
-      scored_near_misses.sort();
-	
-      i = scored_near_misses.begin();
-      ++i;
-	
-      if (i == scored_near_misses.end()) continue;
-	
-      int k = skip_first_couple(i);
-	
-      if ((k == parms->skip && i->score <= try_for) 
-	  || prev == near_misses.begin() ) // or no more left in near_misses
-	break;
+
+      set_threshold();
     }
       
-    threshold = i->score + parms->span;
-    if (threshold < parms->edit_distance_weights.max)
-      threshold = parms->edit_distance_weights.max;
-
 #  ifdef DEBUG_SUGGEST
     COUT << "Threshold is: " << threshold << "\n";
     COUT << "try_for: " << try_for << "\n";
@@ -1189,78 +1115,110 @@ namespace {
     COUT << "Size of ! scored: " << near_misses.size() << "\n";
 #  endif
 
-    //if (threshold - try_for <=  parms->edit_distance_weights.max/2) return;
-      
-    prev = near_misses.begin();
-    i = prev;
-    ++i;
+    i = near_misses.begin();
     while (i != near_misses.end()) {
-	
-      if (i->word_score >= LARGE_NUM) {
-
-        int sl_score = i->soundslike_score < LARGE_NUM ? i->soundslike_score : 0;
-        int initial_level = needed_level(try_for, sl_score);
-        int max_level = needed_level(threshold, sl_score);
-        
-        if (initial_level < max_level)
-          i->word_score = edit_distance(original.clean.c_str(),
-                                        i->word_clean,
-                                        initial_level+1,max_level,
-                                        parms->edit_distance_weights);
-      }
-
-      if (i->word_score >= LARGE_NUM) goto cont2;
-      
-      if (i->soundslike_score >= LARGE_NUM) 
-      {
-        if (weighted_average(0, i->word_score) > threshold) goto cont2;
-
-        if (i->soundslike == 0) 
-          i->soundslike = to_soundslike(i->word, strlen(i->word));
-        
-        i->soundslike_score = edit_distance(original.soundslike, i->soundslike,
-                                            parms->edit_distance_weights);
-      }
-
-      i->score = weighted_average(i->soundslike_score, i->word_score);
-
-      if (i->score > threshold + parms->span) goto cont2;
-      
-      scored_near_misses.splice_into(near_misses,prev,i);
-      
-      i = prev; // Yes this is right due to the slice
-      ++i;
-      
-      continue;
-	
-    cont2:
-	prev = i;
-	++i;
-        
+      //CERR.printf("%s %s %s %d %d\n", i->word, i->word_clean, i->soundslike,
+      //            i->word_score, i->soundslike_score);
+      score_nearmiss(i, try_for, threshold);
     }
 
-    near_misses.pop_front();
+    set_threshold();
 
-    scored_near_misses.sort();
-    scored_near_misses.pop_front();
-
-    if (near_misses.empty()) {
+    if (num_scored < 3) {
+      try_harder = 2;
+    } else if (near_misses.empty()) {
       try_harder = 1;
     } else {
-      i = scored_near_misses.begin();
-      skip_first_couple(i);
-      ++i;
-      try_harder = i == scored_near_misses.end() ? 2 : 0;
+      try_harder = 0;
     }
-
+    
 #  ifdef DEBUG_SUGGEST
+    COUT << "FINISHED SCORING\n";
     COUT << "Size of scored: " << scored_near_misses.size() << "\n";
     COUT << "Size of ! scored: " << near_misses.size() << "\n";
     COUT << "Try Harder: " << try_harder << "\n";
 #  endif
   }
 
+  void Working::score_nearmiss(NearMisses::iterator & i, int try_for, int limit) {
+    if (i->word_score >= LARGE_NUM) {
+      int sl_score = i->soundslike_score < LARGE_NUM ? i->soundslike_score : 0;
+      if (try_for == limit) {
+        int level = needed_level(try_for, sl_score);
+        if (level > 0) {
+          i->word_score = edit_distance(original.clean.c_str(),
+                                        i->word_clean,
+                                        level, level,
+                                        parms->edit_distance_weights);
+        }
+      } else {
+        int initial_level = needed_level(try_for, sl_score);
+        int max_level = needed_level(limit, sl_score);
+        if (initial_level < max_level)
+          i->word_score = edit_distance(original.clean.c_str(),
+                                        i->word_clean,
+                                        initial_level+1,max_level,
+                                        parms->edit_distance_weights);
+      }
+    }
+    
+    if (i->word_score >= LARGE_NUM) goto skip;
+    
+    if (i->soundslike_score >= LARGE_NUM) {
+      if (weighted_average(0, i->word_score) > limit) goto skip;
+      
+      if (i->soundslike == 0) 
+        i->soundslike = to_soundslike(i->word, strlen(i->word));
+      
+      i->soundslike_score = edit_distance(original.soundslike, i->soundslike,
+                                          parms->edit_distance_weights);
+    }
+    
+    i->score = weighted_average(i->soundslike_score, i->word_score);
+    if (i->score > limit)
+      goto skip;
+
+    {
+      //CERR.printf("using %s %s %d (%d %d)\n", i->word, i->soundslike, i->score, i->word_score, i->soundslike_score);
+      if (i->count && i->score > parms->skip_score) {
+        if (i->score < min_score) min_score = i->score;
+        num_scored++;
+      }
+      NearMisses::iterator prev = i;
+      ++i;
+      scored_near_misses.splice(scored_near_misses.begin(), near_misses, prev);
+    }
+    return;
+  skip:
+    ++i;
+    //CERR.printf("skipping %s\n", i->word);
+  }
+
+  void Working::set_threshold() {
+    if (min_score == LARGE_NUM)
+      return;
+    if (parms->span_levels >= 0) {
+      int level = -1;
+      if (have_typo || min_score == 0) {
+        level = 0;
+      } else {
+        level = 2*(min_score-1) / parms->edit_distance_weights.max;
+      }
+      level += parms->span_levels;
+      if (level == 1)
+        threshold = parms->edit_distance_weights.max + 2; // special case to include splitting of a word into two
+      else
+        threshold = ((level + 1) * parms->edit_distance_weights.max)/2;
+      //CERR.printf("min-score/thres/level: %d %d %d\n", min_score, threshold, level);
+    } else {
+      threshold = min_score + parms->span;
+    }
+  }
+
   void Working::fine_tune_score(int thres) {
+#  ifdef DEBUG_SUGGEST
+    COUT.printf("FINE TUNE SCORE with thres=%d\n", thres);
+#  endif
 
     NearMisses::iterator i;
 
@@ -1277,9 +1235,11 @@ namespace {
       word.resize(max_word_length + 1);
       
       for (i = scored_near_misses.begin();
-           i != scored_near_misses.end() && i->score <= thres;
+           i != scored_near_misses.end();
            ++i)
       {
+          if (i->score > thres)
+            continue;
         if (i->split) {
           i->word_score = parms->ti->max + 2;
           i->soundslike_score = i->word_score;
@@ -1292,22 +1252,32 @@ namespace {
           // if a repl. table was used we don't want to increase the score
           if (!i->repl_table || new_score < i->word_score)
             i->word_score = new_score;
-          i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
+          set_adj_wighted_average(i, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
           adj_threshold = i->adj_score;
       }
     } else {
       for (i = scored_near_misses.begin();
-           i != scored_near_misses.end() && i->score <= thres;
+           i != scored_near_misses.end();
            ++i)
       {
+          if (i->score > thres)
+            continue;
+          set_adj_wighted_average(i, parms->edit_distance_weights.max);
         i->adj_score = i->score;
       }
       adj_threshold = threshold;
     }
     
-    for (; i != scored_near_misses.end(); ++i) {
+#  ifdef DEBUG_SUGGEST
+    COUT.printf("fine tune score adj_threshold is now %d\n",  adj_threshold);
+#  endif
+    
+    for (i = scored_near_misses.begin();
+         i != scored_near_misses.end();
+         ++i)
+    {
       if (i->adj_score > adj_threshold)
         i->adj_score = LARGE_NUM;
     }
@@ -1467,9 +1437,9 @@ namespace aspeller {
 
     split_chars = " -";
 
-    skip = 2;
     skip_score = 10;
     limit = 100;
+    span_levels = 1;
     span = 50;
     ngram_keep = 10;
     use_typo_analysis = true;
@@ -1501,7 +1471,7 @@ namespace aspeller {
       use_typo_analysis = false;
       soundslike_weight = 75;
       ngram_threshold = 1;
-      skip = 0;
+      span_levels = -1;
       span = 100;
       //span = 125;
       limit = 200;

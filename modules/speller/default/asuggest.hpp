@@ -31,8 +31,8 @@ namespace aspeller {
     int soundslike_weight;
     int word_weight;
 
-    int skip, skip_score;
-    int span;
+    int skip_score;
+    int span_levels, span;
     int limit;
 
     String split_chars;
