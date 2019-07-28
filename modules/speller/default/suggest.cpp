@@ -188,7 +188,7 @@ namespace {
     
     int threshold;
     int adj_threshold;
-    int try_harder; // 0 means no, 1-2 means maybe, 3 means yes
+    Threshold try_harder;
 
     EditDist (* edit_dist_fun)(const char *, const char *,
                                const EditDistanceWeights &);
@@ -274,6 +274,13 @@ namespace {
     void add_nearmiss_a(SpellerImpl::WS::const_iterator, const WordAff * w,
                         const ScoreInfo &);
     bool have_score(int score) {return score < LARGE_NUM;}
+    int needed_score(int want, int score, int weight) {
+      // ((100 - weight)*??? + score*weight)/100 <= want
+      // (100 - weight)*??? +  score*weight <= want*100
+      // (100 - weight)*??? <= want*100 - score*weight
+      // ??? <= (want*100 - score*weight)/(100-weight)
+      return (want*100 - score*weight)/(100-weight);
+    }
     int needed_level(int want, int soundslike_score) {
       // (word_weight*??? + soundlike_weight*soundslike_score)/100 <= want
       // word_weight*??? + soundlike_weight*soundslike_score <= want*100
@@ -373,26 +380,24 @@ namespace {
       try_repl();
     }
 
+    bool have_one_edit_word = false;
     if (parms->try_one_edit_word) {
-
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING ONE EDIT WORD");
 #endif
 
       try_one_edit_word();
       score_list();
-      if (parms->check_after_one_edit_word) {
-        if (try_harder <= 0) goto done;
-      }
+      if (try_harder < parms->scan_threshold) goto done;
       // need to fine tune the score to account for special weights
       // applied to typos, otherwise some typos that produce very
       // different soundslike may be missed
       fine_tune_score(LARGE_NUM);
       set_threshold();
+      have_one_edit_word = true;
     }
 
     if (parms->try_scan_0) {
-      
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING SCAN 0");
 #endif
@@ -405,10 +410,19 @@ namespace {
 
       score_list();
       
+      if (have_one_edit_word && threshold != -1) {
+        int level = 1;
+        int needed_word_score = needed_score(
+          threshold, /* want */
+          parms->edit_distance_weights.min*level, 
+          parms->soundslike_weight);
+        if (needed_word_score < parms->edit_distance_weights.min*2) {
+          goto done;
+        }
+      }
     }
 
     if (parms->try_scan_1) {
-      
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING SCAN 1");
 #endif
@@ -421,12 +435,21 @@ namespace {
 
       score_list();
       
-      if (try_harder <= 0) goto done;
+      if (try_harder < parms->scan_2_threshold) goto done;
 
+      if (have_one_edit_word && threshold != -1) {
+        int level = 2;
+        int needed_word_score = needed_score(
+          threshold, /* want */
+          parms->edit_distance_weights.min*level, 
+          parms->soundslike_weight);
+        if (needed_word_score < parms->edit_distance_weights.min*2) {
+          goto done;
+        }
+      }
     }
 
     if (parms->try_scan_2) {
-
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING SCAN 2");
 #endif
@@ -441,6 +464,17 @@ namespace {
       score_list();
       
       if (try_harder < parms->ngram_threshold) goto done;
+
+      if (have_one_edit_word && threshold != -1) {
+        int level = 3;
+        int needed_word_score = needed_score(
+          threshold, /* want */
+          parms->edit_distance_weights.min*level,
+          parms->soundslike_weight);
+        if (needed_word_score < parms->edit_distance_weights.min*2) {
+          goto done;
+        }
+      }
 
     }
 
@@ -1125,11 +1159,11 @@ namespace {
     set_threshold();
 
     if (num_scored < 3) {
-      try_harder = 2;
+      try_harder = T_PROBABLY;
     } else if (near_misses.empty()) {
-      try_harder = 1;
+      try_harder = T_MAYBE;
     } else {
-      try_harder = 0;
+      try_harder = T_UNLIKELY;
     }
     
 #  ifdef DEBUG_SUGGEST
@@ -1446,31 +1480,34 @@ namespace aspeller {
     use_repl_table = sp->have_repl;
     try_one_edit_word = true; // always a good idea, even when
                               // soundslike lookup is used
-    check_after_one_edit_word = false;
-    try_scan_0 = false;
+    try_scan_0 = true; // very fast, get words that sounds alike
     try_scan_1 = false;
     try_scan_2 = false;
     try_ngram = false;
-    ngram_threshold = 2;
+    scan_threshold = T_UNLIKELY;
+    scan_2_threshold = T_MAYBE;
+    ngram_threshold = sp->have_soundslike ? T_PROBABLY : T_MAYBE;
 
     if (mode == "ultra") {
-      try_scan_0 = true;
     } else if (mode == "fast") {
       try_scan_1 = true;
     } else if (mode == "normal") {
       try_scan_1 = true;
       try_scan_2 = true;
     } else if (mode == "slow") {
+      try_scan_1 = true;
       try_scan_2 = true;
       try_ngram = true;
+      scan_2_threshold = T_UNLIKELY;
       limit = 200;
-      ngram_threshold = sp->have_soundslike ? 1 : 2;
+      span_levels = 2;
     } else if (mode == "soundslike") {
+      try_scan_1 = true;
       try_scan_2 = true;
+      scan_2_threshold = T_UNLIKELY;
       try_ngram = true;
       use_typo_analysis = false;
       soundslike_weight = 75;
-      ngram_threshold = 1;
       span_levels = -1;
       span = 100;
       //span = 125;
@@ -1483,7 +1520,10 @@ namespace aspeller {
       // in this case try_scan_0/1 will not get better results than
       // try_one_edit_word
       if (try_scan_0 || try_scan_1) {
-        check_after_one_edit_word = true;
+        // check after one edit
+        scan_threshold = T_MAYBE;
+        // but don't bother doing scan_0 or scan_1, but still do
+        // scan_2 is it was set above
         try_scan_0 = false;
         try_scan_1 = false;
       }
