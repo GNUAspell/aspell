@@ -63,6 +63,7 @@
 #include "suggest.hpp"
 #include "vararray.hpp"
 #include "string_list.hpp"
+#include "posib_err.hpp"
 
 #include "gettext.h"
 
@@ -1571,6 +1572,22 @@ namespace aspeller {
     if (use_typo_analysis) {
       String keyboard = config->retrieve("keyboard");
       RET_ON_ERR(aspeller::setup(ti, config, &sp->lang(), keyboard));
+    }
+
+    if (config->have("sug-span")) {
+      RET_ON_ERR_SET(config->retrieve_int("sug-span"), int, val);
+      if (val < 0)
+        return make_err(invalid_string, "sug-span", config->retrieve("sug-span"), _("a non-negative integer"));
+      if (val == 0)
+        val = 1; // special case as a level of 0 doesn't work yet
+      if (span_levels != -1) 
+        span_levels = val;
+      else if (val == 0)
+        span = 20;
+      else
+        span = val*50;
+      if (val > 0)
+        limit = val*100;
     }
     
     return no_err;

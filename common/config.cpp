@@ -1453,6 +1453,8 @@ namespace acommon {
        N_("use replacement tables, override sug-mode default")}
     , {"sug-split-char", KeyInfoList, "\\ :-",
        N_("characters to insert when a word is split"), KEYINFO_UTF8}
+    , {"sug-span", KeyInfoInt, "1",
+       N_("suggestions span, higher numbers return more results")}
     , {"use-other-dicts", KeyInfoBool, "true",
        N_("use personal, replacement & session dictionaries")}
     , {"variety", KeyInfoList, "",
