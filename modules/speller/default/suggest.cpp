@@ -185,6 +185,16 @@ namespace {
     int min_score;
     int num_scored;
     bool have_typo;
+
+    // setting have_one_edit_word indicates that we already considered
+    // all words within one edit and they exists in scored_near_misses or
+    // in near_misses wih the word_score defined
+    bool have_one_edit_word;
+
+    // have_soundslike_up_to indicates that we already considered
+    // all soundslike within X edit and they exists in scored_near_misses or
+    // in near_misses wih the soundslike_score defined
+    int have_soundslike_up_to;
     
     int threshold;
     int adj_threshold;
@@ -365,6 +375,8 @@ namespace {
   Suggestions * Working::suggestions() {
 
     Suggestions * sug = new Suggestions(*this);
+    have_one_edit_word = false;
+    have_soundslike_up_to = -1;
 
     if (original.word.size() * parms->edit_distance_weights.max >= 0x8000)
       return sug; // to prevent overflow in the editdist functions
@@ -380,7 +392,6 @@ namespace {
       try_repl();
     }
 
-    bool have_one_edit_word = false;
     if (parms->try_one_edit_word) {
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING ONE EDIT WORD");
@@ -409,6 +420,8 @@ namespace {
         try_scan();
 
       score_list();
+
+      have_soundslike_up_to = 0;
       
       if (have_one_edit_word && threshold != -1) {
         int level = 1;
@@ -435,6 +448,8 @@ namespace {
 
       score_list();
       
+      have_soundslike_up_to = 1;
+
       if (try_harder < parms->scan_2_threshold) goto done;
 
       if (have_one_edit_word && threshold != -1) {
@@ -463,6 +478,8 @@ namespace {
 
       score_list();
       
+      have_soundslike_up_to = 2;
+
       if (try_harder < parms->ngram_threshold) goto done;
 
       if (have_one_edit_word && threshold != -1) {
@@ -821,6 +838,8 @@ namespace {
       //CERR.printf(">>%p %s\n", *i, typeid(**i).name());
       StackPtr<SoundslikeEnumeration> els((*i)->soundslike_elements());
 
+      int have_soundslike_up_to_score = have_soundslike_up_to*parms->edit_distance_weights.max;
+
       while ( (sw = els->next(stopped_at)) ) {
 
         //CERR.printf("[%s (%d) %d]\n", sw->word, sw->word_size, sw->what);
@@ -840,6 +859,7 @@ namespace {
         score = edit_dist_fun(sl, original_soundslike, parms->edit_distance_weights);
         stopped_at = score.stopped_at - sl;
         if (score >= LARGE_NUM) continue;
+        if (score <= have_soundslike_up_to_score) continue;
         stopped_at = LARGE_NUM;
         commit_temp(sl);
         add_sound(i, sw, sl, score);
@@ -1194,6 +1214,9 @@ namespace {
                                         initial_level+1,max_level,
                                         parms->edit_distance_weights);
       }
+
+      if (have_one_edit_word && i->word_score <= parms->edit_distance_weights.max)
+        goto del;
     }
     
     if (i->word_score >= LARGE_NUM) goto skip;
@@ -1225,7 +1248,12 @@ namespace {
     return;
   skip:
     ++i;
+    return;
     //CERR.printf("skipping %s\n", i->word);
+  del:
+    NearMisses::iterator prev = i;
+    ++i;
+    scored_near_misses.erase(prev);
   }
 
   void Working::set_threshold() {
@@ -1463,7 +1491,6 @@ namespace aspeller {
     edit_distance_weights.del2 =  95;
     edit_distance_weights.swap =  90;
     edit_distance_weights.sub =  100;
-    edit_distance_weights.similar = 10;
     edit_distance_weights.max = 100;
     edit_distance_weights.min =  90;
 
