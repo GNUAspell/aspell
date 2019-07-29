@@ -332,6 +332,8 @@ namespace {
                       + soundslike_weight*i->soundslike_score)/100;
     }
 
+    bool scan_for_more_soundslikes();
+
     void try_split();
     void try_one_edit_word();
     void try_scan();
@@ -422,18 +424,10 @@ namespace {
       score_list();
 
       have_soundslike_up_to = 0;
-      
-      if (have_one_edit_word && threshold != -1) {
-        int level = 1;
-        int needed_word_score = needed_score(
-          threshold, /* want */
-          parms->edit_distance_weights.min*level, 
-          parms->soundslike_weight);
-        if (needed_word_score < parms->edit_distance_weights.min*2) {
-          goto done;
-        }
-      }
     }
+
+    if (!scan_for_more_soundslikes())
+      goto done;
 
     if (parms->try_scan_1) {
 #ifdef DEBUG_SUGGEST
@@ -451,18 +445,10 @@ namespace {
       have_soundslike_up_to = 1;
 
       if (try_harder < parms->scan_2_threshold) goto done;
-
-      if (have_one_edit_word && threshold != -1) {
-        int level = 2;
-        int needed_word_score = needed_score(
-          threshold, /* want */
-          parms->edit_distance_weights.min*level, 
-          parms->soundslike_weight);
-        if (needed_word_score < parms->edit_distance_weights.min*2) {
-          goto done;
-        }
-      }
     }
+
+    if (!scan_for_more_soundslikes())
+      goto done;
 
     if (parms->try_scan_2) {
 #ifdef DEBUG_SUGGEST
@@ -481,22 +467,12 @@ namespace {
       have_soundslike_up_to = 2;
 
       if (try_harder < parms->ngram_threshold) goto done;
-
-      if (have_one_edit_word && threshold != -1) {
-        int level = 3;
-        int needed_word_score = needed_score(
-          threshold, /* want */
-          parms->edit_distance_weights.min*level,
-          parms->soundslike_weight);
-        if (needed_word_score < parms->edit_distance_weights.min*2) {
-          goto done;
-        }
-      }
-
     }
 
-    if (parms->try_ngram) {
+    if (!scan_for_more_soundslikes())
+      goto done;
 
+    if (parms->try_ngram) {
 #ifdef DEBUG_SUGGEST
       COUT.printl("TRYING NGRAM");
 #endif
@@ -504,7 +480,6 @@ namespace {
       try_ngram();
 
       score_list();
-
     }
 
   done:
@@ -516,6 +491,20 @@ namespace {
     return sug;
   }
 
+    bool Working::scan_for_more_soundslikes() {
+      if (have_one_edit_word && threshold != -1 && have_soundslike_up_to >= 0) {
+        int level = have_soundslike_up_to + 1;
+        int needed_word_score = needed_score(
+          threshold, /* want */
+          parms->edit_distance_weights.min*level, 
+          parms->soundslike_weight);
+        if (needed_word_score < parms->edit_distance_weights.min*2) {
+          return false;
+        }
+      }
+      return true;
+    }
+  
   // Forms a word by combining CheckInfo fields.
   // Will grow the grow the temp in the buffer.  The final
   // word must be null terminated and committed.
