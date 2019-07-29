@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.2-b20041203\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-07-10 05:18-0400\n"
+"POT-Creation-Date: 2019-07-29 02:38-0400\n"
 "PO-Revision-Date: 2004-12-06 17:51+0100\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -640,290 +640,290 @@ msgstr ""
 msgid "Unhandled Error: "
 msgstr ""
 
-#: prog/aspell.cpp:97
+#: prog/aspell.cpp:98
 #, c-format
 msgid "Error: %s\n"
 msgstr "Aroke: %s\n"
 
-#: prog/aspell.cpp:102
+#: prog/aspell.cpp:103
 msgid "Error: "
 msgstr "Aroke: "
 
-#: prog/aspell.cpp:203
+#: prog/aspell.cpp:204
 msgid "enter Email mode."
 msgstr ""
 
-#: prog/aspell.cpp:204
+#: prog/aspell.cpp:205
 msgid "enter HTML mode."
 msgstr ""
 
-#: prog/aspell.cpp:205
+#: prog/aspell.cpp:206
 msgid "enter TeX mode."
 msgstr ""
 
-#: prog/aspell.cpp:206
+#: prog/aspell.cpp:207
 msgid "enter Nroff mode."
 msgstr ""
 
-#: prog/aspell.cpp:312
+#: prog/aspell.cpp:313
 #, c-format
 msgid "Invalid Option: %s"
 msgstr "Tchuze nén valide: %s"
 
-#: prog/aspell.cpp:319
+#: prog/aspell.cpp:320
 msgid " does not take any parameters."
 msgstr ""
 
-#: prog/aspell.cpp:332 prog/aspell.cpp:392
+#: prog/aspell.cpp:333 prog/aspell.cpp:393
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
 msgstr "Vos dvoz specifyî on paramete po «%s»."
 
-#: prog/aspell.cpp:381
+#: prog/aspell.cpp:382
 msgid "You must specify an action"
 msgstr "Vos dvoz specifyî ene accion"
 
-#: prog/aspell.cpp:389 prog/aspell.cpp:452 prog/aspell.cpp:474
+#: prog/aspell.cpp:390 prog/aspell.cpp:453 prog/aspell.cpp:475
 #, c-format
 msgid "Unknown Action: %s"
 msgstr "Accion nén cnoxhowe: %s"
 
-#: prog/aspell.cpp:395
+#: prog/aspell.cpp:396
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr ""
 
-#: prog/aspell.cpp:637
+#: prog/aspell.cpp:638
 msgid "Invalid Input"
 msgstr ""
 
-#: prog/aspell.cpp:710
+#: prog/aspell.cpp:711
 #, c-format
 msgid "WARNING: Unable to enter Nroff mode: %s\n"
 msgstr ""
 
-#: prog/aspell.cpp:731
+#: prog/aspell.cpp:732
 msgid "Time to load word list: "
 msgstr ""
 
-#: prog/aspell.cpp:929
+#: prog/aspell.cpp:930
 #, c-format
 msgid "Suggestion Time: %f\n"
 msgstr ""
 
-#: prog/aspell.cpp:972
+#: prog/aspell.cpp:973
 msgid "You must specify a file name."
 msgstr "Vos dvoz dner on no d' fitchî."
 
-#: prog/aspell.cpp:975
+#: prog/aspell.cpp:976
 msgid "Only one file name may be specified."
 msgstr ""
 
-#: prog/aspell.cpp:985
+#: prog/aspell.cpp:986
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
 msgstr ""
 
-#: prog/aspell.cpp:998
+#: prog/aspell.cpp:999
 #, c-format
 msgid "Invalid keymapping: %s"
 msgstr ""
 
-#: prog/aspell.cpp:1013
+#: prog/aspell.cpp:1014
 #, c-format
 msgid "\"%s\" is not a regular file"
 msgstr ""
 
-#: prog/aspell.cpp:1024
+#: prog/aspell.cpp:1025
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr ""
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1038
 msgid "Ignore"
 msgstr "Passer houte"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1039
 msgid "Ignore all"
 msgstr "Passer houte totavå"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1040
 msgid "Replace"
 msgstr "Replaecî"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1041
 msgid "Replace all"
 msgstr "Replaecî totavå"
 
-#: prog/aspell.cpp:1041
+#: prog/aspell.cpp:1042
 msgid "Add"
 msgstr "Radjouter"
 
-#: prog/aspell.cpp:1042
+#: prog/aspell.cpp:1043
 msgid "Add Lower"
 msgstr "Radjouter e ptitès letes"
 
-#: prog/aspell.cpp:1043
+#: prog/aspell.cpp:1044
 msgid "Abort"
 msgstr "Rinoncî"
 
-#: prog/aspell.cpp:1044
+#: prog/aspell.cpp:1045
 msgid "Exit"
 msgstr "Moussî foû"
 
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1121
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "Estoz vs seur di voleur rinoncî (o/n)?  "
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1124
+#: prog/aspell.cpp:1125
 msgid "Yy"
 msgstr "OoAaYyWw"
 
-#: prog/aspell.cpp:1152
+#: prog/aspell.cpp:1153
 msgid "With: "
 msgstr "Avou: "
 
-#: prog/aspell.cpp:1169
+#: prog/aspell.cpp:1170
 msgid "Sorry that is an invalid choice!"
 msgstr ""
 
-#: prog/aspell.cpp:1390
+#: prog/aspell.cpp:1391
 msgid "Sorry \"filter\" is currently unimplemented.\n"
 msgstr ""
 
-#: prog/aspell.cpp:1524
+#: prog/aspell.cpp:1525
 msgid "Can't merge a master word list yet. Sorry."
 msgstr ""
 
-#: prog/aspell.cpp:1548
+#: prog/aspell.cpp:1549
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr ""
 
-#: prog/aspell.cpp:1557 prog/aspell.cpp:1613
+#: prog/aspell.cpp:1558 prog/aspell.cpp:1614
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "Mande escuzes, mins dji n' sipotchrè nén «%s»"
 
-#: prog/aspell.cpp:1604
+#: prog/aspell.cpp:1605
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr ""
 
-#: prog/aspell.cpp:1876
+#: prog/aspell.cpp:1877
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr ""
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2803
+#: prog/aspell.cpp:2804
 msgid "Usage: aspell [options] <command>"
 msgstr "Po s' è siervi: aspell [tchuzes] <comande>"
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2805
 msgid "<command> is one of:"
 msgstr "<comande> c' est ene di:"
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2806
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage         håynêye on rascourti messaedje d' aidance"
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2807
 msgid "  help             display a detailed help message"
 msgstr "  help             håynêye on longou messaedje d' aidance"
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2808
 msgid "  -c|check <file>  to check a file"
 msgstr "  -c|check <fitchî>  po verifyî on fitchî"
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2809
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe          môde copatibe avou «ispell -a»"
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2810
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr ""
 
-#: prog/aspell.cpp:2810
+#: prog/aspell.cpp:2811
 msgid "  config <key>     prints the current value of an option"
 msgstr ""
 
-#: prog/aspell.cpp:2811
+#: prog/aspell.cpp:2812
 msgid "  [dump] dicts | filters | modes"
 msgstr ""
 
-#: prog/aspell.cpp:2812
+#: prog/aspell.cpp:2813
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr ""
 
-#: prog/aspell.cpp:2813
+#: prog/aspell.cpp:2814
 msgid "[options] is any of the following:"
 msgstr "[tchuzes] c' est ene des tchuzes ki shuvèt:"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2827
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr "  list             fwait-st ene djivêye di mots avou des flotches so l' intrêye standård"
 
-#: prog/aspell.cpp:2829
+#: prog/aspell.cpp:2830
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr ""
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2831
 msgid "  munch            generate possible root words and affixes"
 msgstr ""
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2832
 msgid "  expand [1-4]     expands affix flags"
 msgstr ""
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2833
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2835
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version       mostere li modêye do programe"
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2836
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr ""
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2837
 msgid "    reduce the size of a word list via affix compression"
 msgstr ""
 
-#: prog/aspell.cpp:2837
+#: prog/aspell.cpp:2838
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr ""
 
-#: prog/aspell.cpp:2838
+#: prog/aspell.cpp:2839
 msgid "    converts from one encoding to another"
 msgstr ""
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2840
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr ""
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2841
 msgid "    perform Unicode normalization"
 msgstr ""
 
-#: prog/aspell.cpp:2843
+#: prog/aspell.cpp:2844
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr ""
 
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2845
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr ""
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2848
+#: prog/aspell.cpp:2849
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr ""
 
-#: prog/aspell.cpp:2858
+#: prog/aspell.cpp:2859
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -938,7 +938,7 @@ msgstr ""
 "Aspell %s.  © 2000-2004 pa Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2892
+#: prog/aspell.cpp:2893
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -950,7 +950,7 @@ msgstr ""
 "    I polèt eto esse tchoezi indirectumint avou l' tchuze «lang» (lingaedje),\n"
 "    «variety» (variyante) ou co «size» (grandeu).\n"
 
-#: prog/aspell.cpp:2913
+#: prog/aspell.cpp:2914
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -958,7 +958,7 @@ msgstr ""
 "Passetes k' i gn a (eyet leus tchuzes):\n"
 "    Les passetes polèt esse radjoutêyes ou oistêyes avou l' tchuze «filter».\n"
 
-#: prog/aspell.cpp:2920
+#: prog/aspell.cpp:2921
 #, c-format
 msgid ""
 "\n"
@@ -968,7 +968,7 @@ msgstr ""
 "  %s passete: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2937
+#: prog/aspell.cpp:2938
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
@@ -1257,6 +1257,28 @@ msgstr "atributs HTML a tofer verifyî"
 msgid "HTML tags to always skip the contents of"
 msgstr "etiketes HTML a tofer passer houte leu contnou"
 
+#: modules/filter/markdown-filter.info:8
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter for Markdown/CommonMark documents"
+msgstr "passete po les documints Texinfo"
+
+#: modules/filter/markdown-filter.info:14
+msgid "skip link labels in link reference definitions"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:20
+msgid "support tags that span multiple lines outside of HTML blocks"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:26
+msgid "html tags that start a HTML block that allows blank lines"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:34
+msgid "html tags that start a HTML block that end with a blank line"
+msgstr ""
+
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
 msgstr "passete po les documints Nroff"
@@ -1316,6 +1338,12 @@ msgstr "môde po n' nén verifyî li tecse cité dins les emiles"
 #: modules/filter/modes/html.amf:10
 msgid "mode for checking HTML documents"
 msgstr "môde pol verifiaedje des documints HTML"
+
+#: modules/filter/modes/markdown.amf:10
+#, fuzzy
+#| msgid "mode for checking Nroff documents"
+msgid "mode for checking Markdown/CommonMark documents"
+msgstr "môde pol verifiaedje des documints Nroff"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"

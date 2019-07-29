@@ -1,11 +1,11 @@
 \input texinfo   @c -*-texinfo-*-
 
 @setfilename aspell.info
-@settitle GNU Aspell 0.60.7-pre
+@settitle GNU Aspell 0.60.7
 @syncodeindex pg cp
 @documentencoding UTF-8
 @documentdescription
-Aspell 0.60.7-pre spell checker user's manual.
+Aspell 0.60.7 spell checker user's manual.
 @end documentdescription
 
 @copying
@@ -32,7 +32,7 @@ Documentation License".
 @end direntry
 
 @titlepage
-@title GNU Aspell 0.60.7-pre
+@title GNU Aspell 0.60.7
 @author Kevin Atkinson (@email{kevina@@gnu.org})
 @page
 @vskip 0pt plus 1filll
@@ -43,7 +43,7 @@ Documentation License".
 
 @ifnottex
 @node Top
-@top GNU Aspell 0.60.7-pre
+@top GNU Aspell 0.60.7
 This is the user's manual for Aspell
 
 GNU Aspell is a spell checker designed to eventually replace Ispell.
@@ -4269,7 +4269,7 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.6.1 to 0.60.7 (July ??, 2019)
+@heading Changes from 0.60.6.1 to 0.60.7 (July 29, 2019)
 @itemize @bullet
 @item
 Add partial support for recognizing the Unicode apostrophe (') in
