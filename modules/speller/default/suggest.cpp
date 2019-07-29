@@ -418,12 +418,13 @@ namespace {
       
       if (sp->soundslike_root_only)
         try_scan_root();
-      else
+      else {
         try_scan();
+        have_soundslike_up_to = 0;
+      }
 
       score_list();
 
-      have_soundslike_up_to = 0;
     }
 
     if (!scan_for_more_soundslikes())
@@ -437,12 +438,12 @@ namespace {
 
       if (sp->soundslike_root_only)
         try_scan_root();
-      else
+      else {
         try_scan();
+        have_soundslike_up_to = 1;
+      }
 
       score_list();
-      
-      have_soundslike_up_to = 1;
 
       if (try_harder < parms->scan_2_threshold) goto done;
     }
@@ -459,12 +460,12 @@ namespace {
 
       if (sp->soundslike_root_only)
         try_scan_root();
-      else
+      else {
         try_scan();
+        have_soundslike_up_to = 2;
+      }
 
       score_list();
-      
-      have_soundslike_up_to = 2;
 
       if (try_harder < parms->ngram_threshold) goto done;
     }
