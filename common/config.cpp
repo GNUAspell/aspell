@@ -1445,11 +1445,9 @@ namespace acommon {
        N_("no longer used"), KEYINFO_HIDDEN}
     , {"sug-mode",   KeyInfoString, "normal",
        N_("suggestion mode"), KEYINFO_MAY_CHANGE | KEYINFO_COMMON}
-    , {"sug-edit-dist", KeyInfoInt, "1",
+    , {"sug-typo-analysis", KeyInfoBool, "true",
        /* TRANSLATORS: "sug-mode" is a literal value and should not be
           translated. */
-       N_("edit distance to use, override sug-mode default")}
-    , {"sug-typo-analysis", KeyInfoBool, "true",
        N_("use typo analysis, override sug-mode default")}
     , {"sug-repl-table", KeyInfoBool, "true",
        N_("use replacement tables, override sug-mode default")}
