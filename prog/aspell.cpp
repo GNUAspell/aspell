@@ -27,9 +27,10 @@
 
 #include "aspell.h"
 
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #ifdef USE_FILE_INO
-# include <sys/types.h>
-# include <sys/stat.h>
 # include <unistd.h>
 # include <fcntl.h>
 #endif
