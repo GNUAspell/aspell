@@ -1,7 +1,8 @@
 
 info_TEXINFOS = aspell.texi aspell-dev.texi
 
-MAKEINFOFLAGS = --enable-encoding
+MAKEINFOFLAGS = --enable-encoding \
+  --set-customization-variable 'EXTRA_HEAD <meta name=viewport content="width=device-width, initial-scale=1">'
 
 aspell_TEXINFOS = readme.texi fdl.texi lgpl.texi \
   lang-supported.texi lang-unsupported.texi crubadan.texi oo-only.texi
