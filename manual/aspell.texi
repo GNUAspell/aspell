@@ -4269,6 +4269,12 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
+@heading Changes from 0.60.7 to 0.68.8 (???)
+@itemize @bullet
+@item
+Remove unused @option{sug-edit-dist} option.
+@end itemize
+
 @heading Changes from 0.60.6.1 to 0.60.7 (July 29, 2019)
 @itemize @bullet
 @item
