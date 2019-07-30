@@ -4401,6 +4401,8 @@ time.  If the document is split on white space characters instead,
 nothing will break, but new filters such as the Markdown filter may
 give incorrect results.
 @item
+The @option{clean} option and command will no longer split a word.
+@item
 Fix various crashes and other problems found by Google's OSS-Fuzz.
 @end itemize
 

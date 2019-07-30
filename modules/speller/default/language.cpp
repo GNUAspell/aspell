@@ -638,10 +638,7 @@ namespace aspeller {
                                    const Language * lang0,
                                    OStream * log0)
     : in(in0), lang(lang0), log(log0), val(), str(0), str_end(0),
-      clean_affix(lang0, log0)
-  {
-    memset(brk, '\0', sizeof(brk));
-  }
+      clean_affix(lang0, log0) {}
 
   PosibErr<void>  WordListIterator::init(Config & config)
   {
@@ -658,8 +655,6 @@ namespace aspeller {
     } else {
       RET_ON_ERR(iconv.setup(config, lang->data_encoding(), lang->charmap(), NormFrom));
     }
-    brk[0] = ' ';
-    if (!lang->special('-').any) brk[1] = '-';
     return no_err;
   }
 
@@ -708,15 +703,11 @@ namespace aspeller {
       val.aff.size = aff_end - aff;
       if (!*aff && validate_words && clean_words) {
         char * s = str;
-        while (s < str_end) {
-          while (s < str_end && !lang->is_alpha(*s) && !lang->special(*s).begin)
-            *s++ = '\0';
-          s += strcspn(s, brk);
-          *s = '\0';
-          char * s2 = s - 1;
-          while (s2 >= str && *s2 && !lang->is_alpha(*s2) && !lang->special(*s2).end)
-            *s2-- = '\0';
-        }
+        while (s < str_end && !lang->is_alpha(*s) && !lang->special(*s).begin)
+          *s++ = '\0';
+        char * s2 = str_end - 1;
+        while (s2 >= str && *s2 && !lang->is_alpha(*s2) && !lang->special(*s2).end)
+          *s2-- = '\0';
       }
     }
     while (str < str_end) 

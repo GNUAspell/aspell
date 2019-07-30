@@ -456,7 +456,6 @@ namespace aspeller {
     const char * orig;
     char * str;
     char * str_end;
-    char brk[3];
     CleanAffix clean_affix;
   };
 
