@@ -4,11 +4,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <aspell.h>
-
-#define FUZZ_LANG_CODE_LEN              5
-#define FUZZ_ENCODING_LEN               1
-#define NUM_COMMAND_BYTES               (FUZZ_LANG_CODE_LEN + \
-                                         FUZZ_ENCODING_LEN)
+#include <algorithm>
 
 static int enable_diags;
 
@@ -17,6 +13,11 @@ static int enable_diags;
           fprintf(stderr, FMT, ##__VA_ARGS__);                                \
           fprintf(stderr, "\n");                                              \
         }
+#define MAX_CONFIG_LEN                  10240
+
+int parse_config(AspellConfig *spell_config,
+                 uint8_t *config,
+                 size_t config_len);
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
@@ -27,56 +28,35 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
   AspellCanHaveError *doc_err = NULL;
   AspellToken token;
   const char *data_str = reinterpret_cast<const char *>(data);
-
-  char language_code[FUZZ_LANG_CODE_LEN + 1];
-  const char *encoding;
+  uint8_t config[MAX_CONFIG_LEN];
+  size_t config_len;
+  int rc;
 
   // Enable or disable diagnostics based on the FUZZ_VERBOSE environment flag.
   enable_diags = (getenv("FUZZ_VERBOSE") != NULL);
 
-  if (size < NUM_COMMAND_BYTES) {
-    goto EXIT_LABEL;
-  }
-
-  // Copy the first five bytes as a language code and null-terminate it.
-  memcpy(language_code, data, FUZZ_LANG_CODE_LEN);
-  language_code[FUZZ_LANG_CODE_LEN] = 0;
-
-  data += FUZZ_LANG_CODE_LEN;
-
-  // Determine the encoding.
-  switch (data[0] % 4) {
-    case 0:
-      encoding = "iso-8859-1";
-      break;
-
-    case 1:
-      encoding = "utf-8";
-      break;
-
-    case 2:
-      encoding = "ucs-2";
-      break;
-
-    case 3:
-      encoding = "ucs-4";
-      break;
-  }
-
-  data += FUZZ_ENCODING_LEN;
-
-  // After parsing the command bytes, reduce the size by that amount.
-  size -= NUM_COMMAND_BYTES;
+  // Copy up to MAX_CONFIG_LEN bytes from the data.
+  config_len = std::min(size, (size_t)MAX_CONFIG_LEN);
+  memcpy(config, data, config_len);
 
   // Create a new configuration class.
   spell_config = new_aspell_config();
 
-  FUZZ_DEBUG("Language code: %s", language_code);
-  aspell_config_replace(spell_config, "lang", language_code);
+  // Parse configuration. Exit if the configuration was bad.
+  rc = parse_config(spell_config, config, config_len);
+  if (rc == -1)
+  {
+    FUZZ_DEBUG("Configuration parsing failed");
+    goto EXIT_LABEL;
+  }
 
-  FUZZ_DEBUG("Encoding: %s", encoding);
-  aspell_config_replace(spell_config, "encoding", encoding);
+  // Move the data pointer past the config.
+  data_str += rc;
+  size -= rc;
 
+  FUZZ_DEBUG("Document: %.*s", (int)size, data_str);
+
+  // Convert the configuration to a spell checker.
   possible_err = new_aspell_speller(spell_config);
   if (aspell_error_number(possible_err) != 0) {
     // Failed on configuration.
@@ -149,4 +129,71 @@ EXIT_LABEL:
   }
 
   return 0;
+}
+
+// Returns -1 on error, or the number of bytes consumed from the config string
+// otherwise.
+int parse_config(AspellConfig *spell_config,
+                 uint8_t *config,
+                 size_t config_len)
+{
+  uint8_t line[MAX_CONFIG_LEN];
+
+  uint8_t *config_ptr = config;
+  size_t config_ptr_used = 0;
+
+  uint8_t *delimiter;
+
+  // Iterate over the lines.
+  for (delimiter = (uint8_t *)memchr(config_ptr,
+                                     '\n',
+                                     config_len - config_ptr_used);
+       delimiter != NULL;
+       delimiter = (uint8_t *)memchr(config_ptr,
+                                     '\n',
+                                     config_len - config_ptr_used))
+  {
+    int line_len = delimiter - config_ptr;
+
+    if (line_len == 0)
+    {
+      // The line is zero-length; it's the end of configuration. Skip over the
+      // delimiter and break out.
+      FUZZ_DEBUG("Breaking out of config");
+      config_ptr++;
+      config_ptr_used++;
+      break;
+    }
+
+    // Copy the line into the line array. Replace the newline by a null.
+    memcpy(line, config_ptr, line_len);
+    line[line_len] = 0;
+
+    // Try and split the line by =.
+    uint8_t *kv_delim = (uint8_t *)memchr(line, '=', line_len);
+
+    if (kv_delim == NULL)
+    {
+      // Can't split as a k/v pair. Exit early.
+      return -1;
+    }
+
+    // Convert the line into a key, value pair.
+    kv_delim[0] = 0;
+
+    char *keyword = reinterpret_cast<char *>(line);
+    char *value = reinterpret_cast<char *>(kv_delim + 1);
+
+    FUZZ_DEBUG("Key: %s; Value: %s", keyword, value);
+    aspell_config_replace(spell_config, keyword, value);
+
+    // Advance the config pointers.  Make sure to add 1 for the delimiter.
+    config_ptr += (line_len + 1);
+    config_ptr_used += (line_len + 1);
+  }
+
+  // Return how much data  was used.
+  FUZZ_DEBUG("Used %zu bytes of configuration data", config_ptr_used);
+
+  return config_ptr_used;
 }
