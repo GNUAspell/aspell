@@ -52,6 +52,7 @@
 #include "string_enumeration.hpp"
 #include "string_map.hpp"
 #include "word_list.hpp"
+#include "istream_enumeration.hpp"
 
 #include "string_list.hpp"
 #include "speller_impl.hpp"
@@ -1443,24 +1444,6 @@ void print_ver () {
 // These functions use implementation details of the default speller
 // module
 //
-
-class IstreamEnumeration : public StringEnumeration {
-  FStream * in;
-  String data;
-public:
-  IstreamEnumeration(FStream & i) : in(&i) {}
-  IstreamEnumeration * clone() const {
-    return new IstreamEnumeration(*this);
-  }
-  void assign (const StringEnumeration * other) {
-    *this = *static_cast<const IstreamEnumeration *>(other);
-  }
-  Value next() {
-    if (!in->getline(data)) return 0;
-    else return data.c_str();
-  }
-  bool at_end() const {return *in;}
-};
 
 ///////////////////////////
 //
