@@ -109,6 +109,9 @@ namespace aspeller {
     virtual PosibErr<void> save_as(ParmString);
     virtual PosibErr<void> clear();
 
+    bool validate_words; // valid new words added via a file of the
+                         // add method
+
     bool affix_compressed;
     bool invisible_soundslike; // true when words are grouped by the
                                // soundslike but soundslike data is not
@@ -215,10 +218,10 @@ namespace aspeller {
   MultiDict * new_default_multi_dict();
 
   // implemented in writable.cpp
-  Dictionary * new_default_writable_dict();
+  Dictionary * new_default_writable_dict(const Config & cfg);
 
   // implemented in writable.cpp
-  ReplacementDict * new_default_replacement_dict();
+  ReplacementDict * new_default_replacement_dict(const Config & cfg);
 }
 
 #endif

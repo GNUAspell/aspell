@@ -69,6 +69,7 @@ namespace aspeller {
   Dictionary::Dictionary(BasicType t, const char * n)
     : Cacheable(&dict_cache), lang_(), id_(), 
       basic_type(t), class_name(n),
+      validate_words(true),
       affix_compressed(false), 
       invisible_soundslike(false), soundslike_root_only(false),
       fast_scan(false), fast_lookup(false)
@@ -434,10 +435,10 @@ namespace aspeller {
         w = new_default_multi_dict();
         break;
       case DT_Writable: 
-        w = new_default_writable_dict();
+        w = new_default_writable_dict(config);
         break;
       case DT_WritableRepl:
-        w = new_default_replacement_dict();
+        w = new_default_replacement_dict(config);
         break;
       default:
         abort();

@@ -1609,7 +1609,7 @@ void personal () {
     // FIXME: This is currently broken
 
     Config * config = options;
-    Dictionary * per = new_default_writable_dict();
+    Dictionary * per = new_default_writable_dict(*config);
     EXIT_ON_ERR(per->load(config->retrieve("personal-path"), *config));
     StackPtr<WordEntryEnumeration> els(per->detailed_elements());
     StackPtr<Convert> conv(setup_conv(per->lang(), config));
@@ -1671,7 +1671,7 @@ void repl() {
 
     // FIXME: This is currently broken
 
-    ReplacementDict * repl = new_default_replacement_dict();
+    ReplacementDict * repl = new_default_replacement_dict(*options);
     repl->load(options->retrieve("repl-path"), *options);
     StackPtr<WordEntryEnumeration> els(repl->detailed_elements());
     

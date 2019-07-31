@@ -484,9 +484,14 @@ namespace aspeller {
     return make_err(invalid_word, MsgConv(l)(word), msg);
   }
 
-  PosibErr<void> check_if_valid(const Language & l, ParmStr word) {
+  PosibErr<void> check_if_sane(const Language & l, ParmStr word) {
     if (*word == '\0') 
       return invalid_word_e(l, word, _("Empty string."));
+    return no_err;
+  }
+
+  PosibErr<void> check_if_valid(const Language & l, ParmStr word) {
+    RET_ON_ERR(check_if_sane(l, word));
     const char * i = word;
     if (!l.is_alpha(*i)) {
       if (!l.special(*i).begin)

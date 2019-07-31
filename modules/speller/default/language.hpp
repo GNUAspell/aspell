@@ -463,6 +463,7 @@ namespace aspeller {
 
   String get_clean_chars(const Language & l);
   
+  PosibErr<void> check_if_sane(const Language & l, ParmStr word);
   PosibErr<void> check_if_valid(const Language & l, ParmStr word);
   PosibErr<void> validate_affix(const Language & l, ParmStr word, ParmStr aff);
 

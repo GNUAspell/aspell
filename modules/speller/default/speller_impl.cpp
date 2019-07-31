@@ -509,7 +509,7 @@ namespace aspeller {
     if (use_other_dicts && !personal_)
     {
       Dictionary * temp;
-      temp = new_default_writable_dict();
+      temp = new_default_writable_dict(*config_);
       PosibErrBase pe = temp->load(config_->retrieve("personal-path"),*config_);
       if (pe.has_err(cant_read_file))
         temp->set_check_lang(lang_name(), *config_);
@@ -521,14 +521,14 @@ namespace aspeller {
     if (use_other_dicts && !session_)
     {
       Dictionary * temp;
-      temp = new_default_writable_dict();
+      temp = new_default_writable_dict(*config_);
       temp->set_check_lang(lang_name(), *config_);
       RET_ON_ERR(add_dict(new SpellerDict(temp, *config_, session_id)));
     }
      
     if (use_other_dicts && !repl_)
     {
-      ReplacementDict * temp = new_default_replacement_dict();
+      ReplacementDict * temp = new_default_replacement_dict(*config_);
       PosibErrBase pe = temp->load(config_->retrieve("repl-path"),*config_);
       if (pe.has_err(cant_read_file))
         temp->set_check_lang(lang_name(), *config_);

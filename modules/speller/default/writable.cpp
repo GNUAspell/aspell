@@ -102,10 +102,13 @@ protected:
   
   String compatibility_file_name;
     
-  WritableBase(BasicType t, const char * n, const char * s, const char * cs)
+  WritableBase(BasicType t, const char * n, const char * s, const char * cs, const Config & cfg)
     : Dictionary(t,n),
       suffix(s), compatibility_suffix(cs),
-      use_soundslike(true) {fast_lookup = true;}
+      use_soundslike(true) {
+    fast_lookup = true;
+    validate_words = cfg.retrieve_bool("validate-words");
+  }
   virtual ~WritableBase() {}
   
   virtual PosibErr<void> save(FStream &, ParmString) = 0;
@@ -384,7 +387,8 @@ public: //but don't use
 
 public:
 
-  WritableDict() : WritableBase(basic_dict, "WritableDict", ".pws", ".per") {}
+  WritableDict(const Config & cfg)
+    : WritableBase(basic_dict, "WritableDict", ".pws", ".per", cfg) {}
 
   Size   size()     const;
   bool   empty()    const;
@@ -500,7 +504,10 @@ WritableDict::Enum * WritableDict::detailed_elements() const {
 }
 
 PosibErr<void> WritableDict::add(ParmString w, ParmString s) {
-  RET_ON_ERR(check_if_valid(*lang(),w));
+  if (validate_words)
+    RET_ON_ERR(check_if_valid(*lang(),w));
+  else
+    RET_ON_ERR(check_if_sane(*lang(),w));
   SensitiveCompare c(lang());
   WordEntry we;
   if (WritableDict::lookup(w,&c,we)) return no_err;
@@ -603,7 +610,8 @@ class WritableReplDict : public WritableBase
   WritableReplDict& operator=(const WritableReplDict&);
 
 public:
-  WritableReplDict() : WritableBase(replacement_dict, "WritableReplDict", ".prepl",".rpl") 
+  WritableReplDict(const Config & cfg)
+    : WritableBase(replacement_dict, "WritableReplDict", ".prepl",".rpl", cfg) 
   {
     fast_lookup = true;
   }
@@ -930,12 +938,12 @@ WritableReplDict::~WritableReplDict()
 
 namespace aspeller {
 
-  Dictionary * new_default_writable_dict() {
-    return new WritableDict();
+  Dictionary * new_default_writable_dict(const Config & cfg) {
+    return new WritableDict(cfg);
   }
 
-  Dictionary * new_default_replacement_dict() {
-    return new WritableReplDict();
+  Dictionary * new_default_replacement_dict(const Config & cfg) {
+    return new WritableReplDict(cfg);
   }
 
 }
