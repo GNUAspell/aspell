@@ -12,6 +12,8 @@
  */
 int main(int argc, char **argv)
 {
+  LLVMFuzzerInitialize(&argc, &argv);
+
   int ii;
   for (ii = 1; ii < argc; ii++) {
     FILE *infile;
