@@ -663,6 +663,20 @@ namespace aspeller {
     return no_err;
   }
 
+  PosibErr<void> WordListIterator::init_plain(Config & config)
+  {
+    if (!config.have("norm-strict"))
+      config.replace("norm-strict", "true");
+    have_affix = false;
+    validate_words = config.retrieve_bool("validate-words");
+    clean_words = true;
+    if (config.have("clean-words"))
+      clean_words = config.retrieve_bool("clean-words");
+    skip_invalid_words = true;
+    RET_ON_ERR(iconv.setup(config, "utf-8", lang->charmap(),NormFrom));
+    return no_err;
+  }
+ 
   PosibErr<bool> WordListIterator::adv() 
   {
   loop:

@@ -1388,6 +1388,8 @@ namespace acommon {
        N_("filter mode"), KEYINFO_COMMON}
     , {"extra-dicts", KeyInfoList, "",
        N_("extra dictionaries to use")}
+    , {"wordlists", KeyInfoList, "",
+       N_("files with list of extra words to accept")}
     , {"home-dir", KeyInfoString, HOME_DIR,
        N_("location for personal files")}
     , {"ignore",   KeyInfoInt   , "1",

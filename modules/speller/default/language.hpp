@@ -438,6 +438,13 @@ namespace aspeller {
                      OStream * log);
     // init may set "norm-strict" to true which is why it is not const
     PosibErr<void> init (Config & config);
+    // init_plain initialized the iterator to read in a plain word
+    // list without any affix flags, for simplicity it will expect the
+    // input to be utf-8.  It will also assume clean the words unless
+    // the `clean-words` option is explicitly specified.  Like init it
+    // may set "norm-strict" to true which is why it is not const
+    PosibErr<void> init_plain (Config & config);
+    const Value & operator*() const {return val;}
     const Value * operator-> () const {return &val;}
     PosibErr<bool> adv();
   private:

@@ -19,6 +19,7 @@
 #include "tokenizer.hpp"
 #include "convert.hpp"
 #include "stack_ptr.hpp"
+#include "istream_enumeration.hpp"
 
 //#include "iostream.hpp"
 
@@ -535,6 +536,35 @@ namespace aspeller {
       else if (pe.has_err())
         return pe;
       RET_ON_ERR(add_dict(new SpellerDict(temp, *config_, personal_repl_id)));
+    }
+
+    StringList wordlist_files;
+    config_->retrieve_list("wordlists", &wordlist_files);
+    if (!wordlist_files.empty()) {
+      Dictionary * dict = session_;
+      if (!dict) {
+        dict = new_default_writable_dict(*config_);
+        dict->set_check_lang(lang_name(), *config_);
+        RET_ON_ERR(add_dict(new SpellerDict(dict, *config_)));
+      }
+      const char * fn;
+      StringListEnumeration els = wordlist_files.elements_obj();
+      while ( (fn = els.next()) != 0) {
+        FStream f;
+        RET_ON_ERR(f.open(fn, "r"));
+        IstreamEnumeration els(f);
+        WordListIterator wl_itr(&els, lang_, 0);
+        wl_itr.init_plain(*config_);
+        for (;;) {
+          PosibErr<bool> pe = wl_itr.adv();
+          if (pe.has_err())
+            return pe.with_file(fn);
+          if (!pe.data) break;
+          PosibErr<void> pev = dict->add(wl_itr->word);
+          if (pev.has_err())
+            return pev.with_file(fn);
+        }
+      }
     }
 
     const char * sys_enc = lang_->charmap();
