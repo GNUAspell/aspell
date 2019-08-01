@@ -1355,6 +1355,55 @@ The @option{html} filter is like the SGML Filter Mode but specialized for
 HTML.  By default, 'script' and 'style' are members of the skip list in
 HTML mode.
 
+@subsubsection Markdown Filter
+
+The @option{markdown} filter/mode skips over code and links in Markdown
+documents.  The mode also handles HTML via the @option{html} filter
+which runs after the Markdown filer.
+
+Properly parsing Markdown requires reading the entire document in at
+once, which doesn't fit well into the existing filter framework so the
+filter parses the document a line at a time and makes a best guess
+when a line ends without enough information to correctly parse a a
+tag.  For example in the following:
+@example
+`This looks like inline code
+
+But it's not, becuase the of the blank line.
+@end example
+the first line will be incorrectly skipped.
+
+It supports the following two options that may be useful:
+
+@table @b
+
+@item markdown-multiline-tags
+Enables or disables support for HTML tags that might span multiple
+lines (outside of HTML blocks).  Enabled by default (to disable from
+the command line use @samp{--dont-markdown-multiline-tags}).
+
+@item markdown-skip-ref-labels
+Boolean option the controls if ref lables are skipped.  For when this
+option is enabled @samp{[ref]} will be skipped over in:
+@example
+[link][ref]
+
+[ref]: #c2 "Chapter 2"
+@end example
+Enabled by default (to disable from
+the command line use @samp{--dont-markdown-skip-ref-labels}).
+
+@end table
+
+The Markdown filter also supports the @option{markdown-raw-start-tags}
+and @option{markdown-block-start-tags} list options.  These options
+are a list of HTML tags that start an HTML block.  If the block starts
+with a tag listed in @option{markdown-raw-start-tags} then the block
+ends with the corresponding closing tag.  If the block starts with a
+tag listed in @option{markdown-block-start-tags} then the block ends
+with a blank line.  The defaults for these two options are taken from
+the CommonMark spec (version 0.29, 2019-04-06).
+
 @subsubsection @TeX{}/LaTeX Filter
 
 The @option{tex} (all lowercase) filter mode skips over @TeX{}
@@ -4272,9 +4321,17 @@ a C++ program.
 @heading Changes from 0.60.7 to 0.68.8 (???)
 @itemize @bullet
 @item
+Add Markdown filter.
+@item
 Implement @code{aspell filter} command.
 @item
 Remove unused @option{sug-edit-dist} option.
+@item
+In order to work with the new Markdown filter
+@code{AspellDocumentChecker} now expects the document a line at a
+time.  If the document is split on white space characters instead,
+nothing will break, but new filters such as the Markdown filter may
+give incorrect results.
 @end itemize
 
 @heading Changes from 0.60.6.1 to 0.60.7 (July 29, 2019)

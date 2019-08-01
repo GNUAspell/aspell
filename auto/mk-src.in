@@ -842,8 +842,11 @@ class: document checker
 	method: process
 
 		desc => Process a string.
-			The string passed in should only be split on
-			white space characters.  Furthermore, between
+			The document is expected to be passed in one or more
+			lines at a time.  Splitting the document on
+			white space characters instead of new lines is
+			permissible but some filters which are line based
+			may give incorrect results.  Furthermore, between
 			calls to reset, each string should be passed
 			in exactly once and in the order they appeared
 			in the document.  Passing in strings out of
