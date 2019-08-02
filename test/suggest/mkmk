@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use autodie;
+
+my $targets = 'suggest::';
+foreach my $f (qw (00-special 02-orig 05-common)) {
+    my @modes = qw(ultra fast normal slow bad-spellers);
+    foreach my $mode (@modes) {
+        print <<"---";
+suggest-$f-${mode}:: prep
+	suggest/run-batch "\${ASPELL} --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-actual
+	suggest/comp suggest/$f-$mode-expect.res tmp/$f-$mode-actual.res 1 > tmp/$f-$mode.diff
+	rm tmp/$f-$mode.diff
+	echo "ok (suggest reg. $f $mode)" >> test-res
+---
+        last if $f eq '05-common' && $mode eq 'bad-spellers';
+        $targets .= " suggest-$f-${mode}";
+    }
+}
+$targets .= "\n";
+
+print $targets;
