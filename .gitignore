@@ -17,6 +17,7 @@ Makefile
 /aspell-*.directive.asc
 
 /inst/
+/build/
 
 /ABOUT-NLS
 /Makefile.in
