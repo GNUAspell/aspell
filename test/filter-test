@@ -68,13 +68,13 @@ while (<STDIN>) {
         next;
     }
 
-    open F, ">test-data.in";
+    open F, ">tmp/test-data.in";
     print F $in;
-    open F, ">test-data.expect";
+    open F, ">tmp/test-data.expect";
     print F $out;
     eval {
-        sys "$ASPELL filter --mode=none $parms < test-data.in > test-data.out";
-        sys "diff -u -Z test-data.expect test-data.out";
+        sys "$ASPELL filter --mode=none $parms < tmp/test-data.in > tmp/test-data.out";
+        sys "diff -u -Z tmp/test-data.expect tmp/test-data.out";
     };
     if ($@) {
         $failed++;
