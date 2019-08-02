@@ -4,15 +4,22 @@ export ASPELL = ${CURDIR}/inst/bin/aspell
 export PREZIP = ${CURDIR}/inst/bin/prezip-bin
 MAKE := ${MAKE} "CXXFLAGS=${CXXFLAGS}" "CFLAGS=${CFLAGS}"
 
-all:: prep sanity
+all:: prep sanity filter-test
+	cat test-res
 
 prep:: inst/bin/aspell inst/lib/aspell-0.60/en.multi tmp
+	rm -f test-res
 
 tmp:
 	mkdir tmp
 
 sanity:: prep
 	./sanity
+	echo "all ok (sanity)" >> test-res
+
+filter-test:: prep
+	./filter-test "${ASPELL}" < markdown.dat
+	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
 	$(MAKE) -C build install
