@@ -1492,6 +1492,7 @@ namespace aspeller {
     } else if (mode == "slow") {
       try_scan_2 = true;
       try_ngram = true;
+      limit = 1000;
       ngram_threshold = sp->have_soundslike ? 1 : 2;
     } else if (mode == "bad-spellers") {
       try_scan_2 = true;
