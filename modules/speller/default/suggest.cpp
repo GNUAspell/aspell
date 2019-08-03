@@ -111,6 +111,7 @@ namespace {
     int           soundslike_score;
     bool          count;
     bool          split; // true the result of splitting a word
+    bool          repl_table;
     WordEntry * repl_list;
     ScoreWordSound() {repl_list = 0; }
     ~ScoreWordSound() {delete repl_list;}
@@ -221,10 +222,11 @@ namespace {
       int           soundslike_score;
       bool          count;
       bool          split; // true the result of splitting a word
+      bool          repl_table;
       WordEntry *   repl_list;
       ScoreInfo()
         : soundslike(), word_score(LARGE_NUM), soundslike_score(LARGE_NUM),
-          count(true), split(false), repl_list() {}
+          count(true), split(false), repl_table(false), repl_list() {}
     };
 
     MutableString form_word(CheckInfo & ci);
@@ -562,6 +564,7 @@ namespace {
       d.soundslike = d.word_clean;
     
     d.split = inf.split;
+    d.repl_table = inf.repl_table;
     d.count = inf.count;
     d.repl_list = inf.repl_list;
   }
@@ -921,7 +924,10 @@ namespace {
         buf.append(p, wend + 1);
         buf.ensure_null_end();
         //COUT.printf("%s (%s) => %s (%s)\n", word, r->substr, buf.str(), r->repl);
-        try_word(buf.pbegin(), buf.pend(), parms->edit_distance_weights.sub*3/2);
+        ScoreInfo inf;
+        inf.word_score = parms->edit_distance_weights.sub*3/2;
+        inf.repl_table = true;
+        try_word(buf.pbegin(), buf.pend(), inf);
       }
     }
   }
@@ -1234,8 +1240,10 @@ namespace {
             for (j = 0; (i->word)[j] != 0; ++j)
               word[j] = parms->ti->to_normalized((i->word)[j]);
             word[j] = 0;
-            i->word_score 
-              = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+            int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+            // if a repl. table was used we don't want to increase the score
+            if (!i->repl_table || new_score < i->word_score)
+              i->word_score = new_score;
             i->score = typo_weighted_average(i->soundslike_score, i->word_score);
           }
           if (max < i->score) max = i->score;
