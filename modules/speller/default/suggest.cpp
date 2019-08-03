@@ -236,10 +236,10 @@ namespace {
                       const char * sl,
                       int w_score, int sl_score,
                       bool count = do_count, WordEntry * rl = 0, bool split = false);
-    void add_nearmiss(SpellerImpl::WS::const_iterator, const WordEntry & w, 
+    void add_nearmiss_w(SpellerImpl::WS::const_iterator, const WordEntry & w,
                       const char * sl,
                       int w_score, int sl_score, bool count = do_count);
-    void add_nearmiss(SpellerImpl::WS::const_iterator, const WordAff * w,
+    void add_nearmiss_a(SpellerImpl::WS::const_iterator, const WordAff * w,
                       const char * sl, 
                       int w_score, int sl_score, bool count = do_count);
     bool have_score(int score) {return score < LARGE_NUM;}
@@ -435,7 +435,7 @@ namespace {
     {
       (*i)->clean_lookup(str, sw);
       for (;!sw.at_end(); sw.adv())
-        add_nearmiss(i, sw, 0, score, -1, do_count);
+        add_nearmiss_w(i, sw, 0, score, -1, do_count);
     }
     if (sp->affix_compress) {
       CheckInfo ci; memset(static_cast<void *>(&ci), 0, sizeof(ci));
@@ -557,9 +557,9 @@ namespace {
     d.repl_list = rl;
   }
 
-  void Working::add_nearmiss(SpellerImpl::WS::const_iterator i,
-                             const WordEntry & w, const char * sl,
-                             int w_score, int sl_score, bool count)
+  void Working::add_nearmiss_w(SpellerImpl::WS::const_iterator i,
+                               const WordEntry & w, const char * sl,
+                               int w_score, int sl_score, bool count)
   {
     assert(w.word_size == strlen(w.word));
     WordEntry * repl = 0;
@@ -575,9 +575,9 @@ namespace {
                  w_score, sl_score, count, repl);
   }
   
-  void Working::add_nearmiss(SpellerImpl::WS::const_iterator i,
-                             const WordAff * w, const char * sl,
-                             int w_score, int sl_score, bool count)
+  void Working::add_nearmiss_a(SpellerImpl::WS::const_iterator i,
+                               const WordAff * w, const char * sl,
+                               int w_score, int sl_score, bool count)
   {
     add_nearmiss(buffer.dup(w->word), w->word.size, 0, 
                  sl,
@@ -698,7 +698,7 @@ namespace {
 
     for (; !w.at_end(); w.adv()) {
       
-      add_nearmiss(i, w, sl, -1, score);
+      add_nearmiss_w(i, w, sl, -1, score);
       
       if (w.aff[0]) {
         String sl_buf;
@@ -706,7 +706,7 @@ namespace {
         WordAff * exp_list;
           exp_list = lang->affix()->expand(w.word, w.aff, temp_buffer);
           for (WordAff * p = exp_list->next; p; p = p->next)
-            add_nearmiss(i, p, 0, -1, -1);
+            add_nearmiss_a(i, p, 0, -1, -1);
       }
       
     }
@@ -783,7 +783,7 @@ namespace {
           
           if (score < LARGE_NUM) {
             commit_temp(sl);
-            add_nearmiss(i, p, sl, -1, score, do_count);
+            add_nearmiss_a(i, p, sl, -1, score, do_count);
           }
           
           // expand any suffixes, using stopped_at as a hint to avoid
@@ -807,7 +807,7 @@ namespace {
             score = edit_dist_fun(sl, original_soundslike, parms->edit_distance_weights);
             if (score >= LARGE_NUM) continue;
             commit_temp(sl);
-            add_nearmiss(i, q, sl, -1, score, do_count);
+            add_nearmiss_a(i, q, sl, -1, score, do_count);
           }
         }
       }
