@@ -29,6 +29,9 @@ inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 	cp en_phonet.dat aspell6-en-2018.04.16-0
 	cd aspell6-en-2018.04.16-0 && ./configure
 	$(MAKE) -C aspell6-en-2018.04.16-0 install
+	cp en.prepl inst/lib/aspell-0.60
+	echo 'add en_US.multi' > inst/lib/aspell-0.60/en_US-w_repl.multi
+	echo 'add en.prepl' >> inst/lib/aspell-0.60/en_US-w_repl.multi
 
 build/Makefile:
 	mkdir -p build

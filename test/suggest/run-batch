@@ -22,7 +22,7 @@ open $data, $ARGV[1];
 
 open R, ">$base.res";
 
-my $pid = open2($in, $out, "$command -d en_US --dont-use-other-dicts --per-conf=/dev/null -a");
+my $pid = open2($in, $out, "$command -d en_US-w_repl --dont-use-other-dicts --per-conf=/dev/null -a");
 print $out "!\n";
 <$in>;
 
