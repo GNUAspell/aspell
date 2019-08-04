@@ -863,7 +863,7 @@ namespace acommon {
       Entry * ent = new Entry;
       ent->key = entry->key;
       ent->action = ListClear;
-      set(ent);
+      RET_ON_ERR(set(ent));
 
       ListAddHelper helper;
       helper.config = this;
