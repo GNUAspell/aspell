@@ -181,6 +181,7 @@ namespace acommon {
     while ( (dir = els.next()) != 0 ) 
     {
       path = dir;
+      if (path.empty()) continue;
       if (path.back() != '/') path += '/';
       unsigned dir_len = path.size();
       path += filename;

@@ -763,7 +763,7 @@ namespace acommon {
       }
       res.append(':');
     }
-    if (res.back() == ':') res.pop_back();
+    if (!res.empty() && res.back() == ':') res.pop_back();
   }
 
   struct ListAddHelper : public AddableContainer 

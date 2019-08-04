@@ -64,7 +64,7 @@ namespace acommon {
   char * unescape(char * dest, const char * src)
   {
     while (*src) {
-      if (*src == '\\') {
+      if (*src == '\\' && src[1]) {
 	++src;
 	switch (*src) {
 	case 'n': *dest = '\n'; break;
