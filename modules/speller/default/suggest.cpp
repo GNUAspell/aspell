@@ -1261,48 +1261,36 @@ namespace {
 
     if (parms->use_typo_analysis) {
       adj_threshold = 0;
-      if (parms->have_keyboard_def_file) {
-        unsigned int j;
-        
-        CharVector orig_norm, word;
-        orig_norm.resize(original.word.size() + 1);
-        for (j = 0; j != original.word.size(); ++j)
-          orig_norm[j] = parms->ti->to_normalized(original.word[j]);
-        orig_norm[j] = 0;
-        ParmString orig(orig_norm.data(), j);
-        word.resize(max_word_length + 1);
-        
-        for (i = scored_near_misses.begin();
-             i != scored_near_misses.end() && i->score <= thres;
-             ++i)
-        {
-          if (i->split) {
-            i->word_score = parms->ti->max + 2;
-            i->soundslike_score = i->word_score;
-            i->adj_score = i->word_score;
-          } else if (i->adj_score >= LARGE_NUM) {
-            for (j = 0; (i->word)[j] != 0; ++j)
-              word[j] = parms->ti->to_normalized((i->word)[j]);
-            word[j] = 0;
-            int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
-            // if a repl. table was used we don't want to increase the score
-            if (!i->repl_table || new_score < i->word_score)
-              i->word_score = new_score;
-            i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
-          }
-          if (i->adj_score > adj_threshold)
-            adj_threshold = i->adj_score;
+      unsigned int j;
+      
+      CharVector orig_norm, word;
+      orig_norm.resize(original.word.size() + 1);
+      for (j = 0; j != original.word.size(); ++j)
+        orig_norm[j] = parms->ti->to_normalized(original.word[j]);
+      orig_norm[j] = 0;
+      ParmString orig(orig_norm.data(), j);
+      word.resize(max_word_length + 1);
+      
+      for (i = scored_near_misses.begin();
+           i != scored_near_misses.end() && i->score <= thres;
+           ++i)
+      {
+        if (i->split) {
+          i->word_score = parms->ti->max + 2;
+          i->soundslike_score = i->word_score;
+          i->adj_score = i->word_score;
+        } else if (i->adj_score >= LARGE_NUM) {
+          for (j = 0; (i->word)[j] != 0; ++j)
+            word[j] = parms->ti->to_normalized((i->word)[j]);
+          word[j] = 0;
+          int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+          // if a repl. table was used we don't want to increase the score
+          if (!i->repl_table || new_score < i->word_score)
+            i->word_score = new_score;
+          i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
-      } else {
-        for (i = scored_near_misses.begin();
-             i != scored_near_misses.end() && i->score <= thres;
-             ++i)
-        {
-          if (i->adj_score >= LARGE_NUM && !i->split)
-            i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->edit_distance_weights.max);
-          if (i->adj_score > adj_threshold)
-            adj_threshold = i->adj_score;
-        }
+        if (i->adj_score > adj_threshold)
+          adj_threshold = i->adj_score;
       }
     } else {
       for (i = scored_near_misses.begin();
@@ -1313,7 +1301,7 @@ namespace {
       }
       adj_threshold = threshold;
     }
-
+    
     for (; i != scored_near_misses.end(); ++i) {
       if (i->adj_score > adj_threshold)
         i->adj_score = LARGE_NUM;
@@ -1459,7 +1447,6 @@ namespace aspeller {
     span = 50;
     ngram_keep = 10;
     use_typo_analysis = true;
-    have_keyboard_def_file = false;
     use_repl_table = sp->have_repl;
     try_one_edit_word = true; // always a good idea, even when
                               // soundslike lookup is used
@@ -1528,12 +1515,7 @@ namespace aspeller {
 
     if (use_typo_analysis) {
       String keyboard = config->retrieve("keyboard");
-      if (keyboard == "none") {
-        have_keyboard_def_file = false;
-      } else {
-        have_keyboard_def_file = true;
-        RET_ON_ERR(aspeller::setup(ti, config, &sp->lang(), keyboard));
-      }
+      RET_ON_ERR(aspeller::setup(ti, config, &sp->lang(), keyboard));
     }
     
     return no_err;

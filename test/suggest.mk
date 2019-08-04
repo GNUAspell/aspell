@@ -23,6 +23,16 @@ suggest-00-special-bad-spellers:: prep
 	suggest/comp suggest/00-special-bad-spellers-expect.res tmp/00-special-bad-spellers-actual.res 1 > tmp/00-special-bad-spellers.diff
 	rm tmp/00-special-bad-spellers.diff
 	echo "ok (suggest reg. 00-special bad-spellers)" >> test-res
+suggest-00-special-ultra-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=ultra" suggest/00-special.tab tmp/00-special-ultra-nokbd-actual
+	suggest/comp suggest/00-special-ultra-nokbd-expect.res tmp/00-special-ultra-nokbd-actual.res 1 > tmp/00-special-ultra-nokbd.diff
+	rm tmp/00-special-ultra-nokbd.diff
+	echo "ok (suggest reg. 00-special ultra nokbd)" >> test-res
+suggest-00-special-normal-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=normal" suggest/00-special.tab tmp/00-special-normal-nokbd-actual
+	suggest/comp suggest/00-special-normal-nokbd-expect.res tmp/00-special-normal-nokbd-actual.res 1 > tmp/00-special-normal-nokbd.diff
+	rm tmp/00-special-normal-nokbd.diff
+	echo "ok (suggest reg. 00-special normal nokbd)" >> test-res
 suggest-02-orig-ultra:: prep
 	suggest/run-batch "${ASPELL} --sug-mode=ultra" suggest/02-orig.tab tmp/02-orig-ultra-actual
 	suggest/comp suggest/02-orig-ultra-expect.res tmp/02-orig-ultra-actual.res 1 > tmp/02-orig-ultra.diff
@@ -48,6 +58,16 @@ suggest-02-orig-bad-spellers:: prep
 	suggest/comp suggest/02-orig-bad-spellers-expect.res tmp/02-orig-bad-spellers-actual.res 1 > tmp/02-orig-bad-spellers.diff
 	rm tmp/02-orig-bad-spellers.diff
 	echo "ok (suggest reg. 02-orig bad-spellers)" >> test-res
+suggest-02-orig-ultra-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=ultra" suggest/02-orig.tab tmp/02-orig-ultra-nokbd-actual
+	suggest/comp suggest/02-orig-ultra-nokbd-expect.res tmp/02-orig-ultra-nokbd-actual.res 1 > tmp/02-orig-ultra-nokbd.diff
+	rm tmp/02-orig-ultra-nokbd.diff
+	echo "ok (suggest reg. 02-orig ultra nokbd)" >> test-res
+suggest-02-orig-normal-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=normal" suggest/02-orig.tab tmp/02-orig-normal-nokbd-actual
+	suggest/comp suggest/02-orig-normal-nokbd-expect.res tmp/02-orig-normal-nokbd-actual.res 1 > tmp/02-orig-normal-nokbd.diff
+	rm tmp/02-orig-normal-nokbd.diff
+	echo "ok (suggest reg. 02-orig normal nokbd)" >> test-res
 suggest-05-common-ultra:: prep
 	suggest/run-batch "${ASPELL} --sug-mode=ultra" suggest/05-common.tab tmp/05-common-ultra-actual
 	suggest/comp suggest/05-common-ultra-expect.res tmp/05-common-ultra-actual.res 1 > tmp/05-common-ultra.diff
@@ -73,4 +93,14 @@ suggest-05-common-bad-spellers:: prep
 	suggest/comp suggest/05-common-bad-spellers-expect.res tmp/05-common-bad-spellers-actual.res 1 > tmp/05-common-bad-spellers.diff
 	rm tmp/05-common-bad-spellers.diff
 	echo "ok (suggest reg. 05-common bad-spellers)" >> test-res
-suggest:: suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow
+suggest-05-common-ultra-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=ultra" suggest/05-common.tab tmp/05-common-ultra-nokbd-actual
+	suggest/comp suggest/05-common-ultra-nokbd-expect.res tmp/05-common-ultra-nokbd-actual.res 1 > tmp/05-common-ultra-nokbd.diff
+	rm tmp/05-common-ultra-nokbd.diff
+	echo "ok (suggest reg. 05-common ultra nokbd)" >> test-res
+suggest-05-common-normal-nokbd:: prep
+	suggest/run-batch "${ASPELL} --keyboard=none --sug-mode=normal" suggest/05-common.tab tmp/05-common-normal-nokbd-actual
+	suggest/comp suggest/05-common-normal-nokbd-expect.res tmp/05-common-normal-nokbd-actual.res 1 > tmp/05-common-normal-nokbd.diff
+	rm tmp/05-common-normal-nokbd.diff
+	echo "ok (suggest reg. 05-common normal nokbd)" >> test-res
+suggest:: suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd

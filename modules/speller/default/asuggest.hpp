@@ -28,8 +28,6 @@ namespace aspeller {
     bool use_typo_analysis;
     bool use_repl_table;
 
-    bool have_keyboard_def_file; 
-
     int soundslike_weight;
     int word_weight;
 
