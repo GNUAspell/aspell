@@ -359,7 +359,7 @@ int main (int argc, const char *argv[])
     }
   }
 
-  options->read_in_settings();
+  EXIT_ON_ERR(options->read_in_settings());
 
   const char * codeset = 0;
 #ifdef HAVE_LANGINFO_CODESET
