@@ -92,48 +92,59 @@ namespace aspeller {
     CharPair(char a, char b) {d[0] = a; d[1] = b;}
   };
 
+  void TypoEditDistanceInfo::set_max() {
+    if (missing > max) max = missing;
+    if (swap    > max) max = swap;
+    if (repl_dis1 > max) max = repl_dis1;
+    if (repl_dis2 > max) max = repl_dis2;
+    if (extra_dis1 > max) max = extra_dis1;
+    if (extra_dis2 > max) max = extra_dis2;
+  }
+
   PosibErr<TypoEditDistanceInfo *> 
   TypoEditDistanceInfo::get_new(const char * kb, const Config * cfg, const Language * l)
   {
-    FStream in;
-    String file, dir1, dir2;
-    fill_data_dir(cfg, dir1, dir2);
-    find_file(file, dir1, dir2, kb, ".kbd");
-    RET_ON_ERR(in.open(file.c_str(), "r"));
-
     ConvEC iconv;
     RET_ON_ERR(iconv.setup(*cfg, "utf-8", l->charmap(), NormFrom));
-
+    
     Vector<CharPair> data;
-
+    
     char to_stripped[256];
     for (int i = 0; i <= 255; ++i)
       to_stripped[i] = l->to_stripped(i);
-
-    String buf;
-    DataPair d;
-    while (getdata_pair(in, d, buf)) {
-      if (d.key == "key") {
-        PosibErr<char *> pe(iconv(d.value.str, d.value.size));
-        if (pe.has_err()) 
-          return pe.with_file(file, d.line_num);
-        char * v = pe.data;
-        char base = *v;
+    
+    if (strcmp(kb, "none") != 0) {
+      FStream in;
+      String file, dir1, dir2;
+      fill_data_dir(cfg, dir1, dir2);
+      find_file(file, dir1, dir2, kb, ".kbd");
+      RET_ON_ERR(in.open(file.c_str(), "r"));
+      
+      String buf;
+      DataPair d;
+      while (getdata_pair(in, d, buf)) {
+        if (d.key == "key") {
+          PosibErr<char *> pe(iconv(d.value.str, d.value.size));
+          if (pe.has_err()) 
+            return pe.with_file(file, d.line_num);
+          char * v = pe.data;
+          char base = *v;
         while (*v) {
           to_stripped[(uchar)*v] = base;
           ++v;
           while (asc_isspace(*v)) ++v;
         }
-      } else {
-        PosibErr<char *> pe(iconv(d.key.str, d.key.size));
-        if (pe.has_err()) 
-          return pe.with_file(file, d.line_num);
-        char * v = pe.data;
-        if (strlen(v) != 2) 
-          return make_err(invalid_string, d.key.str).with_file(file, d.line_num);
-        to_stripped[(uchar)v[0]] = v[0];
-        to_stripped[(uchar)v[1]] = v[1];
-        data.push_back(CharPair(v[0], v[1]));
+        } else {
+          PosibErr<char *> pe(iconv(d.key.str, d.key.size));
+          if (pe.has_err()) 
+            return pe.with_file(file, d.line_num);
+          char * v = pe.data;
+          if (strlen(v) != 2) 
+            return make_err(invalid_string, d.key.str).with_file(file, d.line_num);
+          to_stripped[(uchar)v[0]] = v[0];
+          to_stripped[(uchar)v[1]] = v[1];
+          data.push_back(CharPair(v[0], v[1]));
+        }
       }
     }
 

@@ -119,6 +119,12 @@ namespace acommon {
   }
 
 
+  FStream & FStream::operator<< (unsigned long num)
+  {
+    fprintf(file_, "%lu", num);
+    return *this;
+  }
+
   FStream & FStream::operator<< (unsigned int num)
   {
     fprintf(file_, "%u", num);

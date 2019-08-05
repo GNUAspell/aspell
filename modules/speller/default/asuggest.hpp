@@ -19,7 +19,7 @@ namespace aspeller {
     EditDistanceWeights     edit_distance_weights;
     CachePtr<const TypoEditDistanceInfo> ti;
 
-    bool try_one_edit_word, try_scan_1, try_scan_2, try_ngram;
+    bool try_one_edit_word, try_scan_0, try_scan_1, try_scan_2, try_ngram;
 
     int ngram_threshold, ngram_keep;
 
@@ -28,11 +28,6 @@ namespace aspeller {
     bool use_typo_analysis;
     bool use_repl_table;
 
-    int normal_soundslike_weight; // percentage
-
-    int small_word_soundslike_weight; 
-    int small_word_threshold;
-    
     int soundslike_weight;
     int word_weight;
 
@@ -43,13 +38,9 @@ namespace aspeller {
     String split_chars;
 
     SuggestParms() {}
-    
-    PosibErr<void> set(ParmString mode, SpellerImpl * sp);
-    PosibErr<void> fill_distance_lookup(const Config * c, const Language & l);
-    
-    virtual ~SuggestParms() {}
-    virtual SuggestParms * clone() const;
-    virtual void set_original_word_size(int size);
+
+    PosibErr<void> init(ParmString mode, SpellerImpl * sp);
+    PosibErr<void> init(ParmString mode, SpellerImpl * sp, Config *);
   };
   
   Suggest * new_default_suggest(const Speller *, const SuggestParms &);

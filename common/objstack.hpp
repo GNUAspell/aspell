@@ -162,6 +162,9 @@ public:
     bottom = temp_end;
     temp_end = 0;}
 
+  typedef Node Memory;
+  Memory * freeze();
+  static void dealloc(Memory *);
 };
 
 typedef ObjStack StringBuffer;

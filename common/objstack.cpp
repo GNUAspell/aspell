@@ -75,4 +75,23 @@ void ObjStack::trim()
   }
 }
 
+ObjStack::Memory * ObjStack::freeze() {
+  trim();
+  Node * tmp = first;
+  first = 0;
+  first_free = 0;
+  top = 0;
+  bottom = 0;
+  temp_end = 0;
+  return tmp;
+}
+  
+void ObjStack::dealloc(Memory * ptr) {
+  while (ptr) {
+    Node * tmp = ptr->next;
+    free(ptr);
+    ptr = tmp;
+  }
+}
+
 }

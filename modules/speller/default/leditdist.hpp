@@ -51,10 +51,14 @@ namespace aspeller {
   // this needs to be SMALLER than INT_MAX since it may be incremented 
   // a few times
 
-  int limit_edit_distance(const char * a, const char * b, int limit, 
-			  const EditDistanceWeights & w 
+  int limit_edit_distance(const char * a, const char * b, int limit,
+			  const EditDistanceWeights & w
 			  = EditDistanceWeights());
   
+  EditDist limit0_edit_distance(const char * a, const char * b,
+				const EditDistanceWeights & w 
+				= EditDistanceWeights());
+
   EditDist limit1_edit_distance(const char * a, const char * b,
 				const EditDistanceWeights & w 
 				= EditDistanceWeights());
