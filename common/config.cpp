@@ -83,7 +83,7 @@ namespace acommon {
 		 const KeyInfo * mainbegin, 
 		 const KeyInfo * mainend)
     : name_(name)
-    , first_(0), insert_point_(&first_), others_(0)
+    , first_(0), insert_point_(&first_)
     , committed_(true), attached_(false)
     , md_info_list_index(-1)
     , settings_read_in_(false)
@@ -122,9 +122,6 @@ namespace acommon {
 
   void Config::copy(const Config & other)
   {
-    assert(other.others_ == 0);
-    others_ = 0;
-
     name_ = other.name_;
 
     committed_ = other.committed_;
@@ -178,12 +175,6 @@ namespace acommon {
       Entry * tmp = first_->next;
       delete first_;
       first_ = tmp;
-    }
-
-    while (others_) {
-      Entry * tmp = others_->next;
-      delete others_;
-      others_ = tmp;
     }
 
     Vector<Notifier *>::iterator i   = notifier_list.begin();
@@ -1309,22 +1300,32 @@ namespace acommon {
   PosibErr<void> Config::commit_all(Vector<int> * phs, const char * codeset)
   {
     committed_ = true;
-    others_ = first_;
+    Entry * uncommited = first_;
     first_ = 0;
     insert_point_ = &first_;
     Conv to_utf8;
     if (codeset)
       RET_ON_ERR(to_utf8.setup(*this, codeset, "utf-8", NormTo));
-    while (others_) {
-      *insert_point_ = others_;
-      others_ = others_->next;
-      (*insert_point_)->next = 0;
-      RET_ON_ERR_SET(commit(*insert_point_, codeset ? &to_utf8 : 0), int, place_holder);
+    PosibErr<void> ret;
+    while (uncommited) {
+      Entry * cur = uncommited;
+      uncommited = cur->next;
+      cur->next = 0;
+      *insert_point_ = cur;
+      insert_point_ = &((*insert_point_)->next);
+      PosibErr<int> pe = commit(cur, codeset ? &to_utf8 : 0);
+      if (pe.has_err()) {
+        if (ret.has_err())
+          pe.ignore_err();
+        else
+          ret = pe;
+        continue;
+      }
+      int place_holder = pe.data;
       if (phs && place_holder != -1 && (phs->empty() || phs->back() != place_holder))
         phs->push_back(place_holder);
-      insert_point_ = &((*insert_point_)->next);
     }
-    return no_err;
+    return ret;
   }
 
   PosibErr<void> Config::set_committed_state(bool val) {
