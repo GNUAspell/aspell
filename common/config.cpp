@@ -182,7 +182,7 @@ namespace acommon {
 
     while (others_) {
       Entry * tmp = others_->next;
-      delete first_;
+      delete others_;
       others_ = tmp;
     }
 

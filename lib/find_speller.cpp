@@ -283,7 +283,7 @@ namespace acommon {
 
   PosibErr<Config *> find_word_list(Config * c) 
   {
-    Config * config = new_config();
+    StackPtr<Config> config(new_config());
     RET_ON_ERR(config->read_in_settings(c));
     String dict_name;
 
@@ -429,11 +429,7 @@ namespace acommon {
       //
       if (best != 0) {
         String main_wl,flags;
-        PosibErrBase ret = get_dict_file_name(best, main_wl, flags);
-        if (ret.has_err()) {
-          delete config;
-          return ret;
-        }
+        RET_ON_ERR(get_dict_file_name(best, main_wl, flags));
         dict_name = best->name;
         config->replace("lang", b_code.best);
         config->replace("language-tag", b_code.best);
@@ -449,7 +445,6 @@ namespace acommon {
         }
         config->replace("size", b_size.best_str);
       } else {
-        delete config;
         return make_err(no_wordlist_for_lang, code);
       }
     }
@@ -457,7 +452,7 @@ namespace acommon {
     const StringMap * dict_aliases = get_dict_aliases(config);
     const char * val = dict_aliases->lookup(dict_name);
     if (val) config->replace("master", val);
-    return config;
+    return config.release();
   }
 
   PosibErr<void> reload_filters(Speller * m) 
