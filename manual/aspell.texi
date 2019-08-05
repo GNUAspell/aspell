@@ -1650,15 +1650,18 @@ will indicate that @samp{a} and @samp{s} are right next to each other.
 If @samp{as} is listed as an entry it is not necessary to list @samp{sa}
 as an entry as that will be done automatically.  Also by @dfn{right
 next to each other} I mean two keys that are close enough together that
-it is easy to type one instead of the other.  On most keyboards this
-means keys that are to the left or to the right of each other and
-@emph{not} keys that are below or above it.
+it is easy to type one instead of the other.
+@c On most keyboards this
+@c means keys that are to the left or to the right of each other and
+@c @emph{not} keys that are below or above it.
 
 The default for this option is normally @option{standard}.  However
 the default can be changed via the language data file.  The normal
 default, @option{standard}, should work well for most QWERTY like
 keyboard layouts.  It may need minor adjusting for foreign keyboards.
-The @option{dvorak} option can be used for a Dvorak layout.
+A value of @option{dvorak} can be used for a Dvorak layout and
+@option{none} can be used to avoid using an explicit keyboard layout
+and only use the information derived from the language data file.
 
 @node Notes on the Different Suggestion Modes
 @subsection Notes on the Different Suggestion Modes
