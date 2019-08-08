@@ -7,3 +7,4 @@ HJK	HIJACK	1	4	HIJACK, HAJJ, HAJJI, HICKOK
 hk	hijack	1	64	hijack, Gk, H, K, h, k, HQ, Hg, haj, hake, hike, hoke, HI, Ha, He, Ho, ck, ha, he, hi, ho, wk, AK, Bk, HF, HM, HP, HR, HS, HT, Hf, Hz, Mk, OK, SK, UK, bk, hf, hp, hr, ht, pk, Huck, hack, hawk, heck, hick, hock, hook, hag, hog, hug, Hakka, Hooke, haiku, hokey, hooky, hgwy, Hayek, hoick, H's, Hugo, h'm, huge
 sjk	hijack	4	6	SJ, SK, SJW, hijack, sqq, scag
 zphb	xenophobia	1	1	xenophobia
+zkw	zip line	1	21	zip line, kW, kw, Zeke, SJW, Zika, skew, SK, ska, ski, sky, SJ, Sq, sq, xx, sake, skua, SC, Sc, Saki, scow

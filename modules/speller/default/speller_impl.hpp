@@ -109,8 +109,15 @@ namespace aspeller {
       strncpy(&*w.begin(), word, w.size());
       return check(MutableString(&w.front(), w.size() - 1));
     }
-
     PosibErr<bool> check(const char * word) {return check(ParmString(word));}
+    PosibErr<bool> check(const char * word, size_t sz)
+    {
+      std::vector<char> w(sz+1);
+      memcpy(&*w.begin(), word, sz);
+      w[sz] = '\0';
+      return check(MutableString(&w.front(), sz));
+    }
+
 
     bool check2(char * word, /* it WILL modify word */
                 bool try_uppercase,

@@ -333,7 +333,6 @@ namespace {
 
     void score_list();
     void fine_tune_score(int thres);
-    void transfer();
   public:
     Working(SpellerImpl * m, const Language *l,
 	    const String & w, const SuggestParms * p)
@@ -343,18 +342,44 @@ namespace {
     Suggestions * suggestions(); 
   };
 
-  class Suggestions : private Common {
-  public:
-    Vector<ObjStack::Memory *> buf;
-    NearMisses                 scored_near_misses;
-    void transfer(NearMissesFinal &near_misses_final);
-    Suggestions(const Common & other)
-      : Common(other) {}
-    ~Suggestions() {
-      for (Vector<ObjStack::Memory *>::iterator i = buf.begin(), e = buf.end();
+  struct ConvertedSuggestion {
+    CharVector word_; // the length includes the trailing null
+                      // character
+    const ScoreWordSound * inf;
+    const char * word() const {
+      return word_.data();
+    }
+    double distance() const {
+      return inf->score/100.0;
+    }
+    double normalized_score() const {
+      return 100.0/(inf->score + 100);
+    }
+  };
+
+  struct SavedBufs : public Vector<ObjStack::Memory *> {
+    ~SavedBufs() {
+      for (Vector<ObjStack::Memory *>::iterator i = begin(), e = end();
            i != e; ++i)
         ObjStack::dealloc(*i);
     }
+  };
+
+  class FinalizedSuggestions;
+
+  class Suggestions : private Common, public Vector<ConvertedSuggestion> {
+  public:
+    SavedBufs  saved_bufs;
+    NearMisses scored_near_misses;
+    void transfer(FinalizedSuggestions &, int limit, Convert * conv);
+    Suggestions(const Common & other)
+      : Common(other) {}
+  };
+
+  class FinalizedSuggestions : public Vector<ConvertedSuggestion> {
+  public:
+    SavedBufs   saved_bufs_;
+    NearMisses  saved_near_misses_;
   };
 
   Suggestions * Working::suggestions() {
@@ -461,7 +486,7 @@ namespace {
 
     fine_tune_score(threshold);
     scored_near_misses.sort(adj_score_lt);
-    sug->buf.push_back(buffer.freeze());
+    sug->saved_bufs.push_back(buffer.freeze());
     sug->scored_near_misses.swap(scored_near_misses);
     return sug;
   }
@@ -1308,7 +1333,15 @@ namespace {
     }
   }
 
-  void Suggestions::transfer(NearMissesFinal & near_misses_final) {
+  struct StrEquals {
+    bool operator() (const char * x, const char * y) const {
+      return strcmp(x,y) == 0;
+    }
+  };
+  typedef hash_set<const char *,hash<const char *>,StrEquals> StrHashSet;
+
+  void Suggestions::transfer(FinalizedSuggestions & res, int limit, Convert * conv) {
+    res.resize(0);
 #  ifdef DEBUG_SUGGEST
     COUT << "\n" << "\n" 
 	 << original.word << '\t' 
@@ -1316,15 +1349,13 @@ namespace {
 	 << "\n";
     String sl;
 #  endif
-    int c = 1;
-    hash_set<String,HashString<String> > duplicates_check;
-    String buf;
-    String final_word;
-    pair<hash_set<String,HashString<String> >::iterator, bool> dup_pair;
+    StrHashSet duplicates_check;
+    ObjStack buf;
+    pair<StrHashSet::iterator, bool> dup_pair;
     for (NearMisses::const_iterator i = scored_near_misses.begin();
-	 i != scored_near_misses.end() && c <= parms->limit
-           && ( i->adj_score < LARGE_NUM || c <= 3 );
-	 ++i, ++c) {
+	 i != scored_near_misses.end() && res.size() < limit
+           && ( i->adj_score < LARGE_NUM || res.size() < 3);
+	 ++i) {
 #    ifdef DEBUG_SUGGEST
       //COUT.printf("%p %p: ",  i->word, i->soundslike);
       COUT << i->word
@@ -1335,37 +1366,55 @@ namespace {
            << '\t' << i->soundslike_score << "\n";
 #    endif
       if (i->repl_list != 0) {
- 	String::size_type pos;
 	do {
- 	  dup_pair = duplicates_check.insert(fix_case(i->repl_list->word, buf));
- 	  if (dup_pair.second && 
- 	      ((pos = dup_pair.first->find(' '), pos == String::npos)
- 	       ? (bool)sp->check(*dup_pair.first)
- 	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
- 		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
- 	    near_misses_final.push_back(*dup_pair.first);
- 	} while (i->repl_list->adv());
+          char * word = buf.dup(i->repl_list->word);
+          fix_case(word);
+ 	  dup_pair = duplicates_check.insert(word);
+ 	  if (dup_pair.second) {
+            const char * pos = strchr(word, ' ');
+            bool in_dict = pos == NULL ?
+              in_dict = sp->check(word) : sp->check(word, pos - word) && sp->check(pos + 1);
+            if (in_dict) {
+              res.push_back(ConvertedSuggestion());
+              if (conv) {
+                conv->convert(word, strlen(word)+1, res.back().word_);
+              } else {
+                res.back().word_ = word;
+                res.back().word_.push_back('\0');
+              }
+            }
+          }
+        } while (i->repl_list->adv());
       } else {
         fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
-	if (dup_pair.second )
-	  near_misses_final.push_back(*dup_pair.first);
+	if (dup_pair.second) {
+          res.push_back(ConvertedSuggestion());
+          if (conv) {
+            conv->convert(i->word, strlen(i->word) + 1, res.back().word_);
+          } else {
+            res.back().word_ = i->word;
+            res.back().word_.push_back('\0');
+          }
+        }
       }
     }
+    res.saved_bufs_.swap(saved_bufs);
+    res.saved_near_misses_.swap(scored_near_misses);
   }
   
   class SuggestionListImpl : public SuggestionList {
     struct Parms {
       typedef const char *                    Value;
-      typedef NearMissesFinal::const_iterator Iterator;
+      typedef FinalizedSuggestions::const_iterator Iterator;
       Iterator end;
       Parms(Iterator e) : end(e) {}
       bool endf(Iterator e) const {return e == end;}
       Value end_state() const {return 0;}
-      Value deref(Iterator i) const {return i->c_str();}
+      Value deref(Iterator i) const {return i->word();}
     };
   public:
-    NearMissesFinal suggestions;
+    FinalizedSuggestions suggestions;
 
     SuggestionList * clone() const {return new SuggestionListImpl(*this);}
     void assign(const SuggestionList * other) {
@@ -1407,11 +1456,10 @@ namespace {
 #   ifdef DEBUG_SUGGEST
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
-    suggestion_list.suggestions.resize(0);
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
     Suggestions * sugs = sug->suggestions();
     delete sug;
-    sugs->transfer(suggestion_list.suggestions);
+    sugs->transfer(suggestion_list.suggestions, parms_.limit, NULL);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
     COUT << "^^^^^^^^^^^  end suggest " << word << "  ^^^^^^^^^^^\n";
