@@ -134,7 +134,14 @@ namespace aspeller {
     return &suggest_->suggest(word);
   }
 
-  bool SpellerImpl::check_simple (ParmString w, WordEntry & w0) 
+  PosibErr<Suggestions *> SpellerImpl::suggestions(MutableString word) 
+  {
+    suggestions_.reset();
+    suggestions_.sugs_ =  &suggest_->suggestions(word);
+    return &suggestions_;
+  }
+  
+  bool SpellerImpl::check_simple(ParmString w, WordEntry & w0) 
   {
     w0.clear(); // FIXME: is this necessary?
     const char * x = w;

@@ -161,8 +161,12 @@ namespace aspeller {
 
     PosibErr<const WordList *> suggest(MutableString word);
     // the suggestion list and the elements in it are only 
-    // valid until the next call to suggest.
+    // valid until the next call to suggest or suggestions
 
+    PosibErr<Suggestions *> suggestions(MutableString word);
+    // the suggestion are only valid until the next call to suggest or
+    // suggestions
+    
     PosibErr<void> store_replacement(MutableString mis, 
 				     MutableString cor);
 
@@ -184,6 +188,7 @@ namespace aspeller {
     //CopyPtr<DictCollection> wls_;
     ClonePtr<Suggest>       suggest_;
     ClonePtr<Suggest>       intr_suggest_;
+    Suggestions             suggestions_;
     unsigned int            ignore_count;
     bool                    ignore_repl;
     String                  prev_mis_repl_;

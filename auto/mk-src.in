@@ -723,6 +723,13 @@ class: speller
 		const word list
 		encoded string: word
 
+	method: suggestions
+
+		posib err
+		/
+		suggestions
+		encoded string: word
+
 	method: store replacement
 
 		posib err
@@ -966,6 +973,26 @@ class: string enumeration
 		/
 		const void pointer
 		int: type_width
+}
+group: suggestions
+{
+/
+class: suggestions
+	/
+	method: words
+		/
+		string array
+		array size pointer: len
+
+	method: normalized scores
+		/
+		double array
+		array size pointer: len
+
+	method: distances
+		/
+		double array
+		array size pointer: len
 }
 group: info
 {
