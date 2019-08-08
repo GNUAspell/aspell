@@ -89,7 +89,7 @@ commerciasl	commercials	1	4	commercials, commercial, commercially, commercial's
 commited	committed	1	27	committed, commuted, commit ed, commit-ed, commutes, commute, commits, vomited, commit, commented, committee, computed, committer, communed, commuter, commode, commute's, combated, competed, commend, omitted, Comte, commie, commodity, recommitted, coated, comity
 commitee	committee	1	18	committee, commute, commit, committees, committer, commuter, Comte, commie, commode, committed, commuted, commutes, comity, commits, commies, committee's, commute's, commie's
 companys	companies	3	6	company's, company, companies, compass, Compaq's, compass's
-compicated	complicated	1	2	complicated, compacted
+compicated	complicated	1	3	complicated, compacted, communicated
 comupter	computer	1	16	computer, computers, compute, commuter, copter, computed, computes, corrupter, compeer, compete, computer's, compere, compote, compacter, compare, completer
 concensus	consensus	1	14	consensus, con census, con-census, consensus's, condenses, consensual, consciences, incenses, consensuses, consents, conscience's, consent's, incense's, nonsense's
 congradulations	congratulations	1	14	congratulations, congratulation's, congratulation, confabulations, congratulating, graduations, confabulation's, contradictions, congratulates, congregations, graduation's, granulation's, contradiction's, congregation's
