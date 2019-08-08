@@ -1,5 +1,6 @@
 CXXFLAGS = -O -g
 CFLAGS   = -O -g -Wall
+ASPELL_WRAP = # valgrind
 export ASPELL = ${CURDIR}/inst/bin/aspell
 export PREZIP = ${CURDIR}/inst/bin/prezip-bin
 MAKE := ${MAKE} "CXXFLAGS=${CXXFLAGS}" "CFLAGS=${CFLAGS}"
@@ -22,7 +23,7 @@ sanity:: prep
 	echo "all ok (sanity)" >> test-res
 
 filter-test:: prep
-	./filter-test "${ASPELL}" < markdown.dat
+	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
 	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
