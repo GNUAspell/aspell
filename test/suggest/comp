@@ -65,8 +65,8 @@ while (!eof(A) && !eof(B)) {
         print "$prefix$a{key}: WORSE: $a{pos} < $b{pos}:\n";
         $fail++;
     }
-    print "$prefix    $a{sugs}\n";
-    print "$prefix    $b{sugs}\n";
+    printf "$prefix    %3d: $a{sugs}\n", $a{num};
+    printf "$prefix    %3d: $b{sugs}\n", $b{num};
 }
 
 my @fh = (*STDOUT);

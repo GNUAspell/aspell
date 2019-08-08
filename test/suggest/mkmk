@@ -10,7 +10,7 @@ foreach my $f (qw (00-special 02-orig 05-common)) {
     foreach my $mode (@modes) {
         print <<"---";
 suggest-$f-${mode}:: prep
-	suggest/run-batch "\${ASPELL} --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-actual
+	suggest/run-batch "\${ASPELL_WRAP} \${ASPELL} --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-actual
 	suggest/comp suggest/$f-$mode-expect.res tmp/$f-$mode-actual.res 1 > tmp/$f-$mode.diff
 	rm tmp/$f-$mode.diff
 	echo "ok (suggest reg. $f $mode)" >> test-res
@@ -21,7 +21,7 @@ suggest-$f-${mode}:: prep
     foreach my $mode (qw(ultra normal)) {
         print <<"---";
 suggest-$f-${mode}-nokbd:: prep
-	suggest/run-batch "\${ASPELL} --keyboard=none --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-nokbd-actual
+	suggest/run-batch "\${ASPELL_WRAP} \${ASPELL} --keyboard=none --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-nokbd-actual
 	suggest/comp suggest/$f-$mode-nokbd-expect.res tmp/$f-$mode-nokbd-actual.res 1 > tmp/$f-$mode-nokbd.diff
 	rm tmp/$f-$mode-nokbd.diff
 	echo "ok (suggest reg. $f $mode nokbd)" >> test-res
