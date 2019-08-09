@@ -729,6 +729,7 @@ class: speller
 		/
 		suggestions
 		encoded string: word
+		void pointer: unusued
 
 	method: store replacement
 

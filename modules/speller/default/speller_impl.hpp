@@ -163,7 +163,7 @@ namespace aspeller {
     // the suggestion list and the elements in it are only 
     // valid until the next call to suggest or suggestions
 
-    PosibErr<Suggestions *> suggestions(MutableString word);
+    PosibErr<Suggestions *> suggestions(MutableString word, void *);
     // the suggestion are only valid until the next call to suggest or
     // suggestions
     

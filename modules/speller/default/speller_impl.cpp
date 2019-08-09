@@ -134,7 +134,7 @@ namespace aspeller {
     return &suggest_->suggest(word);
   }
 
-  PosibErr<Suggestions *> SpellerImpl::suggestions(MutableString word) 
+  PosibErr<Suggestions *> SpellerImpl::suggestions(MutableString word, void *) 
   {
     suggestions_.reset();
     suggestions_.sugs_ =  &suggest_->suggestions(word);

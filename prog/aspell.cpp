@@ -922,7 +922,7 @@ void pipe()
         double * normalized_scores = 0;
         double * distances = 0;
         if (suggest) {
-          AspellSuggestions * sugs = aspell_speller_suggestions(speller, word, -1);
+          AspellSuggestions * sugs = aspell_speller_suggestions(speller, word, -1, 0);
           suggestions = aspell_suggestions_words(sugs, &num_suggestions);
           if (show_scores == ShowNormalized)
             normalized_scores = aspell_suggestions_normalized_scores(sugs, NULL);

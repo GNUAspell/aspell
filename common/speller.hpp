@@ -128,7 +128,7 @@ namespace acommon {
     // the word list returned by suggest is only valid until the next
     // call to suggest
 
-    virtual PosibErr<Suggestions *> suggestions(MutableString) = 0;
+    virtual PosibErr<Suggestions *> suggestions(MutableString, void *) = 0;
   
     virtual PosibErr<void> store_replacement(MutableString, 
 					     MutableString) = 0;
