@@ -20,6 +20,21 @@ using namespace acommon;
 
 namespace acommon {
   struct CheckInfo;
+
+  struct ConfigConvKey : public ConvKey {
+    Config::Value config_val;
+    template <typename T>
+    ConfigConvKey(const T & v) : config_val(v) {
+      val = config_val.val;
+      allow_ucs = config_val.secure;
+    }
+    void fix_encoding_str() {
+      String buf;
+      ::fix_encoding_str(val, buf);
+      config_val.val.swap(buf);
+      val = config_val.val;
+    }
+  };
 }
 
 namespace aspeller {

@@ -66,7 +66,7 @@ namespace {
   {
     name_ = "email-filter";
     order_num_ = 0.85;
-    is_quote_char.conv.setup(*opts, "utf-8", "ucs-4", NormNone);
+    is_quote_char.conv.setup(*opts, "utf-8", ConvKey("ucs-4", true), NormNone);
     RET_ON_ERR(opts->retrieve_list("f-email-quote", &is_quote_char));
     margin = opts->retrieve_int("f-email-margin");
     reset();

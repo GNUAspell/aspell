@@ -324,6 +324,16 @@ namespace acommon {
     return cur ? cur->value : get_default(ki);
   }
 
+  PosibErr<Config::Value> Config::retrieve_value(ParmStr key) const
+  {
+    RET_ON_ERR_SET(keyinfo(key), const KeyInfo *, ki);
+    if (ki->type == KeyInfoList) return make_err(key_not_string, ki->name);
+
+    const Entry * cur = lookup(ki->name);
+
+    return cur ? Value(cur->value,cur->secure) : Value(get_default(ki), true);
+  }
+  
   PosibErr<String> Config::retrieve_any(ParmStr key) const
   {
     RET_ON_ERR_SET(keyinfo(key), const KeyInfo *, ki);
@@ -795,6 +805,7 @@ namespace acommon {
     Entry * entry = new Entry;
     entry->key = key;
     entry->value = value;
+    entry->secure = true;
     return set(entry);
   }
   

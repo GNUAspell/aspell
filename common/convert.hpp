@@ -23,12 +23,21 @@ namespace acommon {
   class OStream;
   class Config;
 
+  struct ConvKey {
+    ParmString val;
+    bool allow_ucs;
+    ConvKey() : val(), allow_ucs() {}
+    template <typename T>
+    ConvKey(const T & v, bool a = false) : val(v), allow_ucs(a) {}
+  };
+
   struct ConvBase : public Cacheable {
     typedef const Config CacheConfig;
-    typedef const char * CacheKey;
+    typedef ConvKey CacheKey;
     String key;
     int type_width; // type width in bytes
-    bool cache_key_eq(const char * l) const  {return key == l;}
+    bool is_ucs() const {return type_width != 1;}
+    bool cache_key_eq(CacheKey k) const  {return k.allow_ucs ? key == k.val : key == k.val && !is_ucs();}
     ConvBase() : type_width(1) {}
   private:
     ConvBase(const ConvBase &);
@@ -41,7 +50,7 @@ namespace acommon {
 			FilterCharVector & out) const = 0;
     virtual PosibErr<void> decode_ec(const char * in, int size,
                                      FilterCharVector & out, ParmStr orig) const = 0;
-    static PosibErr<Decode *> get_new(const String &, const Config *);
+    static PosibErr<Decode *> get_new(const ConvKey &, const Config *);
     virtual ~Decode() {}
   };
   struct Encode : public ConvBase {
@@ -55,7 +64,7 @@ namespace acommon {
     // may convert inplace
     virtual bool encode(FilterChar * & in, FilterChar * & stop, 
                         FilterCharVector & buf) const {return false;}
-    static PosibErr<Encode *> get_new(const String &, const Config *);
+    static PosibErr<Encode *> get_new(const ConvKey &, const Config *);
     virtual ~Encode() {}
   };
   struct DirectConv { // convert directly from in_code to out_code.
@@ -124,9 +133,9 @@ namespace acommon {
     // this class in any way.
     Filter filter;
 
-    PosibErr<void> init(const Config &, ParmStr in, ParmStr out);
-    PosibErr<void> init_norm_to(const Config &, ParmStr in, ParmStr out);
-    PosibErr<void> init_norm_from(const Config &, ParmStr in, ParmStr out);
+    PosibErr<void> init(const Config &, const ConvKey & in, const ConvKey & out);
+    PosibErr<void> init_norm_to(const Config &, const ConvKey & in, const ConvKey & out);
+    PosibErr<void> init_norm_from(const Config &, const ConvKey & in, const ConvKey & out);
     
     const char * in_code() const   {return decode_->key.c_str();}
     const char * out_code() const  {return encode_->key.c_str();}
@@ -217,19 +226,19 @@ namespace acommon {
   enum Normalize {NormNone, NormFrom, NormTo};
 
   PosibErr<Convert *> internal_new_convert(const Config & c, 
-                                           ParmString in, ParmString out,
+                                           ConvKey in, ConvKey out,
                                            bool if_needed,
                                            Normalize n);
   
   static inline PosibErr<Convert *> new_convert(const Config & c,
-                                                ParmStr in, ParmStr out,
+                                                const ConvKey & in, const ConvKey & out,
                                                 Normalize n)
   {
     return internal_new_convert(c,in,out,false,n);
   }
   
   static inline PosibErr<Convert *> new_convert_if_needed(const Config & c,
-                                                          ParmStr in, ParmStr out,
+                                                          const ConvKey & in, const ConvKey & out,
                                                           Normalize n)
   {
     return internal_new_convert(c,in,out,true,n);
@@ -239,7 +248,7 @@ namespace acommon {
     Convert * ptr;
     ConvObj(Convert * c = 0) : ptr(c) {}
     ~ConvObj() {delete ptr;}
-    PosibErr<void> setup(const Config & c, ParmStr from, ParmStr to, Normalize norm)
+    PosibErr<void> setup(const Config & c, const ConvKey & from, const ConvKey & to, Normalize norm)
     {
       delete ptr;
       ptr = 0;
@@ -263,7 +272,7 @@ namespace acommon {
     ConvP(const ConvObj & c) : conv(c.ptr) {}
     ConvP(const ConvP & c) : conv(c.conv) {}
     void operator=(const ConvP & c) { conv = c.conv; }
-    PosibErr<void> setup(const Config & c, ParmStr from, ParmStr to, 
+    PosibErr<void> setup(const Config & c, const ConvKey & from, const ConvKey & to, 
                          Normalize norm)
     {
       delete conv;
@@ -334,7 +343,7 @@ namespace acommon {
   {
     ConvObj conv_obj;
     Conv(Convert * c = 0) : ConvP(c), conv_obj(c) {}
-    PosibErr<void> setup(const Config & c, ParmStr from, ParmStr to, Normalize norm)
+    PosibErr<void> setup(const Config & c, const ConvKey & from, const ConvKey & to, Normalize norm)
     {
       RET_ON_ERR(conv_obj.setup(c,from,to,norm));
       conv = conv_obj.ptr;
@@ -351,7 +360,7 @@ namespace acommon {
     ConvECP(const ConvObj & c) : conv(c.ptr) {}
     ConvECP(const ConvECP & c) : conv(c.conv) {}
     void operator=(const ConvECP & c) { conv = c.conv; }
-    PosibErr<void> setup(const Config & c, ParmStr from, ParmStr to, Normalize norm)
+    PosibErr<void> setup(const Config & c, const ConvKey & from, const ConvKey & to, Normalize norm)
     {
       delete conv;
       conv = 0;
@@ -406,7 +415,7 @@ namespace acommon {
   {
     ConvObj conv_obj;
     ConvEC(Convert * c = 0) : ConvECP(c), conv_obj(c) {}
-    PosibErr<void> setup(const Config & c, ParmStr from, ParmStr to, Normalize norm)
+    PosibErr<void> setup(const Config & c, const ConvKey & from, const ConvKey & to, Normalize norm)
     {
       RET_ON_ERR(conv_obj.setup(c,from,to,norm));
       conv = conv_obj.ptr;

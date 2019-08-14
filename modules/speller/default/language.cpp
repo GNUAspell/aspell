@@ -113,7 +113,10 @@ namespace aspeller {
     name_          = data.retrieve("name");
     charset_       = fix_encoding_str(data.retrieve("charset"), buf);
     charmap_       = charset_;
-    data_encoding_ = fix_encoding_str(data.retrieve("data-encoding"), buf);
+
+    ConfigConvKey d_enc = data.retrieve_value("data-encoding");
+    d_enc.fix_encoding_str();
+    data_encoding_ = d_enc.val;
 
     DataPair d;
 
@@ -688,7 +691,8 @@ namespace aspeller {
     skip_invalid_words = config.retrieve_bool("skip-invalid-words");
     clean_affixes = config.retrieve_bool("clean-affixes");
     if (config.have("encoding")) {
-      RET_ON_ERR(iconv.setup(config, config.retrieve("encoding"), lang->charmap(),NormFrom));
+      ConfigConvKey enc = config.retrieve_value("encoding");
+      RET_ON_ERR(iconv.setup(config, enc, lang->charmap(),NormFrom));
     } else {
       RET_ON_ERR(iconv.setup(config, lang->data_encoding(), lang->charmap(), NormFrom));
     }

@@ -95,9 +95,10 @@ namespace acommon {
       unsigned line_num;
       Action action;
       bool need_conv;
+      bool secure; // if the value was set in a secure content
       short place_holder;
       Entry() : line_num(0), action(NoOp), 
-                need_conv(false), place_holder(-1) {}
+                need_conv(false), secure(false), place_holder(-1) {}
     };
 
   private:
@@ -164,8 +165,8 @@ namespace acommon {
     PosibErr<const ConfigModule *> (* load_filter_hook)(Config * config, ParmStr value);
     Notifier * filter_mode_notifier;
 
-    Vector<ConfigModule>      filter_modules;
-    Vector<Cacheable *> filter_modules_ptrs;
+    Vector<ConfigModule> filter_modules;
+    Vector<Cacheable *>  filter_modules_ptrs;
 
     Config(ParmStr name,
 	   const KeyInfo * mainbegin, 
@@ -206,6 +207,14 @@ namespace acommon {
     PosibErr<String> get_default(ParmStr) const;
 
     PosibErr<String> retrieve(ParmStr key) const;
+
+    struct Value {
+      String val;
+      bool secure;
+      Value() {}
+      Value(const String & v, bool s = false) : val(v), secure(s) {}
+    };
+    PosibErr<Value> retrieve_value(ParmStr key) const;
 
     // will also retrieve a list, with one value per line
     PosibErr<String> retrieve_any(ParmStr key) const;

@@ -666,8 +666,8 @@ namespace aspeller {
     }
 
     const char * sys_enc = lang_->charmap();
-    String user_enc = config_->retrieve("encoding");
-    if (user_enc == "none") {
+    ConfigConvKey user_enc = config_->retrieve_value("encoding");
+    if (user_enc.val == "none") {
       config_->replace("encoding", sys_enc);
       user_enc = sys_enc;
     }

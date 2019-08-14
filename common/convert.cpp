@@ -590,6 +590,7 @@ namespace acommon {
           snprintf(m, 70, _("The Unicode code point U+%04X is unsupported."), in->chr);
           return make_err(invalid_string, orig, m);
         }
+        
         out.append(&c, sizeof(Chr));
       }
       return no_err;
@@ -972,18 +973,18 @@ namespace acommon {
   }
 
   PosibErr<Convert *> internal_new_convert(const Config & c,
-                                           ParmString in, 
-                                           ParmString out,
+                                           ConvKey in, 
+                                           ConvKey out,
                                            bool if_needed,
                                            Normalize norm)
   {
     String in_s;
-    in = fix_encoding_str(in, in_s);
+    in.val = fix_encoding_str(in.val, in_s);
 
     String out_s;
-    out = fix_encoding_str(out, out_s); 
+    out.val = fix_encoding_str(out.val, out_s); 
 
-    if (if_needed && in == out) return 0;
+    if (if_needed && in.val == out.val) return 0;
 
     StackPtr<Convert> conv(new Convert);
     switch (norm) {
@@ -997,45 +998,59 @@ namespace acommon {
     return conv.release();
   }
 
-  PosibErr<Decode *> Decode::get_new(const String & key, const Config * c)
+  PosibErr<Decode *> Decode::get_new(const ConvKey & k, const Config * c)
   {
     StackPtr<Decode> ptr;
-    if (key == "iso-8859-1")
+    if (k.val == "iso-8859-1") {
       ptr.reset(new DecodeDirect<Uni8>);
-    else if (key == "ucs-2")
-      ptr.reset(new DecodeDirect<Uni16>);
-    else if (key == "ucs-4")
-      ptr.reset(new DecodeDirect<Uni32>);
-    else if (key == "utf-8")
+    } else if (k.val == "ucs-2") {
+      if (k.allow_ucs)
+        ptr.reset(new DecodeDirect<Uni16>);
+      else
+        return make_err(encoding_not_supported, k.val);
+    } else if (k.val == "ucs-4") {
+      if (k.allow_ucs)
+        ptr.reset(new DecodeDirect<Uni32>);
+      else
+        return make_err(encoding_not_supported, k.val);
+    } else if (k.val == "utf-8") {
       ptr.reset(new DecodeUtf8);
-    else
+    } else {
       ptr.reset(new DecodeLookup);
-    RET_ON_ERR(ptr->init(key, *c));
-    ptr->key = key;
+    }
+    RET_ON_ERR(ptr->init(k.val, *c));
+    ptr->key = k.val;
     return ptr.release();
   }
 
-  PosibErr<Encode *> Encode::get_new(const String & key, const Config * c)
+  PosibErr<Encode *> Encode::get_new(const ConvKey & k, const Config * c)
   {
     StackPtr<Encode> ptr;
-    if (key == "iso-8859-1")
+    if (k.val == "iso-8859-1") {
       ptr.reset(new EncodeDirect<Uni8>);
-    else if (key == "ucs-2")
-      ptr.reset(new EncodeDirect<Uni16>);
-    else if (key == "ucs-4")
-      ptr.reset(new EncodeDirect<Uni32>);
-    else if (key == "utf-8")
+    } else if (k.val == "ucs-2" && k.allow_ucs) {
+      if (k.allow_ucs)
+        ptr.reset(new EncodeDirect<Uni16>);
+      else
+        return make_err(encoding_not_supported, k.val);
+    } else if (k.val == "ucs-4" && k.allow_ucs) {
+      if (k.allow_ucs)
+        ptr.reset(new EncodeDirect<Uni32>);
+      else
+        return make_err(encoding_not_supported, k.val);
+    } else if (k.val == "utf-8") {
       ptr.reset(new EncodeUtf8);
-    else
+    } else {
       ptr.reset(new EncodeLookup);
-    RET_ON_ERR(ptr->init(key, *c));
-    ptr->key = key;
+    }
+    RET_ON_ERR(ptr->init(k.val, *c));
+    ptr->key = k.val;
     return ptr.release();
   }
 
   Convert::~Convert() {}
 
-  PosibErr<void> Convert::init(const Config & c, ParmStr in, ParmStr out)
+  PosibErr<void> Convert::init(const Config & c, const ConvKey & in, const ConvKey & out)
   {
     RET_ON_ERR(setup(decode_c, &decode_cache, &c, in));
     decode_ = decode_c.get();
@@ -1043,11 +1058,19 @@ namespace acommon {
     encode_ = encode_c.get();
 
     conv_ = 0;
-    if (in == out) {
-      if (in == "ucs-2") {
-        conv_ = new ConvDirect<Uni16>;
-      } else if (in == "ucs-4") {
-        conv_ = new ConvDirect<Uni32>;
+    if (in.val == out.val) {
+      if (in.val == "ucs-2") {
+        if (in.allow_ucs) {
+          conv_ = new ConvDirect<Uni16>;
+        } else {
+          return make_err(encoding_not_supported, in.val);
+        }
+      } else if (in.val == "ucs-4") {
+        if (in.allow_ucs) {
+          conv_ = new ConvDirect<Uni32>;
+        } else {
+          return make_err(encoding_not_supported, in.val);
+        }
       } else {
         conv_ = new ConvDirect<char>;
       }
@@ -1060,12 +1083,12 @@ namespace acommon {
   }
 
   
-  PosibErr<void> Convert::init_norm_from(const Config & c, ParmStr in, ParmStr out)
+  PosibErr<void> Convert::init_norm_from(const Config & c, const ConvKey & in, const ConvKey & out)
   {
     if (!c.retrieve_bool("normalize") && !c.retrieve_bool("norm-required")) 
       return init(c,in,out);
 
-    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, out));
+    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, out.val));
 
     RET_ON_ERR(setup(decode_c, &decode_cache, &c, in));
     decode_ = decode_c.get();
@@ -1073,12 +1096,12 @@ namespace acommon {
     if (c.retrieve_bool("norm-strict")) {
       encode_s = new EncodeNormLookup(norm_tables_->strict);
       encode_ = encode_s;
-      encode_->key = out;
+      encode_->key = out.val;
       encode_->key += ":strict";
     } else {
       encode_s = new EncodeNormLookup(norm_tables_->internal);
       encode_ = encode_s;
-      encode_->key = out;
+      encode_->key = out.val;
       encode_->key += ":internal";
     }
     conv_ = 0;
@@ -1086,7 +1109,7 @@ namespace acommon {
     return no_err;
   }
 
-  PosibErr<void> Convert::init_norm_to(const Config & c, ParmStr in, ParmStr out)
+  PosibErr<void> Convert::init_norm_to(const Config & c, const ConvKey & in, const ConvKey & out)
   {
     String norm_form = c.retrieve("norm-form");
     if ((!c.retrieve_bool("normalize") || norm_form == "none")
@@ -1095,7 +1118,7 @@ namespace acommon {
     if (norm_form == "none" && c.retrieve_bool("norm-required"))
       norm_form = "nfc";
 
-    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, in));
+    RET_ON_ERR(setup(norm_tables_, &norm_tables_cache, &c, in.val));
 
     RET_ON_ERR(setup(encode_c, &encode_cache, &c, out));
     encode_ = encode_c.get();
@@ -1107,7 +1130,7 @@ namespace acommon {
 
     decode_s = new DecodeNormLookup(i->ptr);
     decode_ = decode_s;
-    decode_->key = in;
+    decode_->key = in.val;
     decode_->key += ':';
     decode_->key += i->name;
 
