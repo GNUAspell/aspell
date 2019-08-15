@@ -1079,7 +1079,8 @@ namespace acommon {
 
     NormTables::ToUni::const_iterator i = norm_tables_->to_uni.begin();
     for (; i != norm_tables_->to_uni.end() && i->name != norm_form; ++i);
-    assert(i != norm_tables_->to_uni.end());
+    if (i == norm_tables_->to_uni.end())
+      return make_err(aerror_bad_value, "norm-form", norm_form, "one of none, nfd, nfc, or comp");
 
     decode_s = new DecodeNormLookup(i->ptr);
     decode_ = decode_s;

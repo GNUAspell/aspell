@@ -160,7 +160,8 @@ PosibErr<void> WritableBase::load(ParmString f0, Config & config,
     // ^^ FIXME 
     RET_ON_ERR(merge(in, f, &config));
       
-  } else if (f.substr(f.size()-suffix.size(),suffix.size()) 
+  } else if (f.size() >= suffix.size() &&
+             f.substr(f.size()-suffix.size(),suffix.size())
              == suffix) {
       
     compatibility_file_name = f.substr(0,f.size() - suffix.size());

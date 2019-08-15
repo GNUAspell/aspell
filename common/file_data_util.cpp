@@ -14,7 +14,7 @@ namespace acommon {
   void fill_data_dir(const Config * config, String & dir1, String & dir2) {
     if (config->have("local-data-dir")) {
       dir1 = config->retrieve("local-data-dir");
-      if (dir1[dir1.size()-1] != '/') dir1 += '/';
+      if (!dir1.empty() && dir1[dir1.size()-1] != '/') dir1 += '/';
     } else {
       dir1 = config->retrieve("master-path");
       size_t pos = dir1.rfind('/');
