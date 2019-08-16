@@ -365,7 +365,8 @@ namespace acommon {
       else if (config->have("module-search-order"))
         config->retrieve_list("module-search-order", &b_module.list);
       {
-        StackPtr<ModuleInfoEnumeration> els(get_module_info_list(config)->elements());
+        RET_ON_ERR_SET(get_module_info_list(config), const ModuleInfoList *, modules);
+        StackPtr<ModuleInfoEnumeration> els(modules->elements());
         const ModuleInfo * entry;
         while ( (entry = els->next()) != 0)
           b_module.list.add(entry->name);
@@ -384,7 +385,7 @@ namespace acommon {
         b_size.req_type = '+';
       }
       if (!asc_isdigit(p[0]) || !asc_isdigit(p[1]) || p[2] != '\0')
-        abort(); //FIXME: create an error condition here
+        return make_err(aerror_bad_value, "size", str, "valid");
       b_size.requested = atoi(p);
       b_size.init();
 

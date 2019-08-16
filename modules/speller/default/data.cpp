@@ -96,7 +96,7 @@ namespace aspeller {
       PosibErr<Language *> res = new_language(config, l);
       if (res.has_err()) return res;
       lang_.reset(res.data);
-      lang_->set_lang_defaults(config);
+      RET_ON_ERR(lang_->set_lang_defaults(config));
       set_lang_hook(config);
     } else {
       if (l != lang_->name())

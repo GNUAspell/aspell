@@ -70,7 +70,7 @@ namespace acommon {
     ModuleInfoNode * head_;
   };
   
-  const ModuleInfoList * get_module_info_list(Config *);
+  PosibErr<const ModuleInfoList *> get_module_info_list(Config *);
 
   struct DictInfoNode;
 

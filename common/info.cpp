@@ -677,11 +677,10 @@ namespace acommon {
   // ModuleInfo
   //
 
-  const ModuleInfoList * get_module_info_list(Config * c)
+  PosibErr<const ModuleInfoList *> get_module_info_list(Config * c)
   {
-    const MDInfoListAll * la = md_info_list_of_lists.get_lists(c);
-    if (la == 0) return 0;
-    else return &la->module_info_list;
+    RET_ON_ERR_SET(md_info_list_of_lists.get_lists(c), const MDInfoListAll *, la);
+    return &la->module_info_list;
   }
 
   ModuleInfoEnumeration * ModuleInfoList::elements() const

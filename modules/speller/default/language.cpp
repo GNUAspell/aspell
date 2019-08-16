@@ -330,10 +330,11 @@ namespace aspeller {
     return no_err;
   }
 
-  void Language::set_lang_defaults(Config & config) const
+  PosibErr<void> Language::set_lang_defaults(Config & config) const
   {
     config.replace_internal("actual-lang", name());
-    config.lang_config_merge(*lang_config_, FOR_CONFIG, data_encoding_);
+    RET_ON_ERR(config.lang_config_merge(*lang_config_, FOR_CONFIG, data_encoding_));
+    return no_err;
   }
 
   WordInfo Language::get_word_info(ParmStr str) const

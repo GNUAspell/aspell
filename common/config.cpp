@@ -879,11 +879,11 @@ namespace acommon {
     return no_err;
   }
 
-  void Config::lang_config_merge(const Config & other,
-                                 int which, ParmStr data_encoding)
+  PosibErr<void> Config::lang_config_merge(const Config & other,
+                                           int which, ParmStr data_encoding)
   {
     Conv to_utf8;
-    to_utf8.setup(*this, data_encoding, "utf-8", NormTo);
+    RET_ON_ERR(to_utf8.setup(*this, data_encoding, "utf-8", NormTo));
     const Entry * src  = other.first_;
     Entry * * ip = &first_;
     while (src)
@@ -900,6 +900,7 @@ namespace acommon {
       }
       src = src->next;
     }
+    return no_err;
   }
 
 
@@ -940,9 +941,11 @@ namespace acommon {
         pe = make_err(key_not_list, entry->key);
         goto error;
       }
-      
-      assert(ki->def != 0); // if null this key should never have values
-      // directly added to it
+
+      if (!ki->def) // if null this key should never have values
+                    // directly added to it
+        return make_err(aerror_cant_change_value, entry->key);
+
       String value(entry->action == Reset ? get_default(ki) : entry->value);
       
       switch (ki->type) {

@@ -18,7 +18,9 @@ class ModuleInfoList;
 
 extern "C" ModuleInfoList * get_aspell_module_info_list(Config * config)
 {
-  return const_cast<ModuleInfoList *>(get_module_info_list(config));
+  PosibErr<const ModuleInfoList *> res = get_module_info_list(config);
+  if (res.get_err()) return 0;
+  return const_cast<ModuleInfoList *>(res.data);
 }
 
 extern "C" int aspell_module_info_list_empty(const ModuleInfoList * ths)

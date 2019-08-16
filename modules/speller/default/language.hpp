@@ -130,7 +130,7 @@ namespace aspeller {
 
     Language() {}
     PosibErr<void> setup(const String & lang, const Config * config);
-    void set_lang_defaults(Config & config) const;
+    PosibErr<void> set_lang_defaults(Config & config) const;
 
     const char * data_dir() const {return dir_.c_str();}
     const char * name() const {return name_.c_str();}
