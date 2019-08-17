@@ -4356,6 +4356,8 @@ In order to work with the new Markdown filter
 time.  If the document is split on white space characters instead,
 nothing will break, but new filters such as the Markdown filter may
 give incorrect results.
+@item
+Fix various crashes and other problems found by Google's OSS-Fuzz.
 @end itemize
 
 @heading Changes from 0.60.6.1 to 0.60.7 (July 29, 2019)
