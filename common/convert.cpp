@@ -541,18 +541,25 @@ namespace acommon {
   // Trivial Conversion
   //
 
+  const char * unsupported_null_term_wide_string_msg =
+    "Null-terminated wide-character strings unsupported when used this way.";
+
   template <typename Chr>
   struct DecodeDirect : public Decode 
   {
+    DecodeDirect() {type_width = sizeof(Chr);}
     void decode(const char * in0, int size, FilterCharVector & out) const {
       const Chr * in = reinterpret_cast<const Chr *>(in0);
-      if (size == -1) {
+      if (size == -sizeof(Chr)) {
         for (;*in; ++in)
-          out.append(*in);
+          out.append(*in, sizeof(Chr));
+      } else if (size <= -1) {
+        fprintf(stderr, "%s\n", unsupported_null_term_wide_string_msg);
+        abort();
       } else {
-        const Chr * stop = reinterpret_cast<const Chr *>(in0 +size);
+        const Chr * stop = reinterpret_cast<const Chr *>(in0) + size/sizeof(Chr);
         for (;in != stop; ++in)
-          out.append(*in);
+          out.append(*in, sizeof(Chr));
       }
     }
     PosibErr<void> decode_ec(const char * in0, int size, 
@@ -565,6 +572,7 @@ namespace acommon {
   template <typename Chr>
   struct EncodeDirect : public Encode
   {
+    EncodeDirect() {type_width = sizeof(Chr);}
     void encode(const FilterChar * in, const FilterChar * stop, 
                 CharVector & out) const {
       for (; in != stop; ++in) {
@@ -594,11 +602,15 @@ namespace acommon {
   template <typename Chr>
   struct ConvDirect : public DirectConv
   {
+    ConvDirect() {type_width = sizeof(Chr);}
     void convert(const char * in0, int size, CharVector & out) const {
-      if (size == -1) {
+      if (size == -sizeof(Chr)) {
         const Chr * in = reinterpret_cast<const Chr *>(in0);
         for (;*in != 0; ++in)
           out.append(in, sizeof(Chr));
+      } else if (size <= -1) {
+        fprintf(stderr, "%s\n", unsupported_null_term_wide_string_msg);
+        abort();
       } else {
         out.append(in0, size);
       }
@@ -1122,5 +1134,20 @@ namespace acommon {
     }
     return 0;
   }
-  
+
+  PosibErr<void> unsupported_null_term_wide_string_err_(const char * func) {
+    static bool reported_to_stderr = false;
+    PosibErr<void> err = make_err(other_error, unsupported_null_term_wide_string_msg);
+    if (!reported_to_stderr) {
+      CERR.printf("ERROR: %s: %s\n", func, unsupported_null_term_wide_string_msg);
+      reported_to_stderr = true;
+    }
+    return err;
+  }
+
+  void unsupported_null_term_wide_string_abort_(const char * func) {
+    CERR.printf("%s: %s\n", unsupported_null_term_wide_string_msg);
+    abort();
+  }
+ 
 }

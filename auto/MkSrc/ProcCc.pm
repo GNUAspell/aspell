@@ -23,7 +23,7 @@ use MkSrc::Info;
 sub make_c_object ( $ @ );
 
 $info{group}{proc}{cc} = sub {
-  my ($data) = @_;
+  my ($data,@rest) = @_;
   my $ret;
   my $stars = (70 - length $data->{name})/2;
   $ret .= "/";
@@ -33,14 +33,14 @@ $info{group}{proc}{cc} = sub {
   $ret .= "/\n";
   foreach my $d (@{$data->{data}}) {
     $ret .= "\n\n";
-    $ret .= $info{$d->{type}}{proc}{cc}->($d);
+    $ret .= $info{$d->{type}}{proc}{cc}->($d,@rest);
   }
   $ret .= "\n\n";
   return $ret;
 };
 
 $info{enum}{proc}{cc} = sub {
-  my ($d) = @_;
+  my ($d,@rest) = @_;
   my $n = "Aspell".to_mixed($d->{name});
   return ("\n".
 	  make_desc($d->{desc}).
@@ -58,21 +58,26 @@ $info{struct}{proc}{cc} = sub {
 };
 
 $info{union}{proc}{cc} = sub {
-  return make_c_object "union", $_[0];
+  return make_c_object "union", @_;
 };
 
 $info{class}{proc}{cc} = sub {
-  my ($d) = @_;
+  my ($d,$accum) = @_;
   my $class = $d->{name};
   my $classname = "Aspell".to_mixed($class);
   my $ret = "";
   $ret .= "typedef struct $classname $classname;\n\n";
   foreach (@{$d->{data}}) {
-    my $s = make_c_method($class, $_, {mode=>'cc'});
+    my $s = make_c_method($class, $_, {mode=>'cc'}, %$accum);
     next unless defined $s;
     $ret .= "\n";
     $ret .= make_desc($_->{desc});
-    $ret .= make_c_method($class, $_, {mode=>'cc'}).";\n";
+    $ret .= make_c_method($class, $_, {mode=>'cc'}, %$accum).";\n";
+    if (grep {$_->{type} eq 'encoded string'} @{$_->{data}}) {
+      $ret .= make_c_method($class, $_, {mode=>'cc', wide=>true}, %$accum).";\n";
+      $ret .= make_wide_macro($class, $_, {mode=>'cc'}, %$accum);
+    }
+    $ret .= "\n".$_->{'cc extra'}."\n" if defined $_->{'cc extra'};
   }
   $ret .= "\n";
   return $ret;
@@ -105,7 +110,8 @@ $info{errors}{proc}{cc} = sub {
 };
 
 sub make_c_object ( $ @ ) {
-  my ($t, $d) = @_;
+  my ($t, $d, $accum) = @_;
+  $accum = {} unless defined $accum;
   my $struct;
   $struct .= "Aspell";
   $struct .= to_mixed($d->{name});
@@ -120,7 +126,7 @@ sub make_c_object ( $ @ ) {
 		"\n};\n"),
 	  "typedef $t $struct $struct;",
 	  join ("\n",
-		map {make_c_method($d->{name}, $_, {mode=>'cc'}).";"}
+		map {make_c_method($d->{name}, $_, {mode=>'cc'}, %$accum).";"}
 		grep {$_->{type} eq 'method'}
 		@{$d->{data}})
 	  )."\n";

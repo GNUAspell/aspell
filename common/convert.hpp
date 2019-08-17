@@ -7,6 +7,8 @@
 #ifndef ASPELL_CONVERT__HPP
 #define ASPELL_CONVERT__HPP
 
+#include "settings.h"
+
 #include "string.hpp"
 #include "posib_err.hpp"
 #include "char_vector.hpp"
@@ -25,8 +27,9 @@ namespace acommon {
     typedef const Config CacheConfig;
     typedef const char * CacheKey;
     String key;
+    int type_width; // type width in bytes
     bool cache_key_eq(const char * l) const  {return key == l;}
-    ConvBase() {}
+    ConvBase() : type_width(1) {}
   private:
     ConvBase(const ConvBase &);
     void operator=(const ConvBase &);
@@ -56,6 +59,8 @@ namespace acommon {
     virtual ~Encode() {}
   };
   struct DirectConv { // convert directly from in_code to out_code.
+    int type_width; // type width in bytes
+    DirectConv() : type_width(1) {}
     // should not take ownership of decode and encode.
     // decode and encode guaranteed to stick around for the life
     // of the object.
@@ -126,6 +131,9 @@ namespace acommon {
     const char * in_code() const   {return decode_->key.c_str();}
     const char * out_code() const  {return encode_->key.c_str();}
 
+    int in_type_width() const {return decode_->type_width;}
+    int out_type_width() const {return encode_->type_width;}
+
     void append_null(CharVector & out) const
     {
       const char nul[4] = {0,0,0,0}; // 4 should be enough
@@ -189,6 +197,10 @@ namespace acommon {
       } else {
         generic_convert(in,size,out);
       }
+    }
+
+    void convert(const void * in, int size, CharVector & out) {
+      convert(static_cast<const char *>(in), size, out);
     }
 
     void generic_convert(const char * in, int size, CharVector & out);
@@ -411,6 +423,30 @@ namespace acommon {
     unsigned operator()(const char * str, unsigned byte_size) {
       return operator()(str, str + byte_size);}
   };
+
+#ifdef SLOPPY_NULL_TERM_STRINGS
+  static const bool sloppy_null_term_strings = true;
+#else
+  static const bool sloppy_null_term_strings = false;
+#endif
+  
+  PosibErr<void> unsupported_null_term_wide_string_err_(const char * func);
+  void unsupported_null_term_wide_string_abort_(const char * func);
+    
+  static inline PosibErr<int> get_correct_size(const char * func, int conv_type_width, int size) {
+    if (sloppy_null_term_strings && size <= -1)
+      return -conv_type_width;
+    if (size <= -1 && -conv_type_width != size)
+      return unsupported_null_term_wide_string_err_(func);
+    return size;
+  }
+  static inline int get_correct_size(const char * func, int conv_type_width, int size, int type_width) {
+    if ((sloppy_null_term_strings || type_width <= -1) && size <= -1)
+      return -conv_type_width;
+    if (size <= -1 && conv_type_width != type_width)
+      unsupported_null_term_wide_string_abort_(func);
+    return size;
+  }
 
 }
 

@@ -109,6 +109,8 @@ jobs:
     #
     - run: ./autogen
     - run: make -j2 -C test
+    - run: rm test/build/Makefile
+    - run: make SLOPPY=1 -j2 -C test
 
 workflows:
   version: 2

@@ -10,8 +10,8 @@ BEGIN {
   use Exporter;
   our @ISA = qw(Exporter);
   our @EXPORT = qw(to_c_return_type c_error_cond
-		   to_type_name make_desc make_func call_func
-		   make_c_method call_c_method form_c_method
+		   to_type_name make_desc make_func call_func get_c_func_name
+		   make_c_method make_wide_macro call_c_method form_c_method
 		   make_cxx_method);
 }
 
@@ -90,6 +90,69 @@ sub make_func ( $ \@ $ ; \% ) {
 	   ')'));
 }
 
+=item make_wide_version NAME @TYPES PARMS ; %ACCUM
+
+Creates the wide character version of the function if needed
+
+=cut
+
+sub make_wide_version ( $ \@ $ ; \% ) {
+  my ($name, $d, $p, $accum) = @_;
+  my @d = @$d;
+  shift @d;
+  return '' unless grep {$_->{type} eq 'encoded string'} @d;
+  $accum->{sys_headers}{'stddef.h'} = true;
+  $accum->{suffix}[5] = <<'---';
+
+/******************* private implemantion details *********************/
+
+#ifdef __cplusplus
+#  define aspell_cast_(type, expr) (static_cast<type>(expr))
+#  define aspell_cast_from_wide_(str) (static_cast<const void *>(str))
+#else
+#  define aspell_cast_(type, expr) ((type)(expr))
+#  define aspell_cast_from_wide_(str) ((const char *)(str))
+#endif
+---
+  my @parms = map {$_->{type} eq 'encoded string'
+                       ? ($_->{name}, $_->{name}.'_size')
+                       : $_->{name}} @d;
+  $name = to_lower $name;
+  $accum->{suffix}[0] = <<'---';
+/**********************************************************************/
+
+#ifdef ASPELL_ENCODE_SETTING_SECURE
+---
+  $accum->{suffix}[2] = "#endif\n";
+  my @args = map  {$_->{type} eq 'encoded string'
+                       ? ($_->{name}, "$_->{name}_size", '-1')
+                       : $_->{name}} @d;
+  $accum->{suffix}[1] .=
+      (join '',
+       "#define $name",
+       '(', join(', ', @parms), ')',
+       "\\\n    ",
+       $name, '_wide',
+       '(', join(', ', @args), ')',
+       "\n");
+  @args = map  {$_->{type} eq 'encoded string'
+                    ? ("aspell_cast_from_wide_($_->{name})",
+                       "$_->{name}_size*aspell_cast_(int,sizeof(*($_->{name})))",
+                       "sizeof(*($_->{name}))")
+                    : $_->{name}} @d;
+  return (join '',
+          "\n",
+          "/* version of $name that is safe to use with (null terminated) wide characters */\n",
+          '#define ',
+          $name, '_w',
+          '(', join(', ', @parms), ')', 
+          "\\\n    ",
+          $name, '_wide',
+          '(', join(', ', @args), ')',
+          "\n");
+}
+
+
 =item call_func NAME @TYPES PARMS ; %ACCUM
 
 Return a string to call a func.  Will prefix the function with return
@@ -103,7 +166,6 @@ Parms can be any of:
 
 sub call_func ( $ \@ $ ; \% ) {
   my ($name, $d, $p, $accum) = @_;
-  $accum = {} unless defined $accum;
   my @d = @$d;
   my $func_ret = to_type_name(shift @d, {%$p,pos=>'return'}, %$accum);
   return (join '',
@@ -148,8 +210,14 @@ sub to_type_name ( $ $ ; \% ) {
   my $name = $t->{name};
   my $type = $t->{type};
 
-  return ( (to_type_name {%$d, type=>'string'}, $p, %$accum) ,
-	   (to_type_name {%$d, type=>'int', name=>"$d->{name}_size"}, $p, %$accum) )
+  if ($name eq 'encoded string' && $is_cc && $pos eq 'parm') {
+    my @types = ((to_type_name {%$d, type=>($p->{wide}?'const void pointer':'string')}, $p, %$accum),
+                 (to_type_name {%$d, type=>'int', name=>"$d->{name}_size"}, $p, %$accum));
+    push @types, (to_type_name {%$d, type=>'int', name=>"$d->{name}_type_width"}, $p, %$accum) if $p->{wide};
+    return @types;
+  }
+  return ( (to_type_name {%$d, type=>($p->{wide}?'const void pointer':'string')}, $p, %$accum) ,
+           (to_type_name {%$d, type=>'int', name=>"$d->{name}_size"}, $p, %$accum) )
       if $name eq 'encoded string' && $is_cc && $pos eq 'parm';
 
   my $str;
@@ -174,7 +242,7 @@ sub to_type_name ( $ $ ; \% ) {
 	$str .= "String";
       }
     } elsif ($name eq 'encoded string') {
-      $str .= "const char *";
+      $str .= $p->{wide} ? "const void *" : "const char *";
     } elsif ($name eq '') {
       $str .= "void";
     } elsif ($name eq 'bool' && $is_cc) {
@@ -186,7 +254,7 @@ sub to_type_name ( $ $ ; \% ) {
       if ($t->{pointer}) {
 	$accum->{types}->{$name} = $t;
       } else {
-	$accum->{headers}->{$t->{created_in}} = true;
+        $accum->{headers}->{$t->{created_in}} = true unless $mode eq 'cc';
       }
       $str .= "$c_type Aspell" if $mode eq 'cc';
       $str .= to_mixed($name);
@@ -213,6 +281,7 @@ sub to_type_name ( $ $ ; \% ) {
 
   return $str;
 }
+
 
 =item make_desc DESC ; LEVEL
 
@@ -286,6 +355,7 @@ sub form_c_method ($ $ $ ; \% )
     } else {
       $func = "aspell $class $name";
     }
+    $func .= " wide" if $p->{wide};
     if (exists $d->{'const'}) {
       splice @data, 1, 0, {type => "const $class", name=> $this_name};
     } else {
@@ -304,6 +374,21 @@ sub make_c_method ($ $ $ ; \%)
   my @ret = &form_c_method(@_);
   return undef unless @ret > 0;
   return &make_func(@ret);
+}
+
+sub get_c_func_name ($ $ $)
+{
+  my @ret = &form_c_method(@_);
+  return undef unless @ret > 0;
+  return to_lower $ret[0];
+}
+
+sub make_wide_macro ($ $ $ ; \%)
+{
+  my @ret = &form_c_method(@_);
+  return undef unless @ret > 0;
+  my $str = &make_wide_version(@ret);
+  return $str;
 }
 
 sub call_c_method ($ $ $ ; \%)

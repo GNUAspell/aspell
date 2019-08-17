@@ -158,7 +158,8 @@ Installing
 
 * Generic Install Instructions::  
 * HTML Manuals and "make clean"::  
-* Curses Notes::                
+* Curses Notes::
+* Upgrading from Aspell 0.60.7::
 * Loadable Filter Notes::       
 * Upgrading from Aspell 0.50::  
 * Upgrading from Aspell .33/Pspell .12::  
@@ -2272,18 +2273,26 @@ int correct = aspell_speller_check(spell_checker, @var{word}, @var{size});
 @end smallexample
 
 @noindent
-@var{word} is expected to be a @code{const char *} character
-string.  If the encoding is set to be @code{ucs-2} or
-@code{ucs-4} @var{word} is expected to be a cast
-from either @code{const u16int *} or @code{const u32int *}
-respectively.  @code{u16int} and @code{u32int} are generally
-@code{unsigned short} and @code{unsigned int} respectively.
-@var{size} is the length of the string or @code{-1} if the string
-is null terminated.  If the string is a cast from @code{const u16int
-*} or @code{const u32int *} then @code{@i{size}} is the amount of
-space in bytes the string takes up after being cast to @code{const
-char *} and not the true size of the string.  @code{sspell_speller_check}
-will return @code{0} if it is not found and non-zero otherwise.
+@var{word} is expected to be a @code{const char *} character string.
+@var{size} is the length of the string or @code{-1} if the string is
+null terminated.  @code{aspell_speller_check} will return @code{0} if it is not found
+and non-zero otherwise.
+
+If you are using the @code{ucs-2} or @code{ucs-4} encoding then the
+string is expected to be either a 2 or 4 byte wide integer
+(respectively) and the @code{_w} macro vesion should be used:
+
+@smallexample
+int correct = aspell_speller_check_w(spell_checker, @var{word}, @var{size});
+@end smallexample
+
+The macro will cast the string to to the correct type and convert
+@var{size} into bytes for you and then a call the special wide version of the
+function that will make sure the encoding is correct for the type
+passed in.  For compatibility with older versions of Aspell the normal
+non-wide functions can still be used provided that the size of the
+string, in bytes, is also passed in.  Null terminated @code{ucs-2} or
+@code{ucs-4} are no longer supported when using the non-wide functions.
 
 If the word is not correct, then the @code{suggest} method can be used
 to come up with likely replacements.
@@ -2302,7 +2311,28 @@ delete_aspell_string_enumeration(elements);
 
 Notice how @code{elements} is deleted but @code{suggestions} is not.
 The value returned by @code{suggestions} is only valid to the next
-call to @code{suggest}.  Once a replacement is made the
+call to @code{suggest}.
+
+If you are using the @code{ucs-2} or @code{ucs-4} encoding then, in
+addition to using the @code{_w} macro for the @code{suggest} method, you
+should also use the @code{_w} macro with the @code{next} method which
+will cast the string to the correct type for you.  For example, if you
+are using the @code{ucs-2} encoding and the string is a @code{const
+uint16_t *} then you should use:
+
+@smallexample
+AspellWordList * suggestions = aspell_speller_suggest_w(spell_checker,
+                                                        @var{word}, @var{size});
+AspellStringEnumeration * elements = aspell_word_list_elements(suggestions);
+const uint16_t * word;
+while ( (word = aspell_string_enumeration_next_w(uint16_t, aspell_elements)) != NULL )
+@{
+  // add to suggestion list
+@}
+delete_aspell_string_enumeration(elements);
+@end smallexample
+
+Once a replacement is made the
 @code{store_repl} method should be used to communicate the replacement
 pair back to the spell checker (for the reason, @pxref{Notes on
 Storing Replacement Pairs}).  Its usage is as follows:
@@ -4338,14 +4368,21 @@ a C++ program.
 @heading Changes from 0.60.7 to 0.68.8 (???)
 @itemize @bullet
 @item
-When typo analysis is used ensure that possible typos are listed
+Add Markdown filter.
+@item
+When typo analysis is used, ensure that possible typos are listed
 before other suggestions.  Also fix a bug so that suggestions that split
 a word using a space or hyphen are not always first.
 @item
 Change @code{ultra} suggestion mode to only find words that are within
 one-edit distance or have the same soundslike.
 @item
-Add Markdown filter.
+To prevent a potentially unbounded buffer over-read Aspell no longer
+supports null-terminated UCS-2 and UCS-4 encoded strings with the
+original C API. @xref{Upgrading from Aspell 0.60.7}.
+@item
+Fix a bug in @code{AspellDocumentChecker} that prevented it from
+working with UCS-2 and UCS-4 encoded strings.
 @item
 Implement @code{aspell filter} command.
 @item

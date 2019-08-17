@@ -73,6 +73,9 @@ AC_ARG_ENABLE(filter-version-control,
 AC_ARG_ENABLE(32-bit-hash-fun,
   AS_HELP_STRING([--enable-32-bit-hash-fun],[use 32-bit hash function for compiled dictionaries]))
 
+AC_ARG_ENABLE(sloppy-null-term-strings,
+  AS_HELP_STRING([--enable-sloppy-null-term-strings],[allows allow null terminated UCS-2 and UCS-4 strings]))
+
 AC_ARG_ENABLE(pspell-compatibility,
   AS_HELP_STRING([--disable-pspell-compatibility],[don't install pspell compatibility libraries]))
 
@@ -139,6 +142,11 @@ AM_CONDITIONAL(COMPILE_IN_FILTERS,
 if test "$enable_32_bit_hash_fun" = "yes"
 then
   AC_DEFINE(USE_32_BIT_HASH_FUN, 1, [Defined if 32-bit hash function should be used for compiled dictionaries.])
+fi
+
+if test "$enable_sloppy_null_term_strings" = "yes"
+then
+  AC_DEFINE(SLOPPY_NULL_TERM_STRINGS, 1, [Defined if null-terminated UCS-2 and UCS-4 strings should always be allowed.])
 fi
 
 AM_CONDITIONAL(PSPELL_COMPATIBILITY,  

@@ -44,7 +44,9 @@ namespace acommon {
   void DocumentChecker::process(const char * str, int size)
   {
     proc_str_.clear();
-    conv_->decode(str, size, proc_str_);
+    PosibErr<int> fixed_size = get_correct_size("aspell_document_checker_process", conv_->in_type_width(), size);
+    if (!fixed_size.has_err())
+      conv_->decode(str, fixed_size, proc_str_);
     proc_str_.append(0);
     FilterChar * begin = proc_str_.pbegin();
     FilterChar * end   = proc_str_.pend() - 1;
@@ -53,6 +55,19 @@ namespace acommon {
     tokenizer_->reset(begin, end);
   }
 
+  void DocumentChecker::process_wide(const void * str, int size, int type_width)
+  {
+    proc_str_.clear();
+    int fixed_size = get_correct_size("aspell_document_checker_process", conv_->in_type_width(), size, type_width);
+    conv_->decode(static_cast<const char *>(str), fixed_size, proc_str_);
+    proc_str_.append(0);
+    FilterChar * begin = proc_str_.pbegin();
+    FilterChar * end   = proc_str_.pend() - 1;
+    if (filter_)
+      filter_->process(begin, end);
+    tokenizer_->reset(begin, end);
+  }
+  
   Token DocumentChecker::next_misspelling()
   {
     bool correct;
