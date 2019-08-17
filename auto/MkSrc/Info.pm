@@ -60,6 +60,7 @@ each proc sub should take the following argv
     the object from which it is a member of
   no native: do not attempt to create a native implementation
   treat as object: treat as a object rather than a pointer
+  no conv: do not converted an encoded string
 
 The %info structure is initialized as follows:
 
@@ -104,8 +105,8 @@ The %info structure is initialized as follows:
   errors => {}, # possible errors
   method => {
     # A class method
-    options => ['desc', 'posib err', 'c func', 'const',
-		'c only', 'c impl', 'cxx impl'],
+    options => ['desc', 'posib err', 'c func', 'const', 'no conv', 'on conv error',
+		'c only', 'c impl', 'cxx impl', 'cc extra'],
     groups => undef},
   constructor => {
     # A class constructor

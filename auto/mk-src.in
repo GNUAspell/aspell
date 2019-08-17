@@ -608,6 +608,7 @@ errors:
 		invalid expression
 			mesg => "%expression" is not a valid regular expression.
 			parms => expression
+
 }
 group: speller
 {
@@ -650,6 +651,7 @@ class: speller
 		posib err
 		desc => Returns 0 if it is not in the dictionary,
 			1 if it is, or -1 on error.
+		on conv error => return 0;
 		/
 		bool
 		encoded string: word
@@ -715,6 +717,8 @@ class: speller
 		desc => Return NULL on error.
 			The word list returned by suggest is only
 			valid until the next call to suggest.
+		on conv error =>
+			word = NULL; word_size = 0;
 		/
 		const word list
 		encoded string: word
@@ -840,7 +844,6 @@ class: document checker
 		void
 
 	method: process
-
 		desc => Process a string.
 			The document is expected to be passed in one or more
 			lines at a time.  Splitting the document on
@@ -852,10 +855,10 @@ class: document checker
 			in the document.  Passing in strings out of
 			order, skipping strings or passing them in
 			more than once may lead to undefined results.
+		no conv
 		/
 		void
-		string: str
-		int: size
+		encoded string: str
 
 	method: next misspelling
 
@@ -863,8 +866,22 @@ class: document checker
 			processed string.  If there are no more
 			misspelled words, then token.word will be
 			NULL and token.size will be 0
+		cc extra =>
+			\#define aspell_document_checker_next_misspelling_w(type, ths) \\
+			    aspell_document_checker_next_misspelling_adj(ths, sizeof(type))
 		/
 		token object
+
+	method: next misspelling adj
+		desc => internal: do not use
+		c impl =>
+			Token res = ths->next_misspelling();
+			res.offset /= type_width;
+			res.len /= type_width;
+			return res;
+		/
+		token object
+		int: type_width
 
 	method: filter
 
@@ -925,9 +942,30 @@ class: string enumeration
 			  ths->from_internal_->append_null(ths->temp_str);
 			  return ths->temp_str.data();
 			\}
+		cc extra =>
+			\#define aspell_string_enumeration_next_w(type, ths) \\
+			    aspell_cast_(const type *, aspell_string_enumeration_next_wide(ths, sizeof(type)))
 		/
 		const string
 
+	method: next wide
+		c impl =>
+			const char * s = ths->next();
+			if (s == 0) {
+			  return s;
+			} else if (ths->from_internal_ == 0) \{
+			  assert(type_width == 1);
+			  return s;
+			\} else \{
+			  assert(type_width == ths->from_internal_->out_type_width());
+			  ths->temp_str.clear();
+			  ths->from_internal_->convert(s,-1,ths->temp_str);
+			  ths->from_internal_->append_null(ths->temp_str);
+			  return ths->temp_str.data();
+			\}
+		/
+		const void pointer
+		int: type_width
 }
 group: info
 {

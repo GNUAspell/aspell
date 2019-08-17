@@ -88,13 +88,13 @@ sub advance ( ) {
     $in_pod = $1 if $line =~ /^\=(\w+)/;
     $line = '' if $in_pod;
     $in_pod = undef if $in_pod && $in_pod eq 'cut';
-    $line =~ s/\#.*$//;
+    $line =~ s/(?<!\\)\#.*$//;
     $line =~ s/^(\t*)//;
     $level = $base_level + length($1);
       $line =~ s/\s*$//;
     ++$base_level if $line =~ s/^\{$//;
     --$base_level if $line =~ s/^\}$//;
-    $line =~ s/\\([{}])/$1/g;
+    $line =~ s/\\([{}#\\])/$1/g;
   } while ($line eq '');
   #print "$level:$line\n";
 }

@@ -15,15 +15,16 @@ The latest version can always be found at GNU Aspell's home page at
 @uref{http://aspell.net}.
 
 @menu
-* Generic Install Instructions::  
-* HTML Manuals and "make clean"::  
-* Curses Notes::                
-* Loadable Filter Notes::       
-* Using 32-Bit Dictionaries on a 64-Bit System::  
-* Upgrading from Aspell 0.50::  
-* Upgrading from Aspell .33/Pspell .12::  
-* Upgrading from a Pre-0.50 snapshot::  
-* WIN32 Notes::                 
+* Generic Install Instructions::
+* HTML Manuals and "make clean"::
+* Curses Notes::
+* Upgrading from Aspell 0.60.7::
+* Loadable Filter Notes::
+* Using 32-Bit Dictionaries on a 64-Bit System::
+* Upgrading from Aspell 0.50::
+* Upgrading from Aspell .33/Pspell .12::
+* Upgrading from a Pre-0.50 snapshot::
+* WIN32 Notes::
 @end menu
 
 @node Generic Install Instructions
@@ -121,17 +122,62 @@ In addition your system must also support the @code{mblen} function.
 Although this function was defined in the ISO C89 standard (ANSI
 X3.159-1989), not all systems have it.
 
+@node Upgrading from Aspell 0.60.7
+@appendixsec Upgrading from Aspell 0.60.7
+
+To prevent a potentially unbounded buffer over-read, Aspell no longer
+supports null-terminated UCS-2 and UCS-4 encoded strings with the
+original C API.  Null-termianted 8-bit or UTF-8 encoded strings are
+still supported, as are UCS-2 and UCS-4 encoded strings when the
+length is passed in.
+
+As of Aspell 0.60.8 a function from the original API that expects an
+encoded string as a parameter will return meaningless results (or an
+error code) if string is null terminated and the encoding is set to
+@code{ucs-2} or @code{ucs-4}.  In addition, a single:
+@example
+ERROR: aspell_speller_check: Null-terminated wide-character strings unsupported when used this way.
+@end example
+will be printed to standard error the first time one of those
+functions is called.
+
+Application that use null-terminated UCS-2/4 strings should either (1)
+use the interface intended for working with wide-characters
+(@xref{Through the C API}); or (2) define
+@code{ASPELL_ENCODE_SETTING_SECURE} before including @code{aspell.h}.
+In the latter case is is important that the application explicitly
+sets the encoding to a known value.  Defining
+@code{ASPELL_ENCODE_SETTING_SECURE} and not setting the encoding
+explicitly or allowing user of the application to set the encoding
+could result in an unbounded buffer over-read.
+
+If it is necessary to preserve binary compatibility with older
+versions of Aspell, the easiest thing would be to determine the length
+of the UCS-2/4 string---in bytes---and pass that in.  Due to an
+implemenation detail, existing API functions can be made to work with
+null-terminated UCS-2/4 strings safely by passing in either @code{-2}
+or @code{-4} (corresponding to the width of the character type) as the
+size.  Doing so, however, will cause a buffer over-read for unpatched
+version of Aspell.  To avoid this it will be necessary to parse the
+version string to determine the correct value to use.  However, no
+official support will be provided for the latter method.
+
+If the application can not be recompiled, then Aspell can be configured
+to preserve the old behavior by passing
+@option{--enable-sloppy-null-term-strings} to @command{configure}.  When Aspell
+is compiled this way the version string will include the string
+@samp{ SLOPPY}.
+
 @node Loadable Filter Notes
 @appendixsec Loadable Filter Notes
-
+             
 Support for being able to load additional filter modules at run-time
 has only been verified to work on Linux platforms.  If you get linker
 errors when trying to use a filter, then it is likely that loadable
 filter support is not working yet on your platform.  Thus, in order to
 get Aspell to work correctly you will need to avoid compiling the
 filters as individual modules by using the
-@option{--enable-compile-in-filters} when configuring Aspell with
-@command{./configure}.
+@option{--enable-compile-in-filters} @command{configure} option.
 
 @node Using 32-Bit Dictionaries on a 64-Bit System
 @appendixsec Using 32-Bit Dictionaries on a 64-Bit System

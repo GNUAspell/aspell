@@ -45,10 +45,13 @@ $info{class}{proc}{impl} = sub {
   foreach (grep {$_ ne ''} split /\s*,\s*/, $data->{'c impl headers'}) {
     $accum->{headers}{$_} = true;
   }
-  foreach my $d (@{$data->{data}}) {
+  my @d = @{$data->{data}};
+  while (@d) {
+    my $d = shift @d;
+    my $need_wide = false;
     next unless one_of $d->{type}, qw(method constructor destructor);
     my @parms = @{$d->{data}} if exists $d->{data};
-    my $m = make_c_method $data->{name}, $d, {mode=>'cc_cxx', use_name=>true}, %$accum;
+    my $m = make_c_method $data->{name}, $d, {mode=>'cc_cxx', use_name=>true, wide=>$d->{wide}}, %$accum;
     next unless defined $m;
     $ret .= "extern \"C\" $m\n";
     $ret .= "{\n";
@@ -57,24 +60,49 @@ $info{class}{proc}{impl} = sub {
     } else {
       if ($d->{type} eq 'method') {
 	my $ret_type = shift @parms;
-	my $ret_native = to_type_name $ret_type, {mode=>'native_no_err', pos=>'return'}, %$accum;
+	my $ret_native = to_type_name $ret_type, {mode=>'native_no_err', pos=>'return', wide=>$d->{wide}}, %$accum;
 	my $snum = 0;
+        my $call_fun = $d->{name};
+        my @call_parms;
 	foreach (@parms) {
 	  my $n = to_lower($_->{name});
-	  if ($_->{type} eq 'encoded string') {
-	    $accum->{headers}{'mutable string'} = true;
-	    $accum->{headers}{'convert'} = true;
-	    $ret .= "  ths->temp_str_$snum.clear();\n";
-	    $ret .= "  ths->to_internal_->convert($n, ${n}_size, ths->temp_str_$snum);\n";
-	    $ret .= "  unsigned int s$snum = ths->temp_str_$snum.size();\n";
-	    $_ = "MutableString(ths->temp_str_$snum.mstr(), s$snum)";
-	    $snum++;
+	  if ($_->{type} eq 'encoded string' && !exists($d->{'no conv'})) {
+            $need_wide = true unless $d->{wide};
+            die unless exists $d->{'posib err'};
+            $accum->{headers}{'mutable string'} = true;
+            $accum->{headers}{'convert'} = true;
+            my $name = get_c_func_name $data->{name}, $d, {mode=>'cc_cxx', use_name=>true, wide=>$d->{wide}};
+            $ret .= "  ths->temp_str_$snum.clear();\n";
+            if ($d->{wide}) {
+              $ret .= "  ${n}_size = get_correct_size(\"$name\", ths->to_internal_->in_type_width(), ${n}_size, ${n}_type_width);\n";
+            } else {
+              $ret .= "  PosibErr<int> ${n}_fixed_size = get_correct_size(\"$name\", ths->to_internal_->in_type_width(), ${n}_size);\n";
+              if (exists($d->{'on conv error'})) {
+                $ret .= "  if (${n}_fixed_size.get_err()) {\n";
+                $ret .= "    ".$d->{'on conv error'}."\n";
+                $ret .= "  } else {\n";
+                $ret .= "    ${n}_size = ${n}_fixed_size;\n";
+                $ret .= "  }\n";
+              } else {
+                $ret .= "  ths->err_.reset(${n}_fixed_size.release_err());\n";
+                $ret .= "  if (ths->err_ != 0) return ".(c_error_cond $ret_type).";\n";
+              }
+            }
+            $ret .= "  ths->to_internal_->convert($n, ${n}_size, ths->temp_str_$snum);\n";
+            $ret .= "  unsigned int s$snum = ths->temp_str_$snum.size();\n";
+            push @call_parms, "MutableString(ths->temp_str_$snum.mstr(), s$snum)";
+            $snum++;
+          } elsif ($_->{type} eq 'encoded string') {
+            $need_wide = true unless $d->{wide};
+            push @call_parms, $n, "${n}_size";
+            push @call_parms, "${n}_type_width" if $d->{wide};
+            $call_fun .= " wide" if $d->{wide};
 	  } else {
-	    $_ = $n;
+	    push @call_parms, $n;
 	  }
 	}
-	my $parms = '('.(join ', ', @parms).')';
-	my $exp = "ths->".to_lower($d->{name})."$parms";
+	my $parms = '('.(join ', ', @call_parms).')';
+	my $exp = "ths->".to_lower($call_fun)."$parms";
 	if (exists $d->{'posib err'}) {
 	  $accum->{headers}{'posib err'} = true;
 	  $ret .= "  PosibErr<$ret_native> ret = $exp;\n";
@@ -118,6 +146,7 @@ $info{class}{proc}{impl} = sub {
       }
     }
     $ret .= "}\n\n";
+    unshift @d,{%$d, wide=>true} if $need_wide;
   }
   return $ret;
 };

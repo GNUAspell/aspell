@@ -36,6 +36,7 @@ namespace acommon {
     PosibErr<void> setup(Tokenizer *, Speller *, Filter *);
     void reset();
     void process(const char * str, int size);
+    void process_wide(const void * str, int size, int type_width);
     Token next_misspelling();
     
     Filter * filter() {return filter_;}
