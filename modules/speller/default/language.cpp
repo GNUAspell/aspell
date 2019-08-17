@@ -235,8 +235,8 @@ namespace aspeller {
         RET_ON_ERR(mesg_conv_.setup(*config, charmap_, data_encoding_, NormTo));
       // no need to check for errors here since we know charmap_ is a
       // supported encoding
-      to_utf8_.setup(*config, charmap_, "utf-8", NormTo);
-      from_utf8_.setup(*config, "utf-8", charmap_, NormFrom);
+      RET_ON_ERR(to_utf8_.setup(*config, charmap_, "utf-8", NormTo));
+      RET_ON_ERR(from_utf8_.setup(*config, "utf-8", charmap_, NormFrom));
     }
     
     Conv iconv;

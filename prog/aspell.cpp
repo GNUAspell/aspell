@@ -1491,10 +1491,10 @@ void clean()
   Conv oconv, oconv2;
   if (config->have("encoding")) {
     EXIT_ON_ERR(oconv.setup(*config, lang->charmap(), config->retrieve("encoding"), NormTo));
-    oconv2.setup(*config, lang->charmap(), config->retrieve("encoding"), NormTo);
+    EXIT_ON_ERR(oconv2.setup(*config, lang->charmap(), config->retrieve("encoding"), NormTo));
   } else {
     EXIT_ON_ERR(oconv.setup(*config, lang->charmap(), lang->data_encoding(), NormTo));
-    oconv2.setup(*config, lang->charmap(), lang->data_encoding(), NormTo);
+    EXIT_ON_ERR(oconv2.setup(*config, lang->charmap(), lang->data_encoding(), NormTo));
   }
   while (wl_itr.adv()) {
     if (*wl_itr->aff.str) 
