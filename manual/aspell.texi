@@ -156,15 +156,16 @@ Notes on Various Items
 
 Installing
 
-* Generic Install Instructions::  
-* HTML Manuals and "make clean"::  
+* Generic Install Instructions::
+* HTML Manuals and "make clean"::
 * Curses Notes::
+* Loadable Filter Notes::
+* Using 32-Bit Dictionaries on a 64-Bit System::
 * Upgrading from Aspell 0.60.7::
-* Loadable Filter Notes::       
-* Upgrading from Aspell 0.50::  
-* Upgrading from Aspell .33/Pspell .12::  
-* Upgrading from a Pre-0.50 snapshot::  
-* WIN32 Notes::                 
+* Upgrading from Aspell 0.50::
+* Upgrading from Aspell .33/Pspell .12::
+* Upgrading from a Pre-0.50 snapshot::
+* WIN32 Notes::
 
 Copying
 

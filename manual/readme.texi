@@ -18,9 +18,9 @@ The latest version can always be found at GNU Aspell's home page at
 * Generic Install Instructions::
 * HTML Manuals and "make clean"::
 * Curses Notes::
-* Upgrading from Aspell 0.60.7::
 * Loadable Filter Notes::
 * Using 32-Bit Dictionaries on a 64-Bit System::
+* Upgrading from Aspell 0.60.7::
 * Upgrading from Aspell 0.50::
 * Upgrading from Aspell .33/Pspell .12::
 * Upgrading from a Pre-0.50 snapshot::
@@ -122,6 +122,36 @@ In addition your system must also support the @code{mblen} function.
 Although this function was defined in the ISO C89 standard (ANSI
 X3.159-1989), not all systems have it.
 
+@node Loadable Filter Notes
+@appendixsec Loadable Filter Notes
+
+Support for being able to load additional filter modules at run-time
+has only been verified to work on Linux platforms.  If you get linker
+errors when trying to use a filter, then it is likely that loadable
+filter support is not working yet on your platform.  Thus, in order to
+get Aspell to work correctly you will need to avoid compiling the
+filters as individual modules by using the
+@option{--enable-compile-in-filters} @command{configure} option.
+
+@node Using 32-Bit Dictionaries on a 64-Bit System
+@appendixsec Using 32-Bit Dictionaries on a 64-Bit System
+
+Due to an oversight, Aspell compiled dictionaries not only depend on
+the endian order, they also depend on the the size of the
+@code{size_t} type, which is generally different on 32 and
+64-bit systems.  The @code{size_t} type is used in the hash function
+of the compiled dictionaries.  To force the hash function to use a
+32-bit integer instead, use the @option{--enable-32-bit-hash-fun}
+configure option.  This option will allow you to use dictionaries
+compiled on a 32-bit machine on a 64-bit one as long as the endian
+order is the same.  Of course, dictionaries compiled on a 64-bit
+machine without this option enabled will no longer be usable.  If
+Aspell detects that an incompatible hash function is used, it will fail
+with:
+@quotation
+Error: The file ``@var{some-file}'' is not in the proper format. Incompatible hash function.
+@end quotation
+
 @node Upgrading from Aspell 0.60.7
 @appendixsec Upgrading from Aspell 0.60.7
 
@@ -167,36 +197,6 @@ to preserve the old behavior by passing
 @option{--enable-sloppy-null-term-strings} to @command{configure}.  When Aspell
 is compiled this way the version string will include the string
 @samp{ SLOPPY}.
-
-@node Loadable Filter Notes
-@appendixsec Loadable Filter Notes
-             
-Support for being able to load additional filter modules at run-time
-has only been verified to work on Linux platforms.  If you get linker
-errors when trying to use a filter, then it is likely that loadable
-filter support is not working yet on your platform.  Thus, in order to
-get Aspell to work correctly you will need to avoid compiling the
-filters as individual modules by using the
-@option{--enable-compile-in-filters} @command{configure} option.
-
-@node Using 32-Bit Dictionaries on a 64-Bit System
-@appendixsec Using 32-Bit Dictionaries on a 64-Bit System
-
-Due to an oversight, Aspell compiled dictionaries not only depend on
-the endian order, they also depend on the the size of the
-@code{size_t} type, which is generally different on 32 and
-64-bit systems.  The @code{size_t} type is used in the hash function
-of the compiled dictionaries.  To force the hash function to use a
-32-bit integer instead, use the @option{--enable-32-bit-hash-fun}
-configure option.  This option will allow you to use dictionaries
-compiled on a 32-bit machine on a 64-bit one as long as the endian
-order is the same.  Of course, dictionaries compiled on a 64-bit
-machine without this option enabled will no longer be usable.  If
-Aspell detects that an incompatible hash function is used, it will fail
-with:
-@quotation
-Error: The file ``@var{some-file}'' is not in the proper format. Incompatible hash function.
-@end quotation
 
 @node Upgrading from Aspell 0.50
 @appendixsec Upgrading from Aspell 0.50
