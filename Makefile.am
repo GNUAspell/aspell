@@ -94,18 +94,25 @@ libaspell_la_SOURCES =\
 
 libaspell_la_LIBADD =  $(LTLIBINTL) $(PTHREAD_LIB)
 
-## Libtool to so name
-## C:R:A => (C-A).(A).(R)
-## 16:5:0 => 16.0.5
-## 16:5:1 => 15.1.5
-## 18:0:2 => 16.2.0 
-## 17:0:2 => 15.2.0
-
+## The version string is current[:revision[:age]]
+##
+## Before a release that has changed the source code at all
+## increment revision.
+##
+## After merging changes that have changed the API in a backwards
+## comptable way set revision to 0 and bump both current and age.
+##
+## Do not change the API in a backwards incompatible way.
+##
+## See "Libtool: Updating version info"
+## (https://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html)
+## for more into
+##
 if INCREMENTED_SONAME
-libaspell_la_LDFLAGS = -version-info 18:0:2 -no-undefined
+libaspell_la_LDFLAGS = -version-info 19:0:3 -no-undefined
 else
 ## Use C-1:R:A 
-libaspell_la_LDFLAGS = -version-info 17:0:2 -no-undefined
+libaspell_la_LDFLAGS = -version-info 18:0:3 -no-undefined
 endif
 
 if PSPELL_COMPATIBILITY
@@ -113,11 +120,7 @@ libpspell_la_SOURCES = lib/dummy.cpp
 
 libpspell_la_LIBADD = libaspell.la
 
-if INCREMENTED_SONAME
-libpspell_la_LDFLAGS = -version-info 18:0:2 -no-undefined
-else
-libpspell_la_LDFLAGS = -version-info 17:0:2 -no-undefined
-endif
+libpspell_la_LDFLAGS = $(libaspell_la_LDFLAGS)
 
 endif
 
