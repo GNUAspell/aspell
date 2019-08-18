@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2016-12-11 21:38-0500\n"
+"POT-Creation-Date: 2019-08-17 20:58-0400\n"
 "PO-Revision-Date: 2004-05-22 19:33+0000\n"
 "Last-Translator: Marina Kolucheva <youth_opportunities@tajik.net>\n"
 "Language-Team: Tajik\n"
@@ -55,19 +55,19 @@ msgstr ""
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
-#: common/config.cpp:978
+#: common/config.cpp:971
 msgid "either \"true\" or \"false\""
 msgstr ""
 
-#: common/config.cpp:997
+#: common/config.cpp:990
 msgid "a positive integer"
 msgstr ""
 
-#: common/config.cpp:1125
+#: common/config.cpp:1118
 msgid "# default: "
 msgstr ""
 
-#: common/config.cpp:1188
+#: common/config.cpp:1181
 #, c-format
 msgid ""
 "\n"
@@ -80,275 +80,271 @@ msgid ""
 "\n"
 msgstr ""
 
-#: common/config.cpp:1286
+#: common/config.cpp:1279
 msgid "ASPELL_CONF env var"
 msgstr ""
 
-#. TRANSLATORS: The remaing strings in config.cpp should be kept
+#. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
-#: common/config.cpp:1360
+#: common/config.cpp:1363
 msgid "main configuration file"
 msgstr "файли пайкарабанди асосӣ"
 
-#: common/config.cpp:1362
+#: common/config.cpp:1365
 msgid "location of main configuration file"
 msgstr "ҷойгиршавии файли пайкарабанди асосӣ"
 
-#: common/config.cpp:1365
+#: common/config.cpp:1368
 msgid "location of language data files"
 msgstr "ҷойгиршавии забони чунин файлҳо"
 
-#: common/config.cpp:1367
+#: common/config.cpp:1370
 #, fuzzy
 msgid "create dictionary aliases"
 msgstr "номи файли луғати шахсӣ"
 
-#: common/config.cpp:1369
+#: common/config.cpp:1372
 msgid "location of the main word list"
 msgstr "ҷойгиршавии рӯйхати калимаҳои асосӣ"
 
-#: common/config.cpp:1371
+#: common/config.cpp:1374
 msgid "encoding to expect data to be in"
 msgstr "инизороти рамзгузории додашудаҳо"
 
-#: common/config.cpp:1373
+#: common/config.cpp:1376
 msgid "add or removes a filter"
 msgstr "илова ё ҳузфи филтр"
 
-#: common/config.cpp:1375
+#: common/config.cpp:1378
 #, fuzzy
 msgid "path(s) aspell looks for filters"
 msgstr "роҳҳое, ки aspell дар ҷустуҷӯи филтр мебошад"
 
-#: common/config.cpp:1379
+#: common/config.cpp:1382
 #, fuzzy
 msgid "filter mode"
 msgstr "гузаштан ба тартиботи TeX"
 
-#: common/config.cpp:1381
+#: common/config.cpp:1384
 msgid "extra dictionaries to use"
 msgstr "луғатҳои истифодабарандаи иловагӣ"
 
-#: common/config.cpp:1383
+#: common/config.cpp:1386
 msgid "location for personal files"
 msgstr "ҷойгиршавии файлҳои шахсӣ"
 
-#: common/config.cpp:1385
+#: common/config.cpp:1388
 msgid "ignore words <= n chars"
 msgstr "аҳамият надодани калимаҳо <= n ишораҳо"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1388
+#: common/config.cpp:1391
 #, fuzzy
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
 msgstr "аҳамият надодани аломати зада ҳолати тафтиши калимаҳо"
 
-#: common/config.cpp:1390
+#: common/config.cpp:1393
 #, fuzzy
 msgid "ignore case when checking words"
 msgstr "аҳамият надодани қайдгоҳ ҳолати тафтиши калимаҳо"
 
-#: common/config.cpp:1392
+#: common/config.cpp:1395
 msgid "ignore commands to store replacement pairs"
 msgstr "аҳамият надодани фармониятҳо барои нигоҳ доштани иввази ду адад"
 
-#: common/config.cpp:1394 common/config.cpp:1461
+#: common/config.cpp:1397 common/config.cpp:1462
 msgid "extra information for the word list"
 msgstr "ахбороти иловагӣ барои рӯйхати калимаҳо"
 
-#: common/config.cpp:1396
+#: common/config.cpp:1399
 msgid "keyboard definition to use for typo analysis"
 msgstr "муайян намудани забонак барои анализи саҳв"
 
-#: common/config.cpp:1398
+#: common/config.cpp:1401
 msgid "language code"
 msgstr "коди забон"
 
-#: common/config.cpp:1400
+#: common/config.cpp:1403
 msgid "deprecated, use lang instead"
 msgstr "маъқул дониста нашуд, lang-ро истифода кунед"
 
-#: common/config.cpp:1402
+#: common/config.cpp:1405
 msgid "location of local language data files"
 msgstr "ҷойгиршавии файлҳои додашудаи забонҳои локалӣ"
 
-#: common/config.cpp:1404
+#: common/config.cpp:1407
 msgid "base name of the main dictionary to use"
 msgstr "номи базавии луғати асосӣ"
 
-#: common/config.cpp:1408
+#: common/config.cpp:1411
 msgid "set module name"
 msgstr "сабти номи модул"
 
-#: common/config.cpp:1410
+#: common/config.cpp:1413
 msgid "search order for modules"
 msgstr "тартиботи ҷустуҷӯи модул"
 
-#: common/config.cpp:1412
+#: common/config.cpp:1415
 msgid "enable Unicode normalization"
 msgstr "фаъол сохтани муқаррарияти Юникод"
 
-#: common/config.cpp:1414
+#: common/config.cpp:1417
 #, fuzzy
 msgid "Unicode normalization required for current lang"
 msgstr "Муқаррарияти Юникод барои раванди lang лозим аст"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
-#: common/config.cpp:1418
+#: common/config.cpp:1421
 msgid "Unicode normalization form: none, nfd, nfc, comp"
 msgstr "намуди муқаррарияти Юникод: none, nfd, nfc, comp"
 
-#: common/config.cpp:1420
+#: common/config.cpp:1423
 #, fuzzy
 msgid "avoid lossy conversions when normalization"
 msgstr "рад кардани табдили талафият"
 
-#: common/config.cpp:1422
+#: common/config.cpp:1425
 msgid "personal configuration file"
 msgstr "файли пайкарабанди шахсӣ"
 
-#: common/config.cpp:1425
+#: common/config.cpp:1428
 msgid "personal dictionary file name"
 msgstr "номи файли луғати шахсӣ"
 
-#: common/config.cpp:1428
+#: common/config.cpp:1431
 msgid "prefix directory"
 msgstr "префикси каталог"
 
-#: common/config.cpp:1430
+#: common/config.cpp:1433
 msgid "replacements list file name"
 msgstr "номи файли иввазоти рӯйхат"
 
-#: common/config.cpp:1433
+#: common/config.cpp:1436
 msgid "consider run-together words legal"
 msgstr "эътирофи имконпазироти калимаҳои run-together"
 
-#: common/config.cpp:1435
+#: common/config.cpp:1438
 msgid "maximum number that can be strung together"
 msgstr "рақами зиёде, ки бо худ пайваст шуда метавонанд"
 
-#: common/config.cpp:1437
+#: common/config.cpp:1440
 msgid "minimal length of interior words"
 msgstr "дарозии минималии калимаҳои дохилӣ"
 
-#: common/config.cpp:1439
+#: common/config.cpp:1442
 msgid "save replacement pairs on save all"
 msgstr "нигоҳ доштани ду адади иввазшуда ҳолати тамоми онро нигоҳ доштан"
 
-#: common/config.cpp:1441
+#: common/config.cpp:1444
 msgid "set the prefix based on executable location"
 msgstr "танзимоти префикс мувофиқи ҷойгиршавии файли иҷрошаванда"
 
-#: common/config.cpp:1443
+#: common/config.cpp:1446
 msgid "size of the word list"
 msgstr "андозаи рӯйхати калима"
 
-#: common/config.cpp:1445
+#: common/config.cpp:1448
 msgid "no longer used"
 msgstr "дигар истифода намешавад"
 
-#: common/config.cpp:1447
+#: common/config.cpp:1450
 msgid "suggestion mode"
 msgstr "тартиботи ҷумла"
 
 #. TRANSLATORS: "sug-mode" is a literal value and should not be
 #. translated.
-#: common/config.cpp:1451
-msgid "edit distance to use, override sug-mode default"
-msgstr "тағйири истифодаи масофа, sug-mode-ро аз нав мепӯшонад"
-
-#: common/config.cpp:1453
+#: common/config.cpp:1454
 msgid "use typo analysis, override sug-mode default"
 msgstr "истифодаи анализи саҳв, sug-mode-ро аз нав мепӯшонад"
 
-#: common/config.cpp:1455
+#: common/config.cpp:1456
 msgid "use replacement tables, override sug-mode default"
 msgstr "истифодаи ҷадвали ивваз, sug-mode аз нав мепӯшонад"
 
-#: common/config.cpp:1457
+#: common/config.cpp:1458
 msgid "characters to insert when a word is split"
 msgstr "ишораҳое, ки ҳолати ҷудо кардани калима монда мешаванд"
 
-#: common/config.cpp:1459
+#: common/config.cpp:1460
 msgid "use personal, replacement & session dictionaries"
 msgstr "бо истифода аз луғатҳои шахсӣ, иввазӣ ва сессиявӣ"
 
-#: common/config.cpp:1463
+#: common/config.cpp:1464
 msgid "search path for word list information files"
 msgstr "роҳи ҷустуҷӯи файлҳои бо ахбороти рӯйхати калимаҳо"
 
-#: common/config.cpp:1465
+#: common/config.cpp:1466
 msgid "enable warnings"
 msgstr "фаъол сохтани огоҳиятҳо"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1475
+#: common/config.cpp:1476
 #, fuzzy
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
 msgstr "индикатори байрақҳои аффиксӣ дар рӯйхати калимаҳо"
 
-#: common/config.cpp:1477
+#: common/config.cpp:1478
 msgid "use affix compression when creating dictionaries"
 msgstr "истифодаи зичии аффикс ҳолати сохтани луғғатҳо"
 
-#: common/config.cpp:1479
+#: common/config.cpp:1480
 msgid "remove invalid affix flags"
 msgstr ""
 
-#: common/config.cpp:1481
+#: common/config.cpp:1482
 msgid "attempts to clean words so that they are valid"
 msgstr ""
 
-#: common/config.cpp:1483
+#: common/config.cpp:1484
 #, fuzzy
 msgid "compute soundslike on demand rather than storing"
 msgstr "Дар ҳолати лозимӣ soundslike-ро ҳисоб кунед ва на инки захира."
 
-#: common/config.cpp:1485
+#: common/config.cpp:1486
 msgid "partially expand affixes for better suggestions"
 msgstr "Қисман вусъат додани аффикс барои таъминоти хубтар"
 
-#: common/config.cpp:1487
+#: common/config.cpp:1488
 msgid "skip invalid words"
 msgstr ""
 
-#: common/config.cpp:1489
+#: common/config.cpp:1490
 msgid "check if affix flags are valid"
 msgstr ""
 
-#: common/config.cpp:1491
+#: common/config.cpp:1492
 msgid "check if words are valid"
 msgstr ""
 
-#: common/config.cpp:1498
+#: common/config.cpp:1499
 msgid "create a backup file by appending \".bak\""
 msgstr "сохтани файли захиравӣ бо иловаи \".bak\""
 
-#: common/config.cpp:1500
+#: common/config.cpp:1501
 msgid "use byte offsets instead of character offsets"
 msgstr "омезонидани байтҳо ба ҷои омезонидани ишораҳо"
 
-#: common/config.cpp:1502
+#: common/config.cpp:1503
 #, fuzzy
 msgid "create missing root/affix combinations"
 msgstr "имконпазир намудани мувофиқати реша/аффикс, на дар луғат"
 
-#: common/config.cpp:1504
+#: common/config.cpp:1505
 #, fuzzy
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
 msgstr "чида гузоштани кнопкаҳо барои тафтиши тартиботи aspell, ispell"
 
-#: common/config.cpp:1506
+#: common/config.cpp:1507
 msgid "reverse the order of the suggest list"
 msgstr "тартиботи бозгашти рӯйхати ҷумла"
 
-#: common/config.cpp:1508
+#: common/config.cpp:1509
 msgid "suggest possible replacements"
 msgstr "тақдими иввази лозимӣ"
 
-#: common/config.cpp:1510
+#: common/config.cpp:1511
 msgid "time load time and suggest time in pipe mode"
 msgstr "вақти пурборкунӣ ва вақти тақдимият дар тартиботи-pipe"
 
@@ -357,12 +353,12 @@ msgstr "вақти пурборкунӣ ва вақти тақдимият да�
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Ин ҳамчунин маънои онро дорад, ки файл \"%s\" барои хондан кушода намешавад ёки он вуҷуд надорад."
 
-#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
+#: common/convert.cpp:590 common/convert.cpp:701 common/convert.cpp:747
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Ишораи юникоди U+%04X дастгирӣ нашуда истодааст."
 
-#: common/convert.cpp:859
+#: common/convert.cpp:871
 #, fuzzy, c-format
 #| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
@@ -669,292 +665,297 @@ msgstr "%action:1: `%expression:2' ифодаи мунтазами нодуру�
 msgid "Unhandled Error: "
 msgstr "Хатои нокоркард: "
 
-#: prog/aspell.cpp:97
+#: prog/aspell.cpp:98
 #, c-format
 msgid "Error: %s\n"
 msgstr "Хато: %s\n"
 
-#: prog/aspell.cpp:102
+#: prog/aspell.cpp:103
 msgid "Error: "
 msgstr "Хато: "
 
-#: prog/aspell.cpp:203
+#: prog/aspell.cpp:204
 msgid "enter Email mode."
 msgstr "гузаштан ба тартиботи Email."
 
-#: prog/aspell.cpp:204
+#: prog/aspell.cpp:205
 #, fuzzy
 msgid "enter HTML mode."
 msgstr "гузаштан ба тартиботи TeX"
 
-#: prog/aspell.cpp:205
+#: prog/aspell.cpp:206
 msgid "enter TeX mode."
 msgstr "гузаштан ба тартиботи TeX"
 
-#: prog/aspell.cpp:206
+#: prog/aspell.cpp:207
 #, fuzzy
 #| msgid "enter TeX mode."
 msgid "enter Nroff mode."
 msgstr "гузаштан ба тартиботи TeX"
 
-#: prog/aspell.cpp:312
+#: prog/aspell.cpp:313
 #, c-format
 msgid "Invalid Option: %s"
 msgstr "Интихоботгоҳи нодуруст: %s"
 
-#: prog/aspell.cpp:319
+#: prog/aspell.cpp:320
 msgid " does not take any parameters."
 msgstr " ягон параметреро қабул накарда истодааст."
 
-#: prog/aspell.cpp:332 prog/aspell.cpp:392
+#: prog/aspell.cpp:333 prog/aspell.cpp:393
 #, fuzzy, c-format
 #| msgid "You must specify a parameter for %s"
 msgid "You must specify a parameter for \"%s\"."
 msgstr "Шумо бояд ягон параметре барои %s нишон диҳед"
 
-#: prog/aspell.cpp:381
+#: prog/aspell.cpp:382
 msgid "You must specify an action"
 msgstr "Шумо бояд амалеро ишора кунед"
 
-#: prog/aspell.cpp:389 prog/aspell.cpp:452 prog/aspell.cpp:474
+#: prog/aspell.cpp:390 prog/aspell.cpp:453 prog/aspell.cpp:475
 #, c-format
 msgid "Unknown Action: %s"
 msgstr "Амалиёти номуайян: %s"
 
-#: prog/aspell.cpp:395
+#: prog/aspell.cpp:396
 #, fuzzy, c-format
 #| msgid "You must specify a parameter for %s"
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr "Шумо бояд ягон параметре барои %s нишон диҳед"
 
-#: prog/aspell.cpp:637
+#: prog/aspell.cpp:638
 msgid "Invalid Input"
 msgstr "Вурудиятҳои нодуруст"
 
-#: prog/aspell.cpp:710
+#: prog/aspell.cpp:711
 #, c-format
 msgid "WARNING: Unable to enter Nroff mode: %s\n"
 msgstr ""
 
-#: prog/aspell.cpp:731
+#: prog/aspell.cpp:732
 msgid "Time to load word list: "
 msgstr "Вақти пурборкунии рӯйхати калима: "
 
-#: prog/aspell.cpp:929
+#: prog/aspell.cpp:930
 #, c-format
 msgid "Suggestion Time: %f\n"
 msgstr "Вақти пешниҳод: %f\n"
 
-#: prog/aspell.cpp:972
+#: prog/aspell.cpp:973
 msgid "You must specify a file name."
 msgstr "Шумо бояд номи файлро нишон диҳед."
 
-#: prog/aspell.cpp:975
+#: prog/aspell.cpp:976
 msgid "Only one file name may be specified."
 msgstr ""
 
-#: prog/aspell.cpp:985
+#: prog/aspell.cpp:986
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
 msgstr "Боз кардани файли \"%s\" барои хондан имконнопазир аст"
 
-#: prog/aspell.cpp:998
+#: prog/aspell.cpp:999
 #, c-format
 msgid "Invalid keymapping: %s"
 msgstr "Рамзгузории нодуруст дар забонак: %s"
 
-#: prog/aspell.cpp:1020
+#: prog/aspell.cpp:1014
+#, fuzzy, c-format
+msgid "\"%s\" is not a regular file"
+msgstr "%action:1: `%expression:2' ифодаи мунтазами нодуруст мебошад."
+
+#: prog/aspell.cpp:1025
 #, fuzzy, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "Боз кардани файли \"%s\" барои навиштан имконнопазир аст. Файл нигоҳ дошта нашудааст."
 
-#: prog/aspell.cpp:1033
+#: prog/aspell.cpp:1038
 msgid "Ignore"
 msgstr "Роҳ додан"
 
-#: prog/aspell.cpp:1034
+#: prog/aspell.cpp:1039
 msgid "Ignore all"
 msgstr "Роҳ додани ҳамааш"
 
-#: prog/aspell.cpp:1035
+#: prog/aspell.cpp:1040
 msgid "Replace"
 msgstr "Ивваз"
 
-#: prog/aspell.cpp:1036
+#: prog/aspell.cpp:1041
 msgid "Replace all"
 msgstr "Иввази ҳамааш"
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1042
 msgid "Add"
 msgstr "Илова"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1043
 msgid "Add Lower"
 msgstr "Иловаи қайдгоҳи поёна"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1044
 msgid "Abort"
 msgstr "Каниш"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1045
 msgid "Exit"
 msgstr "Баромад"
 
-#: prog/aspell.cpp:1116
+#: prog/aspell.cpp:1121
 #, fuzzy
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "Шумо мутмаъинед, ки мехоҳед барҳам диҳед?"
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1125
 msgid "Yy"
 msgstr ""
 
-#: prog/aspell.cpp:1148
+#: prog/aspell.cpp:1153
 msgid "With: "
 msgstr "Ба:"
 
-#: prog/aspell.cpp:1165
+#: prog/aspell.cpp:1170
 msgid "Sorry that is an invalid choice!"
 msgstr "Бубахшед, ин интихоби нодуруст аст!"
 
-#: prog/aspell.cpp:1386
-msgid "Sorry \"filter\" is currently unimplemented.\n"
-msgstr "Бубахшед, \"filter\" ин вақт кор намекунад.\n"
-
-#: prog/aspell.cpp:1520
+#: prog/aspell.cpp:1559
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "Ҳоло пайваст кардани рӯйхати калимаҳои асосиро имконнопазир аст. Бубахшед."
 
-#: prog/aspell.cpp:1544
+#: prog/aspell.cpp:1583
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "Бубахшед, \"create/merge personal\" дар ин вақт кор намекунад.\n"
 
-#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
+#: prog/aspell.cpp:1592 prog/aspell.cpp:1648
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "Бубахшед, \"%s\" аз нав нависӣ карда наметавонам"
 
-#: prog/aspell.cpp:1600
+#: prog/aspell.cpp:1639
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "Бубахшед, \"create/merge repl\" дар ин вақт кор намекунад.\n"
 
-#: prog/aspell.cpp:1872
+#: prog/aspell.cpp:1911
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr ""
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2838
 msgid "Usage: aspell [options] <command>"
 msgstr ""
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2839
 msgid "<command> is one of:"
 msgstr ""
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2840
 msgid "  -?|usage         display a brief usage message"
 msgstr ""
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2841
 msgid "  help             display a detailed help message"
 msgstr ""
 
-#: prog/aspell.cpp:2803
-msgid "  -c|check <file>  to check a file"
+#: prog/aspell.cpp:2842
+msgid "  -c|check <file>  spellchecks a file"
 msgstr ""
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2843
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr ""
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2844
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr ""
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2845
 msgid "  config <key>     prints the current value of an option"
 msgstr ""
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2846
 msgid "  [dump] dicts | filters | modes"
 msgstr ""
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2847
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr ""
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2848
 msgid "[options] is any of the following:"
 msgstr ""
 
-#: prog/aspell.cpp:2822
+#: prog/aspell.cpp:2861
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr ""
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2864
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr ""
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2865
 msgid "  munch            generate possible root words and affixes"
 msgstr ""
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2866
 msgid "  expand [1-4]     expands affix flags"
 msgstr ""
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2867
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2868
+msgid "  filter           filters input as if it was being spellchecked"
+msgstr ""
+
+#: prog/aspell.cpp:2869
 msgid "  -v|version       prints a version line"
 msgstr ""
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2870
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr ""
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2871
 msgid "    reduce the size of a word list via affix compression"
 msgstr ""
 
-#: prog/aspell.cpp:2833
+#: prog/aspell.cpp:2872
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr ""
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2873
 msgid "    converts from one encoding to another"
 msgstr ""
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2874
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr ""
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2875
 #, fuzzy
 msgid "    perform Unicode normalization"
 msgstr "фаъол сохтани муқаррарияти Юникод"
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2878
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr ""
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2879
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr ""
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2883
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr ""
 
-#: prog/aspell.cpp:2854
+#: prog/aspell.cpp:2893
 #, c-format
 msgid ""
 "\n"
@@ -962,7 +963,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: prog/aspell.cpp:2888
+#: prog/aspell.cpp:2927
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -970,13 +971,13 @@ msgid ""
 "    \"variety\", and \"size\" options.\n"
 msgstr ""
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2948
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
 msgstr ""
 
-#: prog/aspell.cpp:2916
+#: prog/aspell.cpp:2955
 #, c-format
 msgid ""
 "\n"
@@ -984,7 +985,7 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2933
+#: prog/aspell.cpp:2972
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
@@ -1117,61 +1118,61 @@ msgstr "Ин эҳтимолан ба сабаби:"
 msgid "The required field \"name\" is missing."
 msgstr "Заминаи дархости \"name\" ҳозир намебошад."
 
-#: modules/speller/default/language.cpp:488
+#: modules/speller/default/language.cpp:489
 msgid "Empty string."
 msgstr "Сатри холӣ."
 
-#: modules/speller/default/language.cpp:492
+#: modules/speller/default/language.cpp:493
 #, fuzzy, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
 msgstr "Ишораи '%s' наметавонад дар аввали калима пайдо шавад."
 
-#: modules/speller/default/language.cpp:494
-#: modules/speller/default/language.cpp:503
+#: modules/speller/default/language.cpp:495
+#: modules/speller/default/language.cpp:504
 #, c-format
 msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr ""
 
-#: modules/speller/default/language.cpp:496
+#: modules/speller/default/language.cpp:497
 #, fuzzy
 msgid "Does not contain any alphabetic characters."
 msgstr "Дорои ягон ҳарф намебошад."
 
-#: modules/speller/default/language.cpp:501
+#: modules/speller/default/language.cpp:502
 #, fuzzy, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "Ишораи '%s' наметавонад дар байни калима пайдо шавад."
 
-#: modules/speller/default/language.cpp:508
+#: modules/speller/default/language.cpp:509
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
 msgstr ""
 
-#: modules/speller/default/language.cpp:511
+#: modules/speller/default/language.cpp:512
 #, fuzzy, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
 msgstr "Ишораи '%s' наметавонад дар охири калима пайдо шавад."
 
-#: modules/speller/default/language.cpp:543
+#: modules/speller/default/language.cpp:544
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
 msgstr ""
 
-#: modules/speller/default/language.cpp:544
+#: modules/speller/default/language.cpp:545
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr ""
 
-#: modules/speller/default/language.cpp:675
+#: modules/speller/default/language.cpp:676
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr ""
 
-#: modules/speller/default/language.cpp:733
+#: modules/speller/default/language.cpp:734
 #, fuzzy
 msgid "The total length is larger than 240 characters."
 msgstr "Умуман дарозии калима аз 240 ишора зиёд аст."
 
-#: modules/speller/default/language.cpp:737
+#: modules/speller/default/language.cpp:738
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr ""
@@ -1209,7 +1210,7 @@ msgstr "Умуман дарозии калима аз 240 ишора зиёд а
 msgid "There must be at least one \"add\" line."
 msgstr ""
 
-#: modules/speller/default/suggest.cpp:1403
+#: modules/speller/default/suggest.cpp:1481
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 
@@ -1275,6 +1276,27 @@ msgstr "хусусиятҳои sgml барои тафтишоти доимӣ."
 #, fuzzy
 msgid "HTML tags to always skip the contents of"
 msgstr "ҳадафи sgml он аст, ки барои доим партоиши оканае мебошад аз "
+
+#: modules/filter/markdown-filter.info:8
+#, fuzzy
+msgid "filter for Markdown/CommonMark documents"
+msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
+
+#: modules/filter/markdown-filter.info:14
+msgid "skip link labels in link reference definitions"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:20
+msgid "support tags that span multiple lines outside of HTML blocks"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:26
+msgid "html tags that start a HTML block that allows blank lines"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:34
+msgid "html tags that start a HTML block that end with a blank line"
+msgstr ""
 
 #: modules/filter/nroff-filter.info:7
 #, fuzzy
@@ -1344,6 +1366,11 @@ msgstr ""
 msgid "mode for checking HTML documents"
 msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 
+#: modules/filter/modes/markdown.amf:9
+#, fuzzy
+msgid "mode for checking Markdown/CommonMark documents"
+msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
+
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
 msgstr ""
@@ -1375,6 +1402,12 @@ msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr ""
+
+#~ msgid "edit distance to use, override sug-mode default"
+#~ msgstr "тағйири истифодаи масофа, sug-mode-ро аз нав мепӯшонад"
+
+#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
+#~ msgstr "Бубахшед, \"filter\" ин вақт кор намекунад.\n"
 
 #~ msgid ""
 #~ "\n"
