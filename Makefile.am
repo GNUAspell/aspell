@@ -418,3 +418,31 @@ manual: .manual
 
 fake-manual: 
 	$(MAKE) -C manual fake-manual
+
+########################################################################
+#
+# Tests
+#
+
+EXTRA_DIST += \
+  test/Makefile \
+  test/cxx_warnings_test.cpp \
+  test/en.dat \
+  test/en.prepl \
+  test/en_phonet.dat \
+  test/en_repl.dat \
+  test/filter-test \
+  test/markdown.dat \
+  test/misc/commonmark-proc \
+  test/sanity \
+  test/suggest.mk \
+  test/suggest/??-*-expect.res \
+  test/suggest/??-*.tab \
+  test/suggest/comp \
+  test/suggest/filter.pl \
+  test/suggest/mkmk \
+  test/suggest/refresh \
+  test/suggest/run-batch \
+  test/wide_test_invalid.c \
+  test/wide_test_valid.c
+
