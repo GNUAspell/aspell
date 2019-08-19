@@ -51,9 +51,11 @@ namespace aspeller {
   public:
     class FileName {
       void copy(const FileName & other);
+      String       path_;
+      const char * name_;
     public:
-      String       path;
-      const char * name;
+      const String & path() const {return path_;}
+      const char *   name() const {return name_;}
       
       void clear();
       void set(ParmString);
@@ -96,7 +98,7 @@ namespace aspeller {
   public:
     bool compare(const Dictionary &);
 
-    const char * file_name() const {return file_name_.path.c_str();}
+    const char * file_name() const {return file_name_.path().c_str();}
     // returns any additional dictionaries that are also used
     virtual PosibErr<void> load(ParmString, Config &, DictList * = 0, 
                                 SpellerImpl * = 0);

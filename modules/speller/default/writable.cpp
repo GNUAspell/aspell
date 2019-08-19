@@ -187,8 +187,8 @@ PosibErr<void> WritableBase::load(ParmString f0, Config & config,
 PosibErr<void> WritableBase::merge(ParmString f0) {
   FStream in;
   Dict::FileName fn(f0);
-  RET_ON_ERR(open_file_readlock(in, fn.path));
-  RET_ON_ERR(merge(in, fn.path));
+  RET_ON_ERR(open_file_readlock(in, fn.path()));
+  RET_ON_ERR(merge(in, fn.path()));
   return no_err;
 }
 

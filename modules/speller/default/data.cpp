@@ -29,11 +29,11 @@ namespace aspeller {
   Dictionary::Id::Id(Dict * p, const FileName & fn)
     : ptr(p)
   {
-    file_name = fn.name;
+    file_name = fn.name();
 #ifdef USE_FILE_INO
     struct stat s;
     // the file ,i
-    if (file_name[0] != '\0' && stat(fn.path.c_str(), &s) == 0) {
+    if (file_name[0] != '\0' && stat(fn.path().c_str(), &s) == 0) {
       ino = s.st_ino;
       dev = s.st_dev;
     } else {
@@ -107,28 +107,29 @@ namespace aspeller {
 
   void Dictionary::FileName::copy(const FileName & other) 
   {
-    const_cast<String &      >(path) = other.path;
-    const_cast<const char * &>(name) = path.c_str() + (other.name - other.path.c_str());
+    path_ = other.path_;
+    name_ = path_.c_str() + (other.name_ - other.path_.c_str());
   }
 
   void Dictionary::FileName::clear()
   {
-    path  = "";
-    name = path.c_str();
+    path_  = "";
+    name_ = path_.c_str();
   }
 
   void Dictionary::FileName::set(ParmString str) 
   {
-    path = str;
-    int i = path.size() - 1;
+    path_ = str;
+    int i = path_.size() - 1;
     while (i >= 0) {
-      if (path[i] == '/' || path[i] == '\\') {
-	++i;
-	break;
+      if (path_[i] == '/' || path_[i] == '\\') {
+          ++i;
+          break;
       }
       --i;
     }
-    name = path.c_str() + i;
+    if (i < 0) i = 0;
+    name_ = path_.c_str() + i;
   }
 
   PosibErr<void> Dictionary::set_file_name(ParmString fn) 
@@ -359,7 +360,7 @@ namespace aspeller {
       if (d == 0) d = dict_dir.c_str();
       suffix = suffix_list;
       do {
-	true_file_name = add_possible_dir(d, ParmString(file_name.path)
+	true_file_name = add_possible_dir(d, ParmString(file_name.path())
 					  + ParmString(*suffix));
 	in.open(true_file_name, "r").ignore_err();
 	++suffix;
@@ -368,7 +369,7 @@ namespace aspeller {
       d = 0;
     } while (!in);
     if (!in) {
-      true_file_name = add_possible_dir(dir ? dir.str() : d, file_name.path);
+      true_file_name = add_possible_dir(dir ? dir.str() : d, file_name.path());
       return make_err(cant_read_file, true_file_name);
     }
     DataType actual_type;
