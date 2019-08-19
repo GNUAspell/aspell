@@ -189,7 +189,7 @@ void Iterator::next_line() {
     if (!at_end() && *i == '\r') {
       ++i;
     }
-  } else if (!at_end() && *i == '\r') {
+  } else if (!at_end() && eol()) {
     ++i;
   }
   line_pos = 0;
