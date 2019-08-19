@@ -184,12 +184,12 @@ int Iterator::eat_space() {
 void Iterator::next_line() {
   while (!eol())
     inc();
-  if (!at_end() && *i == '\n') {
+  if (!at_end() && *i == '\r') {
     ++i;
-    if (!at_end() && *i == '\r') {
+    if (!at_end() && *i == '\n') {
       ++i;
     }
-  } else if (!at_end() && *i == '\r') {
+  } else if (!at_end()) {
     ++i;
   }
   line_pos = 0;
