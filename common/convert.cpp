@@ -1146,7 +1146,7 @@ namespace acommon {
   }
 
   void unsupported_null_term_wide_string_abort_(const char * func) {
-    CERR.printf("%s: %s\n", unsupported_null_term_wide_string_msg);
+    CERR.printf("%s: %s\n", func, unsupported_null_term_wide_string_msg);
     abort();
   }
  
