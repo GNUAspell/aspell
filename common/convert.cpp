@@ -659,7 +659,7 @@ namespace acommon {
     // must be null terminated
     // FIXME: Why must it be null terminated?
     void decode(const char * in, int size, FilterCharVector & out) const {
-      const char * stop = in + size; // will word even if size -1
+      const char * stop = in + size; // will work even if size -1
       while (in != stop) {
         if (*in == 0) {
           if (size == -1) break;
@@ -793,7 +793,7 @@ namespace acommon {
   u |= c & 0x3F;                       \
   ++w;
 
-  static inline FilterChar from_utf8 (const char * & in, const char * stop, 
+  static inline FilterChar from_utf8 (const char * & in, const char * stop = 0,
                                       Uni32 err_char = '?')
   {
     Uni32 u = (Uni32)(-1);
@@ -855,25 +855,37 @@ namespace acommon {
   {
     ToUniLookup lookup;
     void decode(const char * in, int size, FilterCharVector & out) const {
-      const char * stop = in + size; // this is OK even if size == -1
-      while (in != stop && *in) {
-        out.append(from_utf8(in, stop));
+      if (size == -1) {
+        while (*in)
+          out.append(from_utf8(in));
+      } else {
+        const char * stop = in + size;
+        while (in != stop)
+          out.append(from_utf8(in, stop));
       }
     }
     PosibErr<void> decode_ec(const char * in, int size, 
                              FilterCharVector & out, ParmStr orig) const {
       const char * begin = in;
-      const char * stop = in + size; // this is OK even if size == -1
-      while (in != stop && *in) {
-        FilterChar c = from_utf8(in, stop, (Uni32)-1);
-        if (c == (Uni32)-1) {
-          char m[70];
-          snprintf(m, 70, _("Invalid UTF-8 sequence at position %ld."), (long)(in - begin));
-          return make_err(invalid_string, orig, m);
+      if (size == -1) {
+        while (*in) {
+          FilterChar c = from_utf8(in, 0, (Uni32)-1);
+          if (c == (Uni32)-1) goto error;
+          out.append(c);
         }
-        out.append(c);
+      } else {
+        const char * stop = in + size;
+        while (in != stop) {
+          FilterChar c = from_utf8(in, stop, (Uni32)-1);
+          if (c == (Uni32)-1) goto error;
+          out.append(c);
+        }
       }
       return no_err;
+    error:
+      char m[70];
+      snprintf(m, 70, _("Invalid UTF-8 sequence at position %ld."), (long)(in - begin));
+      return make_err(invalid_string, orig, m);
     }
   };
 
