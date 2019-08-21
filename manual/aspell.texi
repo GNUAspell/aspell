@@ -545,39 +545,75 @@ can.
 @node Using Aspell with other Applications
 @section Using Aspell with other Applications
 
+@subsection With Enchant Based Applications
+
+Enchant is a generic spell checking library with multiple
+backends used by many applications that provide spell checker
+functionality.  Enchant is used by AbiWord; LyX; and via gspell and
+GtkSpell, a number of Gtk and GNOME applications.
+
+By default enchant is configuired to prefer Hunaspell over Aspell but
+this can easily be changed on a per-language basis.  If you wish to
+use Aspell for a specific dictionary say, American English, make sure
+that the Aspell backend is installed (on Debian and Ubuntu based
+system it is included as part of the base package) then create the
+file @file{~/.config/enchant/enchant.ordering} that contains the
+single line:
+
+@example
+en_US:aspell
+@end example
+
+To test it.  Restart the enchant based application and then compare
+the suggestion list with an application that used Aspell or by using
+the @command{aspell check} or @command{aspell pipe} commands.
+
+You can also prefer Aspell in general over Humspell by instead using:
+
+@example
+*:aspell,hunspell
+@end example
+
+Then if an Aspell dictionary is available Enchant should use it.
+
+
 @subsection With Emacs and XEmacs
 
-The easiest way to use Aspell with Emacs or XEmacs is to add this
-line:
+Newer versions of emacs should prefer @command{aspell} over both
+@command{ispell} and @command{hunspell}, if you find this is not the
+case, then addding the line:
 
 @verbatim
 (setq-default ispell-program-name "aspell")
 @end verbatim
 
-to the end of your @file{.emacs} file.
+to the end of your @file{.emacs} file should convince emacs to use
+Aspell.
 
-For some reason version 3.0 of ispell.el (the lisp program that
-(x)emacs uses) wants to reverse the suggestion list.  To fix this add
-this line:
+@c No longer relevant
 
-@verbatim
-(setq-default ispell-extra-args '("--reverse"))
-@end verbatim
+@c For some reason version 3.0 of ispell.el (the lisp program that
+@c (x)emacs uses) wants to reverse the suggestion list.  To fix this add
+@c this line:
 
-after the previous line in your .emacs file and it should solve the problem.
+@c @verbatim
+@c (setq-default ispell-extra-args '("--reverse"))
+@c @end verbatim
 
-Ispell.el, version 3.1 (December 1, 1998) and better, has the list
-reversing problem fixed.  You can find it at
-@uref{http://www.kdstevens.com/~stevens/ispell-page.html}.
+@c after the previous line in your .emacs file and it should solve the problem.
 
-@subsection With LyX
+@c Ispell.el, version 3.1 (December 1, 1998) and better, has the list
+@c reversing problem fixed.  You can find it at
+@c @uref{http://www.kdstevens.com/~stevens/ispell-page.html}.
 
-Version 1.0 of LyX provides support for Aspell's learning from user's
-mistakes feature.
+@c @subsection With LyX
 
-To use Aspell with LyX 1.0 either change the @option{spell_command}
-option in the @file{.lyxrc} file or use the @command{run-with-aspell}
-utility.
+@c Version 1.0 of LyX provides support for Aspell's learning from user's
+@c mistakes feature.
+
+@c To use Aspell with LyX 1.0 either change the @option{spell_command}
+@c option in the @file{.lyxrc} file or use the @command{run-with-aspell}
+@c utility.
 
 @subsection With VIM
 
