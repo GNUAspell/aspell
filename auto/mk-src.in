@@ -730,7 +730,7 @@ class: speller
 		/
 		suggestions
 		encoded string: word
-		void pointer: unusued
+		void pointer: unused
 
 	method: store replacement
 
@@ -982,9 +982,18 @@ group: suggestions
 class: suggestions
 	/
 	method: words
+		cc extra =>
+			\#define aspell_suggestions_words_w(type, ths, len) \\
+			    aspell_rcast_(const type * *, aspell_suggestions_words(ths, len))
 		/
 		string array
 		array size pointer: len
+
+#	method: words wide
+#		c impl =>
+#			return reinterpret_cast<const void * *>(ths->words(len));
+#		const void pointer array
+#		array size pointer: len
 
 	method: normalized scores
 		desc => Returns the normalized scores.  The values are between 0 and 1 inclusive
