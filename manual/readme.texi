@@ -317,10 +317,14 @@ with the official release.
 
 @appendixsubsec Getting the WIN32 version
 
-The latest version of the native Aspell/WIN32 port, including
-binaries, can be found at @uref{http://aspell.net/win32}.  This page
-has, unfortunately, not been updated for Aspell 0.60.  If you are
-interested in updated the native port please let me know.
+The native Aspell/WIN32 port is no longer being maintained.  The best
+way to get Aspell for Windows is to use the MSYS2 binaries.  MSYS2 is
+available at @uref{https://www.msys2.org/}.
+
+Binaries for Aspell 0.50 are still available at
+@uref{http://aspell.net/win32/} but they are no longer supported.  If
+you are interested in updating them for Aspell 0.60 please let me
+know.
 
 @appendixsubsec Building the WIN32 version
 
