@@ -3,6 +3,7 @@
 @setfilename aspell.info
 @settitle GNU Aspell 0.60.8-git
 @syncodeindex pg cp
+@paragraphindent 0
 @documentencoding UTF-8
 @documentdescription
 Aspell 0.60.8-git spell checker user's manual.
