@@ -204,10 +204,11 @@ static const ModeAbrv mode_abrvs[] = {
   {'e', "mode=email", N_("enter Email mode.")},
   {'H', "mode=html",  N_("enter HTML mode.")},
   {'t', "mode=tex",   N_("enter TeX mode.")},
-  {'n', "mode=nroff", N_("enter Nroff mode.")}
+  {'n', "mode=nroff", N_("enter Nroff mode.")},
+  {'M', "mode=markdown", N_("enter Markdown mode.")},
 };
 
-static const ModeAbrv *  mode_abrvs_end = mode_abrvs + 4;
+static const ModeAbrv *  mode_abrvs_end = mode_abrvs + sizeof(mode_abrvs)/sizeof(ModeAbrv);
 
 const PossibleOption * find_option(char c) {
   const PossibleOption * i = possible_options;
