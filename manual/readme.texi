@@ -173,7 +173,7 @@ functions is called.
 
 Application that use null-terminated UCS-2/4 strings should either (1)
 use the interface intended for working with wide-characters
-(@xref{Through the C API}); or (2) define
+(@pxref{Through the C API}); or (2) define
 @code{ASPELL_ENCODE_SETTING_SECURE} before including @code{aspell.h}.
 In the latter case is is important that the application explicitly
 sets the encoding to a known value.  Defining
