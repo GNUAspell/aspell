@@ -1555,14 +1555,17 @@ or possible corrections.
 @section Dumping Configuration Values
 
 To find out the current value of all the options use the command
-@command{aspell dump config}.  This will dump the current Aspell
+@samp{aspell dump config}.  This will dump the current Aspell
 configuration to standard output.  The format of the contents dumped
 is such that it can be used as either the global or your personal
 configuration file.
 
 To find out the current value of a particular option use
-@command{aspell config @var{option}}.  This will print out the value of
-@var{option} to @code{stdout} and nothing else.
+@samp{aspell config @var{option}}.  This will print out the value of
+@var{option} to standard output and nothing else.
+
+To determine the default setting for a particular option use
+@samp{aspell --reset-@var{option} config @var{option}}.
 
 @node Notes on Various Options
 @section Notes on Various Options
