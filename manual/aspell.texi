@@ -319,9 +319,8 @@ the more useful ones include:
 @table @b
 @item --mode=@var{mode}
 the mode to use when checking files.  The available modes are
-@code{none}, @code{url}, @code{email}, @code{sgml}, @code{tex},
-@code{texinfo}, @code{nroff}, among others.  For more information on the
-various modes see @ref{Notes on Various Filters and Filter Modes}.
+@code{none}, @code{url}, @code{email}, @code{markdown}, @code{html}, @code{tex},
+@code{texinfo}, and @code{nroff}, among others.  @xref{Filter Options}.
 
 @item --dont-backup
 don't create a backup file.  Normally, if there are any corrections
@@ -330,9 +329,8 @@ and then create a new file with corrections made during spell checking.
 
 @item --sug-mode=@var{mode}
 the suggestion mode to use where mode is one of @code{ultra},
-@code{fast}, @code{normal}, or @code{bad-spellers}.  For more
-information on these modes see @ref{Notes on the Different Suggestion
-Modes}.
+@code{fast}, @code{normal}, @code{slow}, or @code{bad-spellers}.
+@xref{Notes on the Different Suggestion Modes}.
 
 @item --lang=@var{name}/-l @var{name}
 the language the document is written in.  The default depends on the
@@ -351,8 +349,8 @@ or @option{ispell} to use the same mapping that the Ispell utility
 uses.
 @end table
 
-For more information on the available options, please see
-@ref{Customizing Aspell}.
+(For more information on the available options, please see
+@ref{Customizing Aspell}.)
 
 For example to check the file @file{foo.txt}:
 
@@ -369,14 +367,7 @@ aspell check --sug-mode=bad-spellers -d en_US foo.txt
 @end example
 
 If the @option{mode} option is not given, then Aspell will use the
-extension of the file to determine the current mode.  If the extension
-is @file{.tex}, then @option{tex} mode will be used, if the extension
-is @file{.html}, @file{.htm}, @file{.php}, or @file{.sgml} it will
-check the file in @option{sgml} mode, otherwise it will use
-@option{url} mode. 
-
-For more information on the various modes that can be used, see
-@ref{Notes on Various Filters and Filter Modes}.
+extension of the file to determine the current mode.
 
 If Aspell was compiled with curses support and the @env{TERM}
 environment variable is set to a capable terminal type then Aspell
@@ -845,7 +836,7 @@ the option name with a @samp{lset-} and separate each value with a
 @samp{lset-filter url:tex}.  To include a literal @samp{:} use
 @samp{\:}.
 
-@subsection Setting Options via an Environment Variable
+@subsection Via an Environment Variable
 
 The environment variable @env{ASPELL_CONF} may also be used and it
 overrides any options set in the configuration file.  The format of
@@ -1038,53 +1029,173 @@ Ignore accents when checking words -- @emph{currently ignored}.
 
 @end table
 
+@anchor{Filter Options}
 @subsection Filter Options
 
-These options modify the behavior of the Aspell filter interface in
-general (for more information see @pxref{Notes on Various Filters and
-Filter Modes}).
+These options control Aspell's filters that filter out text that
+should not be spell checked.
 
 @table @b
 
+@item mode
+@i{(string)}
+Sets the filter mode.  A mode is a collection of individual filters
+that work well together.  Possible values include, but not limited to,
+@samp{none}, @samp{url} (the normal default), @samp{email}, @samp{markdown},
+@samp{html}, @samp{tex}, @code{texinfo}, or @samp{nroff} (default for @command{aspell pipe}).
+For a complete list use @command{aspell dump modes}.
+
+The shortcut options @option{-e} may be used for
+email, @option{-H} for HTML, @option{-M} for Markdown,
+@option{-t} for @TeX{}, or @option{-n} for Nroff.
+
 @item filter
 @i{(list)}
-filters to use
+Individual filters to use, use @command{aspell dump filters} for a complete list.
 
 @item filter-path
 @i{(list)}
 Where to look when loading filter and filter modes.
 
-@item mode
-@i{(string)}
-Sets the filter mode.  Possible values include, but not limited to,
-@samp{none}, @samp{url}, @samp{email}, @samp{sgml}, or @samp{tex}.  (The
-shortcut options @option{-e} may be used for email, @option{-H} for
-HTML, or @option{-t} for @TeX{}).
-
 @end table
 
-These options belong to filters packaged along with Aspell standard
-distribution.  These options may be prefixed by the keyword
-@code{f-} in order to explicitly indicate that they are options
-recognized by a filter and not by Aspell itself.
+@c @subsection Filter Modes
 
-@subsubsection email
-This filter hides quoting characters and email preamble and other
-parts of an email which need not to be spell checked.
+@c These options belong to filters packaged along with Aspell standard
+@c distribution.  These options may be prefixed by the keyword
+@c @code{f-} in order to explicitly indicate that they are options
+@c recognized by a filter and not by Aspell itself.
+
+@subsubsection None filter mode
+
+The @option{none} mode is exactly what it says.  It turns off all filters.
+
+@subsubsection URL filter
+
+The @option{url} filter/mode skips over URLs, host names, and email
+addresses.  Because this filter is almost always useful and rarely
+does any harm it is enabled in all modes except @option{none}.  To
+turn it off either select the @option{none} mode or use
+@option{rem-filter} option @emph{after} the desired mode is selected.
+
+@subsubsection Email filter
+
+The @option{email} mode skips over quoted text.
+
+@c It currently does not
+@c support skipping over headers however a future version should.  In the
+@c meantime I suggest you use Aspell with Newsbody which can be found at
+@c @uref{http://home.worldonline.dk/~byrial/newsbody/}.
 
 @table @b
 @item email-quote
 @i{(list)}
-Email quote characters.
+Email quote characters.  Defaults to @samp{>} and @samp{|}.
 
 @item email-margin
 @i{(integer)}
-The number of characters that can appear before the quote character
+The number of characters that can appear before the quote character.
+Defaults to 10.
 @end table
 
-@subsubsection html
-This filter converts an HTML source file into a format which eases
-spell checking of HTML texts by Aspell.
+@subsubsection Markdown Filter
+
+The @option{markdown} filter/mode skips over code and links in Markdown
+documents.  The mode also handles HTML via the @option{html} filter
+which runs after the Markdown filer.
+
+Properly parsing Markdown requires reading the entire document in at
+once, which doesn't fit well into the existing filter framework so the
+filter parses the document a line at a time and makes a best guess
+when a line ends without enough information to correctly parse a a
+tag.  For example in the following:
+@example
+`This looks like inline code
+
+But it's not, becuase the of the blank line.
+@end example
+the first line will be incorrectly skipped.
+
+@table @b
+@item markdown-multiline-tags
+@i{(boolean)}
+Enables or disables support for HTML tags that might span multiple
+lines (outside of HTML blocks).  Enabled by default (to disable from
+the command line use @samp{--dont-markdown-multiline-tags}).
+
+@item markdown-skip-ref-labels
+@i{(boolean)}
+Controls if ref lables are skipped.  For example, when this
+option is enabled @samp{[ref]} will be skipped over in:
+@example
+[link][ref]
+
+[ref]: #c2 "Chapter 2"
+@end example
+Enabled by default (to disable from
+the command line use @samp{--dont-markdown-skip-ref-labels}).
+@end table
+
+The Markdown filter also supports the @option{markdown-raw-start-tags}
+and @option{markdown-block-start-tags} list options.  These options
+are a list of HTML tags that start an HTML block.  If the block starts
+with a tag listed in @option{markdown-raw-start-tags} then the block
+ends with the corresponding closing tag.  If the block starts with a
+tag listed in @option{markdown-block-start-tags} then the block ends
+with a blank line.  The defaults for these two options are taken from
+the CommonMark spec (version 0.29, 2019-04-06).
+
+@subsubsection SGML filter
+
+The SGML filter allows you to spell check SGML, HTML, XHTML, and XML
+files. In most cases everything within a tag @samp{<tag attrib=value
+attrib2="a whole sentence">} will be skipped by the spell checker. The
+SGML/HTML/XML that Aspell supports is a slight superset of most DTDs
+(Document Type Definitions) and can spell check the often non-conforming
+HTML found on the web.
+
+This filter will also translate SGML characters of the form
+@samp{&#num;}.  Other SGML characters such as @samp{&amp;} will simply
+be skipped over so that the word @samp{amp}, for example, will not be
+spell checked.  Eventually full support for properly translating SGML
+characters will be added.
+
+@table @b
+
+@item sgml-skip
+@i{(list)}
+tags whose contents will also be skipped by the spell
+checker.  For example, if you wish to leave a misspelling in a document
+and not have them flagged as misspellings, you could surround them with
+a <nospellcheck> tag:
+@example
+  <TD><FONT size=2><NOSPELLCHECK>leviosa</NOSPELLCHECK>
+  is what Mr. Potter said</FONT></TD>
+@end example
+@noindent
+And put that word in the skip config directive:
+@example
+add-sgml-skip nospellcheck
+@end example
+
+@item sgml-check
+@i{(list)}
+attributes whose values you do want spell checked. By
+default, 'alt' (<img> alternate text) is a member of the check list
+since it is text that is seen by a web page viewer. You may also want
+'value' to be on the check list since that is the text put on buttons:
+@example
+add-sgml-check value
+@end example
+@noindent
+In this case @samp{<input type=button value="Donr">} will be flagged as a
+misspelling.
+@end table
+
+@subsubsection HTML filter
+
+The @option{html} filter is like the SGML filter but specialized for
+HTML.
 
 @table @b
 @item html-check
@@ -1093,34 +1204,154 @@ HTML attributes to always check, such as alt= (alternate text).
 
 @item html-skip
 @i{(list)}
-HTML tags to always skip the contents of, such as <script>.
+HTML tags to always skip the contents of, such as <script>.  Defaults
+to 'script' and 'style'.
 @end table
 
-@subsubsection sgml
-This filter is identical to the HTML filter except that its options has
-different default values which are currently the empty list.
+@subsubsection @TeX{}/LaTeX Filter
 
-@subsubsection tex/latex
-This filter hides all LaTeX commands and corresponding parameters not
-being readable text in LaTeX output from Aspell.
+The @option{tex} (all lowercase) filter hides @TeX{}/LaTeX commands and
+corresponding parameters that are not readable text in the output from
+Aspell.   It also skips over @TeX{} comments by default.
+
+@c This filter mode is also available via the
+@c @option{latex} alias name.
 
 @table @b
 @item tex-command
 @i{(list)}
-@TeX{} commands
+Controls which @TeX{} commands should have certain parameters and/or
+options also skipped over.  Commands that are not specified will have
+all their parameters and/or options checked.  The format for each item
+is
+
+@example
+<command> <a list of p,P,o and Os>
+@end example
+
+The first item is simply the command name.  The second item controls
+which parameters to skip over.  A 'p' skips over a parameter while a
+'P' doesn't.  Similarly an 'o' will skip over an optional parameter
+while an 'O' doesn't.  The first letter on the list will apply to the
+first parameter, the second letter will apply to the second parameter
+etc.  If there are more parameters than letters Aspell will simply
+check them as normal.  For example the option
+
+@example
+add-tex-command rule pp
+@end example
+
+@noindent
+will skip over the first two parameters of the @code{rule} command
+while the option
+
+@example
+add-tex-command foo Pop
+@end example
+
+@noindent
+will @emph{check} the first parameter of the @code{foo} command, skip
+over the next optional parameter, if it is present, and will skip over
+the second parameter --- even if the optional parameter is not present
+--- and will check any additional parameters.
+
+A @samp{*} at the end of the command is simply ignored.  For example
+the option
+
+@example
+add-tex-command enlargethispage p
+@end example
+
+@noindent
+will ignore the first parameter in both @option{enlargethispage} and
+@option{enlargethispage*}.
+
+The defaults are designed to work well with typical LaTeX documents.
+Use @command{aspell --reset-tex-command config tex-command} for the
+current defaults.
+
+@c To remove a command simply use the @option{rem-tex-command} option.
+@c For example
+@c
+@c @example
+@c re m-tex-command foo
+@c @end example
+
+@c @noindent
+@c will remove the command foo, if present, from the list of @TeX{}
+@c commands.
 
 @item tex-check-comments
 @i{(boolean)}
-check @TeX{} comments
+Check @TeX{} comments.  Defaults to false.
 
 @c @item tex-multi-byte
 @c (@i{list}) TeX multi byte letter en|decoding
 
 @end table
 
-@subsubsection texinfo
-This filter hides all Texinfo commands from Aspell.  It can also hide
-Texinfo parameters and environments not corresponding to readable text.
+@c The TeXfilter mode also contains a decoding and a encoding filter for
+@c @emph{babel} character codes like the German Umlauts:
+
+@c @itemize @bullet
+@c @item
+@c @code{@"a} -> @code{\"a} -> @code{"a}
+
+@c @item
+@c @code{@"o} -> @code{\"o} -> @code{"o}
+
+@c @item
+@c @code{@"u} -> @code{\"u} -> @code{"u}
+
+@c @item
+@c @code{@"s} -> @code{\"s} -> @code{"s}
+@c @end itemize
+@c @end quotation
+
+
+@c @quotation
+@c @option{add|rem-tex-multi-byte} conversion
+
+@c Changes list of multi character coded TeX(babel) characters recognized
+@c by Aspell.  In case of German umlauts mentioned above this would mean
+@c that Aspell would decode from their multi character representation to
+@c their proper single char representation.  Given the German word
+@c @code{St@"arke} (strength) which within TeX/LaTeXdocument has to be
+@c written as @code{St"arke} or as @code{St\"arke} would split it into
+@c the two words @code{St} and @code{arke} if it does not know anything
+@c about the multi character encoding @code{"a} or @code{\"a} of
+@c @code{@"a}.  On the other hand if it knows about it than Aspell will
+@c recognize the word properly and will not try to make any strange
+@c suggestion.
+
+@c Each multi character coding conversion has to be specified the
+@c following way:
+@c @example
+@c @i{char}:@i{rep}[:@i{rep}[@dots{}]]
+@c @end example
+@c where @code{@i{char}} is the character encoded by multiple characters
+@c and rep stands for a specific representation of that character.  For
+@c each character may be specified as many representations as available
+@c for it.
+@c @end quotation
+
+@subsubsection Texinfo Filter
+
+The @option{texinfo} filter allows you to spell check Texinfo
+files. It will skip over Texinfo commands and their parameters
+when appropriate. It will also skip over some Texinfo environments
+such as @command{example}.
+
+The Texinfo filter has special code to deal with the @command{@@table}
+and related commands.  It will apply the formatting command to each of
+the @command{@@item} or @command{@@itemx} commands just like Texinfo
+will.  This means that if the formatting command is @command{@@code}
+and and the @command{@@code} command is a member of the
+@option{texinfo-ignore} option than the Texinfo filter will ignore the
+parameter of the @command{@@item} command as if the parameter was also
+the parameter of the @command{@@code} command.
+
+The Texinfo filter will also skip over the @samp{\input texinfo} line.
 
 @table @b
 @item texinfo-ignore
@@ -1131,36 +1362,82 @@ Texinfo parameters and environments not corresponding to readable text.
 
 @end table
 
-@subsubsection context
-@c FIXME: Shorten
-This filter can be used to spell check source
-codes, HTML sources and other texts which consist of different
-contexts.  These contexts must be separated by pairs of unique
-delimiters.  The different contexts may not be dependent upon each
-other except for initial context which is assumed if not any other
-context applies.
+@subsubsection Nroff Filter
+
+The @option{nroff} filter mode allows you to check the spelling of
+Nroff documents.
+@c The mode is enabled by giving
+@c @option{--add-filter=nroff} or @option{-n} command line option to
+@c @command{aspell}.
+It is enabled by default when @command{aspell pipe} is used.  When
+checking documents with @command{aspell check} it is automatically
+enabled if the first three characters of the file being checked are
+@code{.\"} (a @command{nroff} comment marker) or the file name ends in
+a one of the following suffixes:
+
+@itemize
+@item single decimal digit from @samp{0} to @samp{9}
+@item letter @samp{n}
+@item @samp{tmac}
+@end itemize
+
+@noindent
+This filter mode skips following @command{nroff} language
+elements:
+
+@itemize
+@item Comments
+@item Requests
+@item Names of @command{nroff} registers (both traditional two-letter
+names and GNU nroff long names)
+@item Arguments to the following requests: @code{ds}, @code{de}, @code{nr},
+@code{do}, @code{so}.
+@item Arguments to font switch (@code{\f}) and size switch (@code{\s})
+escapes
+@item Arguments to extended charset escape in both traditional
+(@code{\(}) and extended (@code{\[comp1 comp2 @dots{}]}) form.
+@end itemize
+
+@subsubsection Context Filter
+
+The @option{context} filter can be used to spell check source codes,
+HTML sources and other texts which consist of different contexts.
+Because this filter is meant to build other filter modes, there is no
+@option{context} mode.
+
+The filter distinguishes between visible and invisible contexts. The
+visible ones will be spell checked and the invisible ones will be
+ignored.
 
 @table @b
 @item context-visible-first
-@i{(boolean)} Switches the context which should be visible to Aspell.
-Per default the initial context is assumed to be invisible as one
-would expect when spell checking source files of programs where
-relevant parts are contained in string constants and comments but not
-in the remaining code.  If set to true the initial context is visible
-while the delimited ones are hidden.
+@i{(boolean)}
+Switches the context which should be visible to Aspell.  When false
+(the default) the initial context is hidden and only delimited ones
+are visible.  When true the initial context is visible while the
+delimited ones are hidden.
 
-@item add|rem-context-delimiters
-@i{(list)} Add or remove pairs of delimiters.  This allows you to
-specify the character, or sequences of characters, which should be
-used to switch contexts and therefore have to be escaped by @samp{\} if
-they should appear literally.  The two delimiting chars belonging to
-one pair have to be separated by a space character.  If multiple pairs
-are specified by one @option{add|rem-@/context-delimiters} call the
-different pairs have to be separated by a literal comma.  Per default
-the delimiters are set to C/C++ comment and string constant
-delimiters.  If the end of line delimits a context than this has to be
-indicated by the literal @samp{\0} string.
+@item context-delimiters
+@i{(list)}
+The context delimiters specified as a space separated pairs.  To
+indicate that a context is always closed by end of line use @samp{\0}
+sequence as closing delimiter.
+For example the defaults (for historical reasons) are:
+@example
+  add-context-delimiters /* */
+  add-context-delimiters // \0
+  add-context-delimiters " "
+@end example
+which (when @option{context-visible-first} is false) spell check C/C++
+comments and string literals.
+
 @end table
+
+@subsubsection Ccpp Filter Mode
+
+The @option{ccpp} filter mode is a context filter that will limit
+spell checking to C/C++ comments and string literals. Any code in
+between will be left alone.
 
 @subsection Run-together Word Options
 
@@ -1300,336 +1577,23 @@ To find out the current value of a particular option use
 @node Notes on Various Filters and Filter Modes
 @subsection Notes on Various Filters and Filter Modes
 
-Aspell now has filter support.  You can either select from individual
-filters or choose a filter mode.  To select a filter mode use the
-@option{mode} option.  You may choose from @samp{none}, @samp{url},
-@samp{email}, @samp{sgml}, @samp{ccpp}, @samp{tex} and any other
-available on your system.  The default mode is @samp{url}.  Individual
-filters can be added with the option @option{add-filter} and removed
-with the @option{rem-filter} option.  The currently available filters
-are @samp{url}, @samp{email}, @samp{sgml} and @samp{tex}, @samp{latex}
-(alias for @samp{tex}), @samp{nroff}, @samp{context}, as well as a
-bunch of filters which translate the text from one format to another.
-
-To check which filters are available use @command{aspell dump filters}.
-To check which filter modes are available use @command{aspell dump
-modes}.  The @command{aspell help} command will also list all available
-filter and filter modes.
-
-@subsubsection None Filter Mode
-
-The @option{none} mode is exactly what it says.  It turns off all filters.
-
-@subsubsection URL Filter
-
-The @option{url} filter/mode skips over URLs, host names, and email
-addresses.  Because this filter is almost always useful and rarely
-does any harm it is enabled in all modes except @option{none}.  To
-turn it off either select the @option{none} mode or use
-@option{rem-filter} option @emph{after} the desired mode is selected.
-
-@subsubsection Email Filter
-
-The @option{email} filter mode skips over quoted text.  It currently
-does not support skipping over headers however a future version
-should.  In the meantime I suggest you use Aspell with Newsbody which
-can be found at @uref{http://home.worldonline.dk/~byrial/newsbody/}.
-The option @option{email-skip} controls the number of characters that
-can appear before the email quote character, the default is 10.  The
-option @option{add|rem-email-quote} controls the characters that are
-considered quote characters, the defaults are @samp{>} and @samp{|}.
-
-@subsubsection SGML Filter
-
-The SGML filter allows you to spell check SGML, HTML, XHTML, and XML
-files. In most cases everything within a tag @samp{<tag attrib=value
-attrib2="a whole sentence">} will be skipped by the spell checker. The
-SGML/HTML/XML that Aspell supports is a slight superset of most DTDs
-(Document Type Definitions) and can spell check the often non-conforming
-HTML found on the web.
-
-Two configuration options, @option{sgml-skip} and @option{sgml-check},
-allow you to control what is spell checked. The tag and attribute names
-specified are case insensitive.
-
-@table @b
-@item sgml-skip
-This is a list of tags whose contents will also be skipped by the spell
-checker.  For example, if you wish to leave a misspelling in a document
-and not have them flagged as misspellings, you could surround them with
-a <nospellcheck> tag:
-@example
-  <TD><FONT size=2><NOSPELLCHECK>leviosa</NOSPELLCHECK>
-  is what Mr. Potter said</FONT></TD>
-@end example
-@noindent
-And put that word in the skip config directive:
-@example
-add-sgml-skip nospellcheck
-@end example
-
-@item sgml-check
-
-This is a list of attributes whose values you do want spell checked. By
-default, 'alt' (<img> alternate text) is a member of the check list
-since it is text that is seen by a web page viewer. You may also want
-'value' to be on the check list since that is the text put on buttons:
-@example
-add-sgml-check value
-@end example
-@noindent
-In this case @samp{<input type=button value="Donr">} will be flagged as a
-misspelling.
-@end table
-
-This filter will also translate SGML characters of the form
-@samp{&#num;}.  Other SGML characters such as @samp{&amp;} will simply
-be skipped over so that the word @samp{amp}, for example, will not be
-spell checked.  Eventually full support for properly translating SGML
-characters will be added.
-
-@subsubsection HTML Filter
-
-The @option{html} filter is like the SGML Filter Mode but specialized for
-HTML.  By default, 'script' and 'style' are members of the skip list in
-HTML mode.
-
-@subsubsection Markdown Filter
-
-The @option{markdown} filter/mode skips over code and links in Markdown
-documents.  The mode also handles HTML via the @option{html} filter
-which runs after the Markdown filer.
-
-Properly parsing Markdown requires reading the entire document in at
-once, which doesn't fit well into the existing filter framework so the
-filter parses the document a line at a time and makes a best guess
-when a line ends without enough information to correctly parse a a
-tag.  For example in the following:
-@example
-`This looks like inline code
-
-But it's not, becuase the of the blank line.
-@end example
-the first line will be incorrectly skipped.
-
-It supports the following two options that may be useful:
-
-@table @b
-
-@item markdown-multiline-tags
-Enables or disables support for HTML tags that might span multiple
-lines (outside of HTML blocks).  Enabled by default (to disable from
-the command line use @samp{--dont-markdown-multiline-tags}).
-
-@item markdown-skip-ref-labels
-Boolean option the controls if ref lables are skipped.  For when this
-option is enabled @samp{[ref]} will be skipped over in:
-@example
-[link][ref]
-
-[ref]: #c2 "Chapter 2"
-@end example
-Enabled by default (to disable from
-the command line use @samp{--dont-markdown-skip-ref-labels}).
-
-@end table
-
-The Markdown filter also supports the @option{markdown-raw-start-tags}
-and @option{markdown-block-start-tags} list options.  These options
-are a list of HTML tags that start an HTML block.  If the block starts
-with a tag listed in @option{markdown-raw-start-tags} then the block
-ends with the corresponding closing tag.  If the block starts with a
-tag listed in @option{markdown-block-start-tags} then the block ends
-with a blank line.  The defaults for these two options are taken from
-the CommonMark spec (version 0.29, 2019-04-06).
-
-@subsubsection @TeX{}/LaTeX Filter
-
-The @option{tex} (all lowercase) filter mode skips over @TeX{}
-commands and parameters and/or options to certain commands.  It also
-skips over @TeX{} comments by default.  The option
-@option{[dont-]tex-check-comments} controls whether or not Aspell will
-skip over @TeX{} comments.  The option @option{add|rem-tex-command}
-controls which @TeX{} commands should have certain parameters and/or
-options also skipped over.  Commands that are not specified will have
-all their parameters and/or options checked.  The format for each item
-is
-
-@example
-<command> <a list of p,P,o and Os>
-@end example
-
-The first item is simply the command name.  The second item controls
-which parameters to skip over.  A 'p' skips over a parameter while a
-'P' doesn't.  Similarly an 'o' will skip over an optional parameter
-while an 'O' doesn't.  The first letter on the list will apply to the
-first parameter, the second letter will apply to the second parameter
-etc.  If there are more parameters than letters Aspell will simply
-check them as normal.  For example the option
-
-@example
-add-tex-command rule pp
-@end example
-
-@noindent
-will skip over the first two parameters of the @code{rule} command
-while the option
-
-@example
-add-tex-command foo Pop
-@end example
-
-@noindent
-will @emph{check} the first parameter of the @code{foo} command, skip
-over the next optional parameter, if it is present, and will skip over
-the second parameter --- even if the optional parameter is not present
---- and will check any additional parameters.
-
-A @samp{*} at the end of the command is simply ignored.  For example
-the option
-
-@example
-enlargethispage p
-@end example
-
-@noindent
-will ignore the first parameter in both @option{enlargethispage} and
-@option{enlargethispage*}.
-
-To remove a command simply use the @option{rem-tex-command} option.
-For example
-
-@example
-rem-tex-command foo
-@end example
-
-@noindent
-will remove the command foo, if present, from the list of @TeX{}
-commands.
-
-The TeX filter mode is also available via @option{latex} alias name.
-
-@c The TeXfilter mode also contains a decoding and a encoding filter for
-@c @emph{babel} character codes like the German Umlauts:
-
-@c @itemize @bullet
-@c @item
-@c @code{@"a} -> @code{\"a} -> @code{"a}
-
-@c @item
-@c @code{@"o} -> @code{\"o} -> @code{"o}
-
-@c @item
-@c @code{@"u} -> @code{\"u} -> @code{"u}
-
-@c @item
-@c @code{@"s} -> @code{\"s} -> @code{"s}
-@c @end itemize
-@c @end quotation
-
-
-@c @quotation
-@c @option{add|rem-tex-multi-byte} conversion
-
-@c Changes list of multi character coded TeX(babel) characters recognized
-@c by Aspell.  In case of German umlauts mentioned above this would mean
-@c that Aspell would decode from their multi character representation to
-@c their proper single char representation.  Given the German word
-@c @code{St@"arke} (strength) which within TeX/LaTeXdocument has to be
-@c written as @code{St"arke} or as @code{St\"arke} would split it into
-@c the two words @code{St} and @code{arke} if it does not know anything
-@c about the multi character encoding @code{"a} or @code{\"a} of
-@c @code{@"a}.  On the other hand if it knows about it than Aspell will
-@c recognize the word properly and will not try to make any strange
-@c suggestion.
-
-@c Each multi character coding conversion has to be specified the
-@c following way:
-@c @example
-@c @i{char}:@i{rep}[:@i{rep}[@dots{}]]
-@c @end example
-@c where @code{@i{char}} is the character encoded by multiple characters
-@c and rep stands for a specific representation of that character.  For
-@c each character may be specified as many representations as available
-@c for it.
-@c @end quotation
-
-@subsubsection Texinfo Filter
-
-The @option{texinfo} filter allows you to spell check Texinfo files.
-It will skip over any Texinfo commands and their parameters when
-appropriate.  It will also skip over some Texinfo environments such as
-@command{example}.  The list option @option{texinfo-ignore}
-controls which commands to ignore the parameters of and the list option
-@option{texinfo-ignore-env} controls which Texinfo
-environments to ignore.
-
-The Texinfo filter has special code to deal with the @command{@@table}
-and related commands.  It will apply the formatting command to each of
-the @command{@@item} or @command{@@itemx} commands just like Texinfo
-will.  This means that if the formatting command is @command{@@code}
-and and the @command{@@code} command is a member of the
-@option{texinfo-ignore} option than the Texinfo filter will ignore the
-parameter of the @command{@@item} command as if the parameter was also
-the parameter of the @command{@@code} command.
-
-The Texinfo filter will also skip over the @samp{\input texinfo} line.
-
-@subsubsection Nroff Filter
-
-The @option{nroff} filter mode allows you to check the spelling of
-Nroff documents. The mode is enabled by giving
-@option{--add-filter=nroff} or @option{-n} command line option to
-@command{aspell}. It is also automatically enabled if the first three
-characters of the file being checked are @code{.\"} (a @command{nroff} comment
-marker) or the file name ends in a one of the following suffixes:
-
-@itemize
-@item single decimal digit from @samp{0} to @samp{9}
-@item letter @samp{n}
-@item @samp{tmac}
-@end itemize
-
-@noindent
-This filter mode skips following @command{nroff} language
-elements:
-
-@itemize
-@item Comments
-@item Requests
-@item Names of @command{nroff} registers (both traditional two-letter
-names and GNU nroff long names)
-@item Arguments to the following requests: @code{ds}, @code{de}, @code{nr},
-@code{do}, @code{so}.
-@item Arguments to font switch (@code{\f}) and size switch (@code{\s})
-escapes
-@item Arguments to extended charset escape in both traditional
-(@code{\(}) and extended (@code{\[comp1 comp2 @dots{}]}) form.
-@end itemize
-
-@subsubsection Context Filter
-
-The @emph{context} filter allows Aspell to distinguish between visible
-and invisible contexts.  The visible ones will be spell checked and
-the invisible ones will be ignored.  The contexts are distinguished by
-the fact that the visible/invisible ones are delimited by specific and
-unique delimiter characters or character sequences.  Whether the
-delimited contexts should be visible or invisible only stated by the
-value of the @option{[dont-]context-visible-first} option and not by
-the delimiters.
-
-The context delimiters are specified as pairs of delimiters via the
-@option{add|rem-@/context-delimiters} option.  The delimiters enclosing
-a specific context are specified as a space separated pair.  If more
-than one delimiter pair is specified by one call of
-@option{add|rem-@/context-delimiters} they have to be combined to a
-comma separated list.  To indicate that a context is always closed by
-end of line use @code{\0} sequence as closing delimiter.
-
-@subsubsection Ccpp Filter Mode
-
-The @option{ccpp} filter mode will limit spell checking to C/C++ comments
-and string literals. Any code in between will be left alone.
+This section was merged into @ref{Filter Options}.
+
+@c Aspell now has filter support.  You can either select from individual
+@c filters or choose a filter mode.  To select a filter mode use the
+@c @option{mode} option.  You may choose from @samp{none}, @samp{url},
+@c @samp{email}, @samp{sgml}, @samp{ccpp}, @samp{tex} and any other
+@c available on your system.  The default mode is @samp{url}.  Individual
+@c filters can be added with the option @option{add-filter} and removed
+@c with the @option{rem-filter} option.  The currently available filters
+@c are @samp{url}, @samp{email}, @samp{sgml} and @samp{tex}, @samp{latex}
+@c (alias for @samp{tex}), @samp{nroff}, @samp{context}, as well as a
+@c bunch of filters which translate the text from one format to another.
+
+@c To check which filters are available use @command{aspell dump filters}.
+@c To check which filter modes are available use @command{aspell dump
+@c modes}.  The @command{aspell help} command will also list all available
+@c filter and filter modes.
 
 @node Notes on the Prefix Option
 @subsection Notes on the Prefix Option
