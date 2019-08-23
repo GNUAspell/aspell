@@ -294,7 +294,7 @@ Bug reports can also be submitted via GitHub at
 @chapter Basic Usage
 
 For a quick reference on the Aspell utility use the command
-@command{aspell --help}.
+@samp{aspell --help}.
 
 @menu
 * Spellchecking Individual Files::  
@@ -410,12 +410,12 @@ with Aspell via the Ispell compatibility script.
 Otherwise, the recommended way to use Aspell as a replacement for
 Ispell is to change the @command{ispell} command from within the
 program being used.  If the program uses @command{ispell} in pipe mode
-simply change @command{ispell} to @command{aspell}.  If the program
+simply change @samp{ispell} to @samp{aspell}.  If the program
 calls the @command{ispell} command to check the file, then change
-@command{ispell} with @command{aspell check}.
+@samp{ispell} to @samp{aspell check}.
 
 If that is impossible then the @command{run-with-aspell} script can be
-used.  This script modifies the patch so that programs see the Ispell
+used.  This script modifies the path so that programs see the Ispell
 compatibility script instead of the actual true @command{ispell}
 command.  The format of the script is:
 
@@ -492,12 +492,14 @@ keymappings are not the same as the ones Ispell uses.  However Aspell
 supports using the Ispell keymappings via the @option{keymapping}
 option.  To use the Ispell keymappings set the @option{kepmapping}
 option to @code{ispell}.  This can be done on the command line by
-adding using the command:
+using the command:
 
 @example
-  aspell check --keymapping=ispell @dots{}
-@exdent or with the Ispell compatibility script
-  ispell --keymapping=ispell @dots{}
+aspell check --keymapping=ispell @dots{}
+@end example
+@exdent or, when the Ispell compatible script is used:
+@example
+ispell --keymapping=ispell @dots{}
 @end example
 
 The Ispell keymapping can always be used when the Ispell compatibly
@@ -558,7 +560,7 @@ en_US:aspell
 
 To test it.  Restart the enchant based application and then compare
 the suggestion list with an application that used Aspell or by using
-the @command{aspell check} or @command{aspell pipe} commands.
+the @samp{aspell check} or @samp{aspell pipe} commands.
 
 You can also prefer Aspell in general over Humspell by instead using:
 
@@ -768,7 +770,7 @@ configuration file is normally @file{.aspell.conf} located in the
 @env{HOME} directory and the global one is normally @file{aspell.conf}
 which is located in the @file{etc} directory which is normally
 @file{/usr/etc} or @file{/usr/local/etc}.  To find out the particular
-values for your particular system use @command{aspell dump config}.
+values for your particular system use @samp{aspell dump config}.
 
 Each line of the configuration file has the format:
 
@@ -1042,8 +1044,8 @@ should not be spell checked.
 Sets the filter mode.  A mode is a collection of individual filters
 that work well together.  Possible values include, but not limited to,
 @samp{none}, @samp{url} (the normal default), @samp{email}, @samp{markdown},
-@samp{html}, @samp{tex}, @code{texinfo}, or @samp{nroff} (default for @command{aspell pipe}).
-For a complete list use @command{aspell dump modes}.
+@samp{html}, @samp{tex}, @code{texinfo}, or @samp{nroff} (default for @samp{aspell pipe}).
+For a complete list use @samp{aspell dump modes}.
 
 The shortcut options @option{-e} may be used for
 email, @option{-H} for HTML, @option{-M} for Markdown,
@@ -1051,7 +1053,7 @@ email, @option{-H} for HTML, @option{-M} for Markdown,
 
 @item filter
 @i{(list)}
-Individual filters to use, use @command{aspell dump filters} for a complete list.
+Individual filters to use, use @samp{aspell dump filters} for a complete list.
 
 @item filter-path
 @i{(list)}
@@ -1267,7 +1269,7 @@ will ignore the first parameter in both @option{enlargethispage} and
 @option{enlargethispage*}.
 
 The defaults are designed to work well with typical LaTeX documents.
-Use @command{aspell --reset-tex-command config tex-command} for the
+Use @samp{aspell --reset-tex-command config tex-command} for the
 current defaults.
 
 @c To remove a command simply use the @option{rem-tex-command} option.
@@ -1340,16 +1342,16 @@ Check @TeX{} comments.  Defaults to false.
 The @option{texinfo} filter allows you to spell check Texinfo
 files. It will skip over Texinfo commands and their parameters
 when appropriate. It will also skip over some Texinfo environments
-such as @command{example}.
+such as @code{example}.
 
-The Texinfo filter has special code to deal with the @command{@@table}
+The Texinfo filter has special code to deal with the @code{@@table}
 and related commands.  It will apply the formatting command to each of
-the @command{@@item} or @command{@@itemx} commands just like Texinfo
-will.  This means that if the formatting command is @command{@@code}
-and and the @command{@@code} command is a member of the
+the @code{@@item} or @code{@@itemx} commands just like Texinfo
+will.  This means that if the formatting command is @code{@@code}
+and and the @code{@@code} command is a member of the
 @option{texinfo-ignore} option than the Texinfo filter will ignore the
-parameter of the @command{@@item} command as if the parameter was also
-the parameter of the @command{@@code} command.
+parameter of the @code{@@item} command as if the parameter was also
+the parameter of the @code{@@code} command.
 
 The Texinfo filter will also skip over the @samp{\input texinfo} line.
 
@@ -1369,8 +1371,8 @@ Nroff documents.
 @c The mode is enabled by giving
 @c @option{--add-filter=nroff} or @option{-n} command line option to
 @c @command{aspell}.
-It is enabled by default when @command{aspell pipe} is used.  When
-checking documents with @command{aspell check} it is automatically
+It is enabled by default when @samp{aspell pipe} is used.  When
+checking documents with @samp{aspell check} it is automatically
 enabled if the first three characters of the file being checked are
 @code{.\"} (a @command{nroff} comment marker) or the file name ends in
 a one of the following suffixes:
@@ -1759,7 +1761,7 @@ The @command{aspell-import} Perl script will look for old personal
 dictionaries and will import them into GNU Aspell.  It will look for
 both Ispell and Aspell ones.  To use it, just run it from the command
 prompt.  If you get an error about @file{/usr/bin/perl} not being
-found, then instead try @command{perl @var{bindir}/aspell-import}.  When
+found, then instead try @samp{perl @var{bindir}/aspell-import}.  When
 running the script if you get a message like:
 
 @verbatim
@@ -1814,7 +1816,7 @@ add-dict-alias @var{NAME} @var{VAL}
 @node Listing Available Dictionaries
 @section Listing Available Dictionaries
 
-For a list of available dictionaries use the command @command{aspell
+For a list of available dictionaries use the command @samp{aspell
 dump dicts}.  This will form a list of dictionaries that Aspell will
 search when a dictionary is not specifically given.
 
@@ -1823,7 +1825,7 @@ search when a dictionary is not specifically given.
 
 The dump command in @command{aspell} will simply dump the contents of
 a word list to @file{stdout} in a format that can be read back in with
-@command{aspell create}.
+@samp{aspell create}.
 
 If no word list is specified the command will act on the default one.
 For example the command
@@ -2403,7 +2405,7 @@ object.
 @section Through A Pipe
 
 When given the @command{pipe} or @command{-a} command, Aspell goes
-into a pipe mode that is compatible with @command{ispell -a}.  Aspell
+into a pipe mode that is compatible with @samp{ispell -a}.  Aspell
 also defines its own set of extensions to Ispell pipe mode.
 
 @subsection Format of the Data Stream
@@ -2621,7 +2623,7 @@ The basic format of the language data file is the same as it is for the
 Aspell configuration file.  It is named @file{@var{lang}.dat} and is
 located in the architecture independent data dir for Aspell (option
 @option{data-dir}) which is usually @file{@var{prefix}/share/aspell}.
-Use @command{aspell config} to find out where it is in your
+Use @samp{aspell config} to find out where it is in your
 installation.  By convention the language name should be the two letter
 ISO 639 language code if it exists, if not use the three letter code.
 
@@ -3004,11 +3006,11 @@ want to make phonetics for.  It should contain about as many words as
 the dictionary of the spell checker.  If you don't have such a list,
 you will probably find an Ispell dictionary at
 @uref{http://fmg-www.cs.ucla.edu/geoff/ispell-dictionaries.html} which
-will help you.  You can then make affix expansion via @command{ispell
--e} and then pipe it through @command{tr " " "\n"} to put one word on
+will help you.  You can then make affix expansion via @samp{ispell
+-e} and then pipe it through @samp{tr " " "\n"} to put one word on
 each line.  After that you eventually have to convert special
 characters like @samp{@'e} from Ispell's internal representation to
-latin1 encoding.  @command{sed s/e'/@'e/g} for example would replace
+latin1 encoding.  @samp{sed s/e'/@'e/g} for example would replace
 all @samp{e'} with @samp{@'e}.
 
 The second is that you know how to use regular expressions and know
@@ -3072,7 +3074,7 @@ expression you want to make a transformation rule for.  An example: If
 you come to the idea that all English words ending on `ough' sound
 like `AF' at the end because you think of `enough' and `tough'.  If
 you then @code{grep} for the corresponding regular expression by
-@command{grep -i ough$ wordlist} you will see that the rule you wanted
+@samp{grep -i ough$ wordlist} you will see that the rule you wanted
 to set up is not correct because the rule doesn't fit to words like
 `although' or `bough'.  So you have to define your rule more precisely
 or you have to set up exceptions if the number of words that differ
@@ -3084,7 +3086,7 @@ important to write exceptions in front of the more general rules
 (@samp{GH} before @samp{G} etc.).
 
 If you think you have set up a number of rules that may produce some
-good results try them out! If you run Aspell as @command{aspell
+good results try them out! If you run Aspell as @samp{aspell
 --lang=@var{your_language} pipe} you get a prompt at which you can type
 in words.  If you just type words Aspell checks them and eventually
 makes suggestions if they are misspelled.  If you type in @code{$$Sw
@@ -3096,8 +3098,8 @@ have any bad side effects is to create another list from your word
 list which contains not only the word of the word list but also the
 corresponding phonetic version of this word on the same line.  If you
 do this once before the change and once after the change you can make
-a diff (see @command{man diff}) to see what @emph{really} changed.  To
-do this use the command @command{aspell --lang=@var{your_language}
+a diff (see @samp{man diff}) to see what @emph{really} changed.  To
+do this use the command @samp{aspell --lang=@var{your_language}
 soundslike}.  In this mode Aspell will output the the original word
 and then its soundslike separated by a tab character for each word you
 give it.  If you are interested in seeing how the algorithm works you
@@ -3229,7 +3231,7 @@ prefixes.  Thus this option should not be used for prefix heavy
 languages such as Hebrew.
 
 An existing word list, without affix info, can be affix compressed
-using using @command{aspell munch-list}.
+using using @samp{aspell munch-list}.
 
 @subsection Format of the Affix File
 
@@ -4202,7 +4204,7 @@ Come up with a mode that will skip words based on the symbols that
 
 @item
 Create two @strong{server modes} for Aspell.  One that uses the DICT
-protocol and one that uses @command{ispell -a} method of communication
+protocol and one that uses @samp{ispell -a} method of communication
 via some arbitrary port.
 
 @item
@@ -4464,7 +4466,7 @@ certain cases.
 Always line buffer stdout and stderr in the Aspell utility when there is 
 the potential for it to be used interactively through a pipe.
 @item
-Removed debug output in @command{aspell munch-list}.
+Removed debug output in @samp{aspell munch-list}.
 @item
 Other minor updates and bug fixes.
 @end itemize
@@ -4479,7 +4481,7 @@ Updated to Gettext 0.16.1, Libtool 1.5.22, Automake 1.10, Autoconf 2.61
 Documentation improvements, including an updated @command{man} page.
 @item
 Complain if more than one file is specified when checking files using
-the @command{aspell check} command, rather than ignoring the other files.
+the @samp{aspell check} command, rather than ignoring the other files.
 @item
 Large number of bug fixes.
 @end itemize
@@ -4496,7 +4498,7 @@ to Libtool 1.5.20.
 Fixed an alignment bug which caused mmap to always fail when reading
 in dictionaries.
 @item
-Added note about how @command{make clean} will remove the HTML manuals.
+Added note about how @samp{make clean} will remove the HTML manuals.
 @item
 Added manual page for prezip-bin and enhanced word-list-compress manual
 page thanks to the work of Jose Da Silva.
@@ -5632,7 +5634,7 @@ Fixed the very unpredictable behavior of the @samp{*}, @samp{&},
 
 @item
 Added documentations for Aspell pipe mode (also known as
-@command{ispell -a} compatibility mode)
+@samp{ispell -a} compatibility mode)
 
 @item
 Added a bunch of Aspell specific extensions to the pipe mode and
