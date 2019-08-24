@@ -13,6 +13,12 @@ namespace aspeller {
   class SpellerImpl;
   class Suggest;
 
+  enum Threshold {
+    T_UNLIKELY = 0,
+    T_MAYBE = 1,
+    T_PROBABLY = 2,
+  };
+  
   struct SuggestParms {
     // implementation at the end of suggest.cc
 
@@ -21,9 +27,10 @@ namespace aspeller {
 
     bool try_one_edit_word, try_scan_0, try_scan_1, try_scan_2, try_ngram;
 
-    int ngram_threshold, ngram_keep;
+    // continue if >=, setting to T_UNLIKELY means to always continue
+    Threshold scan_threshold, scan_2_threshold, ngram_threshold;
 
-    bool check_after_one_edit_word;
+    int ngram_keep;
 
     bool use_typo_analysis;
     bool use_repl_table;
@@ -31,8 +38,8 @@ namespace aspeller {
     int soundslike_weight;
     int word_weight;
 
-    int skip;
-    int span;
+    int skip_score;
+    int span_levels, span;
     int limit;
 
     String split_chars;
