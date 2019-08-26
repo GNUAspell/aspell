@@ -103,4 +103,6 @@ suggest-05-common-normal-nokbd:: prep
 	suggest/comp suggest/05-common-normal-nokbd-expect.res tmp/05-common-normal-nokbd-actual.res 1 > tmp/05-common-normal-nokbd.diff
 	rm tmp/05-common-normal-nokbd.diff
 	echo "ok (suggest reg. 05-common normal nokbd)" >> test-res
-suggest:: suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd
+suggest-run-together:: prep
+	echo 'hotdoog' | inst/bin/aspell -a --run-together --run-together-limit=2 | grep -q hotdog
+suggest:: suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd suggest-run-together

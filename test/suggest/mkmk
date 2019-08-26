@@ -29,6 +29,15 @@ suggest-$f-${mode}-nokbd:: prep
         $targets .= " suggest-$f-${mode}-nokbd";
     }
 }
+
+print <<"---";
+suggest-run-together:: prep
+	echo 'hotdoog' | inst/bin/aspell -a --run-together --run-together-limit=2 | grep -q hotdog
+---
+$targets .= " suggest-run-together";
+
 $targets .= "\n";
 
 print $targets;
+
+

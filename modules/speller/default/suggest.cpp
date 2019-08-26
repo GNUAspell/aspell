@@ -245,7 +245,7 @@ namespace {
     bool check_word_s(ParmString word, CheckInfo * ci);
     unsigned check_word(char * word, char * word_end, CheckInfo * ci,
                         /* it WILL modify word */
-                        unsigned pos = 1);
+                        unsigned pos = 0);
     void try_word_c(char * word, char * word_end, const ScoreInfo & inf);
 
     void try_word(char * word, char * word_end, const ScoreInfo & inf) {
