@@ -241,9 +241,13 @@ namespace {
     };
 
     MutableString form_word(CheckInfo & ci);
-    template <typename Adder>
-    void try_word_n(ParmString str, Adder &);
-    struct PassthroughAdder;
+    template <typename Adder> void try_word_n(ParmString str, Adder &);
+#ifdef HAVE_CXX11
+    template <typename Adder> void try_word_s(char * word, char * word_end, Adder &&);
+#endif
+    struct DirectAdder;
+    Vector<ParmString> try_word_c(char * word, char * word_end, unsigned pos);
+
     bool check_word_s(ParmString word, CheckInfo * ci);
     unsigned check_word(char * word, char * word_end, CheckInfo * ci,
                         /* it WILL modify word */
@@ -480,21 +484,30 @@ namespace {
     return MutableString(tmp,wlen);
   }
 
-  struct Working::PassthroughAdder {
+  struct Working::DirectAdder {
     Working * wk;
     const ScoreInfo & si;
-    PassthroughAdder(Working * wk, const ScoreInfo & si) : wk(wk), si(si) {}
-    void operator()(char * word, unsigned word_size)
-      {wk->add_nearmiss(word, word_size, 0, si);}
-    void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w)
-      {wk->add_nearmiss_w(i, w, si);}
+    DirectAdder(Working * wk, const ScoreInfo & si) : wk(wk), si(si) {}
+    void operator()(CheckInfo & ci) {
+      wk->form_word(ci);
+      char * end = (char *)wk->buffer.grow_temp(1);
+      char * tmp = (char *)wk->buffer.temp_ptr();
+      wk->buffer.commit_temp();
+      *end = '\0';
+      wk->add_nearmiss(tmp, end-tmp, 0, si);
+    }
+    void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w) {
+      wk->add_nearmiss_w(i, w, si);
+    }
   };
   
   void Working::try_word(char * word, char * word_end, const ScoreInfo & inf) {
-    if (sp->unconditional_run_together_)
-      try_word_c(word,word_end,inf);
-    else {
-      PassthroughAdder adder(this,inf);
+    if (sp->unconditional_run_together_) {
+      //try_word_c(word,word_end,inf);
+      Vector<ParmString> res = try_word_c(word, word_end, 0);
+      // FIXME: Now add words
+    } else {
+      DirectAdder adder(this,inf);
       try_word_n(ParmString(word,word_end-word),adder);
     }
   }
@@ -517,15 +530,101 @@ namespace {
       CheckInfo ci; memset(static_cast<void *>(&ci), 0, sizeof(ci));
       bool res = lang->affix()->affix_check(LookupInfo(sp, LookupInfo::Clean), str, ci, 0);
       if (!res) return;
-      form_word(ci);
-      char * end = (char *)buffer.grow_temp(1);
-      char * tmp = (char *)buffer.temp_ptr();
-      buffer.commit_temp();
-      *end = '\0';
-      add(tmp, end - tmp);
+      add(ci);
     }
   };
+
+#ifdef HAVE_CXX11
+
+  template <typename Adder>
+  struct SimpleAdder {
+    Adder & adder;
+    void operator()(char * word, unsigned word_size) {
+      adder(ParmString(word, word_size));
+    }
+    void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w) {
+      if (w.what == WordEntry::Misspelled)
+         return;
+      adder([](ParmString(w.word, w.word_size)));
+    }
+  };
+
+  template <typename Adder>
+  void Working::try_word_s(char * word, char * word_end, Adder && add0)
+  {
+    SimpleAdder<Adder> adder{add0};
+    try_word_n(ParmString(word, word_end - word), adder);
+  }
   
+  // struct Working::CompoundFinishAdder {
+  //   Working & wk;
+  //   Vector<ParmString> & res;
+  //   CompoundFinishAdder(Working & wk, Vector<ParmString> & res) : wk(wk), res(res) {}
+  //   void operator()(char * word, unsigned word_size, WordInfo word_info,
+  //                   const ScoreInfo & si) {
+  //     add(word, word_size, si);
+  //   }
+  //   void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w,
+  //                   const ScoreInfo & si) {
+  //     if (w.what == WordEntry::Misspelled)
+  //        return;
+  //     add(w.word, w.word_size, si);
+  //   }
+  // private:
+  //   void add(const char * word, unsigned word_size, const ScoreInfo & si) {
+  //     assert(!in.empty());
+  //     for (Vector<ParmString>::iterator i = in.begin(); i != in.end(); ++i) {
+  //       size_t sz = i->size() + word_size;
+  //       char * w = static_cast<char *>(wk->buffer.alloc(sz+1));
+  //       memcpy(w, i->str(), i->size());
+  //       // word is expected to be null terminated
+  //       memcpy(w + i->size(), word, word_size + 1);
+  //       res.push_back(ParmString(w, 
+  //     }
+  //   }
+  // };
+
+  Vector<ParmString> Working::try_word_c(char * word, char * word_end, unsigned pos) {
+    Vector<ParmString> res;
+    // check word as is
+    try_word_s(word, word_end, [&res](ParmString w){res.push_back(w);});
+    if (pos + 1 >= sp->run_together_limit_)
+      return res;
+    for (char * i = word + sp->run_together_min_;
+         i <= word_end - sp->run_together_min_;
+         ++i)
+    {
+      char t = *i;
+      *i = '\0';
+      bool ok = false;
+      try_word_s(word, i, [&ok](ParmString){ok = true;});
+      *i = t;
+      if (!ok) continue;
+      Vector<ParmString> suffix = try_word_c(i, word_end, pos + 1);
+      if (suffix.empty()) continue;
+      *i = '\0';
+      try_word_s(word, i, [&](ParmString w) {
+        for (auto & s : suffix) {
+          auto sz = (i-word) + s.size();
+          auto w = static_cast<char *>(buffer.alloc(sz + 1));
+          memcpy(w, word, i-word);
+          memcpy(w + (i-word), s.str(), s.size()+1);
+          res.emplace_back(w, sz);
+        }
+      });
+      *i = t;
+    }
+    return res;
+  }
+
+#else
+
+  Vector<ParmString> Working::try_word_c(char * word, char * word_end, unsigned pos) {
+    Vector<ParmString> res;
+    return res;
+  }
+  
+#endif
 
   bool Working::check_word_s(ParmString word, CheckInfo * ci)
   {
