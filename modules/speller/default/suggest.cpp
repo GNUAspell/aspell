@@ -241,19 +241,16 @@ namespace {
     };
 
     MutableString form_word(CheckInfo & ci);
-    void try_word_n(ParmString str, const ScoreInfo & inf);
+    template <typename Adder>
+    void try_word_n(ParmString str, Adder &);
+    struct PassthroughAdder;
     bool check_word_s(ParmString word, CheckInfo * ci);
     unsigned check_word(char * word, char * word_end, CheckInfo * ci,
                         /* it WILL modify word */
                         unsigned pos = 0);
     void try_word_c(char * word, char * word_end, const ScoreInfo & inf);
 
-    void try_word(char * word, char * word_end, const ScoreInfo & inf) {
-      if (sp->unconditional_run_together_)
-        try_word_c(word,word_end,inf);
-      else
-        try_word_n(word,inf);
-    }
+    void try_word(char * word, char * word_end, const ScoreInfo & inf);
     void try_word(char * word, char * word_end, int score) {
       ScoreInfo inf;
       inf.word_score = score;
@@ -483,7 +480,27 @@ namespace {
     return MutableString(tmp,wlen);
   }
 
-  void Working::try_word_n(ParmString str, const ScoreInfo & inf)
+  struct Working::PassthroughAdder {
+    Working * wk;
+    const ScoreInfo & si;
+    PassthroughAdder(Working * wk, const ScoreInfo & si) : wk(wk), si(si) {}
+    void operator()(char * word, unsigned word_size)
+      {wk->add_nearmiss(word, word_size, 0, si);}
+    void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w)
+      {wk->add_nearmiss_w(i, w, si);}
+  };
+  
+  void Working::try_word(char * word, char * word_end, const ScoreInfo & inf) {
+    if (sp->unconditional_run_together_)
+      try_word_c(word,word_end,inf);
+    else {
+      PassthroughAdder adder(this,inf);
+      try_word_n(ParmString(word,word_end-word),adder);
+    }
+  }
+
+  template <typename Adder>
+  void Working::try_word_n(ParmString str, Adder & add)
   {
     String word;
     String buf;
@@ -494,7 +511,7 @@ namespace {
     {
       (*i)->clean_lookup(str, sw);
       for (;!sw.at_end(); sw.adv())
-        add_nearmiss_w(i, sw, inf);
+        add(i, sw);
     }
     if (sp->affix_compress) {
       CheckInfo ci; memset(static_cast<void *>(&ci), 0, sizeof(ci));
@@ -505,9 +522,10 @@ namespace {
       char * tmp = (char *)buffer.temp_ptr();
       buffer.commit_temp();
       *end = '\0';
-      add_nearmiss(tmp, end - tmp, 0, inf);
+      add(tmp, end - tmp);
     }
-  }
+  };
+  
 
   bool Working::check_word_s(ParmString word, CheckInfo * ci)
   {
