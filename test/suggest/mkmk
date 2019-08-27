@@ -33,11 +33,10 @@ suggest-$f-${mode}-nokbd:: prep
 print <<"---";
 suggest-run-together:: prep
 	echo 'hotdoog' | inst/bin/aspell -a --run-together --run-together-limit=2 | grep -q hotdog
+	echo 'hotdoggman' | inst/bin/aspell -a --run-together --run-together-limit=3 | grep -q hotdogman
 ---
 $targets .= " suggest-run-together";
 
 $targets .= "\n";
 
 print $targets;
-
-

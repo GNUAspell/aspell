@@ -205,6 +205,7 @@ namespace aspeller {
     WS check_ws, affix_ws, suggest_ws, suggest_affix_ws;
 
     bool                    unconditional_run_together_;
+    bool                    run_together_suggest_;
     unsigned int            run_together_limit_;
     unsigned int            run_together_min_;
 

@@ -590,11 +590,11 @@ AC_TRY_COMPILE(
 #                                                                 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-AC_ARG_ENABLE(c++11, [  --disable-c++11])
+AC_ARG_ENABLE(c++11plus, AS_HELP_STRING([--disable-c++11plus],[disable code that uses c++11/14]))
 
-if test "$disable_regex" != "no"
+if test "$enable_c__11plus" != "no"
 then
-  AX_CXX_COMPILE_STDCXX(11,,optional)
+  AX_CXX_COMPILE_STDCXX(11plus,,optional)
 fi
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

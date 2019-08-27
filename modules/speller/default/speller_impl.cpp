@@ -392,6 +392,10 @@ namespace aspeller {
       m->run_together = m->unconditional_run_together_;
       return no_err;
     }
+    static PosibErr<void> run_together_suggest(SpellerImpl * m, bool value) {
+      m->run_together_suggest_ = value;
+      return no_err;
+    }
     static PosibErr<void> run_together_limit(SpellerImpl * m, int value) {
       if (value > 8) {
         m->config()->replace("run-together-limit", "8");
@@ -419,6 +423,9 @@ namespace aspeller {
     ,{"run-together",  
         UpdateMember::Bool,    
         UpdateMember::CN::run_together}
+    ,{"run-together-suggest",  
+        UpdateMember::Bool,    
+        UpdateMember::CN::run_together_suggest}
     ,{"run-together-limit",  
         UpdateMember::Int,    
         UpdateMember::CN::run_together_limit}
@@ -554,6 +561,8 @@ namespace aspeller {
 
     unconditional_run_together_ = config_->retrieve_bool("run-together");
     run_together = unconditional_run_together_;
+
+    run_together_suggest_ = config_->retrieve_bool("run-together-suggest");
     
     run_together_limit_  = config_->retrieve_int("run-together-limit");
     if (run_together_limit_ > 8) {

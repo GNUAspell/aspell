@@ -1438,6 +1438,8 @@ namespace acommon {
        N_("maximum number that can be strung together"), KEYINFO_MAY_CHANGE}
     , {"run-together-min",    KeyInfoInt,   "3",
        N_("minimal length of interior words"), KEYINFO_MAY_CHANGE}
+    , {"run-together-suggest", KeyInfoBool,  "<run-together>",
+       N_("consider run-together words when suggesting")}
     , {"save-repl", KeyInfoBool  , "true",
        N_("save replacement pairs on save all")}
     , {"set-prefix", KeyInfoBool, "true",

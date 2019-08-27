@@ -242,18 +242,12 @@ namespace {
 
     MutableString form_word(CheckInfo & ci);
     template <typename Adder> void try_word_n(ParmString str, Adder &);
-#ifdef HAVE_CXX11
-    template <typename Adder> void try_word_s(char * word, char * word_end, Adder &&);
-#endif
     struct DirectAdder;
+#ifdef HAVE_CXX11plus
+    template <typename Adder> struct SimpleAdder;
+    template <typename Adder> void try_word_s(char * word, char * word_end, Adder &&);
     Vector<ParmString> try_word_c(char * word, char * word_end, unsigned pos);
-
-    bool check_word_s(ParmString word, CheckInfo * ci);
-    unsigned check_word(char * word, char * word_end, CheckInfo * ci,
-                        /* it WILL modify word */
-                        unsigned pos = 0);
-    void try_word_c(char * word, char * word_end, const ScoreInfo & inf);
-
+#endif
     void try_word(char * word, char * word_end, const ScoreInfo & inf);
     void try_word(char * word, char * word_end, int score) {
       ScoreInfo inf;
@@ -468,9 +462,6 @@ namespace {
   }
 
   // Forms a word by combining CheckInfo fields.
-  // Will grow the grow the temp in the buffer.  The final
-  // word must be null terminated and committed.
-  // It returns a MutableString of what was appended to the buffer.
   MutableString Working::form_word(CheckInfo & ci) 
   {
     size_t slen = ci.word.size() - ci.pre_strip_len - ci.suf_strip_len;
@@ -481,6 +472,10 @@ namespace {
     memcpy(tmp + ci.pre_add_len, ci.word.str() + ci.pre_strip_len, slen);
     if (ci.suf_add_len) 
       memcpy(tmp + ci.pre_add_len + slen, ci.suf_add, ci.suf_add_len);
+    char * end = (char *)buffer.grow_temp(1);
+    tmp = (char *)buffer.temp_ptr();
+    buffer.commit_temp();
+    *end = '\0';
     return MutableString(tmp,wlen);
   }
 
@@ -489,12 +484,8 @@ namespace {
     const ScoreInfo & si;
     DirectAdder(Working * wk, const ScoreInfo & si) : wk(wk), si(si) {}
     void operator()(CheckInfo & ci) {
-      wk->form_word(ci);
-      char * end = (char *)wk->buffer.grow_temp(1);
-      char * tmp = (char *)wk->buffer.temp_ptr();
-      wk->buffer.commit_temp();
-      *end = '\0';
-      wk->add_nearmiss(tmp, end-tmp, 0, si);
+      MutableString word = wk->form_word(ci);
+      wk->add_nearmiss(word.str, word.size, 0, si);
     }
     void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w) {
       wk->add_nearmiss_w(i, w, si);
@@ -502,11 +493,16 @@ namespace {
   };
   
   void Working::try_word(char * word, char * word_end, const ScoreInfo & inf) {
-    if (sp->unconditional_run_together_) {
-      //try_word_c(word,word_end,inf);
+#ifdef HAVE_CXX11plus
+    if (sp->run_together_suggest_) {
       Vector<ParmString> res = try_word_c(word, word_end, 0);
-      // FIXME: Now add words
-    } else {
+      for (auto w : res) {
+        auto str = buffer.dup(w);
+        add_nearmiss(str, w.size(), 0, inf);
+      }
+    } else
+#endif
+    {
       DirectAdder adder(this,inf);
       try_word_n(ParmString(word,word_end-word),adder);
     }
@@ -534,60 +530,38 @@ namespace {
     }
   };
 
-#ifdef HAVE_CXX11
+#ifdef HAVE_CXX11plus
 
   template <typename Adder>
-  struct SimpleAdder {
+  struct Working::SimpleAdder {
+    Working * wk;
     Adder & adder;
-    void operator()(char * word, unsigned word_size) {
-      adder(ParmString(word, word_size));
+    void operator()(CheckInfo & ci) {
+      adder([&]{
+        MutableString word = wk->form_word(ci);
+        return ParmString(word.str, word.size);
+      });
     }
     void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w) {
       if (w.what == WordEntry::Misspelled)
          return;
-      adder([](ParmString(w.word, w.word_size)));
+      adder([&]{
+        return ParmString(w.word, w.word_size);
+      });
     }
   };
 
   template <typename Adder>
   void Working::try_word_s(char * word, char * word_end, Adder && add0)
   {
-    SimpleAdder<Adder> adder{add0};
+    SimpleAdder<Adder> adder{this,add0};
     try_word_n(ParmString(word, word_end - word), adder);
   }
   
-  // struct Working::CompoundFinishAdder {
-  //   Working & wk;
-  //   Vector<ParmString> & res;
-  //   CompoundFinishAdder(Working & wk, Vector<ParmString> & res) : wk(wk), res(res) {}
-  //   void operator()(char * word, unsigned word_size, WordInfo word_info,
-  //                   const ScoreInfo & si) {
-  //     add(word, word_size, si);
-  //   }
-  //   void operator()(SpellerImpl::WS::const_iterator i, const WordEntry & w,
-  //                   const ScoreInfo & si) {
-  //     if (w.what == WordEntry::Misspelled)
-  //        return;
-  //     add(w.word, w.word_size, si);
-  //   }
-  // private:
-  //   void add(const char * word, unsigned word_size, const ScoreInfo & si) {
-  //     assert(!in.empty());
-  //     for (Vector<ParmString>::iterator i = in.begin(); i != in.end(); ++i) {
-  //       size_t sz = i->size() + word_size;
-  //       char * w = static_cast<char *>(wk->buffer.alloc(sz+1));
-  //       memcpy(w, i->str(), i->size());
-  //       // word is expected to be null terminated
-  //       memcpy(w + i->size(), word, word_size + 1);
-  //       res.push_back(ParmString(w, 
-  //     }
-  //   }
-  // };
-
   Vector<ParmString> Working::try_word_c(char * word, char * word_end, unsigned pos) {
     Vector<ParmString> res;
     // check word as is
-    try_word_s(word, word_end, [&res](ParmString w){res.push_back(w);});
+    try_word_s(word, word_end, [&res](auto f){res.push_back(f());});
     if (pos + 1 >= sp->run_together_limit_)
       return res;
     for (char * i = word + sp->run_together_min_;
@@ -597,13 +571,14 @@ namespace {
       char t = *i;
       *i = '\0';
       bool ok = false;
-      try_word_s(word, i, [&ok](ParmString){ok = true;});
+      try_word_s(word, i, [&ok](auto){ok = true;});
       *i = t;
       if (!ok) continue;
       Vector<ParmString> suffix = try_word_c(i, word_end, pos + 1);
       if (suffix.empty()) continue;
       *i = '\0';
-      try_word_s(word, i, [&](ParmString w) {
+      try_word_s(word, i, [&](auto f) {
+        auto w = f();
         for (auto & s : suffix) {
           auto sz = (i-word) + s.size();
           auto w = static_cast<char *>(buffer.alloc(sz + 1));
@@ -617,79 +592,7 @@ namespace {
     return res;
   }
 
-#else
-
-  Vector<ParmString> Working::try_word_c(char * word, char * word_end, unsigned pos) {
-    Vector<ParmString> res;
-    return res;
-  }
-  
 #endif
-
-  bool Working::check_word_s(ParmString word, CheckInfo * ci)
-  {
-    WordEntry sw;
-    for (SpellerImpl::WS::const_iterator i = sp->suggest_ws.begin();
-         i != sp->suggest_ws.end();
-         ++i)
-    {
-      (*i)->clean_lookup(word, sw);
-      if (!sw.at_end()) {
-        ci->word = sw.word;
-        return true;
-      }
-    }
-    if (sp->affix_compress) {
-      return lang->affix()->affix_check(LookupInfo(sp, LookupInfo::Clean), word, *ci, 0);
-    }
-    return false;
-  }
-
-  unsigned Working::check_word(char * word, char * word_end,  CheckInfo * ci,
-                          /* it WILL modify word */
-                          unsigned pos)
-  {
-    unsigned res = check_word_s(word, ci);
-    if (res) return pos + 1;
-    if (pos + 1 >= sp->run_together_limit_) return 0;
-    for (char * i = word + sp->run_together_min_; 
-         i <= word_end - sp->run_together_min_;
-         ++i)
-    {
-      char t = *i;
-      *i = '\0';
-      res = check_word_s(word, ci);
-      *i = t;
-      if (!res) continue;
-      res = check_word(i, word_end, ci + 1, pos + 1);
-      if (res) return res;
-    }
-    memset(static_cast<void *>(ci), 0, sizeof(CheckInfo));
-    return 0;
-  }
-
-  void Working::try_word_c(char * word, char * word_end, const ScoreInfo & inf)
-  {
-    unsigned res = check_word(word, word_end, check_info);
-    assert(res <= sp->run_together_limit_);
-    //CERR.printf(">%s\n", word);
-    if (!res) return;
-    buffer.abort_temp();
-    MutableString tmp = form_word(check_info[0]);
-    CasePattern cp = lang->case_pattern(tmp, tmp.size);
-    for (unsigned i = 1; i <= res; ++i) {
-      char * t = form_word(check_info[i]);
-      if (cp == FirstUpper && lang->is_lower(t[1])) 
-        t[0] = lang->to_lower(t[0]);
-    }
-    char * end = (char *)buffer.grow_temp(1);
-    char * beg = (char *)buffer.temp_ptr(); // since the original string may of moved
-    *end = 0;
-    buffer.commit_temp();
-    add_nearmiss(beg, end - beg, 0, inf);
-    //CERR.printl(tmp);
-    memset(check_info, 0, sizeof(CheckInfo)*res);
-  }
 
   void Working::add_nearmiss(char * word, unsigned word_size,
                              WordInfo word_info,
