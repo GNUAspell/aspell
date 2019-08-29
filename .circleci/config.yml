@@ -28,7 +28,8 @@ jobs:
     - run: CXX=clang++-3.5 CC=clang-3.5 ./sanity-check.sh
     - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
     - run: ./config-opt && make -C build -j2
-
+    - run: rm -r build
+    - run: ./config-opt --disable-c++11plus && make -C build -j2
 
   build_18_04:
     working_directory: ~/GNUAspell/aspell
