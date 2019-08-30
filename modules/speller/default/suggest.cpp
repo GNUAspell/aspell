@@ -99,7 +99,10 @@ namespace {
 
   static const char * NO_SOUNDSLIKE = "";
 
+  class Working;
+
   struct ScoreWordSound {
+    Working * src;
     char * word;
     char * word_clean;
     //unsigned word_size;
@@ -112,7 +115,7 @@ namespace {
     bool          split; // true the result of splitting a word
     bool          repl_table;
     WordEntry * repl_list;
-    ScoreWordSound() : adj_score(LARGE_NUM), repl_list(0) {}
+    ScoreWordSound(Working * s) : src(s), adj_score(LARGE_NUM), repl_list(0) {}
     ~ScoreWordSound() {delete repl_list;}
   };
 
@@ -154,7 +157,7 @@ namespace {
     const Language *     lang;
     OriginalWord         original;
     const SuggestParms * parms;
-    SpellerImpl    *     sp;
+    SpellerImpl *        sp;
 
   public:
     Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
@@ -178,6 +181,7 @@ namespace {
   class Sugs;
   
   class Working : private Common {
+    friend class Sugs;
    
     int threshold;
     int adj_threshold;
@@ -337,6 +341,8 @@ namespace {
       : Common(l,w,p,m), threshold(1), max_word_length(0) {
       memset(check_info, 0, sizeof(check_info));
     }
+    // `this` is expected to be allocated with new and its ownership
+    // will be transferred to the returning Sugs object
     Sugs * suggestions(); 
   };
 
@@ -364,13 +370,22 @@ namespace {
 
   class SuggestionsImpl;
 
-  class Sugs : private Common {
+  class Sugs {
   public:
-    SavedBufs  saved_bufs;
+    Vector<Working *> srcs;
     NearMisses scored_near_misses;
+
     void transfer(SuggestionsImpl &, int limit);
-    Sugs(const Common & other)
-      : Common(other) {}
+    
+    Sugs(Working * s) {
+      srcs.push_back(s);
+    }
+    ~Sugs() {
+      for (Vector<Working *>::iterator i = srcs.begin(), e = srcs.end(); i != e; ++i) {
+        delete *i;
+        *i = NULL;
+      }
+    }
   };
 
   class SuggestionsImpl : public SuggestionsData, public Vector<Suggestion> {
@@ -420,7 +435,7 @@ namespace {
 
   Sugs * Working::suggestions() {
 
-    Sugs * sug = new Sugs(*this);
+    Sugs * sug = new Sugs(this);
 
     if (original.word.size() * parms->edit_distance_weights.max >= 0x8000)
       return sug; // to prevent overflow in the editdist functions
@@ -522,8 +537,8 @@ namespace {
 
     fine_tune_score(threshold);
     scored_near_misses.sort(adj_score_lt);
-    sug->saved_bufs.push_back(buffer.freeze());
     sug->scored_near_misses.swap(scored_near_misses);
+    near_misses.clear();
     return sug;
   }
 
@@ -642,7 +657,7 @@ namespace {
     if (word_size * parms->edit_distance_weights.max >= 0x8000) 
       return; // to prevent overflow in the editdist functions
 
-    near_misses.push_front(ScoreWordSound());
+    near_misses.push_front(ScoreWordSound(this));
     ScoreWordSound & d = near_misses.front();
     d.word = word;
     d.soundslike = inf.soundslike;
@@ -1156,9 +1171,9 @@ namespace {
     NearMisses::iterator i;
     NearMisses::iterator prev;
 
-    near_misses.push_front(ScoreWordSound());
+    near_misses.push_front(ScoreWordSound(this));
     // the first item will NEVER be looked at.
-    scored_near_misses.push_front(ScoreWordSound());
+    scored_near_misses.push_front(ScoreWordSound(this));
     scored_near_misses.front().score = -1;
     // this item will only be looked at when sorting so 
     // make it a small value to keep it at the front.
@@ -1401,27 +1416,30 @@ namespace {
            << '\t' << i->soundslike
            << '\t' << i->soundslike_score << "\n";
 #    endif
+      Working * src = i->src;
       if (i->repl_list != 0) {
 	do {
           char * word = res.buf.dup(i->repl_list->word);
-          fix_case(word);
+          src->fix_case(word);
  	  dup_pair = duplicates_check.insert(word);
  	  if (dup_pair.second) {
             const char * pos = strchr(word, ' ');
             bool in_dict = pos == NULL ?
-              sp->check(word) && true : sp->check(word, pos - word) && sp->check(pos + 1);
+              src->sp->check(word) && true : src->sp->check(word, pos - word) && src->sp->check(pos + 1);
             if (in_dict)
               res.push_back(Suggestion(word,&*i));
           }
         } while (i->repl_list->adv());
       } else {
-        fix_case(i->word);
+        src->fix_case(i->word);
 	dup_pair = duplicates_check.insert(i->word);
 	if (dup_pair.second)
           res.push_back(Suggestion(i->word,&*i));
       }
     }
-    res.saved_bufs_.swap(saved_bufs);
+    for (Vector<Working *>::iterator i = srcs.begin(), e = srcs.end(); i != e; ++i) {
+      res.saved_bufs_.push_back((*i)->buffer.freeze());
+    }
     res.saved_near_misses_.swap(scored_near_misses);
   }
   
@@ -1481,7 +1499,6 @@ namespace {
 #   endif
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
     Sugs * sugs = sug->suggestions();
-    delete sug;
     sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
