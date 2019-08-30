@@ -58,6 +58,28 @@ namespace aspeller {
 
   //
 
+  //
+
+  struct CompoundWord {
+    const char * word;
+    const char * sep;
+    const char * rest;
+    const char * end;
+    bool empty() const {return word == end;}
+    bool single() const {return rest == end;}
+    unsigned word_len() const {return sep - word;}
+    unsigned rest_offset() const {return rest - word;}
+    unsigned rest_len() const {return end - rest;}
+    CompoundWord()
+      : word(), sep(), rest(), end() {}
+    CompoundWord(const char * a, const char * b)
+      : word(a), sep(b), rest(b), end(b) {}
+    CompoundWord(const char * a, const char * b, const char * c)
+      : word(a), sep(b), rest(b), end(c) {}
+    CompoundWord(const char * a, const char * b, const char * c, const char * d)
+      : word(a), sep(b), rest(c), end(d) {}
+  };
+
   enum StoreAs {Stripped, Lower};
 
   class Language : public Cacheable {
@@ -335,6 +357,12 @@ namespace aspeller {
                   char * res, const char * str) const;
     const char * fix_case(CasePattern case_pattern, 
                           const char * str, String & buf) const;
+
+    //
+    //
+    //
+
+    CompoundWord split_word(const char * str, unsigned size, bool camel_case) const;
 
     //
     // for cache

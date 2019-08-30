@@ -164,9 +164,9 @@ namespace aspeller {
     return false;
   }
 
-  inline bool SpellerImpl::check2(char * word, /* it WILL modify word */
-                                  bool try_uppercase,
-                                  CheckInfo & ci, GuessInfo * gi)
+  inline bool SpellerImpl::check_single(char * word, /* it WILL modify word */
+                                        bool try_uppercase,
+                                        CheckInfo & ci, GuessInfo * gi)
   {
     bool res = check_affix(word, ci, gi);
     if (res) return true;
@@ -179,18 +179,18 @@ namespace aspeller {
     return false;
   }
 
-  PosibErr<bool> SpellerImpl::check(char * word, char * word_end, 
-                                    /* it WILL modify word */
-                                    bool try_uppercase,
-                                    unsigned run_together_limit,
-                                    CheckInfo * ci, GuessInfo * gi)
+  CheckInfo * SpellerImpl::check_runtogether(char * word, char * word_end, 
+                                             /* it WILL modify word */
+                                             bool try_uppercase,
+                                             unsigned run_together_limit,
+                                             CheckInfo * ci, CheckInfo * ci_end,
+                                             GuessInfo * gi)
   {
-    assert(run_together_limit <= 8); // otherwise it will go above the 
-                                     // bounds of the word array
+    if (ci >= ci_end) return NULL;
     clear_check_info(*ci);
-    bool res = check2(word, try_uppercase, *ci, gi);
-    if (res) return true;
-    if (run_together_limit <= 1) return false;
+    bool res = check_single(word, try_uppercase, *ci, gi);
+    if (res) return ci;
+    if (run_together_limit <= 1) return NULL;
     enum {Yes, No, Unknown} is_title = try_uppercase ? Yes : Unknown;
     for (char * i = word + run_together_min_; 
          i <= word_end - run_together_min_;
@@ -198,19 +198,58 @@ namespace aspeller {
     {
       char t = *i;
       *i = '\0';
-      //FIXME: clear ci, gi?
-      res = check2(word, try_uppercase, *ci, gi);
+      clear_check_info(*ci);
+      res = check_single(word, try_uppercase, *ci, gi);
       if (!res) {*i = t; continue;}
       if (is_title == Unknown)
         is_title = lang_->case_pattern(word) == FirstUpper ? Yes : No;
       *i = t;
-      if (check(i, word_end, is_title == Yes, run_together_limit - 1, ci + 1, 0)) {
+      CheckInfo * ci_last = check_runtogether(i, word_end, is_title == Yes, run_together_limit - 1, ci + 1, ci_end, 0);
+      if (ci_last) {
         ci->compound = true;
         ci->next = ci + 1;
-        return true;
+        return ci_last;
       }
     }
-    return false;
+    return NULL;
+  }
+
+  PosibErr<bool> SpellerImpl::check(char * word, char * word_end, 
+                                    /* it WILL modify word */
+                                    bool try_uppercase,
+                                    unsigned run_together_limit,
+                                    CheckInfo * ci, CheckInfo * ci_end,
+                                    GuessInfo * gi)
+  {
+    clear_check_info(*ci);
+    bool res = check_runtogether(word, word_end, try_uppercase, run_together_limit, ci, ci_end, gi);
+    if (res) return true;
+    
+    CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_);
+    if (cw.single()) return false;
+    unsigned len = cw.word_len();
+    char save = word[len];
+    word[len] = '\0';
+    CheckInfo * ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci, ci_end, gi);
+    word[len] = save;
+    if (!ci_last) return false;
+    ci = ci_last;
+    word = word + cw.rest_offset();
+    for (;;) {
+      cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
+      if (cw.empty()) return true;
+      if (ci + 1 >= ci_end) return false;
+      len = cw.word_len();
+      save = word[len];
+      word[len] = '\0';
+      ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci + 1, ci_end, gi);
+      word[len] = save;
+      if (!ci_last) return false;
+      ci->compound = true;
+      ci->next = ci + 1;
+      ci = ci_last;
+      word = word + cw.rest_offset();
+    }
   }
 
   //////////////////////////////////////////////////////////////////////
@@ -406,7 +445,10 @@ namespace aspeller {
       m->run_together_min_ = value;
       return no_err;
     }
-    
+    static PosibErr<void> camel_case(SpellerImpl * m, bool value) {
+      m->camel_case_ = value;
+      return no_err;
+    }
   };
 
   static UpdateMember update_members[] = 
@@ -426,6 +468,9 @@ namespace aspeller {
     ,{"run-together-min",  
         UpdateMember::Int,    
         UpdateMember::CN::run_together_min}
+    ,{"camel-case",
+        UpdateMember::Bool,    
+        UpdateMember::CN::camel_case}
   };
 
   template <typename T>
@@ -591,6 +636,8 @@ namespace aspeller {
       run_together_limit_ = 8;
     }
     run_together_min_    = config_->retrieve_int("run-together-min");
+
+    camel_case_ = config_->retrieve_bool("camel-case");
 
     config_->add_notifier(new ConfigNotifier(this));
 
