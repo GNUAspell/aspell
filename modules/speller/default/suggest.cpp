@@ -152,8 +152,11 @@ namespace {
 
   typedef BasicList<ScoreWordSound> NearMisses;
  
-  class Common {
-  protected:
+  class Sugs;
+  
+  class Working {
+    friend class Sugs;
+
     const Language *     lang;
     OriginalWord         original;
     const SuggestParms * parms;
@@ -163,33 +166,6 @@ namespace {
     String suffix;
     bool have_presuf;
 
-  public:
-    Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
-      : lang(l), original(), parms(p), sp(sp), have_presuf(false) 
-    {
-      original.word = w;
-      l->to_lower(original.lower, w.str());
-      l->to_clean(original.clean, w.str());
-      l->to_soundslike(original.soundslike, w.str());
-      original.case_pattern = l->case_pattern(w);
-    }
-
-    char * fix_case(char * str) {
-      lang->LangImpl::fix_case(original.case_pattern, str, str);
-      return str;
-    }
-    const char * fix_case(const char * str, String & buf) {
-      return lang->LangImpl::fix_case(original.case_pattern, str, buf);
-    }
-
-    char * fix_word(ObjStack & buf, ParmStr w);
-  };
-
-  class Sugs;
-  
-  class Working : private Common {
-    friend class Sugs;
-   
     int threshold;
     int adj_threshold;
     int try_harder;
@@ -248,6 +224,16 @@ namespace {
         : soundslike(), word_score(LARGE_NUM), soundslike_score(LARGE_NUM),
           count(true), split(false), repl_table(false), repl_list() {}
     };
+
+    char * fix_case(char * str) {
+      lang->LangImpl::fix_case(original.case_pattern, str, str);
+      return str;
+    }
+    const char * fix_case(const char * str, String & buf) {
+      return lang->LangImpl::fix_case(original.case_pattern, str, buf);
+    }
+
+    char * fix_word(ObjStack & buf, ParmStr w);
 
     MutableString form_word(CheckInfo & ci);
     void try_word_n(ParmString str, const ScoreInfo & inf);
@@ -345,8 +331,15 @@ namespace {
   public:
     Working(SpellerImpl * m, const Language *l,
 	    const String & w, const SuggestParms * p)
-      : Common(l,w,p,m), threshold(1), max_word_length(0) {
+      : lang(l), original(), parms(p), sp(m), have_presuf(false) 
+      , threshold(1), max_word_length(0)
+    {
       memset(check_info, 0, sizeof(check_info));
+      original.word = w;
+      l->to_lower(original.lower, w.str());
+      l->to_clean(original.clean, w.str());
+      l->to_soundslike(original.soundslike, w.str());
+      original.case_pattern = l->case_pattern(w);
     }
     // `this` is expected to be allocated with new and its ownership
     // will be transferred to the returning Sugs object
@@ -1398,7 +1391,7 @@ namespace {
   };
   typedef hash_set<const char *,hash<const char *>,StrEquals> StrHashSet;
 
-  char * Common::fix_word(ObjStack & buf, ParmStr w) {
+  char * Working::fix_word(ObjStack & buf, ParmStr w) {
     size_t sz = prefix.size() + w.size() + suffix.size();
     char * word = static_cast<char *>(buf.alloc(sz + 1));
     char * i = word;
