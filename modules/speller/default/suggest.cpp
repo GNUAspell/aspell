@@ -341,6 +341,11 @@ namespace {
       l->to_soundslike(original.soundslike, w.str());
       original.case_pattern = l->case_pattern(w);
     }
+    void with_presuf(ParmStr pre, ParmStr suf) {
+      prefix = pre;
+      suffix = suf;
+      have_presuf = true;
+    }
     // `this` is expected to be allocated with new and its ownership
     // will be transferred to the returning Sugs object
     Sugs * suggestions(); 
@@ -374,6 +379,12 @@ namespace {
   public:
     Vector<Working *> srcs;
     NearMisses scored_near_misses;
+
+    void merge(Sugs & other) {
+      srcs.insert(srcs.end(), other.srcs.begin(), other.srcs.end());
+      other.srcs.clear();
+      scored_near_misses.merge(other.scored_near_misses, adj_score_lt);
+    }
 
     void transfer(SuggestionsImpl &, int limit);
     
@@ -1511,6 +1522,36 @@ namespace {
 #   endif
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
     Sugs * sugs = sug->suggestions();
+    CompoundWord cw = speller_->lang().split_word(word, strlen(word), speller_->camel_case_);
+    if (!cw.single()) {
+      String buf = word;
+      char * str = buf.mstr();
+      String prefix;
+      String middle;
+      String suffix;
+      const char * begin = str;
+      do {
+        unsigned len = cw.word_len();
+        char save = str[len];
+        str[len] = '\0';
+        CheckInfo ci[8];
+        bool res = speller_->check_runtogether(str, str + len, false, speller_->run_together_limit(), ci, ci + 8, NULL);
+        str[len] = save;
+        if (!res) {
+          if (!middle.empty()) goto giveup;
+          prefix.assign(begin, str-begin);
+          middle.assign(str, len);
+          suffix.assign(cw.rest, cw.rest_len());
+        }
+        str = str + cw.rest_offset();
+        cw = speller_->lang().split_word(cw.rest, cw.rest_len(), speller_->camel_case_);
+      } while (!cw.empty());
+      sug = new Working(speller_, &speller_->lang(),middle, &parms_);
+      sug->with_presuf(prefix, suffix);
+      Sugs * sugs2 = sug->suggestions();
+      sugs->merge(*sugs2);
+    }
+  giveup:
     sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
@@ -1523,7 +1564,6 @@ namespace {
     suggest(word);
     return suggestion_list.suggestions;
   }
-  
 }
 
 namespace aspeller {

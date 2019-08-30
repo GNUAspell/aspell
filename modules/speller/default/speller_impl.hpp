@@ -220,6 +220,10 @@ namespace aspeller {
     unsigned int            run_together_limit_;
     unsigned int            run_together_min_;
 
+    unsigned run_together_limit() const {
+      return unconditional_run_together_ ? run_together_limit_ : 0;
+    }
+
     bool camel_case_;
 
     bool affix_info, affix_compress;
