@@ -159,9 +159,13 @@ namespace {
     const SuggestParms * parms;
     SpellerImpl *        sp;
 
+    String prefix;
+    String suffix;
+    bool have_presuf;
+
   public:
     Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
-      : lang(l), original(), parms(p), sp(sp)
+      : lang(l), original(), parms(p), sp(sp), have_presuf(false) 
     {
       original.word = w;
       l->to_lower(original.lower, w.str());
@@ -170,12 +174,15 @@ namespace {
       original.case_pattern = l->case_pattern(w);
     }
 
-    void fix_case(char * str) {
+    char * fix_case(char * str) {
       lang->LangImpl::fix_case(original.case_pattern, str, str);
+      return str;
     }
     const char * fix_case(const char * str, String & buf) {
       return lang->LangImpl::fix_case(original.case_pattern, str, buf);
     }
+
+    char * fix_word(ObjStack & buf, ParmStr w);
   };
 
   class Sugs;
@@ -1391,6 +1398,19 @@ namespace {
   };
   typedef hash_set<const char *,hash<const char *>,StrEquals> StrHashSet;
 
+  char * Common::fix_word(ObjStack & buf, ParmStr w) {
+    size_t sz = prefix.size() + w.size() + suffix.size();
+    char * word = static_cast<char *>(buf.alloc(sz + 1));
+    char * i = word;
+    memcpy(i, prefix.c_str(), prefix.size());
+    i += prefix.size();
+    memcpy(i, w.str(), w.size() + 1);
+    fix_case(i);
+    i += w.size();
+    memcpy(i, suffix.c_str(), suffix.size() + 1);
+    return word;
+  }
+
   void Sugs::transfer(SuggestionsImpl & res, int limit) {
     // FIXME: double check that conv->in_code() is correct
     res.reset();
@@ -1419,8 +1439,7 @@ namespace {
       Working * src = i->src;
       if (i->repl_list != 0) {
 	do {
-          char * word = res.buf.dup(i->repl_list->word);
-          src->fix_case(word);
+          char * word = i->src->fix_word(res.buf, i->repl_list->word);
  	  dup_pair = duplicates_check.insert(word);
  	  if (dup_pair.second) {
             const char * pos = strchr(word, ' ');
@@ -1431,10 +1450,10 @@ namespace {
           }
         } while (i->repl_list->adv());
       } else {
-        src->fix_case(i->word);
-	dup_pair = duplicates_check.insert(i->word);
+        char * word = src->have_presuf ? src->fix_word(res.buf, i->word) : src->fix_case(i->word);
+	dup_pair = duplicates_check.insert(word);
 	if (dup_pair.second)
-          res.push_back(Suggestion(i->word,&*i));
+          res.push_back(Suggestion(word,&*i));
       }
     }
     for (Vector<Working *>::iterator i = srcs.begin(), e = srcs.end(); i != e; ++i) {
