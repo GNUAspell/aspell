@@ -677,7 +677,7 @@ void status_fun(void * d, Token, int correct)
     if (ci->compound)
       COUT.put("-\n");
     else if (ci->pre_flag || ci->suf_flag)
-      COUT.printf("+ %s\n", p->oconv(ci->word.str()));
+      COUT.printf("+ %s\n", p->oconv(ci->word.str, ci->word.len));
     else
       COUT.put("*\n");
   }
@@ -757,6 +757,7 @@ void pipe()
       buf.push_back(static_cast<char>(c));
     buf.push_back('\n'); // always add new line so strlen > 0
     buf.push_back('\0');
+    //CERR.printf("%s", buf.data());
     line = buf.data();
     ignore = 0;
     switch (line[0]) {
@@ -875,11 +876,11 @@ void pipe()
           guess.clear();
           if (ci->pre_add && ci->pre_add[0])
             guess.append(ci->pre_add, ci->pre_add_len).append('+');
-          guess.append(ci->word);
+          guess.append(ci->word.str, ci->word.len);
           if (ci->pre_strip_len > 0) 
-            guess.append('-').append(ci->word.str(), ci->pre_strip_len);
+            guess.append('-').append(ci->word.str, ci->pre_strip_len);
           if (ci->suf_strip_len > 0) 
-            guess.append('-').append(ci->word.str() + ci->word.size() - ci->suf_strip_len, 
+            guess.append('-').append(ci->word.str + ci->word.len - ci->suf_strip_len, 
                                      ci->suf_strip_len);
           if (ci->suf_add && ci->suf_add[0])
             guess.append('+').append(ci->suf_add, ci->suf_add_len);
@@ -1718,7 +1719,7 @@ void munch()
     COUT << word;
     for (const aspeller::CheckInfo * ci = gi.head; ci; ci = ci->next)
     {
-      COUT << ' ' << oconv(ci->word) << '/';
+      COUT << ' ' << oconv(ci->word.str, ci->word.len) << '/';
       if (ci->pre_flag != 0) COUT << oconv(static_cast<char>(ci->pre_flag));
       if (ci->suf_flag != 0) COUT << oconv(static_cast<char>(ci->suf_flag));
     }
@@ -1989,7 +1990,7 @@ void munch_list_simple()
     while (ci)
     { {
       // check if the base word is in the dictionary
-      SML_Table::iterator b = table.find(ci->word);
+      SML_Table::iterator b = table.find(ci->word.str);
       if (b == table.end()) goto cont;
 
       // check if all the words once expanded are in the dictionary
@@ -1999,15 +2000,15 @@ void munch_list_simple()
       if (ci->pre_flag != 0) flags += ci->pre_flag;
       if (ci->suf_flag != 0) flags += ci->suf_flag;
       exp_buf.reset();
-      exp_list = lang->expand(ci->word, flags, exp_buf);
+      exp_list = lang->expand(ci->word.str, flags, exp_buf);
       for (WordAff * q = exp_list; q; q = q->next) {
         if (!table.have(q->word)) goto cont;
       }
 
       // the base word and flags are valid, now keep the one with the
       // smallest base word
-      if (ci->word.size() < min_base_size) {
-        min_base_size = ci->word.size();
+      if (ci->word.len < min_base_size) {
+        min_base_size = ci->word.len;
         best = ci;
       }
 
@@ -2017,7 +2018,7 @@ void munch_list_simple()
     // now add the base to the keep list if one exists
     // otherwise just keep the original word
     if (best) {
-      SML_Table::iterator b = table.find(best->word);
+      SML_Table::iterator b = table.find(best->word.str);
       assert(b != table.end());
       if (best->pre_flag) add_affix(b, best->pre_flag);
       if (best->suf_flag) add_affix(b, best->suf_flag);
@@ -2350,7 +2351,7 @@ void munch_list_complete(bool multi, bool simplify)
     while (ci)
     { {
       // check if the base word is in the dictionary
-      CML_Table::iterator b = table.find(ci->word);
+      CML_Table::iterator b = table.find(ci->word.str);
       if (b == table.end()) goto cont;
 
       // check if all the words once expanded are in the dictionary
@@ -2360,7 +2361,7 @@ void munch_list_complete(bool multi, bool simplify)
       else if (ci->suf_flag != 0) flags[0] = ci->suf_flag;
       flags[1] = '\0';
       exp_buf.reset();
-      exp_list = lang->expand(ci->word, flags, exp_buf);
+      exp_list = lang->expand(ci->word.str, flags, exp_buf);
       for (WordAff * q = exp_list; q; q = q->next) {
         if (!table.have(q->word)) goto cont;
       }

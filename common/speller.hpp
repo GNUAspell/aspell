@@ -36,7 +36,22 @@ namespace acommon {
 
   struct CheckInfo {
     const CheckInfo * next;
-    ParmString word; // generally the root
+    // note: if 'incorrect' then word is a pointer into the string
+    // passed into check and is not null terminated;
+    // otherwise word is guaranteed to be null termanted
+    struct Word {
+      const char * str;
+      unsigned len;
+      ParmString pstr() const {return ParmString(str, len);}
+      Word() {}
+      Word(const char * str)
+        : str(str), len(strlen(str)) {}
+      Word(const char * str, unsigned len)
+        : str(str), len(len) {}
+      Word(ParmStr str)
+        : str(str.str()), len(str.size()) {}
+    };
+    Word word; // generally the root
     short pre_strip_len;
     short pre_add_len;
     const char * pre_add;
@@ -45,8 +60,9 @@ namespace acommon {
     const char * suf_add;
     short pre_flag;
     short suf_flag;
-    short guess;
-    short compound;
+    bool guess;
+    bool compound;
+    bool incorrect;
   };
 
   class Speller : public CanHaveError

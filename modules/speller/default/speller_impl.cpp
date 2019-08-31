@@ -219,7 +219,7 @@ namespace aspeller {
                                     bool try_uppercase,
                                     unsigned run_together_limit,
                                     CheckInfo * ci, CheckInfo * ci_end,
-                                    GuessInfo * gi)
+                                    GuessInfo * gi, CompoundInfo * cpi)
   {
     clear_check_info(*ci);
     bool res = check_runtogether(word, word_end, try_uppercase, run_together_limit, ci, ci_end, gi);
@@ -227,29 +227,82 @@ namespace aspeller {
     
     CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_);
     if (cw.single()) return false;
-    unsigned len = cw.word_len();
-    char save = word[len];
-    word[len] = '\0';
-    CheckInfo * ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci, ci_end, gi);
-    word[len] = save;
-    if (!ci_last) return false;
-    ci = ci_last;
-    word = word + cw.rest_offset();
-    for (;;) {
-      cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
-      if (cw.empty()) return true;
-      if (ci + 1 >= ci_end) return false;
-      len = cw.word_len();
-      save = word[len];
+    bool ok = true;
+    CheckInfo * ci_prev = NULL;
+    do {
+      unsigned len = cw.word_len();
+      
+      char save = word[len];
       word[len] = '\0';
-      ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci + 1, ci_end, gi);
+      CheckInfo * ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci, ci_end, gi);
+      bool found = ci_last;
       word[len] = save;
-      if (!ci_last) return false;
-      ci->compound = true;
-      ci->next = ci + 1;
-      ci = ci_last;
+
+      if (!found) {
+        if (cpi) {
+          ci_last = ci;
+          ok = false;
+          ci->word.str = word;
+          ci->word.len = len;
+          ci->incorrect = true;
+          cpi->incorrect_count++;
+          if (!cpi->first_incorrect)
+            cpi->first_incorrect = ci;
+        } else {
+          return false;
+        }
+      }
+
+      if (cpi)
+        cpi->count++;
+      
+      if (ci_prev) {
+        ci_prev->compound = true;
+        ci_prev->next = ci;
+      }
+
+      ci_prev = ci_last;
+      ci = ci_last + 1;
+      if (ci >= ci_end) {
+        if (cpi) cpi->count = 0;
+        return false;
+      }
+      
       word = word + cw.rest_offset();
-    }
+      cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
+      
+    } while (!cw.empty());
+    
+    return ok;
+    
+    // for (;;) {
+    //   cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
+    //   if (cw.empty()) break;
+    //   if (ci + 1 >= ci_end) {
+    //     if (cpi) cpi->count = 0;
+    //     return false;
+    //   }
+    //   if (cpi) cpi->count++;
+    //   len = cw.word_len();
+    //   save = word[len];
+    //   word[len] = '\0';
+    //   ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci + 1, ci_end, gi);
+    //   word[len] = save;
+    //   ci->compound = true;
+    //   ci->next = ci + 1;
+    //   if (ci_last) {
+    //     ci = ci_last;
+    //   } else if (cpi) {
+    //     ok = false;
+    //     ci->word.str = word;
+    //     ci->word.len = len;
+    //     ci->incorrect = true;
+    //     cpi->incorrect_count++;
+    //   } else {
+    //     return false;
+    //   }
+    //   word = word + cw.rest_offset();
+    // }
   }
 
   //////////////////////////////////////////////////////////////////////

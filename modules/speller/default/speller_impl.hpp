@@ -91,11 +91,18 @@ namespace aspeller {
     //
     // Spelling methods
     //
+
+    struct CompoundInfo {
+      short count;
+      short incorrect_count;
+      CheckInfo * first_incorrect;      
+      CompoundInfo() : count(0), incorrect_count(0), first_incorrect() {}
+    };
   
     PosibErr<bool> check(char * word, char * word_end, /* it WILL modify word */
                          bool try_uppercase,
 			 unsigned run_together_limit,
-			 CheckInfo *, CheckInfo *, GuessInfo *);
+			 CheckInfo *, CheckInfo *, GuessInfo *, CompoundInfo * = NULL);
 
     PosibErr<bool> check(MutableString word) {
       guess_info.reset();
@@ -133,7 +140,7 @@ namespace aspeller {
     bool check_simple(ParmString, WordEntry &);
 
     const CheckInfo * check_info() {
-      if (check_inf[0].word)
+      if (check_inf[0].word.str)
         return check_inf;
       else if (guess_info.head)
         return guess_info.head;

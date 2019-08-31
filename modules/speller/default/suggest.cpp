@@ -559,12 +559,12 @@ namespace {
   // It returns a MutableString of what was appended to the buffer.
   MutableString Working::form_word(CheckInfo & ci) 
   {
-    size_t slen = ci.word.size() - ci.pre_strip_len - ci.suf_strip_len;
+    size_t slen = ci.word.len - ci.pre_strip_len - ci.suf_strip_len;
     size_t wlen = slen + ci.pre_add_len + ci.suf_add_len;
     char * tmp = (char *)buffer.grow_temp(wlen);
     if (ci.pre_add_len) 
       memcpy(tmp, ci.pre_add, ci.pre_add_len);
-    memcpy(tmp + ci.pre_add_len, ci.word.str() + ci.pre_strip_len, slen);
+    memcpy(tmp + ci.pre_add_len, ci.word.str + ci.pre_strip_len, slen);
     if (ci.suf_add_len) 
       memcpy(tmp + ci.pre_add_len + slen, ci.suf_add, ci.suf_add_len);
     return MutableString(tmp,wlen);
@@ -982,11 +982,11 @@ namespace {
          ci; 
          ci = ci->next) 
     {
-      sl = to_soundslike(ci->word.str(), ci->word.size());
+      sl = to_soundslike(ci->word.str, ci->word.len);
       Vector<const char *>::iterator i = sls.begin();
       while (i != sls.end() && strcmp(*i, sl) != 0) ++i;
       if (i == sls.end()) {
-        sls.push_back(to_soundslike(ci->word.str(), ci->word.size()));
+        sls.push_back(to_soundslike(ci->word.str, ci->word.len));
 #ifdef DEBUG_SUGGEST
         COUT.printf("will try root soundslike: %s\n", sls.back());
 #endif
@@ -1418,13 +1418,13 @@ namespace {
   void Sugs::transfer(SuggestionsImpl & res, int limit) {
     // FIXME: double check that conv->in_code() is correct
     res.reset();
-#  ifdef DEBUG_SUGGEST
-    COUT << "\n" << "\n" 
-	 << original.word << '\t' 
-	 << original.soundslike << '\t'
-	 << "\n";
-    String sl;
-#  endif
+//#  ifdef DEBUG_SUGGEST
+//    COUT << "\n" << "\n" 
+//	 << original.word << '\t' 
+//	 << original.soundslike << '\t'
+//	 << "\n";
+//    String sl;
+//#  endif
     StrHashSet duplicates_check;
     pair<StrHashSet::iterator, bool> dup_pair;
     for (NearMisses::const_iterator i = scored_near_misses.begin();
@@ -1522,36 +1522,19 @@ namespace {
 #   endif
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
     Sugs * sugs = sug->suggestions();
-    CompoundWord cw = speller_->lang().split_word(word, strlen(word), speller_->camel_case_);
-    if (!cw.single()) {
-      String buf = word;
-      char * str = buf.mstr();
-      String prefix;
-      String middle;
-      String suffix;
-      const char * begin = str;
-      do {
-        unsigned len = cw.word_len();
-        char save = str[len];
-        str[len] = '\0';
-        CheckInfo ci[8];
-        bool res = speller_->check_runtogether(str, str + len, false, speller_->run_together_limit(), ci, ci + 8, NULL);
-        str[len] = save;
-        if (!res) {
-          if (!middle.empty()) goto giveup;
-          prefix.assign(begin, str-begin);
-          middle.assign(str, len);
-          suffix.assign(cw.rest, cw.rest_len());
-        }
-        str = str + cw.rest_offset();
-        cw = speller_->lang().split_word(cw.rest, cw.rest_len(), speller_->camel_case_);
-      } while (!cw.empty());
-      sug = new Working(speller_, &speller_->lang(),middle, &parms_);
+    CheckInfo ci[8];
+    SpellerImpl::CompoundInfo cpi;
+    String buf = word;
+    char * str = buf.mstr();
+    speller_->check(str, str + buf.size(), false, speller_->run_together_limit(), ci, ci + 8, NULL, &cpi);
+    if (cpi.count > 1 && cpi.incorrect_count == 1) {
+      CheckInfo * ci = cpi.first_incorrect;
+      String prefix(str, ci->word.str - str), middle(ci->word.str, ci->word.len), suffix(ci->word.str + ci->word.len);
+      sug = new Working(speller_, &speller_->lang(), middle, &parms_);
       sug->with_presuf(prefix, suffix);
       Sugs * sugs2 = sug->suggestions();
       sugs->merge(*sugs2);
     }
-  giveup:
     sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
