@@ -101,6 +101,44 @@ namespace {
 
   class Working;
 
+  enum SpecialEdit {None, Split, CamelSplit, CamelOffByOne};
+
+  static inline int special_score(const EditDistanceWeights & w, SpecialEdit e) {
+    switch (e) {
+    case Split:
+      return w.max + 2;
+    case CamelSplit:
+      return w.max + 1;
+    case CamelOffByOne:
+      return w.swap - 1;
+    default:
+      abort();
+    }
+  }
+
+  struct SpecialTypoScore {
+    int score;
+    bool is_overall_score;
+    operator bool() const {return score < LARGE_NUM;}
+    SpecialTypoScore()
+      : score(LARGE_NUM), is_overall_score(false) {}
+    SpecialTypoScore(int s, bool q)
+      : score(s), is_overall_score(q) {}
+  };
+  
+  static inline SpecialTypoScore special_typo_score(const TypoEditDistanceInfo & w, SpecialEdit e) {
+    switch (e) {
+    case Split:
+      return SpecialTypoScore(w.max + 2, true);
+    case CamelSplit:
+      return SpecialTypoScore(w.max + 1, true);
+    case CamelOffByOne:
+      return SpecialTypoScore(w.swap - 1, false);
+    default:
+      abort();
+    }
+  }
+
   struct ScoreWordSound {
     Working * src;
     char * word;
@@ -112,7 +150,7 @@ namespace {
     int           word_score;
     int           soundslike_score;
     bool          count;
-    bool          split; // true the result of splitting a word
+    SpecialEdit   special_edit;
     bool          repl_table;
     WordEntry * repl_list;
     ScoreWordSound(Working * s) : src(s), adj_score(LARGE_NUM), repl_list(0) {}
@@ -217,12 +255,12 @@ namespace {
       int           word_score;
       int           soundslike_score;
       bool          count;
-      bool          split; // true the result of splitting a word
+      SpecialEdit   special_edit;
       bool          repl_table;
       WordEntry *   repl_list;
       ScoreInfo()
         : soundslike(), word_score(LARGE_NUM), soundslike_score(LARGE_NUM),
-          count(true), split(false), repl_table(false), repl_list() {}
+          count(true), special_edit(None), repl_table(false), repl_list() {}
     };
 
     char * fix_case(char * str) {
@@ -694,7 +732,7 @@ namespace {
     if (!sp->have_soundslike && !d.soundslike)
       d.soundslike = d.word_clean;
     
-    d.split = inf.split;
+    d.special_edit = inf.special_edit;
     d.repl_table = inf.repl_table;
     d.count = inf.count;
     d.repl_list = inf.repl_list;
@@ -744,11 +782,11 @@ namespace {
         {
           new_word[i] = parms->split_chars[j];
           ScoreInfo inf;
-          inf.word_score = parms->edit_distance_weights.max + 2;
+          inf.word_score = special_score(parms->edit_distance_weights, Split);
           inf.soundslike_score = inf.word_score;
           inf.soundslike = NO_SOUNDSLIKE;
           inf.count = false;
-          inf.split = true;
+          inf.special_edit = Split;
           add_nearmiss(buffer.dup(new_word), word.size() + 1, 0, inf);
         }
       }
@@ -1362,19 +1400,25 @@ namespace {
            i != scored_near_misses.end() && i->score <= thres;
            ++i)
       {
-        if (i->split) {
-          i->word_score = parms->ti->max + 2;
+        SpecialTypoScore special;
+        if (i->special_edit) {
+          special = special_typo_score(*parms->ti, i->special_edit);
+          i->word_score = special.score;
           i->soundslike_score = i->word_score;
           i->adj_score = i->word_score;
-        } else if (i->adj_score >= LARGE_NUM) {
-          for (j = 0; (i->word)[j] != 0; ++j)
-            word[j] = parms->ti->to_normalized((i->word)[j]);
-          word[j] = 0;
-          int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
-          // if a repl. table was used we don't want to increase the score
-          if (!i->repl_table || new_score < i->word_score)
-            i->word_score = new_score;
-          i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
+        }
+        if (i->adj_score >= LARGE_NUM) {
+          if (!special) {
+            for (j = 0; (i->word)[j] != 0; ++j)
+              word[j] = parms->ti->to_normalized((i->word)[j]);
+            word[j] = 0;
+            int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+            // if a repl. table was used we don't want to increase the score
+            if (!i->repl_table || new_score < i->word_score)
+              i->word_score = new_score;
+          }
+          if (!special.is_overall_score) 
+            i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
           adj_threshold = i->adj_score;
