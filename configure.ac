@@ -4,6 +4,10 @@ AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(gen/settings.h)
 
+if test -e "$srcdir"/autogen -a "$enable_maintainer_mode" != "no"
+then
+  enable_maintainer_mode=yes
+fi
 AM_MAINTAINER_MODE
 
 AC_ARG_ENABLE(docdir, 
