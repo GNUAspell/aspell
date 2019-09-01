@@ -8,3 +8,10 @@ hk	hijack	1	100	hijack, Gk, H, K, h, k, HQ, Hg, haj, hake, hike, hoke, HI, Ha, H
 sjk	hijack	4	44	SJ, SK, SJW, hijack, sqq, ska, ski, sky, Saki, sack, sake, seek, sick, soak, sock, souk, suck, SWAK, Saks, Salk, Sask, Sikh, sank, silk, sink, sulk, sunk, Gk, SC, Sc, Sq, jg, scag, sq, SAC, SEC, Sec, Soc, sac, sag, sec, seq, sic, soc
 zphb	xenophobia	1	37	xenophobia, Zomba, zephyr, SOB, Zibo, fob, sob, zebu, Sb, sahib, soph, Feb, fab, fib, sub, AFB, xv, phobia, Saab, Serb, scab, slab, slob, snob, snub, stab, stub, swab, FBI, SBA, Cebu, SF, Sophia, Sophie, sf, Saiph, Sappho
 zkw	zip line	1	67	zip line, kW, kw, Zeke, SJW, Zika, skew, SK, ska, ski, sky, wk, K, SJ, Sq, Z, k, sq, xx, z, Zoe, Pkwy, pkwy, sake, KS, Ks, ks, KO, KY, Ky, SW, ck, cw, skua, AK, Bk, Gk, KC, Mk, OK, UK, Zn, Zr, Zs, bk, kc, kg, pk, SC, Sc, Jew, KKK, SSW, WSW, Zzz, caw, cow, jaw, jew, saw, sew, sow, zoo, Saki, Z's, scow, K's
+Joeuser	JoeUser	-1	-1
+JoeuSer	JoeUser	-1	-1
+JooUser	JoeUser	-1	-1
+camelCasWord	camelCaseWord	-1	-1
+camelcaseWord	camelCaseWord	-1	-1
+cmlCaseWord	camelCaseWord	-1	-1
+mcdonalds	McDonald's	1	4	McDonald's, McDonald, MacDonald's, MacDonald

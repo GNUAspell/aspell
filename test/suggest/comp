@@ -20,6 +20,7 @@ sub get_line(*$) {
     local $_ = <$fh>;
     chomp;
     my @d = split "\t", $_, -1;
+    push @d, '' if @d == 4;
     die "bad line: $_" unless @d == 5;
     my %v = (key => "$d[0] => $d[1]",
              mis => $d[0], cur => $d[1], pos => $d[2], num => $d[3], sugs => $d[4]);

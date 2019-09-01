@@ -101,12 +101,14 @@ namespace {
 
   class Working;
 
-  enum SpecialEdit {None, Split, CamelSplit, CamelOffByOne};
+  enum SpecialEdit {None, Split, CamelSplit, CamelJoin, CamelOffByOne};
 
   static inline int special_score(const EditDistanceWeights & w, SpecialEdit e) {
     switch (e) {
     case Split:
       return w.max + 2;
+    case CamelJoin:
+      return w.max + 1;
     case CamelSplit:
       return w.max + 1;
     case CamelOffByOne:
@@ -128,9 +130,13 @@ namespace {
   
   static inline SpecialTypoScore special_typo_score(const TypoEditDistanceInfo & w, SpecialEdit e) {
     switch (e) {
+    case None:
+      return SpecialTypoScore();
     case Split:
       return SpecialTypoScore(w.max + 2, true);
     case CamelSplit:
+      return SpecialTypoScore(w.max + 1, true);
+    case CamelJoin:
       return SpecialTypoScore(w.max + 1, true);
     case CamelOffByOne:
       return SpecialTypoScore(w.swap - 1, false);
@@ -357,7 +363,10 @@ namespace {
       return k;
     }
 
+    void try_camel_word(String & word, SpecialEdit edit);
+
     void try_split();
+    void try_camel_edits();
     void try_one_edit_word();
     void try_scan();
     void try_scan_root();
@@ -378,12 +387,14 @@ namespace {
       l->to_clean(original.clean, w.str());
       l->to_soundslike(original.soundslike, w.str());
       original.case_pattern = l->case_pattern(w);
+      camel_case = parms->camel_case;
     }
     void with_presuf(ParmStr pre, ParmStr suf) {
       prefix = pre;
       suffix = suf;
       have_presuf = true;
     }
+    bool camel_case;
     // `this` is expected to be allocated with new and its ownership
     // will be transferred to the returning Sugs object
     Sugs * suggestions(); 
@@ -490,6 +501,8 @@ namespace {
       return sug; // to prevent overflow in the editdist functions
 
     try_split();
+
+    try_camel_edits();
 
     if (parms->use_repl_table) {
 
@@ -790,6 +803,59 @@ namespace {
           add_nearmiss(buffer.dup(new_word), word.size() + 1, 0, inf);
         }
       }
+    }
+  }
+
+  void Working::try_camel_word(String & word, SpecialEdit edit) {
+    CheckInfo ci[8];
+    bool ok = sp->check(word.begin(), word.end(), false, sp->run_together_limit(), ci, ci + 8, NULL, NULL);
+    if (!ok) return;
+    ScoreInfo inf;
+    inf.word_score = special_score(parms->edit_distance_weights, edit);
+    inf.soundslike_score = inf.word_score;
+    inf.soundslike = NO_SOUNDSLIKE;
+    inf.count = false;
+    inf.special_edit = edit;
+    add_nearmiss(buffer.dup(word.c_str()), word.size() + 1, 0, inf);
+  }
+
+  void Working::try_camel_edits() {
+    if (!camel_case) return;
+    
+    String word = original.word;
+    word.ensure_null_end();
+
+    for (size_t i = 1; i < word.size(); ++i) {
+      // try splitting or joining a word by changing the case of a letter
+      SpecialEdit edit = None;
+      char save = word[i];
+      word[i] = lang->to_upper(word[i]);
+      if (word[i] != save) {
+        edit = CamelSplit;
+      } else {
+        word[i] = lang->to_lower(word[i]);
+        if (word[i] != save)
+          edit = CamelJoin;
+      }
+      try_camel_word(word, edit);
+
+      //if the char was made lower now also try making an adjacent character uppercase
+      if (edit == CamelJoin) {
+        char save2 = word[i-1];
+        word[i-1] = lang->to_upper(word[i-1]);
+        if (word[i-1] != save2)
+          try_camel_word(word, CamelOffByOne);
+        word[i-1] = save2;
+        if (i+1 < word.size()) {
+          save2 = word[i+1];
+          word[i+1] = lang->to_upper(word[i+1]);
+          if (word[i+1] != save2)
+            try_camel_word(word, CamelOffByOne);
+          word[i+1] = save2;
+        }
+      }
+      
+      word[i] = save;
     }
   }
 
@@ -1400,9 +1466,8 @@ namespace {
            i != scored_near_misses.end() && i->score <= thres;
            ++i)
       {
-        SpecialTypoScore special;
-        if (i->special_edit) {
-          special = special_typo_score(*parms->ti, i->special_edit);
+        SpecialTypoScore special = special_typo_score(*parms->ti, i->special_edit);
+        if (special) {
           i->word_score = special.score;
           i->soundslike_score = i->word_score;
           i->adj_score = i->word_score;
@@ -1575,6 +1640,7 @@ namespace {
       CheckInfo * ci = cpi.first_incorrect;
       String prefix(str, ci->word.str - str), middle(ci->word.str, ci->word.len), suffix(ci->word.str + ci->word.len);
       sug = new Working(speller_, &speller_->lang(), middle, &parms_);
+      sug->camel_case = false;
       sug->with_presuf(prefix, suffix);
       Sugs * sugs2 = sug->suggestions();
       sugs->merge(*sugs2);
@@ -1613,6 +1679,7 @@ namespace aspeller {
     soundslike_weight = 50;
 
     split_chars = " -";
+    camel_case = false;
 
     skip = 2;
     limit = 100;
@@ -1675,14 +1742,20 @@ namespace aspeller {
       use_typo_analysis = config->retrieve_bool("sug-typo-analysis");
     if (config->have("sug-repl-table"))
       use_repl_table = config->retrieve_bool("sug-repl-table");
-    
-    StringList sl;
-    config->retrieve_list("sug-split-char", &sl);
-    StringListEnumeration els = sl.elements_obj();
-    const char * s;
-    split_chars.clear();
-    while ((s = els.next()) != 0) {
-      split_chars.push_back(*s);
+
+    camel_case = config->retrieve_bool("camel-case");
+    if (camel_case)
+      split_chars.clear();
+
+    if (!camel_case || config->have("sug-split-char")) {
+      StringList sl;
+      config->retrieve_list("sug-split-char", &sl);
+      StringListEnumeration els = sl.elements_obj();
+      const char * s;
+      split_chars.clear();
+      while ((s = els.next()) != 0) {
+        split_chars.push_back(*s);
+      }
     }
 
     if (use_typo_analysis) {
