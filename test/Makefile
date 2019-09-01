@@ -39,7 +39,7 @@ inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 
 build/Makefile:
 	mkdir -p build
-	cd build && ../../configure -q --enable-maintainer-mode --disable-shared --disable-pspell-compatibility --prefix="${CURDIR}/inst" $(EXTRA_CONFIG_FLAGS) 
+	cd build && ../../configure -q --disable-shared --disable-pspell-compatibility --prefix="${CURDIR}/inst" $(EXTRA_CONFIG_FLAGS)
 
 aspell6-en-2018.04.16-0.tar.bz2:
 	curl -O ftp://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
