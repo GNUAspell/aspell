@@ -320,8 +320,6 @@ EXTRA_DIST += scripts/mkconfig scripts/spell scripts/ispell \
 # auto
 #
 
-# FIXME: add dependences
-
 noinst_DATA += auto
 
 mksrc = \
@@ -333,10 +331,11 @@ mksrc = \
  auto/MkSrc/Info.pm            auto/MkSrc/ProcCxx.pm\
  auto/MkSrc/ProcNative.pm      auto/MkSrc/Util.pm
 
-#auto: @MAINTAINER_MODE_TRUE@ ${mksrc}
-#	cd auto; perl mk-src.pl
-#	cd auto; perl auto/mk-doc.pl
-#	touch auto/auto
+$(srcdir)/auto/auto: @MAINTAINER_MODE_TRUE@ ${mksrc}
+	cd "$(srcdir)/auto" && perl -I ./ mk-src.pl
+	cd "$(srcdir)/auto" && perl -I ./ mk-doc.pl
+
+@MAINTAINER_MODE_TRUE@include $(srcdir)/auto/auto
 
 EXTRA_DIST += auto/auto auto/mk-src.txt ${mksrc}
 

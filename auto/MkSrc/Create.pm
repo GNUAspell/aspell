@@ -95,19 +95,33 @@ sub create_cc_file ( % )  {
   create_file $p{dir}.'/'.to_lower($p{name}).$p{pre_ext}.'.'.$p{ext}, $file;
 }
 
+my $MKMK;
+
 sub create_file ( $ $ ) {
   my ($filename, $to_write) = @_;
+  unless (defined $MKMK) {
+    open $MKMK, ">auto" or die;
+  }
   local $/ = undef;
   my $existing = '';
   open F,"../$filename" and $existing=<F>;
   if ($to_write eq $existing) {
+    print $MKMK "\$(srcdir)/$filename ";
     print "File \"$filename\" unchanged.\n";
   } elsif (length $existing > 0 && $existing !~ /Automatically generated file\./) {
     print "Will not write over \"$filename\".\n";
   } else {
+    print $MKMK "\$(srcdir)/$filename ";
     print "Creating \"$filename\".\n";
     open F, ">../$filename" or die;
     print F $to_write;
+  }
+}
+
+END {
+  if (defined $MKMK) {
+    print $MKMK ": \$(srcdir)/auto/auto ;\n";
+    #print $MKMK "\ttouch \$@\n";
   }
 }
 
