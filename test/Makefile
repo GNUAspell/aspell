@@ -9,20 +9,21 @@ ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
 endif
 
-all:: prep sanity filter-test suggest wide cxx_warnings
+.PHONY: all prep sanity filter-test suggest wide cxx_warnings
+all: prep sanity filter-test suggest wide cxx_warnings
 	cat test-res
 
-prep:: inst/bin/aspell inst/lib/aspell-0.60/en.multi tmp
+prep: inst/bin/aspell inst/lib/aspell-0.60/en.multi tmp
 	rm -f test-res
 
 tmp:
 	mkdir tmp
 
-sanity:: prep
+sanity: prep
 	./sanity
 	echo "all ok (sanity)" >> test-res
 
-filter-test:: prep
+filter-test: prep
 	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
 	echo "all ok (markdown filter-test)" >> test-res
 
@@ -45,7 +46,8 @@ build/Makefile:
 aspell6-en-2018.04.16-0.tar.bz2:
 	curl -O ftp://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
 
-clean::
+.PHONY: clean
+clean:
 	rm -rf inst build tmp aspell6-en-2018.04.16-0
 
 suggest.mk: suggest/mkmk
@@ -53,7 +55,8 @@ suggest.mk: suggest/mkmk
 
 include suggest.mk
 
-wide:: wide_test_invalid wide_test_invalid-but_ok wide_test_valid
+.PHONY: wide_test_invalid wide_test_invalid-but_ok wide_test_valid
+wide: wide_test_invalid wide_test_invalid-but_ok wide_test_valid
 
 wide_test_invalid: wide_test_invalid.c prep
 	$(CC) $(CFLAGS) -Iinst/include -c $< -o tmp/$@.o
@@ -83,4 +86,5 @@ cxx_warnings:  cxx_warnings_test.cpp prep
 	$(CXX) $(CXXFLAGS) -Wall -Wconversion -Werror -Iinst/include -c $<
 	echo "ok ($@)" >> test-res
 
-phony::
+.PHONY: phony
+phony:
