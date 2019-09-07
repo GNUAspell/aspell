@@ -4,12 +4,12 @@ use strict;
 use warnings;
 use autodie;
 
-my $targets = 'suggest::';
+my $targets = '';
 foreach my $f (qw (00-special 02-orig 05-common)) {
     my @modes = qw(ultra fast normal slow bad-spellers);
     foreach my $mode (@modes) {
         print <<"---";
-suggest-$f-${mode}:: prep
+suggest-$f-${mode}: prep
 	suggest/run-batch "\${ASPELL_WRAP} \${ASPELL} --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-actual
 	suggest/comp suggest/$f-$mode-expect.res tmp/$f-$mode-actual.res 1 > tmp/$f-$mode.diff
 	rm tmp/$f-$mode.diff
@@ -20,7 +20,7 @@ suggest-$f-${mode}:: prep
     }
     foreach my $mode (qw(ultra normal)) {
         print <<"---";
-suggest-$f-${mode}-nokbd:: prep
+suggest-$f-${mode}-nokbd: prep
 	suggest/run-batch "\${ASPELL_WRAP} \${ASPELL} --keyboard=none --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-nokbd-actual
 	suggest/comp suggest/$f-$mode-nokbd-expect.res tmp/$f-$mode-nokbd-actual.res 1 > tmp/$f-$mode-nokbd.diff
 	rm tmp/$f-$mode-nokbd.diff
@@ -29,6 +29,6 @@ suggest-$f-${mode}-nokbd:: prep
         $targets .= " suggest-$f-${mode}-nokbd";
     }
 }
-$targets .= "\n";
+print ".PHONY: $targets\n";
+print "suggest: $targets\n";
 
-print $targets;
