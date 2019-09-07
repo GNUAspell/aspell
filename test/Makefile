@@ -27,7 +27,7 @@ filter-test:: prep
 	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
-	$(MAKE) -C build aspell && cmp build/aspell inst/bin/aspell || $(MAKE) -s -C build install
+	$(MAKE) -C build aspell && ( cmp build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
 
 inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 	tar xf aspell6-en-2018.04.16-0.tar.bz2
@@ -83,5 +83,4 @@ cxx_warnings:  cxx_warnings_test.cpp prep
 	$(CXX) $(CXXFLAGS) -Wall -Wconversion -Werror -Iinst/include -c $<
 	echo "ok ($@)" >> test-res
 
-.PHONY: phony
-phony:
+phony::
