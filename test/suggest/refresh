@@ -2,6 +2,8 @@
 
 set -e
 
+make -C .. prep
+
 for f in 00-special 02-orig 05-common
 do
     for mode in ultra fast normal slow bad-spellers

@@ -303,6 +303,7 @@ namespace {
       return (word_weight*word_score
               + soundslike_weight*soundslike_score)/100;
     }
+    int nudge_score(int score, const char * word);
     int skip_first_couple(NearMisses::iterator & i) {
       int k = 0;
       InsensitiveCompare cmp(lang);
@@ -1268,7 +1269,7 @@ namespace {
       for (j = 0; j != original.word.size(); ++j)
         orig_norm[j] = parms->ti->to_normalized(original.word[j]);
       orig_norm[j] = 0;
-      ParmString orig(orig_norm.data(), j);
+      ParmString orig_word_norm(orig_norm.data(), j);
       word.resize(max_word_length + 1);
       
       for (i = scored_near_misses.begin();
@@ -1283,10 +1284,11 @@ namespace {
           for (j = 0; (i->word)[j] != 0; ++j)
             word[j] = parms->ti->to_normalized((i->word)[j]);
           word[j] = 0;
-          int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+          int new_score = typo_edit_distance(ParmString(word.data(), j), orig_word_norm, *parms->ti);
           // if a repl. table was used we don't want to increase the score
           if (!i->repl_table || new_score < i->word_score)
             i->word_score = new_score;
+          i->word_score = nudge_score(i->word_score, i->word);
           i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
@@ -1308,6 +1310,17 @@ namespace {
     }
   }
 
+  int Working::nudge_score(int score, const char * word) {
+    CasePattern word_case_pattern = lang->case_pattern(word);
+    if (original.case_pattern == word_case_pattern)
+      return score;
+    if (original.case_pattern == AllUpper)
+      return score;
+    if (original.case_pattern == FirstUpper && word_case_pattern != AllUpper)
+      return score;
+    return score + parms->ti->case_mismatch;
+  }
+  
   void Suggestions::transfer(NearMissesFinal & near_misses_final) {
 #  ifdef DEBUG_SUGGEST
     COUT << "\n" << "\n" 

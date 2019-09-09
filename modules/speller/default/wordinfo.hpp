@@ -25,6 +25,12 @@ namespace aspeller {
   // First bit : is upper
   // Second bit: uniform case
 
+  enum ExtendedCasePatterm {OtherCase /* KEvin mcDonald's */,
+                            TitleCase /* Kevin McDonald's */,
+                            LowerCase,
+                            UpperCase,
+                            LowerUpperCase /* iPhone */};
+
   static const WordInfo CASE_PATTERN = 3;
   static const WordInfo ALL_PLAIN    = (1 << 2);
   static const WordInfo ALL_CLEAN    = (1 << 3);

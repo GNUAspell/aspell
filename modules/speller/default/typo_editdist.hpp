@@ -26,6 +26,8 @@ namespace aspeller {
     int extra_dis1;// 
     int extra_dis2;//
 
+    int case_mismatch; // currently unused by typo_edit_distance
+
     int max; // maximum edit dist
 
     unsigned char to_normalized_[256];
@@ -38,11 +40,13 @@ namespace aspeller {
     //            repl and extra
   private:
     TypoEditDistanceInfo(int m = 85,  int s = 60, 
-			    int r1 = 70, int r = 110, 
-			    int e1 = 70, int e = 100)
+                         int r1 = 70, int r = 110, 
+                         int e1 = 70, int e = 100,
+                         int cm = 50)
       : missing(m), swap(s), data(0) 
       , repl_dis1(r1), repl_dis2(r)
       , extra_dis1(e1), extra_dis2(e)
+      , case_mismatch(50)
       , max(-1) {set_max();}
     void set_max();
   public:

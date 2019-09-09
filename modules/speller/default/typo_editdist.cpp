@@ -129,11 +129,11 @@ namespace aspeller {
             return pe.with_file(file, d.line_num);
           char * v = pe.data;
           char base = *v;
-        while (*v) {
-          to_stripped[(uchar)*v] = base;
-          ++v;
-          while (asc_isspace(*v)) ++v;
-        }
+          while (*v) {
+            to_stripped[(uchar)*v] = base;
+            ++v;
+            while (asc_isspace(*v)) ++v;
+          }
         } else {
           PosibErr<char *> pe(iconv(d.key.str, d.key.size));
           if (pe.has_err()) 
