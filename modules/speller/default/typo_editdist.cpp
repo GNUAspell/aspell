@@ -1,5 +1,6 @@
 
 #include <cstring>
+#include <stdint.h>
 
 #include "vararray.hpp"
 #include "typo_editdist.hpp"
@@ -21,6 +22,35 @@ namespace aspeller {
 
   using namespace std;
 
+  struct TypoEdit {
+    typedef char Op; // \0 'r'eplace 'e'extra 'E'extra + repl, 'm'issing, 's'wap
+    struct Pos {
+      uint8_t i;
+      uint8_t j;
+    };
+    uint16_t total;
+    Pos prev;
+    Op op;
+    uint8_t dist[3];
+  };
+  
+  static inline bool operator < (TypoEdit x, TypoEdit y) {
+    return x.total < y.total;
+  }
+  
+  static inline TypoEdit combine(Matrix<TypoEdit> & e, int i, int j, TypoEdit::Op op,
+                                 uint8_t dist0 = 0, uint8_t dist1 = 0, uint8_t dist2 = 0) {
+    TypoEdit res;
+    res.total = e(i,j).total + dist0 + dist1 + dist2;
+    res.prev.i = i;
+    res.prev.j = j;
+    res.op = op;
+    res.dist[0] = dist0;
+    res.dist[1] = dist1;
+    res.dist[2] = dist2;
+    return res;
+  }
+
   short typo_edit_distance(NormalizedString word0, 
 			   NormalizedString target0,
 			   const TypoEditDistanceInfo & w) 
@@ -29,51 +59,55 @@ namespace aspeller {
     int target_size = target0.size + 1;
     const uchar * word   = word0.data;
     const uchar * target = target0.data;
-    VARARRAY(short, e_d, word_size * target_size);
-    ShortMatrix e(word_size,target_size, e_d);
-    e(0,0) = 0;
+    VARARRAY(TypoEdit, e_d, word_size * target_size);
+    Matrix<TypoEdit> e(word_size,target_size, e_d);
+    e(0,0).total = 0;
+    e(0,0).prev.i = 255;
+    e(0,0).prev.j = 255;
+    e(0,0).op = '\0';
+    e(0,0).dist[0] = 0;
+    e(0,0).dist[1] = 0;
+    e(0,0).dist[2] = 0;
     for (int j = 1; j != target_size; ++j)
-      e(0,j) = e(0,j-1) + w.missing;
+      e(0,j) = combine(e, 0, j-1, 'm', w.missing);
     --word;
     --target;
-    short te;
+    TypoEdit te;
     for (int i = 1; i != word_size; ++i) {
-      e(i,0) = e(i-1,0) + w.extra_dis2;
+      e(i,0) = combine(e, i-1, 0, 'e', w.extra_dis2);
       for (int j = 1; j != target_size; ++j) {
 
 	if (word[i] == target[j]) {
 
-	  e(i,j) = e(i-1,j-1);
+	  e(i,j) = combine(e, i-1, j-1, 'r', 0);
 
 	} else {
 	  
-	  te = e(i,j) = e(i-1,j-1) + w.repl(word[i],target[j]);
+	  te = e(i,j) = combine(e, i-1, j-1, 'r', w.repl(word[i],target[j]));
 	  
 	  if (i != 1) {
-	    te =  e(i-1,j ) + w.extra(word[i-1], target[j]);
+	    te =  combine(e, i-1, j, 'e', w.extra(word[i-1], target[j]));
 	    if (te < e(i,j)) e(i,j) = te;
-	    te = e(i-2,j-1) + w.extra(word[i-1], target[j]) 
- 	                     + w.repl(word[i]  , target[j]);
+	    te = combine(e, i-2, j-1, 'E', w.extra(word[i-1], target[j]), w.repl(word[i], target[j]));
 	    if (te < e(i,j)) e(i,j) = te;
 	  } else {
-	    te =  e(i-1,j) + w.extra_dis2;
+	    te =  combine(e, i-1,j, 'e', w.extra_dis2);
 	    if (te < e(i,j)) e(i,j) = te;
 	  }
 
-	  te = e(i,j-1) + w.missing;
+	  te = combine(e, i, j-1, 'm', w.missing);
 	  if (te < e(i,j)) e(i,j) = te;
 
 	  //swap
 	  if (i != 1 && j != 1) {
-	      te = e(i-2,j-2) + w.swap
-		+ w.repl(word[i], target[j-1])
-		+ w.repl(word[i-1], target[j]);
+            te = combine(e, i-2, j-2, 's',
+                         w.swap, w.repl(word[i], target[j-1]), w.repl(word[i-1], target[j]));
 	      if (te < e(i,j)) e(i,j) = te;
-	    }
+          }
 	}
       } 
     }
-    return e(word_size-1,target_size-1);
+    return e(word_size-1,target_size-1).total;
   }
 
   static GlobalCache<TypoEditDistanceInfo> typo_edit_dist_info_cache("keyboard");
@@ -172,7 +206,7 @@ namespace aspeller {
     
     c = w->max_normalized + 1;
     int cc = c * c;
-    w->data = (short *)malloc(cc * 2 * sizeof(short));
+    w->data = (uint8_t *)malloc(cc * 2 * sizeof(short));
     w->repl .init(c, c, w->data);
     w->extra.init(c, c, w->data + cc);
     

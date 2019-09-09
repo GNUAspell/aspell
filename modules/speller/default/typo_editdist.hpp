@@ -1,6 +1,8 @@
 #ifndef __aspeller_typo_edit_distance_hh__
 #define __aspeller_typo_edit_distance_hh__
 
+#include <stdint.h>
+
 #include "cache.hpp"
 #include "matrix.hpp"
 
@@ -26,16 +28,17 @@ namespace aspeller {
   struct TypoEditDistanceInfo : public Cacheable {
     int missing; // the cost of having to insert a character
     int swap;    // the cost of swapping two adjecent letters
-    short * data; // memory for repl and extra
-    ShortMatrix repl; // the cost of replacing one letter with another
-    ShortMatrix extra; // the cost of removing an extra letter
+    uint8_t * data; // memory for repl and extra
+    Matrix<uint8_t> repl; // the cost of replacing one letter with another
+    Matrix<uint8_t> extra; // the cost of removing an extra letter
 
     int repl_dis1; // the cost of replace when the distance is 1
     int repl_dis2; //    "          "     otherwise
     int extra_dis1;// 
     int extra_dis2;//
 
-    int case_mismatch; // currently unused by typo_edit_distance
+    int case_mismatch_insignificant;
+    int case_mismatch;
 
     int max; // maximum edit dist
 
@@ -51,11 +54,11 @@ namespace aspeller {
     TypoEditDistanceInfo(int m = 85,  int s = 60, 
                          int r1 = 70, int r = 110, 
                          int e1 = 70, int e = 100,
-                         int cm = 50)
+                         int cmi = 2, int cm = 50)
       : missing(m), swap(s), data(0) 
       , repl_dis1(r1), repl_dis2(r)
       , extra_dis1(e1), extra_dis2(e)
-      , case_mismatch(50)
+      , case_mismatch_insignificant(cmi), case_mismatch(cm)
       , max(-1) {set_max();}
     void set_max();
   public:

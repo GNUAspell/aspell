@@ -18,7 +18,7 @@ namespace aspeller {
     int a_size = a0.size() + 1;
     int b_size = b0.size() + 1;
     VARARRAY(short, e_d, a_size * b_size);
-    ShortMatrix e(a_size,b_size,e_d);
+    Matrix<short> e(a_size,b_size,e_d);
     e(0, 0) = 0;
     for (int j = 1; j != b_size; ++j)
       e(0, j) = e(0, j-1) + w.del1;
