@@ -14,6 +14,15 @@ namespace aspeller {
 
   using namespace acommon;
 
+  typedef unsigned char NormalizedChar;
+  struct NormalizedString {
+    const NormalizedChar * data; // expected to be null terminated 
+    unsigned size;
+    ParmString str() const {return ParmString(reinterpret_cast<const char *>(data), size);}
+    NormalizedString(const NormalizedChar * s, unsigned sz)
+      : data(s), size(sz) {}
+  };
+
   struct TypoEditDistanceInfo : public Cacheable {
     int missing; // the cost of having to insert a character
     int swap;    // the cost of swapping two adjecent letters
@@ -30,10 +39,10 @@ namespace aspeller {
 
     int max; // maximum edit dist
 
-    unsigned char to_normalized_[256];
+    NormalizedChar to_normalized_[256];
     int max_normalized;
 
-    unsigned char to_normalized(char c) const {
+    NormalizedChar to_normalized(char c) const {
       return to_normalized_[(unsigned char)c];}
     
     // IMPORTANT: It is still necessary to initialize and fill in
@@ -66,19 +75,20 @@ namespace aspeller {
   PosibErr<void> setup(CachePtr<const TypoEditDistanceInfo> & res,
                        const Config * c, const Language * l, ParmString kb);
 
-  // edit_distance finds the shortest edit distance. 
+  // typo_edit_distance finds the shortest edit distance. 
   // Preconditions:
   // max(strlen(word), strlen(target))*max(of the edit weights) <= 2^15
   // word,target are not null pointers
   // w.repl and w.extra are square matrices
-  // the maximum character value is less than the size of w.repl and w.extra 
+  // word,target have been converted to "normalized" form using w.to_normalized, which implies
+  //   the maximum character value is less than the size of w.repl and w.extra 
   // Returns:
   //   the edit distance between a and b
 
   // the running time is tightly asymptotically bounded by strlen(a)*strlen(b)
 
-  short typo_edit_distance(ParmString word, 
-			   ParmString target,
+  short typo_edit_distance(NormalizedString word, 
+			   NormalizedString target,
 			   const TypoEditDistanceInfo & w);
 }
 

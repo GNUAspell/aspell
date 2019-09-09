@@ -10,7 +10,7 @@
 #include "cache-t.hpp"
 #include "asc_ctype.hpp"
 
-// edit_distance is implemented using a straight forward dynamic
+// typo_edit_distance is implemented using a straight forward dynamic
 // programming algorithm with out any special tricks.  Its space
 // usage AND running time is tightly asymptotically bounded by
 // strlen(a)*strlen(b)
@@ -21,14 +21,14 @@ namespace aspeller {
 
   using namespace std;
 
-  short typo_edit_distance(ParmString word0, 
-			   ParmString target0,
+  short typo_edit_distance(NormalizedString word0, 
+			   NormalizedString target0,
 			   const TypoEditDistanceInfo & w) 
   {
-    int word_size   = word0.size() + 1;
-    int target_size = target0.size() + 1;
-    const uchar * word   = reinterpret_cast<const uchar *>(word0.str());
-    const uchar * target = reinterpret_cast<const uchar *>(target0.str());
+    int word_size   = word0.size + 1;
+    int target_size = target0.size + 1;
+    const uchar * word   = word0.data;
+    const uchar * target = target0.data;
     VARARRAY(short, e_d, word_size * target_size);
     ShortMatrix e(word_size,target_size, e_d);
     e(0,0) = 0;

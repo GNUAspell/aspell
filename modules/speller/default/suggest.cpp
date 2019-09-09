@@ -1266,12 +1266,12 @@ namespace {
       adj_threshold = 0;
       unsigned int j;
       
-      CharVector orig_norm, word;
+      Vector<NormalizedChar> orig_norm, word;
       orig_norm.resize(original.word.size() + 1);
       for (j = 0; j != original.word.size(); ++j)
         orig_norm[j] = parms->ti->to_normalized(original.word[j]);
       orig_norm[j] = 0;
-      ParmString orig_word_norm(orig_norm.data(), j);
+      NormalizedString orig_word_norm(orig_norm.data(), j);
       word.resize(max_word_length + 1);
       
       for (i = scored_near_misses.begin();
@@ -1286,11 +1286,12 @@ namespace {
           for (j = 0; (i->word)[j] != 0; ++j)
             word[j] = parms->ti->to_normalized((i->word)[j]);
           word[j] = 0;
-          int new_score = typo_edit_distance(ParmString(word.data(), j), orig_word_norm, *parms->ti);
+          NormalizedString word_norm(word.data(), j);
+          int new_score = typo_edit_distance(word_norm, orig_word_norm, *parms->ti);
           // if a repl. table was used we don't want to increase the score
           if (!i->repl_table || new_score < i->word_score)
             i->word_score = new_score;
-          i->word_score = nudge_score(orig_word_norm, i->word_score, word.data(), i->word);
+          i->word_score = nudge_score(orig_word_norm.str(), i->word_score, word_norm.str(), i->word);
           i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
