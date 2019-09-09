@@ -198,6 +198,8 @@ namespace {
     ObjStack           buffer;
     ObjStack           temp_buffer;
 
+    String             str_buffer;
+
     static const bool do_count = true;
     static const bool dont_count = false;
 
@@ -1311,12 +1313,9 @@ namespace {
   }
 
   int Working::nudge_score(int score, const char * word) {
+    word = lang->fix_case(original.case_pattern, word, str_buffer);
     CasePattern word_case_pattern = lang->case_pattern(word);
     if (original.case_pattern == word_case_pattern)
-      return score;
-    if (original.case_pattern == AllUpper)
-      return score;
-    if (original.case_pattern == FirstUpper && word_case_pattern != AllUpper)
       return score;
     return score + parms->ti->case_mismatch;
   }
