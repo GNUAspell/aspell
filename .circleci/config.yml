@@ -29,6 +29,35 @@ jobs:
     - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
     - run: ./config-opt && make -C build -j2
 
+  build_16_04:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    #shell: /bin/bash --login
+    # To see the list of pre-built images that CircleCI provides for most common languages see
+    # https://circleci.com/docs/2.0/circleci-images/
+    docker:
+    - image: circleci/buildpack-deps:16.04
+    steps:
+    # Machine Setup
+    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
+    #   of this that are relevant in each
+    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly.
+    # In 2.0 you can choose where in the course of a job your code should be checked out.
+    - checkout
+    #
+    # note: default gcc version is 4.4
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
+        g++-4.9 g++-5
+    - run: sudo apt-get -y purge aspell
+    #
+    - run: ./autogen
+    - run: ./sanity-check.sh
+    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run: CXX=g++-4.9 CC=gcc-4.9 ./sanity-check.sh
+    - run: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
+    - run: ./config-opt && make -C build -j2
+
 
   build_18_04:
     working_directory: ~/GNUAspell/aspell
@@ -46,6 +75,7 @@ jobs:
     # In 2.0 you can choose where in the course of a job your code should be checked out.
     - checkout
     #
+    # note: default gcc version is 4.7
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
         g++-4.8 g++-5 g++-6 clang-3.9 clang-4.0 clang-5.0 clang-6.0 
@@ -79,9 +109,10 @@ jobs:
     # In 2.0 you can choose where in the course of a job your code should be checked out.
     - checkout
     #
+    # note: default gcc version is 8.3
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
-         g++-6 g++-7 clang-6.0 clang-7 clang-8
+         g++-6 g++-7 g++-9 clang-6.0 clang-7 clang-8
     - run: sudo apt-get -y purge aspell
     #
     - run: ./autogen
@@ -89,6 +120,7 @@ jobs:
     - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
     - run: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
     - run: CXX=g++-7 CC=gcc-7 ./sanity-check.sh
+    - run: CXX=g++-9 CC=gcc-9 ./sanity-check.sh
     - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
     - run: CXX=clang++-7 CC=clang-7 ./sanity-check.sh
     - run: CXX=clang++-8 CC=clang-8 ./sanity-check.sh
@@ -117,6 +149,7 @@ workflows:
   sanity_check:
     jobs:
       - build_jessie
+      - build_16_04
       - build_18_04
       - build_19_04
   tests:
