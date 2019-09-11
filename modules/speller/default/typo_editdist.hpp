@@ -5,6 +5,7 @@
 
 #include "cache.hpp"
 #include "matrix.hpp"
+#include "vector.hpp"
 
 namespace acommon {
   class Config;
@@ -21,6 +22,7 @@ namespace aspeller {
     const NormalizedChar * data; // expected to be null terminated 
     unsigned size;
     ParmString str() const {return ParmString(reinterpret_cast<const char *>(data), size);}
+    NormalizedString() : data(), size() {}
     NormalizedString(const NormalizedChar * s, unsigned sz)
       : data(s), size(sz) {}
   };
@@ -46,7 +48,16 @@ namespace aspeller {
     int max_normalized;
 
     NormalizedChar to_normalized(char c) const {
-      return to_normalized_[(unsigned char)c];}
+      return to_normalized_[(unsigned char)c];
+    }
+
+    NormalizedString to_normalized(const char * str, NormalizedChar * res) const {
+      int i = 0;
+      for (; str[i]; ++i)
+        res[i] = to_normalized(str[i]);
+      res[i] = '\0';
+      return NormalizedString(res, i);
+    }
     
     // IMPORTANT: It is still necessary to initialize and fill in
     //            repl and extra
@@ -90,9 +101,40 @@ namespace aspeller {
 
   // the running time is tightly asymptotically bounded by strlen(a)*strlen(b)
 
+  struct IndexedEdit {
+    typedef char Op; // \0 ('a'dvance) 'r'eplace 'd'elete 'i'insert, 's'wap
+    uint8_t i;
+    uint8_t j;
+    Op op;
+    uint8_t cost;
+    //IndexedEdit() : i(255), j(255), op(), cost() {}
+    IndexedEdit(int i, int j, Op op, const uint8_t cost) : i(i), j(j), op(op), cost(cost) {}
+  };
+
   short typo_edit_distance(NormalizedString word, 
 			   NormalizedString target,
-			   const TypoEditDistanceInfo & w);
+			   const TypoEditDistanceInfo & w,
+                           Vector<IndexedEdit> * edits = 0);
+
+  struct Edit : IndexedEdit {
+    char chr;
+    void fmt(OStream &) const;
+    //Edit() : chr() {}
+    Edit(const IndexedEdit & e) : IndexedEdit(e), chr() {}
+  };
+
+  struct Edits {
+    const Vector<IndexedEdit> * orig;
+    ParmString target;
+    size_t size() const {return orig->size();}
+    Edits() : orig() {}
+    Edits(const Vector<IndexedEdit> * e, ParmStr t) : orig(e), target(t) {}
+    Edit operator[](int i);
+  };
+
+  void apply_edits(Edits & edits, ParmStr word, String & out);
+  void apply_edits(Edits & edits, String & word);
+
 }
 
 #endif

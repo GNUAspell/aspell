@@ -56,6 +56,7 @@
 #include "string_list.hpp"
 #include "speller_impl.hpp"
 #include "data.hpp"
+#include "typo_editdist.hpp"
 
 #include "hash-t.hpp"
 #include "hash_fun.hpp"
@@ -87,6 +88,7 @@ void master();
 void personal();
 void repl();
 void soundslike();
+void editdist();
 void munch();
 void expand();
 void combine();
@@ -176,6 +178,7 @@ const PossibleOption possible_options[] = {
   COMMAND("norm",      '\0', 1),
   COMMAND("filter",    '\0', 0),
   COMMAND("soundslike",'\0', 0),
+  COMMAND("editdist",  '\0', 0),
   COMMAND("munch",     '\0', 0),
   COMMAND("expand",    '\0', 0),
   COMMAND("combine",   '\0', 0),
@@ -426,6 +429,8 @@ int main (int argc, const char *argv[])
     filter();
   else if (action_str == "soundslike")
     soundslike();
+  else if (action_str == "editdist")
+    editdist();
   else if (action_str == "munch")
     munch();
   else if (action_str == "expand")
@@ -1709,6 +1714,63 @@ void soundslike() {
     const char * w = iconv(word);
     lang->LangImpl::to_soundslike(sl, w);
     printf("%s\t%s\n", word.str(), oconv(sl));
+  }
+}
+
+//////////////////////////
+//
+// typo edit distance
+//
+
+void editdist() {
+  using namespace aspeller;
+  CachePtr<Language> lang;
+  find_language(*options);
+  PosibErr<Language *> res = new_language(*options);
+  if (res.has_err()) {print_error(res.get_err()->mesg); exit(1);}
+  lang.reset(res.data);
+  Conv iconv(setup_conv(options, lang));
+  Conv oconv(setup_conv(lang, options));
+  CachePtr<const TypoEditDistanceInfo> ti;
+  String keyboard = options->retrieve("keyboard");
+  EXIT_ON_ERR(setup(ti, options, lang, keyboard));
+  String line;
+  String target;
+  NormalizedChar target_buf[256];
+  NormalizedString target_norm;
+  line_buffer();
+  NormalizedChar word_buf[256];
+  Vector<IndexedEdit> edits;
+  String check1;
+  String check2;
+  while (CIN.getline(line)) {
+    const char * w = iconv(line);
+    if (w[0]=='=') {
+      target = w + 1;
+      target_norm = ti->to_normalized(w + 1, target_buf);
+      continue;
+    }
+    NormalizedString norm = ti->to_normalized(w, word_buf);
+    int dist = typo_edit_distance(norm, target_norm, *ti, &edits);
+    COUT.printf("%s -> %s = %d :", w, target.c_str(), dist);
+    //apply_edits(edits, target, check);
+    Edits eds(&edits, target);
+    //for (Vector<IndexedEdit>::iterator i = edits.begin(), e = edits.end(); i != e; ++i)
+    //  COUT.printf(" %c @%d,%d +%d ", i->op, i->i, i->j, i->cost);
+    for (int i = 0, sz = eds.size(); i != sz; ++i) {
+      COUT << ' ';
+      eds[i].fmt(COUT);
+    }
+    if (true) {
+      apply_edits(eds, w, check1);
+      check2 = w;
+      apply_edits(eds, check2);
+      if (check1 != check2)
+        COUT.printf(" !! %s %s", check1.c_str(), check2.c_str());
+      else if (check1 != target)
+        COUT.printf(" = %s", check1.c_str());
+    }
+    COUT.printf("\n");
   }
 }
 

@@ -54,6 +54,13 @@ namespace acommon {
       return *this;
     }
 
+    OStream & operator << (int i) {printf("%d", i); return *this; }
+    OStream & operator << (unsigned i) {printf("%u", i); return *this;}
+    OStream & operator << (long int i) {printf("%ld", i); return *this; }
+    OStream & operator << (long unsigned i) {printf("%lu", i); return *this;}
+    OStream & operator << (long long int i) {printf("%lld", i); return *this; }
+    OStream & operator << (long long unsigned i) {printf("%llu", i); return *this;}
+
     OStream & operator << (ParmStr in) {
       write(in);
       return *this;
