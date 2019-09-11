@@ -7,7 +7,7 @@
 
 const uint16_t test_word[] = {'c','a','f', 0x00E9, 0};
 const uint16_t test_incorrect[] = {'c','a','f', 'e', 0};
-const uint16_t test_doc[] = {'T', 'h', 'e', ' ', 'c','a','f', 0x00E9, '.', 0};
+//const uint16_t test_doc[] = {'T', 'h', 'e', ' ', 'c','a','f', 0x00E9, '.', 0};
 
 int fail = 0;
 

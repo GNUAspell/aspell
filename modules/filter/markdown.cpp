@@ -554,23 +554,23 @@ struct HtmlTag : MultilineInline {
     switch (state) {
       // note: this switch is being used as a computed goto to make
       //   restoring state straightforward without restructuring the code
-    case Between:
+     case Between:
       if (asc_isalpha(*itr) || *itr == '_' || *itr == ':') {
         itr.inc();
         while (asc_isalpha(*itr) || asc_isdigit(*itr)
                || *itr == '_' || *itr == ':' || *itr == '.' || *itr == '-')
           itr.inc();
-      case AfterName:
+       case AfterName:
         itr.eat_space();
         if (itr.eol()) return AfterName;
         if (*itr != '=') return Invalid;
         itr.inc();
-      case AfterEq:
+       case AfterEq:
         itr.eat_space();
         if (itr.eol()) return AfterEq;
         if (*itr == '\'') {
           itr.inc();
-        case InSingleQ:
+         case InSingleQ:
           while (!itr.eol() && *itr != '\'')
             itr.inc();
           if (itr.eol()) return InSingleQ;
@@ -578,7 +578,7 @@ struct HtmlTag : MultilineInline {
           itr.inc();
         } else if (*itr == '"') {
           itr.inc();
-        case InDoubleQ:
+         case InDoubleQ:
           while (!itr.eol() && *itr != '"')
             itr.inc();
           if (itr.eol()) return InDoubleQ;
@@ -594,12 +594,14 @@ struct HtmlTag : MultilineInline {
         }
         return Between;
       }
-    case BeforeClose:
+     case BeforeClose:
       return BeforeClose;
-    case Valid: case Invalid:
+     default: //case Valid: case Invalid:
       // should not happen
-      abort();
+      break;
     }
+    // should not be here
+    abort();
   }
 };
 

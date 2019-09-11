@@ -7,9 +7,7 @@
 #ifndef ASPELL_STRING_PAIR__HPP
 #define ASPELL_STRING_PAIR__HPP
 
-
 namespace acommon {
-
 
 struct StringPair {
   const char * first;
@@ -18,7 +16,6 @@ struct StringPair {
     : first(f), second(s) {}
   StringPair() : first(""), second("") {}
 };
-
 
 }
 

@@ -425,6 +425,7 @@ fake-manual:
 
 EXTRA_DIST += \
   test/Makefile \
+  test/warning-settings.cpp \
   test/cxx_warnings_test.cpp \
   test/en.dat \
   test/en.prepl \

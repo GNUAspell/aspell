@@ -1,9 +1,8 @@
 CXXFLAGS = -O -g
-CFLAGS   = -O -g -Wall
+CFLAGS   = -O -g
 ASPELL_WRAP = # valgrind
 export ASPELL = ${CURDIR}/inst/bin/aspell
 export PREZIP = ${CURDIR}/inst/bin/prezip-bin
-MAKE := ${MAKE} "CXXFLAGS=${CXXFLAGS}" "CFLAGS=${CFLAGS}"
 EXTRA_CONFIG_FLAGS =
 ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
@@ -12,6 +11,12 @@ endif
 .PHONY: all prep sanity filter-test suggest wide cxx_warnings
 all: prep sanity filter-test suggest wide cxx_warnings
 	cat test-res
+
+# warning-settings.mk defines EXTRA_CXXFLAGS
+warning-settings.mk: warning-settings.cpp
+	$(CXX) warning-settings.cpp -o warning-settings
+	./warning-settings > warning-settings.mk
+include warning-settings.mk
 
 prep: inst/bin/aspell inst/lib/aspell-0.60/en.multi tmp
 	rm -f test-res
@@ -28,7 +33,7 @@ filter-test: prep
 	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
-	$(MAKE) -C build aspell && ( cmp build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
+	$(MAKE) -C build aspell && ( cmp -s build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
 
 inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 	tar xf aspell6-en-2018.04.16-0.tar.bz2
@@ -41,14 +46,14 @@ inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 
 build/Makefile:
 	mkdir -p build
-	cd build && ../../configure -q --disable-shared --disable-pspell-compatibility --prefix="${CURDIR}/inst" $(EXTRA_CONFIG_FLAGS)
+	cd build && ../../configure "CXXFLAGS=${CXXFLAGS} ${EXTRA_CXXFLAGS}" "CFLAGS=${CFLAGS}" -q --enable-silent-rules --disable-shared --disable-pspell-compatibility --prefix="${CURDIR}/inst" $(EXTRA_CONFIG_FLAGS)
 
 aspell6-en-2018.04.16-0.tar.bz2:
 	curl -O ftp://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
 
 .PHONY: clean
 clean:
-	rm -rf inst build tmp aspell6-en-2018.04.16-0
+	rm -rf warning-settings warning-settings.mk inst build tmp aspell6-en-2018.04.16-0
 
 suggest.mk: suggest/mkmk
 	suggest/mkmk > suggest.mk
