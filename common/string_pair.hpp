@@ -7,9 +7,7 @@
 #ifndef ASPELL_STRING_PAIR__HPP
 #define ASPELL_STRING_PAIR__HPP
 
-
 namespace acommon {
-
 
 struct StringPair {
   const char * first;
@@ -19,7 +17,10 @@ struct StringPair {
   StringPair() : first(""), second("") {}
 };
 
-
 }
+
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wreturn-type-c-linkage"
+#endif
 
 #endif /* ASPELL_STRING_PAIR__HPP */

@@ -1,9 +1,10 @@
-CXXFLAGS = -O -g
+CXXFLAGS = -O -g -Wall
+EXTRA_CXXFLAGS = -Wno-sign-compare -Wno-unused -Werror -Wno-error=maybe-uninitialized
 CFLAGS   = -O -g -Wall
 ASPELL_WRAP = # valgrind
 export ASPELL = ${CURDIR}/inst/bin/aspell
 export PREZIP = ${CURDIR}/inst/bin/prezip-bin
-MAKE := ${MAKE} "CXXFLAGS=${CXXFLAGS}" "CFLAGS=${CFLAGS}"
+MAKE := ${MAKE} "CXXFLAGS=${CXXFLAGS} ${EXTRA_CXXFLAGS}" "CFLAGS=${CFLAGS}"
 EXTRA_CONFIG_FLAGS =
 ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
@@ -28,7 +29,7 @@ filter-test: prep
 	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
-	$(MAKE) -C build aspell && ( cmp build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
+	$(MAKE) -C build aspell && ( cmp -s build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
 
 inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 	tar xf aspell6-en-2018.04.16-0.tar.bz2
