@@ -3,5 +3,5 @@
 set -e
 
 make -C test clean
-make -j2 -C test sanity
+make -k -j2 -C test sanity
 
