@@ -27,7 +27,7 @@ jobs:
     - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
     - run: CXX=clang++-3.5 CC=clang-3.5 ./sanity-check.sh
     - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
-    - run: ./config-opt && make -C build -j2
+    - run: ./configure && make dist
 
   build_16_04:
     working_directory: ~/GNUAspell/aspell
@@ -56,7 +56,6 @@ jobs:
     - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
     - run: CXX=g++-4.9 CC=gcc-4.9 ./sanity-check.sh
     - run: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
-    - run: ./config-opt && make -C build -j2
 
 
   build_18_04:
@@ -91,7 +90,6 @@ jobs:
     - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
     - run: CXX=clang++-5.0 CC=clang-5.0 ./sanity-check.sh
     - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
-    - run: ./config-opt && make -C build -j2
 
   build_19_04:
     working_directory: ~/GNUAspell/aspell
