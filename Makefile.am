@@ -402,9 +402,9 @@ maintainer-clean-local:
 
 dist-hook:
 	mkdir $(distdir)/maintainer
-	cp autogen config-opt config-debug TODO FIXMEs README.md \
+	cp autogen config-opt config-debug TODO FIXMEs README.md sanity-check.sh \
            $(distdir)/maintainer
-	cd $(distdir) && ../sanity-check.sh
+	cd $(distdir) && maintainer/sanity-check.sh
 
 ACLOCAL_AMFLAGS = -I m4
 
