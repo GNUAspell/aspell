@@ -787,10 +787,10 @@ namespace acommon {
 #define get_check_next \
   if (in == stop) goto error;          \
   c = *in;                             \
-  if ((c & 0xC0) != 0x80) goto error;  \
+  if ((c & 0xC0/*1100 0000*/) != 0x80/*10xx xxxx*/) goto error;\
   ++in;                                \
   u <<= 6;                             \
-  u |= c & 0x3F;                       \
+  u |= c & 0x3F/*0011 1111*/;          \
   ++w;
 
   static inline FilterChar from_utf8 (const char * & in, const char * stop = 0,
@@ -803,18 +803,17 @@ namespace acommon {
     char c = *in;
     ++in;
 
-    while (in != stop && (c & 0xC0) == 0x80) {c = *in; ++in; ++w;}
-    if ((c & 0x80) == 0x00) { // 1-byte wide
+    if ((c & 0x80/*1000 0000*/) == 0x00/*0xxx xxx*/) {
       u = c;
-    } else if ((c & 0xE0) == 0xC0) { // 2-byte wide
-      u  = c & 0x1F;
+    } else if ((c & 0xE0/*1110 0000*/) == 0xC0/*110x xxxx*/) { // 2-byte wide
+      u  = c & 0x1F/*0001 1111*/;
       get_check_next;
-    } else if ((c & 0xF0) == 0xE0) { // 3-byte wide
-      u  = c & 0x0F;
+    } else if ((c & 0xF0/*1111 0000*/) == 0xE0/*1110 xxxx*/) { // 3-byte wide
+      u  = c & 0x0F/*0000 1111*/;
       get_check_next;
       get_check_next;
-    } else if ((c & 0xF8) == 0xF0) { // 4-byte wide
-      u  = c & 0x07;
+    } else if ((c & 0xF8/*1111 1000*/) == 0xF0/*1111 0xxx*/) { // 4-byte wide
+      u  = c & 0x07/*0000 0111*/;
       get_check_next;
       get_check_next;
       get_check_next;
