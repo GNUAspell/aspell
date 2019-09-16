@@ -27,7 +27,7 @@ namespace {
     public:
       typedef FilterChar::Chr Value;
       Vector<Value> data;
-      Conv conv;
+      ConvEC conv;
       bool have(Value c) {
         Value * i = data.pbegin();
         Value * end = data.pend();
@@ -35,12 +35,14 @@ namespace {
         return i != end;
       }
       PosibErr<bool> add(ParmStr s) {
-        Value c = *(Value *)conv(s);
+        RET_ON_ERR_SET(conv(s), const char *, val);
+        Value c = *(Value *)val;
         if (!have(c)) data.push_back(c);
         return true;
       }
       PosibErr<bool> remove(ParmStr s) {
-        Value c = *(Value *)conv(s);
+        RET_ON_ERR_SET(conv(s), const char *, val);
+        Value c = *(Value *)val;
         Vector<Value>::iterator i = data.begin();
         Vector<Value>::iterator end = data.end();
         for (; i != end && *i != c; ++i);
@@ -65,7 +67,7 @@ namespace {
     name_ = "email-filter";
     order_num_ = 0.85;
     is_quote_char.conv.setup(*opts, "utf-8", "ucs-4", NormNone);
-    opts->retrieve_list("f-email-quote", &is_quote_char);
+    RET_ON_ERR(opts->retrieve_list("f-email-quote", &is_quote_char));
     margin = opts->retrieve_int("f-email-margin");
     reset();
     return true;
