@@ -156,8 +156,8 @@ namespace acommon {
     PosibErr<void> set_committed_state(bool val);
 
     const Entry * lookup(const char * key) const;
-    void lookup_list(const KeyInfo * ki, MutableContainer & m, 
-                     bool include_default) const;
+    PosibErr<void> lookup_list(const KeyInfo * ki, MutableContainer & m, 
+                               bool include_default) const;
 
     String temp_str;
 

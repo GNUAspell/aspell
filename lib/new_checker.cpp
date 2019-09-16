@@ -18,7 +18,7 @@ namespace acommon {
     StackPtr<DocumentChecker> checker(new DocumentChecker());
     Tokenizer * tokenizer = new_tokenizer(speller);
     StackPtr<Filter> filter(new Filter);
-    setup_filter(*filter, speller->config(), true, true, false);
+    RET_ON_ERR(setup_filter(*filter, speller->config(), true, true, false));
     RET_ON_ERR(checker->setup(tokenizer, speller, filter.release()));
     return checker.release();
   }
