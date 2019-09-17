@@ -374,6 +374,9 @@ namespace acommon {
     return atoi(value.str());
   }
 
+#define RET_ON_ERR_WRAP(prefix, key, cmd)                                \
+  do{PosibErrBase pe(cmd);if(pe.has_err())return pe.with_key(prefix, strncmp(key, "f-", 2) == 0 ? key + 2 : key);}while(false)
+
   PosibErr<void> Config::lookup_list(const KeyInfo * ki,
                                      MutableContainer & m,
                                      bool include_default) const
@@ -406,7 +409,7 @@ namespace acommon {
 
     if (cur && cur->action == Set) {
       if (!include_default) m.clear();
-      RET_ON_ERR(m.add(cur->value));
+      RET_ON_ERR_WRAP("", ki->name, m.add(cur->value));
       cur = cur->next;
     }
 
@@ -418,14 +421,16 @@ namespace acommon {
     while (cur) {
       if (cur->key == ki->name) {
         if (cur->action == ListAdd)
-          RET_ON_ERR(m.add(cur->value));
+          RET_ON_ERR_WRAP("add-", ki->name, m.add(cur->value));
         else if (cur->action == ListRemove)
-          RET_ON_ERR(m.remove(cur->value));
+          RET_ON_ERR_WRAP("remove-", ki->name, m.remove(cur->value));
       }
       cur = cur->next;
     }
     return no_err;
   }
+
+#undef RET_ON_ERR_WRAP
 
   PosibErr<void> Config::retrieve_list(ParmStr key, 
 				       MutableContainer * m) const

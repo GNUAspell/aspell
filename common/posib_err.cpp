@@ -92,6 +92,20 @@ namespace acommon {
     const_cast<Error *>(err_->err)->mesg = s;
     return *this;
   }
+
+  PosibErrBase & PosibErrBase::with_key(ParmString prefix, ParmString key)
+  {
+    assert(err_ != 0);
+    assert(err_->refcount == 1);
+    char * m = const_cast<char *>(err_->err->mesg);
+    unsigned int orig_len = strlen(m);
+    unsigned int new_len = orig_len +  prefix.size() + key.size() + 3;
+    char * s = (char *)malloc(new_len);
+    snprintf(s, new_len, "%s%s: %s", prefix.str(), key.str(), m);
+    free(m);
+    const_cast<Error *>(err_->err)->mesg = s;
+    return *this;
+  }
   
 #ifndef NDEBUG
   void PosibErrBase::handle_err() const {
