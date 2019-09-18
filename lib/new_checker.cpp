@@ -16,10 +16,10 @@ namespace acommon {
   new_document_checker(Speller * speller)
   {
     StackPtr<DocumentChecker> checker(new DocumentChecker());
-    Tokenizer * tokenizer = new_tokenizer(speller);
+    StackPtr<Tokenizer> tokenizer(new_tokenizer(speller));
     StackPtr<Filter> filter(new Filter);
     RET_ON_ERR(setup_filter(*filter, speller->config(), true, true, false));
-    RET_ON_ERR(checker->setup(tokenizer, speller, filter.release()));
+    RET_ON_ERR(checker->setup(tokenizer.release(), speller, filter.release()));
     return checker.release();
   }
 
