@@ -921,6 +921,24 @@ Search path for word list information files.
 @i{(file)}
 Personal word list file name.
 
+@item wordlists
+@i{(list)}
+
+UTF-8 files of additional words to accept.  Non-word characters will be
+removed from the start and end of each word and if the word is then
+considered valid for the current language it will be added.  Otherwise
+it will be silently ignored.
+
+The @option{--dont-clean-words} option can be used to prevent the
+removal of non-word characters.  The
+@option{--dont-skip-invalid-words} can be used to try harder to accept
+the word; if a word contains a character that the language can't
+handle it will still be ignored (for example a Cyrillic letter in a
+Latin based language).
+
+If words are not being added that you expect to, use the
+@command{aspell clean} to find out why.
+
 @item repl
 @i{(file)}
 Replacements list file name.
@@ -4376,6 +4394,9 @@ a C++ program.
 @itemize @bullet
 @item
 Add Markdown filter.
+@item
+Add new @option{wordlists} option, which is a list of UTF-8 files that
+contain additional words to accept.
 @item
 When typo analysis is used, ensure that possible typos are listed
 before other suggestions.  Also fix a bug so that suggestions that split
