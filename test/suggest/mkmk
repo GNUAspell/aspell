@@ -32,13 +32,13 @@ suggest-$f-${mode}-nokbd: prep
 my $f = '00-special';
 foreach my $mode (qw(ultra fast normal slow bad-spellers)) {
     print <<"---";
-suggest-$f-${mode}-nokbd: prep
+suggest-$f-${mode}-camel: prep
 	suggest/run-batch "\${ASPELL_WRAP} \${ASPELL} --camel-case --sug-mode=$mode" suggest/$f.tab tmp/$f-$mode-camel-actual
 	suggest/comp suggest/$f-$mode-camel-expect.res tmp/$f-$mode-camel-actual.res 1 > tmp/$f-$mode-camel.diff
 	rm tmp/$f-$mode-camel.diff
 	echo "ok (suggest reg. $f $mode camel)" >> test-res
 ---
-    
+    $targets .= " suggest-$f-${mode}-camel";
 }
 
 print ".PHONY: $targets\n";

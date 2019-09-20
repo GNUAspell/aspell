@@ -103,30 +103,30 @@ suggest-05-common-normal-nokbd: prep
 	suggest/comp suggest/05-common-normal-nokbd-expect.res tmp/05-common-normal-nokbd-actual.res 1 > tmp/05-common-normal-nokbd.diff
 	rm tmp/05-common-normal-nokbd.diff
 	echo "ok (suggest reg. 05-common normal nokbd)" >> test-res
-suggest-00-special-ultra-nokbd: prep
+suggest-00-special-ultra-camel: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --camel-case --sug-mode=ultra" suggest/00-special.tab tmp/00-special-ultra-camel-actual
 	suggest/comp suggest/00-special-ultra-camel-expect.res tmp/00-special-ultra-camel-actual.res 1 > tmp/00-special-ultra-camel.diff
 	rm tmp/00-special-ultra-camel.diff
 	echo "ok (suggest reg. 00-special ultra camel)" >> test-res
-suggest-00-special-fast-nokbd: prep
+suggest-00-special-fast-camel: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --camel-case --sug-mode=fast" suggest/00-special.tab tmp/00-special-fast-camel-actual
 	suggest/comp suggest/00-special-fast-camel-expect.res tmp/00-special-fast-camel-actual.res 1 > tmp/00-special-fast-camel.diff
 	rm tmp/00-special-fast-camel.diff
 	echo "ok (suggest reg. 00-special fast camel)" >> test-res
-suggest-00-special-normal-nokbd: prep
+suggest-00-special-normal-camel: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --camel-case --sug-mode=normal" suggest/00-special.tab tmp/00-special-normal-camel-actual
 	suggest/comp suggest/00-special-normal-camel-expect.res tmp/00-special-normal-camel-actual.res 1 > tmp/00-special-normal-camel.diff
 	rm tmp/00-special-normal-camel.diff
 	echo "ok (suggest reg. 00-special normal camel)" >> test-res
-suggest-00-special-slow-nokbd: prep
+suggest-00-special-slow-camel: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --camel-case --sug-mode=slow" suggest/00-special.tab tmp/00-special-slow-camel-actual
 	suggest/comp suggest/00-special-slow-camel-expect.res tmp/00-special-slow-camel-actual.res 1 > tmp/00-special-slow-camel.diff
 	rm tmp/00-special-slow-camel.diff
 	echo "ok (suggest reg. 00-special slow camel)" >> test-res
-suggest-00-special-bad-spellers-nokbd: prep
+suggest-00-special-bad-spellers-camel: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --camel-case --sug-mode=bad-spellers" suggest/00-special.tab tmp/00-special-bad-spellers-camel-actual
 	suggest/comp suggest/00-special-bad-spellers-camel-expect.res tmp/00-special-bad-spellers-camel-actual.res 1 > tmp/00-special-bad-spellers-camel.diff
 	rm tmp/00-special-bad-spellers-camel.diff
 	echo "ok (suggest reg. 00-special bad-spellers camel)" >> test-res
-.PHONY:  suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd
-suggest:  suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd
+.PHONY:  suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd suggest-00-special-ultra-camel suggest-00-special-fast-camel suggest-00-special-normal-camel suggest-00-special-slow-camel suggest-00-special-bad-spellers-camel
+suggest:  suggest-00-special-ultra suggest-00-special-fast suggest-00-special-normal suggest-00-special-slow suggest-00-special-bad-spellers suggest-00-special-ultra-nokbd suggest-00-special-normal-nokbd suggest-02-orig-ultra suggest-02-orig-fast suggest-02-orig-normal suggest-02-orig-slow suggest-02-orig-bad-spellers suggest-02-orig-ultra-nokbd suggest-02-orig-normal-nokbd suggest-05-common-ultra suggest-05-common-fast suggest-05-common-normal suggest-05-common-slow suggest-05-common-ultra-nokbd suggest-05-common-normal-nokbd suggest-00-special-ultra-camel suggest-00-special-fast-camel suggest-00-special-normal-camel suggest-00-special-slow-camel suggest-00-special-bad-spellers-camel
