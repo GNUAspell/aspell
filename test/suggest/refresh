@@ -15,3 +15,11 @@ do
         time ./run-batch "../inst/bin/aspell --keyboard=none --sug-mode=$mode" $f.tab $f-$mode-nokbd-expect
     done
 done
+for f in 00-special
+do
+    for mode in ultra fast normal slow bad-spellers
+    do
+        echo "** $f $mode"
+        time ./run-batch "../inst/bin/aspell --sug-mode=$mode --camel-case" $f.tab $f-$mode-camel-expect
+    done
+done

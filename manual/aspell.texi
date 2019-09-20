@@ -118,7 +118,7 @@ Adding Support For Other Languages
 * The Simple Soundslike::       
 * Replacement Tables::          
 * Affix Compression::           
-* Controlling the Behavior of Run-together Words::  
+* Controlling the Behavior of Compound Words::  
 * Creating A New Character Set::  
 * Creating An Official Dictionary Package::  
 
@@ -1039,6 +1039,11 @@ Typo-Analysis})
 Suggestion mode = @samp{ultra} | @samp{fast} | @samp{normal} | @samp{slow} |
 @samp{bad-spellers} (@pxref{Notes on the Different Suggestion Modes})
 
+@item sug-split-char
+@i{(list)}
+Characters to use when a word into two in the suggestion list.
+Setting this option to the empty list disables word splitting.
+
 @item ignore-case
 @i{(boolean)}
 Ignore case when checking words.
@@ -1459,16 +1464,18 @@ The @option{ccpp} filter mode is a context filter that will limit
 spell checking to C/C++ comments and string literals. Any code in
 between will be left alone.
 
-@subsection Run-together Word Options
+@subsection Compound Word Options
 
-These may be used to control the behavior of run-together words (for
-more information @pxref{Controlling the Behavior of Run-together
+These may be used to control the behavior of compound  words (for
+more information @pxref{Controlling the Behavior of Compound
 Words}):
+
 @table @b
 
 @item run-together,-C|-B
 @i{(boolean)}
 consider run-together words valid
+
 @item run-together-limit
 @i{(integer)}
 maximum number of words that can be strung together
@@ -1476,6 +1483,10 @@ maximum number of words that can be strung together
 @item run-together-min
 @i{(integer)}
 minimal length of interior words
+
+@item camel-case
+@i{(boolean)}
+consider camelCase words valid
 @end table
 
 @subsection Miscellaneous Options
@@ -2441,9 +2452,9 @@ beginning of the line and the beginning of the misspelled word, a
 colon, another space, and a list of the suggestions separated by
 commas and spaces.
 
-If you set the option @command{run-together} and Aspell thinks this word
-is a combination of two words in the dictionary, then it prints a single
-@samp{-} in one line.
+If you set the option @option{run-together} or @option{camel-case} and
+Aspell thinks this word is a combination of two words in the
+dictionary, then it prints a single @samp{-} in one line.
 
 Finally, if the word does not appear in the dictionary, and there are
 no suggestions, then the line contains a @samp{#}, a space, the
@@ -2629,7 +2640,7 @@ need to create the language data file, and compile a new word list.
 * The Simple Soundslike::       
 * Replacement Tables::          
 * Affix Compression::           
-* Controlling the Behavior of Run-together Words::  
+* Controlling the Behavior of Compound Words::  
 * Creating A New Character Set::  
 * Creating An Official Dictionary Package::  
 @end menu
@@ -2794,7 +2805,7 @@ full composition.
 Additional options includes options to control how run-together words
 are handled the same way as they are in the normal configuration
 files.  for more information, please @ref{Controlling the Behavior of
-Run-together Words}.
+Compound Words}.
 
 @node Compiling the Word List
 @section Compiling the Word List
@@ -3379,11 +3390,12 @@ create/DG
 @noindent
 will associate the @samp{D} and @samp{G} flag with the word create.
 
-@node Controlling the Behavior of Run-together Words
-@section Controlling the Behavior of Run-together Words
+@node Controlling the Behavior of Compound Words
+@anchor{Controlling the Behavior of Run-together Words}
+@section Controlling the Behavior of Compound Words
 
-Aspell currently has support for unconditionally accepting run-together
-words.
+Aspell has support for unconditionally accepting run-together words or
+accepting camelCase words.
 
 Support for unconditionally accepting run-together words can either be
 turned on in the language data file or as a normal option via the
@@ -3396,6 +3408,16 @@ together word, the default is normally 3.  Both the
 be specified in both the language data file or as a normal option.
 
 @c FIXME: Add note about compound word support when suggesting.
+
+Support for accepting camelCase words can be enabled via the
+@option{camel-case} option.  When this option is enabled Aspell will accept
+@samp{camelCase} but will reject @samp{camelcase}.  In addition,
+Aspell will attempt to provide reasonable suggestions when a camelCase
+word is misspelled.  It will correct typos such as @samp{camelcase} or
+@samp{camelcAse} and suggest @samp{camelCase}.  If a single part of a
+camelCase word is misspelled it will attempt to correct that part.
+When camelCase mode is enabled Aspell will not attempt to split a word
+by default, to change this simply set @option{sug-split-char}.
 
 @node Creating A New Character Set
 @section Creating A New Character Set
@@ -4397,6 +4419,8 @@ Add Markdown filter.
 @item
 Add new @option{wordlists} option, which is a list of UTF-8 files that
 contain additional words to accept.
+@item
+Provide support for checking camelCase words.
 @item
 When typo analysis is used, ensure that possible typos are listed
 before other suggestions.  Also fix a bug so that suggestions that split

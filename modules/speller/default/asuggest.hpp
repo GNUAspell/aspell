@@ -36,6 +36,7 @@ namespace aspeller {
     int limit;
 
     String split_chars;
+    bool camel_case;
 
     SuggestParms() {}
 

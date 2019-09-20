@@ -425,6 +425,38 @@ namespace aspeller {
     cur->next = 0;
     return cur;
   }
+
+  CompoundWord Language::split_word(const char * word, unsigned len,
+                                    bool camel_case) const
+  {
+    if (!camel_case || len <= 1)
+      return CompoundWord(word, word + len);
+    // len >= 2
+    if (is_upper(word[0])) {
+      if (is_lower(word[1])) {
+        unsigned i = 2;
+        while (i < len && is_lower(word[i]))
+          ++i;
+        return CompoundWord(word, word + i, word + len);
+      }
+      if (is_upper(word[1])) {
+        unsigned i = 2;
+        while (i < len && is_upper(word[i]))
+          ++i;
+        if (i == len)
+          return CompoundWord(word, word + len);
+        // The first upper case letter is assumed to be part of the next word
+        return CompoundWord(word, word + i - 1, word + len);
+      }
+    } else if (is_lower(word[0])) {
+      unsigned i = 1;
+      while (i < len && is_lower(word[i]))
+        ++i;
+      return CompoundWord(word, word + i, word + len);
+    }
+    // this should't happen but just in case...
+    return CompoundWord(word, word + len);
+  }
   
   bool SensitiveCompare::operator() (const char * word0, 
 				     const char * inlist0) const

@@ -70,11 +70,9 @@
 
 using namespace aspeller;
 using namespace acommon;
-using namespace std;
+using std::pair;
 
 namespace {
-
-  typedef vector<String> NearMissesFinal;
 
   template <class Iterator>
   inline Iterator preview_next (Iterator i) {
@@ -101,7 +99,54 @@ namespace {
 
   static const char * NO_SOUNDSLIKE = "";
 
+  class Working;
+
+  enum SpecialEdit {None, Split, CamelSplit, CamelJoin, CamelOffByOne};
+
+  static inline int special_score(const EditDistanceWeights & w, SpecialEdit e) {
+    switch (e) {
+    case Split:
+      return w.max + 2;
+    case CamelJoin:
+      return w.max + 1;
+    case CamelSplit:
+      return w.max + 1;
+    case CamelOffByOne:
+      return w.swap - 1;
+    default:
+      abort();
+    }
+  }
+
+  struct SpecialTypoScore {
+    int score;
+    bool is_overall_score;
+    operator bool() const {return score < LARGE_NUM;}
+    SpecialTypoScore()
+      : score(LARGE_NUM), is_overall_score(false) {}
+    SpecialTypoScore(int s, bool q)
+      : score(s), is_overall_score(q) {}
+  };
+  
+  static inline SpecialTypoScore special_typo_score(const TypoEditDistanceInfo & w, SpecialEdit e) {
+    switch (e) {
+    case None:
+      return SpecialTypoScore();
+    case Split:
+      return SpecialTypoScore(w.max + 2, true);
+    case CamelSplit:
+      return SpecialTypoScore(w.max + 1, true);
+    case CamelJoin:
+      return SpecialTypoScore(w.max + 1, true);
+    case CamelOffByOne:
+      return SpecialTypoScore(w.swap - 1, false);
+    default:
+      abort();
+    }
+  }
+
   struct ScoreWordSound {
+    Working * src;
     char * word;
     char * word_clean;
     //unsigned word_size;
@@ -111,10 +156,10 @@ namespace {
     int           word_score;
     int           soundslike_score;
     bool          count;
-    bool          split; // true the result of splitting a word
+    SpecialEdit   special_edit;
     bool          repl_table;
     WordEntry * repl_list;
-    ScoreWordSound() : adj_score(LARGE_NUM), repl_list(0) {}
+    ScoreWordSound(Working * s) : src(s), adj_score(LARGE_NUM), repl_list(0) {}
     ~ScoreWordSound() {delete repl_list;}
   };
 
@@ -151,36 +196,20 @@ namespace {
 
   typedef BasicList<ScoreWordSound> NearMisses;
  
-  class Common {
-  protected:
+  class Sugs;
+  
+  class Working {
+    friend class Sugs;
+
     const Language *     lang;
     OriginalWord         original;
     const SuggestParms * parms;
-    SpellerImpl    *     sp;
+    SpellerImpl *        sp;
 
-  public:
-    Common(const Language *l, const String &w, const SuggestParms * p, SpellerImpl * sp)
-      : lang(l), original(), parms(p), sp(sp)
-    {
-      original.word = w;
-      l->to_lower(original.lower, w.str());
-      l->to_clean(original.clean, w.str());
-      l->to_soundslike(original.soundslike, w.str());
-      original.case_pattern = l->case_pattern(w);
-    }
+    String prefix;
+    String suffix;
+    bool have_presuf;
 
-    void fix_case(char * str) {
-      lang->LangImpl::fix_case(original.case_pattern, str, str);
-    }
-    const char * fix_case(const char * str, String & buf) {
-      return lang->LangImpl::fix_case(original.case_pattern, str, buf);
-    }
-  };
-
-  class Suggestions;
-  
-  class Working : private Common {
-   
     int threshold;
     int adj_threshold;
     int try_harder;
@@ -232,13 +261,23 @@ namespace {
       int           word_score;
       int           soundslike_score;
       bool          count;
-      bool          split; // true the result of splitting a word
+      SpecialEdit   special_edit;
       bool          repl_table;
       WordEntry *   repl_list;
       ScoreInfo()
         : soundslike(), word_score(LARGE_NUM), soundslike_score(LARGE_NUM),
-          count(true), split(false), repl_table(false), repl_list() {}
+          count(true), special_edit(None), repl_table(false), repl_list() {}
     };
+
+    char * fix_case(char * str) {
+      lang->LangImpl::fix_case(original.case_pattern, str, str);
+      return str;
+    }
+    const char * fix_case(const char * str, String & buf) {
+      return lang->LangImpl::fix_case(original.case_pattern, str, buf);
+    }
+
+    char * fix_word(ObjStack & buf, ParmStr w);
 
     MutableString form_word(CheckInfo & ci);
     void try_word_n(ParmString str, const ScoreInfo & inf);
@@ -324,7 +363,10 @@ namespace {
       return k;
     }
 
+    void try_camel_word(String & word, SpecialEdit edit);
+
     void try_split();
+    void try_camel_edits();
     void try_one_edit_word();
     void try_scan();
     void try_scan_root();
@@ -333,38 +375,134 @@ namespace {
 
     void score_list();
     void fine_tune_score(int thres);
-    void transfer();
   public:
     Working(SpellerImpl * m, const Language *l,
 	    const String & w, const SuggestParms * p)
-      : Common(l,w,p,m), threshold(1), max_word_length(0) {
+      : lang(l), original(), parms(p), sp(m), have_presuf(false) 
+      , threshold(1), max_word_length(0)
+    {
       memset(check_info, 0, sizeof(check_info));
+      original.word = w;
+      l->to_lower(original.lower, w.str());
+      l->to_clean(original.clean, w.str());
+      l->to_soundslike(original.soundslike, w.str());
+      original.case_pattern = l->case_pattern(w);
+      camel_case = parms->camel_case;
     }
-    Suggestions * suggestions(); 
+    void with_presuf(ParmStr pre, ParmStr suf) {
+      prefix = pre;
+      suffix = suf;
+      have_presuf = true;
+    }
+    bool camel_case;
+    // `this` is expected to be allocated with new and its ownership
+    // will be transferred to the returning Sugs object
+    Sugs * suggestions(); 
   };
 
-  class Suggestions : private Common {
-  public:
-    Vector<ObjStack::Memory *> buf;
-    NearMisses                 scored_near_misses;
-    void transfer(NearMissesFinal &near_misses_final);
-    Suggestions(const Common & other)
-      : Common(other) {}
-    ~Suggestions() {
-      for (Vector<ObjStack::Memory *>::iterator i = buf.begin(), e = buf.end();
+  struct Suggestion {
+    const char * word;
+    const ScoreWordSound * inf;
+    double distance() const {
+      return inf->adj_score/100.0;
+    }
+    double normalized_score() const {
+      return 100.0/(inf->adj_score + 100);
+    }
+    Suggestion() : word(), inf() {}
+    Suggestion(const char * word, const ScoreWordSound * inf)
+      : word(word), inf(inf) {}
+  };
+
+  struct SavedBufs : public Vector<ObjStack::Memory *> {
+    ~SavedBufs() {
+      for (Vector<ObjStack::Memory *>::iterator i = begin(), e = end();
            i != e; ++i)
         ObjStack::dealloc(*i);
     }
   };
 
-  Suggestions * Working::suggestions() {
+  class SuggestionsImpl;
 
-    Suggestions * sug = new Suggestions(*this);
+  class Sugs {
+  public:
+    Vector<Working *> srcs;
+    NearMisses scored_near_misses;
+
+    void merge(Sugs & other) {
+      srcs.insert(srcs.end(), other.srcs.begin(), other.srcs.end());
+      other.srcs.clear();
+      scored_near_misses.merge(other.scored_near_misses, adj_score_lt);
+    }
+
+    void transfer(SuggestionsImpl &, int limit);
+    
+    Sugs(Working * s) {
+      srcs.push_back(s);
+    }
+    ~Sugs() {
+      for (Vector<Working *>::iterator i = srcs.begin(), e = srcs.end(); i != e; ++i) {
+        delete *i;
+        *i = NULL;
+      }
+    }
+  };
+
+  class SuggestionsImpl : public SuggestionsData, public Vector<Suggestion> {
+  public:
+    SavedBufs   saved_bufs_;
+    NearMisses  saved_near_misses_;
+    ObjStack    buf;
+    SuggestionsImpl() {}
+  private:
+    SuggestionsImpl(const SuggestionsImpl &);
+  public:
+    void reset() {
+      clear();
+      buf.reset();
+    }
+    void get_words(Convert * conv, Vector<CharVector> & res) {
+      res.clear();
+      res.reserve(size());
+      if (conv) {
+        for (iterator i = begin(), e = end(); i != e; ++i) {
+          res.push_back(CharVector());
+          // len + 1 to also convert the null
+          conv->convert(i->word, strlen(i->word) + 1, res.back());
+        }
+      } else {
+        for (iterator i = begin(), e = end(); i != e; ++i) {
+          res.push_back(CharVector());
+          res.reserve(strlen(i->word) + 1);
+          res.back().append(i->word);
+          res.back().append('\0');
+        }
+      }
+    }
+    void get_normalized_scores(Vector<double> & res) {
+      res.clear();
+      res.reserve(size());
+      for (iterator i = begin(), e = end(); i != e; ++i)
+        res.push_back(i->normalized_score());
+    }
+    void get_distances(Vector<double> & res) {
+      res.clear();
+      res.reserve(size());
+      for (iterator i = begin(), e = end(); i != e; ++i)
+        res.push_back(i->distance());
+    }
+  };
+
+  Sugs * Working::suggestions() {
+
+    Sugs * sug = new Sugs(this);
 
     if (original.word.size() * parms->edit_distance_weights.max >= 0x8000)
       return sug; // to prevent overflow in the editdist functions
 
     try_split();
+
+    try_camel_edits();
 
     if (parms->use_repl_table) {
 
@@ -461,8 +599,8 @@ namespace {
 
     fine_tune_score(threshold);
     scored_near_misses.sort(adj_score_lt);
-    sug->buf.push_back(buffer.freeze());
     sug->scored_near_misses.swap(scored_near_misses);
+    near_misses.clear();
     return sug;
   }
 
@@ -472,12 +610,12 @@ namespace {
   // It returns a MutableString of what was appended to the buffer.
   MutableString Working::form_word(CheckInfo & ci) 
   {
-    size_t slen = ci.word.size() - ci.pre_strip_len - ci.suf_strip_len;
+    size_t slen = ci.word.len - ci.pre_strip_len - ci.suf_strip_len;
     size_t wlen = slen + ci.pre_add_len + ci.suf_add_len;
     char * tmp = (char *)buffer.grow_temp(wlen);
     if (ci.pre_add_len) 
       memcpy(tmp, ci.pre_add, ci.pre_add_len);
-    memcpy(tmp + ci.pre_add_len, ci.word.str() + ci.pre_strip_len, slen);
+    memcpy(tmp + ci.pre_add_len, ci.word.str + ci.pre_strip_len, slen);
     if (ci.suf_add_len) 
       memcpy(tmp + ci.pre_add_len + slen, ci.suf_add, ci.suf_add_len);
     return MutableString(tmp,wlen);
@@ -581,7 +719,7 @@ namespace {
     if (word_size * parms->edit_distance_weights.max >= 0x8000) 
       return; // to prevent overflow in the editdist functions
 
-    near_misses.push_front(ScoreWordSound());
+    near_misses.push_front(ScoreWordSound(this));
     ScoreWordSound & d = near_misses.front();
     d.word = word;
     d.soundslike = inf.soundslike;
@@ -607,7 +745,7 @@ namespace {
     if (!sp->have_soundslike && !d.soundslike)
       d.soundslike = d.word_clean;
     
-    d.split = inf.split;
+    d.special_edit = inf.special_edit;
     d.repl_table = inf.repl_table;
     d.count = inf.count;
     d.repl_list = inf.repl_list;
@@ -657,14 +795,67 @@ namespace {
         {
           new_word[i] = parms->split_chars[j];
           ScoreInfo inf;
-          inf.word_score = parms->edit_distance_weights.max + 2;
+          inf.word_score = special_score(parms->edit_distance_weights, Split);
           inf.soundslike_score = inf.word_score;
           inf.soundslike = NO_SOUNDSLIKE;
           inf.count = false;
-          inf.split = true;
+          inf.special_edit = Split;
           add_nearmiss(buffer.dup(new_word), word.size() + 1, 0, inf);
         }
       }
+    }
+  }
+
+  void Working::try_camel_word(String & word, SpecialEdit edit) {
+    CheckInfo ci[8];
+    bool ok = sp->check(word.begin(), word.end(), false, sp->run_together_limit(), ci, ci + 8, NULL, NULL);
+    if (!ok) return;
+    ScoreInfo inf;
+    inf.word_score = special_score(parms->edit_distance_weights, edit);
+    inf.soundslike_score = inf.word_score;
+    inf.soundslike = NO_SOUNDSLIKE;
+    inf.count = false;
+    inf.special_edit = edit;
+    add_nearmiss(buffer.dup(word.c_str()), word.size() + 1, 0, inf);
+  }
+
+  void Working::try_camel_edits() {
+    if (!camel_case) return;
+    
+    String word = original.word;
+    word.ensure_null_end();
+
+    for (size_t i = 1; i < word.size(); ++i) {
+      // try splitting or joining a word by changing the case of a letter
+      SpecialEdit edit = None;
+      char save = word[i];
+      word[i] = lang->to_upper(word[i]);
+      if (word[i] != save) {
+        edit = CamelSplit;
+      } else {
+        word[i] = lang->to_lower(word[i]);
+        if (word[i] != save)
+          edit = CamelJoin;
+      }
+      try_camel_word(word, edit);
+
+      //if the char was made lower now also try making an adjacent character uppercase
+      if (edit == CamelJoin) {
+        char save2 = word[i-1];
+        word[i-1] = lang->to_upper(word[i-1]);
+        if (word[i-1] != save2)
+          try_camel_word(word, CamelOffByOne);
+        word[i-1] = save2;
+        if (i+1 < word.size()) {
+          save2 = word[i+1];
+          word[i+1] = lang->to_upper(word[i+1]);
+          if (word[i+1] != save2)
+            try_camel_word(word, CamelOffByOne);
+          word[i+1] = save2;
+        }
+      }
+      
+      word[i] = save;
     }
   }
 
@@ -895,11 +1086,11 @@ namespace {
          ci; 
          ci = ci->next) 
     {
-      sl = to_soundslike(ci->word.str(), ci->word.size());
+      sl = to_soundslike(ci->word.str, ci->word.len);
       Vector<const char *>::iterator i = sls.begin();
       while (i != sls.end() && strcmp(*i, sl) != 0) ++i;
       if (i == sls.end()) {
-        sls.push_back(to_soundslike(ci->word.str(), ci->word.size()));
+        sls.push_back(to_soundslike(ci->word.str, ci->word.len));
 #ifdef DEBUG_SUGGEST
         COUT.printf("will try root soundslike: %s\n", sls.back());
 #endif
@@ -1095,9 +1286,9 @@ namespace {
     NearMisses::iterator i;
     NearMisses::iterator prev;
 
-    near_misses.push_front(ScoreWordSound());
+    near_misses.push_front(ScoreWordSound(this));
     // the first item will NEVER be looked at.
-    scored_near_misses.push_front(ScoreWordSound());
+    scored_near_misses.push_front(ScoreWordSound(this));
     scored_near_misses.front().score = -1;
     // this item will only be looked at when sorting so 
     // make it a small value to keep it at the front.
@@ -1275,19 +1466,24 @@ namespace {
            i != scored_near_misses.end() && i->score <= thres;
            ++i)
       {
-        if (i->split) {
-          i->word_score = parms->ti->max + 2;
+        SpecialTypoScore special = special_typo_score(*parms->ti, i->special_edit);
+        if (special) {
+          i->word_score = special.score;
           i->soundslike_score = i->word_score;
           i->adj_score = i->word_score;
-        } else if (i->adj_score >= LARGE_NUM) {
-          for (j = 0; (i->word)[j] != 0; ++j)
-            word[j] = parms->ti->to_normalized((i->word)[j]);
-          word[j] = 0;
-          int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
-          // if a repl. table was used we don't want to increase the score
-          if (!i->repl_table || new_score < i->word_score)
-            i->word_score = new_score;
-          i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
+        }
+        if (i->adj_score >= LARGE_NUM) {
+          if (!special) {
+            for (j = 0; (i->word)[j] != 0; ++j)
+              word[j] = parms->ti->to_normalized((i->word)[j]);
+            word[j] = 0;
+            int new_score = typo_edit_distance(ParmString(word.data(), j), orig, *parms->ti);
+            // if a repl. table was used we don't want to increase the score
+            if (!i->repl_table || new_score < i->word_score)
+              i->word_score = new_score;
+          }
+          if (!special.is_overall_score) 
+            i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
           adj_threshold = i->adj_score;
@@ -1308,23 +1504,42 @@ namespace {
     }
   }
 
-  void Suggestions::transfer(NearMissesFinal & near_misses_final) {
-#  ifdef DEBUG_SUGGEST
-    COUT << "\n" << "\n" 
-	 << original.word << '\t' 
-	 << original.soundslike << '\t'
-	 << "\n";
-    String sl;
-#  endif
-    int c = 1;
-    hash_set<String,HashString<String> > duplicates_check;
-    String buf;
-    String final_word;
-    pair<hash_set<String,HashString<String> >::iterator, bool> dup_pair;
+  struct StrEquals {
+    bool operator() (const char * x, const char * y) const {
+      return strcmp(x,y) == 0;
+    }
+  };
+  typedef hash_set<const char *,hash<const char *>,StrEquals> StrHashSet;
+
+  char * Working::fix_word(ObjStack & buf, ParmStr w) {
+    size_t sz = prefix.size() + w.size() + suffix.size();
+    char * word = static_cast<char *>(buf.alloc(sz + 1));
+    char * i = word;
+    memcpy(i, prefix.c_str(), prefix.size());
+    i += prefix.size();
+    memcpy(i, w.str(), w.size() + 1);
+    fix_case(i);
+    i += w.size();
+    memcpy(i, suffix.c_str(), suffix.size() + 1);
+    return word;
+  }
+
+  void Sugs::transfer(SuggestionsImpl & res, int limit) {
+    // FIXME: double check that conv->in_code() is correct
+    res.reset();
+//#  ifdef DEBUG_SUGGEST
+//    COUT << "\n" << "\n" 
+//	 << original.word << '\t' 
+//	 << original.soundslike << '\t'
+//	 << "\n";
+//    String sl;
+//#  endif
+    StrHashSet duplicates_check;
+    pair<StrHashSet::iterator, bool> dup_pair;
     for (NearMisses::const_iterator i = scored_near_misses.begin();
-	 i != scored_near_misses.end() && c <= parms->limit
-           && ( i->adj_score < LARGE_NUM || c <= 3 );
-	 ++i, ++c) {
+	 i != scored_near_misses.end() && res.size() < limit
+           && ( i->adj_score < LARGE_NUM || res.size() < 3);
+	 ++i) {
 #    ifdef DEBUG_SUGGEST
       //COUT.printf("%p %p: ",  i->word, i->soundslike);
       COUT << i->word
@@ -1334,43 +1549,49 @@ namespace {
            << '\t' << i->soundslike
            << '\t' << i->soundslike_score << "\n";
 #    endif
+      Working * src = i->src;
       if (i->repl_list != 0) {
- 	String::size_type pos;
 	do {
- 	  dup_pair = duplicates_check.insert(fix_case(i->repl_list->word, buf));
- 	  if (dup_pair.second && 
- 	      ((pos = dup_pair.first->find(' '), pos == String::npos)
- 	       ? (bool)sp->check(*dup_pair.first)
- 	       : (sp->check((String)dup_pair.first->substr(0,pos)) 
- 		  && sp->check((String)dup_pair.first->substr(pos+1))) ))
- 	    near_misses_final.push_back(*dup_pair.first);
- 	} while (i->repl_list->adv());
+          char * word = i->src->fix_word(res.buf, i->repl_list->word);
+ 	  dup_pair = duplicates_check.insert(word);
+ 	  if (dup_pair.second) {
+            const char * pos = strchr(word, ' ');
+            bool in_dict = pos == NULL ?
+              src->sp->check(word) && true : src->sp->check(word, pos - word) && src->sp->check(pos + 1);
+            if (in_dict)
+              res.push_back(Suggestion(word,&*i));
+          }
+        } while (i->repl_list->adv());
       } else {
-        fix_case(i->word);
-	dup_pair = duplicates_check.insert(i->word);
-	if (dup_pair.second )
-	  near_misses_final.push_back(*dup_pair.first);
+        char * word = src->have_presuf ? src->fix_word(res.buf, i->word) : src->fix_case(i->word);
+	dup_pair = duplicates_check.insert(word);
+	if (dup_pair.second)
+          res.push_back(Suggestion(word,&*i));
       }
     }
+    for (Vector<Working *>::iterator i = srcs.begin(), e = srcs.end(); i != e; ++i) {
+      res.saved_bufs_.push_back((*i)->buffer.freeze());
+    }
+    res.saved_near_misses_.swap(scored_near_misses);
   }
   
   class SuggestionListImpl : public SuggestionList {
     struct Parms {
       typedef const char *                    Value;
-      typedef NearMissesFinal::const_iterator Iterator;
+      typedef SuggestionsImpl::const_iterator Iterator;
       Iterator end;
       Parms(Iterator e) : end(e) {}
       bool endf(Iterator e) const {return e == end;}
       Value end_state() const {return 0;}
-      Value deref(Iterator i) const {return i->c_str();}
+      Value deref(Iterator i) const {return i->word;}
     };
   public:
-    NearMissesFinal suggestions;
+    SuggestionsImpl suggestions;
 
-    SuggestionList * clone() const {return new SuggestionListImpl(*this);}
-    void assign(const SuggestionList * other) {
-      *this = *static_cast<const SuggestionListImpl *>(other);
-    }
+    //SuggestionList * clone() const {return new SuggestionListImpl(*this);}
+    //void assign(const SuggestionList * other) {
+    //  *this = *static_cast<const SuggestionListImpl *>(other);
+    //}
 
     bool empty() const { return suggestions.empty(); }
     Size size() const { return suggestions.size(); }
@@ -1391,6 +1612,7 @@ namespace {
       return setup(mode);
     }
     SuggestionList & suggest(const char * word);
+    SuggestionsData & suggestions(const char * word);
   };
   
   PosibErr<void> SuggestImpl::setup(String mode)
@@ -1407,18 +1629,34 @@ namespace {
 #   ifdef DEBUG_SUGGEST
     COUT << "=========== begin suggest " << word << " ===========\n";
 #   endif
-    suggestion_list.suggestions.resize(0);
     Working * sug = new Working(speller_, &speller_->lang(),word, &parms_);
-    Suggestions * sugs = sug->suggestions();
-    delete sug;
-    sugs->transfer(suggestion_list.suggestions);
+    Sugs * sugs = sug->suggestions();
+    CheckInfo ci[8];
+    SpellerImpl::CompoundInfo cpi;
+    String buf = word;
+    char * str = buf.mstr();
+    speller_->check(str, str + buf.size(), false, speller_->run_together_limit(), ci, ci + 8, NULL, &cpi);
+    if (cpi.count > 1 && cpi.incorrect_count == 1) {
+      CheckInfo * ci = cpi.first_incorrect;
+      String prefix(str, ci->word.str - str), middle(ci->word.str, ci->word.len), suffix(ci->word.str + ci->word.len);
+      sug = new Working(speller_, &speller_->lang(), middle, &parms_);
+      sug->camel_case = false;
+      sug->with_presuf(prefix, suffix);
+      Sugs * sugs2 = sug->suggestions();
+      sugs->merge(*sugs2);
+    }
+    sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
 #   ifdef DEBUG_SUGGEST
     COUT << "^^^^^^^^^^^  end suggest " << word << "  ^^^^^^^^^^^\n";
 #   endif
     return suggestion_list;
   }
-  
+
+  SuggestionsData & SuggestImpl::suggestions(const char * word) {
+    suggest(word);
+    return suggestion_list.suggestions;
+  }
 }
 
 namespace aspeller {
@@ -1441,6 +1679,7 @@ namespace aspeller {
     soundslike_weight = 50;
 
     split_chars = " -";
+    camel_case = false;
 
     skip = 2;
     limit = 100;
@@ -1503,14 +1742,20 @@ namespace aspeller {
       use_typo_analysis = config->retrieve_bool("sug-typo-analysis");
     if (config->have("sug-repl-table"))
       use_repl_table = config->retrieve_bool("sug-repl-table");
-    
-    StringList sl;
-    config->retrieve_list("sug-split-char", &sl);
-    StringListEnumeration els = sl.elements_obj();
-    const char * s;
-    split_chars.clear();
-    while ((s = els.next()) != 0) {
-      split_chars.push_back(*s);
+
+    camel_case = config->retrieve_bool("camel-case");
+    if (camel_case)
+      split_chars.clear();
+
+    if (!camel_case || config->have("sug-split-char")) {
+      StringList sl;
+      config->retrieve_list("sug-split-char", &sl);
+      StringListEnumeration els = sl.elements_obj();
+      const char * s;
+      split_chars.clear();
+      while ((s = els.next()) != 0) {
+        split_chars.push_back(*s);
+      }
     }
 
     if (use_typo_analysis) {

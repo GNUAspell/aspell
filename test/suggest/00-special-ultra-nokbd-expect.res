@@ -7,3 +7,11 @@ HJK	HIJACK	1	4	HIJACK, HAJJ, HAJJI, HICKOK
 hk	hijack	1	64	hijack, H, K, h, k, HQ, Hg, hake, hike, hoke, HI, Ha, He, Ho, ck, ha, he, hi, ho, wk, AK, Bk, Gk, HF, HM, HP, HR, HS, HT, Hf, Hz, Mk, OK, SK, UK, bk, hf, hp, hr, ht, pk, Huck, hack, hawk, heck, hick, hock, hook, hag, haj, hog, hug, Hakka, Hooke, haiku, hokey, hooky, Hayek, hoick, H's, Hugo, h'm, hgwy, huge
 sjk	hijack	4	6	SJ, SK, SJW, hijack, sqq, scag
 zphb	xenophobia	1	1	xenophobia
+zkw	zip line	1	21	zip line, kW, kw, Zeke, Zika, skew, SK, SJW, ska, ski, sky, skua, SC, SJ, Sc, Sq, sq, xx, Saki, sake, scow
+Joeuser	JoeUser	-1	-1
+JoeuSer	JoeUser	-1	-1
+JooUser	JoeUser	-1	-1
+camelCasWord	camelCaseWord	-1	-1
+camelcaseWord	camelCaseWord	-1	-1
+cmlCaseWord	camelCaseWord	-1	-1
+mcdonalds	McDonald's	1	3	McDonald's, McDonald, MacDonald's

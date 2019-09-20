@@ -91,17 +91,24 @@ namespace aspeller {
     //
     // Spelling methods
     //
+
+    struct CompoundInfo {
+      short count;
+      short incorrect_count;
+      CheckInfo * first_incorrect;      
+      CompoundInfo() : count(0), incorrect_count(0), first_incorrect() {}
+    };
   
     PosibErr<bool> check(char * word, char * word_end, /* it WILL modify word */
                          bool try_uppercase,
 			 unsigned run_together_limit,
-			 CheckInfo *, GuessInfo *);
+			 CheckInfo *, CheckInfo *, GuessInfo *, CompoundInfo * = NULL);
 
     PosibErr<bool> check(MutableString word) {
       guess_info.reset();
       return check(word.begin(), word.end(), false,
 		   unconditional_run_together_ ? run_together_limit_ : 0,
-		   check_inf, &guess_info);
+		   check_inf, check_inf + 8, &guess_info);
     }
     PosibErr<bool> check(ParmString word)
     {
@@ -109,19 +116,31 @@ namespace aspeller {
       strncpy(&*w.begin(), word, w.size());
       return check(MutableString(&w.front(), w.size() - 1));
     }
-
     PosibErr<bool> check(const char * word) {return check(ParmString(word));}
+    PosibErr<bool> check(const char * word, size_t sz)
+    {
+      std::vector<char> w(sz+1);
+      memcpy(&*w.begin(), word, sz);
+      w[sz] = '\0';
+      return check(MutableString(&w.front(), sz));
+    }
 
-    bool check2(char * word, /* it WILL modify word */
-                bool try_uppercase,
-                CheckInfo & ci, GuessInfo * gi);
+    CheckInfo * check_runtogether(char * word, char * word_end, /* it WILL modify word */
+                                  bool try_uppercase,
+                                  unsigned run_together_limit,
+                                  CheckInfo *, CheckInfo *,
+                                  GuessInfo *);
+    
+    bool check_single(char * word, /* it WILL modify word */
+                      bool try_uppercase,
+                      CheckInfo & ci, GuessInfo * gi);
 
     bool check_affix(ParmString word, CheckInfo & ci, GuessInfo * gi);
 
     bool check_simple(ParmString, WordEntry &);
 
     const CheckInfo * check_info() {
-      if (check_inf[0].word)
+      if (check_inf[0].word.str)
         return check_inf;
       else if (guess_info.head)
         return guess_info.head;
@@ -207,6 +226,12 @@ namespace aspeller {
     bool                    unconditional_run_together_;
     unsigned int            run_together_limit_;
     unsigned int            run_together_min_;
+
+    unsigned run_together_limit() const {
+      return unconditional_run_together_ ? run_together_limit_ : 0;
+    }
+
+    bool camel_case_;
 
     bool affix_info, affix_compress;
 
