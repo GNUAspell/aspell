@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2016-12-11 21:38-0500\n"
+"POT-Creation-Date: 2019-09-21 20:06-0400\n"
 "PO-Revision-Date: 2011-07-09 12:22+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -46,19 +46,19 @@ msgstr "リスト"
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
-#: common/config.cpp:978
+#: common/config.cpp:988
 msgid "either \"true\" or \"false\""
 msgstr "\"true\" または \"false\""
 
-#: common/config.cpp:997
+#: common/config.cpp:1007
 msgid "a positive integer"
 msgstr "正の整数"
 
-#: common/config.cpp:1125
+#: common/config.cpp:1135
 msgid "# default: "
 msgstr "# デフォルト:"
 
-#: common/config.cpp:1188
+#: common/config.cpp:1198
 #, c-format
 msgid ""
 "\n"
@@ -79,264 +79,270 @@ msgstr ""
 "# 以下のように設定されています:\n"
 "\n"
 
-#: common/config.cpp:1286
+#: common/config.cpp:1296
 msgid "ASPELL_CONF env var"
 msgstr "ASPELL_CONF 環境変数"
 
-#. TRANSLATORS: The remaing strings in config.cpp should be kept
+#. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
-#: common/config.cpp:1360
+#: common/config.cpp:1380
 msgid "main configuration file"
 msgstr "メイン設定ファイル"
 
-#: common/config.cpp:1362
+#: common/config.cpp:1382
 msgid "location of main configuration file"
 msgstr "メイン設定ファイルの場所"
 
-#: common/config.cpp:1365
+#: common/config.cpp:1385
 msgid "location of language data files"
 msgstr "言語データファイルの場所"
 
-#: common/config.cpp:1367
+#: common/config.cpp:1387
 msgid "create dictionary aliases"
 msgstr "辞書の別名を作成"
 
-#: common/config.cpp:1369
+#: common/config.cpp:1389
 msgid "location of the main word list"
 msgstr "メイン単語リストの場所"
 
-#: common/config.cpp:1371
+#: common/config.cpp:1391
 msgid "encoding to expect data to be in"
 msgstr "予測されるデータのエンコーディング"
 
-#: common/config.cpp:1373
+#: common/config.cpp:1393
 msgid "add or removes a filter"
 msgstr "フィルタを追加または削除"
 
-#: common/config.cpp:1375
+#: common/config.cpp:1395
 msgid "path(s) aspell looks for filters"
 msgstr "aspell がフィルタを探すパス（複数可）"
 
-#: common/config.cpp:1379
+#: common/config.cpp:1399
 msgid "filter mode"
 msgstr "フィルタモード"
 
-#: common/config.cpp:1381
+#: common/config.cpp:1401
 msgid "extra dictionaries to use"
 msgstr "追加で使用する辞書"
 
-#: common/config.cpp:1383
+#: common/config.cpp:1403
+msgid "files with list of extra words to accept"
+msgstr ""
+
+#: common/config.cpp:1405
 msgid "location for personal files"
 msgstr "個人用ファイルの場所"
 
-#: common/config.cpp:1385
+#: common/config.cpp:1407
 msgid "ignore words <= n chars"
 msgstr "n文字以下の単語を無視する"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1388
+#: common/config.cpp:1410
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
 msgstr "単語をチェックする時にアクセントを無視する -- 現在は無効です"
 
-#: common/config.cpp:1390
+#: common/config.cpp:1412
 msgid "ignore case when checking words"
 msgstr "大文字・小文字を区別しない"
 
-#: common/config.cpp:1392
+#: common/config.cpp:1414
 msgid "ignore commands to store replacement pairs"
 msgstr "置換ペアを格納するコマンドを無視する"
 
-#: common/config.cpp:1394 common/config.cpp:1461
+#: common/config.cpp:1416 common/config.cpp:1483
 msgid "extra information for the word list"
 msgstr "単語リストの追加情報"
 
-#: common/config.cpp:1396
+#: common/config.cpp:1418
 msgid "keyboard definition to use for typo analysis"
 msgstr "入力間違い(typo)の解析に使用するキーボード定義"
 
-#: common/config.cpp:1398
+#: common/config.cpp:1420
 msgid "language code"
 msgstr "言語のコード"
 
-#: common/config.cpp:1400
+#: common/config.cpp:1422
 msgid "deprecated, use lang instead"
 msgstr "非推奨、代わりに lang を使用してください"
 
-#: common/config.cpp:1402
+#: common/config.cpp:1424
 msgid "location of local language data files"
 msgstr "現地語データファイルを格納してある場所"
 
-#: common/config.cpp:1404
+#: common/config.cpp:1426
 msgid "base name of the main dictionary to use"
 msgstr "使用する主辞書のベース名"
 
-#: common/config.cpp:1408
+#: common/config.cpp:1430
 msgid "set module name"
 msgstr "モジュール名を設定"
 
-#: common/config.cpp:1410
+#: common/config.cpp:1432
 msgid "search order for modules"
 msgstr "モジュールの検索順"
 
-#: common/config.cpp:1412
+#: common/config.cpp:1434
 msgid "enable Unicode normalization"
 msgstr "Unicode正規化を有効にする"
 
-#: common/config.cpp:1414
+#: common/config.cpp:1436
 msgid "Unicode normalization required for current lang"
 msgstr "現在の言語にはユニコード正規化が必要です"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
-#: common/config.cpp:1418
+#: common/config.cpp:1440
 msgid "Unicode normalization form: none, nfd, nfc, comp"
 msgstr "ユニコード正規化フォーム: none, nfd, nfc, comp"
 
-#: common/config.cpp:1420
+#: common/config.cpp:1442
 msgid "avoid lossy conversions when normalization"
 msgstr "正規化する時に非可逆変換を避ける"
 
-#: common/config.cpp:1422
+#: common/config.cpp:1444
 msgid "personal configuration file"
 msgstr "個人用設定ファイル"
 
-#: common/config.cpp:1425
+#: common/config.cpp:1447
 msgid "personal dictionary file name"
 msgstr "個人用辞書ファイル名"
 
-#: common/config.cpp:1428
+#: common/config.cpp:1450
 msgid "prefix directory"
 msgstr "ディレクトリの接頭辞"
 
-#: common/config.cpp:1430
+#: common/config.cpp:1452
 msgid "replacements list file name"
 msgstr "置換リストの入ったファイル名"
 
-#: common/config.cpp:1433
+#: common/config.cpp:1455
 msgid "consider run-together words legal"
 msgstr "単語がくっついていても誤りとしない"
 
-#: common/config.cpp:1435
+#: common/config.cpp:1457
 msgid "maximum number that can be strung together"
 msgstr "くっついていてもいい単語の個数（最大）"
 
-#: common/config.cpp:1437
+#: common/config.cpp:1459
 msgid "minimal length of interior words"
 msgstr "含まれる単語の最小文字数"
 
-#: common/config.cpp:1439
+#: common/config.cpp:1461
+#, fuzzy
+#| msgid "consider run-together words legal"
+msgid "consider camel case words legal"
+msgstr "単語がくっついていても誤りとしない"
+
+#: common/config.cpp:1463
 msgid "save replacement pairs on save all"
 msgstr "すべて保存 で置換ペアを保存する"
 
-#: common/config.cpp:1441
+#: common/config.cpp:1465
 msgid "set the prefix based on executable location"
 msgstr "実行ファイルの位置を基準にしてプレフィックスを設定する"
 
-#: common/config.cpp:1443
+#: common/config.cpp:1467
 msgid "size of the word list"
 msgstr "単語リストの大きさ"
 
-#: common/config.cpp:1445
+#: common/config.cpp:1469
 msgid "no longer used"
 msgstr "もう使われていない"
 
-#: common/config.cpp:1447
+#: common/config.cpp:1471
 msgid "suggestion mode"
 msgstr "提案モード"
 
 #. TRANSLATORS: "sug-mode" is a literal value and should not be
 #. translated.
-#: common/config.cpp:1451
-msgid "edit distance to use, override sug-mode default"
-msgstr "使用する距離を編集し、sug-mode のデフォルトを置き換える"
-
-#: common/config.cpp:1453
+#: common/config.cpp:1475
 msgid "use typo analysis, override sug-mode default"
 msgstr "ミスタイプ解析を使用し、sug-mode のデフォルトを置き換える"
 
-#: common/config.cpp:1455
+#: common/config.cpp:1477
 msgid "use replacement tables, override sug-mode default"
 msgstr "置換テーブルを使用し、sug-mode のデフォルトを置き換える"
 
-#: common/config.cpp:1457
+#: common/config.cpp:1479
 msgid "characters to insert when a word is split"
 msgstr "単語を分割するときに挿入する文字"
 
-#: common/config.cpp:1459
+#: common/config.cpp:1481
 msgid "use personal, replacement & session dictionaries"
 msgstr "個人、置換、セッションの各辞書を使用する"
 
-#: common/config.cpp:1463
+#: common/config.cpp:1485
 msgid "search path for word list information files"
 msgstr "単語リスト情報ファイルを検索するパス"
 
-#: common/config.cpp:1465
+#: common/config.cpp:1487
 msgid "enable warnings"
 msgstr "警告を有効にする"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1475
+#: common/config.cpp:1497
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
 msgstr "単語リスト中で affix フラグを示す文字 -- 現在は無視されます"
 
-#: common/config.cpp:1477
+#: common/config.cpp:1499
 msgid "use affix compression when creating dictionaries"
 msgstr "辞書を作成する時に接辞圧縮を使用する"
 
-#: common/config.cpp:1479
+#: common/config.cpp:1501
 msgid "remove invalid affix flags"
 msgstr "無効な接辞フラグを除去します"
 
-#: common/config.cpp:1481
+#: common/config.cpp:1503
 msgid "attempts to clean words so that they are valid"
 msgstr "単語を「掃除」して有効なものにすることを試みる"
 
-#: common/config.cpp:1483
+#: common/config.cpp:1505
 msgid "compute soundslike on demand rather than storing"
 msgstr "必要に応じて soundslike を計算することにし、あらかじめ格納はしない"
 
-#: common/config.cpp:1485
+#: common/config.cpp:1507
 msgid "partially expand affixes for better suggestions"
 msgstr "よりよい提案を試みるために部分的に接辞を拡張する"
 
-#: common/config.cpp:1487
+#: common/config.cpp:1509
 msgid "skip invalid words"
 msgstr "無効な単語をスキップする"
 
-#: common/config.cpp:1489
+#: common/config.cpp:1511
 msgid "check if affix flags are valid"
 msgstr "接辞フラグが有効かチェックする"
 
-#: common/config.cpp:1491
+#: common/config.cpp:1513
 msgid "check if words are valid"
 msgstr "単語が有効かチェックする"
 
-#: common/config.cpp:1498
+#: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
 msgstr "\".bak\" を追加してバックアップファイルを作成する"
 
-#: common/config.cpp:1500
+#: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
 msgstr "文字オフセットの代わりにバイトオフセットを使用する"
 
-#: common/config.cpp:1502
+#: common/config.cpp:1524
 msgid "create missing root/affix combinations"
 msgstr "欠けている語幹/接辞の組み合わせを作成する"
 
-#: common/config.cpp:1504
+#: common/config.cpp:1526
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
 msgstr "チェックモードのためのキー割り当て: \"aspell\" or \"ispell\""
 
-#: common/config.cpp:1506
+#: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
 msgstr "提案リストを逆順に並べ替える"
 
-#: common/config.cpp:1508
+#: common/config.cpp:1530
 msgid "suggest possible replacements"
 msgstr "置換を提案する"
 
-#: common/config.cpp:1510
+#: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
 msgstr "パイプモードで負荷時間と提案時間を計測する"
 
@@ -345,12 +351,12 @@ msgstr "パイプモードで負荷時間と提案時間を計測する"
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "ファイル \"%s\" は読み込みのために開けない、または存在しないのかもしれません。"
 
-#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
+#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "ユニコードのコードポイント U+%04X はサポートされていません."
 
-#: common/convert.cpp:859
+#: common/convert.cpp:887
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "位置 %ld に不正な UTF-8 シーケンスがありました。"
@@ -639,289 +645,303 @@ msgstr "\"%mode:1\": マジック（識別鍵） \"%magic:2\": 間違った正�
 msgid "\"%expression:1\" is not a valid regular expression."
 msgstr "\"%expression:1\" は有効な正規表現ではありません。"
 
-#: common/posib_err.cpp:100
+#: common/posib_err.cpp:114
 msgid "Unhandled Error: "
 msgstr "処理できないエラー:"
 
-#: prog/aspell.cpp:97
+#: prog/aspell.cpp:99
 #, c-format
 msgid "Error: %s\n"
 msgstr "エラー: %s\n"
 
-#: prog/aspell.cpp:102
+#: prog/aspell.cpp:104
 msgid "Error: "
 msgstr "エラー: "
 
-#: prog/aspell.cpp:203
+#: prog/aspell.cpp:205
 msgid "enter Email mode."
 msgstr "Eメールモードに入ります。"
 
-#: prog/aspell.cpp:204
+#: prog/aspell.cpp:206
 msgid "enter HTML mode."
 msgstr "HTMLモードに入ります。"
 
-#: prog/aspell.cpp:205
+#: prog/aspell.cpp:207
 msgid "enter TeX mode."
 msgstr "TeXモードに入ります。"
 
-#: prog/aspell.cpp:206
+#: prog/aspell.cpp:208
 msgid "enter Nroff mode."
 msgstr "Nroffモードに入ります。"
 
-#: prog/aspell.cpp:312
+#: prog/aspell.cpp:209
+#, fuzzy
+#| msgid "enter Nroff mode."
+msgid "enter Markdown mode."
+msgstr "Nroffモードに入ります。"
+
+#: prog/aspell.cpp:315
 #, c-format
 msgid "Invalid Option: %s"
 msgstr "間違ったオプション: %s"
 
-#: prog/aspell.cpp:319
+#: prog/aspell.cpp:322
 msgid " does not take any parameters."
 msgstr "引数をとりません。"
 
-#: prog/aspell.cpp:332 prog/aspell.cpp:392
+#: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
 msgstr "\"%s\" にパラメータを１つ指定する必要があります。"
 
-#: prog/aspell.cpp:381
+#: prog/aspell.cpp:384
 msgid "You must specify an action"
 msgstr "処理を指定して下さい"
 
-#: prog/aspell.cpp:389 prog/aspell.cpp:452 prog/aspell.cpp:474
+#: prog/aspell.cpp:392 prog/aspell.cpp:455 prog/aspell.cpp:477
 #, c-format
 msgid "Unknown Action: %s"
 msgstr "未知の処理: %s"
 
-#: prog/aspell.cpp:395
+#: prog/aspell.cpp:398
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr "エラー: 少なくとも %d 個の引数を \"%s\" に対して指定してください。\n"
 
-#: prog/aspell.cpp:637
+#: prog/aspell.cpp:640
 msgid "Invalid Input"
 msgstr "間違った入力"
 
-#: prog/aspell.cpp:710
+#: prog/aspell.cpp:713
 #, c-format
 msgid "WARNING: Unable to enter Nroff mode: %s\n"
 msgstr "警告: Nroff モードに入ることができません: %s\n"
 
-#: prog/aspell.cpp:731
+#: prog/aspell.cpp:734
 msgid "Time to load word list: "
 msgstr "単語リスト読み込みにかかった時間:"
 
-#: prog/aspell.cpp:929
+#: prog/aspell.cpp:933
 #, c-format
 msgid "Suggestion Time: %f\n"
 msgstr "提案時間: %f\n"
 
-#: prog/aspell.cpp:972
+#: prog/aspell.cpp:976
 msgid "You must specify a file name."
 msgstr "ファイル名を１つ指定してください。"
 
-#: prog/aspell.cpp:975
+#: prog/aspell.cpp:979
 msgid "Only one file name may be specified."
 msgstr "ファイル名は１つだけ指定できます。"
 
-#: prog/aspell.cpp:985
+#: prog/aspell.cpp:989
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
 msgstr "読み込み用にファイル \"%s\" を開くことができません"
 
-#: prog/aspell.cpp:998
+#: prog/aspell.cpp:1002
 #, c-format
 msgid "Invalid keymapping: %s"
 msgstr "無効なキーマップです: %s"
 
-#: prog/aspell.cpp:1020
+#: prog/aspell.cpp:1017
+#, fuzzy, c-format
+#| msgid "\"%expression:1\" is not a valid regular expression."
+msgid "\"%s\" is not a regular file"
+msgstr "\"%expression:1\" は有効な正規表現ではありません。"
+
+#: prog/aspell.cpp:1028
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "\"%s\" を書き込みモードで開けませんでした。ファイルは保存されていません。"
 
-#: prog/aspell.cpp:1033
+#: prog/aspell.cpp:1041
 msgid "Ignore"
 msgstr "無視"
 
-#: prog/aspell.cpp:1034
+#: prog/aspell.cpp:1042
 msgid "Ignore all"
 msgstr "すべて無視"
 
-#: prog/aspell.cpp:1035
+#: prog/aspell.cpp:1043
 msgid "Replace"
 msgstr "置換"
 
-#: prog/aspell.cpp:1036
+#: prog/aspell.cpp:1044
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1045
 msgid "Add"
 msgstr "追加"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1046
 msgid "Add Lower"
 msgstr "小文字にして追加"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1047
 msgid "Abort"
 msgstr "中断"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1048
 msgid "Exit"
 msgstr "終了"
 
-#: prog/aspell.cpp:1116
+#: prog/aspell.cpp:1124
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "本当に中断してよろしいですか (y/n)?"
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1128
 msgid "Yy"
 msgstr "Yy"
 
-#: prog/aspell.cpp:1148
+#: prog/aspell.cpp:1156
 msgid "With: "
 msgstr "置換文字列: "
 
-#: prog/aspell.cpp:1165
+#: prog/aspell.cpp:1173
 msgid "Sorry that is an invalid choice!"
 msgstr "残念、無効な選択です!"
 
-#: prog/aspell.cpp:1386
-msgid "Sorry \"filter\" is currently unimplemented.\n"
-msgstr "残念、\"filter\" は現在実装されていません。\n"
-
-#: prog/aspell.cpp:1520
+#: prog/aspell.cpp:1544
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "マスター単語リストをマージできません。すみません。"
 
-#: prog/aspell.cpp:1544
+#: prog/aspell.cpp:1568
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "残念、\"create/merge personal\" は現在実装されていません。\n"
 
-#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
+#: prog/aspell.cpp:1577 prog/aspell.cpp:1633
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "すみません、 \"%s\" を上書きしません"
 
-#: prog/aspell.cpp:1600
+#: prog/aspell.cpp:1624
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "残念、\"create/merge repl\" は現在実装されていません。\n"
 
-#: prog/aspell.cpp:1872
+#: prog/aspell.cpp:1896
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" は \"munch-list\" コマンドに対する有効なフラグではありません。"
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2823
 msgid "Usage: aspell [options] <command>"
 msgstr "使い方: aspell [オプション] <コマンド>"
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2824
 msgid "<command> is one of:"
 msgstr "<コマンド> は次のうちの１つです:"
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2825
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage         短い使用方法の表示"
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2826
 msgid "  help             display a detailed help message"
 msgstr "  help             詳しい使用方法の表示"
 
-#: prog/aspell.cpp:2803
-msgid "  -c|check <file>  to check a file"
+#: prog/aspell.cpp:2827
+#, fuzzy
+#| msgid "  -c|check <file>  to check a file"
+msgid "  -c|check <file>  spellchecks a file"
 msgstr "  -c|check <ファイル>  ファイルをチェック"
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2828
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe          \"ispell -a\" 互換モード"
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2829
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr "  [dump] config    現在のすべての設定を標準出力に表示する"
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2830
 msgid "  config <key>     prints the current value of an option"
 msgstr "  config <key>     指定したオプションの現在の値を表示する"
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2831
 msgid "  [dump] dicts | filters | modes"
 msgstr "  [dump] dicts | filters | modes"
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2832
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr "    利用可能な辞書/フィルタ/フィルタモード の一覧を表示する"
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2833
 msgid "[options] is any of the following:"
 msgstr "[オプション] には以下のものがあります:"
 
-#: prog/aspell.cpp:2822
+#: prog/aspell.cpp:2846
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr "  list             標準入力からスペルの間違った単語のリストを作成する"
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2849
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr "  soundslike       入力したそれぞれの単語に対する疑似音声を返す"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2850
 msgid "  munch            generate possible root words and affixes"
 msgstr "  munch            語幹と接辞の候補を生成する"
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2851
 msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     接辞フラグを拡張する"
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2852
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr "  clean [strict]   単語リストを掃除し、すべての行の単語を有効にする"
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2853
+msgid "  filter           filters input as if it was being spellchecked"
+msgstr ""
+
+#: prog/aspell.cpp:2854
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version       バージョンを表示"
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2855
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]"
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2856
 msgid "    reduce the size of a word list via affix compression"
 msgstr "    接辞を圧縮して単語リストのサイズを減らす"
 
-#: prog/aspell.cpp:2833
+#: prog/aspell.cpp:2857
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr "  conv <from> <to> [<norm-form>]"
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2858
 msgid "    converts from one encoding to another"
 msgstr "    エンコーディングを他のものに変換する"
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2859
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2860
 msgid "    perform Unicode normalization"
 msgstr "    Unicode 正規化を行う"
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2863
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<名前>]"
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2864
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr "    マスター/個人用/置換用の辞書を、表示/生成/マージする。"
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2868
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      正規化の形式 none, internal, strict のいずれか"
 
-#: prog/aspell.cpp:2854
+#: prog/aspell.cpp:2878
 #, c-format
 msgid ""
 "\n"
@@ -932,7 +952,7 @@ msgstr ""
 "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2888
+#: prog/aspell.cpp:2912
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -944,7 +964,7 @@ msgstr ""
 "  を使用します。\"lang\", \"variety\", \"size\" オプションを使用して\n"
 "  間接的に指定することもできます。\n"
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2933
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -952,7 +972,7 @@ msgstr ""
 "利用可能なフィルタ (と関連するオプション)\n"
 "  フィルタは \"filter\" オプションで追加/除去できます。\n"
 
-#: prog/aspell.cpp:2916
+#: prog/aspell.cpp:2940
 #, c-format
 msgid ""
 "\n"
@@ -962,7 +982,7 @@ msgstr ""
 "  %s フィルタ: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2933
+#: prog/aspell.cpp:2957
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
@@ -1099,59 +1119,59 @@ msgstr "この理由はおそらく:"
 msgid "The required field \"name\" is missing."
 msgstr "必要なフィールド \"name\" がありません。"
 
-#: modules/speller/default/language.cpp:488
+#: modules/speller/default/language.cpp:524
 msgid "Empty string."
 msgstr "空の文字列です。"
 
-#: modules/speller/default/language.cpp:492
+#: modules/speller/default/language.cpp:533
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
 msgstr "文字 '%s' (U+%02X) は単語の先頭には現れません。"
 
-#: modules/speller/default/language.cpp:494
-#: modules/speller/default/language.cpp:503
+#: modules/speller/default/language.cpp:535
+#: modules/speller/default/language.cpp:544
 #, c-format
 msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr "文字 '%s' (U+%02X) の後にはアルファベットが続かなければなりません。"
 
-#: modules/speller/default/language.cpp:496
+#: modules/speller/default/language.cpp:537
 msgid "Does not contain any alphabetic characters."
 msgstr "アルファベットを含んでいません。"
 
-#: modules/speller/default/language.cpp:501
+#: modules/speller/default/language.cpp:542
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "文字 '%s' (U+%02X) は単語の中間には現れません。"
 
-#: modules/speller/default/language.cpp:508
+#: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
 msgstr "文字 '\\r' (U+0D) は単語の末尾には現れません。恐らく、ファイルが Unix ではなく MS-DOS の EOL を使用しているのでしょう。"
 
-#: modules/speller/default/language.cpp:511
+#: modules/speller/default/language.cpp:552
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
 msgstr "文字 '%s' (U+%02X) は単語の末尾には現れません。"
 
-#: modules/speller/default/language.cpp:543
+#: modules/speller/default/language.cpp:584
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
 msgstr "警告: 無効な接辞 '%s' を単語 %s から除去しています。\n"
 
-#: modules/speller/default/language.cpp:544
+#: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr "警告: 不適切な接辞 '%s' を単語 %s から除去しています。\n"
 
-#: modules/speller/default/language.cpp:675
+#: modules/speller/default/language.cpp:726
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr "警告: %s 文字列をスキップします。\n"
 
-#: modules/speller/default/language.cpp:733
+#: modules/speller/default/language.cpp:780
 msgid "The total length is larger than 240 characters."
 msgstr "長さの合計が240文字を超えています。"
 
-#: modules/speller/default/language.cpp:737
+#: modules/speller/default/language.cpp:784
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "警告: %s 単語をスキップします。\n"
@@ -1176,11 +1196,11 @@ msgstr "誤った疑似音声です。"
 msgid "Wrong soundslike version."
 msgstr "疑似音声のバージョンが違います。"
 
-#: modules/speller/default/readonly_ws.cpp:934
+#: modules/speller/default/readonly_ws.cpp:936
 msgid "Affix flags found in word but no affix file given."
 msgstr "接辞フラグが単語の中に見つかりましたが接辞ファイルがありません。"
 
-#: modules/speller/default/readonly_ws.cpp:972
+#: modules/speller/default/readonly_ws.cpp:974
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "単語等の長さの合計が240文字を超えています。"
 
@@ -1188,23 +1208,23 @@ msgstr "単語等の長さの合計が240文字を超えています。"
 msgid "There must be at least one \"add\" line."
 msgstr "一つ以上\"add\" 行がなくてはなりません。"
 
-#: modules/speller/default/suggest.cpp:1403
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "次のうちの１つ: ultra, fast, normal, slow, or bad-spellers"
 
-#: modules/speller/default/data.cpp:404
+#: modules/speller/default/data.cpp:406
 msgid "is not one of the allowed types"
 msgstr "は許された型ではありません"
 
-#: modules/speller/default/speller_impl.cpp:241
+#: modules/speller/default/speller_impl.cpp:334
 msgid "The personal word list is unavailable."
 msgstr "個人用単語リストが利用できません。"
 
-#: modules/speller/default/speller_impl.cpp:248
+#: modules/speller/default/speller_impl.cpp:341
 msgid "The session word list is unavailable."
 msgstr "セッション単語リストが利用できません。"
 
-#: modules/speller/default/speller_impl.cpp:255
+#: modules/speller/default/speller_impl.cpp:348
 msgid "The main word list is unavailable."
 msgstr "メイン単語リストが利用できません。"
 
@@ -1250,6 +1270,28 @@ msgstr "常にチェックするHTMLの属性"
 #: modules/filter/html-filter.info:21
 msgid "HTML tags to always skip the contents of"
 msgstr "常に中身のチェックをスキップするHTMLタグ"
+
+#: modules/filter/markdown-filter.info:8
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter for Markdown/CommonMark documents"
+msgstr "Texinfo文書のためのフィルタ"
+
+#: modules/filter/markdown-filter.info:14
+msgid "skip link labels in link reference definitions"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:20
+msgid "support tags that span multiple lines outside of HTML blocks"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:26
+msgid "html tags that start a HTML block that allows blank lines"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:34
+msgid "html tags that start a HTML block that end with a blank line"
+msgstr ""
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1311,6 +1353,12 @@ msgstr "Eメール本文中の引用されたテキストをスキップする�
 msgid "mode for checking HTML documents"
 msgstr "HTML文書をチェックするためのモード"
 
+#: modules/filter/modes/markdown.amf:9
+#, fuzzy
+#| msgid "mode for checking Nroff documents"
+msgid "mode for checking Markdown/CommonMark documents"
+msgstr "Nroff文書をチェックするためのモード"
+
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
 msgstr "すべてのフィルタを無効にするモード"
@@ -1338,3 +1386,9 @@ msgstr "Texinfo文書をチェックするためのモード"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "URLのような構造をスキップするためのモード（デフォルトのモード）"
+
+#~ msgid "edit distance to use, override sug-mode default"
+#~ msgstr "使用する距離を編集し、sug-mode のデフォルトを置き換える"
+
+#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
+#~ msgstr "残念、\"filter\" は現在実装されていません。\n"
