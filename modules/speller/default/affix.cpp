@@ -759,6 +759,7 @@ static void encodeit(CondsLookup & l, ObjStack & buf,
 bool AffixMgr::prefix_check (const LookupInfo & linf, ParmString word, 
                              CheckInfo & ci, GuessInfo * gi, bool cross) const
 {
+  if (word.empty()) return false;
  
   // first handle the special case of 0 length prefixes
   PfxEntry * pe = pStart[0];
@@ -789,6 +790,7 @@ bool AffixMgr::suffix_check (const LookupInfo & linf, ParmString word,
                              CheckInfo & ci, GuessInfo * gi,
                              int sfxopts, AffEntry * ppfx) const
 {
+  if (word.empty()) return false;
 
   // first handle the special case of 0 length suffixes
   SfxEntry * se = sStart[0];
@@ -817,6 +819,8 @@ bool AffixMgr::suffix_check (const LookupInfo & linf, ParmString word,
 bool AffixMgr::affix_check(const LookupInfo & linf, ParmString word, 
                            CheckInfo & ci, GuessInfo * gi) const
 {
+  if (word.empty()) return false;
+
   // Deal With Case in a semi-intelligent manner
   CasePattern cp = lang->LangImpl::case_pattern(word);
   ParmString pword = word;
