@@ -884,6 +884,7 @@ void pipe()
                                      ci->suf_strip_len);
           if (ci->suf_add && ci->suf_add[0])
             guess.append('+').append(ci->suf_add, ci->suf_add_len);
+          guess.ensure_null_end();
           real_speller->lang().fix_case(casep, guess.data(), guess.data());
           guesses << ", " << oconv(guess.str());
           ci = ci->next;
