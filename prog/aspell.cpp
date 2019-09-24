@@ -2810,7 +2810,12 @@ void print_help_line(char abrv, char dont_abrv, const char * name,
   if (type == KeyInfoInt)
     command += "=<int>";
   const char * tdesc = _(desc);
-  printf("  %-27s %s\n", command.c_str(), tdesc); // FIXME: consider word wrapping
+  char buf[120];
+  int len = snprintf(buf, 120, "  %-27s", command.c_str());
+  if (len == 29)
+    printf("%s %s\n", buf, tdesc);
+  else
+    printf("%s\n%30s%s\n", buf, "", tdesc);
 }
 
 namespace acommon {
