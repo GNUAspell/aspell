@@ -2877,7 +2877,7 @@ void print_help (bool verbose) {
   load_all_filters(options);
   if (verbose) {
     printf(_("\n"
-             "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
+             "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
              "\n"), aspell_version_string());
     for (unsigned i = 0; i < help_text_size; ++i)
       puts(gt_(help_text[i]));
