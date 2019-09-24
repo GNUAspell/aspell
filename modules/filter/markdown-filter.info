@@ -23,7 +23,7 @@ ENDOPTION
 
 OPTION raw-start-tags
 TYPE list
-DESCRIPTION html tags that start a HTML block that allows blank lines
+DESCRIPTION  HTML tags that start an HTML block that allows blank lines
 DEFAULT script
 DEFAULT pre
 DEFAULT style
@@ -31,7 +31,7 @@ ENDOPTION
 
 OPTION block-start-tags
 TYPE list
-DESCRIPTION html tags that start a HTML block that end with a blank line
+DESCRIPTION  HTML tags that start an HTML block that ends with a blank line
 DEFAULT address
 DEFAULT article
 DEFAULT aside
