@@ -46,7 +46,7 @@ prezip\-bin \fB\-z\fR <wordlist.txt >wordlist.pz 2>errors.txt
 Compress wordlist.txt to binary file wordlist.pz and send any error
 messages to a text file named errors.txt
 .TP
-LC_COLLATE\=C sort \-u <wordlist.txt \fB|\fR prezip\-bin \-z >wordlist.pz
+LC_COLLATE=C sort \-u <wordlist.txt \fB|\fR prezip\-bin \-z >wordlist.pz
 Sort a word list, then pipe it to
 .I prezip\-bin
 to create a compressed binary wordlist.pz file.
@@ -73,7 +73,7 @@ using
 output.
 .SH DIAGNOSTICS
 .I Prezip\-bin
-normally exits with a return code of 0. If it encounters an error,
+normally exits with a return code of 0.  If it encounters an error,
 a message is sent to standard error output (stderr), and
 .I prezip\-bin
 exits with a non-zero return value.  Error messages are listed below:
@@ -88,7 +88,7 @@ The input file appears not to be an expected format, or may possibly be
 a more advanced format.  The output file will be empty.
 .TP
 \fBcorrupt input\fR
-This is only for the decompression command \fB\-d\fR. The input file
+This is only for the decompression command \fB\-d\fR.  The input file
 appeared to be of a correct format, but something appears wrong now.
 There may be some valid data in output, but due to input corruption,
 the rest of the file can not be completed.

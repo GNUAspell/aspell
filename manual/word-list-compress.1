@@ -26,7 +26,7 @@ word\-list\-compress \fBc\fR <wordlist.wl >wordlist.cwl 2>errors.txt
 Compress wordlist.wl to wordlist.cwl and send any error messages to a
 text file named errors.txt
 .TP
-LC_COLLATE\=C sort \-u <wordlist.txt \fB|\fR word\-list\-compress c >wordlist.cwl
+LC_COLLATE=C sort \-u <wordlist.txt \fB|\fR word\-list\-compress c >wordlist.cwl
 Sort a word list, then pipe it to
 .I word\-list\-compress
 to create a compressed binary wordlist.cwl file.
@@ -44,7 +44,7 @@ purpose compression program since the resulting files may actually
 increase in size.
 .PP
 .I Word\-list\-compress
-accepts up to 255 text characters in the range of {0x21...0xFF}. If your
+accepts up to 255 text characters in the range of {0x21...0xFF}.  If your
 word list requires a larger character set for certain languages or
 longer length for multi\-word, scientific, medical, technical or other
 use, then it is recommended that you compress your word list using
@@ -52,7 +52,7 @@ use, then it is recommended that you compress your word list using
 .
 .SH DIAGNOSTICS
 .I Word\-list\-compress
-normally exits with a return code of 0. If it encounters an error,
+normally exits with a return code of 0.  If it encounters an error,
 a message is sent to standard error output (stderr), and
 .I word\-list\-compress
 exits with a non-zero return value.  Error messages are listed below:
