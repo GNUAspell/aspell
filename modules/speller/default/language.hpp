@@ -28,12 +28,19 @@ namespace acommon {
       val = config_val.val;
       allow_ucs = config_val.secure;
     }
+    ConfigConvKey & operator=(const ConfigConvKey & other) {
+      config_val = other.config_val; 
+      val = config_val.val;
+      allow_ucs = config_val.secure;
+      return *this;
+    }
     void fix_encoding_str() {
       String buf;
       ::fix_encoding_str(val, buf);
       config_val.val.swap(buf);
       val = config_val.val;
     }
+  private:
   };
 }
 
