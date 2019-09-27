@@ -16,6 +16,7 @@
 #include "indiv_filter.hpp"
 #include "iostream.hpp"
 #include "posib_err.hpp"
+#include "stack_ptr.hpp"
 #include "string.hpp"
 #include "string_enumeration.hpp"
 #include "string_list.hpp"
@@ -63,7 +64,7 @@ namespace {
   PosibErr<bool> ContextFilter::setup(Config * config){
     name_ = "context-filter";
     StringList delimiters;
-    StringEnumeration * delimiterpairs;
+    StackPtr<StringEnumeration> delimiterpairs;
     const char * delimiterpair=NULL;
     char * repair=NULL;
     char * begin=NULL;
@@ -81,7 +82,7 @@ namespace {
     }
 
     config->retrieve_list("f-context-delimiters", &delimiters);
-    delimiterpairs=delimiters.elements();
+    delimiterpairs.reset(delimiters.elements());
     opening.resize(0);
     closing.resize(0);
     while ((delimiterpair=delimiterpairs->next())) {
