@@ -1644,6 +1644,7 @@ namespace {
       sug->with_presuf(prefix, suffix);
       Sugs * sugs2 = sug->suggestions();
       sugs->merge(*sugs2);
+      delete sugs2;
     }
     sugs->transfer(suggestion_list.suggestions, parms_.limit);
     delete sugs;
