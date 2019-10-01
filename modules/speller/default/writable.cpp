@@ -578,16 +578,27 @@ PosibErr<void> WritableDict::merge(FStream & in,
   return no_err;
 }
 
+struct CStrLess {
+  bool operator() (const char * x, const char * y) const {
+    return strcmp(x, y) < 0;
+  }
+};
+
 PosibErr<void> WritableDict::save(FStream & out, ParmString file_name) 
 {
   out.printf("personal_ws-1.1 %s %i %s\n", 
              lang_name(), word_lookup->size(), file_encoding.c_str());
 
-  WordLookup::const_iterator i = word_lookup->begin();
-  WordLookup::const_iterator e = word_lookup->end();
+  Vector<const char *> words;
+  words.reserve(word_lookup->size());
+  for (WordLookup::const_iterator i = word_lookup->begin(), e = word_lookup->end();
+       i != e; ++i)
+    words.push_back(*i);
+  std::sort(words.begin(), words.end(), CStrLess());
     
   ConvP conv(oconv);
-  for (;i != e; ++i) {
+  for (Vector<const char *>::const_iterator i = words.begin(), e = words.end();
+       i != e; ++i) {
     write_n_escape(out, conv(*i));
     out << '\n';
   }
@@ -826,16 +837,23 @@ PosibErr<void> WritableReplDict::save (FStream & out, ParmString file_name)
 {
   out.printf("personal_repl-1.1 %s 0 %s\n", lang_name(), file_encoding.c_str());
   
-  WordLookup::iterator i = word_lookup->begin();
-  WordLookup::iterator e = word_lookup->end();
+  Vector<const char *> words;
+  words.reserve(word_lookup->size());
+  for (WordLookup::const_iterator i = word_lookup->begin(), e = word_lookup->end();
+       i != e; ++i)
+    words.push_back(*i);
+  std::sort(words.begin(), words.end(), CStrLess());
 
   ConvP conv1(oconv);
   ConvP conv2(oconv);
-  
-  for (;i != e; ++i) 
+
+  Vector<const char *> v;
+  for (Vector<const char *>::const_iterator i = words.begin(), e = words.end();
+       i != e; ++i) 
   {
-    StrVector * v = get_vector(*i);
-    for (StrVector::iterator j = v->begin(); j != v->end(); ++j)
+    v = *get_vector(*i); // make a copy
+    std::sort(v.begin(), v.end(), CStrLess());
+    for (StrVector::iterator j = v.begin(); j != v.end(); ++j)
     {
       write_n_escape(out, conv1(*i));
       out << ' ';

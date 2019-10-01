@@ -4422,6 +4422,8 @@ contain additional words to accept.
 @item
 Provide support for checking camelCase words.
 @item
+Sort personal and replacement dictionaries.
+@item
 When typo analysis is used, ensure that possible typos are listed
 before other suggestions.  Also fix a bug so that suggestions that split
 a word using a space or hyphen are not always first.
