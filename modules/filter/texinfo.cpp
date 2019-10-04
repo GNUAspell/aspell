@@ -26,7 +26,7 @@ namespace {
     struct Table {
       String name;
       bool ignore_item;
-      Table(String n) : name(n), ignore_item(false) {}
+      Table(ParmStr n) : name(n), ignore_item(false) {}
     };
 
     String last_command;
@@ -148,7 +148,7 @@ namespace {
             } else if (env_command == last_command) {
               env_ignore++;
             } else if (last_command.suffix("table")) {
-              table_stack.push_back(last_command);
+              table_stack.push_back(Table(last_command));
             }
 
           }

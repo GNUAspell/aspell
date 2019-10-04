@@ -1195,7 +1195,7 @@ namespace {
     int score;
     NGramScore() {}
     NGramScore(SpellerImpl::WS::const_iterator i0,
-               WordEntry info0, const char * sl, int score0) 
+               const WordEntry & info0, const char * sl, int score0)
       : i(i0), info(info0), soundslike(sl), score(score0) {}
   };
 
