@@ -4412,43 +4412,45 @@ a C++ program.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.7 to 0.68.8 (???)
+@heading Changes from 0.60.7 to 0.68.8 (October 7, 2019)
 @itemize @bullet
+@item
+Prevent a potentially unbounded buffer over-read by no longer
+supporting null-terminated UCS-2 and UCS-4 encoded strings with the
+original C API. @xref{Upgrading from Aspell 0.60.7}.
+@item
+Ensure that possible typos are listed before other suggestions when
+typo analysis is used.  Also fix a bug so that suggestions that split
+a word using a space or hyphen are not always first.
 @item
 Add Markdown filter.
 @item
 Add new @option{wordlists} option, which is a list of UTF-8 files that
 contain additional words to accept.
 @item
-Provide support for checking camelCase words.
+Add new @option{camel-case} option, which enables support for checking
+camelCase words.
 @item
 Sort personal and replacement dictionaries.
-@item
-When typo analysis is used, ensure that possible typos are listed
-before other suggestions.  Also fix a bug so that suggestions that split
-a word using a space or hyphen are not always first.
 @item
 Change @code{ultra} suggestion mode to only find words that are within
 one-edit distance or have the same soundslike.
 @item
-To prevent a potentially unbounded buffer over-read Aspell no longer
-supports null-terminated UCS-2 and UCS-4 encoded strings with the
-original C API. @xref{Upgrading from Aspell 0.60.7}.
+Implement the @code{aspell filter} command.
 @item
 Fix a bug in @code{AspellDocumentChecker} that prevented it from
 working with UCS-2 and UCS-4 encoded strings.
 @item
-Implement @code{aspell filter} command.
-@item
 Remove unused @option{sug-edit-dist} option.
 @item
-In order to work with the new Markdown filter
-@code{AspellDocumentChecker} now expects the document a line at a
-time.  If the document is split on white space characters instead,
-nothing will break, but new filters such as the Markdown filter may
-give incorrect results.
+@code{AspellDocumentChecker} now expects the document a line at a time
+in order to work with the new Markdown filter.  If the document is
+split on white space characters instead, nothing will break, but new
+filters such as the Markdown filter may give incorrect results.
 @item
 The @option{clean} option and command will no longer split a word.
+@item
+Various documentation improvements.
 @item
 Fix various crashes and other problems found by Google's OSS-Fuzz.
 @end itemize
