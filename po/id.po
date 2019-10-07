@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2016-12-11 21:38-0500\n"
+"POT-Creation-Date: 2019-10-06 21:45-0400\n"
 "PO-Revision-Date: 2008-11-11 10:15+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -43,19 +43,19 @@ msgstr "daftar"
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
-#: common/config.cpp:978
+#: common/config.cpp:988
 msgid "either \"true\" or \"false\""
 msgstr "baik \"benar\" atau \"salah\""
 
-#: common/config.cpp:997
+#: common/config.cpp:1007
 msgid "a positive integer"
 msgstr "sebuah integer positif"
 
-#: common/config.cpp:1125
+#: common/config.cpp:1135
 msgid "# default: "
 msgstr "# baku: "
 
-#: common/config.cpp:1188
+#: common/config.cpp:1198
 #, c-format
 msgid ""
 "\n"
@@ -76,264 +76,270 @@ msgstr ""
 "# dikonfigurasikan sebagai berikut:\n"
 "\n"
 
-#: common/config.cpp:1286
+#: common/config.cpp:1296
 msgid "ASPELL_CONF env var"
 msgstr "ASPELL_CONF env var"
 
-#. TRANSLATORS: The remaing strings in config.cpp should be kept
+#. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
-#: common/config.cpp:1360
+#: common/config.cpp:1380
 msgid "main configuration file"
 msgstr "berkas konfigurasi utama"
 
-#: common/config.cpp:1362
+#: common/config.cpp:1382
 msgid "location of main configuration file"
 msgstr "lokasi dari berkas konfigurasi utama"
 
-#: common/config.cpp:1365
+#: common/config.cpp:1385
 msgid "location of language data files"
 msgstr "lokasi dari berkas data bahasa"
 
-#: common/config.cpp:1367
+#: common/config.cpp:1387
 msgid "create dictionary aliases"
 msgstr "buat alias kamus"
 
-#: common/config.cpp:1369
+#: common/config.cpp:1389
 msgid "location of the main word list"
 msgstr "lokasi dari daftar kata utama"
 
-#: common/config.cpp:1371
+#: common/config.cpp:1391
 msgid "encoding to expect data to be in"
 msgstr "pengkodean menduga data berada dalam"
 
-#: common/config.cpp:1373
+#: common/config.cpp:1393
 msgid "add or removes a filter"
 msgstr "tambah atau hapus sebuah penyaring"
 
-#: common/config.cpp:1375
+#: common/config.cpp:1395
 msgid "path(s) aspell looks for filters"
 msgstr "jalur aspell yang digunakan untuk mencari penyaring"
 
-#: common/config.cpp:1379
+#: common/config.cpp:1399
 msgid "filter mode"
 msgstr "mode penyaring"
 
-#: common/config.cpp:1381
+#: common/config.cpp:1401
 msgid "extra dictionaries to use"
 msgstr "kamus ekstra untuk digunakan"
 
-#: common/config.cpp:1383
+#: common/config.cpp:1403
+msgid "files with list of extra words to accept"
+msgstr ""
+
+#: common/config.cpp:1405
 msgid "location for personal files"
 msgstr "lokasi dari berkas personal"
 
-#: common/config.cpp:1385
+#: common/config.cpp:1407
 msgid "ignore words <= n chars"
 msgstr "abaikan kata <= n chars"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1388
+#: common/config.cpp:1410
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
 msgstr "abaikan aksen ketika memeriksa kata -- SAAT INI DIABAIKAN"
 
-#: common/config.cpp:1390
+#: common/config.cpp:1412
 msgid "ignore case when checking words"
 msgstr "abaikan besar huruf ketika memeriksa kata"
 
-#: common/config.cpp:1392
+#: common/config.cpp:1414
 msgid "ignore commands to store replacement pairs"
 msgstr "abaikan perintah ketika menyimpan pasangan pengganti"
 
-#: common/config.cpp:1394 common/config.cpp:1461
+#: common/config.cpp:1416 common/config.cpp:1483
 msgid "extra information for the word list"
 msgstr "informasi ekstra dari daftar kata"
 
-#: common/config.cpp:1396
+#: common/config.cpp:1418
 msgid "keyboard definition to use for typo analysis"
 msgstr "definisi keyboard untuk digunakan analisis typo"
 
-#: common/config.cpp:1398
+#: common/config.cpp:1420
 msgid "language code"
 msgstr "kode bahasa"
 
-#: common/config.cpp:1400
+#: common/config.cpp:1422
 msgid "deprecated, use lang instead"
 msgstr "ditinggalkan, lebih baik gunakan lang"
 
-#: common/config.cpp:1402
+#: common/config.cpp:1424
 msgid "location of local language data files"
 msgstr "lokasi dari bahasa lokal berkas data"
 
-#: common/config.cpp:1404
+#: common/config.cpp:1426
 msgid "base name of the main dictionary to use"
 msgstr "nama basis dari kamus utama untuk digunakan"
 
-#: common/config.cpp:1408
+#: common/config.cpp:1430
 msgid "set module name"
 msgstr "set nama modul"
 
-#: common/config.cpp:1410
+#: common/config.cpp:1432
 msgid "search order for modules"
 msgstr "urutan pencarian untuk modul"
 
-#: common/config.cpp:1412
+#: common/config.cpp:1434
 msgid "enable Unicode normalization"
 msgstr "aktifkan normalisasi Unicode"
 
-#: common/config.cpp:1414
+#: common/config.cpp:1436
 msgid "Unicode normalization required for current lang"
 msgstr "Normalisasi unicode dibutuhkan untuk bahasa sekarang"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
-#: common/config.cpp:1418
+#: common/config.cpp:1440
 msgid "Unicode normalization form: none, nfd, nfc, comp"
 msgstr "Unicode normalisasi bentuk: none, nfd, nfc, comp"
 
-#: common/config.cpp:1420
+#: common/config.cpp:1442
 msgid "avoid lossy conversions when normalization"
 msgstr "hindari konversi lossy ketika normalisasi"
 
-#: common/config.cpp:1422
+#: common/config.cpp:1444
 msgid "personal configuration file"
 msgstr "berkas konfigurasi personal"
 
-#: common/config.cpp:1425
+#: common/config.cpp:1447
 msgid "personal dictionary file name"
 msgstr "kamus nama berkas personal"
 
-#: common/config.cpp:1428
+#: common/config.cpp:1450
 msgid "prefix directory"
 msgstr "prefix directory"
 
-#: common/config.cpp:1430
+#: common/config.cpp:1452
 msgid "replacements list file name"
 msgstr "daftar pencarian nama berkas"
 
-#: common/config.cpp:1433
+#: common/config.cpp:1455
 msgid "consider run-together words legal"
 msgstr "pertimbangkan kata jalan-bersama legal"
 
-#: common/config.cpp:1435
+#: common/config.cpp:1457
 msgid "maximum number that can be strung together"
 msgstr "jumlah maksimal yang dapat di strung bersama"
 
-#: common/config.cpp:1437
+#: common/config.cpp:1459
 msgid "minimal length of interior words"
 msgstr "jumlah minimal dari kata interior"
 
-#: common/config.cpp:1439
+#: common/config.cpp:1461
+#, fuzzy
+#| msgid "consider run-together words legal"
+msgid "consider camel case words legal"
+msgstr "pertimbangkan kata jalan-bersama legal"
+
+#: common/config.cpp:1463
 msgid "save replacement pairs on save all"
 msgstr "simpan pasangan pengganti di simpan semua"
 
-#: common/config.cpp:1441
+#: common/config.cpp:1465
 msgid "set the prefix based on executable location"
 msgstr "set awalan berbasis di lokasi eksekusi"
 
-#: common/config.cpp:1443
+#: common/config.cpp:1467
 msgid "size of the word list"
 msgstr "ukuran dari daftar kata"
 
-#: common/config.cpp:1445
+#: common/config.cpp:1469
 msgid "no longer used"
 msgstr "tidak lagi digunakan"
 
-#: common/config.cpp:1447
+#: common/config.cpp:1471
 msgid "suggestion mode"
 msgstr "mode saran"
 
 #. TRANSLATORS: "sug-mode" is a literal value and should not be
 #. translated.
-#: common/config.cpp:1451
-msgid "edit distance to use, override sug-mode default"
-msgstr "ubah jarak untuk digunakan, override mode-saran baku"
-
-#: common/config.cpp:1453
+#: common/config.cpp:1475
 msgid "use typo analysis, override sug-mode default"
 msgstr "gunakan analisis tipo, override mode-saran baku"
 
-#: common/config.cpp:1455
+#: common/config.cpp:1477
 msgid "use replacement tables, override sug-mode default"
 msgstr "gunakan tabel pengganti, override mode-saran baku"
 
-#: common/config.cpp:1457
+#: common/config.cpp:1479
 msgid "characters to insert when a word is split"
 msgstr "karakter untuk dimasukan ketika kata dipisahkan"
 
-#: common/config.cpp:1459
+#: common/config.cpp:1481
 msgid "use personal, replacement & session dictionaries"
 msgstr "gunakan personal, penggantian & kamus sesi"
 
-#: common/config.cpp:1463
+#: common/config.cpp:1485
 msgid "search path for word list information files"
 msgstr "jalur pencarian untuk berkas daftar kata informasi"
 
-#: common/config.cpp:1465
+#: common/config.cpp:1487
 msgid "enable warnings"
 msgstr "aktifkan peringatan"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
-#: common/config.cpp:1475
+#: common/config.cpp:1497
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
 msgstr "indikator untuk opsi affix dalam daftar kata -- SAAT INI DIABAIKAN"
 
-#: common/config.cpp:1477
+#: common/config.cpp:1499
 msgid "use affix compression when creating dictionaries"
 msgstr "gunakan kompresi affix ketika membuat kamus"
 
-#: common/config.cpp:1479
+#: common/config.cpp:1501
 msgid "remove invalid affix flags"
 msgstr "hapus opsi affix tidak valid"
 
-#: common/config.cpp:1481
+#: common/config.cpp:1503
 msgid "attempts to clean words so that they are valid"
 msgstr "mencoba untuk menghapus kata jadi mereka valid"
 
-#: common/config.cpp:1483
+#: common/config.cpp:1505
 msgid "compute soundslike on demand rather than storing"
 msgstr "hitung soundslike di permintaan daripada penyimpanan"
 
-#: common/config.cpp:1485
+#: common/config.cpp:1507
 msgid "partially expand affixes for better suggestions"
 msgstr "secara terpisah ekspan affixes untuk saran yang lebih baik"
 
-#: common/config.cpp:1487
+#: common/config.cpp:1509
 msgid "skip invalid words"
 msgstr "lewati kata tidak valid"
 
-#: common/config.cpp:1489
+#: common/config.cpp:1511
 msgid "check if affix flags are valid"
 msgstr "periksa jik opsi affix valid"
 
-#: common/config.cpp:1491
+#: common/config.cpp:1513
 msgid "check if words are valid"
 msgstr "periksa jika kata valid"
 
-#: common/config.cpp:1498
+#: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
 msgstr "buat sebuah berkas backup dengan menambahkan \".bak\""
 
-#: common/config.cpp:1500
+#: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
 msgstr "gunakan byte ofset daripada karakter ofset"
 
-#: common/config.cpp:1502
+#: common/config.cpp:1524
 msgid "create missing root/affix combinations"
 msgstr "buat kombinasi yang hilang root/affix"
 
-#: common/config.cpp:1504
+#: common/config.cpp:1526
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
 msgstr "pemetaan kunci untuk mode pemeriksaan: \"aspell\" atau \"ispell\""
 
-#: common/config.cpp:1506
+#: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
 msgstr "urutan terbali dari daftar saran"
 
-#: common/config.cpp:1508
+#: common/config.cpp:1530
 msgid "suggest possible replacements"
 msgstr "saran mungkin penggantian"
 
-#: common/config.cpp:1510
+#: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
 msgstr "waktu load waktu dan waktu saran dalam mode pipe"
 
@@ -342,12 +348,12 @@ msgstr "waktu load waktu dan waktu saran dalam mode pipe"
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Ini dapat juga berarti kalau berkas \"%s\" tidak dapat dibuka untuk pembacaan atau juga tidak ada."
 
-#: common/convert.cpp:582 common/convert.cpp:689 common/convert.cpp:735
+#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kode unicode menunjuk ke U+%04X tidak didukung."
 
-#: common/convert.cpp:859
+#: common/convert.cpp:887
 #, fuzzy, c-format
 #| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
@@ -637,295 +643,309 @@ msgstr "\"%mode:1\": Magic \"%magic:2\": ekspresi regular buruk setelah penspesi
 msgid "\"%expression:1\" is not a valid regular expression."
 msgstr "\"%expression:1\" bukan sebuah ekspresi regular yang valid."
 
-#: common/posib_err.cpp:100
+#: common/posib_err.cpp:114
 msgid "Unhandled Error: "
 msgstr "Error tidak tertangani: "
 
-#: prog/aspell.cpp:97
+#: prog/aspell.cpp:99
 #, c-format
 msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
-#: prog/aspell.cpp:102
+#: prog/aspell.cpp:104
 msgid "Error: "
 msgstr "Error: "
 
-#: prog/aspell.cpp:203
+#: prog/aspell.cpp:205
 msgid "enter Email mode."
 msgstr "masuk mode Email."
 
-#: prog/aspell.cpp:204
+#: prog/aspell.cpp:206
 msgid "enter HTML mode."
 msgstr "masuk mode HTML."
 
-#: prog/aspell.cpp:205
+#: prog/aspell.cpp:207
 msgid "enter TeX mode."
 msgstr "masuk mode TeX."
 
-#: prog/aspell.cpp:206
+#: prog/aspell.cpp:208
 msgid "enter Nroff mode."
 msgstr "masuk mode Nroff."
 
-#: prog/aspell.cpp:312
+#: prog/aspell.cpp:209
+#, fuzzy
+#| msgid "enter Nroff mode."
+msgid "enter Markdown mode."
+msgstr "masuk mode Nroff."
+
+#: prog/aspell.cpp:315
 #, c-format
 msgid "Invalid Option: %s"
 msgstr "Opsi tidak valid: %s"
 
-#: prog/aspell.cpp:319
+#: prog/aspell.cpp:322
 msgid " does not take any parameters."
 msgstr " tidak mengambil parameter apapun."
 
-#: prog/aspell.cpp:332 prog/aspell.cpp:392
+#: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
 msgstr "Anda harus menspesifikasikan sebuah parameter untuk \"%s\"."
 
-#: prog/aspell.cpp:381
+#: prog/aspell.cpp:384
 msgid "You must specify an action"
 msgstr "Anda harus menspesifikasikan sebuah aksi"
 
-#: prog/aspell.cpp:389 prog/aspell.cpp:452 prog/aspell.cpp:474
+#: prog/aspell.cpp:392 prog/aspell.cpp:455 prog/aspell.cpp:477
 #, c-format
 msgid "Unknown Action: %s"
 msgstr "Aksi tidak diketahui: %s"
 
-#: prog/aspell.cpp:395
+#: prog/aspell.cpp:398
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
 msgstr "Error: Anda harus menspesifikasikan paling tidak %d parameter untuk \"%s\".\n"
 
-#: prog/aspell.cpp:637
+#: prog/aspell.cpp:640
 msgid "Invalid Input"
 msgstr "Masukan tidak valid"
 
-#: prog/aspell.cpp:710
+#: prog/aspell.cpp:713
 #, c-format
 msgid "WARNING: Unable to enter Nroff mode: %s\n"
 msgstr "PERINGATAN: Tidak dapat memasuki mode Nroff: %s\n"
 
-#: prog/aspell.cpp:731
+#: prog/aspell.cpp:734
 msgid "Time to load word list: "
 msgstr "Waktu untuk meload daftar kata: "
 
-#: prog/aspell.cpp:929
+#: prog/aspell.cpp:934
 #, c-format
 msgid "Suggestion Time: %f\n"
 msgstr "Waktu Saran: %f\n"
 
-#: prog/aspell.cpp:972
+#: prog/aspell.cpp:977
 msgid "You must specify a file name."
 msgstr "Anda harus menspesifikasikan sebuah nama berkas."
 
-#: prog/aspell.cpp:975
+#: prog/aspell.cpp:980
 msgid "Only one file name may be specified."
 msgstr "Hanya satu nama berkas yang boleh dispesifikasikan."
 
-#: prog/aspell.cpp:985
+#: prog/aspell.cpp:990
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
 msgstr "Tidak dapat membuka berkas \"%s\" untuk pembacaan"
 
-#: prog/aspell.cpp:998
+#: prog/aspell.cpp:1003
 #, c-format
 msgid "Invalid keymapping: %s"
 msgstr "Pemetaan kunci tidak valid: %s"
 
-#: prog/aspell.cpp:1020
+#: prog/aspell.cpp:1018
+#, fuzzy, c-format
+#| msgid "\"%expression:1\" is not a valid regular expression."
+msgid "\"%s\" is not a regular file"
+msgstr "\"%expression:1\" bukan sebuah ekspresi regular yang valid."
+
+#: prog/aspell.cpp:1029
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
 msgstr "Tidak dapat membuka berkas \"%s\" untuk penulisan. Berkas tidak disimpan."
 
-#: prog/aspell.cpp:1033
+#: prog/aspell.cpp:1042
 msgid "Ignore"
 msgstr "Diabaikan"
 
-#: prog/aspell.cpp:1034
+#: prog/aspell.cpp:1043
 msgid "Ignore all"
 msgstr "Abaikan semua"
 
-#: prog/aspell.cpp:1035
+#: prog/aspell.cpp:1044
 msgid "Replace"
 msgstr "Ganti"
 
-#: prog/aspell.cpp:1036
+#: prog/aspell.cpp:1045
 msgid "Replace all"
 msgstr "Ganti semua"
 
-#: prog/aspell.cpp:1037
+#: prog/aspell.cpp:1046
 msgid "Add"
 msgstr "Tambah"
 
-#: prog/aspell.cpp:1038
+#: prog/aspell.cpp:1047
 msgid "Add Lower"
 msgstr "Tambah Lebih kecil"
 
-#: prog/aspell.cpp:1039
+#: prog/aspell.cpp:1048
 msgid "Abort"
 msgstr "Batalkan"
 
-#: prog/aspell.cpp:1040
+#: prog/aspell.cpp:1049
 msgid "Exit"
 msgstr "Keluar"
 
-#: prog/aspell.cpp:1116
+#: prog/aspell.cpp:1125
 msgid "Are you sure you want to abort (y/n)? "
 msgstr "Apakah anda yakin untuk membatalkan (y/t)? "
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
-#: prog/aspell.cpp:1120
+#: prog/aspell.cpp:1129
 msgid "Yy"
 msgstr "Yy"
 
-#: prog/aspell.cpp:1148
+#: prog/aspell.cpp:1157
 msgid "With: "
 msgstr "Dengan: "
 
-#: prog/aspell.cpp:1165
+#: prog/aspell.cpp:1174
 msgid "Sorry that is an invalid choice!"
 msgstr "Maaf itu adalah sebuah pilihan yang tidak valid!"
 
-#: prog/aspell.cpp:1386
-msgid "Sorry \"filter\" is currently unimplemented.\n"
-msgstr "Maaf \"filter\" saat ini tidak terimplementasi.\n"
-
-#: prog/aspell.cpp:1520
+#: prog/aspell.cpp:1545
 msgid "Can't merge a master word list yet. Sorry."
 msgstr "Tidak dapat menggabungkan daftar kata master. Maaf."
 
-#: prog/aspell.cpp:1544
+#: prog/aspell.cpp:1569
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
 msgstr "Maaf \"create/merge personal\" saat ini belum diimplementasikan.\n"
 
-#: prog/aspell.cpp:1553 prog/aspell.cpp:1609
+#: prog/aspell.cpp:1578 prog/aspell.cpp:1634
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
 msgstr "Maaf Saya tidak akan overwrite \"%s\""
 
-#: prog/aspell.cpp:1600
+#: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
 msgstr "Maaf \"create/merge repl\" saat ini belum diimplementasikan.\n"
 
-#: prog/aspell.cpp:1872
+#: prog/aspell.cpp:1897
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" bukan sebuah opsi valid untuk perintah \"munch-list\"."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
-#: prog/aspell.cpp:2799
+#: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
 msgstr "Penggunaan: aspell [opsi] <perintah>"
 
-#: prog/aspell.cpp:2800
+#: prog/aspell.cpp:2830
 msgid "<command> is one of:"
 msgstr "<perintah> salah satu dari:"
 
-#: prog/aspell.cpp:2801
+#: prog/aspell.cpp:2831
 msgid "  -?|usage         display a brief usage message"
 msgstr "  -?|usage         tampilkan pesan penggunaan singkat"
 
-#: prog/aspell.cpp:2802
+#: prog/aspell.cpp:2832
 msgid "  help             display a detailed help message"
 msgstr "  help             tampilkan sebuah pesan bantuan lengkap"
 
-#: prog/aspell.cpp:2803
-msgid "  -c|check <file>  to check a file"
+#: prog/aspell.cpp:2833
+#, fuzzy
+#| msgid "  -c|check <file>  to check a file"
+msgid "  -c|check <file>  spellchecks a file"
 msgstr "  -c|check <file>  untuk memeriksa sebuah berkas"
 
-#: prog/aspell.cpp:2804
+#: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
 msgstr "  -a|pipe          \"ispell -a\" mode kompabilitas"
 
-#: prog/aspell.cpp:2805
+#: prog/aspell.cpp:2835
 msgid "  [dump] config    dumps the current configuration to stdout"
 msgstr "  [dump] config    dump konfigurasi sekarang di stdout"
 
-#: prog/aspell.cpp:2806
+#: prog/aspell.cpp:2836
 msgid "  config <key>     prints the current value of an option"
 msgstr "  config <kunci>   tampilkan nilai sekaran dari sebuah opsi"
 
-#: prog/aspell.cpp:2807
+#: prog/aspell.cpp:2837
 msgid "  [dump] dicts | filters | modes"
 msgstr "  [dump] dicts | filters | modes"
 
-#: prog/aspell.cpp:2808
+#: prog/aspell.cpp:2838
 msgid "    lists available dictionaries / filters / filter modes"
 msgstr "    daftar kamus yang tersedia / filters / filter modes"
 
-#: prog/aspell.cpp:2809
+#: prog/aspell.cpp:2839
 msgid "[options] is any of the following:"
 msgstr "[opsi] adalah salah satu dari berikut:"
 
-#: prog/aspell.cpp:2822
+#: prog/aspell.cpp:2852
 msgid "  list             produce a list of misspelled words from standard input"
 msgstr ""
 "  list             menghasilkan sebuah daftar dari kata yang salah sebut\n"
 "                   dari standar masukan"
 
-#: prog/aspell.cpp:2825
+#: prog/aspell.cpp:2855
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
 msgstr ""
 "  soundslike       mengembalikan sound like ekuivalen untuk setiap kata\n"
 "                   yang dimasukan"
 
-#: prog/aspell.cpp:2826
+#: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
 msgstr "  munch            hasilkan kemungkinan akar kata dan affixes"
 
-#: prog/aspell.cpp:2827
+#: prog/aspell.cpp:2857
 msgid "  expand [1-4]     expands affix flags"
 msgstr "  expand [1-4]     ekspan affix flags"
 
-#: prog/aspell.cpp:2828
+#: prog/aspell.cpp:2858
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
 msgstr ""
 "  clean [strict]   bersihkan sebuah daftar kata jadi setiap baris adalah\n"
 "                   sebuah kata valid"
 
-#: prog/aspell.cpp:2830
+#: prog/aspell.cpp:2859
+msgid "  filter           filters input as if it was being spellchecked"
+msgstr ""
+
+#: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version       tampilkan sebuah baris versi"
 
-#: prog/aspell.cpp:2831
+#: prog/aspell.cpp:2861
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]"
 
-#: prog/aspell.cpp:2832
+#: prog/aspell.cpp:2862
 msgid "    reduce the size of a word list via affix compression"
 msgstr "    kurangi ukuran dari sebuah daftar kata melalui kompresi affix"
 
-#: prog/aspell.cpp:2833
+#: prog/aspell.cpp:2863
 msgid "  conv <from> <to> [<norm-form>]"
 msgstr "  conv <dari> <ke> [<bentuk-normal>]"
 
-#: prog/aspell.cpp:2834
+#: prog/aspell.cpp:2864
 msgid "    converts from one encoding to another"
 msgstr "    ubah dari satu pengkodean ke yang lain"
 
-#: prog/aspell.cpp:2835
+#: prog/aspell.cpp:2865
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
 msgstr "  norm (<norm-map> | <dari> <norm-map> <ke>) [<bentuk-normal>]"
 
-#: prog/aspell.cpp:2836
+#: prog/aspell.cpp:2866
 msgid "    perform Unicode normalization"
 msgstr "    lakuan normalisasi Unicode"
 
-#: prog/aspell.cpp:2839
+#: prog/aspell.cpp:2869
 msgid "  dump|create|merge master|personal|repl [<name>]"
 msgstr "  dump|create|merge master|personal|repl [<nama>]"
 
-#: prog/aspell.cpp:2840
+#: prog/aspell.cpp:2870
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
 msgstr "    dumps, buat atau gabungkan sebuah master, personal, atau kamus pengganti."
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
-#: prog/aspell.cpp:2844
+#: prog/aspell.cpp:2874
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none, internal, atau strict"
 
-#: prog/aspell.cpp:2854
+#: prog/aspell.cpp:2884
 #, fuzzy, c-format
 #| msgid ""
 #| "\n"
@@ -933,14 +953,14 @@ msgstr "  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none,
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
 "Aspell %s.  Hak Cipta 2000-2004 oleh Kevin Atkinson.\n"
 "\n"
 
-#: prog/aspell.cpp:2888
+#: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
 "    Dictionaries can be selected directly via the \"-d\" or \"master\"\n"
@@ -952,7 +972,7 @@ msgstr ""
 "    . Mereka juga dapat dipilih secara tidak langsung melalui opsi \"lang\",\n"
 "    \"variety\", dan \"size\".\n"
 
-#: prog/aspell.cpp:2909
+#: prog/aspell.cpp:2939
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
@@ -960,7 +980,7 @@ msgstr ""
 "Saringan yang tersedia (dan opsi yang berasosiasi):\n"
 "    Saringan dapat ditambahkan atau dihapus melalui opsi \"filter\".\n"
 
-#: prog/aspell.cpp:2916
+#: prog/aspell.cpp:2946
 #, c-format
 msgid ""
 "\n"
@@ -970,7 +990,7 @@ msgstr ""
 "  %s penyaring: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
-#: prog/aspell.cpp:2933
+#: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
 "    Filter Modes are reconfigured combinations of filters optimized for\n"
@@ -1108,59 +1128,59 @@ msgstr "Ini mungkin disebabkan oleh: "
 msgid "The required field \"name\" is missing."
 msgstr "Field yang dibutuhkan \"name\" hilang."
 
-#: modules/speller/default/language.cpp:488
+#: modules/speller/default/language.cpp:524
 msgid "Empty string."
 msgstr "String kosong."
 
-#: modules/speller/default/language.cpp:492
+#: modules/speller/default/language.cpp:533
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
 msgstr "Karakter '%s' (U+%02X) tidak boleh muncul diawal dari sebuah kata."
 
-#: modules/speller/default/language.cpp:494
-#: modules/speller/default/language.cpp:503
+#: modules/speller/default/language.cpp:535
+#: modules/speller/default/language.cpp:544
 #, c-format
 msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
 msgstr "Karakter '%s' (U+%02X) harus diikuti oleh sebuah karakter alphabet."
 
-#: modules/speller/default/language.cpp:496
+#: modules/speller/default/language.cpp:537
 msgid "Does not contain any alphabetic characters."
 msgstr "Tidak berisi karakter alphabet apapun."
 
-#: modules/speller/default/language.cpp:501
+#: modules/speller/default/language.cpp:542
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
 msgstr "Karakter '%s' (U+%02X) tidak boleh muncul ditengah dari sebuah kata."
 
-#: modules/speller/default/language.cpp:508
+#: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
 msgstr "Karakter '\\r' (U+0D) tidak boleh muncul diakhir dari sebuah kata. Ini mungkin berarti bahwa berkas tersebut menggunakan MS-DOS EOL daripada Unix EOL."
 
-#: modules/speller/default/language.cpp:511
+#: modules/speller/default/language.cpp:552
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
 msgstr "Karakter '%s' (U+%02X) tidak boleh muncul diakhir dari sebuah kata."
 
-#: modules/speller/default/language.cpp:543
+#: modules/speller/default/language.cpp:584
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
 msgstr "Peringatan: Menghapus affix '%s' tidak valid dari kata %s.\n"
 
-#: modules/speller/default/language.cpp:544
+#: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
 msgstr "Peringatan: Menghapus affix '%s' tidak teraplikasi dari kata %s.\n"
 
-#: modules/speller/default/language.cpp:675
+#: modules/speller/default/language.cpp:726
 #, c-format
 msgid "Warning: %s Skipping string.\n"
 msgstr "Peringatan: %s Melewatkan string.\n"
 
-#: modules/speller/default/language.cpp:733
+#: modules/speller/default/language.cpp:780
 msgid "The total length is larger than 240 characters."
 msgstr "Panjang total lebih besar dari 240 karakter."
 
-#: modules/speller/default/language.cpp:737
+#: modules/speller/default/language.cpp:784
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "Peringatan: %s Melewatkan kata.\n"
@@ -1185,11 +1205,11 @@ msgstr "Soundslike salah."
 msgid "Wrong soundslike version."
 msgstr "Versi soundslike salah."
 
-#: modules/speller/default/readonly_ws.cpp:934
+#: modules/speller/default/readonly_ws.cpp:936
 msgid "Affix flags found in word but no affix file given."
 msgstr "Opsi affix ditemukan dalam kata tetapi tidak ada berkas affix yang diberikan."
 
-#: modules/speller/default/readonly_ws.cpp:972
+#: modules/speller/default/readonly_ws.cpp:974
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Panjang total kata, dengan data soundslike, lebih besar dari 240 karakter."
 
@@ -1197,23 +1217,23 @@ msgstr "Panjang total kata, dengan data soundslike, lebih besar dari 240 karakte
 msgid "There must be at least one \"add\" line."
 msgstr "Disana harus ada paling tidak satu baris \"add\"."
 
-#: modules/speller/default/suggest.cpp:1403
+#: modules/speller/default/suggest.cpp:1721
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "salah satu dari ultra, fast, normal, slow, atau bad-spellers"
 
-#: modules/speller/default/data.cpp:404
+#: modules/speller/default/data.cpp:406
 msgid "is not one of the allowed types"
 msgstr "adalah bukan dari salah satu tipe yang diijinkan"
 
-#: modules/speller/default/speller_impl.cpp:241
+#: modules/speller/default/speller_impl.cpp:334
 msgid "The personal word list is unavailable."
 msgstr "Daftar kata personal tidak tersedia."
 
-#: modules/speller/default/speller_impl.cpp:248
+#: modules/speller/default/speller_impl.cpp:341
 msgid "The session word list is unavailable."
 msgstr "Daftar kata sesi tidak tersedia."
 
-#: modules/speller/default/speller_impl.cpp:255
+#: modules/speller/default/speller_impl.cpp:348
 msgid "The main word list is unavailable."
 msgstr "Daftar kata utama tidak tersedia."
 
@@ -1259,6 +1279,28 @@ msgstr "atribut HTML untuk selalu diperiksa"
 #: modules/filter/html-filter.info:21
 msgid "HTML tags to always skip the contents of"
 msgstr "tags HTML untuk selalu dilewatkan isi dari"
+
+#: modules/filter/markdown-filter.info:8
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter for Markdown/CommonMark documents"
+msgstr "penyaring untuk menghadapi dengan dokumen Texinfo"
+
+#: modules/filter/markdown-filter.info:14
+msgid "skip link labels in link reference definitions"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:20
+msgid "support tags that span multiple lines outside of HTML blocks"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:26
+msgid "HTML tags that start an HTML block that allows blank lines"
+msgstr ""
+
+#: modules/filter/markdown-filter.info:34
+msgid "HTML tags that start an HTML block that ends with a blank line"
+msgstr ""
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1320,6 +1362,12 @@ msgstr "mode untuk melewatkan quoted teks dalam pesan email"
 msgid "mode for checking HTML documents"
 msgstr "mode untuk pemeriksaan dokumen HTML"
 
+#: modules/filter/modes/markdown.amf:9
+#, fuzzy
+#| msgid "mode for checking Nroff documents"
+msgid "mode for checking Markdown/CommonMark documents"
+msgstr "mode untuk pemeriksaan dokumen Nroff"
+
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
 msgstr "mode untuk menonaktifkan semua filter"
@@ -1347,3 +1395,9 @@ msgstr "mode untuk pemeriksaan dokumen Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "mode untuk melewatkan URL seperti konstruk (mode baku)"
+
+#~ msgid "edit distance to use, override sug-mode default"
+#~ msgstr "ubah jarak untuk digunakan, override mode-saran baku"
+
+#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
+#~ msgstr "Maaf \"filter\" saat ini tidak terimplementasi.\n"
