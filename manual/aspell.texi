@@ -61,8 +61,6 @@ It can either be used as a library or as an independent spell checker.
 * Adding Support For Other Languages::  
 * Implementation Notes::        
 * Languages Which Aspell can Support::  
-* Language Related Issues::     
-* To Do::                       
 * Installing::                  
 * ChangeLog::                   
 * Authors::                     
@@ -132,28 +130,7 @@ Languages Which Aspell can Support
 * Supported::                   
 * Unsupported::                 
 * Multiple Scripts::            
-* Planned Dictionaries::        
 * References::                  
-
-Language Related Issues
-
-* Compound Words::              
-* Words With Symbols in Them::  
-* Unicode Normalization::       
-* German Sharp S::              
-* Context Sensitive Spelling::  
-
-To Do
-
-* Important Items::             
-* Other Items::                 
-* Notes on Various Items::      
-
-Notes on Various Items
-
-* Word skipping by context::    
-* Hidden Markov Model::         
-* Email the Personal Dictionary::  
 
 Installing
 
@@ -271,6 +248,22 @@ Perhaps better support for spell checking (La)TeX files.
 For a detailed description of how Aspell differs from Ispell, @xref{Differences
 From Ispell}.
 
+@subsection Comparison to Hunspell
+
+Hunspell is based on Myspell.  Myspell was created as a simple spell
+checker for use in OpenOffice.  Myspell's affix support was merged
+into Aspell 0.60 so Hunspell and Aspell can use the same affix file
+to some extent.
+
+Hunspell has better support for language peculiarities including
+compounding and complex morphology.  However the Hunspell (v1.7.0)
+utility currently has problems with apostrophe (@kbd{'}) in words.
+
+Aspell generally has better suggestions for non-phonetic langauges
+such as English and French.  Aspell suggestion speed also tends to be
+significantly faster than Hunspell.  For a comparasion of suggestion
+quality and speed see @uref{http://aspell.net/test/}.
+
 @node Support
 @chapter Support
 
@@ -287,6 +280,8 @@ Bug reports can also be submitted via GitHub at
 
 For a quick reference on the Aspell utility use the command
 @samp{aspell --help}.
+
+
 
 @menu
 * Spellchecking Individual Files::  
@@ -1729,25 +1724,18 @@ This mode will use the fastest available method to come up with decent
 suggestions for not so common misspellings.  This currently means it
 will also look for soundslikes within one edit distance when compared
 to the @code{ultra} mode.
-@c In this mode Aspell gets about 87% of the words
-@c from my small test kernel of misspelled words.  (Go to
-@c @uref{http://aspell.net/test} for more info on the test kernel as well
-@c as comparisons of this version of Aspell with previous versions and
-@c other spell checkers.)
 
 @item normal
 This is the default mode and will use what ever method is necessary to
 return good suggestions, in most cases, and in a reasonable amount of
 time.  This currently means it will looks for soundslikes within two
 edit distance apart.
-@c This mode gets 93% of the words.
 
 @item slow
 Like @option{normal} except that ``reasonable amount of time'' is not
 a consideration.  In most cases it will return the same results as
 @option{normal}.  The biggest difference is that it will try an ngram
 scan if the normal methods of finding a suggestion fail.  
-@c FIXME: Explain what this means.
 
 @item bad-spellers
 This method is like @option{slow} but is tailored more for the bad
@@ -1758,7 +1746,6 @@ words for the really bad spellers who can't seem to get the spelling
 anything close to what it should be.  If the misspelled word looks
 anything like the correct spelling it is bound to be found
 @emph{somewhere} on the list of 100 or more suggestions.
-@c This mode gets 98% of the words.
 @end table
 
 When there is no soundslike or afffix compression is used then the
@@ -3599,7 +3586,6 @@ based on h@`anzi which includes Chinese, Japanese, and sometimes Korean.
 * Supported::                   
 * Unsupported::                 
 * Multiple Scripts::            
-* Planned Dictionaries::        
 * References::                  
 @end menu
 
@@ -3609,12 +3595,6 @@ based on h@`anzi which includes Chinese, Japanese, and sometimes Korean.
 Aspell 0.60 should be able to support the following languages:
 
 @include lang-supported.texi
-
-Dictionaries marked as @dfn{0.50} are available for Aspell 0.50.  Ones
-marked as @dfn{0.60} are available for Aspell 0.60 only.  Ones marked as
-@dfn{Planned} should eventually be available.  Ones marked as
-@dfn{Maybe} might be available in the future.
-@xref{Planned Dictionaries}, for more info.
 
 @appendixsubsec Notes on Latin Languages
 
@@ -3808,52 +3788,6 @@ given word is written in.  Aspell currently does not support this mode
 of spell checking but it is something that I hope to eventually
 support.
 
-@node Planned Dictionaries
-@appendixsec Notes on Planned Dictionaries
-
-According to
-@uref{http://wiki.services.openoffice.org/@/wiki/Dictionaries}, Open
-Office dictionaries are available for the following languages, but no
-corresponding Aspell dictionary exists:
-
-@include oo-only.texi
-
-@noindent
-If you are interested in converting any of them please coordinate your
-efforts with the dictionary author and submit it to 
-aspell-dict at gnu org when you have something ready.
-
-An unofficial dictionary for Albanian (sq) is available at
-@uref{http://psychology.rutgers.edu/@/~zaimi/software.html}.  However,
-I can not find any contact information for the author, thus I have
-been unable to contact him.  In addition an Albanian (sq) dictionary
-is available for Ispell at
-@uref{http://@/www.7kosova.com/kde-shqip/@/ispell/ispell.html}.  
-However, the raw word list is not provided and the author has not
-been responding to emails, possibly because he doesn't speak English.
-If you have any additional information on either of these dictionaries,
-or can speak Albanian and can translate for me please let me know at
-@email{kevina@@gnu.org}
-
-An unofficial dictionary for Malayalam (ml) is available at
-@uref{http://in.geocities.com/@/paivakil/downloads/aspell/}.
-I am working with the author to create an official one.
-
-Kevin Patrick Scannell has word lists available for the following
-languages based on his web crawling software
-(@uref{http://borel.slu.edu/crubadan/}) but needs someone to proofread
-them:
-
-@include crubadan.texi
-
-@noindent
-If you are interested, please contact him at scannell at slu edu.
-
-A dictionary marked as "Planned" or "Maybe" but not listed in
-the section means that someone has expressed an interest in creating
-one.  If you are interested in helping please contact me at
-@email{kevina@@gnu.org} so that I can put you in touch with them.
-
 @node References
 @appendixsec References
 
@@ -3896,518 +3830,6 @@ The Languages and Writing Systems of Africa (Global Advisor Newsletter),
 
 Special thanks goes to Era Eriksson for helping me with the information in
 this chapter.
-
-@node Language Related Issues
-@appendix Language Related Issues
-
-Here are some language related issues that a good spell checker needs to
-handle.  If you have any more information about any of these issues, or
-of a new issue not discussed here, please email me at
-@email{kevina@@gnu.org}.
-
-@menu
-* Compound Words::              
-* Words With Symbols in Them::  
-* Unicode Normalization::       
-* German Sharp S::              
-* Context Sensitive Spelling::  
-@end menu
-
-@node Compound Words
-@appendixsec Compound Words
-
-In some languages, such as German, it is acceptable to string two words
-together, thus forming a compound word.  However, there are rules to
-when this can be done.  Furthermore, it is not always sufficient to
-simply concatenate the two words.  For example, sometimes a letter is
-inserted between the two words.  Aspell currently has support for
-unconditionally stringing words together.  I tried implementing more
-sophisticated support for compound words in Aspell but it was too
-limiting and no one used it.
-
-After receiving feedback from several people it seems that acceptable
-support for compound words involved two basically independent parts.
-If this is not sufficient for your language please let me know.
-
-@heading Part One
-
-Describes how the word needs to be changed when forming a compound
-
-@example
-CMP <flag> <strip> <add> <cond> <cond2>
-
-<flag>  is the compound flag
-<strip> is the string to strip or 0 for the null string
-<add>   is the string to add or 0 for the null string
-<cond>  is the condition to match at the end of the current word
-<cond2> is the condition to match at the beginning of the next word
-@end example
-
-@noindent
-All but the last field are the same as a suffix entry in the existing
-affix code.
-
-<cond> is a simplified regular expression.  Some examples:
-@example
-. (for anything)
-e
-[^aeiou]y
-[^ey]
-[aeiou]y
-@end example
-
-It does not seem necessary to change the beginning of a word when
-forming compounds
-
-@heading Part Two
-
-Describes the position a word can appear in (beginning, middle, or
-end) and with which words.
-
-To do this each word can be assigned a category.  Then each category
-can be given a set of rules to describe how it can be used in a
-compound word for example
-
-@example
-A + B: indicates that category A may appear at the beginning of a
-  word when followed by a category B word.  When combined it is then
-  considered a category B word.
-A + C + B: here a C word may only appear between an A or B word
-A + A + B
-A + A
-A + A + A
-etc..
-@end example
-
-I have not decided if a word should be allowed to belong to more than
-one category as a new category can be created in necessary to mean
-words in both category A and B for example.
-
-@appendixsubsec To Implement
-
-To implement support for compound words based on the above description
-the following will need to be done:
-
-@enumerate
-
-@item
-expand the affix code to support special compound flags as
-described in part one
-
-@item
-write code to store the conditions as described in part two
-
-@item
-expand the compound checking code to check against the conditions
-
-@item
-expand the dictionary format to store the necessary compound info
-with the word
-
-@end enumerate
-
-I don't know when I will be able to actually implement this.  If you
-would like to try please let me know.
-
-@node Words With Symbols in Them
-@appendixsec Words With Spaces or Other Symbols in Them
-
-Many languages, including English, have words with non-letter symbols in
-them.  For example the apostrophe.  These symbols generally appear in
-the middle of a word, but they can also appear at the end, such as in an
-abbreviation.  If a symbol can @emph{only} appear as part of a word then
-Aspell can treat it as if it were a letter.
-
-However, the problem is most of these symbols have other uses.  For
-example, the apostrophe is often used as a single quote and the
-abbreviations marker is also used as a period.  Thus, Aspell cannot
-blindly treat them as if they were letters.
-
-Aspell currently handles the case where the symbol can only appear in
-the middle of the word fairly well.  It simply assumes that if there is
-a letter both before and after the symbol than it is part of the word.
-This works most of the time but it is not fool proof.  For example,
-suppose the user forgot to leave a space after the period:
-
-@display
-  @dots{} and the dog went up the tree.Then the cat @dots{}
-@end display
-
-@noindent
-Aspell would think ``tree.Then'' is one word.  A better solution
-might be to then try to check ``tree'' and ``Then'' separately.
-But what if one of them is not in the dictionary?  Should Aspell assume
-``tree.Then'' is one word?
-
-The case where the symbol can appear at the beginning or end of the word
-is more difficult to deal with.  The symbol may or may not actually be
-part of the word.  Aspell currently handles this case by first trying to
-spell check the word with the symbol and if that fails, try it without.
-The problem is, if the word is misspelled, should Aspell assume the
-symbol belongs with the word or not?  Currently Aspell assumes it does,
-which is not always the correct thing to do.
-
-Numbers in words present a different challenge to Aspell.  If Aspell
-treats numbers as letters then every possible number a user might write
-in a document must be specified in the dictionary.  This could easily
-be solved by having special code to assume all numbers are correctly
-spelled.  Yet, what about something like ``4th''.  Since the ``th''
-suffix can appear after any number we are left with the same
-problem.  The solution would be to have a special symbol for ``any
-number''.
-
-Words with spaces in them, such as foreign phrases, are even more
-trouble to deal with.  The basic problem is that when tokenizing a
-string there is no good way to keep phrases together. One solution is to
-use trial and error.  If a word is not in the dictionary try grouping it
-with the previous or next word and see if the combined word is in the
-dictionary.  But what if the combined word is not, should the misspelled
-word be grouped when looking for suggestions?  One solution is to also
-store each part of the phrase in the dictionary, but tag it as part of a
-phrase and not an independent word.
-
-To further complicate things, most applications that use spell checkers
-are accustom to parsing the document themselves and sending it to the
-spell checker a word at a time.  In order to support words with spaces in
-them a more complicated interface will be required.
-
-@node Unicode Normalization
-@appendixsec Unicode Normalization
-
-Because Unicode contains a large number of precomposed characters there
-are multiple ways a character can be represented.  For example letter
-@"o can either be represented as
-
-@example
-U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-@exdent or
-U+0061 LATIN SMALL LETTER O + U+0308 COMBINING DIAERESIS
-@end example
-
-By performing normalization first, Aspell will only see one of these
-representations.  The exact form of normalization depends on the
-language.  Give the choice of:
-
-@enumerate
-@item Precomposed character
-@item Base letter + combining character(s)
-@item Base letter only
-@end enumerate
-
-@noindent
-if the precomposed character is in the target character set, then (1),
-if both base and combining character is present, then (2), otherwise (3).
-
-Unicode Normalization is now implemented in Aspell 0.60.
-
-@node German Sharp S
-@appendixsec German Sharp S
-
-The German Sharp S or Eszett does not have an uppercase equivalent.
-Instead when @samp{@ss{}} is converted to @samp{SS}.  The conversion of
-@samp{@ss{}} to @samp{SS} requires a special rule, and increases the
-length of a word, thus disallowing inplace case conversion.
-Furthermore, my general rule of converting all words to lowercase before
-looking them up in the dictionary won't work because the conversion of
-@samp{SS} to lowercase is ambiguous; it can be @samp{ss} or
-@samp{@ss{}}.  I do plan on dealing with this eventually.
-
-@node Context Sensitive Spelling
-@appendixsec Context Sensitive Spelling
-
-In some language, such as Luxembourgish, the spelling of a word depends
-on which words surround it.  For example the the letter @samp{n} at the
-end of a word will disappear if it is followed by another word starting
-with a certain letter such as an @samp{s}.  However, it can probably get
-more complicated than that.  I would like to know how complicated before
-I attempt to implement support for context sensitive spelling.
-
-@node To Do
-@appendix To Do
-
-@menu
-* Important Items::             
-* Other Items::                 
-* Notes on Various Items::      
-@end menu
-
-@node Important Items
-@appendixsec Important Items
-
-Words in bold indicate how you should refer to the item when
-discussing it with me or others.
-
-@appendixsubsec Things that need to be done
-
-These items need to be done before I consider Aspell finished. If you
-are interested in helping me with one of these tasks please email
-me. Good C++ skills are needed for most of these tasks involving
-coding.
-
-@itemize @bullet
-@item
-Create a generic filter to handle multi-character letters such as
-@samp{"a} or @samp{\"a} for @"a.  This filter should make use of the
-already exiting normalization code if possible.
-@item
-Make Aspell @strong{Thread safe}. Even though Aspell itself is not
-multi-threaded I would like it to be thread safe so that it can be
-used by multi-threaded programs. There are several areas of Aspell
-that are potentially thread unsafe (such as accessing a global pool)
-and several classes which have the potential of being used by more
-than one thread (such as the personal dictionary). @emph{[In
-Progress]}.
-@item
-Enhance @strong{ispell.el} so that it will work better with GNU
-Aspell.  @emph{[In Progress]}.
-@item
-Clean up copyright notices and bring the Aspell package up to
-@strong{GNU Standards}. @emph{[In Progress]}.
-@end itemize
-
-@appendixsubsec Things I would like to get done
-
-I would like to get these done. However, I may still consider Aspell
-finished without. They will probably eventually get
-implemented. However, I could still use help with them.
-
-@itemize @bullet
-@item
-Better support for @strong{compound words}. The support for
-@emph{conditional} compound words found in Aspell versions 0.50
-and earlier is no longer available since no one seems to be using
-it. Support for @emph{unconditional} compound words is still 
-available. @xref{Compound Words}.
-@item
-Be able to accept @strong{words with spaces in them} as many languages
-have words, such as a word in a foreign phrase, which only makes sense
-when followed by other words. @xref{Words With Symbols in Them}.
-@item
-Reorganize manual to make it easier to understand and to make it
-possible to break out useful man pages.
-@item
-Support @strong{soundslike lookup with affix compression}.  I think it
-is possible, although I don't know how effective it will be.  The basic
-idea is to affix compress the soundslike codes and then match the
-codes up with affix compressed words.  If you are interested,
-email @email{aspell-devel@@gnu.org}, and I will explain it in more
-detail.
-@item
-Use Lawrence Philips' new @strong{Double Metaphone algorithm}. See
-@uref{http://aspell.net/@/metaphone/}. The main task involved
-here is converting the algorithm into table form. This will take some
-time but there is no real programming experience required. If you want
-to help with Aspell but don't have any real programming experience,
-this would be a great place to start.
-@item
-Rank suggestions based on @strong{frequency information}.  Both global
-frequency and document specific frequency can be used.  The latter will
-require that the whole document be made available to the spell checker.
-Also use frequency information to flag words which are found in the
-dictionary but not in common usage, and thus might not be what was
-intended.
-@item
-Support a @strong{"dual-script" mode} where Aspell can use a separate
-dictionary depending on which script it detects the current word in, the
-two dictionaries can have nothing in common, ie an English one and a
-Russian one for example.  This will @emph{not} support two languages that
-use the same script as that is a lot more complicated.  For example if
-the word is misspelled which dictionary should it use for the
-suggestions?
-@item
-Write a @strong{GUI} for the Aspell utility. Ideally it should be able to do
-everything the Aspell utility can do and not just be able spell check
-a document.
-@item
-Develop a @strong{more powerful C API} for Aspell.  Ideally this API should
-allow one to perform all the tasks the Aspell utility can do.  This
-included the ability to check whole documents, and create
-dictionaries, among other things.  
-@item
-Create a @strong{C++ interface} for Aspell, possibly on top of the C one.
-
-@end itemize
-
-@node Other Items
-@appendixsec Other Items
-
-These items all sound like good ideas however I am not sure when I
-will get to implementing them if ever.  Words in bold indicate how you
-should refer to the item when discussing it with me or others.
-
-@itemize @bullet
-@item
-Come up with a plug-in for @command{gEdit} the gnome text editor.
-
-@item
-Change languages (and thus dictionaries) based on the information in
-the actual document.
-
-@item
-Come up with a mode that will skip words based on the symbols that
-(almost) always surround the word.  @xref{Word skipping by context}.
-
-@item
-Create two @strong{server modes} for Aspell.  One that uses the DICT
-protocol and one that uses @samp{ispell -a} method of communication
-via some arbitrary port.
-
-@item
-Come up with @strong{thread safe personal dictionaries}.
-
-@item
-Use the @strong{Hidden Markov Model} to base the suggestions on not
-only the word itself but on the context around the word. @xref{Hidden
-Markov Model}.
-
-@item
-Having a way to @strong{email the personal dictionary} and/or
-replacement list to a particular address either periodically or when
-it grows to a certain size. @xref{Email the Personal Dictionary}.
-@end itemize
-
-The following good ideas were found in the Ispell @file{WISHES} file
-so I thought I would pass them on.
-
-@itemize @bullet
-@item
-Ispell should be smart enough to ignore hyphenation signs, such as the
-@TeX{} @samp{\-} hyphenation indicator.
-
-@item
-(Jeff Edmonds) The personal dictionary should be able to remove
-certain words from the master dictionary, so that obscure words like
-"wether" wouldn't mask favorite typos.
-
-@item
-(Jeff Edmonds) It would be wonderful if Ispell could correct inserted
-spaces such as "th e" for "the" or even "can not" for "cannot".
-
-@item
-Since Ispell has dictionaries available to it, it is conceivable that
-it could automatically determine the language of a particular file by
-choosing the dictionary that produced the fewest spelling errors on
-the first few lines.
-@end itemize
-
-@node Notes on Various Items
-@appendixsec Notes on Various Items
-
-@menu
-* Word skipping by context::    
-* Hidden Markov Model::         
-* Email the Personal Dictionary::  
-@end menu
-
-@node  Word skipping by context
-@appendixsubsec Word skipping by context
-
-This was posted on the Aspell mailing list on January 1, 1999:
-
-I had an idea on a great general way to determine if a word should be
-skipped.  Determine the words to skip based on the symbols that
-(almost) always surround the word.
-
-For example when asked to check the following C++ code:
-@example
-cout << "My age is: " << num << endl;
-cout << "Next year I will be " << num + 1 << endl;
-@end example
-
-@code{cout}, @code{num}, and @code{endl} will all be skipped.
-@code{cout} will be skipped because it is always preceded by a
-@samp{<<}.  @code{num} will be skipped because it is always preceded
-by a @samp{<<}.  And @code{endl} will be skipped because it is always
-between a @samp{<<} and a @samp{;}.
-
-Given the following HTML code.
-@example
-<table width=50% cellspacing=0 cellpadding=1>
-<tr><td>One<td>Two<td>Three
-<tr><td>1<td>2<td>3
-</table>
-
-<table cellspacing=0 cellpadding=1>
-</table>
-@end example
-
-@code{table}, @code{width} @code{cellspacing}, @code{cellpadding},
-@code{tr}, @code{td} will all be skipped because they are always
-enclosed in @samp{<>}.  Now of course @code{table} and
-@code{width} would be marked as correct anyway however there is no
-harm in skipping them.
-
-So I was wondering if anyone on this list has any experience in
-writing this sort of context recognition code or could give me some
-pointers in the right direction.
-
-This sort of word skipping will be very powerful if done right.  I
-imagine that it could replace specific spell checker modes for @TeX{},
-Nroff, SGML etc because it will automatically be able to figure out
-where it should skip words.  It could also probably do a very good job
-on programming languages code.
-
-If you are interested in helping me out with this or just have general
-comments about the idea please let me know.
-
-@node Hidden Markov Model
-@appendixsubsec Hidden Markov Model
-
-Knud Haugaard S@o{}rensen suggested this one.  From his email on the
-Aspell mailing list:
-
-consider these examples:
-
-@example
-a fone number.
- -> a phone number.
-
-a fone dress.
- -> a fine dress.
-@end example
-
-the example illustrates that the right correction might depend on the
-context of the word.
-
-So I suggested that you take a look on HMM to solve this problem.
-
-This might also provide a good base to include grammar correction in
-Aspell.
-
-see this link
-@uref{http://www.cse.ogi.edu/CSLU/HLTsurvey/ch1node7.html}.
-
-I think it is a great idea.
- However unfortunately it will probably be very complicated to implement.
- Perhaps in the far future.
-
-@node Email the Personal Dictionary
-@appendixsubsec Email the Personal Dictionary
-
-Someone suggested in a personal email:
-
-@quotation
-Have you thought of adding a function to Aspell, that - when the
-personal dictionary has grown significantly - sends the user's
-personal dictionary to the maintainer of the corresponding Aspell
-dictionary? (if the user allows it)
-
-It would be a very useful service to the dictionary maintainers, and I
-think most users can see their benefit in it too.
-@end quotation
-
-And I replied:
-
-@quotation
-Yes I have considered something like that but not for the personal
-dictionaries but rather the replacement word list in order to get
-better test data for @uref{http://aspell.net/test/}.
-@end quotation
-
-The problem is I don't know of a good way to do this since Aspell can
-also be used as a library.  It also is not a real high priority,
-especially since I would first need to learn how to send email within
-a C++ program.
 
 @c @node Installing
 @c @appendix Installing
@@ -4455,7 +3877,8 @@ filters such as the Markdown filter may give incorrect results.
 @item
 The @option{clean} option and command will no longer split a word.
 @item
-Various documentation improvements.
+Various documentation improvements, including the removal of several
+outdated sections in the appendix.
 @item
 Fix various crashes and other problems found by Google's OSS-Fuzz.
 @end itemize
