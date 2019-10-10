@@ -194,26 +194,18 @@ The latest version of Aspell can always be found at @uref{http://aspell.net}
 
 @section Comparison to other spell checker engines
 
-@multitable {Alternate Dictionaries} {Aspell} {Ispell} {Netscape} {Microsoft}
-@item             @tab Aspell @tab Ispell @tab Netscape @tab Microsoft
-@item             @tab        @tab        @tab  4.0     @tab  Word 97
-@item Open Source @tab x      @tab  x
-@item Suggestion  @tab 88-98  @tab 54     @tab 55-70?   @tab  71
-@item Intelligence
-@item Personal part @tab x    @tab x      @tab x
-@item of Suggestions
-@item Alternate Dictionaries @tab x @tab x @tab ?        @tab ?
-@item International Support @tab x @tab x @tab ?         @tab ?
+@multitable {Personal part of Suggestions} {Aspell} {Ispell} {Hunspell} {Microsoft}
+@item                              @tab Aspell 0.60.8 @tab Ispell 2.1.20 @tab Hunspell 1.1.12 @tab Microsoft Word 97
+@item Open Source                  @tab x             @tab  x            @tab x        @tab
+@item Suggestion Intelligence      @tab 70-85         @tab 52            @tab 76       @tab 70
+@item Personal part of Suggestions @tab x             @tab x             @tab x        @tab x
+@item Alternate Dictionaries       @tab x             @tab x             @tab x        @tab ?
+@item International Support        @tab x             @tab x             @tab x        @tab ?
 @end multitable
 
 The Suggestion Intelligence is based on a small test kernel of
-misspelled/correct word pairs.  Go to @uref{http://aspell.net/test}
-for more info and how you can help contribute to the test kernel.  The
-current scores for Aspell are 88 in @emph{fast} mode, 93 in
-@emph{normal} mode, and 98 in @emph{bad spellers} mode: for more
-information about the various suggestion modes @ref{Notes on the
-Different Suggestion Modes}.
-
+misspelled/correct word pairs.  Go to @uref{http://aspell.net/test/cur/}
+for more info and how you can help contribuxte to the test kernel.
 
 If you have any other information you would like to add to this chart
 please contact me at @email{kevina@@gnu.org}.
@@ -1706,6 +1698,19 @@ and only use the information derived from the language data file.
 In order to understand what these suggestion modes do, a basic
 understanding of how Aspell works is required.  For that, see
 @ref{Aspell Suggestion Strategy}.
+
+To get a better idea of which mode you should chose here are some
+results based on a small test kernel (see
+@uref{http://aspell.net/test/cur}) of misspelled/correct word pairs
+for GNU Aspell 0.60.8:
+
+@include sug-scores.texi
+
+The @dfn{Score} is a weighted average which gives more emphases to
+words found earlier in the suggestion list.  @dfn{First},
+@dfn{1-10}, and @dfn{Any} are the percentage of times the correct
+word is found in the first, first 10, or anywhere in the suggestion
+list. @dfn{Time} is the normalized cpu-time.
 
 The suggestion modes are as follows when soundslikes are used and
 affix compression is not:
