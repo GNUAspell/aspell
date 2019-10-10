@@ -6,7 +6,7 @@ AM_MAKEINFOFLAGS = --enable-encoding \
   --css-include=custom.css
 
 aspell_TEXINFOS = readme.texi fdl.texi lgpl.texi \
-  lang-supported.texi lang-unsupported.texi oo-only.texi sug-scores.texi custom.css
+  sug-scores.texi custom.css
 
 aspell_dev_TEXINFOS = mksrc.texi fdl.texi
 

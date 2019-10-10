@@ -60,7 +60,6 @@ It can either be used as a library or as an independent spell checker.
 * Writing programs to use Aspell::  
 * Adding Support For Other Languages::  
 * Implementation Notes::        
-* Languages Which Aspell can Support::  
 * Installing::                  
 * ChangeLog::                   
 * Authors::                     
@@ -124,13 +123,6 @@ Implementation Notes
 
 * Aspell Suggestion Strategy::  
 * Notes on 8-bit Characters::   
-
-Languages Which Aspell can Support
-
-* Supported::                   
-* Unsupported::                 
-* Multiple Scripts::            
-* References::                  
 
 Installing
 
@@ -3574,263 +3566,6 @@ and quite possibly a patch to solve cleanly convert Aspell to Unicode
 internally without a serious performance lost OR serious memory usage
 increase.
 
-@node Languages Which Aspell can Support
-@appendix Languages Which Aspell can Support
-
-Even though Aspell will remain 8-bit internally it should still be
-able to support any written languages not based on a logographic
-script.  The only logographic writing system in current use are those
-based on h@`anzi which includes Chinese, Japanese, and sometimes Korean.
-
-@menu
-* Supported::                   
-* Unsupported::                 
-* Multiple Scripts::            
-* References::                  
-@end menu
-
-@node Supported
-@appendixsec Supported
-
-Aspell 0.60 should be able to support the following languages:
-
-@include lang-supported.texi
-
-@appendixsubsec Notes on Latin Languages
-
-Any word that can be written using one of the Latin ISO-8859 character
-sets (ISO-8859-1,2,3,4,9,10,13,14,15,16) can be written, in decomposed
-form, using the ASCII characters, the 23 additional letters:
-
-@example
-U+00C6 LATIN CAPITAL LETTER AE
-U+00D0 LATIN CAPITAL LETTER ETH
-U+00D8 LATIN CAPITAL LETTER O WITH STROKE
-U+00DE LATIN CAPITAL LETTER THORN
-U+00DE LATIN SMALL LETTER THORN
-U+00DF LATIN SMALL LETTER SHARP S
-U+00E6 LATIN SMALL LETTER AE
-U+00F0 LATIN SMALL LETTER ETH
-U+00F8 LATIN SMALL LETTER O WITH STROKE
-U+0110 LATIN CAPITAL LETTER D WITH STROKE
-U+0111 LATIN SMALL LETTER D WITH STROKE
-U+0126 LATIN CAPITAL LETTER H WITH STROKE
-U+0127 LATIN SMALL LETTER H WITH STROKE
-U+0131 LATIN SMALL LETTER DOTLESS I
-U+0138 LATIN SMALL LETTER KRA
-U+0141 LATIN CAPITAL LETTER L WITH STROKE
-U+0142 LATIN SMALL LETTER L WITH STROKE
-U+014A LATIN CAPITAL LETTER ENG
-U+014B LATIN SMALL LETTER ENG
-U+0152 LATIN CAPITAL LIGATURE OE
-U+0153 LATIN SMALL LIGATURE OE
-U+0166 LATIN CAPITAL LETTER T WITH STROKE
-U+0167 LATIN SMALL LETTER T WITH STROKE
-@end example
-
-and the 14 modifiers:
-
-@example
-U+0300 COMBINING GRAVE ACCENT
-U+0301 COMBINING ACUTE ACCENT
-U+0302 COMBINING CIRCUMFLEX ACCENT
-U+0303 COMBINING TILDE
-U+0304 COMBINING MACRON
-U+0306 COMBINING BREVE
-U+0307 COMBINING DOT ABOVE
-U+0308 COMBINING DIAERESIS
-U+030A COMBINING RING ABOVE
-U+030B COMBINING DOUBLE ACUTE ACCENT
-U+030C COMBINING CARON
-U+0326 COMBINING COMMA BELOW
-U+0327 COMBINING CEDILLA
-U+0328 COMBINING OGONEK
-@end example
-
-Which is a total of 37 additional Unicode code points.
-
-All ISO-8859 character leaves the characters 0x00 - 0x1F, and 0x80 -
-0x9F unmapped as they are generally used as control characters.  Of
-those, 0x01 - 0x0F, 0x11 - 0x1F and 0x80 - 0x9F may be mapped to
-anything in Aspell.  This is a total of 62 characters which can be
-remapped in any ISO-8859 character set.  Thus, by remapping 37 of the 62
-characters to the previously specified Unicode code-points, any modified
-ISO-8859 character set can be used for any Latin languages covered by
-ISO-8859.  Of course decomposing every single accented character wastes
-a lot of space, so only characters that cannot be represented in the
-precomposed form should be broken up.  By using this trick it is
-possible to store foreign words in the correctly accented form in the
-dictionary even if the precomposed character is not in the current
-character set.
-
-Any letter in the Unicode range U+0000 - U+0249, U+1E00 - U+1EFF (Basic
-Latin, Latin-1 Supplement, Latin Extended-A, Latin Extended-B, and Latin
-Extended Additional) can be represented using around 175 basic letters,
-and 25 modifiers which is less than 210 and can thus fit in an Aspell
-8-bit character set.  Since this Unicode range covers any possible Latin
-language this special character set can be used to represent any word
-written using the Latin script if so desired.
-
-@appendixsubsec Syllabic
-
-Syllabic languages use a separate symbol for each syllable of the
-language.  Even thought most of them have more than 210 distinct
-symbols Aspell can still support them by breaking them up.
-
-@appendixsubsubsec The Ethiopic Syllabary
-
-Even though the Ethiopic script has more than 210 distinct characters
-Aspell can still handle it.  The idea is to split each character into
-two parts based on the Consonant and Vowel parts.  This encoding of the
-syllabary is far more useful to Aspell than if they were stored in UTF-8
-or UTF-16.  In fact, the exiting suggestion strategy of Aspell will work
-well with this encoding without any additional modifications.  However,
-additional improvements may be possible by taking advantage of the
-consonant-vowel structure of this encoding.
-
-In fact, the split consonant-vowel representation may prove to be so
-useful that it may be beneficial to encode other syllabary in this
-fashion, even if they are less than 210 of them.
-
-The code to break up a syllabary into the consonant-vowel part is part
-of the Unicode normalization process.
-
-@appendixsubsubsec The Yi Syllabary
-
-A very large syllabary with 819 distinct symbols.  However, like
-Ethiopic, it should be possible to support this script by breaking it
-up.
-
-@appendixsubsubsec The Ojibwe Syllabary
-
-With only 120 distinct symbols, Aspell can actually support this one as
-is.  However, as previously mentioned, it may be beneficial to break it
-up into the consonant-vowel representation anyway.
-
-@node Unsupported
-@appendixsec Unsupported
-
-These languages, when written in the given script, are currently
-unsupported by Aspell for one reason or another.
-
-@include lang-unsupported.texi
-
-@appendixsubsec The Thai, Khmer, and Lao Scripts
-
-The Thai, Khmer, and Lao scripts presents a different problem for
-Aspell.  The problem is not that there are more than 210 unique symbols,
-but that there are no spaces between words.  This means that there is no
-easy way to split a sentence into individual words.  However, it is
-still possible to spell check these scripts, it is just a lot more
-difficult.  I will be happy to work with someone who is interested in
-adding Thai, Khmer, or Lao support to Aspell, but it is not likely
-something I will do on my own in the foreseeable future.
-
-@appendixsubsec Languages which use H@`anzi Characters
-
-H@`anzi Characters are used to write Chinese, Japanese, Korean, and were
-once used to write Vietnamese.  Each h@`anzi character represents a
-syllable of a spoken word and also has a meaning.  Since there are
-around 3,000 of them in common usage it is unlikely that Aspell will
-ever be able to support spell checking languages written using h@`anzi
-until full Unicode support is implemented.  However, I am not even sure
-if these languages need spell checking since h@`anzi characters are
-generally not entered in directly.  Furthermore even if Aspell could
-spell check h@`anzi the existing suggestion strategy will not work well
-at all, and thus a completely new strategy will need to be developed.
-However, if it is the case that h@`anzi needs to be spell checked and
-you know something about the issues involved please fell free to contact
-me.
-
-@appendixsubsec Japanese
-
-Modern Japanese is written in a mixture of @dfn{hiragana},
-@dfn{katakana}, @dfn{kanji}, and sometimes @dfn{romaji}.  @dfn{Hiragana}
-and @dfn{katakana} are both syllabaries unique to Japan, @dfn{kanji} is
-a modified form of h@`anzi, and @dfn{romaji} uses the Latin alphabet.
-With some work, Aspell should be able to check the non-kanji part of
-Japanese text.  However, based on my limited understanding of Japanese
-hiragana is often used at the end of kanji.  Thus if Aspell was to
-simply separate out the hiragana from kanji it would end up with a lot
-of word endings which are not proper words and will thus be flagged as
-misspellings.  However, this can be fairly easily rectified as text is
-tokenized into words before it is converted into Aspell's internal
-encoding.  In fact, some Japanese text is written in entirely in one
-script.  For example books for children and foreigners are sometimes
-written entirely in hiragana.  Thus, Aspell, in its current state, could
-prove at least somewhat useful for spell checking Japanese.
-
-@appendixsubsec Hangul
-
-Korean is generally written in hangul or a mixture of han and hangul.  In
-Hangul letters individual letters, known as jamo, are grouped together
-in syllable blocks.  Unicode allows Hangul to be stored in one of three
-ways, (A) Individual jamo letters (Hangul Compatibility Jamo, U+3130 -
-U+318F), (D) decomposed jamo (Hangul Jamo, U+1100 - U+11FF), and (C)
-precoposed sylable blocks (Hangul Syllables, U+AC00 - U+D7AF).  In order
-for Aspell to work with Hangul it needs to be form A.  Unfortunately the
-existing Normalization code in Aspell will not be able to adequately
-deal with converting Hangul from form D and C to form A and back again.
-However, once this code is written, Aspell should be able to spell check
-Hangul without any problem.
-
-@node Multiple Scripts
-@appendixsec Languages Written in Multiple Scripts
-
-Aspell should be able to check text written in the same language but
-in multiple scripts with some work.  If the number of unique symbols
-in both scripts is less than 210, then a special character set can be
-used to allow both scripts to be encoded in the same dictionary.
-However this may not be the most efficient solution.  An alternate
-solution is to store each script in its own dictionary and allow
-Aspell to choose the correct dictionary based on which script the
-given word is written in.  Aspell currently does not support this mode
-of spell checking but it is something that I hope to eventually
-support.
-
-@node References
-@appendixsec References
-
-The information in this chapter was gathered from numerous sources,
-including:
-
-@itemize
-
-@item
-ISO 639-2 Registration Authority,
-@uref{http://www.loc.gov/@/standards/iso639-2/}
-
-@item
-Languages and Scripts (Official Unicode Site),
-@uref{http://www.unicode.org/@/onlinedat/languages-scripts.html}
-
-@item
-Omniglot - a guide to written language, @uref{http://www.omniglot.com/}
-
-@item
-Wikipedia - The Free Encyclopedia, @uref{http://wikipedia.org/}
-
-@item
-Ethnologue - Languages of the World,
-@uref{http://www.ethnologue.com/}
-
-@item
-World Languages - The Ultimate Language Store,
-@uref{http://www.worldlanguage.com/}
-
-@item
-South African Languages Web,
-@uref{http://www.languages.web.za/}
-
-@item
-The Languages and Writing Systems of Africa (Global Advisor Newsletter),
-@uref{http://www.intersolinc.com/@/newsletters/africa.htm}
-
-@end itemize
-
-Special thanks goes to Era Eriksson for helping me with the information in
-this chapter.
-
 @c @node Installing
 @c @appendix Installing
 
@@ -3877,8 +3612,12 @@ filters such as the Markdown filter may give incorrect results.
 @item
 The @option{clean} option and command will no longer split a word.
 @item
-Various documentation improvements, including the removal of several
-outdated sections in the appendix.
+Various documentation improvements.
+@item
+Removal of several outdated appendices that don't really belong in the
+main manual.  Parts that are still relevent may eventually be moved
+elsewhere, but for now they are available online at
+@uref{http://aspell.net/0.60.7/man-html/}.
 @item
 Fix various crashes and other problems found by Google's OSS-Fuzz.
 @end itemize
