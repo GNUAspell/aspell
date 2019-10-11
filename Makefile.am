@@ -109,10 +109,10 @@ libaspell_la_LIBADD =  $(LTLIBINTL) $(PTHREAD_LIB)
 ## for more into
 ##
 if INCREMENTED_SONAME
-libaspell_la_LDFLAGS = -version-info 19:0:3 -no-undefined
+libaspell_la_LDFLAGS = -version-info 19:1:3 -no-undefined
 else
 ## Use C-1:R:A 
-libaspell_la_LDFLAGS = -version-info 18:0:3 -no-undefined
+libaspell_la_LDFLAGS = -version-info 18:1:3 -no-undefined
 endif
 
 if PSPELL_COMPATIBILITY
