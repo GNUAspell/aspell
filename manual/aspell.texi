@@ -1,12 +1,14 @@
 \input texinfo   @c -*-texinfo-*-
 
+@include version.texi
+
 @setfilename aspell.info
-@settitle GNU Aspell 0.60.8-git
+@settitle GNU Aspell @value{VERSION}
 @syncodeindex pg cp
 @paragraphindent 0
 @documentencoding UTF-8
 @documentdescription
-Aspell 0.60.8-git spell checker user's manual.
+Aspell @value{VERSION} spell checker user's manual.
 @end documentdescription
 
 @copying
@@ -33,7 +35,7 @@ Documentation License".
 @end direntry
 
 @titlepage
-@title GNU Aspell 0.60.8-git
+@title GNU Aspell @value{VERSION}
 @author Kevin Atkinson (@email{kevina@@gnu.org})
 @page
 @vskip 0pt plus 1filll
@@ -44,7 +46,7 @@ Documentation License".
 
 @ifnottex
 @node Top
-@top GNU Aspell 0.60.8-git
+@top GNU Aspell @value{VERSION}
 This is the user's manual for Aspell
 
 GNU Aspell is a spell checker designed to eventually replace Ispell.
