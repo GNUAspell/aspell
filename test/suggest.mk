@@ -88,11 +88,6 @@ suggest-05-common-slow: prep
 	suggest/comp suggest/05-common-slow-expect.res tmp/05-common-slow-actual.res 1 > tmp/05-common-slow.diff
 	rm tmp/05-common-slow.diff
 	echo "ok (suggest reg. 05-common slow)" >> test-res
-suggest-05-common-bad-spellers: prep
-	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --sug-mode=bad-spellers" suggest/05-common.tab tmp/05-common-bad-spellers-actual
-	suggest/comp suggest/05-common-bad-spellers-expect.res tmp/05-common-bad-spellers-actual.res 1 > tmp/05-common-bad-spellers.diff
-	rm tmp/05-common-bad-spellers.diff
-	echo "ok (suggest reg. 05-common bad-spellers)" >> test-res
 suggest-05-common-ultra-nokbd: prep
 	suggest/run-batch "${ASPELL_WRAP} ${ASPELL} --keyboard=none --sug-mode=ultra" suggest/05-common.tab tmp/05-common-ultra-nokbd-actual
 	suggest/comp suggest/05-common-ultra-nokbd-expect.res tmp/05-common-ultra-nokbd-actual.res 1 > tmp/05-common-ultra-nokbd.diff
