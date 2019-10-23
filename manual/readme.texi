@@ -157,7 +157,7 @@ Error: The file ``@var{some-file}'' is not in the proper format. Incompatible ha
 
 To prevent a potentially unbounded buffer over-read, Aspell no longer
 supports null-terminated UCS-2 and UCS-4 encoded strings with the
-original C API.  Null-termianted 8-bit or UTF-8 encoded strings are
+original C API.  Null-terminated 8-bit or UTF-8 encoded strings are
 still supported, as are UCS-2 and UCS-4 encoded strings when the
 length is passed in.
 
@@ -184,7 +184,7 @@ could result in an unbounded buffer over-read.
 If it is necessary to preserve binary compatibility with older
 versions of Aspell, the easiest thing would be to determine the length
 of the UCS-2/4 string---in bytes---and pass that in.  Due to an
-implemenation detail, existing API functions can be made to work with
+implementation detail, existing API functions can be made to work with
 null-terminated UCS-2/4 strings safely by passing in either @code{-2}
 or @code{-4} (corresponding to the width of the character type) as the
 size.  Doing so, however, will cause a buffer over-read for unpatched
