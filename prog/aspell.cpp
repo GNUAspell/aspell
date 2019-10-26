@@ -319,7 +319,7 @@ int main (int argc, const char *argv[])
       if (o->num_arg == 0) {
         num_parms = 0;
 	if (parm[0] != '\0') {
-	  print_error(_(" does not take any parameters."), 
+	  print_error(_("'%s' does not take any parameters."),
 		      String(argv[i], parm - argv[i]));
 	  return 1;
 	}
