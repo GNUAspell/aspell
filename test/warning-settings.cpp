@@ -20,7 +20,7 @@ static const int GCC = 0, GCC_MINOR = 0;
 int main() {
   if (!GCC) return 0;
   fprintf(stderr, "gcc version = %d.%d\n", GCC, GCC_MINOR);
-  printf("EXTRA_CXXFLAGS = -Wall -Wno-sign-compare -Wno-unused -Werror ");
+  printf("EXTRA_CXXFLAGS = -Wall -Wno-sign-compare -Wno-unused -Werror -Wno-invalid-offsetof ");
   printf("-Wno-error=unused-result "); // FIXME: Remove this once the cause of the warning is fixed
   if ((GCC == 4 && GCC_MINOR >= 7) || GCC >= 5)
     disable_gcc_error("maybe-uninitialized");
