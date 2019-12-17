@@ -7,6 +7,7 @@
 #ifndef autil__block_slist_t_hh
 #define autil__block_slist_t_hh
 
+#include <cstddef>
 #include <cstdlib>
 #include <cassert>
 
@@ -17,12 +18,8 @@ namespace acommon {
   template <typename T>
   void BlockSList<T>::add_block(unsigned int num) 
   {
-    assert (reinterpret_cast<const char *>(&(first_available->next))
-	    == 
-	    reinterpret_cast<const char *>(first_available));
-    const unsigned int ptr_offset = 
-      reinterpret_cast<const char *>(&(first_available->data)) 
-      - reinterpret_cast<const char *>(&(first_available->next));
+    assert (offsetof(Node,next)==0);
+    const unsigned int ptr_offset = offsetof(Node, data);
     void * block = malloc( ptr_offset + sizeof(Node) * num );
     *reinterpret_cast<void **>(block) = first_block;
     first_block = block;
