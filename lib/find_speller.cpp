@@ -450,7 +450,7 @@ namespace acommon {
       }
     }
 
-    const StringMap * dict_aliases = get_dict_aliases(config);
+    RET_ON_ERR_SET(get_dict_aliases(config), const StringMap *, dict_aliases);
     const char * val = dict_aliases->lookup(dict_name);
     if (val) config->replace("master", val);
     return config.release();

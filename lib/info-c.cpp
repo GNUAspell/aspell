@@ -40,7 +40,9 @@ extern "C" ModuleInfoEnumeration * aspell_module_info_list_elements(const Module
 
 extern "C" DictInfoList * get_aspell_dict_info_list(Config * config)
 {
-  return const_cast<DictInfoList *>(get_dict_info_list(config));
+  PosibErr<const DictInfoList *> res = get_dict_info_list(config);
+  if (res.get_err()) return 0;
+  return const_cast<DictInfoList *>(res.data);
 }
 
 extern "C" int aspell_dict_info_list_empty(const DictInfoList * ths)

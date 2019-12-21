@@ -93,9 +93,9 @@ namespace acommon {
     DictInfoNode * head_;
   };
 
-  const DictInfoList * get_dict_info_list(Config *);
+  PosibErr<const DictInfoList *> get_dict_info_list(Config *);
 
-  const StringMap * get_dict_aliases(Config *);
+  PosibErr<const StringMap *> get_dict_aliases(Config *);
 
   class ModuleInfoEnumeration {
   public:

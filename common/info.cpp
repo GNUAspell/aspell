@@ -725,18 +725,16 @@ namespace acommon {
   // DictInfo
   //
 
-  const DictInfoList * get_dict_info_list(Config * c)
+  PosibErr<const DictInfoList *> get_dict_info_list(Config * c)
   {
-    const MDInfoListAll * la = md_info_list_of_lists.get_lists(c);
-    if (la == 0) return 0;
-    else return &la->dict_info_list;
+    RET_ON_ERR_SET(md_info_list_of_lists.get_lists(c), const MDInfoListAll *, la);
+    return &la->dict_info_list;
   }
 
-  const StringMap * get_dict_aliases(Config * c)
+  PosibErr<const StringMap *> get_dict_aliases(Config * c)
   {
-    const MDInfoListAll * la = md_info_list_of_lists.get_lists(c);
-    if (la == 0) return 0;
-    else return &la->dict_aliases;
+    RET_ON_ERR_SET(md_info_list_of_lists.get_lists(c), const MDInfoListAll *, la);
+    return &la->dict_aliases;
   }
 
   DictInfoEnumeration * DictInfoList::elements() const
