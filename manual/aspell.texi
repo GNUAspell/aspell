@@ -176,7 +176,7 @@ The latest version of Aspell can always be found at @uref{http://aspell.net}
 
 The Suggestion Intelligence is based on a small test kernel of
 misspelled/correct word pairs.  Go to @uref{http://aspell.net/test/cur/}
-for more info and how you can help contribuxte to the test kernel.
+for more info and how you can help contribute to the test kernel.
 
 If you have any other information you would like to add to this chart
 please contact me at @email{kevina@@gnu.org}.
@@ -253,9 +253,9 @@ Hunspell has better support for language peculiarities including
 compounding and complex morphology.  However the Hunspell (v1.7.0)
 utility currently has problems with apostrophe (@kbd{'}) in words.
 
-Aspell generally has better suggestions for non-phonetic langauges
+Aspell generally has better suggestions for non-phonetic languages
 such as English and French.  Aspell suggestion speed also tends to be
-significantly faster than Hunspell.  For a comparasion of suggestion
+significantly faster than Hunspell.  For a compression of suggestion
 quality and speed see @uref{http://aspell.net/test/}.
 
 @node Support
@@ -527,7 +527,7 @@ backends used by many applications that provide spell checker
 functionality.  Enchant is used by AbiWord; LyX; and via gspell and
 GtkSpell, a number of Gtk and GNOME applications.
 
-By default enchant is configuired to prefer Hunaspell over Aspell but
+By default enchant is configured to prefer Hunspell over Aspell but
 this can easily be changed on a per-language basis.  If you wish to
 use Aspell for a specific dictionary say, American English, make sure
 that the Aspell backend is installed (on Debian and Ubuntu based
@@ -543,7 +543,7 @@ To test it.  Restart the enchant based application and then compare
 the suggestion list with an application that used Aspell or by using
 the @samp{aspell check} or @samp{aspell pipe} commands.
 
-You can also prefer Aspell in general over Humspell by instead using:
+You can also prefer Aspell in general over Hunspell by instead using:
 
 @example
 *:aspell,hunspell
@@ -554,15 +554,15 @@ Then if an Aspell dictionary is available Enchant should use it.
 
 @subsection With Emacs and XEmacs
 
-Newer versions of emacs should prefer @command{aspell} over both
+Newer versions of Emacs should prefer @command{aspell} over both
 @command{ispell} and @command{hunspell}, if you find this is not the
-case, then addding the line:
+case, then adding the line:
 
 @verbatim
 (setq-default ispell-program-name "aspell")
 @end verbatim
 
-to the end of your @file{.emacs} file should convince emacs to use
+to the end of your @file{.emacs} file should convince Emacs to use
 Aspell.
 
 @c No longer relevant
@@ -1131,7 +1131,7 @@ the command line use @samp{--dont-markdown-multiline-tags}).
 
 @item markdown-skip-ref-labels
 @i{(boolean)}
-Controls if ref lables are skipped.  For example, when this
+Controls if ref labels are skipped.  For example, when this
 option is enabled @samp{[ref]} will be skipped over in:
 @example
 [link][ref]
@@ -1506,7 +1506,7 @@ the global @option{conf} file
 @item keyboard
 @i{(file)}
 use this keyboard layout for suggesting possible words.  These spelling
-errors happen if a user accidently presses a key next to the intended
+errors happen if a user accidental presses a key next to the intended
 correct key.  The default is keyboard standard.  If you are creating
 documents, you may want to set it according to your particular type of
 keyboard.  If spellchecking documents created elsewhere, you might
@@ -1742,8 +1742,8 @@ anything like the correct spelling it is bound to be found
 @emph{somewhere} on the list of 100 or more suggestions.
 @end table
 
-When there is no soundslike or afffix compression is used then the
-modes have sligtly different meanings but, with the exception of
+When there is no soundslike or affix compression is used then the
+modes have slightly different meanings but, with the exception of
 @code{bad-spellers}, lower modes are faster and higher modes give
 better suggestions. Some modes may give identical results depending
 on the language configuration.
@@ -2302,7 +2302,7 @@ and non-zero otherwise.
 
 If you are using the @code{ucs-2} or @code{ucs-4} encoding then the
 string is expected to be either a 2 or 4 byte wide integer
-(respectively) and the @code{_w} macro vesion should be used:
+(respectively) and the @code{_w} macro version should be used:
 
 @smallexample
 int correct = aspell_speller_check_w(spell_checker, @var{word}, @var{size});
@@ -3617,7 +3617,7 @@ The @option{clean} option and command will no longer split a word.
 Various documentation improvements.
 @item
 Removal of several outdated appendices that don't really belong in the
-main manual.  Parts that are still relevent may eventually be moved
+main manual.  Parts that are still relevant may eventually be moved
 elsewhere, but for now they are available online at
 @uref{http://aspell.net/0.60.7/man-html/}.
 @item
