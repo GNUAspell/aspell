@@ -65,7 +65,7 @@ wide: wide_test_invalid wide_test_invalid-but_ok wide_test_valid
 
 wide_test_invalid: wide_test_invalid.c prep
 	$(CC) $(CFLAGS) -Iinst/include -c $< -o tmp/$@.o
-	$(CXX) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
+	$(CXX) $(CXXFLAGS) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
 ifdef SLOPPY
 	./$@
 	echo "ok ($@ SLOPPY)" >> test-res
@@ -77,13 +77,13 @@ endif
 
 wide_test_valid: wide_test_valid.c prep
 	$(CC) $(CFLAGS) -Iinst/include -c $< -o tmp/$@.o
-	$(CXX) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
+	$(CXX) $(CXXFLAGS) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
 	./$@
 	echo "ok ($@)" >> test-res
 
 wide_test_invalid-but_ok: wide_test_invalid.c prep
 	$(CC) $(CFLAGS) -DASPELL_ENCODE_SETTING_SECURE -Iinst/include -c $< -o tmp/$@.o
-	$(CXX) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
+	$(CXX) $(CXXFLAGS) tmp/$@.o inst/lib/libaspell.a -ldl -o $@
 	./$@
 	echo "ok ($@)" >> test-res
 
