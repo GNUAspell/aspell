@@ -130,7 +130,7 @@ public:
     }
     return bottom;
   }
-  // returns a pointer the the new beginning of the temp memory
+  // returns a pointer to the new beginning of the temp memory
   void * resize_temp(size_t size) {
     if (temp_end == 0)
       return alloc_temp(size);

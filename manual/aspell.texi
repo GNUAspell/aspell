@@ -1108,17 +1108,17 @@ Defaults to 10.
 
 The @option{markdown} filter/mode skips over code and links in Markdown
 documents.  The mode also handles HTML via the @option{html} filter
-which runs after the Markdown filer.
+which runs after the Markdown filter.
 
 Properly parsing Markdown requires reading the entire document in at
 once, which doesn't fit well into the existing filter framework so the
 filter parses the document a line at a time and makes a best guess
-when a line ends without enough information to correctly parse a a
+when a line ends without enough information to correctly parse a
 tag.  For example in the following:
 @example
 `This looks like inline code
 
-But it's not, becuase the of the blank line.
+But it's not, because the of the blank line.
 @end example
 the first line will be incorrectly skipped.
 
@@ -1296,7 +1296,7 @@ Check @TeX{} comments.  Defaults to false.
 
 @end table
 
-@c The TeXfilter mode also contains a decoding and a encoding filter for
+@c The TeXfilter mode also contains a decoding and an encoding filter for
 @c @emph{babel} character codes like the German Umlauts:
 
 @c @itemize @bullet
@@ -5053,7 +5053,7 @@ Wrote the Nroff filter.
 Enhanced the SGML filter to also support skipping sgml tags such as
 "script" blocks.
 
-@item Kevin B. Hendricks (and Contributers)
+@item Kevin B. Hendricks (and Contributors)
 Wrote MySpell which is a simple spell checker library that supports
 affix compression.  Aspell affix compression code is based on his code.
 
@@ -5082,7 +5082,7 @@ their work into the Public Domain, and thus own the copyright to the
 translated text.  See the files @file{*.po} in the @file{po} directory
 for more details.
 
-The folowing people also contributed to the development of Aspell but do
+The following people also contributed to the development of Aspell but do
 not own the Copyright to part of Aspell.
 
 @table @asis

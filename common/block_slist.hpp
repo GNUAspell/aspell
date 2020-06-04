@@ -11,7 +11,7 @@
 //   linked lists.  Nodes are allocated in large chunks instead of
 //   one at a time which means that getting a new node is very fast.
 //   Nodes returned are not initialized in any way.  A placement new
-//   must be used to construct the the data member and the destructor
+//   must be used to construct the data member and the destructor
 //   must explicitly be called.
 
 namespace acommon {

@@ -28,7 +28,7 @@ The format of @file{mk-src.in} is as follows:
     @file{mk-src.pl}. It has the following layout
 
 @verbatim
-    <catagory> => options => [] 
+    <category> => options => []
                   groups => [] # if undef than anything is accepted
                   creates_type => "" # the object will create a new type
                                      # as specified
@@ -63,7 +63,7 @@ The format of @file{mk-src.in} is as follows:
     returns alt type: the constructor returns some type other than
       the object from which it is a member of
     no native: do not attempt to create a native implementation
-    treat as object: treat as a object rather than a pointer
+    treat as object: treat as an object rather than a pointer
 @end verbatim
     The @code{%info} structure is initialized as follows:
 @verbatim
@@ -179,7 +179,7 @@ The format of @file{mk-src.in} is as follows:
     where each tree represents an entry in mk-src.in.  
     The following two options are always provided:
       name: the name of the entry
-      type: the catagory or type name
+      type: the category or type name
     Additional options are the same as specified in %info
 @end verbatim
 

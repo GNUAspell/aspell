@@ -36,7 +36,7 @@ my $master_data = {type=>'root', name=>undef};
 # where each tree represents an entry in mk-src.in.  
 # The following two options are always provided:
 #   name: the name of the entry
-#   type: the catagory or type name
+#   type: the category or type name
 # Additional options are the same as specified in %info
 
 =head1 MkSrc::Read
@@ -54,7 +54,7 @@ following format:
   where each tree represents an entry in mk-src.in.  
   The following two options are always provided:
     name: the name of the entry
-    type: the catagory or type name
+    type: the category or type name
   Additional options are the same as specified in %info
 
 =back

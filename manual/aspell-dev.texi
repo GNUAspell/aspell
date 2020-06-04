@@ -815,7 +815,7 @@ implemented as a singly or doubly linked list.  It is defined in
 
 @section StringMap
 
-@code{StringMap} is a associative array for strings.  You should try
+@code{StringMap} is an associative array for strings.  You should try
 to use this when ever possible to avoid code bloat.  It is defined in
 @file{string_map.hpp}.
 
