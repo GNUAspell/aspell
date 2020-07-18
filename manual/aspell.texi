@@ -1118,7 +1118,7 @@ tag.  For example in the following:
 @example
 `This looks like inline code
 
-But it's not, because the of the blank line.
+But it's not, because of the blank line.
 @end example
 the first line will be incorrectly skipped.
 
