@@ -415,10 +415,14 @@ namespace {
   };
 
   struct SavedBufs : public Vector<ObjStack::Memory *> {
-    ~SavedBufs() {
+    void reset() {
       for (Vector<ObjStack::Memory *>::iterator i = begin(), e = end();
            i != e; ++i)
         ObjStack::dealloc(*i);
+      clear();
+    }
+    ~SavedBufs() {
+      reset();
     }
   };
 
@@ -460,6 +464,8 @@ namespace {
     void reset() {
       clear();
       buf.reset();
+      saved_bufs_.reset();
+      saved_near_misses_.clear();
     }
     void get_words(Convert * conv, Vector<CharVector> & res) {
       res.clear();
