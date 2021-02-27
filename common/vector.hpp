@@ -34,15 +34,57 @@ namespace acommon
       this->resize(pos + s);
       return pos;
     }
-    T * data() {return &*this->begin();}
-    T * data(int pos) {return &*this->begin() + pos;}
-    T * data_end() {return &*this->begin() + this->size();}
 
-    T * pbegin() {return &*this->begin();}
-    T * pend()   {return &*this->begin() + this->size();}
+    #if __cplusplus < 201103L
+      T * data() {return &*this->begin();}
+    #else
+      using std::vector<T>::data;
+    #endif
+    
+    T * data(int pos) {return data() + pos;}
 
-    const T * pbegin() const {return &*this->begin();}
-    const T * pend()   const {return &*this->begin() + this->size();}
+    T * data_end()
+    {
+      #if __cplusplus < 201103L
+        return &*this->begin() + this->size();
+      #else
+        return this->data() + this->size();
+      #endif
+    }
+
+    T * pbegin()
+    {
+      #if __cplusplus < 201103L
+        return &*this->begin();
+      #else
+        return this->data();
+      #endif
+    }
+    T * pend()
+    {
+      #if __cplusplus < 201103L
+        return &*this->begin() + this->size();
+      #else
+        return this->data() + this->size();
+      #endif
+    }
+
+    const T * pbegin() const
+    {
+      #if __cplusplus < 201103L
+        return &*this->begin();
+      #else
+        return this->data();
+      #endif
+    }
+    const T * pend()   const
+    {
+      #if __cplusplus < 201103L
+        return &*this->begin() + this->size();
+      #else
+        return this->data() + this->size();
+      #endif
+    }
 
     template <typename U>
     U * datap() { 
