@@ -34,15 +34,64 @@ namespace acommon
       this->resize(pos + s);
       return pos;
     }
-    T * data() {return &*this->begin();}
-    T * data(int pos) {return &*this->begin() + pos;}
-    T * data_end() {return &*this->begin() + this->size();}
+    T * data()
+    {
+      #if __cplusplus >= 201103L
+        return this->data();
+      #else
+        return &*this->begin();
+      #endif
+    }
+    T * data(int pos)
+    {
+      #if __cplusplus >= 201103L
+        return this->data() + pos;
+      #else
+        return &*this->begin() + pos;
+      #endif
+    }
+    T * data_end()
+    {
+      #if __cplusplus >= 201103L
+        return this->data() + this->size();
+      #else
+        return &*this->begin() + this->size();
+      #endif
+    }
 
-    T * pbegin() {return &*this->begin();}
-    T * pend()   {return &*this->begin() + this->size();}
+    T * pbegin()
+    {
+      #if __cplusplus >= 201103L
+        return this->data();
+      #else
+        return &*this->begin();
+      #endif
+    }
+    T * pend()
+    {
+      #if __cplusplus >= 201103L
+        return this->data() + this->size();
+      #else
+        return &*this->begin() + this->size();
+      #endif
+    }
 
-    const T * pbegin() const {return &*this->begin();}
-    const T * pend()   const {return &*this->begin() + this->size();}
+    const T * pbegin() const
+    {
+      #if __cplusplus >= 201103L
+        return this->data();
+      #else
+        return &*this->begin();
+      #endif
+    }
+    const T * pend()   const
+    {
+      #if __cplusplus >= 201103L
+        return this->data() + this->size();
+      #else
+        return &*this->begin() + this->size();
+      #endif
+    }
 
     template <typename U>
     U * datap() { 
