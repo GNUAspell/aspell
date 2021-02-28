@@ -43,48 +43,13 @@ namespace acommon
     
     T * data(int pos) {return data() + pos;}
 
-    T * data_end()
-    {
-      #if __cplusplus < 201103L
-        return &*this->begin() + this->size();
-      #else
-        return this->data() + this->size();
-      #endif
-    }
+    T * data_end() {return this->data() + this->size();}
 
-    T * pbegin()
-    {
-      #if __cplusplus < 201103L
-        return &*this->begin();
-      #else
-        return this->data();
-      #endif
-    }
-    T * pend()
-    {
-      #if __cplusplus < 201103L
-        return &*this->begin() + this->size();
-      #else
-        return this->data() + this->size();
-      #endif
-    }
+    T * pbegin() {return this->data();}
+    T * pend()   {return this->data() + this->size();}
 
-    const T * pbegin() const
-    {
-      #if __cplusplus < 201103L
-        return &*this->begin();
-      #else
-        return this->data();
-      #endif
-    }
-    const T * pend()   const
-    {
-      #if __cplusplus < 201103L
-        return &*this->begin() + this->size();
-      #else
-        return this->data() + this->size();
-      #endif
-    }
+    const T * pbegin() const {return this->data();}
+    const T * pend()   const {return this->data() + this->size();}
 
     template <typename U>
     U * datap() { 
