@@ -29,6 +29,8 @@ int main() {
   if (GCC == 7) // FIXME: I _think_ this is a false positive but need
                 // to double check
     printf("-Walloc-size-larger-than=-1 ");
+  if (GCC == 10)
+    disable_gcc_warning("class-memaccess");
   disable_clang_warning("return-type-c-linkage");
   disable_clang_warning("tautological-compare");
   printf("\n");
