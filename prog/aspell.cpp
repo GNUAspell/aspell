@@ -1209,7 +1209,7 @@ abort_loop:
 
     remove_file(new_name);
 
-    return;
+    exit(63);
   }
 }
 
