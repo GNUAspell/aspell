@@ -34,23 +34,30 @@ namespace acommon
       this->resize(pos + s);
       return pos;
     }
+
+#if __cplusplus < 201103L
     T * data() {return &*this->begin();}
-    T * data(int pos) {return &*this->begin() + pos;}
-    T * data_end() {return &*this->begin() + this->size();}
+    const T * data() const {return &*this->begin();}
+#else
+    using std::vector<T>::data;
+#endif
 
-    T * pbegin() {return &*this->begin();}
-    T * pend()   {return &*this->begin() + this->size();}
+    T * data(int pos) {return data() + pos;}
+    T * data_end() {return data() + this->size();}
 
-    const T * pbegin() const {return &*this->begin();}
-    const T * pend()   const {return &*this->begin() + this->size();}
+    T * pbegin() {return data();}
+    T * pend()   {return data() + this->size();}
+
+    const T * pbegin() const {return data();}
+    const T * pend()   const {return data() + this->size();}
 
     template <typename U>
     U * datap() { 
-      return reinterpret_cast<U * >(&this->front());
+      return reinterpret_cast<U * >(data());
     }
     template <typename U>
     U * datap(int pos) {
-      return reinterpret_cast<U * >(&this->front() + pos);
+      return reinterpret_cast<U * >(data() + pos);
     }
 
     void pop_front() {this->erase(this->begin());}
