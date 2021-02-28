@@ -18,6 +18,7 @@ jobs:
     steps:
     - checkout
     #
+    - run: sudo sed -i 's;http://archive.debian.org/debian/;http://deb.debian.org/debian/;' /etc/apt/sources.list
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib 
     - run: sudo apt-get -y purge aspell
@@ -51,11 +52,23 @@ jobs:
         g++-4.9 g++-5
     - run: sudo apt-get -y purge aspell
     #
-    - run: ./autogen
-    - run: ./sanity-check.sh
-    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
-    - run: CXX=g++-4.9 CC=gcc-4.9 ./sanity-check.sh
-    - run: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
+    - run:
+        command: ./autogen
+    - run:
+        when: on_fail
+        command: circleci-agent step halt
+    - run:
+        when: always
+        command: ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=g++-4.9 CC=gcc-4.9 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
 
 
   build_18_04:
@@ -80,25 +93,47 @@ jobs:
         g++-4.8 g++-5 g++-6 clang-3.9 clang-4.0 clang-5.0 clang-6.0 
     - run: sudo apt-get -y purge aspell
     #
-    - run: ./autogen
-    - run: ./sanity-check.sh
-    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
-    - run: CXX=g++-4.8 CC=gcc-4.8 ./sanity-check.sh
-    - run: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
-    - run: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
-    - run: CXX=clang++-3.9 CC=clang-3.9 ./sanity-check.sh
-    - run: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
-    - run: CXX=clang++-5.0 CC=clang-5.0 ./sanity-check.sh
-    - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
+    - run:
+        command: ./autogen
+    - run:
+        when: on_fail
+        command: circleci-agent step halt
+    - run:
+        when: always
+        command: ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=g++-4.8 CC=gcc-4.8 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=g++-5 CC=gcc-5 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=clang++-3.9 CC=clang-3.9 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=clang++-4.0 CC=clang-4.0 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=clang++-5.0 CC=clang-5.0 ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
 
-  build_19_04:
+  build_20_04:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     #shell: /bin/bash --login
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: circleci/buildpack-deps:19.04
+    - image: circleci/buildpack-deps:20.04
     steps:
     # Machine Setup
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
@@ -107,28 +142,58 @@ jobs:
     # In 2.0 you can choose where in the course of a job your code should be checked out.
     - checkout
     #
-    # note: default gcc version is 8.3
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
-         g++-6 g++-7 g++-9 clang-6.0 clang-7 clang-8
+         g++-7 g++-8 g++-9 g++-10 clang-6.0 clang-7 clang-8 clang-9 clang-10
     - run: sudo apt-get -y purge aspell
     #
-    - run: ./autogen
-    - run: ./sanity-check.sh
-    - run: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
-    - run: CXX=g++-6 CC=gcc-6 ./sanity-check.sh
-    - run: CXX=g++-7 CC=gcc-7 ./sanity-check.sh
-    - run: CXX=g++-9 CC=gcc-9 ./sanity-check.sh
-    - run: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
-    - run: CXX=clang++-7 CC=clang-7 ./sanity-check.sh
-    - run: CXX=clang++-8 CC=clang-8 ./sanity-check.sh
-    - run: ./config-opt && make -C build -j2
+    - run:
+        command: ./autogen
+    - run:
+        when: on_fail
+        command: circleci-agent step halt
+    - run:
+        when: always
+        command: ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=g++-7 CC=gcc-9 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=g++-8 CC=gcc-8 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=g++-9 CC=gcc-9 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=g++-10 CC=gcc-10 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=clang++-6.0 CC=clang-6.0 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=clang++-7 CC=clang-7 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=clang++-8 CC=clang-8 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=clang++-9 CC=clang-9 ./sanity-check.sh
+    - run: 
+        when: always
+        command: CXX=clang++-10 CC=clang-10 ./sanity-check.sh
+    - run: 
+        when: always
+        command: ./config-opt && make -C build -j2
 
   tests:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     docker:
-    - image: circleci/buildpack-deps:19.04
+    - image: circleci/buildpack-deps:20.04
     steps:
     # Machine Setup
     - checkout
@@ -149,7 +214,7 @@ workflows:
       - build_jessie
       - build_16_04
       - build_18_04
-      - build_19_04
+      - build_20_04
   tests:
     jobs:
       - tests
