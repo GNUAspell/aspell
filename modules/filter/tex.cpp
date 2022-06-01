@@ -161,6 +161,12 @@ namespace {
 	} else if (name == "]") {
 	  // \]
 	  pop_command();  // pop DisplayMath
+	} else if (name == "(") {
+	  // \(
+	  push_command(InlineMath, true);
+	} else if (name == ")") {
+	  // \)
+	  pop_command();  // pop InlineMath
 	} else if (args && *args) {
 	  push_command(top.in_what, top.skip, args);
 	}
