@@ -63,6 +63,7 @@ namespace {
     
   PosibErr<bool> ContextFilter::setup(Config * config){
     name_ = "context-filter";
+    order_num_ = 0.15;
     StringList delimiters;
     StackPtr<StringEnumeration> delimiterpairs;
     const char * delimiterpair=NULL;
