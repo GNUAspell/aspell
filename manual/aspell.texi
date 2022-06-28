@@ -3576,6 +3576,13 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
+@heading Changes from 0.60.7 to 0.68.9
+@itemize @bullet
+@item
+Exit with a status code of 63 when an interactive spell check
+session is aborted.
+@end itemize
+
 @heading Changes from 0.60.7 to 0.68.8 (October 12, 2019)
 @itemize @bullet
 @item
