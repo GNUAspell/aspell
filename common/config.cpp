@@ -1320,16 +1320,16 @@ namespace acommon {
   PosibErr<void> Config::commit_all(Vector<int> * phs, const char * codeset)
   {
     committed_ = true;
-    Entry * uncommited = first_;
+    Entry * uncommitted = first_;
     first_ = 0;
     insert_point_ = &first_;
     Conv to_utf8;
     if (codeset)
       RET_ON_ERR(to_utf8.setup(*this, codeset, "utf-8", NormTo));
     PosibErr<void> ret;
-    while (uncommited) {
-      Entry * cur = uncommited;
-      uncommited = cur->next;
+    while (uncommitted) {
+      Entry * cur = uncommitted;
+      uncommitted = cur->next;
       cur->next = 0;
       *insert_point_ = cur;
       insert_point_ = &((*insert_point_)->next);

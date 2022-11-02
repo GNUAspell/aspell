@@ -82,7 +82,7 @@ public:
       return false;
     }
   }
-  // insert a new element. WILL overwrite an exitsing entry
+  // insert a new element. WILL overwrite an existing entry
   // always returns true
   bool replace(ParmStr key, ParmStr value) {
     pair<Iter_,bool> res = lookup_.insert(Value_(key,0));

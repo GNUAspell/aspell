@@ -28,7 +28,7 @@ namespace acommon {
   // an error.  Extra accepted keys can be added with the set_extra 
   // method.
 
-  // Keys taged with KEYINFO_UTF8 are expected to be in UTF-8 format.
+  // Keys tagged with KEYINFO_UTF8 are expected to be in UTF-8 format.
   // Keys with file/dir names may contain 8-bit characters and must
   //   remain untranslated
   // All other keys are expected to only contain ASCII characters.
@@ -138,7 +138,7 @@ namespace acommon {
   public:
 
     // the first
-    // if the second parameter is set than flaged options will be
+    // if the second parameter is set than flagged options will be
     // converted to utf-8 if needed
     PosibErr<void> commit_all(Vector<int> * = 0, const char * codeset = 0);
 
