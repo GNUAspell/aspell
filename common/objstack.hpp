@@ -103,7 +103,7 @@ public:
                           str.str(), str.size() + 1);
   }
 
-  // By default objects are allocated from the top since that is sligtly
+  // By default objects are allocated from the top since that is slightly
   // more efficient
   void * alloc(size_t size) {return alloc_top(size);}
   void * alloc(size_t size, size_t align) {return alloc_top(size,align);}

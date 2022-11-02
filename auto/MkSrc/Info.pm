@@ -79,7 +79,7 @@ The %info structure is initialized as follows:
     options => ['strip', 'prefix', 'c impl headers'],
     groups => undef},
   group => {
-    # a group is a colection of objects which should be grouped together
+    # a group is a collection of objects which should be grouped together
     # this generally means they will be in the same source file
     options => ['no native'],
     groups => ['enum', 'struct', 'union', 'func', 'class', 'errors']},

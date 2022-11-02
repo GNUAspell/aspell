@@ -53,7 +53,7 @@ namespace acommon {
 
     void remove_node(Node * n) 
       // marks the node as available
-      // Note: the node's data memeber destructor is NOT called
+      // Note: the node's data member destructor is NOT called
     {
       n->next = first_available;
       first_available = n;

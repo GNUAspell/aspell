@@ -375,7 +375,7 @@ namespace acommon
           cur_opt->type = KeyInfoInt;
         else if (d.value == "string")
           cur_opt->type = KeyInfoString;
-        //FIXME why not force user to ommit type specifier or explicitly say bool ???
+        //FIXME why not force user to omit type specifier or explicitly say bool ???
         else
           cur_opt->type = KeyInfoBool;
         continue;

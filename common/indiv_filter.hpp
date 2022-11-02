@@ -68,7 +68,7 @@ namespace acommon {
     // The string passed in should only be split on white space
     // characters.  Furthermore, between calls to reset, each string
     // should be passed in exactly once and in the order they appeared
-    // in the document.  Passing in stings out of order, skipping
+    // in the document.  Passing in strings out of order, skipping
     // strings or passing them in more than once may lead to undefined
     // results.
     //
