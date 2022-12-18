@@ -214,6 +214,32 @@ namespace aspeller {
     return NULL;
   }
 
+
+  /**
+    Returns false if camel case checking is not enabled.
+    Otherwise returns true when the provided string is acceptable camel case and false when not.
+  */
+  bool SpellerImpl::check_camel(const char * str, size_t len) {
+    if(!camel_case_) {
+      return false;
+    }
+
+    CompoundWord cw = lang_->split_word(str, len, true);
+    WordEntry we;
+    do {
+      size_t sz = cw.word_len();
+      char word[sz+1];
+      memcpy(word, cw.word, sz);
+      word[sz] = '\0';
+      if (!check_simple(word, we)) {
+        return false;
+      }
+      cw = lang_->split_word(cw.rest, cw.rest_len(), true);
+    } while (!cw.empty());
+    return true;
+  }
+
+
   PosibErr<bool> SpellerImpl::check(char * word, char * word_end, 
                                     /* it WILL modify word */
                                     bool try_uppercase,
@@ -221,88 +247,26 @@ namespace aspeller {
                                     CheckInfo * ci, CheckInfo * ci_end,
                                     GuessInfo * gi, CompoundInfo * cpi)
   {
+    if (check_single(word, try_uppercase, *ci, gi)) {
+      return true;
+    }
+    if (check_camel(word, word_end - word)) {
+      return true;
+    }
+
     clear_check_info(*ci);
     bool res = check_runtogether(word, word_end, try_uppercase, run_together_limit, ci, ci_end, gi);
     if (res) return true;
-    
-    CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_);
-    if (cw.single()) return false;
-    bool ok = true;
-    CheckInfo * ci_prev = NULL;
-    do {
-      unsigned len = cw.word_len();
-      
-      char save = word[len];
-      word[len] = '\0';
-      CheckInfo * ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci, ci_end, gi);
-      bool found = ci_last;
-      word[len] = save;
 
-      if (!found) {
-        if (cpi) {
-          ci_last = ci;
-          ok = false;
-          ci->word.str = word;
-          ci->word.len = len;
-          ci->incorrect = true;
-          cpi->incorrect_count++;
-          if (!cpi->first_incorrect)
-            cpi->first_incorrect = ci;
-        } else {
-          return false;
-        }
-      }
-
-      if (cpi)
-        cpi->count++;
-      
-      if (ci_prev) {
-        ci_prev->compound = true;
-        ci_prev->next = ci;
-      }
-
-      ci_prev = ci_last;
-      ci = ci_last + 1;
-      if (ci >= ci_end) {
-        if (cpi) cpi->count = 0;
-        return false;
-      }
-      
-      word = word + cw.rest_offset();
-      cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
-      
-    } while (!cw.empty());
-    
-    return ok;
-    
-    // for (;;) {
-    //   cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
-    //   if (cw.empty()) break;
-    //   if (ci + 1 >= ci_end) {
-    //     if (cpi) cpi->count = 0;
-    //     return false;
-    //   }
-    //   if (cpi) cpi->count++;
-    //   len = cw.word_len();
-    //   save = word[len];
-    //   word[len] = '\0';
-    //   ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci + 1, ci_end, gi);
-    //   word[len] = save;
-    //   ci->compound = true;
-    //   ci->next = ci + 1;
-    //   if (ci_last) {
-    //     ci = ci_last;
-    //   } else if (cpi) {
-    //     ok = false;
-    //     ci->word.str = word;
-    //     ci->word.len = len;
-    //     ci->incorrect = true;
-    //     cpi->incorrect_count++;
-    //   } else {
-    //     return false;
-    //   }
-    //   word = word + cw.rest_offset();
-    // }
+    if (cpi) {
+      ci->word.str = word;
+      ci->word.len = word_end - word;
+      ci->incorrect = true;
+      cpi->incorrect_count++;
+      if (!cpi->first_incorrect)
+        cpi->first_incorrect = ci;
+    }
+    return false;
   }
 
   //////////////////////////////////////////////////////////////////////
