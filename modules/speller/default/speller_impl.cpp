@@ -247,9 +247,11 @@ namespace aspeller {
                                     CheckInfo * ci, CheckInfo * ci_end,
                                     GuessInfo * gi, CompoundInfo * cpi)
   {
+    clear_check_info(*ci);
     if (check_single(word, try_uppercase, *ci, gi)) {
       return true;
     }
+    clear_check_info(*ci);
     if (check_camel(word, word_end - word)) {
       return true;
     }
