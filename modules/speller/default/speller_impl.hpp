@@ -125,7 +125,7 @@ namespace aspeller {
       return check(MutableString(&w.front(), sz));
     }
 
-    bool check_camel(const char * str, size_t len);
+    bool check_camel(const char * str, size_t len, CheckInfo & ci);
 
     CheckInfo * check_runtogether(char * word, char * word_end, /* it WILL modify word */
                                   bool try_uppercase,

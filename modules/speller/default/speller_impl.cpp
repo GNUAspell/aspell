@@ -219,7 +219,7 @@ namespace aspeller {
     Returns false if camel case checking is not enabled.
     Otherwise returns true when the provided string is acceptable camel case and false when not.
   */
-  bool SpellerImpl::check_camel(const char * str, size_t len) {
+  bool SpellerImpl::check_camel(const char * str, size_t len, CheckInfo & ci) {
     if(!camel_case_) {
       return false;
     }
@@ -236,6 +236,8 @@ namespace aspeller {
       }
       cw = lang_->split_word(cw.rest, cw.rest_len(), true);
     } while (!cw.empty());
+    ci.word = str;
+    ci.compound = true;
     return true;
   }
 
@@ -252,7 +254,7 @@ namespace aspeller {
       return true;
     }
     clear_check_info(*ci);
-    if (check_camel(word, word_end - word)) {
+    if (check_camel(word, word_end - word, *ci)) {
       return true;
     }
 
