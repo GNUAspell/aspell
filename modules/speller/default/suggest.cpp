@@ -1008,7 +1008,7 @@ namespace {
         temp_buffer.reset();
         
         // first expand any prefixes
-        if (sp->fast_scan) { // if fast_scan than no prefixes
+        if (sp->fast_scan) { // if fast_scan, then no prefixes
           single.word.str = sw->word;
           single.word.size = strlen(sw->word);
           single.aff = (const unsigned char *)sw->aff;

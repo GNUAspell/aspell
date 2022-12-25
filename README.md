@@ -20,7 +20,7 @@ Before the build:
 ```
 
 The `./config-*` will set things up for easier development.  If you want
-to install Aspell to use it rather than develop with it than use the
+to install Aspell to use it rather than develop with it, then use the
 normal `configure`.  When `config-*` is used the default things will be
 installed in `<build dir>/inst` for easier testing and debugging. You
 can change that by using the `--prefix` option.
@@ -28,7 +28,7 @@ can change that by using the `--prefix` option.
 Autogen should be run when ever anything but the source files or
 Makefile.am files are modified.
 
-Than to build and install:
+Then to build and install:
 ```
 make
 make install
@@ -36,7 +36,7 @@ make install
 
 You will then need to install a dictionary package for the new Aspell.
 You can find them at http://aspell.net.  If Aspell is installed
-somewhere other than `/usr/local` you will probably need to add
+somewhere other than `/usr/local`, you will probably need to add
 `<prefix>/bin` to your PATH or make symbolic links to the executable in
 order for the dictionary to build correctly.
 
