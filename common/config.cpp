@@ -49,15 +49,15 @@
 //   during lookup, the non prefix version is also recognized.
 
 // The "place_holder" field in Entry and the "Vector<int>" parameter of
-// commit_all are there to deal with the fact than when spacing
-// options on the command line such as "--key what" it can not be
-// determined if "what" should be a the value of "key" or if it should
+// commit_all are there to deal with the fact that with spacing
+// options on the command line such as "--key what" it cannot be
+// determined if "what" should be a value of "key" or if it should
 // be treated as an independent arg.  This is because "key" may
 // be a filter option.  Filter options KeyInfo are not loaded until
 // after a commit which is not done at the time the options are being
 // read in from the command line.  (If the command line arguments are
-// read in after the other settings are read in and committed than any
-// options setting any of the config files will be ignored.  Thus the
+// read in after the other settings are read in and committed, then any
+// options setting any of the config files will be ignored.  Thus, the
 // command line must be parsed and options must be added in an
 // uncommitted state).  So the solution is to assume it is an
 // independent arg until told otherwise, the position in the arg array

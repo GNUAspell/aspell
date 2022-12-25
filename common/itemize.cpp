@@ -15,7 +15,7 @@
 
 //FIXME: it should be possible to escape ',' '+' '-' '!' so that they can
 //       appear in values
-//       If '\' is used than what about when the option file is parsed
+//       If '\' is used, then what about when the option file is parsed
 //         as it strips away all '\' escapes.
 
 namespace acommon {

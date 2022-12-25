@@ -391,7 +391,7 @@ namespace acommon {
     to_add->c_struct.code = to_add->code.c_str();
 
     // check if the code is in a valid form and normalize entry.  
-    // If its not in a valid form than ignore this entry
+    // If its not in a valid form, then ignore this entry
 
     if (to_add->code.size() >= 2 
 	&& asc_isalpha(to_add->code[0]) && asc_isalpha(to_add->code[1])) 

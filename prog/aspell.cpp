@@ -2385,7 +2385,7 @@ void munch_list_complete(bool multi, bool simplify)
 
   // If a base word has both prefixes and suffixes try to combine them.
   // This can lead to multiple entries for the same base word.  If "multi"
-  // is true than include all the entries.  Otherwise, only include the
+  // is true, then include all the entries.  Otherwise, only include the
   // one with the largest number of expansions.  This is a greedy choice
   // that may not be optimal, but is close to it.
   p = table.begin();

@@ -119,7 +119,7 @@ static byte HAVE_CATEGORY_FLAG = 1 << 6;
 static byte DUPLICATE_FLAG = 1 << 4;
 // this flag is set when there is is more than one word for a
 // particulear "clean" word such as "jello" "Jello".  It is set on all
-// but the last word of the group.  Ie, if it is set than the next
+// but the last word of the group.  I.e., if it is set, then the next
 // word when converted to its "clean" form equals the same value.
 
 static byte WORD_INFO_MASK = 0x0F;
