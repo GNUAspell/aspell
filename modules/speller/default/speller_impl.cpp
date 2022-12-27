@@ -226,6 +226,7 @@ namespace aspeller {
 
     CompoundWord cw = lang_->split_word(str, len, true);
     WordEntry we;
+    bool notSingle = false;
     do {
       size_t sz = cw.word_len();
       char word[sz+1];
@@ -235,10 +236,16 @@ namespace aspeller {
         return false;
       }
       cw = lang_->split_word(cw.rest, cw.rest_len(), true);
+      if (cw.word_len()) {
+        notSingle = true;
+      }
     } while (!cw.empty());
-    ci.word = str;
-    ci.compound = true;
-    return true;
+    if (notSingle) {
+      ci.word = str;
+      ci.compound = true;
+      return true;
+    }
+    return false;
   }
 
 
@@ -249,10 +256,6 @@ namespace aspeller {
                                     CheckInfo * ci, CheckInfo * ci_end,
                                     GuessInfo * gi, CompoundInfo * cpi)
   {
-    clear_check_info(*ci);
-    if (check_single(word, try_uppercase, *ci, gi)) {
-      return true;
-    }
     clear_check_info(*ci);
     if (check_camel(word, word_end - word, *ci)) {
       return true;
