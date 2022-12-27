@@ -265,15 +265,55 @@ namespace aspeller {
     bool res = check_runtogether(word, word_end, try_uppercase, run_together_limit, ci, ci_end, gi);
     if (res) return true;
 
-    if (cpi) {
-      ci->word.str = word;
-      ci->word.len = word_end - word;
-      ci->incorrect = true;
-      cpi->incorrect_count++;
-      if (!cpi->first_incorrect)
-        cpi->first_incorrect = ci;
-    }
-    return false;
+    CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_);
+    if (cw.single()) return false;
+    bool ok = true;
+    CheckInfo * ci_prev = NULL;
+    do {
+      unsigned len = cw.word_len();
+
+      char save = word[len];
+      word[len] = '\0';
+      CheckInfo * ci_last = check_runtogether(word, word + len, try_uppercase, run_together_limit, ci, ci_end, gi);
+      bool found = ci_last;
+      word[len] = save;
+
+      if (!found) {
+        if (cpi) {
+          ci_last = ci;
+          ok = false;
+          ci->word.str = word;
+          ci->word.len = len;
+          ci->incorrect = true;
+          cpi->incorrect_count++;
+          if (!cpi->first_incorrect)
+            cpi->first_incorrect = ci;
+        } else {
+          return false;
+        }
+      }
+
+      if (cpi)
+        cpi->count++;
+
+      if (ci_prev) {
+        ci_prev->compound = true;
+        ci_prev->next = ci;
+      }
+
+      ci_prev = ci_last;
+      ci = ci_last + 1;
+      if (ci >= ci_end) {
+        if (cpi) cpi->count = 0;
+        return false;
+      }
+
+      word = word + cw.rest_offset();
+      cw = lang_->split_word(cw.rest, cw.rest_len(), camel_case_);
+
+    } while (!cw.empty());
+
+    return ok;
   }
 
   //////////////////////////////////////////////////////////////////////
