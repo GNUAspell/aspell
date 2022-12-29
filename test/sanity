@@ -32,3 +32,20 @@ else
     exit 1
 fi
 
+echo 'itIsOKForACamelCaseWordToContainNumerousCOMPONENTS' | aspell --camel-case -d en_US -a > tmp/res
+if cat tmp/res | fgrep '-'; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/res
+    exit 1
+fi
+
+echo 'EvenIfTheFirstCOMPONENTBeginsWithACapitalLetter' | aspell --camel-case -d en_US -a > tmp/res
+if cat tmp/res | fgrep '-'; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/res
+    exit 1
+fi
