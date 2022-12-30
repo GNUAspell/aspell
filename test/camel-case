@@ -1,8 +1,11 @@
 #!/bin/sh
 
+set -e
+set -x
+
 export PATH="`pwd`"/inst/bin:$PATH
 
-echo 'isIsOKForACamelCaseWordToContainNumerousCOMPONENTS-' | aspell --camel-case -d en_US -a > tmp/res
+echo 'isIsOKForACamelCaseWordToContainNumerousCOMPONENTS' | aspell --camel-case -d en_US -a > tmp/res
 if cat tmp/res | fgrep -x '-'; then
     echo "pass"
 else
