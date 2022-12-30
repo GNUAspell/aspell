@@ -8,8 +8,8 @@ ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
 endif
 
-.PHONY: all prep sanity filter-test suggest wide cxx_warnings
-all: prep sanity filter-test suggest wide cxx_warnings
+.PHONY: all prep sanity camel-case filter-test suggest wide cxx_warnings
+all: prep sanity camel-case filter-test suggest wide cxx_warnings
 	cat test-res
 
 # warning-settings.mk defines EXTRA_CXXFLAGS
@@ -28,12 +28,16 @@ sanity: prep
 	./sanity
 	echo "all ok (sanity)" >> test-res
 
+camel-case: prep
+	./camel-case
+	echo "all ok (camel-case)" >> test-res
+
 filter-test: prep
 	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
 	echo "all ok (markdown filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
-	$(MAKE) -C build aspell && ( cmp -s build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
+	$(MAKE) -C build aspell${EXEEXT} && ( cmp -s build/aspell inst/bin/aspell || $(MAKE) -s -C build install )
 
 inst/lib/aspell-0.60/en.multi: inst/bin/aspell aspell6-en-2018.04.16-0.tar.bz2
 	tar xf aspell6-en-2018.04.16-0.tar.bz2

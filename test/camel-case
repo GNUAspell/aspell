@@ -1,0 +1,21 @@
+#!/bin/sh
+
+export PATH="`pwd`"/inst/bin:$PATH
+
+echo 'isIsOKForACamelCaseWordToContainNumerousCOMPONENTS-' | aspell --camel-case -d en_US -a > tmp/res
+if cat tmp/res | fgrep -x '-'; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/res
+    exit 1
+fi
+
+echo 'EvenIfTheFirstCOMPONENTBeginsWithACapitalLetter' | aspell --camel-case -d en_US -a > tmp/res
+if cat tmp/res | fgrep -x '-'; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/res
+    exit 1
+fi
