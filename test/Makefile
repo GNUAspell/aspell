@@ -29,7 +29,7 @@ sanity: prep
 	echo "all ok (sanity)" >> test-res
 
 camel-case: prep | sanity
-	sh ./camel-case
+	./camel-case
 	echo "all ok (camel-case)" >> test-res
 
 filter-test: prep
