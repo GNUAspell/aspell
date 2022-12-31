@@ -3,21 +3,20 @@
 set -e
 set -x
 
-echo 'itIsOKForACamelCaseWordToContainNumerousCOMPONENTS' | ${ASPELL} --camel-case -d en_US -a > tmp/res
-if cat tmp/res | fgrep -x '-'; then
+echo 'itIsOKForACamelCaseWordToContainNumerousCOMPONENTS' | ${ASPELL} --camel-case -d en_US -a > tmp/camel-case-res
+if cat tmp/camel-case-res | fgrep -x '-'; then
     echo "pass"
 else
     echo "fail:"
-    cat tmp/res
+    cat tmp/camel-case-res
     exit 1
 fi
 
-echo 'EvenIfTheFirstCOMPONENTBeginsWithACapitalLetter' | ${ASPELL} --camel-case -d en_US -a > tmp/res
-if cat tmp/res | fgrep -x '-'; then
+echo 'EvenIfTheFirstCOMPONENTBeginsWithACapitalLetter' | ${ASPELL} --camel-case -d en_US -a > tmp/camel-case-res
+if cat tmp/camel-case-res | fgrep -x '-'; then
     echo "pass"
 else
     echo "fail:"
-    cat tmp/res
+    cat tmp/camel-case-res
     exit 1
 fi
-

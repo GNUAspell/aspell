@@ -28,8 +28,8 @@ sanity: prep
 	./sanity
 	echo "all ok (sanity)" >> test-res
 
-camel-case: prep | sanity
-	sh ./camel-case
+camel-case: prep
+	./camel-case
 	echo "all ok (camel-case)" >> test-res
 
 filter-test: prep
