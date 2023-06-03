@@ -4,12 +4,11 @@ aspell \- interactive spell checker
 .SH SYNOPSIS
 .B aspell
 .I "[options] <command>"
-.br
 .SH "DESCRIPTION"
 .B aspell
 is a utility program that connects to the Aspell library so that it can
 function as an
-.B "ispell -a"
+.B "ispell \-a"
 replacement, as an independent spell checker, as a test utility to test
 out Aspell library features, and as a utility for managing dictionaries
 used by the library.
@@ -51,7 +50,7 @@ Spell\-check a single file.
 .TP
 \fBpipe\fR, \fB\-a\fR
 Run Aspell in
-.I "ispell -a"
+.I "ispell \-a"
 compatibility mode.
 .TP
 .B list
@@ -71,7 +70,7 @@ Output the soundslike equivalent of each word entered.
 .B munch
 Generate possible root words and affixes from an input list of words.
 .TP
-\fBexpand\fR [\fB1\-4\fR]
+\fBexpand\fR [\fB1\(en4\fR]
 Expands the affix flags of each affix compressed word entered.
 .TP
 \fBclean\fR [\fBstrict\fR]
@@ -173,8 +172,8 @@ Add or remove paths searched for filters.
 .TP
 \fB\-\-mode=\fR\fI<string>\fR, \fB\-e\fR, \fB\-H\fR, \fB\-t\fR, \fB\-n\fR
 Sets the filter mode.  \fIMode\fR is one of none, url, email, html, tex
-or nroff.  The alternative shortcut options are '-e' for email, '-H'
-for Html/Sgml, '-t' for Tex or '-n' for Nroff.
+or nroff.  The alternative shortcut options are '\-e' for email, '\-H'
+for Html/Sgml, '\-t' for Tex or '\-n' for Nroff.
 .TP
 \fB\-\-encoding=\fR\fI<string>\fR
 encoding the document is expected to be in.  The default depends on the
@@ -264,7 +263,7 @@ These options are part of the
 .I aspell
 Utility and work independently of the library.
 .TP
-\fB--backup\fR, \fB\-\-dont\-backup\fR, \fB\-b\fR, \fB\-x\fR
+\fB\-\-backup\fR, \fB\-\-dont\-backup\fR, \fB\-b\fR, \fB\-x\fR
 The aspell utility creates a backup file by making a copy and appending
 .I .bak
 to file name.  This only applies when the command is
@@ -308,7 +307,7 @@ default global configuration file is
 .I "/etc/aspell.conf"
 or another file specified by option \fI\-\-conf\fR and is checked first.
 The default per user configuration file
-.I "~/.aspell.conf"
+.I "\%\(ti/.aspell.conf"
 located in the
 .B "$HOME"
 directory (or another file specified by option \fI\-\-per\-conf\fR) is
@@ -339,7 +338,6 @@ with a '#' as anything from a '#' to a newline is ignored.  Blank lines
 are also allowed.  The \fI/etc/aspell.conf\fR file is a good example of
 how to set these options and the Aspell Manual has more detailed info.
 .SH SEE ALSO
-.PP
 .BR aspell\-import (1),
 .BR prezip\-bin (1),
 .BR run\-with\-aspell (1),
