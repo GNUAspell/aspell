@@ -37,7 +37,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: cimg/base:16.04
+    - image: circleci/buildpack-deps:16.04
     steps:
     # Machine Setup
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
@@ -78,7 +78,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: cimg/base:18.04
+    - image: circleci/buildpack-deps:18.04
     steps:
     # Machine Setup
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
@@ -133,7 +133,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: cimg/base:20.04
+    - image: circleci/buildpack-deps:20.04
     steps:
     # Machine Setup
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
@@ -193,7 +193,7 @@ jobs:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     docker:
-    - image: cimg/base:20.04
+    - image: circleci/buildpack-deps:20.04
     steps:
     # Machine Setup
     - checkout
