@@ -20,7 +20,7 @@ jobs:
     #
     - run: sudo sed -i 's;http://archive.debian.org/debian/;http://deb.debian.org/debian/;' /etc/apt/sources.list
     - run: sudo apt-get -y update
-    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib 
+    - run: sudo apt-get -y --force-yes install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib 
     - run: sudo apt-get -y purge aspell
     #
     - run: ./autogen
