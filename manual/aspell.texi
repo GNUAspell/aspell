@@ -3576,7 +3576,7 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes from 0.60.7 to 0.68.8 (October 12, 2019)
+@heading Changes from 0.60.7 to 0.60.8 (October 12, 2019)
 @itemize @bullet
 @item
 Prevent a potentially unbounded buffer over-read by no longer
