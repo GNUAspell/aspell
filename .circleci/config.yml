@@ -18,9 +18,12 @@ jobs:
     steps:
     - checkout
     #
-    - run: sudo sed -i 's;http://archive.debian.org/debian/;http://deb.debian.org/debian/;' /etc/apt/sources.list
+    #- run: sudo sed -i 's;http://archive.debian.org/debian/;http://deb.debian.org/debian/;' /etc/apt/sources.list
+    - run: sudo wget --no-check-certificate https://deb.freexian.com/extended-lts/archive-key.gpg -O elts-archive-key.gpg && sudo mv elts-archive-key.gpg /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+    - run: sudo rm /etc/apt/sources.list
+    - run: sudo sh -c "echo 'deb http://deb.freexian.com/extended-lts jessie main contrib non-free' > /etc/apt/sources.list.d/extended-lts.list"
     - run: sudo apt-get -y update
-    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib 
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext clang-3.5 clang-4.0 g++-multilib
     - run: sudo apt-get -y purge aspell
     #
     - run: ./autogen
