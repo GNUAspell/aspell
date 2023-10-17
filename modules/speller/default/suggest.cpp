@@ -381,7 +381,7 @@ namespace {
       : lang(l), original(), parms(p), sp(m), have_presuf(false) 
       , threshold(1), max_word_length(0)
     {
-      memset(check_info, 0, sizeof(check_info));
+      memset(static_cast<void *>(check_info), 0, sizeof(check_info));
       original.word = w;
       l->to_lower(original.lower, w.str());
       l->to_clean(original.clean, w.str());
@@ -709,7 +709,7 @@ namespace {
     buffer.commit_temp();
     add_nearmiss(beg, end - beg, 0, inf);
     //CERR.printl(tmp);
-    memset(check_info, 0, sizeof(CheckInfo)*res);
+    memset(static_cast<void *>(check_info), 0, sizeof(CheckInfo)*res);
   }
 
   void Working::add_nearmiss(char * word, unsigned word_size,
