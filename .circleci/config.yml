@@ -51,7 +51,7 @@ jobs:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     docker:
-    - image: circleci/buildpack-deps:18.04
+    - image: cimg/base:current-18.04
     steps:
     #
     # note: default gcc version is 4.7
@@ -98,7 +98,7 @@ jobs:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     docker:
-    - image: circleci/buildpack-deps:20.04
+    - image: cimg/base:current-20.04
     steps:
     #
     - run: sudo apt-get -y update
@@ -149,11 +149,11 @@ jobs:
         when: always
         command: ./config-opt && make -C build -j2
 
-  tests:
+  tests_20_04:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
     docker:
-    - image: circleci/buildpack-deps:20.04
+    - image: cimg/base:current-20.04
     steps:
     # Machine Setup
     #
@@ -177,4 +177,4 @@ workflows:
       - build_20_04
   tests:
     jobs:
-      - tests
+      - tests_20_04
