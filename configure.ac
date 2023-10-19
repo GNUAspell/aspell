@@ -89,6 +89,9 @@ AC_ARG_ENABLE(incremented-soname,
 dnl AC_ARG_ENABLE(aspell5-compatibility,
 dnl [  --enable-aspell5-compatibility  install aspell 0.50 compatibility libraries])
 
+AC_ARG_ENABLE(w-all-error,
+  AS_HELP_STRING([--enable-w-all-error],[selectively enable -Wall and -Werror]))
+
 dnl
 
 AC_PROG_CXX
@@ -160,6 +163,8 @@ AM_CONDITIONAL(INCREMENTED_SONAME,
 dnl AM_CONDITIONAL(ASPELL5_COMPATIBILITY,
 dnl   [test "$enable_incremented_soname" != "no" -a \
 dnl         "$enable_aspell5_compatibility" = "yes"])
+AM_CONDITIONAL(W_ALL_ERROR,
+  [test "$enable_w_all_error" = "yes"])
 
 dnl GETTEXT
 

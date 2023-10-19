@@ -4,4 +4,5 @@ mkdir -p build
 cd build
 ../configure --enable-maintainer-mode \
   --disable-shared --disable-pspell-compatibility\
-  --prefix="`pwd`/../inst" CFLAGS='-g -Wall -Wno-unused' CXXFLAGS='-g -Wall -Wno-unused' "$@"
+  --enable-w-all-error
+  --prefix="`pwd`/../inst" CFLAGS='-g' CXXFLAGS='-g' "$@"
