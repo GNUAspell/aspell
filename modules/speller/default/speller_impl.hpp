@@ -112,9 +112,10 @@ namespace aspeller {
     }
     PosibErr<bool> check(ParmString word)
     {
-      std::vector<char> w(word.size()+1);
-      strncpy(&*w.begin(), word, w.size());
-      return check(MutableString(&w.front(), w.size() - 1));
+      size_t sz = word.size();
+      std::vector<char> w(sz+1);
+      memcpy(&*w.begin(), word.str(), sz+1);
+      return check(MutableString(&w.front(), sz));
     }
     PosibErr<bool> check(const char * word) {return check(ParmString(word));}
     PosibErr<bool> check(const char * word, size_t sz)

@@ -1552,12 +1552,15 @@ namespace {
       Working * src = i->src;
       if (i->repl_list != 0) {
 	do {
-          char * word = i->src->fix_word(res.buf, i->repl_list->word);
+          const char * word = i->src->fix_word(res.buf, i->repl_list->word);
  	  dup_pair = duplicates_check.insert(word);
  	  if (dup_pair.second) {
             const char * pos = strchr(word, ' ');
-            bool in_dict = pos == NULL ?
-              src->sp->check(word) && true : src->sp->check(word, pos - word) && src->sp->check(pos + 1);
+            bool in_dict;
+            if (pos == NULL)
+              in_dict = src->sp->check(word);
+            else
+              in_dict = src->sp->check(word, pos - word) && src->sp->check(pos + 1);
             if (in_dict)
               res.push_back(Suggestion(word,&*i));
           }

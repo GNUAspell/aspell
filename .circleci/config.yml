@@ -204,6 +204,33 @@ jobs:
         when: always
         command: ./config-opt && make -C build -j2
 
+
+  build_latest:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    docker:
+    - image: buildpack-deps:23.10
+    steps:
+    - run: apt-get -y update
+    - run: apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib clang
+    - run: apt-get -y purge aspell
+    - checkout
+    #
+    - run:
+        command: ./autogen
+    - run:
+        when: on_fail
+        command: circleci-agent step halt
+    - run:
+        when: always
+        command: ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX=clang++ CC=clang ./sanity-check.sh
+    - run:
+        when: always
+        command: ./config-opt && make -C build -j2
+
   tests_20_04:
     working_directory: ~/GNUAspell/aspell
     parallelism: 1
@@ -249,6 +276,7 @@ workflows:
       - build_18_04
       - build_20_04
       - build_22_04
+      - build_latest
   tests:
     jobs:
       - tests_20_04

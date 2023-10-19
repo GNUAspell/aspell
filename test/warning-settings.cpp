@@ -26,11 +26,18 @@ int main() {
     disable_gcc_error("maybe-uninitialized");
   if (GCC >= 6)
     disable_gcc_warning("misleading-indentation");
-  if (GCC == 7) // FIXME: I _think_ this is a false positive but need
-                // to double check
+  if (GCC == 7)
     printf("-Walloc-size-larger-than=-1 ");
   if (GCC == 10)
     disable_gcc_warning("class-memaccess");
+  if (GCC == 13) {
+    disable_gcc_error("stringop-overflow");
+    disable_gcc_error("array-bounds");
+    disable_gcc_error("restrict");
+    // NOTE: All three warning above are due to gcc incorrectly thinking that
+    // the length of word in strchr(word, ' ') (in suggest.cpp, Sugs::transfer)
+    // is a very large value and exceeds the maximum object size.
+  }
   disable_clang_warning("return-type-c-linkage");
   disable_clang_warning("tautological-compare");
   printf("\n");
