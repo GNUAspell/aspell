@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2023-12-19 17:56-0500\n"
 "PO-Revision-Date: 2020-03-08 12:51+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -692,7 +692,9 @@ msgid "Invalid Option: %s"
 msgstr "Ugyldigt tilvalg: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " tager ikke nogle argumenter."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -945,10 +947,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      normaliseringsform der skal bruges, enten none, internal eller strict"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1212,7 +1218,7 @@ msgstr "Den totale ordlængde, med soundslike (udtale) data, er længere end 240
 msgid "There must be at least one \"add\" line."
 msgstr "Der skal mindst være en »tilføj linje«."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "en af ultra, hurtig, normal, langsom eller dårlig stavning"
 

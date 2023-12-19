@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2023-12-19 17:56-0500\n"
 "PO-Revision-Date: 2020-03-31 13:52+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -685,7 +685,9 @@ msgid "Invalid Option: %s"
 msgstr "Неисправна опција: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " не прихвата никакве параметре."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -940,10 +942,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <облик-правила>        облик сређивања за коришћење, „none“, „internal“, или „strict“"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1208,7 +1214,7 @@ msgstr "Укупна дужина речи, са подацима звучика
 msgid "There must be at least one \"add\" line."
 msgstr "Мора да постоји барем један „add“ ред."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "један од ultra, fast, normal, slow, или bad-spellers"
 

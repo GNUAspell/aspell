@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2023-12-19 17:56-0500\n"
 "PO-Revision-Date: 2019-10-27 16:22+0100\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon <(nothing)>\n"
@@ -684,8 +684,10 @@ msgid "Invalid Option: %s"
 msgstr "Tchuze nén valide: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Does not contain any alphabetic characters."
+msgid "'%s' does not take any parameters."
+msgstr "I n' a nou caractere alfabetike."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -946,7 +948,7 @@ msgstr ""
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1209,7 +1211,7 @@ msgstr "Li longueur totåle do mot, avou les dnêyes fonetikes, est di pus d' 2
 msgid "There must be at least one \"add\" line."
 msgstr "I fåt pol moens ene roye «add»."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 
