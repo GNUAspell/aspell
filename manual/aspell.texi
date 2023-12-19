@@ -3576,10 +3576,19 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes 0.60.8 to ???
+@heading Changes 0.60.8 to 0.60.8.1 (December 19, 2023)
 @itemize @bullet
 @item
 Fix memory leak in suggestion code introduced in 0.60.8.
+@item
+Various documentation fixes.
+@item
+Fix various warnings when compiling with -Wall.
+@item
+Fix two buffer overflows found by Google's OSS-Fuzz.
+@item
+Other minor updates.
+@item
 @end itemize
 
 @heading Changes from 0.60.7 to 0.60.8 (October 12, 2019)
