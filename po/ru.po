@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2019-09-24 18:53+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -683,7 +683,9 @@ msgid "Invalid Option: %s"
 msgstr "Неверная опция: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " не принимает никаких параметров."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -938,10 +940,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <форма-норм>     используемая форма нормализации: none, internal или strict"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1205,7 +1211,7 @@ msgstr "Общая длина слов с данными soundslike превыш
 msgid "There must be at least one \"add\" line."
 msgstr "Должна быть хотя бы одна строка \"add\"."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "один из: ultra, fast, normal, slow или bad-spellers"
 

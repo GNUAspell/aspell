@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -791,8 +791,8 @@ msgid "Invalid Option: %s"
 msgstr ""
 
 #: prog/aspell.cpp:322
-#, fuzzy
-msgid " does not take any parameters."
+#, fuzzy, c-format
+msgid "'%s' does not take any parameters."
 msgstr "OYA Ibigenga"
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -1092,7 +1092,7 @@ msgstr "<Ifishi Ifishi Kuri Gukoresha Ntacyo By'imbere Cyangwa"
 #, fuzzy, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr "ku"
 
@@ -1374,7 +1374,7 @@ msgstr "Igiteranyo ijambo Uburebure Na: Ibyatanzwe ni Kinini Inyuguti"
 msgid "There must be at least one \"add\" line."
 msgstr ""
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 

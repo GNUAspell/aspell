@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2019-09-24 01:21+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -681,7 +681,9 @@ msgid "Invalid Option: %s"
 msgstr "間違ったオプション: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " 引数をとりません。"
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -941,7 +943,7 @@ msgstr "  <norm-form>      正規化の形式 none, internal, strict のいず�
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1204,7 +1206,7 @@ msgstr "単語等の長さの合計が240文字を超えています。"
 msgid "There must be at least one \"add\" line."
 msgstr "一つ以上\"add\" 行がなくてはなりません。"
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "次のうちの１つ: ultra, fast, normal, slow, or bad-spellers"
 

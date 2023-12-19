@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the aspell package.
 #
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012.
-# Božidar Putanec <bozidarp@yahoo.com>, 2019.
+# Božidar Putanec <bozidarp@yahoo.com>, 2019, 2020, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-24 17:03+0200\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-04 21:13-0800\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -42,7 +42,7 @@ msgstr "logička vrijednost"
 
 #: common/config.cpp:74
 msgid "list"
-msgstr "popis"
+msgstr "lista"
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
@@ -136,20 +136,20 @@ msgstr "lokacija privatnih datoteka"
 
 #: common/config.cpp:1407
 msgid "ignore words <= n chars"
-msgstr "ignorira riječi s <= n znakova"
+msgstr "zanemari riječi s <= n znakova"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1410
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
-msgstr "ignorira naglaske pri provjeravanju riječi -- ZA SADA ZANEMARENO"
+msgstr "zanemari naglaske pri provjeravanju riječi -- ZA SADA ZANEMARENO"
 
 #: common/config.cpp:1412
 msgid "ignore case when checking words"
-msgstr "ignorira veličinu slova pri provjeri riječi"
+msgstr "zanemari veličinu slova pri provjeri riječi"
 
 #: common/config.cpp:1414
 msgid "ignore commands to store replacement pairs"
-msgstr "ignorira naredbe za spremanje zamjenskih parova"
+msgstr "zanemari naredbe za spremanje zamjenskih parova"
 
 #: common/config.cpp:1416 common/config.cpp:1483
 msgid "extra information for the word list"
@@ -189,7 +189,7 @@ msgstr "omogući Unicode normalizaciju"
 
 #: common/config.cpp:1436
 msgid "Unicode normalization required for current lang"
-msgstr "aktualni jezik zahtijeva Unicode normalizaciju"
+msgstr "za trenutni jezik potrebna je Unicode normalizacija"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
@@ -258,11 +258,11 @@ msgstr "način predlaganja"
 #. translated.
 #: common/config.cpp:1475
 msgid "use typo analysis, override sug-mode default"
-msgstr "koristi analizu zatipaka (ignorira sug-mode)"
+msgstr "koristi analizu zatipaka (redefinira zadani sug-mode)"
 
 #: common/config.cpp:1477
 msgid "use replacement tables, override sug-mode default"
-msgstr "koristi zamjenske tablice (ignorira sug-mode)"
+msgstr "koristi zamjenske tablice (redefinira zadani sug-mode)"
 
 #: common/config.cpp:1479
 msgid "characters to insert when a word is split"
@@ -329,7 +329,7 @@ msgstr "koristi bajt-odmake umjesto znak-odmake"
 
 #: common/config.cpp:1524
 msgid "create missing root/affix combinations"
-msgstr "napravi korijen/afiks kombinacije koje nedostaju"
+msgstr "napravi korijen/afiks kombinacije kojih nema"
 
 #: common/config.cpp:1526
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
@@ -600,7 +600,7 @@ msgstr "Aspell inačica ne odgovara zahtjevima ovog načina."
 
 #: common/errors.cpp:603
 msgid "Missing magic mode expression."
-msgstr "Nedostaje izraz za magic način."
+msgstr "Nema izraza za magic način."
 
 #: common/errors.cpp:611
 #, c-format
@@ -685,8 +685,9 @@ msgid "Invalid Option: %s"
 msgstr "Nevaljana opcija: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " ne prihvaća nijedan parametar."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "„%s“ ne prihvaća nijedan parametar."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -755,11 +756,11 @@ msgstr "Nije moguće otvoriti datoteku „%s“ za pisanje. Datoteka nije spreml
 
 #: prog/aspell.cpp:1042
 msgid "Ignore"
-msgstr "Ignorirati"
+msgstr "Zanemariti"
 
 #: prog/aspell.cpp:1043
 msgid "Ignore all"
-msgstr "Sve ignorirati"
+msgstr "Sve zanemariti"
 
 #: prog/aspell.cpp:1044
 msgid "Replace"
@@ -783,7 +784,7 @@ msgstr "Prekinuti"
 
 #: prog/aspell.cpp:1049
 msgid "Exit"
-msgstr "Izlaz"
+msgstr "Završi"
 
 #: prog/aspell.cpp:1125
 msgid "Are you sure you want to abort (y/n)? "
@@ -841,7 +842,7 @@ msgstr "  -?|usage         pokaže kratke upute za uporabu"
 
 #: prog/aspell.cpp:2832
 msgid "  help             display a detailed help message"
-msgstr "  help             pokaže detaljnu pomoć"
+msgstr "  help             pokaže iscrpnu pomoć"
 
 #: prog/aspell.cpp:2833
 msgid "  -c|check <file>  spellchecks a file"
@@ -853,11 +854,11 @@ msgstr "  -a|pipe          način za kompatibilnost (s „ispell -a“)"
 
 #: prog/aspell.cpp:2835
 msgid "  [dump] config    dumps the current configuration to stdout"
-msgstr "  [dump] config    ispiše aktualnu konfiguraciju na standardni izlaz"
+msgstr "  [dump] config    ispiše trenutnu konfiguraciju na standardni izlaz"
 
 #: prog/aspell.cpp:2836
 msgid "  config <key>     prints the current value of an option"
-msgstr "  config <ključ>   ispiše aktualnu vrijednost opcije"
+msgstr "  config <ključ>   ispiše trenutnu vrijednost opcije"
 
 #: prog/aspell.cpp:2837
 msgid "  [dump] dicts | filters | modes"
@@ -941,11 +942,11 @@ msgstr "  <norm-forma>     forma normalizacije za uporabu (none, internal ili st
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -957,7 +958,7 @@ msgid ""
 msgstr ""
 "Dostupni rječnici:\n"
 "    Rječnici se mogu odabrati izravno opcijom „-d“ ili „master“.\n"
-"    Također se mogu neizravno odabrati opcijama „lang“, „variety“\n"
+"    Mogu se i neizravno odabrati opcijama „lang“, „variety“\n"
 "    i „size“.\n"
 
 #: prog/aspell.cpp:2939
@@ -988,7 +989,7 @@ msgid ""
 msgstr ""
 "Dostupni načini filtriranja\n"
 "(Načini filtriranja su uobičajeni filtri ili kombinacije filtara prilagođenih\n"
-"    određenoj vrsti datoteke). Ako uspije odrediti vrstu iz sufiksa ili\n"
+"    određenom tipu datoteke). Ako uspije odrediti tip iz sufiksa ili\n"
 "    sadržaja datoteke, aspell će implicitno odabrati način filtriranja.\n"
 "    Inače, s opcijom „mode“ način filtriranja se može eksplicitno odabrati.\n"
 "    U nastavku su navedeni raspoloživi načini filtriranja.\n"
@@ -1114,7 +1115,7 @@ msgstr "Vjerojatni razlog je: "
 
 #: modules/speller/default/language.cpp:110
 msgid "The required field \"name\" is missing."
-msgstr "Nedostaje traženo polje „ime“."
+msgstr "Nema potrebnog polja „ime“."
 
 #: modules/speller/default/language.cpp:524
 msgid "Empty string."
@@ -1123,7 +1124,7 @@ msgstr "Prazni string."
 #: modules/speller/default/language.cpp:533
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
-msgstr "Znak „%s“ (U+%02X) ne smije biti na početku riječi."
+msgstr "Znak „%s“ (U+%02X) se možda neće pojaviti na početku riječi."
 
 #: modules/speller/default/language.cpp:535
 #: modules/speller/default/language.cpp:544
@@ -1142,12 +1143,12 @@ msgstr "Znak „%s“ (U+%02X) ne smije biti u sredini riječi."
 
 #: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr "Znak „\\r“ (U+0D) ne smije biti na kraju riječi. Vjerojatno datoteka koristi MS-DOS EOL umjesto Unix EOL-a."
+msgstr "Znak „\\r“ (U+0D) se možda neće pojaviti na kraju riječi. Vjerojatno datoteka koristi MS-DOS EOL umjesto Unix EOL-a."
 
 #: modules/speller/default/language.cpp:552
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
-msgstr "Znak „%s“ (U+%02X) ne smije biti na kraju riječi."
+msgstr "Znak „%s“ (U+%02X) se možda neće pojaviti na kraju riječi."
 
 #: modules/speller/default/language.cpp:584
 #, c-format
@@ -1205,7 +1206,7 @@ msgstr "Ukupna duljina riječi s podacima o zvučnosti je veća od 240 znakova."
 msgid "There must be at least one \"add\" line."
 msgstr "Mora postojati barem jedan „add“-redak."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "jedno od ultra, fast, normal, slow ili bad-spellers"
 
@@ -1274,7 +1275,7 @@ msgstr "filtar za rad s Markdown/CommonMark dokumentima"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr "preskočite oznake veza u definicijama veza"
+msgstr "preskočite oznake poveznica u definicijama referenci veza"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
@@ -1294,7 +1295,7 @@ msgstr "filtar za rad s Nroff dokumentima"
 
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
-msgstr "filtar za rad s općenitim SGML/XML dokumentima"
+msgstr "filtar za rad s općim SGML/XML dokumentima"
 
 #: modules/filter/sgml-filter.info:15
 msgid "SGML attributes to always check"
@@ -1322,11 +1323,11 @@ msgstr "filtar za rad s Texinfo dokumentima"
 
 #: modules/filter/texinfo-filter.info:13
 msgid "Texinfo commands to ignore the parameters of"
-msgstr "Texinfo naredbe čiji se parametri ignoriraju"
+msgstr "Texinfo naredbe čiji su parametri zanemareni"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
-msgstr "Texinfo okoline koje se ignoriraju"
+msgstr "Texinfo okoline koje su zanemarene"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"

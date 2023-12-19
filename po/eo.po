@@ -1,14 +1,15 @@
 # Esperanto messages for GNU Aspell
-# Copyright (C) 2013 Kevin Atkinson
+# Copyright (C) 2013, 2019 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
-# Felipe Castro <fefcas@gmail.com>, 2013.
+# Felipe Castro <fefcas@gmail.com>, 2013, 2019.
+# Keith Bowes <zooplah@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.7\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2013-02-01 09:35-0300\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-12 10:02-0500\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -16,10 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
-msgstr "numero inter 0 kaj 1"
+msgstr "nombro inter 0 kaj 1"
 
 #: common/info.cpp:569
 msgid "in the form \"<name> <value>\""
@@ -125,7 +127,7 @@ msgstr "aldonaj vortaroj uzotaj"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "dosieroj kun listo da kromaj vortoj por esti akceptotaj"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -220,17 +222,15 @@ msgstr "konsideri kun-metitajn vortojn validaj"
 
 #: common/config.cpp:1457
 msgid "maximum number that can be strung together"
-msgstr "maksimuma numero kiu povas esti kunĉenigita"
+msgstr "maksimuma nombro kiu povas esti kunĉenigita"
 
 #: common/config.cpp:1459
 msgid "minimal length of interior words"
 msgstr "minimuma longo de internaj vortoj"
 
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "konsideri kun-metitajn vortojn validaj"
+msgstr "konsideri MiksUsklajn vortojn validaj"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -672,10 +672,8 @@ msgid "enter Nroff mode."
 msgstr "eniri Nroff-reĝimon."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter Nroff mode."
 msgid "enter Markdown mode."
-msgstr "eniri Nroff-reĝimon."
+msgstr "eniri Markdown-reĝimon."
 
 #: prog/aspell.cpp:315
 #, c-format
@@ -683,8 +681,9 @@ msgid "Invalid Option: %s"
 msgstr "Malvalida opcio: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " ne prenas iun ajn parametron."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "'%s' ne allasas iun ajn parametron."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -742,10 +741,9 @@ msgid "Invalid keymapping: %s"
 msgstr "Malvalida klavmapo: %s"
 
 #: prog/aspell.cpp:1018
-#, fuzzy, c-format
-#| msgid "\"%expression:1\" is not a valid regular expression."
+#, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "\"%expression:1\" ne estas valida regulesprimo."
+msgstr "\"%s\" ne estas ordinara dosiero."
 
 #: prog/aspell.cpp:1029
 #, c-format
@@ -843,10 +841,8 @@ msgid "  help             display a detailed help message"
 msgstr "  help             montri detalan help-mesaĝon"
 
 #: prog/aspell.cpp:2833
-#, fuzzy
-#| msgid "  -c|check <file>  to check a file"
 msgid "  -c|check <file>  spellchecks a file"
-msgstr "  -c|check <dosiero> kontroli dosieron"
+msgstr "  -c|check <dosiero> literume kontroli dosieron"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
@@ -894,7 +890,7 @@ msgstr "  clean [strict]   netigas vortliston tiel ke ĉiu linio estu valida vor
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           filtri enigon kvazaŭ ĝi estus literume kontrolita"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
@@ -939,18 +935,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-formo>     normiga formo uzota, aŭ 'none', 'internal', aŭ 'strict'"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Kopirajto 2000-2011 de Kevin Atkinson.\n"
+"Aspell %s.  Kopirajto 2000-2023 de Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1209,7 +1201,7 @@ msgstr "La entuta vortlongo, kun fonema datumaro, estas pli ol 240 signoj."
 msgid "There must be at least one \"add\" line."
 msgstr "Devas esti minimume unu linio \"add\"."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "unu el ultra, fast, normal, slow, aŭ bad-spellers"
 
@@ -1273,26 +1265,24 @@ msgid "HTML tags to always skip the contents of"
 msgstr "markoj HTML kies enhavo estu preterpasata"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "filtrilo por trakti dokumentojn Texinfo"
+msgstr "filtrilo por dokumentoj Markdown/CommonMark"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "preterpasi ligo-etikedojn en difinoj de ligo-referencoj"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "subteni etikedojn kiuj okupas multoblajn liniojn for de HTML-blokoj"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "HTML-etikedoj kiuj komencigas HTML-blokon kiuj permesas blank-liniojn"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "HTML-etikedoj kiuj komencigas HTML-blokon kiuj finas per blank-linio"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1355,10 +1345,8 @@ msgid "mode for checking HTML documents"
 msgstr "reĝimo por kontroli dokumentojn HTML"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "mode for checking Nroff documents"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "reĝimo por kontroli dokumentojn Nroff"
+msgstr "reĝimo por kontroli dokumentojn Markdown/CommonMark"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
@@ -1387,9 +1375,3 @@ msgstr "reĝimo por kontroli dokumentojn Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "reĝimo por salti URL-similajn konstruojn (aprioras)"
-
-#~ msgid "edit distance to use, override sug-mode default"
-#~ msgstr "redakti distancon uzotan, malgraŭ sug-mode aprioro"
-
-#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
-#~ msgstr "Pardonu, \"filter\" nune ne estas realigita.\n"

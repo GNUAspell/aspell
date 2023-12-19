@@ -1,8 +1,8 @@
 # Danish translation of Aspell.
-# Copyright © 2011, Kevin Atkinson, Jacob Sparre Andersen, Joe Hansen.
+# Copyright © 2020, Kevin Atkinson, Jacob Sparre Andersen, Joe Hansen.
 # This file is distributed under the same license as the Aspell package.
 # Jacob Sparre Andersen <sparre@nbi.dk>, 2004.
-# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2011.
+# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2011, 2020.
 # Korrekturlæst Lars Christian Jensen <larschrjensen@gmail.com>, 2010.
 #
 # affix -> affiks (fællesbetegnelse for præfikser, infikser og suffikser)
@@ -17,10 +17,10 @@
 # /" -> »«
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.7\n"
+"Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2011-07-08 12:51+0200\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"PO-Revision-Date: 2020-03-08 12:51+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -137,7 +137,7 @@ msgstr "yderligere ordbøger at bruge"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "filer med liste over ekstra ord der skal accepteres"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -238,11 +238,10 @@ msgstr "største antal ord der kan sættes sammen"
 msgid "minimal length of interior words"
 msgstr "mindste længde af enkeltordene i et sammensat ord"
 
+# https://da.wikipedia.org/wiki/CamelCase
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "regn alle ordsammensætninger for korrekte ord"
+msgstr "anse alle CamelCase-ord for korrekte ord"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -684,10 +683,8 @@ msgid "enter Nroff mode."
 msgstr "skift til Nroff-tilstand."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter Nroff mode."
 msgid "enter Markdown mode."
-msgstr "skift til Nroff-tilstand."
+msgstr "skift til Markdown-tilstand."
 
 #: prog/aspell.cpp:315
 #, c-format
@@ -754,10 +751,9 @@ msgid "Invalid keymapping: %s"
 msgstr "Ugyldig tastaturafbildning: %s"
 
 #: prog/aspell.cpp:1018
-#, fuzzy, c-format
-#| msgid "\"%expression:1\" is not a valid regular expression."
+#, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "»%expression:1« er ikke et gyldigt regulært udtryk."
+msgstr "»%s« er ikke en gyldig fil"
 
 #: prog/aspell.cpp:1029
 #, c-format
@@ -855,10 +851,8 @@ msgid "  help             display a detailed help message"
 msgstr "  help             viser en detaljeret hjælpebesked"
 
 #: prog/aspell.cpp:2833
-#, fuzzy
-#| msgid "  -c|check <file>  to check a file"
 msgid "  -c|check <file>  spellchecks a file"
-msgstr "  -c|check <fil>   for at kontrollere en fil"
+msgstr "  -c|check <fil>   laver stavekontrol på en fil"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
@@ -906,7 +900,7 @@ msgstr "  clean [strict]   rydder en ordliste så hver linje er et gyldigt ord"
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           filtrer inddata som om det fik stavekontrol"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
@@ -951,18 +945,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      normaliseringsform der skal bruges, enten none, internal eller strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Ophavsret 2000-2011, Kevin Atkinson.\n"
+"Aspell %s.  Ophavsret 2000-2020, Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1222,7 +1212,7 @@ msgstr "Den totale ordlængde, med soundslike (udtale) data, er længere end 240
 msgid "There must be at least one \"add\" line."
 msgstr "Der skal mindst være en »tilføj linje«."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "en af ultra, hurtig, normal, langsom eller dårlig stavning"
 
@@ -1286,26 +1276,24 @@ msgid "HTML tags to always skip the contents of"
 msgstr "HTMl-mærker for altid at springe indholdet over"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "Filter til at håndtere Texinfo-dokumenter"
+msgstr "filter for Markdown/CommonMark-dokumenter"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "udelad henvisningsetiketter i definitioner for henvisningsreferencer"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "understøt mærker der går over flere linjer uden for HTML-blokke"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "HTML-mærker der starter en HTML-blok, der tillader tomme linjer"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "HTML-mærker der starter en HTML-blok, der slutter med en tom linje"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1368,10 +1356,8 @@ msgid "mode for checking HTML documents"
 msgstr "tilstand for tjek af HTML-dokumenter"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "mode for checking Nroff documents"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "tilstand for tjek af Nroff-dokumenter"
+msgstr "tilstand for tjek af Markdown/CommonMark-dokumenter"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"

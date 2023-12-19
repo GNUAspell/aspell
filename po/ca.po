@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2006-07-03 19:40+0100\n"
 "Last-Translator: Joan Sala Soler <joansala@gmail.com>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -685,7 +685,9 @@ msgid "Invalid Option: %s"
 msgstr "L’opció no és vàlida: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " no admet cap paràmetre."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -950,7 +952,7 @@ msgstr "  <norm-form>        tipus de normalització: none, internal, o strict"
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1214,7 +1216,7 @@ msgstr "La llargària total de la paraula, incloent les dades de la semblança f
 msgid "There must be at least one \"add\" line."
 msgstr ""
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "ultra, fast, normal, slow, o bé bad-spellers"
 

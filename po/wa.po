@@ -1,20 +1,23 @@
-# translation of aspell-0.60.2-b20041203.po to Walloon
 # Translation of aspell into the walloon language.
-# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
-# Pablo Saratxaga <pablo@walon.org>, 2004.
+# Copyright (C) 2004 aspell
+# This file is distributed under the same license as the aspell package.
+#
+# Pablo Saratxaga <pablo@walon.org>, 2004, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.2-b20041203\n"
+"Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2004-12-06 17:51+0100\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"PO-Revision-Date: 2019-10-27 16:22+0100\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
-"Language-Team: Walloon <linux-wa@walon.org>\n"
+"Language-Team: Walloon <(nothing)>\n"
 "Language: wa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -124,7 +127,7 @@ msgstr "diccionaires di rawete a-z eployî"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "fitchîs avou des djivêyes di mots d' rawete a-z accepter"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -149,11 +152,11 @@ msgstr "èn nén wårder les pwaires di replaeçmint"
 
 #: common/config.cpp:1416 common/config.cpp:1483
 msgid "extra information for the word list"
-msgstr "informåcion di rawete pol djivêye di mots"
+msgstr "infôrmåcion di rawete pol djivêye di mots"
 
 #: common/config.cpp:1418
 msgid "keyboard definition to use for typo analysis"
-msgstr "taprece po l' analijhe des flotches di tapaedje"
+msgstr "taprece po l' analize des flotches di tapaedje"
 
 #: common/config.cpp:1420
 msgid "language code"
@@ -195,7 +198,7 @@ msgstr "sôre di normålijhaedje unicôde: none, nfd, nfc, comp"
 
 #: common/config.cpp:1442
 msgid "avoid lossy conversions when normalization"
-msgstr "eviter di cviersser avou pietes tot normålijhant"
+msgstr "eviter di cvierser avou pietes tot normålijhant"
 
 #: common/config.cpp:1444
 msgid "personal configuration file"
@@ -233,15 +236,15 @@ msgstr "accepter les mots a loyeures"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
-msgstr ""
+msgstr "schaper les pwaires di replaeçmint cwand on fwait schaper tot"
 
 #: common/config.cpp:1465
 msgid "set the prefix based on executable location"
-msgstr ""
+msgstr "mete li betchete sorlon l' eplaeçmint do programe"
 
 #: common/config.cpp:1467
 msgid "size of the word list"
-msgstr "grandeu del djivêye di mots"
+msgstr "grandeur del djivêye di mots"
 
 #: common/config.cpp:1469
 msgid "no longer used"
@@ -249,29 +252,29 @@ msgstr "pupont eployî"
 
 #: common/config.cpp:1471
 msgid "suggestion mode"
-msgstr ""
+msgstr "môde propôzaedje"
 
 #. TRANSLATORS: "sug-mode" is a literal value and should not be
 #. translated.
 #: common/config.cpp:1475
 msgid "use typo analysis, override sug-mode default"
-msgstr ""
+msgstr "eployî l' analize di tapaedje, ignore «sug-mode»"
 
 #: common/config.cpp:1477
 msgid "use replacement tables, override sug-mode default"
-msgstr ""
+msgstr "eployî les tåves di replaeçaedje, ignore «sug-mode»"
 
 #: common/config.cpp:1479
 msgid "characters to insert when a word is split"
-msgstr ""
+msgstr "caracteres a stitchî cwand on discôpe on mot"
 
 #: common/config.cpp:1481
 msgid "use personal, replacement & session dictionaries"
-msgstr ""
+msgstr "eployî les motîs da sinne, di replaeçmint et d' session"
 
 #: common/config.cpp:1485
 msgid "search path for word list information files"
-msgstr ""
+msgstr "tchimin d' cweraedje po les infôrmåcions des djivêyes di mots"
 
 #: common/config.cpp:1487
 msgid "enable warnings"
@@ -332,11 +335,11 @@ msgstr ""
 
 #: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
-msgstr ""
+msgstr "mete l' ôre des propôzaedjes å rvier"
 
 #: common/config.cpp:1530
 msgid "suggest possible replacements"
-msgstr ""
+msgstr "propôzer des replaeçmints possibes"
 
 #: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
@@ -411,11 +414,11 @@ msgstr "Li valixhance pol tchuze «%key:1» èn pout nén esse candjeye."
 
 #: common/errors.cpp:139
 msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
-msgstr ""
+msgstr "Li clé «%key:1» est diferinne di «%accepted:2» et do côp nén valide."
 
 #: common/errors.cpp:147
 msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
-msgstr ""
+msgstr "Li clé «%value:2» est diferinne di «%accepted:3» et do côp nén valide: pol clé «%key:1»."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
@@ -435,19 +438,19 @@ msgstr "Li clé «%key:1» n' est nén ene djivêye."
 
 #: common/errors.cpp:195
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
-msgstr ""
+msgstr "Li clé «%key:1» n' prind nén d' paramete s' i elle a «reset-» pa dvant."
 
 #: common/errors.cpp:203
 msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
-msgstr ""
+msgstr "Li clé «%key:1» n' prind nén d' paramete s' i elle a «enable-» pa dvant."
 
 #: common/errors.cpp:211
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
-msgstr ""
+msgstr "Li clé «%key:1» n' prind nén d' paramete s' i elle a «dont-» ou «disable-» pa dvant."
 
 #: common/errors.cpp:219
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
-msgstr ""
+msgstr "Li clé «%key:1» n' prind nén d' paramete s' i elle a «clear-» pa dvant"
 
 #: common/errors.cpp:235
 #, c-format
@@ -457,7 +460,7 @@ msgstr "Li lingaedje «%lang:1» n' est nén cnoxhou."
 #: common/errors.cpp:243
 #, c-format
 msgid "The soundslike \"%sl:2\" is not known."
-msgstr "L' informåcion fonetike «%sl:2» n' est nén cnoxhowe."
+msgstr "L' infôrmåcion fonetike «%sl:2» n' est nén cnoxhowe."
 
 #: common/errors.cpp:251
 #, c-format
@@ -477,22 +480,22 @@ msgstr "Lingaedje «%lang:1» ratindou, mins c' est «%prev:2» ki dj' a-st av
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr ""
+msgstr "Li stitchete «%aff:1» est crombe."
 
 #: common/errors.cpp:291
 #, c-format
 msgid "The condition \"%cond:1\" is invalid."
-msgstr ""
+msgstr "Li condicion «%cond:1» n' est nén valide."
 
 #: common/errors.cpp:299
 #, c-format
 msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
-msgstr ""
+msgstr "Li condicion «%cond:1» ni waerantixhe nén ki «%strip:2» si poye tofer rissaetchî."
 
 #: common/errors.cpp:307
 #, c-format
 msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
-msgstr ""
+msgstr "Li fitchî «%file:1» n' est nén dins l' bon format. Li sôre di fitchî ratindou est «%exp:2» et nén «%got:3»."
 
 #: common/errors.cpp:323
 #, c-format
@@ -520,11 +523,11 @@ msgstr "Li mot «%word:1» n' est nén valide."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr ""
+msgstr "Li drapea di stitchete «%aff:1» n' est nén valide pol mot «%word:2»."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr ""
+msgstr "Li drapea di stitchete «%aff:1» ni pout nén esse apliké å mot «%word:2»."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -550,11 +553,11 @@ msgstr ""
 
 #: common/errors.cpp:499
 msgid "Aspell version does not match filter's requirement."
-msgstr ""
+msgstr "Li modêye d' aspell ni corespond nén al cene k' i fåt pol passete."
 
 #: common/errors.cpp:507
 msgid "Filter option already exists."
-msgstr ""
+msgstr "Li tchuze di passete egzistêye dedja."
 
 #: common/errors.cpp:515
 msgid "Use option modifiers only within named option."
@@ -960,7 +963,7 @@ msgstr ""
 "Motîs k' i gn a:\n"
 "    Les motîs polèt esse tchoezi directumint avou l' tchuze «-d» ou «master».\n"
 "    I polèt eto esse tchoezi indirectumint avou l' tchuze «lang» (lingaedje),\n"
-"    «variety» (variyante) ou co «size» (grandeu).\n"
+"    «variety» (variante) ou co «size» (grandeur).\n"
 
 #: prog/aspell.cpp:2939
 msgid ""
@@ -1098,7 +1101,7 @@ msgstr "Control-K"
 
 #: prog/check_funs.cpp:817
 msgid "Kill all characters to the EOL"
-msgstr "Diusfacer ttafwait disk' al fén del roye"
+msgstr "Disfacer ttafwait disk' al fén del roye"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:821
@@ -1107,15 +1110,15 @@ msgstr "Control-C"
 
 #: prog/check_funs.cpp:822
 msgid "Abort This Operation"
-msgstr ""
+msgstr "Rinoncî a ciste operåcion ci"
 
 #: modules/speller/default/language.cpp:103
 msgid "This is probably because: "
-msgstr ""
+msgstr "C' est surmint paski:"
 
 #: modules/speller/default/language.cpp:110
 msgid "The required field \"name\" is missing."
-msgstr ""
+msgstr "Li tchamp obligatwere «name» n' est nén la."
 
 #: modules/speller/default/language.cpp:524
 msgid "Empty string."
@@ -1200,13 +1203,13 @@ msgstr "Des drapeas trovés dins l' djivêye di mots, mins pont d' fitchî d'�
 
 #: modules/speller/default/readonly_ws.cpp:974
 msgid "The total word length, with soundslike data, is larger than 240 characters."
-msgstr "Li longueur totåle doi mot, avou les dnêyes fonetikes, est di pus d' 240 caracteres."
+msgstr "Li longueur totåle do mot, avou les dnêyes fonetikes, est di pus d' 240 caracteres."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
-msgstr ""
+msgstr "I fåt pol moens ene roye «add»."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 
@@ -1216,19 +1219,19 @@ msgstr ""
 
 #: modules/speller/default/speller_impl.cpp:334
 msgid "The personal word list is unavailable."
-msgstr ""
+msgstr "I n' a nén d' djivêye di mots da vosse"
 
 #: modules/speller/default/speller_impl.cpp:341
 msgid "The session word list is unavailable."
-msgstr ""
+msgstr "I n' a nén d' djivêye di mots pol session"
 
 #: modules/speller/default/speller_impl.cpp:348
 msgid "The main word list is unavailable."
-msgstr ""
+msgstr "I n' a nén d' mwaisse djivêye di mots"
 
 #: modules/filter/tex.cpp:255 modules/filter/tex.cpp:262
 msgid "a string of 'o','O','p',or 'P'"
-msgstr ""
+msgstr "ene tchinne di «o», «O», «p» ou «P»"
 
 #. TRANSLATORS: Like the strings in config.cpp, all strings in *-filter.opt
 #. should be under 50 characters, begin with a lower case character and 
@@ -1277,19 +1280,19 @@ msgstr "passete po les documints Texinfo"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "passer houte des etiketes di loyén dins les definixhas d' referinces di loyéns"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "sopoirt po les etiketes ki corèt so sacwantès royes foû des bloks HTML"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "etiketes HTML k' atakèt on blok HTML ki permete des vudès royes"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "etiketes HTML k' atakèt on blok HTML ki ki finixh avou ene vude roye"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1313,7 +1316,7 @@ msgstr "passete po les documints TeX/LaTeX"
 
 #: modules/filter/tex-filter.info:15
 msgid "check TeX comments"
-msgstr "verifyî les comintaires TeX"
+msgstr "verifyî les comintåres TeX"
 
 #: modules/filter/tex-filter.info:21
 msgid "TeX commands"
@@ -1337,7 +1340,7 @@ msgstr "passete po passer houte des mots rshonnant a des hårdêyes (URLs)"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr "môde pol verifiaedje des comintaires eyet tchinnes di tecse des fitchîs C++"
+msgstr "môde pol verifiaedje des comintåres eyet tchinnes di tecse des fitchîs C++"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
@@ -1367,7 +1370,7 @@ msgstr "môde pol verifiaedje des documints Nroff"
 
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
-msgstr "môde pol verifiaedje des comintaires eyet tchinnes di tecse dins des fitchîs perl"
+msgstr "môde pol verifiaedje des comintåres eyet tchinnes di tecse dins des fitchîs perl"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

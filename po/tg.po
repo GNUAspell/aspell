@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2004-05-22 19:33+0000\n"
 "Last-Translator: Marina Kolucheva <youth_opportunities@tajik.net>\n"
 "Language-Team: Tajik\n"
@@ -715,7 +715,9 @@ msgid "Invalid Option: %s"
 msgstr "Интихоботгоҳи нодуруст: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " ягон параметреро қабул накарда истодааст."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -975,7 +977,7 @@ msgstr ""
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 
@@ -1226,7 +1228,7 @@ msgstr "Умуман дарозии калима аз 240 ишора зиёд а
 msgid "There must be at least one \"add\" line."
 msgstr ""
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 

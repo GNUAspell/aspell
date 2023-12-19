@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2010-02-28 22:09+0200\n"
 "Last-Translator: Marquinos <maacub@gmail.com>\n"
 "Language-Team: Asturian <ubuntu-l10n-ast@lists.ubuntu.com>\n"
@@ -684,7 +684,9 @@ msgid "Invalid Option: %s"
 msgstr "Opción non válida: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " nun almite parámetru dalu."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -947,7 +949,7 @@ msgstr "  <triba-norm>     triba de normalización que se va usar: none, interna
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1212,7 +1214,7 @@ msgstr "La llonxitú total de la pallabra, contando los datos de l'asemeyanza fo
 msgid "There must be at least one \"add\" line."
 msgstr "Ha haber a lo menos una llinia «add»."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "ún d'ente ultra, fast, normal, slow o bad-spellers"
 

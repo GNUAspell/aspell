@@ -1,14 +1,14 @@
 # Polish translation for aspell.
 # Copyright (C) 2011 Kevin Atkinson (msgids)
 # This file is distributed under the same license as the aspell package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2011-2019.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2011-2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-24 16:55+0200\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-04 20:15+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -679,8 +679,9 @@ msgid "Invalid Option: %s"
 msgstr "Błędna opcja: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " nie przyjmuje żadnych parametrów."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "'%s' nie przyjmuje żadnych parametrów."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -935,11 +936,11 @@ msgstr "  <forma-norm>     forma normalizacji do wykonania: none, internal lub s
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1198,7 +1199,7 @@ msgstr "Całkowita długość słowa, wraz z danymi o brzmieniu, jest większa n
 msgid "There must be at least one \"add\" line."
 msgstr "Musi być przynajmniej jedna linia \"add\"."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "jeden z: ultra, fast, normal, slow, bad-spellers"
 

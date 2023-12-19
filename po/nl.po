@@ -1,15 +1,15 @@
 # Dutch translations for aspell.
-# Copyright (C) 2019 Kevin Atkinson (msgids)
+# Copyright (C) 2023 Kevin Atkinson (msgids)
 # This file is distributed under the same license as the aspell package.
 #
 # Elros Cyriatan <cyriatan@fastmail.fm>, 2004.
-# Benno Schulenberg <benno@vertaalt.nl>, 2005, 2006, 2007, 2008, 2010, 2011, 2019.
+# Benno Schulenberg <benno@vertaalt.nl>, 2005, 2006, 2007, 2008, 2010, 2011, 2019, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell-0.60.8-pre2\n"
+"Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-25 11:28+0200\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-04 16:18+0100\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -47,7 +47,7 @@ msgstr "lijst"
 #. * values and should not be translated.
 #: common/config.cpp:988
 msgid "either \"true\" or \"false\""
-msgstr "\"true\" (waar) of \"false\" (onwaar)"
+msgstr "'true' (waar) of 'false' (onwaar)"
 
 #: common/config.cpp:1007
 msgid "a positive integer"
@@ -317,7 +317,7 @@ msgstr "controleren of woorden geldig zijn"
 
 #: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
-msgstr "reservekopie maken (\".bak\" achter bestandsnaam)"
+msgstr "reservekopie maken ('.bak' achter bestandsnaam)"
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
@@ -346,7 +346,7 @@ msgstr "opstart- en suggestietijd bijhouden in pijpmodus"
 #: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr "Dit kan ook betekenen dat het bestand \"%s\" niet kan worden geopend om te lezen, of niet bestaat."
+msgstr "Dit kan ook betekenen dat het bestand '%s' niet kan worden geopend om te lezen, of niet bestaat."
 
 #: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
 #, c-format
@@ -683,8 +683,9 @@ msgid "Invalid Option: %s"
 msgstr "Ongeldige optie: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " neemt geen parameters aan."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "'%s' neemt geen parameters aan."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -839,7 +840,7 @@ msgstr "  -?|usage            een korte gebruikssamenvatting tonen"
 
 #: prog/aspell.cpp:2832
 msgid "  help             display a detailed help message"
-msgstr "  help                deze uitgebreide hulptekst tonen"
+msgstr "  help                een uitgebreide hulptekst tonen"
 
 #: prog/aspell.cpp:2833
 msgid "  -c|check <file>  spellchecks a file"
@@ -943,11 +944,11 @@ msgstr ""
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1179,7 +1180,7 @@ msgstr "Waarschuwing: %s -- woord wordt overgeslagen.\n"
 
 #: modules/speller/default/affix.cpp:426
 msgid "Possibly incorrect count."
-msgstr "Misschien een onjuist aantal."
+msgstr "Mogelijk een onjuist aantal."
 
 #: modules/speller/default/readonly_ws.cpp:362
 msgid "Incompatible hash function."
@@ -1209,7 +1210,7 @@ msgstr "De totale woordlengte, inclusief \"klinkt-als\"-gegevens, is meer dan 24
 msgid "There must be at least one \"add\" line."
 msgstr "Er moet minstens één 'add'-regel zijn."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 "één van 'ultra' (bliksemsnel), 'fast' (snel), 'normal' (normaal),\n"
@@ -1252,7 +1253,7 @@ msgstr " tekst omschakelen tussen zichtbaar/onzichtbaar"
 
 #: modules/filter/email-filter.info:7
 msgid "filter for skipping quoted text in email messages"
-msgstr "overslaan van aangehaalde tekst in e-mail"
+msgstr "voor het overslaan van aangehaalde tekst in e-mail"
 
 #: modules/filter/email-filter.info:13
 msgid "email quote characters"
@@ -1328,7 +1329,7 @@ msgstr "voor behandeling van Texinfo-documenten"
 
 #: modules/filter/texinfo-filter.info:13
 msgid "Texinfo commands to ignore the parameters of"
-msgstr " parameters van deze opdrachten controleren"
+msgstr " parameters van deze opdrachten negeren"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
@@ -1336,7 +1337,7 @@ msgstr " te negeren Texinfo-omgevingen"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
-msgstr "slaat URL-achtige constructies over"
+msgstr "voor het overslaan van URL-achtige constructies"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"

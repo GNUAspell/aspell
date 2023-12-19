@@ -1,15 +1,15 @@
 # Finnish messages for aspell.
 # Copyright © 2010 Kevin Atkinson
-# Copyright © 2011 Free Software Foundation, Inc.
+# Copyright © 2011,2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the aspell package.
-# Jorma Karvonen <karvonen.jorma@gmail.com>, 2011.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2011, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.7\n"
+"Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2011-07-11 11:21+0200\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"PO-Revision-Date: 2021-02-20 13:12+0200\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -107,7 +108,7 @@ msgstr "pääsanaluettelon sijainti"
 
 #: common/config.cpp:1391
 msgid "encoding to expect data to be in"
-msgstr "koodaus, jolla tiedot oletettiin olevan koodattuja"
+msgstr "koodaus, jolla tiedot oletettaan olevan koodattuja"
 
 #: common/config.cpp:1393
 msgid "add or removes a filter"
@@ -127,7 +128,7 @@ msgstr "ylimääräisiä käytettäviä sanakirjoja"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "tiedostot hyväksyttävien lisäsanojen luettelolla"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -229,10 +230,8 @@ msgid "minimal length of interior words"
 msgstr "sisäisten sanojen minimipituus"
 
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "pidä yhdessäsuoritettavia sanoja laillisina"
+msgstr "pidä kirjainkokovaihtelusanoja laillisina"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -295,7 +294,7 @@ msgstr "poista virheelliset liiteliput"
 
 #: common/config.cpp:1503
 msgid "attempts to clean words so that they are valid"
-msgstr "yritykset puhdistaa sanoja niin että ne ovat kelvollisia"
+msgstr "yrittää puhdistaa sanoja niin että ne ovat kelvollisia"
 
 #: common/config.cpp:1505
 msgid "compute soundslike on demand rather than storing"
@@ -323,7 +322,7 @@ msgstr "luo varmuuskopiotiedosto liittämällä ”.bak”"
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
-msgstr "käytä tavusiirrroksia eikä merkkisiirroksia"
+msgstr "käytä tavusiirroksia eikä merkkisiirroksia"
 
 #: common/config.cpp:1524
 msgid "create missing root/affix combinations"
@@ -348,7 +347,7 @@ msgstr "aikalatausaika ja suositusaika putkitilassa"
 #: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr "Tämä voisi myös tarkoittaa, että tiedostoa ”%s” ei voitu avata lukemista varten tai sitä ei ole olemassa."
+msgstr "Tämä voisi myös tarkoittaa, että tiedoston ”%s” avaus lukemista varten epäonnistui tai sitä ei ole olemassa."
 
 #: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
 #, c-format
@@ -376,17 +375,17 @@ msgstr "%file:1:"
 #: common/errors.cpp:59
 #, c-format
 msgid "The file \"%file:1\" can not be opened"
-msgstr "Tiedostoa ”%file:1” ei voida avata"
+msgstr "Tiedosto ”%file:1” avaus epäonnistui"
 
 #: common/errors.cpp:67
 #, c-format
 msgid "The file \"%file:1\" can not be opened for reading."
-msgstr "Tiedostoa ”%file:1” ei voida avata lukemista varten."
+msgstr "Tiedoston ”%file:1” avaus lukemista varten epäonnistui."
 
 #: common/errors.cpp:75
 #, c-format
 msgid "The file \"%file:1\" can not be opened for writing."
-msgstr "Tiedostoa ”%file:1” ei voida avata kirjoittamista varten."
+msgstr "Tiedoston ”%file:1” avaus kirjoittamista varten epäonnistui."
 
 #: common/errors.cpp:83
 #, c-format
@@ -401,7 +400,7 @@ msgstr "Tiedosto ”%file:1” ei ole oikeaa muotoa."
 #: common/errors.cpp:107
 #, c-format
 msgid "The directory \"%dir:1\" can not be opened for reading."
-msgstr "Hakemistoa ”%dir:1” ei voida avata lukemista varten."
+msgstr "Hakemiston ”%dir:1” avaus lukemista varten epäonnistui."
 
 #: common/errors.cpp:123
 msgid "The key \"%key:1\" is unknown."
@@ -409,7 +408,7 @@ msgstr "Valitsin ”%key:1” on tuntematon."
 
 #: common/errors.cpp:131
 msgid "The value for option \"%key:1\" can not be changed."
-msgstr "Valitsimen ”%key:1” arvoa ei voida muuttaa."
+msgstr "Valitsimen ”%key:1” arvon muuttaminen epäonnistui."
 
 #: common/errors.cpp:139
 msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
@@ -430,7 +429,7 @@ msgstr "Valitsin ”%key:1” ei ole kokonaisluku."
 
 #: common/errors.cpp:179
 msgid "The key \"%key:1\" is not a boolean."
-msgstr "Valitsin ”%key:1” ei ole boolean."
+msgstr "Valitsin ”%key:1” ei ole boolean-arvo."
 
 #: common/errors.cpp:187
 msgid "The key \"%key:1\" is not a list."
@@ -527,7 +526,7 @@ msgstr "Liitelippu ’%aff:1’ on virheellinen sanalle ”%word:2”."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "Liitelippu ’%aff:1’ ei voida liittää sanaan ”%word:2”."
+msgstr "Liitelipun ’%aff:1’ liittäminen sanaan ”%word:2” epäonnistui."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -675,10 +674,8 @@ msgid "enter Nroff mode."
 msgstr "siirry Nroff-tilaan."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter Nroff mode."
 msgid "enter Markdown mode."
-msgstr "siirry Nroff-tilaan."
+msgstr "siirry Markdown-tilaan."
 
 #: prog/aspell.cpp:315
 #, c-format
@@ -737,7 +734,7 @@ msgstr "Saadaan määritellä vain yksi tiedostonimi."
 #: prog/aspell.cpp:990
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
-msgstr "Ei voitu avata tiedostoa ”%s” lukemista varten"
+msgstr "Tiedoston ”%s” avaus lukemista varten epäonnistui"
 
 #: prog/aspell.cpp:1003
 #, c-format
@@ -745,15 +742,14 @@ msgid "Invalid keymapping: %s"
 msgstr "Virheellinen näppäinkuvaus: %s"
 
 #: prog/aspell.cpp:1018
-#, fuzzy, c-format
-#| msgid "\"%expression:1\" is not a valid regular expression."
+#, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "”%expression:1” ei ole kelvollinen säännöllinen lauseke."
+msgstr "”%s” ei ole säännöllinen lauseke"
 
 #: prog/aspell.cpp:1029
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr "Ei voitu avata tiedostoa ”%s” kirjoittamista varten. Tiedostoa ei tallennettu."
+msgstr "Tiedoston ”%s” avaus kirjoittamista varten epäonnistui. Tiedostoa ei tallennettu."
 
 #: prog/aspell.cpp:1042
 msgid "Ignore"
@@ -807,7 +803,7 @@ msgstr "Tuo on virheellinen valinta!"
 
 #: prog/aspell.cpp:1545
 msgid "Can't merge a master word list yet. Sorry."
-msgstr "Ei voida vielä yhdistää pääsanaluetteloa."
+msgstr "Pääsanaluettelon yhdistäminen epäonnistui toistaiseksi."
 
 #: prog/aspell.cpp:1569
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
@@ -816,7 +812,7 @@ msgstr "Valitsin ”create/merge personal” on nykyisin toteuttamaton.\n"
 #: prog/aspell.cpp:1578 prog/aspell.cpp:1634
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
-msgstr "Ei korvata kohdetta ”%s”"
+msgstr "Kohteen ”%s” korvaaminen epäonnistui"
 
 #: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
@@ -846,10 +842,8 @@ msgid "  help             display a detailed help message"
 msgstr "  help                näytä yksityiskohtainen opasteviesti"
 
 #: prog/aspell.cpp:2833
-#, fuzzy
-#| msgid "  -c|check <file>  to check a file"
 msgid "  -c|check <file>  spellchecks a file"
-msgstr "  -c|check <tiedosto> tiedoston tarkistamiseen"
+msgstr "  -c|check <tiedosto> tiedoston oikoluku"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
@@ -886,7 +880,7 @@ msgstr "  soundslike          palauttaa äänenkaltaisen yhtäläisyyden jokaise
 
 #: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
-msgstr "  munch               tuottaa mahdolliset sanavartalosanat ja liitteet"
+msgstr "  munch               tuottaa mahdolliset sanavartalosanat ja -liitteet"
 
 #: prog/aspell.cpp:2857
 msgid "  expand [1-4]     expands affix flags"
@@ -898,12 +892,13 @@ msgstr "  clean [strict]      puhdistaa sanaluetteloa niin että jokainen rivi o
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           suodattaa syötteen oikoluvun kaltaisena"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
 msgstr "  -v|version          tulostaa versiorivin"
 
+#  sanat simple, single, multi ja keep ovat literaaliparametreja, joita ei pidä suomentaa.
 #: prog/aspell.cpp:2861
 msgid "  munch-list [simple] [single|multi] [keep]"
 msgstr "  munch-list [simple] [single|multi] [keep]"
@@ -943,18 +938,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <normalisointimuoto> käytettävä normalisointimuoto on joko none, internal, tai strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011, Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019, Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1032,7 +1023,7 @@ msgstr "Poista edellinen merkki"
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:785
 msgid "Left"
-msgstr "Vasen"
+msgstr "Left"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:787
@@ -1046,7 +1037,7 @@ msgstr "Siirry taaksepäin yksi välilyönti"
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:791
 msgid "Right"
-msgstr "Oikea"
+msgstr "Right"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:793
@@ -1214,7 +1205,7 @@ msgstr "Kokonaissanapituus, äänenkaltaisella tiedolla, on laajempi kuin 240 me
 msgid "There must be at least one \"add\" line."
 msgstr "On oltava vähintään yksi ”add”-rivi."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "yksi seuraavista: ultra, fast, normal, slow tai bad-spellers"
 
@@ -1278,26 +1269,24 @@ msgid "HTML tags to always skip the contents of"
 msgstr "HTML-tunnisteet, jotka aina ohitetaan sisällössä"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "suodatin Texinfo-asiakirjojen käsittelemiseen"
+msgstr "suodatin Markdown/CommonMark-asiakirjoille"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "ohita linkitysotsakkeet linkitysviitemäärittelyissä"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "tue tunnisteita, jotka ulottuvat useille riveille HTML-lohkojen ulkopuolelle"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "HTML-tunnisteet, jotka aloittavat HTML-lohkon, joka sallii tyhjiä rivejä"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "HTML-tunnisteet, jotka aloittavat HTML-lohkon,joka päättyy tyhjään riviin"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1360,10 +1349,8 @@ msgid "mode for checking HTML documents"
 msgstr "tila HTML-asiakirjojen tarkistamiseen"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "mode for checking Nroff documents"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "tila Nroff-asiakirjojen tarkistamiseen"
+msgstr "tila Markdown/CommonMark-asiakirjojen tarkistamiseen"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"

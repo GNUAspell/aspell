@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.51\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2004-01-06 16:34+0200\n"
 "Last-Translator: Vital khilko <dojlid@mova.org>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -737,7 +737,9 @@ msgid "Invalid Option: %s"
 msgstr "Недапушчальны выбар: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " не патрабуе ніякіх парамэтраў."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -1000,7 +1002,7 @@ msgstr ""
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 
@@ -1251,7 +1253,7 @@ msgstr ""
 msgid "There must be at least one \"add\" line."
 msgstr ""
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr ""
 

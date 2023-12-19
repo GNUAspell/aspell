@@ -1,23 +1,24 @@
 # Brazilian Portuguese translation for Aspell
-# Copyright (C) 2019 Free Software Foundation, Inc.
+# Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the aspell package.
 # Marcus Moreira de Souza <marcus@frb.br>, 2004.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2019.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2019-2023.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-24 12:23-0200\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-04 10:04-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Virtaal 1.0.0-beta1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 45.2\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: common/info.cpp:232
@@ -682,8 +683,9 @@ msgid "Invalid Option: %s"
 msgstr "Opção inválida: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " não recebe nenhum parâmetro."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "\"%s\" não recebe nenhum parâmetro."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -938,11 +940,11 @@ msgstr "  <norm-form>      forma de normalização a usar, podendo ser \"none\",
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 por Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 por Kevin Atkinson.\n"
 
 #: prog/aspell.cpp:2918
 msgid ""
@@ -1200,7 +1202,7 @@ msgstr "Comprimento total da palavra com dados de pronúncia maior que 240 carac
 msgid "There must be at least one \"add\" line."
 msgstr "Deve existir ao menos uma linha \"add\"."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "um de ultra, fast, normal, slow, ou bad-spellers"
 

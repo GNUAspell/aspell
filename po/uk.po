@@ -4,13 +4,13 @@
 # This file is distributed under the same license as the aspell package.
 #
 # Maxim V. Dziumanenko <dziumanenko@gmail.com>, 2006-2007.
-# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019.
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-24 18:59+0300\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-04 17:09+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 20.12.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: common/info.cpp:232
@@ -683,8 +683,9 @@ msgid "Invalid Option: %s"
 msgstr "Неправильний параметр: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " не допускає ніяких параметрів."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "«%s» не допускає ніяких параметрів."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -939,11 +940,11 @@ msgstr "  <форма-норм>     форма нормалізації, що в
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s. ©Kevin Atkinson, 2000–2019.\n"
+"Aspell %s. ©Kevin Atkinson, 2000–2023.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1202,7 +1203,7 @@ msgstr "Загальна довжина слів з даним soundslike пер
 msgid "There must be at least one \"add\" line."
 msgstr "Має бути принаймні один рядок \"add\""
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "одне з ultra, fast, normal, slow, чи bad-spellers"
 

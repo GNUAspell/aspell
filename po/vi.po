@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2012-03-13 14:59+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -690,7 +690,9 @@ msgid "Invalid Option: %s"
 msgstr "Tùy chọn không hợp lệ: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " không chấp nhận tham số."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -961,7 +963,7 @@ msgstr ""
 #| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1227,7 +1229,7 @@ msgstr "Tổng độ dài từ, gồm dữ liệu soundslike (nghe như), hơn 2
 msgid "There must be at least one \"add\" line."
 msgstr "Cần phải có ít nhất một dòng kiểu « thêm » (add)."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "một của người chính tả rất tốt, nhanh, thường, chạm hay tệ."
 

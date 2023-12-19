@@ -1,24 +1,24 @@
 # Swedish translation of aspell.
-# Copyright © 2006-2016 Kevin Atkinson
+# Copyright © 2006-2020 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
 # Daniel Nylander <po@danielnylander.se>, 2006.
-# Josef Andersson <josef.andersson@fripost.org>, 2016.
+# Josef Andersson <josef.andersson@fripost.org>, 2016, 2020
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.7\n"
+"Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2016-05-04 16:39+0200\n"
-"Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"PO-Revision-Date: 2020-05-16 21:22+0200\n"
+"Last-Translator: Josef Andersson <l10nl18nsweja@gmail.com>\n"
+"Language-Team: Swedish <tp-sv-list@lists.sourceforge.net>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Launchpad-Export-Date: 2016-05-03 18:08+0000\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -128,7 +128,7 @@ msgstr "extra ordböcker att använda"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "filer med extra ordlistor att acceptera"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -231,10 +231,8 @@ msgid "minimal length of interior words"
 msgstr "minimal längd för inneslutna ord"
 
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "anse sammansatta ord acceptabla"
+msgstr "anse ord i kamelnotation acceptabla"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -677,10 +675,8 @@ msgid "enter Nroff mode."
 msgstr "gå in i Nroff-läge."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter Nroff mode."
 msgid "enter Markdown mode."
-msgstr "gå in i Nroff-läge."
+msgstr "gå in i Markdown-läge."
 
 #: prog/aspell.cpp:315
 #, c-format
@@ -747,10 +743,9 @@ msgid "Invalid keymapping: %s"
 msgstr "Ogiltig tangentbindning: %s"
 
 #: prog/aspell.cpp:1018
-#, fuzzy, c-format
-#| msgid "\"%expression:1\" is not a valid regular expression."
+#, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "”%expression:1” är inte ett giltigt reguljärt uttryck."
+msgstr "”%s” är inte en vanlig fil"
 
 #: prog/aspell.cpp:1029
 #, c-format
@@ -848,10 +843,8 @@ msgid "  help             display a detailed help message"
 msgstr "  help             visa ett detaljerat hjälpmeddelande"
 
 #: prog/aspell.cpp:2833
-#, fuzzy
-#| msgid "  -c|check <file>  to check a file"
 msgid "  -c|check <file>  spellchecks a file"
-msgstr "  -c|check <fil>   för att kontrollera en fil"
+msgstr "  -c|check <fil>  stavningskontrollerar en fil"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
@@ -899,7 +892,7 @@ msgstr "  clean [strict]  rensar en ordlista så att varje rad är ett giltigt o
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           filtrerar indata som om den stavningskontrollerades"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
@@ -944,18 +937,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      normaliseringsform att använda; antingen none, internal, eller strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 av Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019 av Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1213,7 +1202,7 @@ msgstr "Total ordlängd, med soundslike-data, överstiger 240 tecken."
 msgid "There must be at least one \"add\" line."
 msgstr "Det måste finnas minst en ”add”-rad."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "antingen ultra, fast, normal, slow, eller bad-spellers"
 
@@ -1277,26 +1266,24 @@ msgid "HTML tags to always skip the contents of"
 msgstr "HTML-taggar vilkas innehåll alltid hoppas över"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "filter för hantering av Texinfo-dokument"
+msgstr "filter för hantering av Markdown/CommonMark-dokument"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "hoppar över länketiketter i referensdefinitioner"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "stöder taggar som spänner över flera rader utanför HTML-block"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "HTML-taggar som påbörjar ett HTML-block vilket tillåter blanka rader"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "HTML-taggar som påbörjar ett HTML-block vilket slutar med en blankrad"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
@@ -1359,10 +1346,8 @@ msgid "mode for checking HTML documents"
 msgstr "läge för att kontrollera HTML-dokument"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "mode for checking Nroff documents"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "läge för att kontrollera Nroff-dokument"
+msgstr "läge för att kontrollera Markdown/CommonMark-dokument"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"

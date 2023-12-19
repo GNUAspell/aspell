@@ -1,23 +1,24 @@
 # Friulian messages for GNU ASPELL.
 # Copyright (C) 2017 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
-# Fabio Tomat <f.t.public@gmail.com>, 2017.
+# Fabio Tomat <f.t.public@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.7\n"
+"Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-17 09:59+0200\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"PO-Revision-Date: 2023-01-21 07:10+0000\n"
+"Last-Translator: Fabio T. <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Editor: HaiPO 1.4 beta\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -95,7 +96,7 @@ msgstr "posizion dal file di configurazion principâl"
 
 #: common/config.cpp:1385
 msgid "location of language data files"
-msgstr "posizion dai file di dâts des lenghis"
+msgstr "posizion dai files di dâts des lenghis"
 
 #: common/config.cpp:1387
 msgid "create dictionary aliases"
@@ -127,11 +128,11 @@ msgstr "dizionaris adizionâi di doprâ"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "files cun liste di peraulis adizionâls di acetâ"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
-msgstr "posizion pai file personâi"
+msgstr "posizion pai files personâi"
 
 #: common/config.cpp:1407
 msgid "ignore words <= n chars"
@@ -168,7 +169,7 @@ msgstr "deplorât, doprâ invezit lang"
 
 #: common/config.cpp:1424
 msgid "location of local language data files"
-msgstr "posizion dai file locâi di dâts des lenghis"
+msgstr "posizion dai files locâi dai dâts des lenghis"
 
 #: common/config.cpp:1426
 msgid "base name of the main dictionary to use"
@@ -229,10 +230,8 @@ msgid "minimal length of interior words"
 msgstr "lungjece minime des peraulis internis"
 
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "considere legâls lis peraulis compostis"
+msgstr "considere legâls lis peraulis cun notazion a camêl"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -274,7 +273,7 @@ msgstr "dopre dizionaris personâi, di sostituzion e di session"
 
 #: common/config.cpp:1485
 msgid "search path for word list information files"
-msgstr "percors di ricercje pai file des informazions de liste di peraulis"
+msgstr "percors di ricercje pai files des informazions de liste di peraulis"
 
 #: common/config.cpp:1487
 msgid "enable warnings"
@@ -283,15 +282,15 @@ msgstr "abilite avertiments"
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1497
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
-msgstr ""
+msgstr "indicadôr pes opzions di afìs in listis di peraulis -- PAL MOMENT IGNORÂT"
 
 #: common/config.cpp:1499
 msgid "use affix compression when creating dictionaries"
-msgstr ""
+msgstr "dopre la compression dai afìs cuant che si cree i dizionaris"
 
 #: common/config.cpp:1501
 msgid "remove invalid affix flags"
-msgstr ""
+msgstr "gjavi lis opzions di afìs no validis"
 
 #: common/config.cpp:1503
 msgid "attempts to clean words so that they are valid"
@@ -303,7 +302,7 @@ msgstr "calcole il foneme su richieste invezit che archiviâ"
 
 #: common/config.cpp:1507
 msgid "partially expand affixes for better suggestions"
-msgstr ""
+msgstr "pant in mût parziâl i afìs par sugjeriments miorâts"
 
 #: common/config.cpp:1509
 msgid "skip invalid words"
@@ -311,7 +310,7 @@ msgstr "salte lis peraulis no validis"
 
 #: common/config.cpp:1511
 msgid "check if affix flags are valid"
-msgstr ""
+msgstr "controle se lis opzions dai afìs a son validis"
 
 #: common/config.cpp:1513
 msgid "check if words are valid"
@@ -323,15 +322,15 @@ msgstr "cree un file di backup zontant \".bak\""
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
-msgstr ""
+msgstr "dopre lis deviazions in bytes invezit che in caratars"
 
 #: common/config.cpp:1524
 msgid "create missing root/affix combinations"
-msgstr ""
+msgstr "cree lis cumbinazions di lidrîs/afìs che a mancjin"
 
 #: common/config.cpp:1526
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
-msgstr ""
+msgstr "mapadure dai tascj pe modalitât di control: \"aspell\" o \"ispell\""
 
 #: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
@@ -343,7 +342,7 @@ msgstr "sugjerìs sostituzions pussibilis"
 
 #: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
-msgstr ""
+msgstr "timps dal timp di cjariament e di sugjeriment in modalitât concatenade"
 
 #: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
@@ -479,7 +478,7 @@ msgstr "Si spietave la lenghe \"%lang:1\" ma si à vût \"%prev:2\"."
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr ""
+msgstr "L'afìs '%aff:1' al è corot."
 
 #: common/errors.cpp:291
 #, c-format
@@ -522,11 +521,11 @@ msgstr "La peraule \"%word:1\" no je valide."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr ""
+msgstr "La opzion di afìs '%aff:1' no je valide pe peraule \"%word:2\"."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr ""
+msgstr "La opzion di afìs '%aff:1' no pues jessi aplicade ae peraule \"%word:2\"."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -560,11 +559,11 @@ msgstr "La opzion dal filtri e esist za."
 
 #: common/errors.cpp:515
 msgid "Use option modifiers only within named option."
-msgstr ""
+msgstr "Dopre i modificadôrs des opzions dome dentri de opzion clamade."
 
 #: common/errors.cpp:523
 msgid "Option modifier unknown."
-msgstr ""
+msgstr "Modificadôr di opzion no cognossût."
 
 #: common/errors.cpp:531
 msgid "Error setting filter description."
@@ -572,12 +571,12 @@ msgstr "Erôr tal stabilî la descrizion dal filtri."
 
 #: common/errors.cpp:547
 msgid "Empty option specifier."
-msgstr ""
+msgstr "Specificadôr di opzion vueit."
 
 #: common/errors.cpp:555
 #, c-format
 msgid "Option \"%option:1\" possibly specified prior to filter."
-msgstr ""
+msgstr "Opzion \"%option:1\" probabilmentri specificade prime dal filtri."
 
 #: common/errors.cpp:563
 msgid "Unknown mode description key \"%key:1\"."
@@ -618,31 +617,31 @@ msgstr "Modalitât no cognossude: \"%mode:1\"."
 #: common/errors.cpp:635
 #, c-format
 msgid "\"%mode:1\" error while extend Aspell modes. (out of memory?)"
-msgstr ""
+msgstr "erôr di \"%mode:1\" intant che si estindeve lis modalitâts di Aspell. (memorie finide?)"
 
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": nissun inizi pe ricercje dal magjic indicât pal \"%magic:2\" magjic."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": nissun interval pe ricercje dal magjic indicât pal \"%magic:2\" magjic."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": nissune espression magjiche disponibile pal \"%magic:2\" magjic."
 
 #: common/errors.cpp:675
 msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
-msgstr ""
+msgstr "\"%mode:1\": \"%magic:2\" magjic: espression regolâr sbaliade dopo dal specificadôr di posizion; regexp al torne: \"%regerr:3\"."
 
 #: common/errors.cpp:691
 #, c-format
 msgid "\"%expression:1\" is not a valid regular expression."
-msgstr ""
+msgstr "\"%expression:1\" no je une espression regolâr valide."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
@@ -674,10 +673,8 @@ msgid "enter Nroff mode."
 msgstr "jentre te modalitât Nroff."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter Nroff mode."
 msgid "enter Markdown mode."
-msgstr "jentre te modalitât Nroff."
+msgstr "jentre te modalitât Lengaç di marcadure."
 
 #: prog/aspell.cpp:315
 #, c-format
@@ -746,7 +743,7 @@ msgstr "Mapadure di tastiere no valide: %s"
 #: prog/aspell.cpp:1018
 #, c-format
 msgid "\"%s\" is not a regular file"
-msgstr ""
+msgstr "\"%s\" nol è un flle regolâr"
 
 #: prog/aspell.cpp:1029
 #, c-format
@@ -844,10 +841,8 @@ msgid "  help             display a detailed help message"
 msgstr "  help             mostre un messaç di jutori detaiât"
 
 #: prog/aspell.cpp:2833
-#, fuzzy
-#| msgid "  -c|check <file>  to check a file"
 msgid "  -c|check <file>  spellchecks a file"
-msgstr "  -c|check <file>  par controlâ un file"
+msgstr "  -c|check <file>  al controle la ortografie di un file"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
@@ -879,7 +874,7 @@ msgstr "  list             prodûs une liste di peraulis scritis mâl dal standa
 
 #: prog/aspell.cpp:2855
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
-msgstr "  soundslike       al torne ce che al semee par ogni peraule inseride"
+msgstr "  soundslike       al torne ce che al somee par ogni peraule inseride"
 
 #: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
@@ -895,7 +890,7 @@ msgstr "  clean [strict]   al nete/corêç une liste di peraulis cussì che ogni
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           al filtre l'input come se al fos stât controlât pe ortografie"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
@@ -940,18 +935,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <forme-norm>      forme di normalizazion di doprâ, che e sedi none, internal, o strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 di Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019 di Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -992,10 +983,16 @@ msgid ""
 "    This will happen implicitly if Aspell is able to identify the file\n"
 "    type from the extension, and possibility the contents, of the file.\n"
 msgstr ""
+"Modalitâts filtri disponibilis:\n"
+"    Lis modalitâts dal filtri a son cumbinazions riconfiguradis di filtris\n"
+"    perfezionâts pai files di un specific gjenar. Lis modalitâts a vegnin\n"
+"    selezionadis cu la opzion \"mode\". Chest al sucêt in mût implicit se,\n"
+"    de estension, Aspell al rive a identificâ il gjenar di file, e pussibilmentri\n"
+"    i contignûts.\n"
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
-msgstr ""
+msgstr "Erôr: il stdin nol è un terminâl."
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:774
@@ -1152,12 +1149,12 @@ msgstr "Il caratar '%s' (U+%02X) al podarès no vignî fûr ae fin di une peraul
 #: modules/speller/default/language.cpp:584
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
-msgstr ""
+msgstr "Atenzion: si sta gjavant l'afìs no valit '%s' de peraule %s.\n"
 
 #: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr ""
+msgstr "Atenzion: daûr a gjavâ l'afìs inaplicabil '%s' de peraule %s.\n"
 
 #: modules/speller/default/language.cpp:726
 #, c-format
@@ -1195,7 +1192,7 @@ msgstr "Version dal foneme sbaliade."
 
 #: modules/speller/default/readonly_ws.cpp:936
 msgid "Affix flags found in word but no affix file given."
-msgstr ""
+msgstr "Segns di afìs cjatâts te peraule ma nol è stât indicât nissun afìs."
 
 #: modules/speller/default/readonly_ws.cpp:974
 msgid "The total word length, with soundslike data, is larger than 240 characters."
@@ -1205,25 +1202,25 @@ msgstr "La lungjece totâl de peraule, cui dâts foneme, e je plui grande di 240
 msgid "There must be at least one \"add\" line."
 msgstr "E scugne jessi almancul une rie \"add\"."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
-msgstr ""
+msgstr "un di ultra, fast, normal, slow o bad-spellers"
 
 #: modules/speller/default/data.cpp:406
 msgid "is not one of the allowed types"
-msgstr ""
+msgstr "nol è un dai gjenars ametûts"
 
 #: modules/speller/default/speller_impl.cpp:334
 msgid "The personal word list is unavailable."
-msgstr ""
+msgstr "La liste personâl des peraulis  no je disponibile."
 
 #: modules/speller/default/speller_impl.cpp:341
 msgid "The session word list is unavailable."
-msgstr ""
+msgstr "La liste des peraulis de session no je disponibile."
 
 #: modules/speller/default/speller_impl.cpp:348
 msgid "The main word list is unavailable."
-msgstr ""
+msgstr "La liste principâl des peraulis noje disponibile."
 
 #: modules/filter/tex.cpp:255 modules/filter/tex.cpp:262
 msgid "a string of 'o','O','p',or 'P'"
@@ -1234,81 +1231,79 @@ msgstr "une stringhe di 'o','O','p' o 'P'"
 #. not include any trailing punctuation marks.
 #: modules/filter/context-filter.info:7
 msgid "experimental filter for hiding delimited contexts"
-msgstr ""
+msgstr "filtri sperimentâl par platâ i contescj delimitâts"
 
 #: modules/filter/context-filter.info:13
 msgid "context delimiters (separated by spaces)"
-msgstr ""
+msgstr "delimitadôrs di contest (separâts di spazis)"
 
 #: modules/filter/context-filter.info:21
 msgid "swaps visible and invisible text"
-msgstr ""
+msgstr "al scambie il test visibil cun chel invisibil e contrari"
 
 #: modules/filter/email-filter.info:7
 msgid "filter for skipping quoted text in email messages"
-msgstr ""
+msgstr "filtri par saltâ il test citât tai messaçs des e-mails"
 
 #: modules/filter/email-filter.info:13
 msgid "email quote characters"
-msgstr ""
+msgstr "caratars di citazion des e-mails"
 
 #: modules/filter/email-filter.info:21
 msgid "num chars that can appear before the quote char"
-msgstr ""
+msgstr "numar di caratars che a puedin vignî fûr prime dal caratar di citazion"
 
 #: modules/filter/html-filter.info:9
 msgid "filter for dealing with HTML documents"
-msgstr ""
+msgstr "filtri par vê a ce fâ cui documents HTML"
 
 #: modules/filter/html-filter.info:15
 msgid "HTML attributes to always check"
-msgstr ""
+msgstr "atribûts HTML di controlâ simpri"
 
 #: modules/filter/html-filter.info:21
 msgid "HTML tags to always skip the contents of"
-msgstr ""
+msgstr "etichetis HTML di fâ saltâ simpri il lôr contignût"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "filtri par vê a ce fâ cui documents Texinfo"
+msgstr "filtri pai documents cun Lengaç di Marcadure/CommonMark"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "salte lis etichetis (labels) di colegament tes definizions di riferiment dai colegaments"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "supuarte lis etichetis che a cjapin dentri plui riis fûr dai blocs HTML"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "etichetis HTML che a scomencin un bloc HTML che al permet riis vueidis"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "etichetis HTML che a scomencin un bloc HTML che al finìs cuntune rie vueide"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
-msgstr ""
+msgstr "filtri par vê a ce fâ cui documents Nroff"
 
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
-msgstr ""
+msgstr "filtri par vê a ce fâ cui documents gjenerics SGML/XML"
 
 #: modules/filter/sgml-filter.info:15
 msgid "SGML attributes to always check"
-msgstr ""
+msgstr "atribûts SGML di controlâ simpri"
 
 #: modules/filter/sgml-filter.info:20
 msgid "SGML tags to always skip the contents of"
-msgstr ""
+msgstr "etichetis SGML di fâ saltâ simpri il lôr contignût"
 
 #: modules/filter/tex-filter.info:7
 msgid "filter for dealing with TeX/LaTeX documents"
-msgstr ""
+msgstr "filtri par vê a ce fâ cui document TeX/LaTeX"
 
 #: modules/filter/tex-filter.info:15
 msgid "check TeX comments"
@@ -1332,11 +1327,11 @@ msgstr "ambients Texinfo di ignorâ"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
-msgstr ""
+msgstr "filtri par saltâ i costruts simii ai URLs"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr ""
+msgstr "modalitât par controlâ i coments C++ e leterâi di stringhe"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
@@ -1344,17 +1339,15 @@ msgstr "modalitât par controlâ dutis lis riis che a tachin cuntun #"
 
 #: modules/filter/modes/email.amf:5
 msgid "mode for skipping quoted text in email messages"
-msgstr ""
+msgstr "modalitât par saltâ il test citât tai messaçs des e-mails"
 
 #: modules/filter/modes/html.amf:10
 msgid "mode for checking HTML documents"
 msgstr "modalitât par controlâ i documents HTML"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "mode for checking Nroff documents"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "modalitât par controlâ i documents Nroff"
+msgstr "modalitât par controlâ i documents cun lengaç di Marcadure/CommonMark"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
@@ -1366,7 +1359,7 @@ msgstr "modalitât par controlâ i documents Nroff"
 
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
-msgstr ""
+msgstr "modalitât par controlâ i coments Perl e i leterâi di stringhe"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"
@@ -1382,7 +1375,7 @@ msgstr "modalitât par controlâ i documents Texinfo"
 
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
-msgstr ""
+msgstr "modalitât par saltâ i costruts simii ai URLs (modalitât predefinide)"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "modifiche la distance di doprâ, passe parsore dal predefinît sug-mode"

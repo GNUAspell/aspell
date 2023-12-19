@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the aspell package.
 # Roland Illig <roland.illig@gmx.de>, 2004.
 # Roland Illig <roland.illig@gmx.de>, 2008.
-# Roland Illig <roland.illig@gmx.de>, 2011-2019.
+# Roland Illig <roland.illig@gmx.de>, 2011-2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-10-06 21:45-0400\n"
-"PO-Revision-Date: 2019-09-24 21:35+0200\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
+"PO-Revision-Date: 2023-12-19 19:16+0100\n"
 "Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -30,7 +30,7 @@ msgstr "In der Form »<Name> <Wert>«"
 
 #: common/config.cpp:74
 msgid "string"
-msgstr "Leere Zeichenkette."
+msgstr "Zeichenkette"
 
 #: common/config.cpp:74
 msgid "integer"
@@ -478,7 +478,7 @@ msgstr "Sprache »%lang:1« erwartet, aber »%prev:2« bekommen."
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr "Endung »%aff:1« ist kaputt"
+msgstr "Endung »%aff:1« ist kaputt."
 
 #: common/errors.cpp:291
 #, c-format
@@ -682,13 +682,14 @@ msgid "Invalid Option: %s"
 msgstr "Ungültige Option: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " hat keine Parameter."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr "»%s« akzeptiert keine Parameter."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
-msgstr "Sie müssen einen Parameter für »%s« angeben"
+msgstr "Sie müssen einen Parameter für »%s« angeben."
 
 #: prog/aspell.cpp:384
 msgid "You must specify an action"
@@ -784,7 +785,7 @@ msgstr "Beenden"
 
 #: prog/aspell.cpp:1125
 msgid "Are you sure you want to abort (y/n)? "
-msgstr "Sind Sie sicher, dass Sie abbrechen wollen (j/n)?"
+msgstr "Sind Sie sicher, dass Sie abbrechen wollen (j/n)? "
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
@@ -940,11 +941,11 @@ msgstr "  <Normalform>     Zu benutzende Normalisierungsform: »none«, »intern
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s. Copyright 2000-2019 Kevin Atkinson.\n"
+"Aspell %s. Copyright 2000–2023 Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1140,7 +1141,7 @@ msgstr "Das Zeichen »%s« (U+%02X) darf nicht in der Mitte eines Wortes stehen.
 
 #: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr "Das Zeichen »\\r« (U+0D) darf nicht am Ende eines Wortes vorkommen. Das könnte daran liegen, dass die Datei den MS-DOS-Zeilenumbruch anstelle des UNIX-Zeilenumbruchs benutzt. "
+msgstr "Das Zeichen »\\r« (U+000D) darf nicht am Ende eines Wortes vorkommen. Das könnte daran liegen, dass die Datei den MS-DOS-Zeilenumbruch anstelle des UNIX-Zeilenumbruchs benutzt."
 
 #: modules/speller/default/language.cpp:552
 #, c-format
@@ -1203,7 +1204,7 @@ msgstr "Die Gesamtlänge des Wortes, inclusive Wortklangdaten, ist größer als 
 msgid "There must be at least one \"add\" line."
 msgstr "Es muss mindestens eine »add«-Zeile geben."
 
-#: modules/speller/default/suggest.cpp:1721
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "eins von »ultra«, »fast«, »normal«, »slow« (langsam), oder »bad-spellers«"
 
@@ -1260,7 +1261,7 @@ msgstr "Filter, um HTML-Dokumente zu behandeln"
 
 #: modules/filter/html-filter.info:15
 msgid "HTML attributes to always check"
-msgstr "HTML-Attribute, die immer überprüft werden."
+msgstr "HTML-Attribute, die immer überprüft werden"
 
 #: modules/filter/html-filter.info:21
 msgid "HTML tags to always skip the contents of"
@@ -1296,7 +1297,7 @@ msgstr "Filter, um generische SGML/XML-Dokumente zu behandeln"
 
 #: modules/filter/sgml-filter.info:15
 msgid "SGML attributes to always check"
-msgstr "SGML-Attribute, die immer überprüft werden."
+msgstr "SGML-Attribute, die immer überprüft werden"
 
 #: modules/filter/sgml-filter.info:20
 msgid "SGML tags to always skip the contents of"
@@ -1324,7 +1325,7 @@ msgstr "Texinfo-Befehle, deren Parameter ignoriert werden"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
-msgstr "zu ignorierende Texinfo-Umgebung"
+msgstr "Zu ignorierende Texinfo-Umgebungen"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
