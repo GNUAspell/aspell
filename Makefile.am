@@ -90,6 +90,7 @@ libaspell_la_SOURCES =\
   lib/find_speller.cpp\
   lib/speller-c.cpp\
   lib/string_pair_enumeration-c.cpp\
+  lib/suggestions-c.cpp\
   lib/new_checker.cpp
 
 libaspell_la_LIBADD =  $(LTLIBINTL) $(PTHREAD_LIB)
