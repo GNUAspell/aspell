@@ -40,7 +40,7 @@ namespace {
       int size;
       const char * args;
       Command() {}
-      Command(InWhat w, bool s, const char *a) : in_what(w), skip(s), args(a), size(0) {}
+      Command(InWhat w, bool s, const char *a) : in_what(w), skip(s), size(0), args(a) {}
     };
 
     Vector<Command> stack;
