@@ -1216,7 +1216,7 @@ to 'script' and 'style'.
 
 @subsubsection @TeX{}/LaTeX Filter
 
-The @option{tex} (all lowercase) filter hides @TeX{}/LaTeX commands and
+The @option{tex} (all lowercase) filter/mode hides @TeX{}/LaTeX commands and
 corresponding parameters that are not readable text in the output from
 Aspell.   It also skips over @TeX{} comments by default.
 
@@ -1352,10 +1352,11 @@ inside ignored environments with the 'T' parameter to the
 
 @end table
 
-As a last resort, spell checking can be switched off by putting the
-text @code{aspell:off} into the file. Similarly, with @code{aspell:on}
-one can turn it on again. This can be useful for macro definitions,
-for example
+As a last resort, when the @option{tex} mode (and not just the filter)
+is used, spell checking can be switched off by putting the text
+@code{aspell:off} into the file. Similarly, with @code{aspell:on} one
+can turn it on again. This can be useful for macro definitions, for
+example
 
 @example
 % aspell:off
@@ -3646,6 +3647,13 @@ increase.
 
 @node ChangeLog
 @appendix ChangeLog
+
+@heading Changes from 0.60.8.1 to 0.60.9 (???)
+@itemize @bullet
+@item
+Improved @option{tex} filter/mode thanks to work of Matthias.  The
+original filter/mode is available under the name @option{tex_v1}.
+@end itemize
 
 @heading Changes 0.60.8 to 0.60.8.1 (December 19, 2023)
 @itemize @bullet
