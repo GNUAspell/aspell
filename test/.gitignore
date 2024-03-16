@@ -5,3 +5,10 @@ aspell6-en-2018.04.16-0/
 
 test-res
 aspell6-en-2018.04.16-0.tar.bz2
+
+wide_test_invalid
+wide_test_invalid-but_ok
+wide_test_valid
+
+warning-settings
+warning-settings.mk
