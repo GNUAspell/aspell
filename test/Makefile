@@ -31,11 +31,11 @@ sanity: prep
 filter-test: markdown-filter-test context-filter-test
 
 markdown-filter-test: prep
-	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
+	./filter-test markdown "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
 	echo "all ok (markdown filter-test)" >> test-res
 
 context-filter-test: prep
-	./filter-test "${ASPELL_WRAP} ${ASPELL}" < context.dat
+	./filter-test context "${ASPELL_WRAP} ${ASPELL}" < context.dat
 	echo "all ok (context filter-test)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
