@@ -57,6 +57,8 @@ Makefile
 /manual/aspell.html/
 /manual/aspell.info
 /manual/texinfo.tex
+/manual/stamp-vti
+/manual/version.texi
 /missing
 /myspell/Makefile.in
 /po/Makefile.in
