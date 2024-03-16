@@ -7,6 +7,7 @@ MAGIC /0:256:^[ \t]*\\documentclass\[[^\[\]]*\]\{[^\{\}]*\}/tex
 DESCRIPTION mode for checking TeX/LaTeX documents
 
 FILTER context
+OPTION context-order-num 0.15
 OPTION clear-context-delimiters
 OPTION add-context-delimiters aspell:off aspell:on
 OPTION enable-context-visible-first
