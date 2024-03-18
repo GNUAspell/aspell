@@ -8,7 +8,10 @@
 // interface.
 // This was added to Aspell by Christoph Hintermüller
 
+#include <errno.h>
+
 #include "settings.h"
+#include "gettext.h"
 
 #include "can_have_error.hpp"
 #include "config.hpp"
@@ -21,6 +24,8 @@
 #include "string_enumeration.hpp"
 #include "string_list.hpp"
 #include "vector.hpp"
+
+
 
 using namespace acommon;
 
@@ -76,6 +81,14 @@ namespace {
       fprintf(stderr,"Nothing to be configured\n");
       return true;
     }
+
+    String order_num_str = config->retrieve("f-context-order-num");
+    char * endptr;
+    errno = 0;
+    order_num_ = strtod(order_num_str.str(), &endptr);
+    if (errno != 0 || *endptr != '\0' || !(0.0 <= order_num_ && order_num_ <= 1.0))
+      return make_err(bad_value, "context-order-num", order_num_str,
+                      _("a number between 0 and 1"));
 
     if (config->retrieve_bool("f-context-visible-first")) {
       state=visible;
