@@ -5,4 +5,4 @@ ASPELL >=0.60
 DESCRIPTION old TeX mode
 
 FILTER url
-FILTER tex
+FILTER tex_v1
