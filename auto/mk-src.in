@@ -1008,7 +1008,22 @@ class: module info list
 		/
 		config: config
 
-	list methods
+	method: empty
+		const
+		desc => UNIMPLEMENTED. Always returns false (i.e. 0).
+		/
+		bool
+
+	method: size
+		const
+		desc => UNIMPLEMENTED. Always returns 0.
+		/
+		unsigned int
+
+	method: elements
+		const
+		/
+		module info enumeration
 
 class: dict info list
 	/
@@ -1016,7 +1031,22 @@ class: dict info list
 		/
 		config: config
 
-	list methods
+	method: empty
+		const
+		desc => UNIMPLEMENTED. Always returns false (i.e. 0).
+		/
+		bool
+
+	method: size
+		const
+		desc => UNIMPLEMENTED. Always returns 0.
+		/
+		unsigned int
+
+	method: elements
+		const
+		/
+		dict info enumeration
 
 class: module info enumeration
 	/
