@@ -5147,6 +5147,9 @@ Wrote the Nroff filter.
 Enhanced the SGML filter to also support skipping sgml tags such as
 "script" blocks.
 
+@item Matthias Franz
+Enhanced the @TeX{}/LaTeX Filter.
+
 @item Kevin B. Hendricks (and Contributors)
 Wrote MySpell which is a simple spell checker library that supports
 affix compression.  Aspell affix compression code is based on his code.
