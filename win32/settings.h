@@ -89,4 +89,6 @@
 /* #undef USE_LOCALE */
 
 /* Version number of package */
-#define VERSION "0.50.3"
+#define VERSION "0.60.8.1"
+
+#define C_EXPORT extern "C"
