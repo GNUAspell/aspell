@@ -224,7 +224,9 @@ class: key info enumeration
 class: config
 	c impl headers => error
 	/
-	constructor
+	constructor: new aspell config
+		/
+		void
 
 	copyable methods
 
@@ -366,6 +368,7 @@ func: version string
 		information on how Aspell was compiled.
 	/
 	string
+	void
 }
 group: error
 {
@@ -1064,7 +1067,9 @@ group: string list
 /
 class: string list
 	/
-	constructor
+	constructor: new aspell string list
+		/
+		void
 
 	list methods
 
@@ -1078,7 +1083,9 @@ group: string map
 /
 class: string map
 	/
-	constructor
+	constructor: new aspell string map
+		/
+		void
 
 	mutable container methods
 
