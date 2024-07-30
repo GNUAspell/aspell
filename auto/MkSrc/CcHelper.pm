@@ -81,13 +81,16 @@ sub make_func ( $ \@ $ ; \% ) {
   my ($name, $d, $p, $accum) = @_;
   $accum = {} unless defined $accum;
   my @d = @$d;
+  my $ret = to_type_name(shift @d, {%$p,pos=>'return'}, %$accum);
+  my $parms = join ', ', map {to_type_name $_, {%$p,pos=>'parm'}, %$accum} @d;
+  $parms = 'void' if $p->{mode} eq 'cc' and $parms eq '';
   return (join '', 
-	  (to_type_name(shift @d, {%$p,pos=>'return'}, %$accum),
+          $ret,
 	   ' ',
 	   to_lower $name,
 	   '(',
-	   (join ', ', map {to_type_name $_, {%$p,pos=>'parm'}, %$accum} @d),
-	   ')'));
+	   $parms,
+	   ')');
 }
 
 =item make_wide_version NAME @TYPES PARMS ; %ACCUM
