@@ -131,6 +131,13 @@ namespace aspeller {
                                   unsigned run_together_limit,
                                   CheckInfo *, CheckInfo *,
                                   GuessInfo *);
+
+    CheckInfo * check_camelcase(char * word, char * word_end, /* @kris? it WILL modify word */
+                                  bool try_uppercase,
+                                  unsigned camel_case_limit,
+                                  CheckInfo *, CheckInfo *,
+                                  GuessInfo *);
+
     
     bool check_single(char * word, /* it WILL modify word */
                       bool try_uppercase,
