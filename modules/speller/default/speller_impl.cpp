@@ -214,15 +214,6 @@ namespace aspeller {
     return NULL;
   }
 
-  CheckInfo * SpellerImpl::check_camelcase(char * word, char * word_end,
-					   bool try_uppercase, // @kris uppercase as runtogether?
-					   unsigned camel_case_limit,
-					   CheckInfo * ci, CheckInfo * ci_end,
-					   GuessInfo * gi)
-  {
-    return NULL;
-  }
-
   PosibErr<bool> SpellerImpl::check(char * word, char * word_end, 
                                     /* it WILL modify word */
                                     bool try_uppercase,
@@ -234,11 +225,13 @@ namespace aspeller {
     bool res = check_runtogether(word, word_end, try_uppercase, run_together_limit, ci, ci_end, gi);
     if (res) return true;
     
-    CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_); // @kris allcaps words?
+    CompoundWord cw = lang_->split_word(word, word_end - word, camel_case_);
     if (cw.single()) return false;
     bool ok = true;
     CheckInfo * ci_prev = NULL;
+    CheckInfo * ci_overflow = NULL;
     do {
+      if (ci_overflow) ci = ci_overflow;
       unsigned len = cw.word_len();
       
       char save = word[len];
@@ -272,9 +265,10 @@ namespace aspeller {
 
       ci_prev = ci_last;
       ci = ci_last + 1;
-      if (ci >= ci_end) {
-        if (cpi) cpi->count = 0;
-        return false;
+      if (!ci_overflow && ci >= ci_end) {
+        // if (cpi) cpi->count = 0;
+        // return false;
+	ci_overflow = ci_last;
       }
       
       word = word + cw.rest_offset();
