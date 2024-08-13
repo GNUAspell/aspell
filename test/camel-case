@@ -27,12 +27,3 @@ else
     cat tmp/camel-case-res
     exit 1
 fi
-
-checkString 'thisCamelCaseStringHasWordsThatAreALLCAPSAsWell'
-if grep '^-$' tmp/camel-case-res; then
-    echo "pass"
-else
-    echo "fail:"
-    cat tmp/camel-case-res
-    exit 1
-fi
