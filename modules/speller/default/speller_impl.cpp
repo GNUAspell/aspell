@@ -266,6 +266,8 @@ namespace aspeller {
       ci_prev = ci_last;
       ci = ci_last + 1;
       if (!ci_overflow && ci >= ci_end) {
+        // if (cpi) cpi->count = 0;
+        // return false;
 	ci_overflow = ci_last;
       }
       
