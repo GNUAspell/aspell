@@ -242,6 +242,10 @@ namespace aspeller {
 
       if (!found) {
         if (cpi) {
+	  if (ci_overflow) {
+	    cpi->count = 0;
+	    return false;
+	  }
           ci_last = ci;
           ok = false;
           ci->word.str = word;
@@ -266,8 +270,6 @@ namespace aspeller {
       ci_prev = ci_last;
       ci = ci_last + 1;
       if (!ci_overflow && ci >= ci_end) {
-        // if (cpi) cpi->count = 0;
-        // return false;
 	ci_overflow = ci_last;
       }
       
