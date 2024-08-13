@@ -3,11 +3,10 @@
 set -e
 set -x
 
-# export PATH="`pwd`"/inst/bin:$PATH
+export PATH="`pwd`"/inst/bin:$PATH
 
 checkString () {
-    #echo $1 | aspell --camel-case -a > tmp/camel-case-res
-    echo $1 | /home/kris/proj/aspell/build/aspell --camel-case -a > tmp/camel-case-res
+    echo $1 | aspell --camel-case -a > tmp/camel-case-res
 }
 
 checkString 'thisCamelCaseStringHasSevenWords'
