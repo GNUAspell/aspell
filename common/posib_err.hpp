@@ -178,14 +178,14 @@ namespace acommon {
     PosibErr() {}
 
     PosibErr(const PosibErrBase & other) 
-      : PosibErrBase(other) {}
+      : PosibErrBase(other), data{} {}
 
     template <typename T>
     PosibErr(const PosibErr<T> & other)
       : PosibErrBase(other), data(other.data) {}
 
     PosibErr(const PosibErr<void> & other)
-      : PosibErrBase(other) {}
+      : PosibErrBase(other), data{} {}
 
     PosibErr& operator= (const PosibErr & other) {
       data = other.data;
