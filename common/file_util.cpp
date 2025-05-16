@@ -30,6 +30,7 @@
 #  define ACCESS _access
 #  include <windows.h>
 #  include <winbase.h>
+#  include "asc_ctype.hpp"
 
 #else
 
