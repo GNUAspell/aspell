@@ -7,6 +7,8 @@
 #ifndef ASPELL_OSTREAM__HPP
 #define ASPELL_OSTREAM__HPP
 
+#define _INTL_NO_DEFINE_MACRO_PRINTF
+
 #include <stdarg.h>
 
 #include "parm_string.hpp"
