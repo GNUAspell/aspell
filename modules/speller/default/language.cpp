@@ -20,7 +20,7 @@
 #include "getdata.hpp"
 #include "file_util.hpp"
 
-#ifdef ENABLE_NLS
+#ifdef HAVE_LANGINFO_CODESET
 #  include <langinfo.h>
 #endif
 
