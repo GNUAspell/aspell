@@ -16,6 +16,7 @@
 #define DISTRIBNET_LOCK__HPP
 
 #include <assert.h>
+#include <cstddef>
 
 #include "settings.h"
 
