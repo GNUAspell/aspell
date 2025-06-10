@@ -229,7 +229,9 @@ namespace aspeller {
     if (cw.single()) return false;
     bool ok = true;
     CheckInfo * ci_prev = NULL;
+    CheckInfo * ci_overflow = NULL;
     do {
+      if (ci_overflow) ci = ci_overflow;
       unsigned len = cw.word_len();
       
       char save = word[len];
@@ -240,6 +242,10 @@ namespace aspeller {
 
       if (!found) {
         if (cpi) {
+	  if (ci_overflow) {
+	    cpi->count = 0;
+	    return false;
+	  }
           ci_last = ci;
           ok = false;
           ci->word.str = word;
@@ -263,9 +269,8 @@ namespace aspeller {
 
       ci_prev = ci_last;
       ci = ci_last + 1;
-      if (ci >= ci_end) {
-        if (cpi) cpi->count = 0;
-        return false;
+      if (!ci_overflow && ci >= ci_end) {
+	ci_overflow = ci_last;
       }
       
       word = word + cw.rest_offset();

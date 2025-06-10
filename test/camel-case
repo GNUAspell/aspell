@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+set -x
+
+export PATH="`pwd`"/inst/bin:$PATH
+
+checkString () {
+    echo $1 | aspell --camel-case -a > tmp/camel-case-res
+}
+
+checkString 'thisCamelCaseStringHasSevenWords'
+if grep '^-$' tmp/camel-case-res; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/camel-case-res
+    exit 1
+fi
+
+checkString 'thisCamelCaseStringHasMoreThanEightWords'
+if grep '^-$' tmp/camel-case-res; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/camel-case-res
+    exit 1
+fi
