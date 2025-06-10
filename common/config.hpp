@@ -145,6 +145,11 @@ namespace acommon {
     PosibErr<void> replace(ParmStr, ParmStr);
     PosibErr<void> remove(ParmStr);
 
+    // replace_u (u is for user value) is like replace except that it
+    // marks the value as insecure.  It should be used when setting a
+    // config value to anything other than a known constant.
+    PosibErr<void> replace_u(ParmStr, ParmStr);
+
     bool empty() const {return !first_;}
 
     PosibErr<void> merge(const Config & other);
