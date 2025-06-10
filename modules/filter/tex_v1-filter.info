@@ -4,7 +4,7 @@
 ASPELL >=0.51
 
 #This line will be printed when typing `Aspell help TeX'
-DESCRIPTION filter for dealing with TeX/LaTeX documents
+DESCRIPTION old TeX filter
 
 STATIC filter
 #STATIC encoder
@@ -16,35 +16,15 @@ DESCRIPTION check TeX comments
 DEFAULT false
 ENDOPTION
 
-OPTION ignore-env
-TYPE list
-DESCRIPTION LaTeX environments to be ignored
-# LaTeX
-#DEFAULT thebibliography
-DEFAULT equation
-DEFAULT eqnarray
-# AMS-LaTeX
-DEFAULT gather
-DEFAULT multline
-DEFAULT align
-DEFAULT flalign
-DEFAULT alignat
-# Babel
-DEFAULT otherlanguage
-ENDOPTION
-
 OPTION command
 TYPE list
 DESCRIPTION TeX commands
-# plain TeX / LaTeX
 DEFAULT addtocounter pp
 DEFAULT addtolength pp
-DEFAULT alph p
-DEFAULT Alph p
+DEFAULT alpha p
 DEFAULT arabic p
 DEFAULT fnsymbol p
 DEFAULT roman p
-DEFAULT Roman p
 DEFAULT stepcounter p
 DEFAULT setcounter pp
 DEFAULT usecounter p
@@ -62,8 +42,7 @@ DEFAULT newtheorem poPo
 DEFAULT newfont pp
 DEFAULT documentclass op
 DEFAULT usepackage op
-# DO NOT change the next line!
-DEFAULT begin so
+DEFAULT begin po
 DEFAULT end p
 DEFAULT setlength pp
 DEFAULT addtolength pp
@@ -75,17 +54,15 @@ DEFAULT hyphenation p
 DEFAULT pagenumbering p
 DEFAULT pagestyle p
 DEFAULT addvspace p
-DEFAULT framebox ooT
+DEFAULT framebox ooP
 DEFAULT hspace p
 DEFAULT vspace p
-DEFAULT hbox T
-DEFAULT vbox T
-DEFAULT makebox ooT
-DEFAULT parbox ooopT
-DEFAULT raisebox pooT
+DEFAULT makebox ooP
+DEFAULT parbox ooopP
+DEFAULT raisebox pooP
 DEFAULT rule opp
 DEFAULT sbox pO
-DEFAULT savebox pooT
+DEFAULT savebox pooP
 DEFAULT usebox p
 DEFAULT include p
 DEFAULT includeonly p
@@ -99,30 +76,13 @@ DEFAULT fontshape p
 DEFAULT fontsize pp
 DEFAULT usefont pppp
 DEFAULT documentstyle op
-DEFAULT cite Op
+DEFAULT cite p
 DEFAULT nocite p
 DEFAULT psfig p
 DEFAULT selectlanguage p
 DEFAULT includegraphics op
 DEFAULT bibitem op
-DEFAULT bibliography p
-DEFAULT bibliographystyle p
 DEFAULT geometry p
-# AMS-LaTeX
-DEFAULT address p
-DEFAULT email p
-DEFAULT mathbb p
-DEFAULT mathfrak p
-DEFAULT eqref p
-DEFAULT text T
-DEFAULT intertext T
-DEFAULT DeclareMathOperator pp
-DEFAULT DeclareMathAlphabet ppppp
-# hyperref
-DEFAULT href pP
-DEFAULT autoref p
-DEFAULT url p
-DEFAULT texorpdfstring Pp
 ENDOPTION
 
 #OPTION multi-byte

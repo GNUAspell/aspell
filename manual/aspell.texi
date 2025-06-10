@@ -1216,14 +1216,22 @@ to 'script' and 'style'.
 
 @subsubsection @TeX{}/LaTeX Filter
 
-The @option{tex} (all lowercase) filter hides @TeX{}/LaTeX commands and
+The @option{tex} (all lowercase) filter/mode hides @TeX{}/LaTeX commands and
 corresponding parameters that are not readable text in the output from
 Aspell.   It also skips over @TeX{} comments by default.
+
+Discretionary hyphens and italic corrections are ignored.  For example,
+@samp{hy\-phen} and @samp{shelf\/ful} are recognized as single words.
 
 @c This filter mode is also available via the
 @c @option{latex} alias name.
 
 @table @b
+
+@item tex-check-comments
+@i{(boolean)}
+Check @TeX{} comments.  Defaults to false.
+
 @item tex-command
 @i{(list)}
 Controls which @TeX{} commands should have certain parameters and/or
@@ -1232,13 +1240,15 @@ all their parameters and/or options checked.  The format for each item
 is
 
 @example
-<command> <a list of p,P,o and Os>
+<command> <a list of 'p', 'P', 'o', 'O' and 'T's>
 @end example
 
 The first item is simply the command name.  The second item controls
 which parameters to skip over.  A 'p' skips over a parameter while a
 'P' doesn't.  Similarly an 'o' will skip over an optional parameter
-while an 'O' doesn't.  The first letter on the list will apply to the
+while an 'O' doesn't.  A 'T' will force spell-checking of a parameter
+even if the command occurs within a parameter or an environment Aspell
+is told to skipped over. The first letter on the list will apply to the
 first parameter, the second letter will apply to the second parameter
 etc.  If there are more parameters than letters Aspell will simply
 check them as normal.  For example the option
@@ -1260,6 +1270,25 @@ will @emph{check} the first parameter of the @code{foo} command, skip
 over the next optional parameter, if it is present, and will skip over
 the second parameter --- even if the optional parameter is not present
 --- and will check any additional parameters.
+
+@example
+add-tex-command foo T
+@end example
+
+@noindent
+will @emph{check} the first parameter of the @code{foo} command even
+if Aspell is currently skipping over an argument or environment.  For
+example, if Aspell has been told to skip over the @code{bar}
+environment (@pxref{Ignoring LaTeX Environments}), then in the text
+
+@example
+\begin@{bar@} don't check \foo@{check@} don't check \end@{bar@}
+@end example
+
+@noindent
+it will nevertheless @emph{check} the argument to @code{foo}.  This is
+useful to force checking of arguments to text-related commands like
+@code{hbox}, @code{text} or @code{intertext} inside math environments.
 
 A @samp{*} at the end of the command is simply ignored.  For example
 the option
@@ -1287,14 +1316,56 @@ current defaults.
 @c will remove the command foo, if present, from the list of @TeX{}
 @c commands.
 
-@item tex-check-comments
-@i{(boolean)}
-Check @TeX{} comments.  Defaults to false.
+@anchor{Ignoring LaTeX Environments}
+@item tex-ignore-env
+@i{(list)}
+This controls which @TeX{} environments are skipped over.  By default,
+Aspell will skip over math formulas inside @code{$...$}, @code{$$...$$},
+@code{\(...\)} and @code{\[...\]} and over several common LaTeX and
+AMS-LaTeX math environments like @code{equation} and @code{gather}.
+For example,
+
+@example
+add-tex-ignore-env thebibliography
+@end example
+
+@noindent
+will tell Aspell to skip over the bibliography as well (which may or
+may not be a good idea).  As with commands, skipping applies to the
+starred form of the environment as well.
+
+@example
+rem-tex-ignore-env equation
+@end example
+
+@noindent
+will make Aspell spell-check the contents of @code{equation} and
+@code{equation*} environments.  Skipping the contents of @code{$...$},
+@code{$$...$$}, @code{\(...\)} and @code{\[...\]} cannot be turned off.
+
+Note that one can force spell-checking of arguments to TeX commands
+inside ignored environments with the 'T' parameter to the
+@option{add-tex-command} option.
 
 @c @item tex-multi-byte
 @c (@i{list}) TeX multi byte letter en|decoding
 
 @end table
+
+As a last resort, when the @option{tex} mode (and not just the filter)
+is used, spell checking can be switched off by putting the text
+@code{aspell:off} into the file. Similarly, with @code{aspell:on} one
+can turn it on again. This can be useful for macro definitions, for
+example
+
+@example
+% aspell:off
+\def\doi#1@{\href@{http://doi.org/#1@}@{doi:#1@}@}
+% aspell:on
+@end example
+
+@noindent
+This feature is implemented via the @ref{Context Filter}.
 
 @c The TeXfilter mode also contains a decoding and an encoding filter for
 @c @emph{babel} character codes like the German Umlauts:
@@ -1404,6 +1475,7 @@ escapes
 (@code{\(}) and extended (@code{\[comp1 comp2 @dots{}]}) form.
 @end itemize
 
+@anchor{Context Filter}
 @subsubsection Context Filter
 
 The @option{context} filter can be used to spell check source codes,
@@ -3576,6 +3648,13 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
+@heading Changes from 0.60.8.1 to 0.60.9 (???)
+@itemize @bullet
+@item
+Improved @option{tex} filter/mode thanks to work of Matthias.  The
+original filter/mode is available under the name @option{tex_v1}.
+@end itemize
+
 @heading Changes 0.60.8 to 0.60.8.1 (December 19, 2023)
 @itemize @bullet
 @item
@@ -5067,6 +5146,9 @@ Wrote the Nroff filter.
 @item Tom Snyder
 Enhanced the SGML filter to also support skipping sgml tags such as
 "script" blocks.
+
+@item Matthias Franz
+Enhanced the @TeX{}/LaTeX Filter.
 
 @item Kevin B. Hendricks (and Contributors)
 Wrote MySpell which is a simple spell checker library that supports

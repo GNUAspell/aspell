@@ -21,3 +21,9 @@ TYPE bool
 DESCRIPTION swaps visible and invisible text
 DEFAULT false
 ENDOPTION
+
+OPTION order-num
+TYPE string
+DEFAULT 0.5
+DESCRIPTION between 0 and 1, defaults to 0.5
+ENDOPTION

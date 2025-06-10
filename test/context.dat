@@ -1,0 +1,32 @@
+--mode=ccpp
+
+ccpp mode test
+---
+skip me
+// check me
+skip me
+/* check me */
+skip me
+/* check me
+also check me */
+skip me
+"check me"
+skip me
+"check
+ me"
+skip me
+---
+       
+   check me
+       
+   check me   
+       
+   check me
+also check me   
+       
+ check me 
+       
+ check
+ me 
+       
+---

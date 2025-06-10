@@ -1,10 +1,8 @@
 // This file is part of The New Aspell
-// Copyright (C) 2001, 2016 Kevin Atkinson under the GNU LGPL license
-// version 2.0 or 2.1.
-// Copyright (C) 2011, 2022 Matthias Franz under the GNU LGPL license
-// version 2.1 or (at your option) any later version.
-// You should have received a copy of the LGPL license along with this library
-// if you did not you can find it at http://www.gnu.org/.
+// Copyright (C) 2001 by Kevin Atkinson under the GNU LGPL license
+// version 2.0 or 2.1.  You should have received a copy of the LGPL
+// license along with this library if you did not you can find
+// it at http://www.gnu.org/.
 
 #include "asc_ctype.hpp"
 #include "config.hpp"
@@ -34,17 +32,17 @@ namespace {
   class TexFilter : public IndividualFilter 
   {
   private:
-    enum InWhat {Text, Name, Comment, InlineMath, DisplayMath, EnvName};
+    enum InWhat {Name, Opt, Parm, Other, Swallow};
     struct Command {
       InWhat in_what;
       String name;
-      bool skip;
-      int size;
-      const char * args;
+      const char * do_check;
       Command() {}
-      Command(InWhat w, bool s, const char *a) : in_what(w), skip(s), size(0), args(a) {}
+      Command(InWhat w) : in_what(w), do_check("P") {}
     };
 
+    bool in_comment;
+    bool prev_backslash;
     Vector<Command> stack;
 
     class Commands : public StringMap {
@@ -55,11 +53,11 @@ namespace {
     
     Commands commands;
     bool check_comments;
+    
+    inline void push_command(InWhat);
+    inline void pop_command();
 
-    StringMap ignore_env;
-
-    inline bool push_command(InWhat, bool, const char *);
-    inline bool pop_command();
+    bool end_option(char u, char l);
 
     inline bool process_char(FilterChar::Chr c);
     
@@ -73,17 +71,14 @@ namespace {
   //
   //
 
-  inline bool TexFilter::push_command(InWhat w, bool skip, const char *args = "") {
-    stack.push_back(Command(w, skip, args));
-    return skip;
+  inline void TexFilter::push_command(InWhat w) {
+    stack.push_back(Command(w));
   }
 
-  inline bool TexFilter::pop_command() {
-    bool skip = stack.back().skip;
-    if (stack.size() > 1) {
-      stack.pop_back();
-    }
-    return skip;
+  inline void TexFilter::pop_command() {
+    stack.pop_back();
+    if (stack.empty())
+      push_command(Parm);
   }
 
   //
@@ -101,167 +96,133 @@ namespace {
     
     check_comments = opts->retrieve_bool("f-tex-check-comments");
 
-    opts->retrieve_list("f-tex-ignore-env", &ignore_env);
-
     reset();
     return true;
   }
   
   void TexFilter::reset() 
   {
+    in_comment = false;
+    prev_backslash = false;
     stack.resize(0);
-    push_command(Text, false);
+    push_command(Parm);
   }
 
 #  define top stack.back()
-#  define next_arg       if (*top.args) { ++top.args; if (!*top.args) pop_command(); }
-#  define skip_opt_args  if (*top.args) { while (*top.args == 'O' || *top.args == 'o') { ++top.args; } if (!*top.args) pop_command(); }
-
 
   // yes this should be inlined, it is only called once
   inline bool TexFilter::process_char(FilterChar::Chr c) 
   {
-    top.size++;
+    // deal with comments
+    if (c == '%' && !prev_backslash) in_comment = true;
+    if (in_comment && c == '\n')     in_comment = false;
+
+    prev_backslash = false;
+
+    if (in_comment)                  return !check_comments;
 
     if (top.in_what == Name) {
       if (asc_isalpha(c)) {
 
 	top.name += c;
-	return top.skip;
+	return true;
 
       } else {
-	bool in_name;
+
+	if (top.name.empty() && (c == '@')) {
+	  top.name += c;
+	  return true;
+	}
+	  
+	top.in_what = Other;
 
 	if (top.name.empty()) {
+	  top.name.clear();
 	  top.name += c;
-	  in_name = true;
-	} else {
-	  top.size--;
-	  in_name = false;
+	  top.do_check = commands.lookup(top.name.c_str());
+	  if (top.do_check == 0) top.do_check = "";
+	  return !asc_isspace(c);
 	}
 
-	String name = top.name;
+	top.do_check = commands.lookup(top.name.c_str());
+	if (top.do_check == 0) top.do_check = "";
 
-	pop_command();
-
-	const char *args = commands.lookup(name.c_str());
-
-	if (name == "begin")
-	  push_command(top.in_what, top.skip);
-	  // args = "s";
-	else if (name == "end")
-	  pop_command();
-
-	// we might still be waiting for arguments
-	skip_opt_args;
-	if (*top.args) {
-	  next_arg;
-	} else if (name == "[") {
-	  // \[
-	  push_command(DisplayMath, true);
-	} else if (name == "]") {
-	  // \]
-	  pop_command();  // pop DisplayMath
-	} else if (name == "(") {
-	  // \(
-	  push_command(InlineMath, true);
-	} else if (name == ")") {
-	  // \)
-	  pop_command();  // pop InlineMath
-	} else if (args && *args) {
-	  push_command(top.in_what, top.skip, args);
+	if (asc_isspace(c)) { // swallow extra spaces
+	  top.in_what = Swallow;
+	  return true;
+	} else if (c == '*') { // ignore * at end of commands
+	  return true;
 	}
 	
-	if (in_name || c == '*')  // better way to deal with "*"?
-	  return true;
-	else
-	  return process_char(c);  // start over
+	// continue o...
       }
 
+    } else if (top.in_what == Swallow) {
+
+      if (asc_isspace(c))
+	return true;
+      else
+	top.in_what = Other;
     }
 
-    if (top.in_what == Comment) {
-      if (c == '\n') {
-	pop_command();
-	return false;  // preserve newlines
-      } else {
-        return top.skip;
-      }
-    }
+    if (c == '{')
+      while (*top.do_check == 'O' || *top.do_check == 'o') 
+	++top.do_check;
 
-    if (c == '%') {
-      push_command(Comment, !check_comments);
+    if (*top.do_check == '\0')
+      pop_command();
+
+    if (c == '{') {
+
+      if (top.in_what == Parm || top.in_what == Opt || *top.do_check == '\0')
+	push_command(Parm);
+
+      top.in_what = Parm;
       return true;
     }
 
-    if (c == '$') {
-      if (top.in_what != InlineMath) {
-	// $ begin
-	return push_command(InlineMath, true);
-      } else if (top.size > 1) {
-	// $ end
-	return pop_command();
+    if (top.in_what == Other) {
+
+      if (c == '[') {
+
+	top.in_what = Opt;
+	return true;
+
+      } else if (asc_isspace(c)) {
+
+	return true;
+
       } else {
-	// $ -> $$
-	pop_command();  // pop InlineMath
-	if (top.in_what == DisplayMath)
-	  // $$ end
-	  return pop_command();
-	else
-	  // $$ start
-	  return push_command(DisplayMath, true);
+	
+	pop_command();
+
       }
-    }
+
+    } 
 
     if (c == '\\') {
-      return push_command(Name, true);
+      prev_backslash = true;
+      push_command(Name);
+      return true;
     }
 
-    if (c == '}' || c == ']') {
-      if (top.in_what == EnvName) {
-	String env = top.name;
-	if (env.back() == '*')
-	  env.pop_back();
-	bool skip = pop_command();
-	next_arg;
-	if (ignore_env.have(env)) {
-	  stack[stack.size()-2].skip = true;
-	}
-	return skip;
-      } else {
-	bool skip = pop_command();
-	next_arg;
-	return skip;
-      }
-    }
+    if (top.in_what == Parm) {
 
-    if (c == '{') {
-      skip_opt_args;
-      if (*top.args == 'T')
-	return push_command(Text, false);
-      else if (*top.args == 's')
-	return push_command(EnvName, true);
+      if (c == '}')
+	return end_option('P','p');
       else
-	return push_command(top.in_what, top.skip || *top.args == 'p');
+	return *top.do_check == 'p';
+
+    } else if (top.in_what == Opt) {
+
+      if (c == ']')
+	return end_option('O', 'o');
+      else
+	return *top.do_check == 'o';
+
     }
 
-    if (c == '[') {
-      if (*top.args == 'O' || *top.args == 'o' || !*top.args) {
-	return push_command(top.in_what, top.skip || *top.args == 'o');
-      }
-      // else: fall-through to treat it as a one-letter argument
-    }
-
-    if (top.in_what == EnvName)
-      top.name += c;
-
-    // we might still be waiting for arguments
-    if (!asc_isspace(c)) {
-      skip_opt_args;
-      next_arg;
-    }
-
-    return top.skip;
+    return false;
   }
 
   void TexFilter::process(FilterChar * & str, FilterChar * & stop)
@@ -269,22 +230,17 @@ namespace {
     FilterChar * cur = str;
 
     while (cur != stop) {
-      bool hyphen = top.in_what == Name && top.size == 0
-	&& (*cur == '-' || *cur == '/') && cur-str >= 2;
-      if (process_char(*cur)) {
+      if (process_char(*cur))
 	*cur = ' ';
-      }
-      if (hyphen) {
-	FilterChar *i = cur-2, *j = cur+1;
-	*i = FilterChar(*i, FilterChar::sum(i, j));
-	i++;
-	while (j != stop)
-	  *(i++) = *(j++);
-	*(stop-2) = *(stop-1) = FilterChar(0, 0);
-	cur--;
-      }
       ++cur;
     }
+  }
+
+  bool TexFilter::end_option(char u, char l) {
+    top.in_what = Other;
+    if (*top.do_check == u || *top.do_check == l)
+      ++top.do_check;
+    return true;
   }
 
   //
@@ -296,14 +252,14 @@ namespace {
     while (!asc_isspace(value[p1])) {
       if (value[p1] == '\0') 
 	return make_err(bad_value, value,"",
-                        _("a string of 'o', 'O', 'p', 'P', 's' or 'T'"));
+                        _("a string of 'o','O','p',or 'P'"));
       ++p1;
     }
     int p2 = p1 + 1;
     while (asc_isspace(value[p2])) {
       if (value[p2] == '\0') 
 	return make_err(bad_value, value,"",
-                        _("a string of 'o', 'O', 'p', 'P', 's' or 'T'"));
+                        _("a string of 'o','O','p',or 'P'"));
       ++p2;
     }
     String t1; t1.assign(value,p1);
@@ -801,11 +757,11 @@ namespace {
 }
 
 C_EXPORT 
-IndividualFilter * new_aspell_tex_filter() {return new TexFilter;}
+IndividualFilter * new_aspell_tex_v1_filter() {return new TexFilter;}
 
 #if 0
 C_EXPORT 
-IndividualFilter * new_aspell_tex_decoder() {return new TexDecoder;}
+IndividualFilter * new_aspell_tex_v1_decoder() {return new TexDecoder;}
 C_EXPORT 
-IndividualFilter * new_aspell_tex_encoder() {return new TexEncoder;}
+IndividualFilter * new_aspell_tex_v1_encoder() {return new TexEncoder;}
 #endif

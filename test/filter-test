@@ -7,11 +7,12 @@ use autodie qw(:all);
 my $parms;
 my @tests;
 
-if (@ARGV != 1) {
-    die("usage $0 <aspell-binary>\n");
+if (@ARGV != 2) {
+    die("usage $0 <prefix> <aspell-binary>\n");
 }
 
-my $ASPELL=$ARGV[0];
+my $PREFIX=$ARGV[0];
+my $ASPELL=$ARGV[1];
 
 sub sys($) {
     #print "@_\n";
@@ -68,13 +69,13 @@ while (<STDIN>) {
         next;
     }
 
-    open F, ">tmp/test-data.in";
+    open F, ">tmp/$PREFIX-test-data.in";
     print F $in;
-    open F, ">tmp/test-data.expect";
+    open F, ">tmp/$PREFIX-test-data.expect";
     print F $out;
     eval {
-        sys "$ASPELL filter --mode=none $parms < tmp/test-data.in > tmp/test-data.out";
-        sys "diff -u -Z tmp/test-data.expect tmp/test-data.out";
+        sys "$ASPELL filter --mode=none $parms < tmp/$PREFIX-test-data.in > tmp/$PREFIX-test-data.out";
+        sys "diff -u -Z tmp/$PREFIX-test-data.expect tmp/$PREFIX-test-data.out";
     };
     if ($@) {
         $failed++;
