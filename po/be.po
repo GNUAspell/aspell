@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.51\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2004-01-06 16:34+0200\n"
 "Last-Translator: Vital khilko <dojlid@mova.org>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -476,7 +476,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr ""
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Мова \"%lang:1\" невядома."
 
@@ -486,17 +485,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Невядомы гук \"%sl:2\"."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Мова \"%lang:1\" не падтрымліваецца."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Няма сьпісу словаў для мовы \"%lang:1\"."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Чакалася мова \"%lang:1\" але атрымана \"%prev:2\"."
 
@@ -1353,6 +1349,16 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr ""
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "Filter for recognizing TeX/LaTeX commands"
+msgid "filter to deal with gettext .po files"
+msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr ""
@@ -1432,6 +1438,12 @@ msgstr ""
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr ""
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "Filter for recognizing TeX/LaTeX commands"
+msgid "mode for checking gettext .po files"
+msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

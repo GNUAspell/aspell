@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2020-03-07 15:33+0100\n"
 "Last-Translator: Francesco Groccia <fg@snopyta.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -452,7 +452,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "L'opzione \"%key:1\" non accetta parametri quando è prefissata da \"clear-\"."
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "La lingua \"%lang:1\" è sconosciuta."
 
@@ -462,17 +461,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Il soundslike \"%sl:2\" è sconosciuto."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "La lingua \"%lang:1\" non è supportata."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Non è possibile trovare alcuna lista di parole per la lingua \"%lang:1\"."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Invece della lingua \"%lang:1\" trovato \"%prev:2\"."
 
@@ -683,7 +679,9 @@ msgid "Invalid Option: %s"
 msgstr "Opzione non valida: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr "non accetta alcun parametro."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -936,10 +934,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      normalizzazione da usare: essere \"none\", \"internal\", o \"strict\""
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1202,7 +1204,7 @@ msgstr "La lunghezza totale della parola, con i dati soundslike, supera i 240 ca
 msgid "There must be at least one \"add\" line."
 msgstr "Deve esserci almeno una riga \"add\"."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "ultra, fast, normal, slow, o bad-spellers"
 
@@ -1289,6 +1291,16 @@ msgstr "tag HTML che iniziano un blocco HTML che finisce con una linea vuota"
 msgid "filter for dealing with Nroff documents"
 msgstr "filtro per i documenti Nroff"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter to deal with gettext .po files"
+msgstr "filtro per i documenti Texinfo"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtro per i documenti SGML/XML"
@@ -1360,6 +1372,12 @@ msgstr "modalità per controllare i documenti Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "modalità per controllare i commenti Perl e le stringhe letterali"
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "mode for checking Texinfo documents"
+msgid "mode for checking gettext .po files"
+msgstr "modalità per controllare i documenti Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

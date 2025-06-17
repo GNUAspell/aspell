@@ -1368,6 +1368,24 @@ The Texinfo filter will also skip over the @samp{\input texinfo} line.
 
 @end table
 
+@subsubsection PO gettext Filter
+
+The @option{po} filter allows you to spell check GNU @code{gettext}
+@code{po} files. It will skip the header section, @code{msgid},
+@code{msgid_plural}, @code{msgctxt}, translator comments, extracted comments,
+references, flags and previous untranslated strings.
+
+The filter is tailored to translators. We offer an option to review the
+msgid and mssgid strings, but not the other strings.
+
+@table @b
+@item maintainer-mode
+@i{(boolean)}
+In this case, spellchecks only @code{msgid} and @code{msgid_plural}, filtering
+out any other content from the file.
+
+@end table
+
 @subsubsection Nroff Filter
 
 The @option{nroff} filter mode allows you to check the spelling of

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2004-07-25 19:46-0400\n"
 "Last-Translator: Gareth Owen <gowen72@yahoo.com>\n"
 "Language-Team: English (British) <en_gb@li.org>\n"
@@ -454,7 +454,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "The language \"%lang:1\" is not known."
 
@@ -464,17 +463,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "The soundslike \"%sl:2\" is not known."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "The language \"%lang:1\" is not supported."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "No word lists can be found for the language \"%lang:1\"."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Expected language \"%lang:1\" but got \"%prev:2\"."
 
@@ -1314,6 +1310,16 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "filter for dealing with HTML documents"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "filter for dealing with HTML documents"
+msgid "filter to deal with gettext .po files"
+msgstr "filter for dealing with HTML documents"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filter for dealing with generic SGML/XML documents"
@@ -1395,6 +1401,12 @@ msgstr "mode for checking HTML documents"
 #| msgid "mode for checking perl comments and string literals"
 msgid "mode for checking Perl comments and string literals"
 msgstr "mode for checking perl comments and string literals"
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "mode for checking HTML documents"
+msgid "mode for checking gettext .po files"
+msgstr "mode for checking HTML documents"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

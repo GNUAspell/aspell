@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2020-04-01 13:40+0300\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
 "Language: sq\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -450,7 +450,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr ""
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Gjuha \"%lang:1\" është e panjohur."
 
@@ -460,17 +459,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "\"Soundslike\" \"%sl:2\" është i panjohur."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Gjuha \"%lang:1\" nuk mbulohet."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "S’gjenden lista fjalësh për gjuhën \"%lang:1\"."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Pritej gjuha \"%lang:1\", por u mor \"%prev:2\"."
 
@@ -681,7 +677,9 @@ msgid "Invalid Option: %s"
 msgstr "Mundësi e Pavlefshme: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " nuk merr ndonjë parametër."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -934,10 +932,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      formë normalizimi për t’u përdorur, një nga \"none\", \"internal\", ose \"strict\""
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1201,7 +1203,7 @@ msgstr "Gjatësia në tërësi e fjalës, me të dhënat \"soundslike\", është
 msgid "There must be at least one \"add\" line."
 msgstr "Duhet të ketë të paktën një rresht \"add\"."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "një nga ultra, fast, normal, slow, ose bad-spellers"
 
@@ -1288,6 +1290,16 @@ msgstr "Etiketa HTML që nisin një bllok HTML i cili përfundon me një rresht 
 msgid "filter for dealing with Nroff documents"
 msgstr "filtër për trajtim dokumentesh Nroff"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter to deal with gettext .po files"
+msgstr "filtër për trajtim dokumentesh Texinfo"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtër për trajtim dokumentesh të thjeshtë SGML/XML"
@@ -1359,6 +1371,12 @@ msgstr "mënyrë për kontroll dokumentesh Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr ""
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "mode for checking Texinfo documents"
+msgid "mode for checking gettext .po files"
+msgstr "mënyrë për kontroll dokumentesh Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

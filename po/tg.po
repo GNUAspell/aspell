@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2004-05-22 19:33+0000\n"
 "Last-Translator: Marina Kolucheva <youth_opportunities@tajik.net>\n"
 "Language-Team: Tajik\n"
@@ -470,7 +470,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr ""
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Забони \"%lang:1\" номуайян аст."
 
@@ -480,17 +479,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Soundslike \"%sl:2\" номуайян аст."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Забони \"%lang:1\" дастгирӣ нашуда истодааст."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Рӯйхати калимаҳо барои забони \"%lang:1\" ёфт нашуда истодаанд."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Интизори забони \"%lang:1\"буд ва лекин \"%prev:2\" қабул шуд."
 
@@ -1321,6 +1317,15 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+msgid "filter to deal with gettext .po files"
+msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr ""
@@ -1401,6 +1406,11 @@ msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 #: modules/filter/modes/perl.amf:8
 #, fuzzy
 msgid "mode for checking Perl comments and string literals"
+msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+msgid "mode for checking gettext .po files"
 msgstr "филтр барои дарёфти фармоноти TeX/LaTeX"
 
 #: modules/filter/modes/sgml.amf:8

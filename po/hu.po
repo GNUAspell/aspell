@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2023-10-04 14:32+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs@fsf.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "Language: hu\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
@@ -451,7 +451,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "A(z) „%key:1” kulcs nem fogad el semmilyen paramétert, ha „clear-” előtagot kapott."
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "A(z) „%lang:1” nyelv nem ismert."
 
@@ -461,17 +460,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "A(z) „%sl:2” hangzásbeli megfelelő nem ismert."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "A(z) „%lang:1” nyelv nem támogatott."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Nem találhatók szólisták a(z) „%lang:1” nyelvhez."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "A(z) „%lang:1” nyelv az elvárt, de „%prev:2” érkezett."
 
@@ -682,7 +678,9 @@ msgid "Invalid Option: %s"
 msgstr "Érvénytelen kapcsoló: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " nem fogad el semmilyen paramétert."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -935,10 +933,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-forma>    a használandó normalizálási forma, „none”, „internal” vagy „strict”"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1200,7 +1202,7 @@ msgstr "A teljes szóhossz a hangzásbeli megfelelő adataival együtt meghaladj
 msgid "There must be at least one \"add\" line."
 msgstr "Legalább egy „add” sornak lennie kell."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "az „ultra”, „fast”, „normal”, „slow” vagy „bad-spellers” egyike"
 
@@ -1287,6 +1289,16 @@ msgstr "HTML-címkék, amelyek olyan HTML-blokkot kezdenek, amely üres sorral v
 msgid "filter for dealing with Nroff documents"
 msgstr "szűrő az Nroff-dokumentumok kezeléséhez"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter to deal with gettext .po files"
+msgstr "szűrő a Texinfo-dokumentumok kezeléséhez"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "szűrő az általános SGML/XML-dokumentumok kezeléséhez"
@@ -1358,6 +1370,12 @@ msgstr "egy mód az Nroff-dokumentumok ellenőrzéséhez"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "egy mód a Perl megjegyzések és karakterlánc-literálok ellenőrzéséhez"
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "mode for checking Texinfo documents"
+msgid "mode for checking gettext .po files"
+msgstr "egy mód a Texinfo-dokumentumok ellenőrzéséhez"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

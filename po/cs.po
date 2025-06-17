@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2025-06-16 20:23-0500\n"
 "PO-Revision-Date: 2020-04-06 10:41+0200\n"
 "Last-Translator: Branislav Makúch <makuch@disroot.org>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -454,7 +454,6 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Klíč „%key:1“ nemá žádné parametry, když má předponu „clear-“."
 
 #: common/errors.cpp:235
-#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Jazyk „%lang:1“ není znám."
 
@@ -464,17 +463,14 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Podobnost zvuku „%sl:2“ není známa."
 
 #: common/errors.cpp:251
-#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Jazyk „%lang:1“ není podporován."
 
 #: common/errors.cpp:259
-#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Pro jazyk „%lang:1“ nelze najít seznam slov."
 
 #: common/errors.cpp:267
-#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Byl očekáván jazyk „%lang:1“, ale obdržen „%prev:2“."
 
@@ -685,7 +681,9 @@ msgid "Invalid Option: %s"
 msgstr "Neplatný přepínač: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " nemá žádné parametry."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -942,10 +940,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-forma>     normalizační forma, buď none, internal nebo strict"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1211,7 +1213,7 @@ msgid "There must be at least one \"add\" line."
 msgstr "Musí existovat aspoň jeden řádek „add“."
 
 # must "ultra" "fast" "slow" and "bad-spellers" not be translated?
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "jedno z ultra, fast, normal, slow nebo bad-spellers"
 
@@ -1298,6 +1300,16 @@ msgstr "Tagy HTML zahajující blok HTML, který končí prázdným řádkem"
 msgid "filter for dealing with Nroff documents"
 msgstr "filtr pro práci s dokumenty Nroff"
 
+#: modules/filter/po-filter.info:7
+#, fuzzy
+#| msgid "filter for dealing with Texinfo documents"
+msgid "filter to deal with gettext .po files"
+msgstr "filtr pro práci s dokumenty Texinfo"
+
+#: modules/filter/po-filter.info:13
+msgid "review only msgids"
+msgstr ""
+
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtr pro práci s obecnými dokumenty SGML/XML"
@@ -1369,6 +1381,12 @@ msgstr "režim pro kontrolu dokumentů Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "režim pro kontrolu komentářů a řetězcových literálů v Perlu"
+
+#: modules/filter/modes/po.amf:7
+#, fuzzy
+#| msgid "mode for checking Texinfo documents"
+msgid "mode for checking gettext .po files"
+msgstr "režim pro kontrolu dokumentů Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"
