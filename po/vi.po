@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.7\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2012-03-13 14:59+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -457,6 +457,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Khóa « %key:1 » không chấp nhận tham số khi có tiền tố « clear- » (xóa)."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Không biết ngôn ngữ « %lang:1 »."
 
@@ -466,14 +467,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Không biết điều soundslike (nghe như) « %sl:2 »."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Ngôn ngữ « %lang:1 » không được hỗ trợ."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Không tìm thấy danh sách từ đối với ngôn ngữ « %lang:1 »."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Ngờ ngôn ngữ « %lang:1 » còn nhận « %prev:2 »."
 
@@ -1316,16 +1320,6 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "bộ lọc để xử lý tài liệu Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "bộ lọc để xử lý tài liệu Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "bộ lọc để xử lý tài liệu SGML/XML giống loài"
@@ -1399,12 +1393,6 @@ msgstr "chế độ để kiểm tra tài liệu Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "chế độ để kiểm tra chú thích Perl và đồ nghĩa chữ trong chuỗi"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "chế độ để kiểm tra tài liệu Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
 "PO-Revision-Date: 2023-12-12 10:02-0500\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -450,6 +450,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "La ŝlosilo \"%key:1\" ne prenas iun ajn parametron kiam prefiksita de \"clear-\"."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "La lingvo \"%lang:1\" ne estas konata."
 
@@ -459,14 +460,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "La fonemo \"%sl:2\" ne estas konata."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "La lingvo \"%lang:1\" ne estas subtenata."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Neniu vortlisto povas esti trovata por la lingvo \"%lang:1\"."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Ni atendis la lingvon \"%lang:1\" sed ni ricevis \"%prev:2\"."
 
@@ -1284,16 +1288,6 @@ msgstr "HTML-etikedoj kiuj komencigas HTML-blokon kiuj finas per blank-linio"
 msgid "filter for dealing with Nroff documents"
 msgstr "filtrilo por trakti dokumentojn Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "filtrilo por trakti dokumentojn Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtrilo por trakti ĝeneralan dokumenton SGML/XML"
@@ -1365,12 +1359,6 @@ msgstr "reĝimo por kontroli dokumentojn Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "reĝimo por kontroli komentojn Perl & ĉenliteraĵojn"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "reĝimo por kontroli dokumentojn Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

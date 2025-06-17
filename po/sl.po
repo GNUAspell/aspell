@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2019-09-24 17:15+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -451,6 +451,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Ključ \"%key:1\" ne sprejema parametrov, ki imajo predpono \"clear-\"."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Jezik \"%lang:1\" ni poznan."
 
@@ -460,14 +461,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Zveni-kot \"%sl:2\" ni poznan."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Jezik \"%lang:1\" ni podprt."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Za jezik \"%lang:1\" ni seznamov besed."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Pričakovani jezik je bil \"%lang:1\", vendar se je pojavila \"%prev:2\"."
 
@@ -1290,16 +1294,6 @@ msgstr "oznake HTML, ki začenjajo blok HTML, ki se konča s prazno vrstico"
 msgid "filter for dealing with Nroff documents"
 msgstr "filter za obravnavo dokumentov Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "filter za obravnavo dokumentov Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filter za obravnavo splošnih dokumentov SGML/XML"
@@ -1371,12 +1365,6 @@ msgstr "način preverjanja dokumentov Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "način preverjanja komentarjev Perl in dobesednih nizov"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "način preverjanja dokumentov Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

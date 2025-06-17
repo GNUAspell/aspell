@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
 "PO-Revision-Date: 2023-12-04 11:54+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -477,6 +477,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Cheia „%key:1” nu ia nici un parametru când este prefixată de un „clear-”."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Limba „%lang:1” nu este cunoscută."
 
@@ -486,14 +487,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Sună-ca „%sl:2” nu este cunoscut."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Limba „%lang:1” nu este admisă."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Nu poate fi găsită nici o listă de cuvinte pentru limba „%lang:1”."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Se aștepta limba „%lang:1” dar s-a primit limba „%prev:2”."
 
@@ -1316,16 +1320,6 @@ msgstr "Marcaje HTML care încep un bloc HTML care se termină cu o linie goală
 msgid "filter for dealing with Nroff documents"
 msgstr "filtru pentru procesarea documentelor Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "filtru pentru procesarea documentelor Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtru pentru procesarea documentelor SGML/XML generice"
@@ -1397,12 +1391,6 @@ msgstr "mod pentru verificarea documentelor Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "mod pentru verificarea comentariilor Perl și a șirurilor literare"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "mod pentru verificarea documentelor Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

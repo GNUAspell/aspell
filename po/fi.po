@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
 "PO-Revision-Date: 2021-02-20 13:12+0200\n"
 "Last-Translator: Jorma Karvonen <karvonen.jorma@gmail.com>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -452,6 +452,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Valitsin ”%key:1” ei ota mitään parametreja kun sen etuliitteenä on ”clear-”."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Kieli ”%lang:1” on tuntematon."
 
@@ -461,14 +462,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Äänenkaltainen ”%sl:2” ei ole tunnettu."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Kieli ”%lang:1” on tukematon."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Kielelle ”%lang:1” ei löydetty sanaluetteloja."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Odotettiin kieltä ”%lang:1” mutta saatiin ”%prev:2”."
 
@@ -679,9 +683,7 @@ msgid "Invalid Option: %s"
 msgstr "Virheellinen valitsin: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
-msgid "'%s' does not take any parameters."
+msgid " does not take any parameters."
 msgstr " ei ota parametrejä."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -936,14 +938,10 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <normalisointimuoto> käytettävä normalisointimuoto on joko none, internal, tai strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1207,7 +1205,7 @@ msgstr "Kokonaissanapituus, äänenkaltaisella tiedolla, on laajempi kuin 240 me
 msgid "There must be at least one \"add\" line."
 msgstr "On oltava vähintään yksi ”add”-rivi."
 
-#: modules/speller/default/suggest.cpp:1730
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "yksi seuraavista: ultra, fast, normal, slow tai bad-spellers"
 
@@ -1294,16 +1292,6 @@ msgstr "HTML-tunnisteet, jotka aloittavat HTML-lohkon,joka päättyy tyhjään r
 msgid "filter for dealing with Nroff documents"
 msgstr "suodatin Nroff-asiakirjojen käsittelemiseen"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "suodatin Texinfo-asiakirjojen käsittelemiseen"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "suodatin yleisten SGML/XML -asiakirjojen käsittelemiseen"
@@ -1375,12 +1363,6 @@ msgstr "tila Nroff-asiakirjojen tarkistamiseen"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "tila Perl-kommenttien ja merkkijonoliteraalien tarkistamiseen"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "tila Texinfo-asiakirjojen tarkistamiseen"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

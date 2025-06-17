@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
 "PO-Revision-Date: 2023-12-06 09:45+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -451,6 +451,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Tombol \"%key:1\" tidak mengambil parameter apapun ketika diawali dengan sebuah \"clear-\"."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Bahasa \"%lang:1\" tidak diketahui."
 
@@ -460,14 +461,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Sounslike \"%sl:2\" tidak diketahui."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Bahasa \"%lang:1\" tidak didukung."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Tidak ada daftar kata yang dapat ditemukan untuk bahasa \"%lang:1\"."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Bahasa yang diduga \"%lang:1\" tetapi diperoleh \"%prev:2\"."
 
@@ -1292,16 +1296,6 @@ msgstr "tag HTML yang memulai blok HTML yang diakhiri dengan baris kosong"
 msgid "filter for dealing with Nroff documents"
 msgstr "penyaring untuk menghadapi dengan dokumen Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "penyaring untuk menangani dokumen Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "penyaring untuk menghadapi dengan dokumen generik SGML/XML"
@@ -1373,12 +1367,6 @@ msgstr "mode untuk pemeriksaan dokumen Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "mode untuk pemeriksaan komentar Perl dan string literals"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "mode untuk pemeriksaan dokumen Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

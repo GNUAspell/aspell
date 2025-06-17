@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2019-09-24 03:02-0400\n"
 "PO-Revision-Date: 2020-03-31 13:52+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -453,6 +453,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Кључ „%key:1“ не узима параметре ако му се дода „clear-“."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Језик „%lang:1“ није познат."
 
@@ -462,14 +463,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Звучикао „%sl:2“ није познат."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Језик „%lang:1“ није подржан."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Не могу се наћи спискови речи за језик „%lang:1“."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Очекивах језик „%lang:1“ али примих „%prev:2“."
 
@@ -681,9 +685,7 @@ msgid "Invalid Option: %s"
 msgstr "Неисправна опција: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
-msgid "'%s' does not take any parameters."
+msgid " does not take any parameters."
 msgstr " не прихвата никакве параметре."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -938,14 +940,10 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <облик-правила>        облик сређивања за коришћење, „none“, „internal“, или „strict“"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1210,7 +1208,7 @@ msgstr "Укупна дужина речи, са подацима звучика
 msgid "There must be at least one \"add\" line."
 msgstr "Мора да постоји барем један „add“ ред."
 
-#: modules/speller/default/suggest.cpp:1730
+#: modules/speller/default/suggest.cpp:1720
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "један од ultra, fast, normal, slow, или bad-spellers"
 
@@ -1297,16 +1295,6 @@ msgstr "ХТМЛ ознаке које покрећу ХТМЛ блок који
 msgid "filter for dealing with Nroff documents"
 msgstr "филтер за поступање са Бриск документима"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "филтер за поступање са Тексинфо документима"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "филтер за поступање са општим СГМЛ/ХМЛ документима"
@@ -1378,12 +1366,6 @@ msgstr "режим за проверу Бриск докумената"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "режим за проверу Перл примедби и дословности ниске"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "режим за проверу Тексинфо докумената"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

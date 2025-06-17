@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2004-07-24 11:18+0100\n"
 "Last-Translator: Sanlig Badral <badral@users.sourceforge.net>\n"
 "Language-Team: Mongolian <openmn-translation@lists.sourceforge.net>\n"
@@ -465,6 +465,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "\"%key:1\" түлхүүр \"clear-\" -ээр эхэлсэн бол ямарч параметер авахгүй."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "\"%lang:1\" хэл мэдэгдсэнгүй."
 
@@ -474,14 +475,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Үл мэдэгдэх \"%sl:2\" авиа."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "\"%lang:1\" хэл дэмжигдээгүй."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "\"%lang:1\" хэлний хувьд үгийн жагсаалт олдсонгүй."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Хүлээгдсэн хэл \"%lang:1\" харин \"%prev:2\" -г авчээ."
 
@@ -1344,16 +1348,6 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "HTML баримтуудтай холбоотой шүүлтүүр"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with HTML documents"
-msgid "filter to deal with gettext .po files"
-msgstr "HTML баримтуудтай холбоотой шүүлтүүр"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "ерөнхий SGML/XML баримтуудтай холбоотой шүүлтүүр"
@@ -1435,12 +1429,6 @@ msgstr "HTML баримтуудыг алгасах горим"
 #| msgid "mode for checking perl comments and string literals"
 msgid "mode for checking Perl comments and string literals"
 msgstr "perl тайлбар ба стринг литериалуудыг шалгах горим"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking HTML documents"
-msgid "mode for checking gettext .po files"
-msgstr "HTML баримтуудыг алгасах горим"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

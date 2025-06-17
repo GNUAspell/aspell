@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2006-07-03 19:40+0100\n"
 "Last-Translator: Joan Sala Soler <joansala@gmail.com>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -452,6 +452,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "La clau «%key:1» no admet cap paràmetre quan es prefixa amb «clear-»."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Es desconeix l’idioma «%lang:1»."
 
@@ -461,14 +462,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Es desconeix la semblança fònica «%sl:2»."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "L’idioma «%lang:1» no està implementat."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "No s’ha pogut trobar cap vocabulari per a l’idioma «%lang:1»."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "S’esperava l’idioma «%lang:1», però s’ha trobat «%prev:2»."
 
@@ -1301,16 +1305,6 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "filtre per a ocupar-se dels documents Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "filtre per a ocupar-se dels documents Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtre per a ocupar-se dels documents SGML/XML"
@@ -1384,12 +1378,6 @@ msgstr "mode de revisió de documents Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "mode de revisió de comentaris i literals Perl"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "mode de revisió de documents Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

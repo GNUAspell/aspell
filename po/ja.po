@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2019-09-24 01:21+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -450,6 +450,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "キー \"%key:1\" は \"clear-\" が前に付いている時にはパラメータを取りません。"
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "言語 \"%lang:1\" は未知です。"
 
@@ -459,14 +460,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "疑似音声 \"%sl:2\" は未知です。"
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "言語 \"%lang:1\" をサポートしていません。"
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "言語 \"%lang:1\" の単語リストが見つかりません."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "言語 \"%lang:1\" を予期していましたが、 \"%prev:2\" でした."
 
@@ -1293,16 +1297,6 @@ msgstr "空行で終わるHTMLブロックを開始するHTMLタグ"
 msgid "filter for dealing with Nroff documents"
 msgstr "Nroff文書のためのフィルタ"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "Texinfo文書のためのフィルタ"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "一般のSGML/XML文書のためのフィルタ"
@@ -1374,12 +1368,6 @@ msgstr "Nroff文書をチェックするためのモード"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "Perlのコメントと文字列をチェックするためのモード"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "Texinfo文書をチェックするためのモード"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-03 01:21-0500\n"
 "PO-Revision-Date: 2023-12-19 19:16+0100\n"
 "Last-Translator: Roland Illig <roland.illig@gmx.de>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -451,6 +451,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Der Schlüssel »%key:1« kann keine Parameter haben, wenn ein »clear-« vorangestellt ist."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Die Sprache »%lang:1« ist unbekannt."
 
@@ -460,14 +461,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Der Wortklang »%sl:2« ist nicht bekannt."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Die Sprache »%lang:1« wird nicht unterstützt."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Für die Sprache »%lang:1« können keine Wortlisten gefunden werden."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Sprache »%lang:1« erwartet, aber »%prev:2« bekommen."
 
@@ -1287,16 +1291,6 @@ msgstr "HTML-Tags, die einen HTML-Block beginnen, der mit einer Leerzeile endet"
 msgid "filter for dealing with Nroff documents"
 msgstr "Filter, um nroff-Dokumente zu behandeln"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "Filter, um Texinfo-Dokumente zu behandeln"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "Filter, um generische SGML/XML-Dokumente zu behandeln"
@@ -1368,12 +1362,6 @@ msgstr "Modus, um nroff-Dokumente zu überprüfen"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "Modus, um Perl-Kommentare und Zeichenkettenliterale zu überprüfen"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "Modus, um Texinfo-Dokumente zu überprüfen"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"

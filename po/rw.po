@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -538,7 +538,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "Urufunguzo 1. OYA Ibigenga Ryari: ku a Gusiba"
 
 #: common/errors.cpp:235
-#, fuzzy
+#, fuzzy, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Ururimi 1. ni OYA"
 
@@ -548,17 +548,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "2. ni OYA"
 
 #: common/errors.cpp:251
-#, fuzzy
+#, fuzzy, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Ururimi 1. ni OYA"
 
 #: common/errors.cpp:259
-#, fuzzy
+#, fuzzy, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "ijambo Intonde Byabonetse kugirango i Ururimi 1."
 
 #: common/errors.cpp:267
-#, fuzzy
+#, fuzzy, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Itegerejwe Ururimi 1. 2."
 
@@ -1473,15 +1473,6 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "Muyunguruzi... kugirango Na: Inyandiko"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-msgid "filter to deal with gettext .po files"
-msgstr "Muyunguruzi... kugirango Na: Inyandiko"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 #, fuzzy
 msgid "filter for dealing with generic SGML/XML documents"
@@ -1570,11 +1561,6 @@ msgstr "Ubwoko kugirango Inyandiko"
 #, fuzzy
 msgid "mode for checking Perl comments and string literals"
 msgstr "Ubwoko kugirango Ibisobanuro Na Ikurikiranyanyuguti"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-msgid "mode for checking gettext .po files"
-msgstr "Ubwoko kugirango Inyandiko"
 
 #: modules/filter/modes/sgml.amf:8
 #, fuzzy

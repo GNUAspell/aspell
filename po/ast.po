@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.6\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2025-06-16 20:23-0500\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2010-02-28 22:09+0200\n"
 "Last-Translator: Marquinos <maacub@gmail.com>\n"
 "Language-Team: Asturian <ubuntu-l10n-ast@lists.ubuntu.com>\n"
@@ -451,6 +451,7 @@ msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clea
 msgstr "La clave «%key:1» nun almite parámetros cuando lleva'l prefixu «clear-»."
 
 #: common/errors.cpp:235
+#, c-format
 msgid "The language \"%lang:1\" is not known."
 msgstr "Nun se conoz l'idioma «%lang:1»."
 
@@ -460,14 +461,17 @@ msgid "The soundslike \"%sl:2\" is not known."
 msgstr "Nun se conoz l'asemeyanza fonética «%sl:2»."
 
 #: common/errors.cpp:251
+#, c-format
 msgid "The language \"%lang:1\" is not supported."
 msgstr "Nun se soporta l'idioma «%lang:1»."
 
 #: common/errors.cpp:259
+#, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
 msgstr "Nun s'atoparon pallabreros pal idioma «%lang:1»."
 
 #: common/errors.cpp:267
+#, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
 msgstr "Esperábase l'idioma «%lang:1» pero atopóse «%prev:2»."
 
@@ -1299,16 +1303,6 @@ msgstr ""
 msgid "filter for dealing with Nroff documents"
 msgstr "filtru pa remanar documentos Nroff"
 
-#: modules/filter/po-filter.info:7
-#, fuzzy
-#| msgid "filter for dealing with Texinfo documents"
-msgid "filter to deal with gettext .po files"
-msgstr "filtru pa remanar documentos Texinfo"
-
-#: modules/filter/po-filter.info:13
-msgid "review only msgids"
-msgstr ""
-
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
 msgstr "filtru pa remanar documentos SGML/XML"
@@ -1382,12 +1376,6 @@ msgstr "mou pa comprobar documentos Nroff"
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
 msgstr "mou pa comprobar comentarios Perl y lliterales de cadenes"
-
-#: modules/filter/modes/po.amf:7
-#, fuzzy
-#| msgid "mode for checking Texinfo documents"
-msgid "mode for checking gettext .po files"
-msgstr "mou pa comprobar documentos Texinfo"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"
