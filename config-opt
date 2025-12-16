@@ -6,5 +6,3 @@ cd build
   --enable-w-all-error \
   --prefix="`pwd`/../inst" CFLAGS='-g -O' CXXFLAGS='-g -O' "$@"
 
-
-
