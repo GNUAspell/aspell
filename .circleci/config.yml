@@ -336,6 +336,24 @@ jobs:
     - run: rm test/build/Makefile
     - run: make SLOPPY=1 -j2 -C test
 
+  tests_24_04:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    docker:
+    - image: cimg/base:current-24.04
+    steps:
+    # Machine Setup
+    #
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext libipc-system-simple-perl
+    - run: sudo apt-get -y purge aspell
+    - checkout
+    #
+    - run: ./autogen
+    - run: make -j2 -C test
+    - run: rm test/build/Makefile
+    - run: make SLOPPY=1 -j2 -C test
+
 workflows:
   version: 2
   sanity_check:
@@ -351,3 +369,4 @@ workflows:
     jobs:
       - tests_20_04
       - tests_22_04
+      - tests_24_04
