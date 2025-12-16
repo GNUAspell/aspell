@@ -40,5 +40,6 @@ int main() {
   }
   disable_clang_warning("return-type-c-linkage");
   disable_clang_warning("tautological-compare");
+  disable_clang_warning("vla-cxx-extension");
   printf("\n");
 }
