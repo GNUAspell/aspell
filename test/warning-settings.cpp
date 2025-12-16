@@ -30,13 +30,15 @@ int main() {
     printf("-Walloc-size-larger-than=-1 ");
   if (GCC == 10)
     disable_gcc_warning("class-memaccess");
-  if (GCC == 13) {
+  if (GCC >= 13) {
     disable_gcc_error("stringop-overflow");
     disable_gcc_error("array-bounds");
     disable_gcc_error("restrict");
     // NOTE: All three warning above are due to gcc incorrectly thinking that
     // the length of word in strchr(word, ' ') (in suggest.cpp, Sugs::transfer)
     // is a very large value and exceeds the maximum object size.
+    disable_gcc_error("alloc-size-larger-than=");
+    // yet another false warning, this one limited to -m32
   }
   disable_clang_warning("return-type-c-linkage");
   disable_clang_warning("tautological-compare");

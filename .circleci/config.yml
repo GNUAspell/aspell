@@ -213,7 +213,7 @@ jobs:
     # Note: Default GCC in 24.04 is GCC 13
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
-         g++-13 g++-14 clang-16 clang-17 clang-18 clang-19
+         g++-13 g++-14 g++-14-multilib clang-16 clang-17 clang-18 clang-19 
     - run: sudo apt-get -y purge aspell
     - checkout
     - run:
@@ -227,6 +227,9 @@ jobs:
     - run:
         when: always
         command: CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+    - run:
+        when: always
+        command: CXX="g++-14 -m32" CC="gcc-14 -m32" ./sanity-check.sh
     # GCC
     - run:
         when: always
