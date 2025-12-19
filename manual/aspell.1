@@ -3,7 +3,7 @@
 aspell \- interactive spell checker
 .SH SYNOPSIS
 .B aspell
-.I "[options] <command>"
+.RI [ options ] " <command>
 .SH "DESCRIPTION"
 .B aspell
 is a utility program that connects to the Aspell library so that it can
@@ -21,9 +21,9 @@ check your distro first for modified dictionaries, otherwise look here
 for base language dictionaries <http://aspell.net>.
 .PP
 The following information describes the commands and options used by the
-Aspell Utility.  
+Aspell Utility.
 .PP
-This manual page is maintained separately from the 
+This manual page is maintained separately from the
 official documentation so it may be out of date or incomplete.  The
 official documentation is maintained as a Texinfo manual.  See the
 .RB "`\|" aspell "\|'"
@@ -86,13 +86,15 @@ one encoding
 .I <to>
 another.
 .TP
-\fBnorm\fR (\fI<norm\-map>\fR|\fI<from> <norm\-map> <to>\fR) [\fI<norm-form>\fR]
+\fBnorm\fR (\fI<norm\-map>\fR|\fI<from> <norm\-map> <to>\fR) \
+[\fI<norm-form>\fR]
 Perform Unicode normalization.
 .TP
 [\fBdump\fR] \fBdicts\fR|\fBfilters\fR|\fBmodes\fR
 Lists available dictionaries, filters, or modes.
 .TP
-\fBdump\fR|\fBcreate\fR|\fBmerge master\fR|\fBpersonal\fR|\fBrepl\fR \fI<wordlist>\fR
+\fBdump\fR|\fBcreate\fR|\fBmerge master\fR|\fBpersonal\fR|\fBrepl\fR \
+\fI<wordlist>\fR
 dump, create, or merge a master, personal, or replacement word list.
 .SH DICTIONARY OPTIONS
 The following options may be used to control which dictionaries to use
@@ -167,7 +169,8 @@ These options modify the behavior of the various filters.
 \fB\-\-add\-filter=\fR\fI<list>\fR, \fB\-\-rem\-filter=\fR\fI<list>\fR
 Add or remove a filter.
 .TP
-\fB\-\-add\-filter\-path=\fR\fI<paths>\fR, \fB\-\-rem\-filter\-path=\fR\fI<paths>\fR
+\fB\-\-add\-filter\-path=\fR\fI<paths>\fR, \
+\fB\-\-rem\-filter\-path=\fR\fI<paths>\fR
 Add or remove paths searched for filters.
 .TP
 \fB\-\-mode=\fR\fI<string>\fR, \fB\-e\fR, \fB\-H\fR, \fB\-t\fR, \fB\-n\fR
@@ -206,19 +209,23 @@ SGML file extensions.
 \fB\-\-tex\-check\-comments\fR, \fB\-\-dont\-tex\-check\-comments\fR
 Check TeX comments.
 .TP
-\fB\-\-add\-tex\-command=\fR\fI<list>\fR, \fB\-\-rem\-tex\-command=\fR\fI<list>\fR
+\fB\-\-add\-tex\-command=\fR\fI<list>\fR, \
+\fB\-\-rem\-tex\-command=\fR\fI<list>\fR
 Add or remove a list of TeX commands.
 .TP
-\fB\-\-add\-texinfo\-ignore=\fR\fI<list>\fR, \fB\-\-rem\-texinfo\-ignore=\fR\fI<list>\fR
+\fB\-\-add\-texinfo\-ignore=\fR\fI<list>\fR, \
+\fB\-\-rem\-texinfo\-ignore=\fR\fI<list>\fR
 Add or remove a list of Texinfo commands.
 .TP
-\fB\-\-add\-texinfo\-ignore\-env=\fR\fI<list>\fR, \fB\-\-rem\-texinfo\-ignore\-env=\fR\fI<list>\fR
+\fB\-\-add\-texinfo\-ignore\-env=\fR\fI<list>\fR, \
+\fB\-\-rem\-texinfo\-ignore\-env=\fR\fI<list>\fR
 Add or remove a list of Texinfo environments to ignore.
 .TP
 \fB\-\-context\-visible\-first, \fB\-\-dont\-context\-visible\-first
 Switch the context which should be visible to Aspell.
 .TP
-\fB\-\-add\-context\-delimiters=\fR\fI<list>\fR, \fB\-\-rem\-context\-delimiters=\fR\fI<list>\fR
+\fB\-\-add\-context\-delimiters=\fR\fI<list>\fR, \
+\fB\-\-rem\-context\-delimiters=\fR\fI<list>\fR
 Add or remove pairs of delimiters.
 .SH RUN\-TOGETHER WORD OPTIONS
 These may be used to control the behavior of run\-together words.
@@ -310,18 +317,20 @@ The default per user configuration file
 .I "\%\(ti/.aspell.conf"
 located in the
 .B "$HOME"
-directory (or another file specified by option \fI\-\-per\-conf\fR) is
-checked next and overrides options set in the global config file.
+directory
+(or another file specified by option \fI\-\-per\-conf\fR)
+is checked next and overrides options set in the global config file.
 Options specified at either the command line or via an environmental
 variable override those specified by either configuration file.
 .PP
 Each line of the configuration file has the format:
 .PP
 .RS
-\fBoption\fR \fI[value]\fR
+\fBoption\fR
+.RI [ value ]
 .RE
 .PP
-where 
+where
 .B option
 is any one of the standard library options above without the leading
 dashes.  For example the following line will set the default language to
