@@ -1,4 +1,4 @@
-This is the Git repository for GNU Aspell
+This is the Git repository for GNU Aspell.
 
 http://aspell.net
 
@@ -25,7 +25,7 @@ normal `configure`.  When `config-*` is used the default things will be
 installed in `<build dir>/inst` for easier testing and debugging. You
 can change that by using the `--prefix` option.
 
-Autogen should be run when ever anything but the source files or
+Autogen should be run whenever anything but the source files or
 Makefile.am files are modified.
 
 Then to build and install:
@@ -40,7 +40,7 @@ somewhere other than `/usr/local`, you will probably need to add
 `<prefix>/bin` to your PATH or make symbolic links to the executable in
 order for the dictionary to build correctly.
 
-To run the debugger on these programs if there are not installed use
+To run the debugger on these programs, if they are not installed, use
 ```
 libtool gdb <debugger parms>
 ```
@@ -48,7 +48,7 @@ or
 ```
 libtool --mode execute <your debugger> <debugger parms>
 ```
-For example to debug aspell with ddd use
+For example, to debug aspell with ddd use
 ```
 libtool --mode execute ddd prog/.libs/aspell
 ```
