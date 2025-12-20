@@ -46,7 +46,7 @@ DEFAULT lisp
 DEFAULT smalllisp
 DEFAULT small
 DEFAULT display
-DEFAULT snalldisplay
+DEFAULT smalldisplay
 DEFAULT format
 DEFAULT smallformat
 ENDOPTION
