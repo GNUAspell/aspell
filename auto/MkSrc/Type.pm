@@ -71,8 +71,11 @@ sub finalized_type ( $ )
 
   local $_ = $name;
 
+  s/^array size/unsigned int/;
+
   s/^const //       and $d->{const}   = true;
   s/^array (\d+) // and $d->{array}   = $1;
+  s/ ?array$//      and $d->{pointer} = true;
   s/ ?pointer$//    and $d->{pointer} = true;
   s/ ?object$//     and $d->{pointer} = false;
 

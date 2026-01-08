@@ -27,6 +27,7 @@
 
 #include "aspell.h"
 
+#include <math.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -41,7 +42,6 @@
 #include "convert.hpp"
 #include "document_checker.hpp"
 #include "enumeration.hpp"
-#include "errors.hpp"
 #include "file_util.hpp"
 #include "fstream.hpp"
 #include "info.hpp"
@@ -117,15 +117,15 @@ void print_error(ParmString msg, ParmString str)
   else {var=pe.data;}\
   } while(false)
 #define BREAK_ON_ERR(command) \
-  do{PosibErrBase pe(command);\
-  if(pe.has_err()){print_error(pe.get_err()->mesg); break;}\
-  } while(false)
+  PosibErrBase pe(command);\
+  if(pe.has_err()){print_error(pe.get_err()->mesg); break;} \
+  0 /* noop */
 #define BREAK_ON_ERR_SET(command, type, var)\
   type var;\
-  do{PosibErr< type > pe(command);\
+  PosibErr< type > pe(command);\
   if(pe.has_err()){print_error(pe.get_err()->mesg); break;}\
-  else {var=pe.data;}\
-  } while(false)
+  else {var=pe.data;} \
+  0 /* noop */
 
 
 /////////////////////////////////////////////////////////
@@ -253,10 +253,32 @@ static void line_buffer() {
 Conv dconv;
 Conv uiconv;
 
+static const KeyInfo extra_config_keys[] = {
+  {"time"   , KeyInfoBool, "false",
+   N_("time load time and suggest time in pipe mode"), KEYINFO_MAY_CHANGE},
+  {"show-scores", KeyInfoString, "false",
+   N_("one of: false, true, dist"), KEYINFO_MAY_CHANGE}
+};
+
+enum ShowScores {DontShowScores, ShowNormalized, ShowDistance};
+
+PosibErr<ShowScores> get_show_scores() {
+  String val = options->retrieve("show-scores");
+  if (val == "false")
+    return DontShowScores;
+  if (val == "true" || val == "")
+    return ShowNormalized;
+  if (val == "dist" || val == "distance")
+    return ShowDistance;
+  return make_err(reinterpret_cast<const ErrorInfo *>(aerror_bad_value),
+                  "show-scores", val, _("one of false, true or dist"));
+}
+
 int main (int argc, const char *argv[]) 
 {
   options = new_config(); // this needs to be here because of a bug
                           // with static initlizers on Darwin.
+  options->set_extra(extra_config_keys, extra_config_keys + sizeof(extra_config_keys)/sizeof(KeyInfo));
 #ifdef USE_LOCALE
   setlocale (LC_ALL, "");
 #endif
@@ -705,6 +727,7 @@ void pipe()
   bool do_time = options->retrieve_bool("time");
   bool suggest = options->retrieve_bool("suggest");
   bool include_guesses = options->retrieve_bool("guess");
+  EXIT_ON_ERR_SET(get_show_scores(), ShowScores, show_scores);
   clock_t start,finish;
 
   if (!options->have("mode") && !options->have("filter")) {
@@ -824,14 +847,19 @@ void pipe()
 	case 'c':
 	  switch (line[3]) {
 	  case 's':
-	    if (get_word_pair(line + 4, word, word2))
+	    if (get_word_pair(line + 4, word, word2)) {
 	      BREAK_ON_ERR(err = config->replace(word, word2));
+            }
             if (strcmp(word,"suggest") == 0)
               suggest = config->retrieve_bool("suggest");
             else if (strcmp(word,"time") == 0)
               do_time = config->retrieve_bool("time");
             else if (strcmp(word,"guess") == 0)
               include_guesses = config->retrieve_bool("guess");
+            else if (strcmp(word,"show-scores") == 0) {
+              BREAK_ON_ERR_SET(get_show_scores(), ShowScores, val);
+              show_scores = val;
+            }
 	    break;
 	  case 'r':
 	    word = trim_wspace(line + 4);
@@ -890,40 +918,39 @@ void pipe()
           ci = ci->next;
         }
 	start = clock();
-        const AspellWordList * suggestions = 0;
-        if (suggest) 
-          suggestions = aspell_speller_suggest(speller, word, -1);
+        const char * * suggestions = 0;
+        unsigned num_suggestions = 0;
+        double * normalized_scores = 0;
+        double * distances = 0;
+        if (suggest) {
+          AspellSuggestions * sugs = aspell_speller_suggestions(speller, word, -1, 0);
+          suggestions = aspell_suggestions_words(sugs, &num_suggestions);
+          if (show_scores == ShowNormalized)
+            normalized_scores = aspell_suggestions_normalized_scores(sugs, NULL);
+          else if (show_scores == ShowDistance)
+            distances = aspell_suggestions_distances(sugs, NULL);
+        }
 	finish = clock();
         unsigned offset = mb_len(line0, token.offset + ignore);
-	if (suggestions && !aspell_word_list_empty(suggestions)) 
+	if (num_suggestions > 0) 
         {
           COUT.printf("& %s %u %u:", word, 
-                      aspell_word_list_size(suggestions), offset);
-	  AspellStringEnumeration * els 
-	    = aspell_word_list_elements(suggestions);
-	  if (options->retrieve_bool("reverse")) {
-	    Vector<String> sugs;
-	    sugs.reserve(aspell_word_list_size(suggestions));
-	    while ( ( w = aspell_string_enumeration_next(els)) != 0)
-	      sugs.push_back(w);
-	    Vector<String>::reverse_iterator i = sugs.rbegin();
-	    while (true) {
-              COUT.printf(" %s", i->c_str());
-	      ++i;
-	      if (i == sugs.rend()) break;
-              COUT.put(',');
-	    }
-	  } else {
-	    while ( ( w = aspell_string_enumeration_next(els)) != 0) {
-              COUT.printf(" %s%s", w, 
-                          aspell_string_enumeration_at_end(els) ? "" : ",");
-	    }
-	  }
-	  delete_aspell_string_enumeration(els);
+                      num_suggestions, offset);
+	  if (options->retrieve_bool("reverse"))
+            std::reverse(suggestions, suggestions+num_suggestions);
+          for (unsigned i = 0; i < num_suggestions; ++i) {
+            char score[8] = {};
+            if (normalized_scores)
+              snprintf(score, 8, " %.0f", floor(normalized_scores[i] * 100.0));
+            else if (distances)
+              snprintf(score, 8, " %.2f", distances[i]);
+            COUT.printf(" %s%s%s", suggestions[i], score,
+                        i ==  num_suggestions-1 ? "" : ",");
+          }
           if (include_guesses)
             COUT.put(guesses);
 	  COUT.put('\n');
-	} else {
+        } else {
           if (guesses.empty())
             COUT.printf("# %s %u\n", word, offset);
           else

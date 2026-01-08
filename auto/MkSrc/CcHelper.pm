@@ -111,9 +111,11 @@ sub make_wide_version ( $ \@ $ ; \% ) {
 
 #ifdef __cplusplus
 #  define aspell_cast_(type, expr) (static_cast<type>(expr))
+#  define aspell_rcast_(type, expr) (reinterpret_cast<type>(expr))
 #  define aspell_cast_from_wide_(str) (static_cast<const void *>(str))
 #else
 #  define aspell_cast_(type, expr) ((type)(expr))
+#  define aspell_rcast_(type, expr) ((type)(expr))
 #  define aspell_cast_from_wide_(str) ((const char *)(str))
 #endif
 ---
