@@ -1,0 +1,17 @@
+version: 0.60.8.{build}
+image: Visual Studio 2017
+
+
+environment:
+  matrix:
+  - MSYSTEM: MINGW64
+    BASH_PATH: C:\msys64\usr\bin\bash
+
+
+build_script:
+    - cmd: '%BASH_PATH% -lc "cd $APPVEYOR_BUILD_FOLDER; ./autogen && ./configure && make && make install && make dist"'
+
+after_build:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - ps: >-
+            Push-AppveyorArtifact "aspell-0.60.9-git.tar.gz" -FileName aspell-0.60.9-git.tar.gz
