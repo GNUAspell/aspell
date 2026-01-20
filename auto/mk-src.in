@@ -294,6 +294,15 @@ class: config
 		string: key
 		string: value
 
+	method: replace u
+		posib err
+		desc => Experimental method that is like replace but will mark
+			it as being set in an insecure context.
+		/
+		void
+		string: key
+		string: value
+
 	method: remove
 		posib err
 		desc => Remove a key and returns TRUE if it exists
