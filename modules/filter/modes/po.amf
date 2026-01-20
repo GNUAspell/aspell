@@ -1,0 +1,10 @@
+MODE po
+
+ASPELL >=0.60.1
+
+MAGIC /<noregex>/po
+
+DESCRIPTION mode for checking gettext .po files
+
+FILTER url
+FILTER po
