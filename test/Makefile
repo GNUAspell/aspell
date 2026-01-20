@@ -8,8 +8,8 @@ ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
 endif
 
-.PHONY: all prep sanity filter-test suggest wide cxx_warnings
-all: prep sanity filter-test suggest wide cxx_warnings
+.PHONY: all prep sanity camel-case filter-test suggest wide cxx_warnings
+all: prep sanity camel-case filter-test suggest wide cxx_warnings
 	cat test-res
 
 # warning-settings.mk defines EXTRA_CXXFLAGS
@@ -27,6 +27,10 @@ tmp:
 sanity: prep
 	./sanity
 	echo "all ok (sanity)" >> test-res
+
+camel-case: prep
+	sh ./camel-case
+	echo "all ok (camel-case)" >> test-res
 
 filter-test: prep
 	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
