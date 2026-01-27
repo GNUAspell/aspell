@@ -412,6 +412,7 @@ dist-hook:
 	mkdir $(distdir)/maintainer
 	cp autogen.sh config-opt config-debug TODO FIXMEs README.md sanity-check.sh \
            $(distdir)/maintainer
+	cp -a autogen $(distdir)/maintainer
 
 distcheck: dist
 	tar xfv $(distdir).tar.gz
