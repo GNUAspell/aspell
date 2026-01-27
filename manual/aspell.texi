@@ -17,7 +17,7 @@ This is the user's manual for Aspell
 GNU Aspell is a spell checker designed to eventually replace Ispell.
 It can either be used as a library or as an independent spell checker.
 
-Copyright @copyright{} 2000--2019 Kevin Atkinson.
+Copyright @copyright{} 2000--2026 Kevin Atkinson.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -3576,7 +3576,26 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
-@heading Changes 0.60.8 to 0.60.8.1 (December 19, 2023)
+@heading Changes from 0.60.8.1 to 0.60.8.2 (January 27, 2026)
+@itemize @bullet
+@item
+Improved compiler compatibility: Fixed Clang -Wstrict-prototypes
+warnings for C interface, fixed new Clang warnings, fixed GCC 15 build
+issues, and added MSYS2 + MINGW64 compile fixes.
+@item
+Enhanced testing infrastructure with newer compiler versions, including
+snapshots from both GCC and Clang, to catch future problems before they
+make their way into distros.
+@item
+Fixed bug that caused aspell_speller_store_replacement to return
+random values.
+@item
+Fixed typo in Texinfo filter option file.
+@item
+Various documentation updates and fixes.
+@end itemize
+
+@heading Changes from 0.60.8 to 0.60.8.1 (December 19, 2023)
 @itemize @bullet
 @item
 Fix memory leak in suggestion code introduced in 0.60.8.
@@ -3588,7 +3607,6 @@ Fix various warnings when compiling with -Wall.
 Fix two buffer overflows found by Google's OSS-Fuzz.
 @item
 Other minor updates.
-@item
 @end itemize
 
 @heading Changes from 0.60.7 to 0.60.8 (October 12, 2019)
