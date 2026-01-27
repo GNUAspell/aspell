@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the aspell package.
 #
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012.
-# Božidar Putanec <bozidarp@yahoo.com>, 2019, 2020, 2022.
+# Božidar Putanec <bozidarp@yahoo.com>, 2019-2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-03 01:21-0500\n"
-"PO-Revision-Date: 2023-12-04 21:13-0800\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"PO-Revision-Date: 2025-03-26 20:55-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -26,7 +26,7 @@ msgstr "broj između 0 i 1"
 
 #: common/info.cpp:569
 msgid "in the form \"<name> <value>\""
-msgstr "u obliku „<ime> <vrijednost>“"
+msgstr "u obliku „<ime> <vrijednost>”"
 
 #: common/config.cpp:74
 msgid "string"
@@ -48,7 +48,7 @@ msgstr "lista"
 #. * values and should not be translated.
 #: common/config.cpp:988
 msgid "either \"true\" or \"false\""
-msgstr "ili „true“ ili „false“"
+msgstr "ili „true” ili „false”"
 
 #: common/config.cpp:1007
 msgid "a positive integer"
@@ -120,7 +120,7 @@ msgstr "staze po kojima aspell traži filtre"
 
 #: common/config.cpp:1399
 msgid "filter mode"
-msgstr "načini filtriranja"
+msgstr "način filtriranja"
 
 #: common/config.cpp:1401
 msgid "extra dictionaries to use"
@@ -232,11 +232,11 @@ msgstr "najmanja dopuštena duljina nutarnjih riječi"
 
 #: common/config.cpp:1461
 msgid "consider camel case words legal"
-msgstr "spojene riječi u „camel“ formatu smatra kao dobre"
+msgstr "spojene riječi u „camel” formatu smatra kao dobre"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
-msgstr "„Spremi sve“ sprema i zamjenske parove"
+msgstr "„Spremi sve” sprema i zamjenske parove"
 
 #: common/config.cpp:1465
 msgid "set the prefix based on executable location"
@@ -321,7 +321,7 @@ msgstr "provjeri valjanost riječi"
 # sigurnosna kopiij(a/e) > osiguranje
 #: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
-msgstr "napravi osiguranje i pripoji mu nastavak „.bak“"
+msgstr "napravi osiguranje i pripoji mu nastavak „.bak”"
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
@@ -333,7 +333,7 @@ msgstr "napravi korijen/afiks kombinacije kojih nema"
 
 #: common/config.cpp:1526
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
-msgstr "mapiranje načina provjere: „aspell“ ili „ispell“"
+msgstr "mapiranje načina provjere: „aspell” ili „ispell”"
 
 #: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
@@ -345,12 +345,12 @@ msgstr "predloži moguće zamjene"
 
 #: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
-msgstr "trajanje učitavanja i predlaganja u „pipe mode“"
+msgstr "trajanje učitavanja i predlaganja u „pipe mode”"
 
 #: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr "Ovo također može značiti da se datoteka „%s“ ne može otvoriti za čitanje ili ne postoji."
+msgstr "Ovo također može značiti da se datoteka „%s” ne može otvoriti za čitanje ili ne postoji."
 
 #: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
 #, c-format
@@ -368,7 +368,7 @@ msgstr "Operacija nije podržana: %what:1"
 
 #: common/errors.cpp:43
 msgid "The method \"%what:1\" is unimplemented in \"%where:2\"."
-msgstr "Metoda „%what:1“ nije implementirana u „%where:2“."
+msgstr "Metoda „%what:1” nije implementirana u „%where:2”."
 
 #: common/errors.cpp:51
 #, c-format
@@ -378,157 +378,157 @@ msgstr "%file:1:"
 #: common/errors.cpp:59
 #, c-format
 msgid "The file \"%file:1\" can not be opened"
-msgstr "Datoteku „%file:1“ nije moguće otvoriti"
+msgstr "Datoteku „%file:1” nije moguće otvoriti"
 
 #: common/errors.cpp:67
 #, c-format
 msgid "The file \"%file:1\" can not be opened for reading."
-msgstr "Datoteku „%file:1“ nije moguće otvoriti za čitanje."
+msgstr "Datoteku „%file:1” nije moguće otvoriti za čitanje."
 
 #: common/errors.cpp:75
 #, c-format
 msgid "The file \"%file:1\" can not be opened for writing."
-msgstr "Datoteku „%file:1“ nije moguće otvoriti za pisanje."
+msgstr "Datoteku „%file:1” nije moguće otvoriti za pisanje."
 
 #: common/errors.cpp:83
 #, c-format
 msgid "The file name \"%file:1\" is invalid."
-msgstr "Ime datoteke „%file:1“ nije valjano."
+msgstr "Ime datoteke „%file:1” nije valjano."
 
 #: common/errors.cpp:91
 #, c-format
 msgid "The file \"%file:1\" is not in the proper format."
-msgstr "Datoteka „%file:1“ nije u ispravnom formatu."
+msgstr "Datoteka „%file:1” nije u ispravnom formatu."
 
 #: common/errors.cpp:107
 #, c-format
 msgid "The directory \"%dir:1\" can not be opened for reading."
-msgstr "Direktorij „%dir:1“ nije moguće otvoriti za čitanje."
+msgstr "Direktorij „%dir:1” nije moguće otvoriti za čitanje."
 
 #: common/errors.cpp:123
 msgid "The key \"%key:1\" is unknown."
-msgstr "Ključ „%key:1“ nije poznat."
+msgstr "Ključ „%key:1” nije poznat."
 
 #: common/errors.cpp:131
 msgid "The value for option \"%key:1\" can not be changed."
-msgstr "Vrijednost opcije „%key:1“ nije moguće promijeniti."
+msgstr "Vrijednost opcije „%key:1” nije moguće promijeniti."
 
 #: common/errors.cpp:139
 msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
-msgstr "Ključ „%key:1“ nije %accepted:2 i zato nije valjan."
+msgstr "Ključ „%key:1” nije %accepted:2 i zato nije valjan."
 
 #: common/errors.cpp:147
 msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
-msgstr "Vrijednost „%value:2“ nije %accepted:3 i zato nije valjana za ključ „%key:1“."
+msgstr "Vrijednost „%value:2” nije %accepted:3 i zato nije valjana za ključ „%key:1”."
 
 #: common/errors.cpp:163
 msgid "The key \"%key:1\" is not a string."
-msgstr "Ključ „%key:1“ nije string."
+msgstr "Ključ „%key:1” nije string."
 
 #: common/errors.cpp:171
 msgid "The key \"%key:1\" is not an integer."
-msgstr "Ključ „%key:1“ nije cijeli broj."
+msgstr "Ključ „%key:1” nije cijeli broj."
 
 #: common/errors.cpp:179
 msgid "The key \"%key:1\" is not a boolean."
-msgstr "Ključ „%key:1“ nije logička vrijednost."
+msgstr "Ključ „%key:1” nije logička vrijednost."
 
 #: common/errors.cpp:187
 msgid "The key \"%key:1\" is not a list."
-msgstr "Ključ „%key:1“ nije popis."
+msgstr "Ključ „%key:1” nije popis."
 
 #: common/errors.cpp:195
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
-msgstr "Ključ „%key:1“ ne prihvaća nijedan parametar kad ima prefiks „reset-“."
+msgstr "Ključ „%key:1” ne prihvaća nijedan parametar kad ima prefiks „reset-”."
 
 #: common/errors.cpp:203
 msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
-msgstr "Ključ „%key:1“ ne prihvaća nijedan parametar kad ima prefiks „enable-“."
+msgstr "Ključ „%key:1” ne prihvaća nijedan parametar kad ima prefiks „enable-”."
 
 #: common/errors.cpp:211
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
-msgstr "Ključ „%key:1“ ne prihvaća nijedan parametar kad ima prefiks „dont-“ ili „disable-“."
+msgstr "Ključ „%key:1” ne prihvaća nijedan parametar kad ima prefiks „dont-” ili „disable-”."
 
 #: common/errors.cpp:219
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
-msgstr "Ključ „%key:1“ ne prihvaća nijedan parametar kad ima prefiks „clear-“."
+msgstr "Ključ „%key:1” ne prihvaća nijedan parametar kad ima prefiks „clear-”."
 
 #: common/errors.cpp:235
 #, c-format
 msgid "The language \"%lang:1\" is not known."
-msgstr "Jezik „%lang:1“ nije poznat."
+msgstr "Jezik „%lang:1” nije poznat."
 
 #: common/errors.cpp:243
 #, c-format
 msgid "The soundslike \"%sl:2\" is not known."
-msgstr "Zvučnost riječi „%sl:2“ nije poznata."
+msgstr "Zvučnost riječi „%sl:2” nije poznata."
 
 #: common/errors.cpp:251
 #, c-format
 msgid "The language \"%lang:1\" is not supported."
-msgstr "Jezik „%lang:1“ nije podržan."
+msgstr "Jezik „%lang:1” nije podržan."
 
 #: common/errors.cpp:259
 #, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
-msgstr "Nije moguće pronaći popis riječi za jezik „%lang:1“."
+msgstr "Nije moguće pronaći popis riječi za jezik „%lang:1”."
 
 #: common/errors.cpp:267
 #, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
-msgstr "Očekivan je jezik „%lang:1“, dobiven je „%prev:2“."
+msgstr "Očekivan je jezik „%lang:1”, dobiven je „%prev:2”."
 
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr "Afiks „%aff:1“ je oštećen."
+msgstr "Afiks „%aff:1” je oštećen."
 
 #: common/errors.cpp:291
 #, c-format
 msgid "The condition \"%cond:1\" is invalid."
-msgstr "Uvjet „%cond:1“ nije valjan."
+msgstr "Uvjet „%cond:1” nije valjan."
 
 #: common/errors.cpp:299
 #, c-format
 msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
-msgstr "Uvjet „%cond:1“ ne jamči da se „%strip:2“ može uvijek odstraniti."
+msgstr "Uvjet „%cond:1” ne jamči da se „%strip:2” može uvijek odstraniti."
 
 #: common/errors.cpp:307
 #, c-format
 msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
-msgstr "Datoteka „%file:1“ nije u ispravnom formatu. Očekivana je datoteka u „%exp:2“, a ne u „%got:3“."
+msgstr "Datoteka „%file:1” nije u ispravnom formatu. Očekivana je datoteka u „%exp:2”, a ne u „%got:3”."
 
 #: common/errors.cpp:323
 #, c-format
 msgid "The encoding \"%encod:1\" is not known."
-msgstr "Kodiranje „%encod:1“ nije poznato."
+msgstr "Kodiranje „%encod:1” nije poznato."
 
 #: common/errors.cpp:331
 #, c-format
 msgid "The encoding \"%encod:1\" is not supported."
-msgstr "Kodiranje „%encod:1“ nije podržano."
+msgstr "Kodiranje „%encod:1” nije podržano."
 
 #: common/errors.cpp:339
 #, c-format
 msgid "The conversion from \"%encod:1\" to \"%encod2:2\" is not supported."
-msgstr "Pretvaranje iz „%encod:1“ u „%encod:2“ nije podržano."
+msgstr "Pretvaranje iz „%encod:1” u „%encod:2” nije podržano."
 
 #: common/errors.cpp:379
 #, c-format
 msgid "The string \"%str:1\" is invalid."
-msgstr "String „%str:1“ nije valjan."
+msgstr "String „%str:1” nije valjan."
 
 #: common/errors.cpp:387
 msgid "The word \"%word:1\" is invalid."
-msgstr "Riječ „%word:1“ nije valjana."
+msgstr "Riječ „%word:1” nije valjana."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr "Flag afiksa „%aff:1“ nije valjan za riječ „%word:2“."
+msgstr "Flag afiksa „%aff:1” nije valjan za riječ „%word:2”."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "Flag afiksa „%aff:1“ nije moguće primijeniti na riječ „%word:2“."
+msgstr "Flag afiksa „%aff:1” nije moguće primijeniti na riječ „%word:2”."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -536,17 +536,17 @@ msgstr "to nije broj inačice"
 
 #: common/errors.cpp:467
 msgid "dlopen returned \"%return:1\"."
-msgstr "dlopen() je vratila „%return:1“."
+msgstr "dlopen() je vratila „%return:1”."
 
 #: common/errors.cpp:475
 #, c-format
 msgid "The file \"%filter:1\" does not contain any filters."
-msgstr "Datoteka „%filter:1“ ne sadrži nijedan filtar."
+msgstr "Datoteka „%filter:1” ne sadrži nijedan filtar."
 
 #: common/errors.cpp:483
 #, c-format
 msgid "The filter \"%filter:1\" does not exist."
-msgstr "Filtar „%filter:1“ ne postoji."
+msgstr "Filtar „%filter:1” ne postoji."
 
 #: common/errors.cpp:491 common/errors.cpp:587
 msgid "Confused by version control."
@@ -579,20 +579,20 @@ msgstr "Specifikator opcije je prazan."
 #: common/errors.cpp:555
 #, c-format
 msgid "Option \"%option:1\" possibly specified prior to filter."
-msgstr "Opcija „%option:1“ je vjerojatno navedena prije filtriranja."
+msgstr "Opcija „%option:1” je vjerojatno navedena prije filtriranja."
 
 #: common/errors.cpp:563
 msgid "Unknown mode description key \"%key:1\"."
-msgstr "Nepoznati način opisa ključa „%key:1“."
+msgstr "Nepoznati način opisa ključa „%key:1”."
 
 #: common/errors.cpp:571
 #, c-format
 msgid "Expecting \"%modekey:1\" key."
-msgstr "Očekuju se ključ „%modekey:1“."
+msgstr "Očekuju se ključ „%modekey:1”."
 
 #: common/errors.cpp:579
 msgid "Version specifier missing key: \"aspell\"."
-msgstr "Nema opcije za inačicu: „aspell“."
+msgstr "Nema opcije za inačicu: „aspell”."
 
 #: common/errors.cpp:595
 msgid "Aspell version does not match mode's requirement."
@@ -610,41 +610,41 @@ msgstr "Prazno proširenje na znaku %char:1."
 #: common/errors.cpp:619
 #, c-format
 msgid "\"%mode:1\" error"
-msgstr "„%mode:1“ greška"
+msgstr "„%mode:1” greška"
 
 #: common/errors.cpp:627
 #, c-format
 msgid "Unknown mode: \"%mode:1\"."
-msgstr "Nepoznati način: „%mode:1“."
+msgstr "Nepoznati način: „%mode:1”."
 
 #: common/errors.cpp:635
 #, c-format
 msgid "\"%mode:1\" error while extend Aspell modes. (out of memory?)"
-msgstr "„%mode:1“ greška pri proširivanju Aspell-ovih načina. (nema dovoljno memorije?)"
+msgstr "„%mode:1” greška pri proširivanju Aspell-ovih načina. (nema dovoljno memorije?)"
 
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr "„%mode:1“: nije zadan početak magic pretraživanja za magic „%magic:2“."
+msgstr "„%mode:1”: nije zadan početak magic pretraživanja za magic „%magic:2”."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr "„%mode:1“: nije zadan raspon magic pretraživanja za magic „%magic:2“."
+msgstr "„%mode:1”: nije zadan raspon magic pretraživanja za magic „%magic:2”."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr "„%mode:1“: nema dostupnih magic izraza za magic „%magic:2“."
+msgstr "„%mode:1”: nema dostupnih magic izraza za magic „%magic:2”."
 
 #: common/errors.cpp:675
 msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
-msgstr "„%mode:1“: magic „%magic:2“: loši regularni izraz nakon dane lokacije; regexp() javlja: „%regerr:3“."
+msgstr "„%mode:1”: magic „%magic:2”: loši regularni izraz nakon dane lokacije; regexp() javlja: „%regerr:3”."
 
 #: common/errors.cpp:691
 #, c-format
 msgid "\"%expression:1\" is not a valid regular expression."
-msgstr "„%expression:1“ nije valjani regularni izraz."
+msgstr "„%expression:1” nije valjani regularni izraz."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
@@ -687,12 +687,12 @@ msgstr "Nevaljana opcija: %s"
 #: prog/aspell.cpp:322
 #, c-format
 msgid "'%s' does not take any parameters."
-msgstr "„%s“ ne prihvaća nijedan parametar."
+msgstr "„%s” ne prihvaća nijedan parametar."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
-msgstr "Morate specificirati parametar za „%s“."
+msgstr "Morate specificirati parametar za „%s”."
 
 #: prog/aspell.cpp:384
 msgid "You must specify an action"
@@ -706,7 +706,7 @@ msgstr "Nepoznata akcija: %s"
 #: prog/aspell.cpp:398
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
-msgstr "Greška: morate specificirati barem %d parametara za „%s“.\n"
+msgstr "Greška: morate specificirati barem %d parametara za „%s”.\n"
 
 #: prog/aspell.cpp:640
 msgid "Invalid Input"
@@ -737,7 +737,7 @@ msgstr "Smijete specificirati samo jednu datoteku."
 #: prog/aspell.cpp:990
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
-msgstr "Nije moguće otvoriti datoteku „%s“ za čitanje"
+msgstr "Nije moguće otvoriti datoteku „%s” za čitanje"
 
 #: prog/aspell.cpp:1003
 #, c-format
@@ -747,12 +747,12 @@ msgstr "Nevaljano mapiranje tipki: %s"
 #: prog/aspell.cpp:1018
 #, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "„%s“ nije regularna datoteka"
+msgstr "„%s” nije regularna datoteka"
 
 #: prog/aspell.cpp:1029
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr "Nije moguće otvoriti datoteku „%s“ za pisanje. Datoteka nije spremljena."
+msgstr "Nije moguće otvoriti datoteku „%s” za pisanje. Datoteka nije spremljena."
 
 #: prog/aspell.cpp:1042
 msgid "Ignore"
@@ -806,25 +806,25 @@ msgstr "Oprostite, ali to nije valjani izbor!"
 
 #: prog/aspell.cpp:1545
 msgid "Can't merge a master word list yet. Sorry."
-msgstr "Nažalost, još nije moguće spajanje „master“ popisa riječi."
+msgstr "Nažalost, još nije moguće spajanje „master” popisa riječi."
 
 #: prog/aspell.cpp:1569
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
-msgstr "Nažalost, „create/merge personal“ za sada još nije implementiran.\n"
+msgstr "Nažalost, „create/merge personal” za sada još nije implementiran.\n"
 
 #: prog/aspell.cpp:1578 prog/aspell.cpp:1634
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
-msgstr "Oprostite, ali „%s“ NEĆE biti prepisan"
+msgstr "Oprostite, ali „%s” NEĆE biti prepisan"
 
 #: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
-msgstr "Nažalost, „create/merge repl“ za sada još nije implementiran.\n"
+msgstr "Nažalost, „create/merge repl” za sada još nije implementiran.\n"
 
 #: prog/aspell.cpp:1897
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
-msgstr "„%s“ nije valjani flag za naredbu „munch-list“."
+msgstr "„%s” nije valjani flag za naredbu „munch-list”."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
@@ -850,7 +850,7 @@ msgstr "  -c|check <dat>   gramatička provjera datoteke"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
-msgstr "  -a|pipe          način za kompatibilnost (s „ispell -a“)"
+msgstr "  -a|pipe          način za kompatibilnost (s „ispell -a”)"
 
 #: prog/aspell.cpp:2835
 msgid "  [dump] config    dumps the current configuration to stdout"
@@ -957,9 +957,9 @@ msgid ""
 "    \"variety\", and \"size\" options.\n"
 msgstr ""
 "Dostupni rječnici:\n"
-"    Rječnici se mogu odabrati izravno opcijom „-d“ ili „master“.\n"
-"    Mogu se i neizravno odabrati opcijama „lang“, „variety“\n"
-"    i „size“.\n"
+"    Rječnici se mogu odabrati izravno opcijom „-d” ili „master”.\n"
+"    Mogu se i neizravno odabrati opcijama „lang”, „variety”\n"
+"    i „size”.\n"
 
 #: prog/aspell.cpp:2939
 msgid ""
@@ -967,7 +967,7 @@ msgid ""
 "    Filters can be added or removed via the \"filter\" option.\n"
 msgstr ""
 "Dostupni filtri (i njihove opcije):\n"
-"    Filtri se mogu dodati ili ukloniti s opcijom „filter“.\n"
+"    Filtri se mogu dodati ili ukloniti s opcijom „filter”.\n"
 
 #: prog/aspell.cpp:2946
 #, c-format
@@ -991,7 +991,7 @@ msgstr ""
 "(Načini filtriranja su uobičajeni filtri ili kombinacije filtara prilagođenih\n"
 "    određenom tipu datoteke). Ako uspije odrediti tip iz sufiksa ili\n"
 "    sadržaja datoteke, aspell će implicitno odabrati način filtriranja.\n"
-"    Inače, s opcijom „mode“ način filtriranja se može eksplicitno odabrati.\n"
+"    Inače, s opcijom „mode” način filtriranja se može eksplicitno odabrati.\n"
 "    U nastavku su navedeni raspoloživi načini filtriranja.\n"
 
 #: prog/check_funs.cpp:287
@@ -1115,7 +1115,7 @@ msgstr "Vjerojatni razlog je: "
 
 #: modules/speller/default/language.cpp:110
 msgid "The required field \"name\" is missing."
-msgstr "Nema potrebnog polja „ime“."
+msgstr "Nema potrebnog polja „ime”."
 
 #: modules/speller/default/language.cpp:524
 msgid "Empty string."
@@ -1124,13 +1124,13 @@ msgstr "Prazni string."
 #: modules/speller/default/language.cpp:533
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
-msgstr "Znak „%s“ (U+%02X) se možda neće pojaviti na početku riječi."
+msgstr "Znak „%s” (U+%02X) se možda neće pojaviti na početku riječi."
 
 #: modules/speller/default/language.cpp:535
 #: modules/speller/default/language.cpp:544
 #, c-format
 msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
-msgstr "Nakon znaka „%s“ (U+%02X) mora slijediti slovo."
+msgstr "Nakon znaka „%s” (U+%02X) mora slijediti slovo."
 
 #: modules/speller/default/language.cpp:537
 msgid "Does not contain any alphabetic characters."
@@ -1139,26 +1139,26 @@ msgstr "Ne sadrži nijedno slovo."
 #: modules/speller/default/language.cpp:542
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
-msgstr "Znak „%s“ (U+%02X) ne smije biti u sredini riječi."
+msgstr "Znak „%s” (U+%02X) ne smije biti u sredini riječi."
 
 #: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr "Znak „\\r“ (U+0D) se možda neće pojaviti na kraju riječi. Vjerojatno datoteka koristi MS-DOS EOL umjesto Unix EOL-a."
+msgstr "Znak „\\r” (U+0D) se možda neće pojaviti na kraju riječi. Vjerojatno datoteka koristi MS-DOS EOL umjesto Unix EOL-a."
 
 #: modules/speller/default/language.cpp:552
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
-msgstr "Znak „%s“ (U+%02X) se možda neće pojaviti na kraju riječi."
+msgstr "Znak „%s” (U+%02X) se možda neće pojaviti na kraju riječi."
 
 #: modules/speller/default/language.cpp:584
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
-msgstr "Upozorenje: uklanja se nevaljani afiks „%s“ iz riječi %s.\n"
+msgstr "Upozorenje: uklanja se nevaljani afiks „%s” iz riječi %s.\n"
 
 #: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr "Upozorenje: uklanja se neprimjenjivi afiks „%s“ iz riječi %s.\n"
+msgstr "Upozorenje: uklanja se neprimjenjivi afiks „%s” iz riječi %s.\n"
 
 #: modules/speller/default/language.cpp:726
 #, c-format
@@ -1204,7 +1204,7 @@ msgstr "Ukupna duljina riječi s podacima o zvučnosti je veća od 240 znakova."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
-msgstr "Mora postojati barem jedan „add“-redak."
+msgstr "Mora postojati barem jedan „add”-redak."
 
 #: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
@@ -1228,7 +1228,7 @@ msgstr "Glavni popis riječi nije dostupan."
 
 #: modules/filter/tex.cpp:255 modules/filter/tex.cpp:262
 msgid "a string of 'o','O','p',or 'P'"
-msgstr "(jedan) string iz „o“, „O“, „p“ ili „P“"
+msgstr "(jedan) string iz „o”, „O”, „p” ili „P”"
 
 #. TRANSLATORS: Like the strings in config.cpp, all strings in *-filter.opt
 #. should be under 50 characters, begin with a lower case character and 
@@ -1251,7 +1251,7 @@ msgstr "filter za preskakanje citata u e-pošti"
 
 #: modules/filter/email-filter.info:13
 msgid "email quote characters"
-msgstr "citat-navodnici (obično „>“ i „|“) u e-pošti"
+msgstr "citat-navodnici (obično „>” i „|”) u e-pošti"
 
 #: modules/filter/email-filter.info:21
 msgid "num chars that can appear before the quote char"
@@ -1275,7 +1275,7 @@ msgstr "filtar za rad s Markdown/CommonMark dokumentima"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr "preskočite oznake poveznica u definicijama referenci veza"
+msgstr "preskočite oznake linka u definicijama referenci linka"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
@@ -1327,7 +1327,7 @@ msgstr "Texinfo naredbe čiji su parametri zanemareni"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
-msgstr "Texinfo okoline koje su zanemarene"
+msgstr "Texinfo okruženja koje su zanemarene"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
@@ -1385,4 +1385,4 @@ msgstr "za preskakanje struktura sličnih URL-u (to je zadani način)"
 #~ msgstr "odredi udaljenost za uporabu (ignorira sug-mode)"
 
 #~ msgid "Sorry \"filter\" is currently unimplemented.\n"
-#~ msgstr "Nažalost, „filter“ za sada još nije implementiran.\n"
+#~ msgstr "Nažalost, „filter” za sada još nije implementiran.\n"

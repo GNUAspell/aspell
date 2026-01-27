@@ -1,19 +1,19 @@
-# translation of aspell.
-# Copyright (C) 2004 Kevin Atkinson
+# Belarusian messages for GNU aspell.
+# Copyright (C) 2004 Kevin Atkinson.
+# Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the aspell package.
-# <>, 2004.
-# , fuzzy
-#  <>, 2004.
 #
+# Vital khilko <dojlid@mova.org>, 2004.
+# Viachaslau Khalikin <viachaslau.vinegret@outlook.com>, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.51\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2023-12-19 16:19-0500\n"
-"PO-Revision-Date: 2004-01-06 16:34+0200\n"
-"Last-Translator: Vital khilko <dojlid@mova.org>\n"
-"Language-Team: Belarusian <i18n@mova.org>\n"
+"PO-Revision-Date: 2024-09-06 04:51+0300\n"
+"Last-Translator: Viachaslau Khalikin <viachaslau.vinegret@outlook.com>\n"
+"Language-Team: Belarusian <debian-l10n-belarusian@lists.debian.org>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,41 +22,41 @@ msgstr ""
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
-msgstr ""
+msgstr "лік ад 0 да 1"
 
 #: common/info.cpp:569
 msgid "in the form \"<name> <value>\""
-msgstr ""
+msgstr "у форме \"<назва> <значэньне>\""
 
 #: common/config.cpp:74
 msgid "string"
-msgstr ""
+msgstr "радковы"
 
 #: common/config.cpp:74
 msgid "integer"
-msgstr ""
+msgstr "цэлалікавы"
 
 #: common/config.cpp:74
 msgid "boolean"
-msgstr ""
+msgstr "двайковы"
 
 #: common/config.cpp:74
 msgid "list"
-msgstr ""
+msgstr "сьпісавы"
 
 #. TRANSLATORS: "true" and "false" are literal
 #. * values and should not be translated.
 #: common/config.cpp:988
 msgid "either \"true\" or \"false\""
-msgstr ""
+msgstr "або \"true\" або \"false\""
 
 #: common/config.cpp:1007
 msgid "a positive integer"
-msgstr ""
+msgstr "дадатны цэлы лік"
 
 #: common/config.cpp:1135
 msgid "# default: "
-msgstr ""
+msgstr "# прадвызначаны: "
 
 #: common/config.cpp:1198
 #, c-format
@@ -70,55 +70,57 @@ msgid ""
 "# configured as follows:\n"
 "\n"
 msgstr ""
+"\n"
+"#######################################################################\n"
+"#\n"
+"# Фільтар: %s\n"
+"#   %s\n"
+"#\n"
+"# сканфігураваны наступным чынам:\n"
+"\n"
 
 #: common/config.cpp:1296
 msgid "ASPELL_CONF env var"
-msgstr ""
+msgstr "зьменная асяродзьдзя ASPELL_CONF"
 
 #. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
 #. include any trailing punctuation marks.
 #: common/config.cpp:1380
 msgid "main configuration file"
-msgstr "канфігурацыйны файл"
+msgstr "галоўны файл канфігурацыі"
 
 #: common/config.cpp:1382
 msgid "location of main configuration file"
-msgstr "знаходжаньне канфігурацыйнага файла"
+msgstr "знаходжаньне галоўнага файла канфігурацыі"
 
 #: common/config.cpp:1385
 msgid "location of language data files"
-msgstr "разьмяшччэньне файлаў даньняў мовы"
+msgstr "разьмяшчэньне файлаў даных мовы"
 
 #: common/config.cpp:1387
-#, fuzzy
-#| msgid "extra dictionaries to use"
 msgid "create dictionary aliases"
-msgstr "дадатковыя слоўнікі для выкарыстаньня"
+msgstr "стварэньне псэўданімаў слоўніка"
 
 #: common/config.cpp:1389
 msgid "location of the main word list"
-msgstr "разьмяшчэньне сьпісу словаў"
+msgstr "разьмяшчэньне галоўнага сьпісу словаў"
 
 #: common/config.cpp:1391
 msgid "encoding to expect data to be in"
-msgstr "кадаваньне чаканых даньняў"
+msgstr "кадаваньне чаканых даных"
 
 #: common/config.cpp:1393
 msgid "add or removes a filter"
-msgstr "дадае ці выдаляе фільтар"
+msgstr "дадае або выдаляе фільтар"
 
 #: common/config.cpp:1395
-#, fuzzy
-#| msgid "path(es) aspell looks for filters (.so/.dll/.flt);"
 msgid "path(s) aspell looks for filters"
-msgstr "шлях(і) для прагляду фільтараў (.so/.dll/.flt);"
+msgstr "шлях(і) для прагляду фільтраў"
 
 #: common/config.cpp:1399
-#, fuzzy
-#| msgid "enter TeX mode."
 msgid "filter mode"
-msgstr "рэжым TeX."
+msgstr "рэжым фільтра"
 
 #: common/config.cpp:1401
 msgid "extra dictionaries to use"
@@ -126,7 +128,7 @@ msgstr "дадатковыя слоўнікі для выкарыстаньня"
 
 #: common/config.cpp:1403
 msgid "files with list of extra words to accept"
-msgstr ""
+msgstr "файлы са сьпісамі дадатковых слоў для ўжываньня"
 
 #: common/config.cpp:1405
 msgid "location for personal files"
@@ -138,10 +140,8 @@ msgstr "ігнараваньне словаў <= n сымбаляў"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1410
-#, fuzzy
-#| msgid "ignore accents when checking words"
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
-msgstr "ігнараваньне акцэнтаў у часе праверкі словаў"
+msgstr "ігнараваньне націскаў падчас праверкі словаў -- ЗАРАЗ ІГНАРУЕЦЦА"
 
 #: common/config.cpp:1412
 msgid "ignore case when checking words"
@@ -149,7 +149,7 @@ msgstr "ігнараваньне рэгістра ў працэсе правер
 
 #: common/config.cpp:1414
 msgid "ignore commands to store replacement pairs"
-msgstr "ігнараваньне камандаў у захаваньні параў замены"
+msgstr "ігнараваньне камандаў да захаваньня заменных пар"
 
 #: common/config.cpp:1416 common/config.cpp:1483
 msgid "extra information for the word list"
@@ -157,7 +157,7 @@ msgstr "дадатковыя зьвесткі для сьпісу словаў"
 
 #: common/config.cpp:1418
 msgid "keyboard definition to use for typo analysis"
-msgstr "вызначэньне клявіятуры ў выкарыстаньні для тыповага аналізу"
+msgstr "вызначэньне клявіятуры для аналізу памылак друку"
 
 #: common/config.cpp:1420
 msgid "language code"
@@ -165,99 +165,89 @@ msgstr "код мовы"
 
 #: common/config.cpp:1422
 msgid "deprecated, use lang instead"
-msgstr "асуджана, замест гэтага выкарыстоўвайце lang"
+msgstr "недапушчальна, замест выкарыстоўвайце lang"
 
 #: common/config.cpp:1424
 msgid "location of local language data files"
-msgstr "разьмяшчэньне файлаў даньняў бягучае мовы"
+msgstr "разьмяшчэньне лякальных файлаў даных мовы"
 
 #: common/config.cpp:1426
 msgid "base name of the main dictionary to use"
-msgstr "асноўная назва слоўніка"
+msgstr "базавая назва галоўнага слоўніка"
 
 #: common/config.cpp:1430
-#, fuzzy
-#| msgid "Set module name"
 msgid "set module name"
-msgstr "Усталяваньне назвы модуля"
+msgstr "усталяваньне назвы модуля"
 
 #: common/config.cpp:1432
-#, fuzzy
-#| msgid "Search order for modules"
 msgid "search order for modules"
-msgstr "Накірунак пошуку для модуляў"
+msgstr "парадак пошуку модуляў"
 
 #: common/config.cpp:1434
 msgid "enable Unicode normalization"
-msgstr ""
+msgstr "уключэньне нармалізацыі Юнікоду"
 
 #: common/config.cpp:1436
 msgid "Unicode normalization required for current lang"
-msgstr ""
+msgstr "для бягучай мовы патрабуецца нармалізацыя Юнікоду"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
 #: common/config.cpp:1440
 msgid "Unicode normalization form: none, nfd, nfc, comp"
-msgstr ""
+msgstr "форма нармалізацыі Юнікоду: none, nfd, nfc, comp"
 
 #: common/config.cpp:1442
 msgid "avoid lossy conversions when normalization"
-msgstr ""
+msgstr "абмінаць канвэрсіі са стратамі пры нармалізацыі"
 
 #: common/config.cpp:1444
 msgid "personal configuration file"
-msgstr "пэрсанальны канфігурацыйны файл"
+msgstr "пэрсанальны файл канфігурацыі"
 
 #: common/config.cpp:1447
-#, fuzzy
-#| msgid "personal word list file name"
 msgid "personal dictionary file name"
-msgstr "назва асабістага файла сьпісу словаў"
+msgstr "назва файла асабістага слоўніка"
 
 #: common/config.cpp:1450
 msgid "prefix directory"
-msgstr "каталёг"
+msgstr "прэфікс каталёга"
 
 #: common/config.cpp:1452
 msgid "replacements list file name"
-msgstr "назва файла сьпісу зьменаў"
+msgstr "назва файла сьпісу заменаў"
 
 #: common/config.cpp:1455
 msgid "consider run-together words legal"
-msgstr "разгледзеныя складаныя словы правільныя"
+msgstr "лічыць сапраўднымі складаныя словы"
 
 #: common/config.cpp:1457
-#, fuzzy
-#| msgid "maxium numbers that can be strung together"
 msgid "maximum number that can be strung together"
-msgstr "максымальная колькасьць якая мусіць зьвязана разам"
+msgstr "максымальны лік, што мусіць зьвязаны разам"
 
 #: common/config.cpp:1459
 msgid "minimal length of interior words"
 msgstr "мінімальная даўжыня нутраных словаў"
 
 #: common/config.cpp:1461
-#, fuzzy
-#| msgid "consider run-together words legal"
 msgid "consider camel case words legal"
-msgstr "разгледзеныя складаныя словы правільныя"
+msgstr "лічыць сапраўднымі словы ў вярблюджым рэгістры"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
-msgstr "захаваньне параў замены ў часе захаваньня"
+msgstr "захаваньне заменных пар пры агульным захаваньні"
 
 #: common/config.cpp:1465
 msgid "set the prefix based on executable location"
-msgstr "усталяваньне прэфікса са знаходжаньня запускнога файла"
+msgstr "задаць прэфікс са знаходжаньня запускнога файла"
 
 #: common/config.cpp:1467
 msgid "size of the word list"
-msgstr "памер сьпісу файлаў"
+msgstr "памер сьпісу словаў"
 
 #: common/config.cpp:1469
 msgid "no longer used"
-msgstr "шмат не выкрыстоўваўся"
+msgstr "больш не выкарыстоўваецца"
 
 #: common/config.cpp:1471
 msgid "suggestion mode"
@@ -267,86 +257,80 @@ msgstr "рэжым прапанаваньня"
 #. translated.
 #: common/config.cpp:1475
 msgid "use typo analysis, override sug-mode default"
-msgstr ""
+msgstr "укл. аналіз памылак друку, перавызначае sug-mode"
 
 #: common/config.cpp:1477
-#, fuzzy
-#| msgid "save replacement pairs on save all"
 msgid "use replacement tables, override sug-mode default"
-msgstr "захаваньне параў замены ў часе захаваньня"
+msgstr "укл. табліц замены, перавызначае sug-mode"
 
 #: common/config.cpp:1479
 msgid "characters to insert when a word is split"
-msgstr ""
+msgstr "сымбалі для ўстаўкі пры падзеле слова"
 
 #: common/config.cpp:1481
 msgid "use personal, replacement & session dictionaries"
-msgstr ""
+msgstr "укл. асабістыя, замяняльныя й сэансавыя слоўнікі"
 
 #: common/config.cpp:1485
-#, fuzzy
-#| msgid "Search path for word list information files"
 msgid "search path for word list information files"
-msgstr "Шлях пошуку для сьпісаў словаў"
+msgstr "шлях пошуку файлаў зьвестак сьпісу словаў"
 
 #: common/config.cpp:1487
 msgid "enable warnings"
-msgstr ""
+msgstr "уключыць папярэджаньні"
 
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1497
 msgid "indicator for affix flags in word lists -- CURRENTLY IGNORED"
-msgstr ""
+msgstr "індыкатар пазнак афіксаў у сьпісаў слоў -- ЗАРАЗ ІГНАРУЕЦЦА"
 
 #: common/config.cpp:1499
 msgid "use affix compression when creating dictionaries"
-msgstr ""
+msgstr "сьціскаць афіксы пры стварэньні слоўнікаў"
 
 #: common/config.cpp:1501
 msgid "remove invalid affix flags"
-msgstr ""
+msgstr "выдаленьне несапраўдных пазнак афіксаў"
 
 #: common/config.cpp:1503
 msgid "attempts to clean words so that they are valid"
-msgstr ""
+msgstr "спроба ачысьціць словы, каб яны былі сапраўднымі"
 
 #: common/config.cpp:1505
 msgid "compute soundslike on demand rather than storing"
-msgstr ""
+msgstr "вылічаць soundslike па запыту замест захоўваньня"
 
 #: common/config.cpp:1507
 msgid "partially expand affixes for better suggestions"
-msgstr ""
+msgstr "частковае пашырэньне афіксаў для лепшых прапаноў"
 
 #: common/config.cpp:1509
 msgid "skip invalid words"
-msgstr ""
+msgstr "мінаць несапраўдныя словы"
 
 #: common/config.cpp:1511
 msgid "check if affix flags are valid"
-msgstr ""
+msgstr "праверка сапраўднасьці пазнак афіксаў"
 
 #: common/config.cpp:1513
 msgid "check if words are valid"
-msgstr ""
+msgstr "праверыць правільнасьць словаў"
 
 #: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
-msgstr "стварае рэзэрвовы файл праз даданьне пашырэньня \".bak\""
+msgstr "стварыць рэзэрвовы файл дадаваньнем \".bak\""
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
-msgstr ""
+msgstr "выкарыстоўваць зрух байтаў замест зруху сымбаляў"
 
 #: common/config.cpp:1524
 msgid "create missing root/affix combinations"
-msgstr ""
+msgstr "стварэньне адсутных камбінацый корань/афікс"
 
 #: common/config.cpp:1526
-#, fuzzy
-#| msgid "keymapping for check mode, one of aspell ispell"
 msgid "keymapping for check mode: \"aspell\" or \"ispell\""
-msgstr "мапаваньне клявішаў для рэжыма праверкі, адно з aspell ispell"
+msgstr "клявішы рэжыму праверкі: \"aspell\" ці \"ispell\""
 
 #: common/config.cpp:1528
 msgid "reverse the order of the suggest list"
@@ -354,35 +338,34 @@ msgstr "адваротны накірунак у сьпісе прапанова
 
 #: common/config.cpp:1530
 msgid "suggest possible replacements"
-msgstr ""
+msgstr "прапанова магчымых заменаў"
 
 #: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
-msgstr "час загрузкі й час прапановы ў рэжыме канала"
+msgstr "час загрузкі ды час прапановы ў рэжыме пайпа"
 
 #: common/convert.cpp:303 common/convert.cpp:497
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr ""
+msgstr "Гэта таксама можа азначаць, што файл \"%s\" ня можа быць адкрыты для чытаньня або ён не існуе."
 
 #: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
-#, fuzzy, c-format
-#| msgid "The encoding \"%encod:1\" is not supported."
+#, c-format
 msgid "The Unicode code point U+%04X is unsupported."
-msgstr "Кадаваньне \"%encod:1\" не падтрымліваецца."
+msgstr "Знак Юнікоду U+%04X не падтрымліваецца."
 
 #: common/convert.cpp:887
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
-msgstr ""
+msgstr "Няправільная паслядоўнасць UTF-8 у пазіцыі %ld."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
-msgstr ""
+msgstr "Апэрацыя не падтрымліваецца: %what:1"
 
 #: common/errors.cpp:43
 msgid "The method \"%what:1\" is unimplemented in \"%where:2\"."
-msgstr ""
+msgstr "Мэтад \"%what:1\" нерэалізаваны ў \"%where:2\"."
 
 #: common/errors.cpp:51
 #, c-format
@@ -392,22 +375,22 @@ msgstr "%file:1:"
 #: common/errors.cpp:59
 #, c-format
 msgid "The file \"%file:1\" can not be opened"
-msgstr "Файл \"%file:1\" не можа быць адкрыты"
+msgstr "Файл \"%file:1\" ня можа быць адкрыты"
 
 #: common/errors.cpp:67
 #, c-format
 msgid "The file \"%file:1\" can not be opened for reading."
-msgstr "Файл \"%file:1\" не можа быць адкрыты для чытаньня."
+msgstr "Файл \"%file:1\" ня можа быць адкрыты для чытаньня."
 
 #: common/errors.cpp:75
 #, c-format
 msgid "The file \"%file:1\" can not be opened for writing."
-msgstr "Файл \"%file:1\" не можа быць адкрыты для запісу."
+msgstr "Файл \"%file:1\" ня можа быць адкрыты для запісу."
 
 #: common/errors.cpp:83
 #, c-format
 msgid "The file name \"%file:1\" is invalid."
-msgstr "Недапушчальная назва файла \"%file:1\"."
+msgstr "Няправільная назва файла \"%file:1\"."
 
 #: common/errors.cpp:91
 #, c-format
@@ -417,7 +400,7 @@ msgstr "Файл \"%file:1\" у памылковым фармаце."
 #: common/errors.cpp:107
 #, c-format
 msgid "The directory \"%dir:1\" can not be opened for reading."
-msgstr "Каталёг \"%dir:1\" не можа быць адкрыты для чытаньня."
+msgstr "Каталёг \"%dir:1\" ня можа быць адкрыты для чытаньня."
 
 #: common/errors.cpp:123
 msgid "The key \"%key:1\" is unknown."
@@ -425,7 +408,7 @@ msgstr "Ключ \"%key:1\" невядомы."
 
 #: common/errors.cpp:131
 msgid "The value for option \"%key:1\" can not be changed."
-msgstr "Значэньне для выбару \"%key:1\" не можа быць зьменена."
+msgstr "Значэньне для опцыі \"%key:1\" ня можа быць зьменена."
 
 #: common/errors.cpp:139
 msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
@@ -433,47 +416,39 @@ msgstr "Ключ \"%key:1\" не %accepted:2 і таму нерэчаісны."
 
 #: common/errors.cpp:147
 msgid "The value \"%value:2\" is not %accepted:3 and is thus invalid for the key \"%key:1\"."
-msgstr "Значэньне \"%value:2\" не %accepted:3 і таму не рэчаісна для ключа \"%key:1\"."
+msgstr "Значэньне \"%value:2\" не %accepted:3 і таму нерэчаіснае для ключа \"%key:1\"."
 
 #: common/errors.cpp:163
-#, fuzzy
-#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a string."
-msgstr "Ключ \"%key:1\" невядомы."
+msgstr "Ключ \"%key:1\" не зьяўляецца радком."
 
 #: common/errors.cpp:171
-#, fuzzy
-#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not an integer."
-msgstr "Ключ \"%key:1\" невядомы."
+msgstr "Ключ \"%key:1\" не зьяўляецца цэлым лікам."
 
 #: common/errors.cpp:179
-#, fuzzy
-#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a boolean."
-msgstr "Ключ \"%key:1\" невядомы."
+msgstr "Ключ \"%key:1\" не зьяўляецца двайковым."
 
 #: common/errors.cpp:187
-#, fuzzy
-#| msgid "The key \"%key:1\" is unknown."
 msgid "The key \"%key:1\" is not a list."
-msgstr "Ключ \"%key:1\" невядомы."
+msgstr "Ключ \"%key:1\" не зьяўляецца сьпісам."
 
 #: common/errors.cpp:195
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"reset-\"."
-msgstr ""
+msgstr "Ключ \"%key:1\" не прымае аніякіх парамэтраў з прэфіксам \"reset-\"."
 
 #: common/errors.cpp:203
 msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
-msgstr ""
+msgstr "Ключ \"%key:1\" не прымае аніякіх парамэтраў з прэфіксам \"enable-\"."
 
 #: common/errors.cpp:211
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
-msgstr ""
+msgstr "Ключ \"%key:1\" не прымае аніякіх парамэтраў з прэфіксам \"dont-\" ці \"disable-\"."
 
 #: common/errors.cpp:219
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
-msgstr ""
+msgstr "Ключ \"%key:1\" не прымае аніякіх парамэтраў з прэфіксам \"clear-\"."
 
 #: common/errors.cpp:235
 #, c-format
@@ -483,7 +458,7 @@ msgstr "Мова \"%lang:1\" невядома."
 #: common/errors.cpp:243
 #, c-format
 msgid "The soundslike \"%sl:2\" is not known."
-msgstr "Невядомы гук \"%sl:2\"."
+msgstr "Soundslike \"%sl:2\" невядомы."
 
 #: common/errors.cpp:251
 #, c-format
@@ -493,7 +468,7 @@ msgstr "Мова \"%lang:1\" не падтрымліваецца."
 #: common/errors.cpp:259
 #, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
-msgstr "Няма сьпісу словаў для мовы \"%lang:1\"."
+msgstr "Сьпісы словаў ня могуць быць знойдзены для мовы \"%lang:1\"."
 
 #: common/errors.cpp:267
 #, c-format
@@ -503,24 +478,22 @@ msgstr "Чакалася мова \"%lang:1\" але атрымана \"%prev:2\
 #: common/errors.cpp:283
 #, c-format
 msgid "Affix '%aff:1' is corrupt."
-msgstr ""
+msgstr "Афікс '%aff:1' пашкоджаны."
 
 #: common/errors.cpp:291
-#, fuzzy, c-format
-#| msgid "The word \"%word:1\" is invalid."
+#, c-format
 msgid "The condition \"%cond:1\" is invalid."
-msgstr "Слова \"%word:1\" нерэчаіснае."
+msgstr "Памылковая ўмова \"%cond:1\"."
 
 #: common/errors.cpp:299
 #, c-format
 msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
-msgstr ""
+msgstr "Умова \"%cond:1\" не гарантуе, што \"%strip:2\" заўсёды можа быць разьдзелена."
 
 #: common/errors.cpp:307
-#, fuzzy, c-format
-#| msgid "The file \"%file:1\" is not in the proper format."
+#, c-format
 msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
-msgstr "Файл \"%file:1\" у памылковым фармаце."
+msgstr "Файл \"%file:1\" не адпавядае фармату. Чакаўся файл \"%exp:2\", а не \"%got:3\"."
 
 #: common/errors.cpp:323
 #, c-format
@@ -538,168 +511,146 @@ msgid "The conversion from \"%encod:1\" to \"%encod2:2\" is not supported."
 msgstr "Пераўтварэньне з \"%encod:1\" у \"%encod2:2\" не падтрымліваецца."
 
 #: common/errors.cpp:379
-#, fuzzy, c-format
-#| msgid "The word \"%word:1\" is invalid."
+#, c-format
 msgid "The string \"%str:1\" is invalid."
-msgstr "Слова \"%word:1\" нерэчаіснае."
+msgstr "Памылковы радок \"%str:1\"."
 
 #: common/errors.cpp:387
 msgid "The word \"%word:1\" is invalid."
-msgstr "Слова \"%word:1\" нерэчаіснае."
+msgstr "Памылковае слова \"%word:1\"."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr ""
+msgstr "Пазнака афіксу '%aff:1' нерэчаісная для слова \"%word:2\"."
 
 #: common/errors.cpp:403
-#, fuzzy
-#| msgid "The file \"%file:1\" can not be opened for reading."
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "Файл \"%file:1\" не можа быць адкрыты для чытаньня."
+msgstr "Пазнака афіксу '%aff:1' ня можа быць ужыта да слова \"%word:2\"."
 
 #: common/errors.cpp:451
 msgid "not a version number"
-msgstr ""
+msgstr "ня ёсьць нумарам вэрсіі"
 
 #: common/errors.cpp:467
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\" dlopen returned \"%return:3\"."
 msgid "dlopen returned \"%return:1\"."
-msgstr "%where:1: \"%filter:2\" dlopen вярнула \"%return:3\"."
+msgstr "dlopen вярнула \"%return:1\"."
 
 #: common/errors.cpp:475
-#, fuzzy, c-format
-#| msgid "%where:1: The file \"%filter:2\" does not contain any filter."
+#, c-format
 msgid "The file \"%filter:1\" does not contain any filters."
-msgstr "%where:1: Файл \"%filter:2\" не ўтрымлівае фільтараў."
+msgstr "Файл \"%filter:2\" ня ўтрымлівае аніводнага фільтра."
 
 #: common/errors.cpp:483
-#, fuzzy, c-format
-#| msgid "The file \"%file:1\" can not be opened"
+#, c-format
 msgid "The filter \"%filter:1\" does not exist."
-msgstr "Файл \"%file:1\" не можа быць адкрыты"
+msgstr "Фільтар \"%filter:1\" не існуе."
 
 #: common/errors.cpp:491 common/errors.cpp:587
 msgid "Confused by version control."
-msgstr ""
+msgstr "Зьбянтэжаны кантролем вэрсій."
 
 #: common/errors.cpp:499
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\": Line %line:3 Aspell version does not match filter's requirement."
 msgid "Aspell version does not match filter's requirement."
-msgstr "%where:1: \"%filter:2\": Радок %line:3 Вэрсыя Aspell не мае падтрымкі фільтараў."
+msgstr "Вэрсія Aspell не адпавядае патрабаваньням фільтра."
 
 #: common/errors.cpp:507
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\" Line %line:3 Filter option already exists."
 msgid "Filter option already exists."
-msgstr "%where:1: \"%filter:2\" Радок %line:3 Выбар фільтара ўжо існуе."
+msgstr "Опцыя фільтра ўжо існуе."
 
 #: common/errors.cpp:515
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\" %line:3 Use option modifiers only within named Option."
 msgid "Use option modifiers only within named option."
-msgstr "%where:1: \"%filter:2\" %line:3 Выкарыстоўвайце выбар мадыфікатараў толькі у названым выбары."
+msgstr "Выкарыстоўвайце мадыфікатары опцыяў толькі з найменнай опцыяй."
 
 #: common/errors.cpp:523
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\" %line:3 Option modifier unknown."
 msgid "Option modifier unknown."
-msgstr "%where:1: \"%filter:2\" %line:3 Невядомы выбар мадыфікатара."
+msgstr "Невядомы мадыфікатар опцыі."
 
 #: common/errors.cpp:531
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\" error setting filter description."
 msgid "Error setting filter description."
-msgstr "%where:1: \"%filter:2\" памылка усталяваньня апісаньня фільтра."
+msgstr "Памылка ўсталяваньня апісаньня фільтра."
 
 #: common/errors.cpp:547
 msgid "Empty option specifier."
-msgstr ""
+msgstr "Пусты спэцыфікатар опцыі."
 
 #: common/errors.cpp:555
 #, c-format
 msgid "Option \"%option:1\" possibly specified prior to filter."
-msgstr ""
+msgstr "Імаверна, опцыя \"%option:1\" вызначаная перад фільтрам."
 
 #: common/errors.cpp:563
 msgid "Unknown mode description key \"%key:1\"."
-msgstr ""
+msgstr "Невядомы ключ апісаньня рэжыму \"%key:1\"."
 
 #: common/errors.cpp:571
 #, c-format
 msgid "Expecting \"%modekey:1\" key."
-msgstr ""
+msgstr "Чакаецца ключ \"%modekey:1\"."
 
 #: common/errors.cpp:579
 msgid "Version specifier missing key: \"aspell\"."
-msgstr ""
+msgstr "У спэцыфікатара вэрсіі нестае ключа: \"aspell\"."
 
 #: common/errors.cpp:595
-#, fuzzy
-#| msgid "%where:1: \"%filter:2\": Line %line:3 Aspell version does not match filter's requirement."
 msgid "Aspell version does not match mode's requirement."
-msgstr "%where:1: \"%filter:2\": Радок %line:3 Вэрсыя Aspell не мае падтрымкі фільтараў."
+msgstr "Вэрсія Aspell не адпавядае патрабаваньням рэжыму."
 
 #: common/errors.cpp:603
 msgid "Missing magic mode expression."
-msgstr ""
+msgstr "Адсутнічае выраз рэжыму magic"
 
 #: common/errors.cpp:611
 #, c-format
 msgid "Empty extension at char %char:1."
-msgstr ""
+msgstr "Пустое пашырэньне ў сымбалі %char:1."
 
 #: common/errors.cpp:619
 #, c-format
 msgid "\"%mode:1\" error"
-msgstr ""
+msgstr "Памылка \"%mode:1\""
 
 #: common/errors.cpp:627
 #, c-format
 msgid "Unknown mode: \"%mode:1\"."
-msgstr ""
+msgstr "Невядомы рэжым: \"%mode:1\"."
 
 #: common/errors.cpp:635
-#, fuzzy, c-format
-#| msgid "%where:1: \"%filter:2\" error while extend Aspell options. (out of memory?)"
+#, c-format
 msgid "\"%mode:1\" error while extend Aspell modes. (out of memory?)"
-msgstr "%where:1: \"%filter:2\" памылка пашыраных выбараў Aspell. (недахоп памяці?)"
+msgstr "Памылка \"%mode:1\" пры пашырэньні рэжымаў Aspell. (недахоп памяці?)"
 
 #: common/errors.cpp:651
 #, c-format
 msgid "\"%mode:1\": no start for magic search given for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": няма пачатку для пошуку magic, зададзенага для magic \"%magic:2\"."
 
 #: common/errors.cpp:659
 #, c-format
 msgid "\"%mode:1\": no range for magic search given for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": няма дыяпазону для пошуку magic, зададзенага для magic \"%magic:2\"."
 
 #: common/errors.cpp:667
 #, c-format
 msgid "\"%mode:1\": no magic expression available for magic \"%magic:2\"."
-msgstr ""
+msgstr "\"%mode:1\": няма наяўнага выразу magic для magic \"%magic:2\"."
 
 #: common/errors.cpp:675
 msgid "\"%mode:1\": Magic \"%magic:2\": bad regular expression after location specifier; regexp reports: \"%regerr:3\"."
-msgstr ""
+msgstr "\"%mode:1\": Magic \"%magic:2\": неадпаведны рэгулярны выраз пасьля спэцыфікатара знаходжаньня; regexp паведамляе: \"%regerr:3\"."
 
 #: common/errors.cpp:691
-#, fuzzy, c-format
-#| msgid "%action:1: `%expression:2' is not a valid regular expression."
+#, c-format
 msgid "\"%expression:1\" is not a valid regular expression."
-msgstr "%action:1: `%expression:2' не зьяўляецца дапушчальным сталым выразам."
+msgstr "\"%expression:1\" зьяўляецца няправільным рэгулярным выразам."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
-msgstr "Памылка без апрацоўкі: "
+msgstr "Неапрацаваная памылка: "
 
 #: prog/aspell.cpp:99
-#, fuzzy, c-format
-#| msgid "Error: "
+#, c-format
 msgid "Error: %s\n"
-msgstr "Памылка: "
+msgstr "Памылка: %s\n"
 
 #: prog/aspell.cpp:104
 msgid "Error: "
@@ -710,47 +661,39 @@ msgid "enter Email mode."
 msgstr "рэжым э-пошты."
 
 #: prog/aspell.cpp:206
-#, fuzzy
-#| msgid "enter TeX mode."
 msgid "enter HTML mode."
-msgstr "рэжым TeX."
+msgstr "пераход да рэжыму HTML."
 
 #: prog/aspell.cpp:207
 msgid "enter TeX mode."
-msgstr "рэжым TeX."
+msgstr "пераход да рэжыму TeX."
 
 #: prog/aspell.cpp:208
-#, fuzzy
-#| msgid "enter TeX mode."
 msgid "enter Nroff mode."
-msgstr "рэжым TeX."
+msgstr "пераход да рэжыму Nroff."
 
 #: prog/aspell.cpp:209
-#, fuzzy
-#| msgid "enter TeX mode."
 msgid "enter Markdown mode."
-msgstr "рэжым TeX."
+msgstr "пераход да рэжыму Markdown."
 
 #: prog/aspell.cpp:315
 #, c-format
 msgid "Invalid Option: %s"
-msgstr "Недапушчальны выбар: %s"
+msgstr "Недапушчальная опцыя: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
+#, c-format
 msgid "'%s' does not take any parameters."
-msgstr " не патрабуе ніякіх парамэтраў."
+msgstr "'%s' не прымае ніякіх парамэтраў."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
-#, fuzzy, c-format
-#| msgid "You must specify a parameter for %s"
+#, c-format
 msgid "You must specify a parameter for \"%s\"."
-msgstr "Вы мусіце пазначыць парамэтар для %s"
+msgstr "Удакладніце парамэтар для \"%s\"."
 
 #: prog/aspell.cpp:384
 msgid "You must specify an action"
-msgstr "Вы мусіце пазначыць дзеяньне"
+msgstr "Прызначце дзеяньне"
 
 #: prog/aspell.cpp:392 prog/aspell.cpp:455 prog/aspell.cpp:477
 #, c-format
@@ -758,10 +701,9 @@ msgid "Unknown Action: %s"
 msgstr "Невядомае дзеяньне: %s"
 
 #: prog/aspell.cpp:398
-#, fuzzy, c-format
-#| msgid "You must specify a parameter for %s"
+#, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
-msgstr "Вы мусіце пазначыць парамэтар для %s"
+msgstr "Памылка: Вызначце сама меней %d парамэтраў для \"%s\".\n"
 
 #: prog/aspell.cpp:640
 msgid "Invalid Input"
@@ -770,25 +712,24 @@ msgstr "Недапушчальны ўвод"
 #: prog/aspell.cpp:713
 #, c-format
 msgid "WARNING: Unable to enter Nroff mode: %s\n"
-msgstr ""
+msgstr "ПАПЯРЭДЖАНЬНЕ: Немагчыма ўвайсьці ў рэжым Nroff: %s\n"
 
 #: prog/aspell.cpp:734
 msgid "Time to load word list: "
 msgstr "Час загрузкі сьпісу словаў: "
 
 #: prog/aspell.cpp:934
-#, fuzzy, c-format
-#| msgid "Suggestion Time: "
+#, c-format
 msgid "Suggestion Time: %f\n"
-msgstr "Час прапанаваньня: "
+msgstr "Час прапанаваньня: %f\n"
 
 #: prog/aspell.cpp:977
 msgid "You must specify a file name."
-msgstr "Вы мусіце пазначыць назву файла."
+msgstr "Удакладніце назву файла."
 
 #: prog/aspell.cpp:980
 msgid "Only one file name may be specified."
-msgstr ""
+msgstr "Ільга вызначыць толькі адно імя файла."
 
 #: prog/aspell.cpp:990
 #, c-format
@@ -801,16 +742,14 @@ msgid "Invalid keymapping: %s"
 msgstr "Недапушчальнае мапаваньне клявішаў:·%s"
 
 #: prog/aspell.cpp:1018
-#, fuzzy, c-format
-#| msgid "%action:1: `%expression:2' is not a valid regular expression."
+#, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "%action:1: `%expression:2' не зьяўляецца дапушчальным сталым выразам."
+msgstr "\"%s\" не зьяўляецца звычайным файлам"
 
 #: prog/aspell.cpp:1029
-#, fuzzy, c-format
-#| msgid "Could not open the file \"%s\"  for writing. File not saved."
+#, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr "Немагчыма адкрыць файл \"%s\"  для запісу. Файл не захаваны."
+msgstr "Немагчыма адкрыць файл \"%s\" для запісу. Файл не захаваны."
 
 #: prog/aspell.cpp:1042
 msgid "Ignore"
@@ -842,19 +781,17 @@ msgstr "Адкінуць"
 
 #: prog/aspell.cpp:1049
 msgid "Exit"
-msgstr "ВЫйсьці"
+msgstr "Выйсьці"
 
 #: prog/aspell.cpp:1125
-#, fuzzy
-#| msgid "Are you sure you want to abort? "
 msgid "Are you sure you want to abort (y/n)? "
-msgstr "Вы сапраўды жадаеце адкінуць?"
+msgstr "Вы сапраўды жадаеце адкінуць (y/n)?"
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
 #: prog/aspell.cpp:1129
 msgid "Yy"
-msgstr ""
+msgstr "Yy"
 
 #: prog/aspell.cpp:1157
 msgid "With: "
@@ -870,133 +807,133 @@ msgstr "Немагчыма зараз аб'яднаць асноўны сьпі�
 
 #: prog/aspell.cpp:1569
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
-msgstr "Выбачайце \"стварэньне/аб'яднаньне пэрсанальнага\" зараз непрацаздольнае.\n"
+msgstr "Выбачайце, \"create/merge personal\" пакуль нерэалізаваныя.\n"
 
 #: prog/aspell.cpp:1578 prog/aspell.cpp:1634
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
-msgstr "Выбачайце, трэба перазапісаць \"%s\""
+msgstr "Выбачайце, але \"%s\" ня будзе перазапісаны"
 
 #: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
-msgstr "Выбачайце пакуль гэтая апэрацыя непрацаздольная.\n"
+msgstr "Выбачайце, \"create/merge repl\" пакуль нерэалізаваныя.\n"
 
 #: prog/aspell.cpp:1897
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
-msgstr ""
+msgstr "\"%s\" гэта няправільная пазнака для каманды \"munch-list\"."
 
 #. TRANSLATORS: These should all be formated to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
-msgstr ""
+msgstr "Выкарыстаньне: aspell [опцыі] <каманда>"
 
 #: prog/aspell.cpp:2830
 msgid "<command> is one of:"
-msgstr ""
+msgstr "<каманда> адна з:"
 
 #: prog/aspell.cpp:2831
 msgid "  -?|usage         display a brief usage message"
-msgstr ""
+msgstr "  -?|usage         адлюстроўвае кароткае паведамленьне пра выкарыстаньне"
 
 #: prog/aspell.cpp:2832
 msgid "  help             display a detailed help message"
-msgstr ""
+msgstr "  help             адлюстроўвае падрабязную даведку"
 
 #: prog/aspell.cpp:2833
 msgid "  -c|check <file>  spellchecks a file"
-msgstr ""
+msgstr "  -c|check <file>  правярае правапіс у файле"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
-msgstr ""
+msgstr "  -a|pipe          рэжым сумяшчальнасьці \"ispell -a\""
 
 #: prog/aspell.cpp:2835
 msgid "  [dump] config    dumps the current configuration to stdout"
-msgstr ""
+msgstr "  [dump] config    робіць дамп бягучае канфігурацыі ў stdout"
 
 #: prog/aspell.cpp:2836
 msgid "  config <key>     prints the current value of an option"
-msgstr ""
+msgstr "  config <key>     друкуе бягучае значэньне опцыі"
 
 #: prog/aspell.cpp:2837
 msgid "  [dump] dicts | filters | modes"
-msgstr ""
+msgstr "  [dump] dicts | filters | modes"
 
 #: prog/aspell.cpp:2838
 msgid "    lists available dictionaries / filters / filter modes"
-msgstr ""
+msgstr "    сьпісы даступных слоўнікаў / фільтраў / рэжымаў фільтраў"
 
 #: prog/aspell.cpp:2839
 msgid "[options] is any of the following:"
-msgstr ""
+msgstr "[опцыі] любыя сярод наступных:"
 
 #: prog/aspell.cpp:2852
 msgid "  list             produce a list of misspelled words from standard input"
-msgstr ""
+msgstr "  list             стварае сьпіс словаў с памылкамі са стандартнага ўводу"
 
 #: prog/aspell.cpp:2855
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
-msgstr ""
+msgstr "  soundslike       вяртае гукавы эквівалент для кожнага ўведзенага слова"
 
 #: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
-msgstr ""
+msgstr "  munch            утварае магчымыя корані словаў ды афіксы"
 
 #: prog/aspell.cpp:2857
 msgid "  expand [1-4]     expands affix flags"
-msgstr ""
+msgstr "  expand [1-4]     пашырае пазнакі афіксаў"
 
 #: prog/aspell.cpp:2858
 msgid "  clean [strict]   cleans a word list so that every line is a valid word"
-msgstr ""
+msgstr "  clean [strict]   ачышчае сьпіс словаў, каб кожны радок быў сапраўдным словам"
 
 #: prog/aspell.cpp:2859
 msgid "  filter           filters input as if it was being spellchecked"
-msgstr ""
+msgstr "  filter           фільтруе ўвод так, нібы ён быў з праверкай правапісу"
 
 #: prog/aspell.cpp:2860
 msgid "  -v|version       prints a version line"
-msgstr ""
+msgstr "  -v|version       друкуе радок з вэрсіяй"
 
 #: prog/aspell.cpp:2861
 msgid "  munch-list [simple] [single|multi] [keep]"
-msgstr ""
+msgstr "  munch-list [simple] [single|multi] [keep]"
 
 #: prog/aspell.cpp:2862
 msgid "    reduce the size of a word list via affix compression"
-msgstr ""
+msgstr "    паменшыць памер сьпісу словаў праз сьцісканьне афіксаў"
 
 #: prog/aspell.cpp:2863
 msgid "  conv <from> <to> [<norm-form>]"
-msgstr ""
+msgstr "  conv <з> <у> [<форма-нарм>]"
 
 #: prog/aspell.cpp:2864
 msgid "    converts from one encoding to another"
-msgstr ""
+msgstr "    пераўтварае з аднаго кадаваньня ў іншае"
 
 #: prog/aspell.cpp:2865
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
-msgstr ""
+msgstr "  norm (<карта-нарм> | <з> <карта-нарм> <у>) [<форма-нарм>]"
 
 #: prog/aspell.cpp:2866
 msgid "    perform Unicode normalization"
-msgstr ""
+msgstr "    выконвае нармалізацыю Юнікоду"
 
 #: prog/aspell.cpp:2869
 msgid "  dump|create|merge master|personal|repl [<name>]"
-msgstr ""
+msgstr "  dump|create|merge master|personal|repl [<назва>]"
 
 #: prog/aspell.cpp:2870
 msgid "    dumps, creates or merges a master, personal, or replacement dictionary."
-msgstr ""
+msgstr "    робіць дамп, стварае або аб'ядноўвае галоўны, асабісты або слоўнік заменаў."
 
 #. TRANSLATORS: "none", "internal" and "strict" are literal values
 #. and should not be translated.
 #: prog/aspell.cpp:2874
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
-msgstr ""
+msgstr "  <форма-нарм>     форма нармалізацыі для ўжываньня: none, internal ці strict"
 
 #: prog/aspell.cpp:2884
 #, c-format
@@ -1005,6 +942,9 @@ msgid ""
 "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
+"\n"
+"Aspell %s.  Аўтарскае права © 2000-2023 Kevin Atkinson.\n"
+"\n"
 
 #: prog/aspell.cpp:2918
 msgid ""
@@ -1013,12 +953,18 @@ msgid ""
 "    option.  They can also be selected indirectly via the \"lang\",\n"
 "    \"variety\", and \"size\" options.\n"
 msgstr ""
+"Даступныя слоўнікі:\n"
+"    Слоўнікі могуць быць выбраныя наўпрост праз опцыю \"-d\" або \"master\".\n"
+"    Яны таксама могуць быць выбраныя ўскосна праз опцыі \"lang\",\n"
+"    \"variety\" ды \"size\".\n"
 
 #: prog/aspell.cpp:2939
 msgid ""
 "Available Filters (and associated options):\n"
 "    Filters can be added or removed via the \"filter\" option.\n"
 msgstr ""
+"Наяўныя фільтры (ды зьвязаныя опцыі):\n"
+"    Фільтры могуць быць дададзеныя ці прыбраныя праз опцыю \"filter\".\n"
 
 #: prog/aspell.cpp:2946
 #, c-format
@@ -1026,6 +972,8 @@ msgid ""
 "\n"
 "  %s filter: %s\n"
 msgstr ""
+"\n"
+"  %s фільтар: %s\n"
 
 #. TRANSLATORS: This should be formated to fit in 80 column or less
 #: prog/aspell.cpp:2963
@@ -1036,274 +984,266 @@ msgid ""
 "    This will happen implicitly if Aspell is able to identify the file\n"
 "    type from the extension, and possibility the contents, of the file.\n"
 msgstr ""
+"Даступныя рэжымы фільтраў:\n"
+"    Рэжымы фільтраў перанастройвае камбінацыі фільтраў, што аптымізаваныя\n"
+"    для файлаў адмысловага тыпу. Рэжым выбіраецца праз опцыю \"mode\".\n"
+"    Гэта будзе адбывацца ўскосна, калі Aspell будзе здатны вызначыць\n"
+"    тып файла па пашырэньню ды па мажліваму зьмесьціву файла.\n"
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
-msgstr ""
+msgstr "Памылка: Stdin не зьяўляецца тэрміналам."
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:774
 msgid "Enter"
-msgstr ""
+msgstr "Enter"
 
 #: prog/check_funs.cpp:776
 msgid "Accept Changes"
-msgstr ""
+msgstr "Прыняць зьмены"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:779
 msgid "Backspace"
-msgstr ""
+msgstr "Backspace"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:781
 msgid "Control-H"
-msgstr ""
+msgstr "Control-H"
 
 #: prog/check_funs.cpp:782
 msgid "Delete the previous character"
-msgstr ""
+msgstr "Выдаленьне папярэдняга сымбаля"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:785
 msgid "Left"
-msgstr ""
+msgstr "Left"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:787
 msgid "Control-B"
-msgstr ""
+msgstr "Control-B"
 
 #: prog/check_funs.cpp:788
 msgid "Move Back one space"
-msgstr ""
+msgstr "Перамяшчэньне на адзін прагал назад"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:791
 msgid "Right"
-msgstr ""
+msgstr "Right"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:793
 msgid "Control-F"
-msgstr ""
+msgstr "Control-F"
 
 #: prog/check_funs.cpp:794
 msgid "Move Forward one space"
-msgstr ""
+msgstr "Перамяшчэньне на адзін прагал наперад"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:797
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:799
 msgid "Control-A"
-msgstr ""
+msgstr "Control-A"
 
 #: prog/check_funs.cpp:800
 msgid "Move to the beginning of the line"
-msgstr ""
+msgstr "Пераход да пачатку радка"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:803
 msgid "End"
-msgstr ""
+msgstr "End"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:805
 msgid "Control-E"
-msgstr ""
+msgstr "Control-E"
 
 #: prog/check_funs.cpp:806
 msgid "Move to the end of the line"
-msgstr ""
+msgstr "Пераход да канца радка"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:809
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:811
 msgid "Control-D"
-msgstr ""
+msgstr "Control-D"
 
 #: prog/check_funs.cpp:812
-#, fuzzy
-#| msgid "email quote characters"
 msgid "Delete the next character"
-msgstr "сымбалі дужак э.пошты"
+msgstr "Выдаліць наступны сымбаль"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:816
 msgid "Control-K"
-msgstr ""
+msgstr "Control-K"
 
 #: prog/check_funs.cpp:817
 msgid "Kill all characters to the EOL"
-msgstr ""
+msgstr "Пазбавіцца ад ўсіх сымбаляў да EOL"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:821
 msgid "Control-C"
-msgstr ""
+msgstr "Control-C"
 
 #: prog/check_funs.cpp:822
 msgid "Abort This Operation"
-msgstr ""
+msgstr "Спыніць гэтую апэрацыю"
 
 #: modules/speller/default/language.cpp:103
 msgid "This is probably because: "
-msgstr ""
+msgstr "Гэта, імаверна, таму што:"
 
 #: modules/speller/default/language.cpp:110
 msgid "The required field \"name\" is missing."
-msgstr ""
+msgstr "Адсутнічае патрабуемае поле \"name\"."
 
 #: modules/speller/default/language.cpp:524
 msgid "Empty string."
-msgstr ""
+msgstr "Пусты радок."
 
 #: modules/speller/default/language.cpp:533
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the beginning of a word."
-msgstr ""
+msgstr "Сымбаль '%s' (U+%02X) можа не зьяўляцца ў пачатку слова."
 
 #: modules/speller/default/language.cpp:535
 #: modules/speller/default/language.cpp:544
 #, c-format
 msgid "The character '%s' (U+%02X) must be followed by an alphabetic character."
-msgstr ""
+msgstr "Пасьля сымбаля '%s' (U+%02X) мусіць ісьці сымбаль альфабэту."
 
 #: modules/speller/default/language.cpp:537
-#, fuzzy
-#| msgid " does not take any parameters."
 msgid "Does not contain any alphabetic characters."
-msgstr " не патрабуе ніякіх парамэтраў."
+msgstr "Не ўтрымлівае ніякіх сымбаляў альфабэта"
 
 #: modules/speller/default/language.cpp:542
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear in the middle of a word."
-msgstr ""
+msgstr "Сымбаль '%s' (U+%02X) можа не зьяўляцца ў сярэдзіне слова."
 
 #: modules/speller/default/language.cpp:549
 msgid "The character '\\r' (U+0D) may not appear at the end of a word. This probably means means that the file is using MS-DOS EOL instead of Unix EOL."
-msgstr ""
+msgstr "Сымбаль '\\r' (U+0D) можа не зьяўляцца напрыканцы слова. Імаверна гэта азначае, што файл выкарыстоўвае сымбаль EOL MS-DOS замест EOL Unix."
 
 #: modules/speller/default/language.cpp:552
 #, c-format
 msgid "The character '%s' (U+%02X) may not appear at the end of a word."
-msgstr ""
+msgstr "Сымбаль '%s' (U+%02X) можа не зьяўляцца ў канцы слова."
 
 #: modules/speller/default/language.cpp:584
 #, c-format
 msgid "Warning: Removing invalid affix '%s' from word %s.\n"
-msgstr ""
+msgstr "Папярэджаньне: Выдаленьне памылковага афікса '%s' са слова %s.\n"
 
 #: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr ""
+msgstr "Папярэджаньне: Выдаленьне непрыдатнага афікса '%s' са слова %s.\n"
 
 #: modules/speller/default/language.cpp:726
 #, c-format
 msgid "Warning: %s Skipping string.\n"
-msgstr ""
+msgstr "Папярэджаньне: %s Прапусканьне радка.\n"
 
 #: modules/speller/default/language.cpp:780
 msgid "The total length is larger than 240 characters."
-msgstr ""
+msgstr "Агульная даўжыня больш за 240 сымбаляў."
 
 #: modules/speller/default/language.cpp:784
 #, c-format
 msgid "Warning: %s Skipping word.\n"
-msgstr ""
+msgstr "Папярэджаньне: %s Прапусканьне слова.\n"
 
 #: modules/speller/default/affix.cpp:426
 msgid "Possibly incorrect count."
-msgstr ""
+msgstr "Магчыма, няправільны падлік."
 
 #: modules/speller/default/readonly_ws.cpp:362
 msgid "Incompatible hash function."
-msgstr ""
+msgstr "Несумяшчальная хэш-функцыя."
 
 #: modules/speller/default/readonly_ws.cpp:440
 msgid "Wrong endian order."
-msgstr ""
+msgstr "Няправільны парадак байтаў."
 
 #: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
-msgstr ""
+msgstr "Няправільны soundslike."
 
 #: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
-msgstr ""
+msgstr "Няправільная вэрсія soundslike."
 
 #: modules/speller/default/readonly_ws.cpp:936
 msgid "Affix flags found in word but no affix file given."
-msgstr ""
+msgstr "У слове знойдзены пазнакі афіксаў, але не зададзены файл афіксу."
 
 #: modules/speller/default/readonly_ws.cpp:974
 msgid "The total word length, with soundslike data, is larger than 240 characters."
-msgstr ""
+msgstr "Агульная даўжыня слова з данымі soundslike перавышае 240 сымбаляў."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
-msgstr ""
+msgstr "Мусіць быць прынамсі адзін радок \"add\"."
 
 #: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
-msgstr ""
+msgstr "адно з: ultra, fast, normal, slow ці bad-spellers"
 
 #: modules/speller/default/data.cpp:406
 msgid "is not one of the allowed types"
-msgstr ""
+msgstr "не зьяўляецца адным з дазволеных тыпаў"
 
 #: modules/speller/default/speller_impl.cpp:334
-#, fuzzy
-#| msgid "personal word list file name"
 msgid "The personal word list is unavailable."
-msgstr "назва асабістага файла сьпісу словаў"
+msgstr "Асабісты сьпіс словаў недаступны."
 
 #: modules/speller/default/speller_impl.cpp:341
-#, fuzzy
-#| msgid "personal word list file name"
 msgid "The session word list is unavailable."
-msgstr "назва асабістага файла сьпісу словаў"
+msgstr "Сэансавы сьпіс словаў недаступны."
 
 #: modules/speller/default/speller_impl.cpp:348
 msgid "The main word list is unavailable."
-msgstr ""
+msgstr "Галоўны сьпіс словаў недаступны."
 
 #: modules/filter/tex.cpp:255 modules/filter/tex.cpp:262
 msgid "a string of 'o','O','p',or 'P'"
-msgstr ""
+msgstr "радок з: 'o','O','p' ці 'P'"
 
 #. TRANSLATORS: Like the strings in config.cpp, all strings in *-filter.opt
 #. should be under 50 characters, begin with a lower case character and 
 #. not include any trailing punctuation marks.
 #: modules/filter/context-filter.info:7
-#, fuzzy
-#| msgid "Filter for hiding delimited contexts from Aspell"
 msgid "experimental filter for hiding delimited contexts"
-msgstr "Фільтар для хаваньня ад Aspell абмежаванага кантэксту"
+msgstr "фільтар для хаваньня разьмежаваных кантэкстаў"
 
 #: modules/filter/context-filter.info:13
-#, fuzzy
 msgid "context delimiters (separated by spaces)"
-msgstr "даданьне/выдаленьне межаў пазначаных прагаламі"
+msgstr "разьмежавальнікі кантэксту (падзеленыя прагаламі)"
 
 #: modules/filter/context-filter.info:21
-#, fuzzy
-#| msgid "swaps visible and invisible text;(starts invisible)"
 msgid "swaps visible and invisible text"
-msgstr "абмен бачнага і нябачнага тэксту;( пачатак з бачнага)"
+msgstr "абмен бачнага й нябачнага тэксту"
 
 #: modules/filter/email-filter.info:7
 msgid "filter for skipping quoted text in email messages"
-msgstr ""
+msgstr "фільтар для пропуску цытатаванага тэксту ў email"
 
 #: modules/filter/email-filter.info:13
 msgid "email quote characters"
@@ -1311,67 +1251,59 @@ msgstr "сымбалі дужак э.пошты"
 
 #: modules/filter/email-filter.info:21
 msgid "num chars that can appear before the quote char"
-msgstr "колькасьць сымбаляў якія ідуць перад сымбалем дужак"
+msgstr "лік сымбаляў, якія могуць ісьці перад двукосьсем"
 
 #: modules/filter/html-filter.info:9
 msgid "filter for dealing with HTML documents"
-msgstr ""
+msgstr "фільтар для працы з дакумэнтамі HTML"
 
 #: modules/filter/html-filter.info:15
-#, fuzzy
-#| msgid "sgml attributes to always check."
 msgid "HTML attributes to always check"
-msgstr "атрыбуты sgml для сталае праверкі."
+msgstr "атрыбуты HTML для сталае праверкі"
 
 #: modules/filter/html-filter.info:21
 msgid "HTML tags to always skip the contents of"
-msgstr ""
+msgstr "тэгі HTML для сталага прапусканьня зьмесьціва"
 
 #: modules/filter/markdown-filter.info:8
-#, fuzzy
-#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "filter for Markdown/CommonMark documents"
-msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
+msgstr "фільтар для дакумэнтаў Markdown/CommonMark"
 
 #: modules/filter/markdown-filter.info:14
 msgid "skip link labels in link reference definitions"
-msgstr ""
+msgstr "прапускаць меткі спасылак у азначэньнях спасылак"
 
 #: modules/filter/markdown-filter.info:20
 msgid "support tags that span multiple lines outside of HTML blocks"
-msgstr ""
+msgstr "падтрымка шматрадковых тэгаў па-за блёкамі HTML"
 
 #: modules/filter/markdown-filter.info:26
 msgid "HTML tags that start an HTML block that allows blank lines"
-msgstr ""
+msgstr "Тэгі HTML, якія пачынаюць блёк HTML з дазволам пустых радкоў"
 
 #: modules/filter/markdown-filter.info:34
 msgid "HTML tags that start an HTML block that ends with a blank line"
-msgstr ""
+msgstr "Тэгі HTML, якія пачынаюць блёк HTML, які канчаецца пустым радком"
 
 #: modules/filter/nroff-filter.info:7
 msgid "filter for dealing with Nroff documents"
-msgstr ""
+msgstr "фільтар для працы з дакумэнтамі Nroff"
 
 #: modules/filter/sgml-filter.info:9
 msgid "filter for dealing with generic SGML/XML documents"
-msgstr ""
+msgstr "фільтар для працы з агульнымі дакумэнтамі SGML/XML"
 
 #: modules/filter/sgml-filter.info:15
-#, fuzzy
-#| msgid "sgml attributes to always check."
 msgid "SGML attributes to always check"
-msgstr "атрыбуты sgml для сталае праверкі."
+msgstr "атрыбуты SGML для сталае праверкі"
 
 #: modules/filter/sgml-filter.info:20
 msgid "SGML tags to always skip the contents of"
-msgstr ""
+msgstr "Тэгі SGML для сталага прапусканьня зьмесціва"
 
 #: modules/filter/tex-filter.info:7
-#, fuzzy
-#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "filter for dealing with TeX/LaTeX documents"
-msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
+msgstr "Фільтар для працы з дакумэнтамі TeX/LaTeX"
 
 #: modules/filter/tex-filter.info:15
 msgid "check TeX comments"
@@ -1383,76 +1315,67 @@ msgstr "каманды TeX"
 
 #: modules/filter/texinfo-filter.info:7
 msgid "filter for dealing with Texinfo documents"
-msgstr ""
+msgstr "фільтар для працы з дакумэнтамі Texinfo"
 
 #: modules/filter/texinfo-filter.info:13
-#, fuzzy
-#| msgid "ignore commands to store replacement pairs"
 msgid "Texinfo commands to ignore the parameters of"
-msgstr "ігнараваньне камандаў у захаваньні параў замены"
+msgstr "каманды Texinfo для ігнараваньня парамэтраў"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
-msgstr ""
+msgstr "зьменныя асяродзьдзя Texinfo да ігнараваньня"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
-msgstr ""
+msgstr "фільтар для прапусканьня канструкцыяў накшталт URL"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr ""
+msgstr "рэжым для праверкі камэнтарыяў ды радковых літаралаў C++"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
-msgstr ""
+msgstr "рэжым праверкі любых радкоў, якія пачынаюцца з #"
 
 #: modules/filter/modes/email.amf:5
 msgid "mode for skipping quoted text in email messages"
-msgstr ""
+msgstr "рэжым пропуску цытаванага тэксту ў email"
 
 #: modules/filter/modes/html.amf:10
 msgid "mode for checking HTML documents"
-msgstr ""
+msgstr "рэжым для праверкі дакумэнтаў HTML"
 
 #: modules/filter/modes/markdown.amf:9
-#, fuzzy
-#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "mode for checking Markdown/CommonMark documents"
-msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
+msgstr "рэжым для праверкі дакумэнтаў Markdown/CommonMark"
 
 #: modules/filter/modes/none.amf:5
 msgid "mode to disable all filters"
-msgstr ""
+msgstr "рэжым з адключэньнем усіх фільтраў"
 
 #: modules/filter/modes/nroff.amf:7
 msgid "mode for checking Nroff documents"
-msgstr ""
+msgstr "рэжым для праверкі дакумэнтаў Nroff"
 
 #: modules/filter/modes/perl.amf:8
 msgid "mode for checking Perl comments and string literals"
-msgstr ""
+msgstr "рэжым для праверкі камэнтарыяў ды радковых літаралаў Perl"
 
 #: modules/filter/modes/sgml.amf:8
 msgid "mode for checking generic SGML/XML documents"
-msgstr ""
+msgstr "рэжым для праверкі агульных дакумэнтаў SGML/XML"
 
 #: modules/filter/modes/tex.amf:7
-#, fuzzy
-#| msgid "Filter for recognizing TeX/LaTeX commands"
 msgid "mode for checking TeX/LaTeX documents"
-msgstr "Фільтар для вызначэньня камандаў TeX/LaTeX"
+msgstr "рэжым для праверкі дакумэнтаў TeX/LaTeX"
 
 #: modules/filter/modes/texinfo.amf:7
 msgid "mode for checking Texinfo documents"
-msgstr ""
+msgstr "рэжым для праверкі дакумэнтаў Texinfo"
 
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
-msgstr ""
-
-#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
-#~ msgstr "Выбачайце \"фільтар\" зараз не працаздольны.\n"
+msgstr "рэжым для прапусканьня канструкцыяў накшталт URL (прадвызначаны)"
 
 #~ msgid "configured as follows"
 #~ msgstr "сканфігуравана як наступнае"
@@ -1480,6 +1403,9 @@ msgstr ""
 
 #~ msgid "enter Html/Sgml mode."
 #~ msgstr "рэжым Html/Sgml."
+
+#~ msgid "Sorry \"filter\" is currently unimplemented.\n"
+#~ msgstr "Выбачайце \"фільтар\" зараз не працаздольны.\n"
 
 #~ msgid ""
 #~ "\n"

@@ -1,14 +1,14 @@
 # Japanese translation for aspell
 # Copyright (C) 2011 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
-# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2011, 2019.
+# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2011, 2019, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre1\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2023-12-19 16:19-0500\n"
-"PO-Revision-Date: 2019-09-24 01:21+0900\n"
+"PO-Revision-Date: 2024-01-06 19:35+0900\n"
 "Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Poedit-Basepath: /factory/ja-po/aspell/aspell-0.60.6\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -681,10 +681,9 @@ msgid "Invalid Option: %s"
 msgstr "間違ったオプション: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
+#, c-format
 msgid "'%s' does not take any parameters."
-msgstr " 引数をとりません。"
+msgstr "\"%s\" は引数をとりません。"
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -936,18 +935,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <norm-form>      正規化の形式 none, internal, strict のいずれか"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2011 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1282,14 +1277,10 @@ msgid "support tags that span multiple lines outside of HTML blocks"
 msgstr "HTMLブロックの外側で複数行にわたるタグをサポートする"
 
 #: modules/filter/markdown-filter.info:26
-#, fuzzy
-#| msgid "html tags that start a HTML block that allows blank lines"
 msgid "HTML tags that start an HTML block that allows blank lines"
 msgstr "空行を許容するHTMLブロックを開始するHTMLタグ"
 
 #: modules/filter/markdown-filter.info:34
-#, fuzzy
-#| msgid "html tags that start a HTML block that end with a blank line"
 msgid "HTML tags that start an HTML block that ends with a blank line"
 msgstr "空行で終わるHTMLブロックを開始するHTMLタグ"
 

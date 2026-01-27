@@ -4,13 +4,13 @@
 # This file is distributed under the same license as the aspell package.
 #
 # Maxim V. Dziumanenko <dziumanenko@gmail.com>, 2006-2007.
-# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-03 01:21-0500\n"
-"PO-Revision-Date: 2023-12-04 17:09+0200\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"PO-Revision-Date: 2024-03-29 11:29+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: common/info.cpp:232
@@ -876,7 +876,7 @@ msgstr "  list             створює перелік слів з помил�
 
 #: prog/aspell.cpp:2855
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
-msgstr "  soundslike       повертає звуковий еквівалент для кожного виділеного слова"
+msgstr "  soundslike       повертає звуковий еквівалент для кожного введеного слова"
 
 #: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
@@ -908,7 +908,7 @@ msgstr "    зменшити розмір списку слів використ
 
 #: prog/aspell.cpp:2863
 msgid "  conv <from> <to> [<norm-form>]"
-msgstr "  conv <з> <у> [<норм-форма>]"
+msgstr "  conv <з> <у> [<форма-норм>]"
 
 #: prog/aspell.cpp:2864
 msgid "    converts from one encoding to another"
@@ -916,7 +916,7 @@ msgstr "    перетворює з одного кодування у інше"
 
 #: prog/aspell.cpp:2865
 msgid "  norm (<norm-map> | <from> <norm-map> <to>) [<norm-form>]"
-msgstr "  norm (<катра-норм> | <з> <карта-норм> <у>) [<форма-норм>]"
+msgstr "  norm (<карта-норм> | <з> <карта-норм> <у>) [<форма-норм>]"
 
 #: prog/aspell.cpp:2866
 msgid "    perform Unicode normalization"
@@ -988,8 +988,8 @@ msgstr ""
 "Наявні режими фільтрів:\n"
 "    Режими фільтрів - це переналаштовані комбінації фільтрів, оптимізовані\n"
 "    для файлів певного типу. Режим вибирається параметром \"mode\". Це\n"
-"    відбуватиметься постійно, якщо Aspell буде здатний визначити тип файлу\n"
-"    за його розширенням, та, можливо, вмістом файлу.\n"
+"    відбуватиметься неявно, якщо Aspell буде здатний визначити тип файла\n"
+"    за його розширенням, та, можливо, вмістом файла.\n"
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
@@ -1232,7 +1232,7 @@ msgstr "рядок з 'o','O','p' чи 'P'"
 #. not include any trailing punctuation marks.
 #: modules/filter/context-filter.info:7
 msgid "experimental filter for hiding delimited contexts"
-msgstr "фільтр приховування розділених контекстів Aspell"
+msgstr "фільтр для приховування розділених контекстів"
 
 #: modules/filter/context-filter.info:13
 msgid "context delimiters (separated by spaces)"

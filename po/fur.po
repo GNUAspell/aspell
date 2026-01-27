@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
-"PO-Revision-Date: 2023-01-21 07:10+0000\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"PO-Revision-Date: 2024-10-03 13:49+0000\n"
 "Last-Translator: Fabio T. <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Editor: HaiPO 1.4 beta\n"
+"X-Editor: HaiPO 2.0 beta\n"
 "X-Generator: Poedit 2.4.1\n"
 
 #: common/info.cpp:232
@@ -682,8 +682,9 @@ msgid "Invalid Option: %s"
 msgstr "Opzion no valide: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
-msgstr " nol cjape nissun parametri."
+#, c-format
+msgid "'%s' does not take any parameters."
+msgstr " '%s' nol cjape nissun parametri."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -938,11 +939,11 @@ msgstr "  <forme-norm>      forme di normalizazion di doprâ, che e sedi none, i
 #, c-format
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 di Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 di Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1202,7 +1203,7 @@ msgstr "La lungjece totâl de peraule, cui dâts foneme, e je plui grande di 240
 msgid "There must be at least one \"add\" line."
 msgstr "E scugne jessi almancul une rie \"add\"."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "un di ultra, fast, normal, slow o bad-spellers"
 

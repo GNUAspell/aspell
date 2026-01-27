@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2019-09-24 03:02-0400\n"
+"POT-Creation-Date: 2023-12-19 16:19-0500\n"
 "PO-Revision-Date: 2022-01-27 09:12-0600\n"
 "Last-Translator: Alejandro Cendejas Tena <alex.cendejas@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -692,7 +692,9 @@ msgid "Invalid Option: %s"
 msgstr "Opción inválida: %s"
 
 #: prog/aspell.cpp:322
-msgid " does not take any parameters."
+#, fuzzy, c-format
+#| msgid " does not take any parameters."
+msgid "'%s' does not take any parameters."
 msgstr " no admite ningún parámetro."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
@@ -951,10 +953,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <forma-norm>    forma de normalización a usar, ya sea none, internal o strict"
 
 #: prog/aspell.cpp:2884
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#| "\n"
 msgid ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
@@ -1218,7 +1224,7 @@ msgstr "La longitud total de la palabra, con los datos de pronunciación, es mayo
 msgid "There must be at least one \"add\" line."
 msgstr "Debe haber al menos una línea \"add\"."
 
-#: modules/speller/default/suggest.cpp:1720
+#: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
 msgstr "uno entre ultra, fast, normal, slow y bad-spellers"
 

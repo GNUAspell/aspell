@@ -1,23 +1,24 @@
 # Aspell.
 # Copyright (C) 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the Aspell package.
-# Pedro Albuquerque <palbuquerque73@gmail.com>, 2018, 2019.
+# Pedro Albuquerque <pmra@protonmail.com>, 2025.
+# Portuguese (Portugal) Translation for the aspell package
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell-0.60.8-pre2\n"
+"Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
 "POT-Creation-Date: 2023-12-19 16:19-0500\n"
-"PO-Revision-Date: 2019-09-25 07:25+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"PO-Revision-Date: 2025-03-17 04:33+0000\n"
+"Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.5\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -188,7 +189,7 @@ msgstr "activa normalização Unicode"
 
 #: common/config.cpp:1436
 msgid "Unicode normalization required for current lang"
-msgstr "normalização Unicode requerida para idioma actual"
+msgstr "Normalização Unicode requerida para idioma actual"
 
 #. TRANSLATORS: the values after the ':' are literal
 #. values and should not be translated.
@@ -337,7 +338,7 @@ msgstr "reverte a ordem da lista de sugestões"
 
 #: common/config.cpp:1530
 msgid "suggest possible replacements"
-msgstr "Sugere possíveis substituições"
+msgstr "sugere possíveis substituições"
 
 #: common/config.cpp:1532
 msgid "time load time and suggest time in pipe mode"
@@ -439,15 +440,15 @@ msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"reset-
 
 #: common/errors.cpp:203
 msgid "The key \"%key:1\" does not take any parameters when prefixed by an \"enable-\"."
-msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"enable-\""
+msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"enable-\"."
 
 #: common/errors.cpp:211
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"dont-\" or \"disable-\"."
-msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"dont-\" ou \"disable-\""
+msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"dont-\" ou \"disable-\"."
 
 #: common/errors.cpp:219
 msgid "The key \"%key:1\" does not take any parameters when prefixed by a \"clear-\"."
-msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"clear-\""
+msgstr "A chave \"%key:1\" não recebe parâmetros quando prefixada com \"clear-\"."
 
 #: common/errors.cpp:235
 #, c-format
@@ -681,10 +682,9 @@ msgid "Invalid Option: %s"
 msgstr "Opção inválida: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
+#, c-format
 msgid "'%s' does not take any parameters."
-msgstr " não recebe parâmetros."
+msgstr "\"%s\" não recebe parâmetros."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -744,7 +744,7 @@ msgstr "Mapa de teclado inválido: %s"
 #: prog/aspell.cpp:1018
 #, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "\"%s\" não é um ficheiro normal."
+msgstr "\"%s\" não é um ficheiro normal"
 
 #: prog/aspell.cpp:1029
 #, c-format
@@ -938,18 +938,14 @@ msgid "  <norm-form>      normalization form to use, either none, internal, or s
 msgstr "  <forma-norm>     forma de normalização a usar, none, internal, ou strict"
 
 #: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#| "\n"
+#, c-format
 msgid ""
 "\n"
 "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 "\n"
 msgstr ""
 "\n"
-"Aspell %s.  Copyright 2000-2019 por Kevin Atkinson.\n"
+"Aspell %s.  Copyright 2000-2023 por Kevin Atkinson.\n"
 "\n"
 
 #: prog/aspell.cpp:2918
@@ -1190,7 +1186,7 @@ msgstr "Ordem endian errada."
 
 #: modules/speller/default/readonly_ws.cpp:463
 msgid "Wrong soundslike."
-msgstr "soundslike errado."
+msgstr "Soundslike errado."
 
 #: modules/speller/default/readonly_ws.cpp:469
 msgid "Wrong soundslike version."
