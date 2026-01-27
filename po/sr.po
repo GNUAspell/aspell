@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2024-01-10 08:19+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -941,17 +941,6 @@ msgstr "          избацује, ствара или стапа главни,
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <облик-правила>        облик сређивања за коришћење, „none“, „internal“, или „strict“"
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Аспел %s.  Ауторска права 2000-2023 Кевин Аткинсон.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1384,6 +1373,15 @@ msgstr "режим за проверу Тексинфо докумената"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "режим за прескакање творбе сличне адреси (основни режим)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Аспел %s.  Ауторска права 2000-2023 Кевин Аткинсон.\n"
+#~ "\n"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "уређује размак за употребу, обилази основни режим предлога"

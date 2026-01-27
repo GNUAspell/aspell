@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2023-12-04 20:15+0100\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -932,17 +932,6 @@ msgstr "    zrzut, utworzenie lub łącznie słownika głównego, osobistego lub
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <forma-norm>     forma normalizacji do wykonania: none, internal lub strict"
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1373,3 +1362,12 @@ msgstr "tryb do sprawdzania dokumentów Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "tryb do pomijania napisów typu URL (domyślny)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
+#~ "\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2025-04-16 21:22+0200\n"
 "Last-Translator: Josef Andersson <janderssonse@proton.me>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -936,17 +936,6 @@ msgstr "    dumpar, skapar eller fogar samman en toppnivå-, privat, eller ersä
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      normaliseringsform att använda; antingen none, internal, eller strict"
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 av Kevin Atkinson.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1376,6 +1365,15 @@ msgstr "läge för att kontrollera Texinfo-dokument"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "läge för att hoppa över URL-lika ord (standard)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 av Kevin Atkinson.\n"
+#~ "\n"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "redigera avstånd att använda, ignorera standard sug-mode"

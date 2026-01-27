@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2019-09-24 10:51-0400\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -937,21 +937,6 @@ msgstr "    转储，创建或合并主字典，个人字典，或置换字典�
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      要使用的规范化形式，可以为none，internal，或 strict"
 
-#: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#| "\n"
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s. 版权所有 2000-2019 Kevin Atkinson。\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1380,6 +1365,20 @@ msgstr "检查 Texinfo 文档的模式"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "跳过类似 URL 结构的模式（缺省模式）"
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#~| "\n"
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s. 版权所有 2000-2019 Kevin Atkinson。\n"
+#~ "\n"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "编辑要使用的距离，覆盖 sug-mode 默认值"

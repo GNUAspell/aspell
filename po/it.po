@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2020-03-07 15:33+0100\n"
 "Last-Translator: Francesco Groccia <fg@snopyta.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -937,21 +937,6 @@ msgstr "    mostra, crea o unisce un dizionario \"master\", \"personal\", o \"re
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      normalizzazione da usare: essere \"none\", \"internal\", o \"strict\""
 
-#: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#| "\n"
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1382,3 +1367,17 @@ msgstr "modalità per controllare i documenti Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "modalità per saltare URL e costrutti simili"
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
+#~| "\n"
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
+#~ "\n"

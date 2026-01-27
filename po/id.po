@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2023-12-06 09:45+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -941,17 +941,6 @@ msgstr "    dumps, buat atau gabungkan sebuah master, personal, atau kamus pengg
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <bentuk-normal>  normalisasi dari bentuk untuk menggunakan baik, none, internal, atau strict"
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Hak Cipta 2000-2023 oleh Kevin Atkinson.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1383,3 +1372,12 @@ msgstr "mode untuk pemeriksaan dokumen Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "mode untuk melewatkan URL seperti konstruk (mode baku)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Hak Cipta 2000-2023 oleh Kevin Atkinson.\n"
+#~ "\n"

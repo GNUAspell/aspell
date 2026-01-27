@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2023-12-04 10:04-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
@@ -936,16 +936,6 @@ msgstr "    mostra, cria ou mescla um dicionário mestre, pessoal ou de substitu
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      forma de normalização a usar, podendo ser \"none\", \"internal\", ou \"strict\""
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 por Kevin Atkinson.\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1376,6 +1366,14 @@ msgstr "modo para verificar documentos Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "modo para ignorar construtores tipo URL (modo padrão)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 por Kevin Atkinson.\n"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "editar a distância a ser usada, sobrescrevendo o padrão \"sug-mode\""

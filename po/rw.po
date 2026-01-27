@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -1088,14 +1088,6 @@ msgstr "Cyangwa a Mugenga Bwite Cyangwa ijambo Urutonde"
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "<Ifishi Ifishi Kuri Gukoresha Ntacyo By'imbere Cyangwa"
 
-#: prog/aspell.cpp:2884
-#, fuzzy, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr "ku"
-
 #: prog/aspell.cpp:2918
 #, fuzzy
 msgid ""
@@ -1581,6 +1573,13 @@ msgstr "Ubwoko kugirango Inyandiko"
 #, fuzzy
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "Ubwoko Kuri nka Mburabuzi Ubwoko"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr "ku"
 
 #, fuzzy
 #~ msgid "edit distance to use, override sug-mode default"

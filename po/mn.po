@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2004-07-24 11:18+0100\n"
 "Last-Translator: Sanlig Badral <badral@users.sourceforge.net>\n"
 "Language-Team: Mongolian <openmn-translation@lists.sourceforge.net>\n"
@@ -967,21 +967,6 @@ msgstr "    үгийн жагсаалт гаргах, мастер үүсгэх 
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <norm-form>      хэрэглэх нормалчилах хэлбэр, эсвэл none, internal, эсвэл strict байж болно"
 
-#: prog/aspell.cpp:2884
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
-#| "\n"
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Аспелл %s.  Зохиогчийн эрх (Copyright) 2000-2004 Кэвин Аткинсон (Kevin Atkinson).\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1447,6 +1432,20 @@ msgstr "HTML баримтуудыг алгасах горим"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "URL хэлбэрийн бүтцүүдийг (стандарт горим) алгасах горим"
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "Aspell %s.  Copyright 2000-2004 by Kevin Atkinson.\n"
+#~| "\n"
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Аспелл %s.  Зохиогчийн эрх (Copyright) 2000-2004 Кэвин Аткинсон (Kevin Atkinson).\n"
+#~ "\n"
 
 #  TRANSLATORS: "sug-mode" is a literal value and should not be
 #  translated.

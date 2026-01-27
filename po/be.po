@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2023-12-19 16:19-0500\n"
+"POT-Creation-Date: 2026-01-27 00:58-0500\n"
 "PO-Revision-Date: 2024-09-06 04:51+0300\n"
 "Last-Translator: Viachaslau Khalikin <viachaslau.vinegret@outlook.com>\n"
 "Language-Team: Belarusian <debian-l10n-belarusian@lists.debian.org>\n"
@@ -935,17 +935,6 @@ msgstr "    робіць дамп, стварае або аб'ядноўвае �
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
 msgstr "  <форма-нарм>     форма нармалізацыі для ўжываньня: none, internal ці strict"
 
-#: prog/aspell.cpp:2884
-#, c-format
-msgid ""
-"\n"
-"Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-"\n"
-msgstr ""
-"\n"
-"Aspell %s.  Аўтарскае права © 2000-2023 Kevin Atkinson.\n"
-"\n"
-
 #: prog/aspell.cpp:2918
 msgid ""
 "Available Dictionaries:\n"
@@ -1376,6 +1365,15 @@ msgstr "рэжым для праверкі дакумэнтаў Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "рэжым для прапусканьня канструкцыяў накшталт URL (прадвызначаны)"
+
+#~ msgid ""
+#~ "\n"
+#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Aspell %s.  Аўтарскае права © 2000-2023 Kevin Atkinson.\n"
+#~ "\n"
 
 #~ msgid "configured as follows"
 #~ msgstr "сканфігуравана як наступнае"
