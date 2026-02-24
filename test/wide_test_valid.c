@@ -37,10 +37,18 @@ int main() {
   AspellStringEnumeration * elements = aspell_word_list_elements(suggestions);
   const uint16_t * word = aspell_string_enumeration_next_w(uint16_t, elements);
   if (memcmp(word, test_word, sizeof(test_incorrect)) != 0) {
-    fprintf(stderr, "%s", "fail: first suggesion is not what is expected\n");
+    fprintf(stderr, "%s", "fail: first suggesion is not what is expected (suggest)\n");
     fail = 1;
   }
   delete_aspell_string_enumeration(elements);
+
+  AspellSuggestions * sugs = aspell_speller_suggestions_w(spell_checker, test_incorrect, -1, NULL);
+  unsigned len;
+  const uint16_t * * words = aspell_suggestions_words_w(uint16_t, sugs, &len);
+  if (len < 1 || memcmp(words[0], test_word, sizeof(test_incorrect)) != 0) {
+    fprintf(stderr, "%s", "fail: first suggesion is not what is expected (suggestions)\n");
+    fail = 1;
+  }
   
   possible_err = new_aspell_document_checker(spell_checker);
   if (aspell_error(possible_err) != 0) {

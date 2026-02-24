@@ -130,6 +130,10 @@ $info{class}{proc}{impl} = sub {
           $ret .= "  if (ret.data)\n";
 	  $ret .= "    const_cast<WordList *>(ret.data)->from_internal_ = ths->from_internal_;\n";
 	}
+	if ($ret_type->{type} eq 'suggestions') {
+          $ret .= "  if (ret.data)\n";
+	  $ret .= "    ret.data->from_internal_ = ths->from_internal_;\n";
+	}
 	$ret .= "  ";
 	$ret .= "return " unless $ret_type->{type} eq 'void';
 	$ret .= $exp;
