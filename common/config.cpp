@@ -809,6 +809,15 @@ namespace acommon {
     return set(entry);
   }
   
+  PosibErr<void> Config::replace_u(ParmStr key, ParmStr value)
+  {
+    Entry * entry = new Entry;
+    entry->key = key;
+    entry->value = value;
+    entry->secure = false;
+    return set(entry);
+  }
+
   PosibErr<void> Config::remove(ParmStr key)
   {
     Entry * entry = new Entry;
