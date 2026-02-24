@@ -1299,13 +1299,15 @@ namespace acommon {
       {
         insert_point_ = &first_;
         PosibErrBase pe = read_in_file(retrieve("per-conf-path"));
-        if (pe.has_err() && !pe.has_err(cant_read_file)) return pe;
+        if (pe.has_err() && (have("per-conf") || !pe.has_err(cant_read_file)))
+          return pe;
       }
       
       {
         insert_point_ = &first_;
         PosibErrBase pe = read_in_file(retrieve("conf-path"));
-        if (pe.has_err() && !pe.has_err(cant_read_file)) return pe;
+        if (pe.has_err() && (have("conf") || !pe.has_err(cant_read_file)))
+          return pe;
       }
 
       if (was_committed)
