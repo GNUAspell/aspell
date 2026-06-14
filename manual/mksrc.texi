@@ -39,8 +39,8 @@ The format of @file{mk-src.in} is as follows:
     cc: for "aspell.h" header file
     cxx: for C++ interface implemented on top of cc interface
     native: for creation of header files used internally by aspell
-    impl: for defination of functions declared in cc interface.
-          the definations use the native hedaer files
+    impl: for definition of functions declared in cc interface.
+          the definitions use the native header files
     native_impl: for implementations of stuff declared in the native
                   header files
 @end verbatim
@@ -79,7 +79,7 @@ The format of @file{mk-src.in} is as follows:
        options => ['strip', 'prefix', 'c impl headers'],
        groups => undef},
      group => {
-       # a group is a colection of objects which should be grouped together
+       # a group is a collection of objects which should be grouped together
        # this generally means they will be in the same source file
        options => ['no native'],
        groups => ['enum', 'struct', 'union', 'func', 'class', 'errors']},
@@ -163,7 +163,7 @@ The format of @file{mk-src.in} is as follows:
         Convert STR to all lowercase and substitute spaces with underscores.
 
     @item to_mixed STR
-        Convert STR to mixed case where each new word startes with a
+        Convert STR to mixed case where each new word starts with a
         uppercase letter. For example "feed me" would become "FeedMe".
 @end table
 

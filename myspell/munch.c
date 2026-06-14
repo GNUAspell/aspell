@@ -630,7 +630,7 @@ int load_tables(FILE * wdlst)
   tableptr = (struct hentry *) calloc(tablesize, sizeof(struct hentry));
   if (! tableptr) return 3;
 
-  /* loop thorugh all words on much list and add to hash
+  /* loop through all words on much list and add to hash
    * table and store away word and affix strings in tmpfile
    */
 

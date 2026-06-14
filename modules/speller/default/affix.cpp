@@ -68,7 +68,7 @@ static char EMPTY[1] = {0};
 
 //////////////////////////////////////////////////////////////////////
 //
-// Entry struct definations
+// Entry struct definitions
 //
 
 struct Conds
@@ -695,7 +695,7 @@ static void encodeit(CondsLookup & l, ObjStack & buf,
       c = 0;
     }
 
-    // end goup indicator
+    // end group indicator
     if (c == ']') {
       ec = 1;
       c = 0;
@@ -1214,7 +1214,7 @@ bool SfxEntry::check(const LookupInfo & linf, ParmString word,
                      int optflags, AffEntry* ppfx)
 {
   unsigned              tmpl;		 // length of tmpword 
-  int			cond;		 // condition beng examined
+  int			cond;		 // condition being examined
   WordEntry             wordinfo;        // hash entry pointer
   byte *	cp;
   VARARRAYM(char, tmpword, word.size()+stripl+1, MAXWORDLEN+1);

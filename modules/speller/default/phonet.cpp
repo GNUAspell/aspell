@@ -19,7 +19,7 @@
     Changelog:
 
     2000-01-05  Björn Jacke <bjoern.jacke@gmx.de>
-                Initial Release insprired by the article about phonetic
+                Initial Release inspired by the article about phonetic
                 transformations out of c't 25/1999
 
 */

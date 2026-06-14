@@ -5071,7 +5071,7 @@ Other minor bug fixes.
 @node Authors
 @appendix Authors
 
-The following people or companies have contributed a non-trival amount of
+The following people or companies have contributed a non-trivial amount of
 code to Aspell and thus own the Copyright to part of Aspell.
 
 @table @asis
@@ -5135,7 +5135,7 @@ Converted the metaphone algorithm into C code and made some enhancements
 to the original algorithm.  He also released his work into the Public
 Domain.
 
-@item Geoff Kuenning (and contributers)
+@item Geoff Kuenning (and contributors)
 The authors of Ispell.  Many of the ideas used in Aspell, especially with
 the affix code, were taken from Ispell.  However none of the original
 Ispell code is used in Aspell.

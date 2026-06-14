@@ -929,7 +929,7 @@ dictionary word in all lowercase form with all accents removed (what is
 known as the "clean" form of the word).  The value stored in the table
 is a 32-bit offset to the beginning of the word.  A 32-bit integer
 offset is used rather than a pointer so that the compiled dictionary
-can be mmaped to make loading the dictionary very fast and so that the
+can be mmapped to make loading the dictionary very fast and so that the
 memory can be shared between processed, and on 64 bit platforms using
 pointers would have doubled the size of the hash table.
 

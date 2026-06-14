@@ -92,7 +92,7 @@ sub to_lower( $ ) {
 
 =item to_mixed STR
 
-Convert STR to mixed case where each new word startes with a
+Convert STR to mixed case where each new word starts with a
 uppercase letter.  For example "feed me" would become "FeedMe".
 
 =cut

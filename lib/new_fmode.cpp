@@ -588,18 +588,18 @@ namespace acommon {
       String buf;
       DataPair dp;
 
-      bool get_sucess = getdata_pair(toParse, dp, buf);
+      bool get_success = getdata_pair(toParse, dp, buf);
       
       to_lower(dp.key);
       to_lower(dp.value);
-      if (    !get_sucess
+      if (    !get_success
            || ( dp.key != "mode" ) 
            || ( dp.value != possMode.str() ) )
         return make_err(expect_mode_key,"mode").with_file(possModeFile, dp.line_num);
 
-      get_sucess = getdata_pair(toParse, dp, buf);
+      get_success = getdata_pair(toParse, dp, buf);
       to_lower(dp.key);
-      if (    !get_sucess
+      if (    !get_success
            || ( dp.key != "aspell" )
            || ( dp.value == NULL )
            || ( *(dp.value) == '\0' ) )

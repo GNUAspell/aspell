@@ -210,7 +210,7 @@ namespace {
 	return true;
 
       case size_switch:
-	// size chage escape. It can be called in a variety of ways:
+	// size change escape. It can be called in a variety of ways:
 	// \sN \s+N \s-N \s(NN \s+(NN \s-(NN \s(+NN \s(-NN  
 	if (c == '+' || c == '-')
 	  {

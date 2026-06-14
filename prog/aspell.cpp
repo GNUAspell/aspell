@@ -2824,7 +2824,7 @@ namespace acommon {
 
 static const char * usage_text[] = 
 {
-  /* TRANSLATORS: These should all be formated to fit in 80 column or
+  /* TRANSLATORS: These should all be formatted to fit in 80 column or
      less */
   N_("Usage: aspell [options] <command>"),
   N_("<command> is one of:"),
@@ -2959,7 +2959,7 @@ void print_help (bool verbose) {
     putchar('\n');
     putchar('\n');
     puts(  
-      /* TRANSLATORS: This should be formated to fit in 80 column or less */
+      /* TRANSLATORS: This should be formatted to fit in 80 column or less */
       _("Available Filter Modes:\n"
         "    Filter Modes are reconfigured combinations of filters optimized for\n"
         "    files of a specific type. A mode is selected via the \"mode\" option.\n"

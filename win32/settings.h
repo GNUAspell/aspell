@@ -4,7 +4,7 @@
 /* Defined if no special Workarounds are needed for Curses headers */
 /* #undef CURSES_INCLUDE_STANDARD */
 
-/* Defined if special Wordaround I is need for Curses headers */
+/* Defined if special Workaround I is needed for Curses headers */
 /* #undef CURSES_INCLUDE_WORKAROUND_1 */
 
 /* Defined if curses like POSIX Functions should be used */
@@ -73,7 +73,7 @@
 /* Defined if Posix Termios is Supported */
 /* #undef POSIX_TERMIOS */
 
-/* Defined if STL rel_ops polute the global namespace */
+/* Defined if STL rel_ops pollute the global namespace */
 /* #undef REL_OPS_POLLUTION */
 
 /* Define to 1 if you have the ANSI C header files. */
