@@ -1196,6 +1196,10 @@ SimpleString SfxEntry::add(SimpleString word, ObjStack & buf,
         break;
     }
     if (cond < 0) {
+      // conditions are checked against orig_word, but the suffix is
+      // stripped from word, which may be shorter (e.g. after a
+      // cross-product prefix).  Bail if it can't hold the strip.
+      if (word.size <= stripl) return SimpleString();
       int alen = word.size - stripl;
       if (alen >= limit) return EMPTY;
       /* we have a match so add suffix */
