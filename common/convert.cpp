@@ -376,6 +376,7 @@ namespace acommon {
     VARARRAY(int, tally2_d, sz*4); Tally tally2(sz*4, tally2_d);
     T * cur = d;
     while (p = get_nb_line(in, buf), *p != '.') {
+      sanity(cur - d < size);
       Uni32 f = strtoul(p, (char **)&p, 16);
       cur->from = static_cast<typename T::From>(f);
       sanity(f == cur->from);
