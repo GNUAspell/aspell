@@ -222,6 +222,7 @@ static int normalize_cond_str(char * str)
         if (*s == '\0' || *s == '[') return -1;
         char * min = s;
         for (char * i = s + 1; *i != ']'; ++i) {
+          if (*i == '\0') return -1;
           if ((byte)*i < (byte)*min) min = i;}
         char c = *s;
         *d++ = *min;
