@@ -605,6 +605,6 @@ AC_CONFIG_FILES([Makefile gen/Makefile common/Makefile lib/Makefile data/Makefil
 		 interfaces/Makefile interfaces/cc/Makefile
 		 scripts/Makefile examples/Makefile
 		 prog/Makefile manual/Makefile po/Makefile.in m4/Makefile
-                 modules/filter/Makefile myspell/Makefile lib5/Makefile
+                 modules/filter/Makefile lib5/Makefile
                  ])
 AC_OUTPUT
