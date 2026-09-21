@@ -16,6 +16,8 @@
 #include "language.hpp"
 #include "getdata.hpp"
 
+#include "gettext.h"
+
 namespace {
 
 //////////////////////////////////////////////////////////////////////
@@ -511,10 +513,14 @@ PosibErr<void> WritableDict::add(ParmString w, ParmString s) {
   SensitiveCompare c(lang());
   WordEntry we;
   if (WritableDict::lookup(w,&c,we)) return no_err;
+  if (w.size() > 250)
+    return make_err(invalid_word,
+		    MsgConv(*lang())(w),
+		    _("Word larger than 250 characters."));
   byte * w2;
   w2 = (byte *)buffer.alloc(w.size() + 3);
   *w2++ = lang()->get_word_info(w);
-  *w2++ = w.size();
+  *w2++ = (byte)w.size();
   memcpy(w2, w.str(), w.size() + 1);
   word_lookup->insert((char *)w2);
   if (use_soundslike) {
