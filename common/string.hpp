@@ -75,7 +75,7 @@ namespace acommon {
   public:
     void reserve(size_t s) 
     {
-      if (storage_end_ - begin_ >= (int)s + 1) return;
+      if ((size_t)(storage_end_ - begin_) >= s + 1) return;
       reserve_i(s);
     }
 
