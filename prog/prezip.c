@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004
+ * Copyright (c) 2004,2026
  * Kevin Atkinson
  *
  * Permission to use, copy, modify, distribute and sell this software
@@ -47,7 +47,7 @@
 
 #endif
 
-#define HEAD "prezip, a prefix delta compressor. Version 0.1.1, 2004-11-06"
+#define HEAD "prezip, a prefix delta compressor. Version 0.1.2, 2026-09-20"
 
 typedef struct Word {
   char * str;
@@ -65,7 +65,7 @@ typedef struct Word {
 
 #define ADV(w, c) do {char * s = w + c;\
                       while(w != s) {\
-                        if (*w == 0) ret = 3;\
+                        if (*w == 0) {ret = 3; goto error;}\
                         ++w;}} while (0)
 
 int main (int argc, const char *argv[]) {
@@ -227,6 +227,7 @@ int main (int argc, const char *argv[]) {
     assert(ret >= 0);
     if (ret > 0 && argc > 2)
       fputs(argv[2], stderr);
+  error:
     if (ret == 2)
       fputs("unknown format\n", stderr);
     else if (ret == 3)
