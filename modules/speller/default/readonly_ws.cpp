@@ -178,6 +178,17 @@ static inline bool duplicate_flag(const char * d) {
   return get_flags(d) & DUPLICATE_FLAG;
 }
 
+PosibErr<void> read_w_error(FStream & f, const char * file_name, void * str, unsigned int n)
+{
+  FILE * fh = f.c_stream();
+  fread(str,1,n,fh);
+  if (feof(fh))
+    return make_err(bad_file_format, file_name, _("Unexpected EOF."));
+  if (ferror(fh))
+    return make_err(file_error, file_name, _("I/O Error."));
+  return no_err;
+}
+
 namespace {
 
   using namespace aspeller;
@@ -442,10 +453,10 @@ namespace {
     CharVector word;
 
     word.resize(data_head.dict_name_size);
-    f.read(word.data(), data_head.dict_name_size);
+    RET_ON_ERR(read_w_error(f, fn, word.data(), data_head.dict_name_size));
 
     word.resize(data_head.lang_name_size);
-    f.read(word.data(), data_head.lang_name_size);
+    RET_ON_ERR(read_w_error(f, fn, word.data(), data_head.lang_name_size));
 
     PosibErr<void> pe = set_check_lang(word.data(),config);
     if (pe.has_err()) {
@@ -457,13 +468,13 @@ namespace {
 
     if (data_head.soundslike_name_size != 0) {
       word.resize(data_head.soundslike_name_size);
-      f.read(word.data(), data_head.soundslike_name_size);
+      RET_ON_ERR(read_w_error(f, fn, word.data(), data_head.soundslike_name_size));
 
       if (strcmp(word.data(), lang()->soundslike_name()) != 0)
         return make_err(bad_file_format, fn, _("Wrong soundslike."));
 
       word.resize(data_head.soundslike_version_size);
-      f.read(word.data(), data_head.soundslike_version_size);
+      RET_ON_ERR(read_w_error(f, fn, word.data(), data_head.soundslike_version_size));
 
       if (strcmp(word.data(), lang()->soundslike_version()) != 0)
         return make_err(bad_file_format, fn, _("Wrong soundslike version."));
@@ -484,7 +495,7 @@ namespace {
       mmaped_block = 0;
       block = (char *)malloc(block_size);
       f.seek(data_head.head_size);
-      f.read(block, block_size);
+      RET_ON_ERR(read_w_error(f, fn, block, block_size));
     }
 
     if (data_head.jump2_offset) {
