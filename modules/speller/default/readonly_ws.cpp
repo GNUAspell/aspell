@@ -476,6 +476,15 @@ namespace {
 
     block_size = data_head.block_size;
     int offset = data_head.head_size;
+
+    if (data_head.word_offset > block_size
+	|| data_head.hash_offset > block_size
+	|| data_head.jump1_offset > block_size
+	|| data_head.jump2_offset > block_size
+	|| data_head.word_offset + data_head.first_word_offset > block_size)
+      return make_err(bad_file_format, fn,
+		      _("Invalid offset in dictionary header."));
+
     mmaped_block = mmap_open(block_size + offset, f, 0);
     if( mmaped_block != (char *)MAP_FAILED) {
       block = mmaped_block + offset;
