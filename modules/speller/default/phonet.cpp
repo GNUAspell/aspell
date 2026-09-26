@@ -408,7 +408,7 @@ namespace aspeller {
               c = *s;
               if (parms.rules[n][0] != '\0'
                  &&  strstr (parms.rules[n]+1, "^^") != NULL) {
-                if (c != '\0') {
+                if (c != '\0'  &&  j < len) {
                   target[j] = c;
                   j++;
                 }
