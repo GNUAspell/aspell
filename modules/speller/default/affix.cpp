@@ -1196,7 +1196,7 @@ SimpleString SfxEntry::add(SimpleString word, ObjStack & buf,
       if ((conds->get(*--cp) & (1 << cond)) == 0)
         break;
     }
-    if (cond < 0) {
+    if (cond < 0 && word.size > stripl) {
       int alen = word.size - stripl;
       if (alen >= limit) return EMPTY;
       /* we have a match so add suffix */
