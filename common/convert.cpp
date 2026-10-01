@@ -668,7 +668,7 @@ namespace acommon {
           ++in;
         } else {
           NormLookupRet<E,const char> ret = norm_lookup<E>(data, in, stop, 0, in);
-          for (unsigned i = 0; ret.to[i] && i < E::max_to; ++i)
+          for (unsigned i = 0; i < E::max_to && ret.to[i]; ++i)
             out.append(ret.to[i]);
           in = ret.last + 1;
         }
