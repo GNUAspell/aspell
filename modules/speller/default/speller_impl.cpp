@@ -96,19 +96,19 @@ namespace aspeller {
       correct = check_affix(cor1, w1, 0) && check_affix(cor2, w2, 0);
     }
     if (correct) {
-      String cor_orignal_casing(cor1);
+      String cor_original_casing(cor1);
       if (!cor2.empty()) {
-        cor_orignal_casing += cor[pos-1];
-        cor_orignal_casing += cor2;
+        cor_original_casing += cor[pos-1];
+        cor_original_casing += cor2;
       }
       // Don't try to add the empty string, causes all kinds of
       // problems.  Can happen if the original replacement nothing but
       // whitespace.
-      if (cor_orignal_casing.empty()) 
+      if (cor_original_casing.empty()) 
         return no_err;
       if (first_word == 0 || cor != first_word) {
         lang().to_lower(buf, mis.str());
-        repl_->add_repl(buf, cor_orignal_casing);
+        repl_->add_repl(buf, cor_original_casing);
       }
       
       if (memory && prev_cor_repl_ == mis) 
@@ -307,7 +307,7 @@ namespace aspeller {
 
   //////////////////////////////////////////////////////////////////////
   //
-  // Word list managment methods
+  // Word list management methods
   //
   
   PosibErr<void> SpellerImpl::save_all_word_lists() {
@@ -765,7 +765,7 @@ namespace aspeller {
 
   //////////////////////////////////////////////////////////////////////
   //
-  // SpellerImpl destrution members
+  // SpellerImpl destruction members
   //
 
   SpellerImpl::~SpellerImpl() {

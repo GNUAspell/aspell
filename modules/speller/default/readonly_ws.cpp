@@ -229,8 +229,8 @@ namespace {
       
     char *           block;
     u32int           block_size;
-    char *           mmaped_block;
-    u32int           mmaped_size;
+    char *           mmapped_block;
+    u32int           mmapped_size;
     const Jump * jump1;
     const Jump * jump2;
     WordLookup       word_lookup;
@@ -256,8 +256,8 @@ namespace {
 
     ~ReadOnlyDict() {
       if (block != 0) {
-	if (mmaped_block)
-	  mmap_free(mmaped_block, mmaped_size);
+	if (mmapped_block)
+	  mmap_free(mmapped_block, mmapped_size);
 	else
 	  free(block);
       }
@@ -496,12 +496,12 @@ namespace {
       return make_err(bad_file_format, fn,
 		      _("Invalid offset in dictionary header."));
 
-    mmaped_block = mmap_open(block_size + offset, f, 0);
-    if( mmaped_block != (char *)MAP_FAILED) {
-      block = mmaped_block + offset;
-      mmaped_size = block_size + offset;
+    mmapped_block = mmap_open(block_size + offset, f, 0);
+    if( mmapped_block != (char *)MAP_FAILED) {
+      block = mmapped_block + offset;
+      mmapped_size = block_size + offset;
     } else {
-      mmaped_block = 0;
+      mmapped_block = 0;
       block = (char *)malloc(block_size);
       f.seek(data_head.head_size);
       RET_ON_ERR(read_w_error(f, fn, block, block_size));

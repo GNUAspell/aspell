@@ -291,7 +291,7 @@ namespace aspeller {
 
     bool is_clean_wi(WordInfo wi) const {
       return false;
-      //return wi & CASE_PATTEN == AllLower && 
+      //return wi & CASE_PATTERN == AllLower && 
     }
 
 

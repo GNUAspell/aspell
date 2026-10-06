@@ -22,7 +22,7 @@
 namespace aspeller {
 
   //
-  // This hash table is implemnted as a Open Address Hash Table
+  // This hash table is implemented as a Open Address Hash Table
   // which uses a Vector like object to store its data.  So
   // it might even be considered an adapter
   //

@@ -107,7 +107,7 @@ sub make_wide_version ( $ \@ $ ; \% ) {
   $accum->{sys_headers}{'stddef.h'} = true;
   $accum->{suffix}[5] = <<'---';
 
-/******************* private implemantion details *********************/
+/******************* private implementation details ********************/
 
 #ifdef __cplusplus
 #  define aspell_cast_(type, expr) (static_cast<type>(expr))

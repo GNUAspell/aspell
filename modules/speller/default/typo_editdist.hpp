@@ -16,7 +16,7 @@ namespace aspeller {
 
   struct TypoEditDistanceInfo : public Cacheable {
     int missing; // the cost of having to insert a character
-    int swap;    // the cost of swapping two adjecent letters
+    int swap;    // the cost of swapping two adjacent letters
     short * data; // memory for repl and extra
     ShortMatrix repl; // the cost of replacing one letter with another
     ShortMatrix extra; // the cost of removing an extra letter

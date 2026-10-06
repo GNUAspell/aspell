@@ -323,7 +323,7 @@ namespace {
       return (parms->word_weight*word_score 
 	      + parms->soundslike_weight*soundslike_score)/100;
     }
-    int adj_wighted_average(int soundslike_score, int word_score, int one_edit_max) {
+    int adj_weighted_average(int soundslike_score, int word_score, int one_edit_max) {
       int soundslike_weight = parms->soundslike_weight;
       int word_weight = parms->word_weight;
       if (word_score <= one_edit_max) {
@@ -334,8 +334,8 @@ namespace {
       // adjust the word score so it doesn't contribute as much.  If
       // the score is already around 100 (one edit dist) then it may
       // not be a good idea to lower it more, but if the word score is
-      // 200 or more then it might make sence to reduce it some.
-      // HOWEVER, this will likely not work well, espacally with small
+      // 200 or more then it might make sense to reduce it some.
+      // HOWEVER, this will likely not work well, especially with small
       // words and there are just too many words with the same
       // soundlike.  In any case that what the special "soundslike"
       // and "bad-spellers" mode is for.
@@ -1489,7 +1489,7 @@ namespace {
               i->word_score = new_score;
           }
           if (!special.is_overall_score) 
-            i->adj_score = adj_wighted_average(i->soundslike_score, i->word_score, parms->ti->max);
+            i->adj_score = adj_weighted_average(i->soundslike_score, i->word_score, parms->ti->max);
         }
         if (i->adj_score > adj_threshold)
           adj_threshold = i->adj_score;

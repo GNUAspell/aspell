@@ -460,7 +460,7 @@ namespace acommon {
   {
     m->to_internal_->filter.clear();
     m->from_internal_->filter.clear();
-    // Add enocder and decoder filters if any
+    // Add encoder and decoder filters if any
     RET_ON_ERR(setup_filter(m->to_internal_->filter, m->config(), 
 			    true, false, false));
     RET_ON_ERR(setup_filter(m->from_internal_->filter, m->config(), 

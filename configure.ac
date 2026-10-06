@@ -430,7 +430,7 @@ then
      if test "$enable_wide_curses" != "no"
      then
 
-       AC_MSG_CHECKING(for wide character support in curses libraray)
+       AC_MSG_CHECKING(for wide character support in curses library)
        if test -n "$have_mblen"
        then
          AC_TRY_LINK(
@@ -440,7 +440,7 @@ then
            [wchar_t wch = 0;
             addnwstr(&wch, 1);],
            [AC_MSG_RESULT(yes)
-            AC_DEFINE(HAVE_WIDE_CURSES, 1, [Defined if curses libraray includes wide character support])],
+            AC_DEFINE(HAVE_WIDE_CURSES, 1, [Defined if curses library includes wide character support])],
            [
 
          AC_TRY_LINK(
@@ -499,7 +499,7 @@ then
 	AC_DEFINE(HAVE_LIBCURSES, 1, [])
         posix_termios=t
 	AC_DEFINE(CURSES_INCLUDE_WORKAROUND_1, 1, 
-                  [Defined if special Wordaround I is need for Curses headers])],
+                  [Defined if special Workaround I is needed for Curses headers])],
        [AC_MSG_RESULT(no)
 
      dnl else if

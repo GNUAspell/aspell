@@ -247,7 +247,7 @@ int main(int argc, const char *argv[])
 
 static void check_document(AspellSpeller * speller, const char * filename)
 {
-  /* For readablity this function does not worry about buffer overrun.
+  /* For readability this function does not worry about buffer overrun.
      This is meant as an illustrative example only.  Please do not
      attempt to spell check your documents with this function. */
 

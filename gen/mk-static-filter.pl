@@ -18,7 +18,7 @@ while ($filename=shift) {
   $filtername=~s/-filter\.info$//;
   $filtername=~s/[^\/]*\///g;
   ( exists $filters{$filtername}) &&
-   (printf STDERR "filter allready defined $filtername($filename); ignored;\n") && next;
+   (printf STDERR "filter already defined $filtername($filename); ignored;\n") && next;
   ( open OPTIONFILE,"<$filename") || 
    (printf STDERR "can't open `$filename'; ignored;\n") && next;
 

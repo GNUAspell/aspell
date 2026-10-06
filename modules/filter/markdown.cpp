@@ -844,7 +844,7 @@ struct LinkRefDefinition : Block {
       return MAYBE;
     return NEVER;
   }
-  void dump() const {CERR.printf("LinkRefDefination\n");}
+  void dump() const {CERR.printf("LinkRefDefinition\n");}
   bool leaf() const {return true;}
 };
 
