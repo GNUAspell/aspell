@@ -213,7 +213,7 @@ jobs:
     # Note: Default GCC in 24.04 is GCC 13
     - run: sudo apt-get -y update
     - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib
-         g++-13 g++-14 g++-14-multilib clang-16 clang-17 clang-18 clang-19 
+         g++-13 g++-14 g++-14-multilib clang-16 clang-17 clang-18 clang-19 clang-20
     - run: sudo apt-get -y purge aspell
     - checkout
     - run:
@@ -252,6 +252,9 @@ jobs:
         command: CXX=clang++-19 CC=clang-19 ./sanity-check.sh
     - run:
         when: always
+        command: CXX=clang++-20 CC=clang-20 ./sanity-check.sh
+    - run:
+        when: always
         command: ./config-opt && make -C build -j2
 
   build_snapshots:
@@ -278,9 +281,9 @@ jobs:
           wget https://apt.llvm.org/llvm.sh -O /tmp/llvm.sh
           chmod +x /tmp/llvm.sh
           
-          # Install Clang Latest (20 and 21)
-          sudo /tmp/llvm.sh 20
-          sudo /tmp/llvm.sh 21 all
+          # Install Clang Latest (21 and 22)
+          sudo /tmp/llvm.sh 21
+          sudo /tmp/llvm.sh 22 all
     - run: sudo apt-get -y purge aspell
     - checkout
     - run: ./autogen
@@ -297,10 +300,10 @@ jobs:
     # Clang Snapshot Test
     - run:
         when: always
-        command: CXX=clang++-20 CC=clang-20 ./sanity-check.sh
+        command: CXX=clang++-21 CC=clang-21 ./sanity-check.sh
     - run:
         when: always
-        command: CXX=clang++-21 CC=clang-21 ./sanity-check.sh
+        command: CXX=clang++-22 CC=clang-22 ./sanity-check.sh
 
 
   tests_20_04:
