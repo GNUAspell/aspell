@@ -492,7 +492,7 @@ namespace {
 	|| data_head.hash_offset > block_size
 	|| data_head.jump1_offset > block_size
 	|| data_head.jump2_offset > block_size
-	|| data_head.word_offset + data_head.first_word_offset > block_size)
+	|| data_head.first_word_offset > block_size - data_head.word_offset)
       return make_err(bad_file_format, fn,
 		      _("Invalid offset in dictionary header."));
 
