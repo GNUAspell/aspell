@@ -39,6 +39,12 @@
 #include "vararray.hpp"
 #include "string_list.hpp"
 
+#if ENABLE_NLS
+#define printf printf
+#include "libintl.h"
+#undef printf
+#endif
+
 #include "gettext.h"
 
 #include "iostream.hpp"

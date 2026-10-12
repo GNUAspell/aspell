@@ -24,6 +24,12 @@
 #  include <langinfo.h>
 #endif
 
+#if ENABLE_NLS
+#define printf printf
+#include "libintl.h"
+#undef printf
+#endif
+
 #include "gettext.h"
 
 namespace aspeller {
