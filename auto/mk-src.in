@@ -1,3 +1,4 @@
+# -*- indent-tabs-mode: t; fill-column: 96 -*-
 #
 # mk-src.in -- Input file for the Perl program to automatically
 #	       generate interface code.
@@ -723,6 +724,14 @@ class: speller
 		const word list
 		encoded string: word
 
+	method: suggestions
+
+		posib err
+		/
+		suggestions
+		encoded string: word
+		void pointer: unused
+
 	method: store replacement
 
 		posib err
@@ -966,6 +975,45 @@ class: string enumeration
 		/
 		const void pointer
 		int: type_width
+}
+group: suggestions
+{
+/
+class: suggestions
+	/
+	method: words
+		cc extra =>
+			\#define aspell_suggestions_words_w(type, ths, len) \\
+			    aspell_rcast_(const type * *, aspell_suggestions_words(ths, len))
+		/
+		string array
+		array size pointer: len
+
+#	method: words wide
+#		c impl =>
+#			return reinterpret_cast<const void * *>(ths->words(len));
+#		const void pointer array
+#		array size pointer: len
+
+	method: normalized scores
+		desc => Returns the normalized scores.  The values are between 0 and 1 inclusive
+			where higher numbers indicate a better match.  The exact values may not
+			be stable between releases.  The score is currently 1/(d+1) where d is
+			the distance as given 'distances' method, however this may change in
+			future released.  This number may also incorporate other information,
+			such as the frequency, in future released.
+		/
+		double array
+		array size pointer: len
+
+	method: distances
+		desc => Return the distances between the words and the correct spelling.  This
+			number is closely related to the edit distance of the word where each
+			edit is around 1.0.  Values less then 0.5 represent a typo or otherwise
+			very good match.  Values less then around 1.2 represent a good match.
+		/
+		double array
+		array size pointer: len
 }
 group: info
 {
