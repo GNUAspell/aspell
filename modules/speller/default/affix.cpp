@@ -372,6 +372,10 @@ PosibErr<void> AffixMgr::parse_file(const char * affpath, Conv & iconv)
         // key is strip 
         if (dp.key != "0") {
           ParmString s0(iconv(dp.key));
+          // stripl is a byte, so a longer strip would be truncated while
+          // nptr->strip keeps the full string; the two then disagree and
+          // PfxEntry/SfxEntry::check overflow their tmpword buffer.
+          if (s0.size() > MAXWORDLEN) goto error;
           max_(max_strip_, s0.size());
           max_(max_strip_f[(byte)achar], s0.size());
           nptr->strip = data_buf.dup(s0);
@@ -386,7 +390,10 @@ PosibErr<void> AffixMgr::parse_file(const char * affpath, Conv & iconv)
         // key is affix string or 0 for null
         if (dp.key != "0") {
           nptr->appnd  = data_buf.dup(iconv(dp.key));
-          nptr->appndl = strlen(nptr->appnd);
+          size_t appndl = strlen(nptr->appnd);
+          // appndl is a byte; reject anything that would not fit
+          if (appndl > MAXWORDLEN) goto error;
+          nptr->appndl = appndl;
         } else {
           nptr->appnd  = "";
           nptr->appndl = 0;
