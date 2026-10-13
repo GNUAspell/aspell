@@ -230,7 +230,7 @@ namespace {
     static const bool do_count = true;
     static const bool dont_count = false;
 
-    CheckInfo check_info[8];
+    CheckInfo check_info[9];
 
     void commit_temp(const char * b) {
       if (temp_end) {
