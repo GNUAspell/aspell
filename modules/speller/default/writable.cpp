@@ -796,6 +796,10 @@ bool WritableReplDict::repl_lookup(ParmString word, WordEntry & o) const
 
 PosibErr<void> WritableReplDict::add_repl(ParmString mis, ParmString cor, ParmString sl) 
 {
+  if (mis.size() > 250 || cor.size() > 250)
+    return make_err(invalid_word,
+		    MsgConv(*lang())(mis.size() > 250 ? mis : cor),
+		    _("Word larger than 250 characters."));
   Str m;
   SensitiveCompare cmp(lang()); // FIXME: I don't think this is completely correct
   WordEntry we;
@@ -926,7 +930,7 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
       *repl = '\0'; // split string
       ++repl;
       if (!repl[0]) continue; // empty repl, ignore
-      WritableReplDict::add_repl(conv1(mis), conv2(repl));
+      WritableReplDict::add_repl(conv1(mis), conv2(repl)).ignore_err();
     }
     
   } else {
@@ -940,7 +944,7 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
         in.ignore(); // ignore space
         for (j = 0; j != num_repls; ++j) {
           in.getline(repl, ',');
-          WritableReplDict::add_repl(mis, repl);
+          WritableReplDict::add_repl(mis, repl).ignore_err();
         }
       }
     }
