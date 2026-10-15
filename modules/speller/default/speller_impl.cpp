@@ -108,7 +108,7 @@ namespace aspeller {
         return no_err;
       if (first_word == 0 || cor != first_word) {
         lang().to_lower(buf, mis.str());
-        repl_->add_repl(buf, cor_original_casing);
+        repl_->add_repl(buf, cor_original_casing).ignore_err();
       }
       
       if (memory && prev_cor_repl_ == mis) 
