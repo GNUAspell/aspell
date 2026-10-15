@@ -930,7 +930,7 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
       *repl = '\0'; // split string
       ++repl;
       if (!repl[0]) continue; // empty repl, ignore
-      WritableReplDict::add_repl(conv1(mis), conv2(repl)).ignore_err();
+      RET_ON_ERR(WritableReplDict::add_repl(conv1(mis), conv2(repl)));
     }
     
   } else {
@@ -944,7 +944,7 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
         in.ignore(); // ignore space
         for (j = 0; j != num_repls; ++j) {
           in.getline(repl, ',');
-          WritableReplDict::add_repl(mis, repl).ignore_err();
+          RET_ON_ERR(WritableReplDict::add_repl(mis, repl));
         }
       }
     }
