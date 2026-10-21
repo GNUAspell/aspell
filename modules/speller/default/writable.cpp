@@ -515,8 +515,8 @@ PosibErr<void> WritableDict::add(ParmString w, ParmString s) {
   if (WritableDict::lookup(w,&c,we)) return no_err;
   if (w.size() > 250)
     return make_err(invalid_word,
-		    MsgConv(*lang())(w),
-		    _("Word larger than 250 characters."));
+                    MsgConv(*lang())(w),
+                    _("Word larger than 250 characters."));
   byte * w2;
   w2 = (byte *)buffer.alloc(w.size() + 3);
   *w2++ = lang()->get_word_info(w);
@@ -796,6 +796,10 @@ bool WritableReplDict::repl_lookup(ParmString word, WordEntry & o) const
 
 PosibErr<void> WritableReplDict::add_repl(ParmString mis, ParmString cor, ParmString sl) 
 {
+  if (mis.size() > 250 || cor.size() > 250)
+    return make_err(invalid_word,
+                    MsgConv(*lang())(mis.size() > 250 ? mis : cor),
+                    _("Word larger than 250 characters."));
   Str m;
   SensitiveCompare cmp(lang()); // FIXME: I don't think this is completely correct
   WordEntry we;
@@ -926,7 +930,11 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
       *repl = '\0'; // split string
       ++repl;
       if (!repl[0]) continue; // empty repl, ignore
-      WritableReplDict::add_repl(conv1(mis), conv2(repl));
+      Ret pe = WritableReplDict::add_repl(conv1(mis), conv2(repl));
+      if (pe.has_err()) {
+        clear();
+        return pe.with_file(file_name);
+      }
     }
     
   } else {
@@ -940,7 +948,7 @@ PosibErr<void> WritableReplDict::merge(FStream & in,
         in.ignore(); // ignore space
         for (j = 0; j != num_repls; ++j) {
           in.getline(repl, ',');
-          WritableReplDict::add_repl(mis, repl);
+          WritableReplDict::add_repl(mis, repl).ignore_err();
         }
       }
     }
