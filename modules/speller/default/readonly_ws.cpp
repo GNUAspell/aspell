@@ -1061,7 +1061,12 @@ namespace {
             ++aff;
           }
           *aff = '\0';
-          prev->data_size = prev->word_size + (aff - prev->aff) + 2;
+          unsigned data_size = prev->word_size + (aff - prev->aff) + 2;
+          unsigned sl_size = prev->sl != prev->word ? prev->sl_size + 1 : 0;
+          if (data_size + sl_size > 240)
+            return make_err(invalid_word, MsgConv(lang)(prev->word),
+                            _("The total word length, with soundslike data, is larger than 240 characters."));
+          prev->data_size = data_size;
         }
         prev->next = cur->next;
       } else {
