@@ -3576,6 +3576,24 @@ increase.
 @node ChangeLog
 @appendix ChangeLog
 
+@heading Changes from 0.60.8.2 to 0.60.8.3 (October 28, 2026)
+@itemize @bullet
+@item
+Fix CVE-2026-75818, CVE-2026-75819 and CVE-2026-75820.  All of which
+were identified by Michał Majchrowicz and Marcin Wyczechowski, members
+of the AFINE Team.
+@item
+Fix CVE-2026-103658 identified by Anthropic and validated by Ada
+Logics.
+@item
+Fix various other memory problems.  Most of which were fixed by
+Arshiya Tabasum.
+@item
+Fix various typos in documentation.
+@item
+Remove unused MySpell example code.
+@end itemize
+
 @heading Changes from 0.60.8.1 to 0.60.8.2 (January 27, 2026)
 @itemize @bullet
 @item
