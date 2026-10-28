@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60-pre1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
 "PO-Revision-Date: 2004-07-24 11:18+0100\n"
 "Last-Translator: Sanlig Badral <badral@users.sourceforge.net>\n"
 "Language-Team: Mongolian <openmn-translation@lists.sourceforge.net>\n"
@@ -355,17 +355,17 @@ msgstr "боломжит орлуулгуудыг санал болгох"
 msgid "time load time and suggest time in pipe mode"
 msgstr "Ачаалах хугацаа ба Pipe-Горимын Санал болгох хугацаа "
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Энэ нь »%s« файл уншигдахаар нээгдээгүй эсвэл байхгүй байхыг зааж байж болно."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Юникодын U+%04X муж дэмжигдээгүй."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, fuzzy, c-format
 #| msgid "Invalid UTF-8 sequence at position %d."
 msgid "Invalid UTF-8 sequence at position %ld."
@@ -847,7 +847,7 @@ msgstr ""
 
 #  TRANSLATORS: These should all be formated to fit in 80 column or
 #  less
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -996,7 +996,7 @@ msgstr ""
 "\n"
 "  %s шүүлтүүр: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1207,31 +1207,43 @@ msgstr "Нийт урт 240 тэмдэгтээс хэтэрлээ."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Сануулга: %s үгийг алгасав.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Магад буруу тоо."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr ""
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Буруу төгсгөлийн дараалал."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Буруу авиа."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Буруу авианы хувилбар."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Үгэнд аффикс флаг олдсон боловч аффикс файл өгөгдөөгүй байна."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Үгийн нийт урт авианы өгөгдлийн хамт 240 тэмдэгтээс их байна."
 

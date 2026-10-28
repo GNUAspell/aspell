@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell-0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
 "PO-Revision-Date: 2024-01-10 08:19+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -347,17 +347,17 @@ msgstr "предлаже могуће замене"
 msgid "time load time and suggest time in pipe mode"
 msgstr "мери време учитавања и време предлога у цевкама"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Ово такође значи да датотека „%s“ не може бити отворена за читање или да не постоји."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Тачка Уникод кода „U+%04X“ није подржана."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Неисправан УТФ-8 низ на положају %ld."
@@ -829,7 +829,7 @@ msgstr "Нажалост „create/merge repl“ није досад напра�
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "„%s“ није исправна ознака за „munch-list“ наредбу."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -969,7 +969,7 @@ msgstr ""
 "\n"
 "  филтер „%s“: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1167,31 +1167,43 @@ msgstr "Укупна дужина премашује 240 знакова."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Упозорење: %s прескачем реч.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Вероватно неисправан бројач."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Несагласна хеш функција."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Лош редослед бајтова."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Лоше звучикао."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Лоше издање звучикао."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Пронађена је ознака додатка али није дата датотека додатка."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Укупна дужина речи, са подацима звучикао, премашује 240 знакова."
 

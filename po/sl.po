@@ -1,24 +1,24 @@
 # -*- mode: po; coding: utf-8; -*- Slovenian translations for aspell.
 # This file is distributed under the same license as the aspell package.
-# Martin Srebotnjak <miles@filmsi.net>, 2005, 2008, 2019.
+# Martin Srebotnjak <miles@filmsi.net>, 2005, 2008, 2019, 2026.
 # $Id: aspell-0.60.8-pre2.sl.po,v 1.4 2019/09/24 07:39:49 srebotnjak Exp $
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2019-09-24 17:15+0200\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-09 21:51+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Poedit-SourceCharset: ISO-8859-1\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 3.8\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -344,17 +344,17 @@ msgstr "predlagaj možne zamenjave"
 msgid "time load time and suggest time in pipe mode"
 msgstr "beleži čas nalaganja in čas računanja predlogov v cevnem načinu"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "To bi lahko pomenilo tudi, da datoteke \"%s\" ni mogoče odpreti za branje ali da ne obstaja."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kodni znak Unicode U+%04X ni podprt."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Neveljaven niz UTF-8 na mestu %ld."
@@ -682,10 +682,9 @@ msgid "Invalid Option: %s"
 msgstr "Neveljavna možnost: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
+#, c-format
 msgid "'%s' does not take any parameters."
-msgstr " ne sme imeti parametrov."
+msgstr "»%s« ne sprejema nobenih parametrov."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
@@ -824,7 +823,7 @@ msgstr "Oprostite, \"create/merge repl\" trenutno ni implementiran.\n"
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" ni veljavna zastavica za ukaz \"munch-list\"."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -965,7 +964,7 @@ msgstr ""
 "\n"
 "  Filter %s: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1160,31 +1159,43 @@ msgstr "Skupna dolžina je večja kot 240 znakov."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Opozorilo: %s Beseda bo presokočena.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Najverjetneje nepravilen števec."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Nepričakovani EOF."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Napaka pri vhodu/izhodu."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Nezdružljiva razpršilna funkcija."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Napačen vrstni red endian."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Napačen zveni-kot."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Napačna različica se-sliši-kot."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Neveljaven odmik v glavi slovarja."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Zastavice predpone so v besedi, ponujene pa ni datoteke predpon."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Skupna dolžina besede s podatki zveni-kot presega 240 znakov."
 
@@ -1366,17 +1377,3 @@ msgstr "način preverjanja dokumentov Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "način preskakanja konstruktov tipa URL (privzeti način)"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#~| "\n"
-#~ msgid ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2019 Kevin Atkinson.\n"
-#~ "\n"

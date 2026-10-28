@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the aspell package.
 # Marcus Moreira de Souza <marcus@frb.br>, 2004.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2019-2023.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2019-2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8.1\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-04 10:04-0300\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-13 21:22-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 45.2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 51.0\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: common/info.cpp:232
@@ -345,17 +345,17 @@ msgstr "sugere substituições possíveis"
 msgid "time load time and suggest time in pipe mode"
 msgstr "tempo de carregamento e sugestão em modo pipe"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Isto também pode significar que o arquivo \"%s\" não pode ser aberto para leitura ou não existe."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "O ponto de código Unicode U+%04X não é suportado."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Sequência UTF-8 inválida na posição %ld."
@@ -824,7 +824,7 @@ msgstr "Perdão, \"create/merge repl\" não implementado ainda.\n"
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" não é um sinal válido para o comando \"munch-list\"."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -965,7 +965,7 @@ msgstr ""
 "\n"
 "  %s filtro: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1160,31 +1160,43 @@ msgstr "O comprimento total é maior que 240 caracteres."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Alerta: %s ignorando palavra.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Provável contagem incorreta."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Fim de arquivo inesperado."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Erro de E/S."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Função hash incompatível."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Ordem endian incorreta."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Pronúncia incorreta."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Versão incorreta de pronúncia."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Deslocamento inválido no cabeçalho de dicionário."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Sinais de afixos na palavra mas sem arquivo de afixo fornecido."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Comprimento total da palavra com dados de pronúncia maior que 240 caracteres."
 

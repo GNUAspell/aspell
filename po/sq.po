@@ -1,14 +1,14 @@
 # Albanian translation of Aspell.
 # Copyright (C) 2019 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
-# Besnik Bleta <besnik@programeshqip.org>, 2020, 2024.
+# Besnik Bleta <besnik@programeshqip.org>, 2020, 2024, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8-pre2\n"
+"Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2024-10-29 21:48+0200\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-03-30 00:08+0300\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
 "Language: sq\n"
@@ -25,7 +25,7 @@ msgstr "një numër mes 0 dhe 1"
 
 #: common/info.cpp:569
 msgid "in the form \"<name> <value>\""
-msgstr "në formën \"<emër> <vlerë>\""
+msgstr "në formën “<emër> <vlerë>”"
 
 #: common/config.cpp:74
 msgid "string"
@@ -47,7 +47,7 @@ msgstr "listë"
 #. * values and should not be translated.
 #: common/config.cpp:988
 msgid "either \"true\" or \"false\""
-msgstr "ose \"true\", ose \"false\""
+msgstr "ose “true”, ose “false”"
 
 #: common/config.cpp:1007
 msgid "a positive integer"
@@ -115,7 +115,7 @@ msgstr "shton ose heq një filtër"
 
 #: common/config.cpp:1395
 msgid "path(s) aspell looks for filters"
-msgstr "shteg(shtije) ku aspell sheh për filtra"
+msgstr "shteg(shtigje) ku aspell sheh për filtra"
 
 #: common/config.cpp:1399
 msgid "filter mode"
@@ -140,11 +140,11 @@ msgstr "shpërfill fjalë <= n shenja"
 #. TRANSLATORS: It is OK if this is longer than 50 chars
 #: common/config.cpp:1410
 msgid "ignore accents when checking words -- CURRENTLY IGNORED"
-msgstr "shpërfill theksa kur kontrollohen fjalë -- AKTUALISHT E SHPËRFILLUR"
+msgstr "shpërfill theksa kur kontrollohen fjalë -- AKTUALISHT TË SHPËRFILLUR"
 
 #: common/config.cpp:1412
 msgid "ignore case when checking words"
-msgstr "shpërfill shkrim me të mëdha ose të vogla kur kontrollohen fjalë"
+msgstr "shpërfill shkrim me të mëdha ose të vogla, kur kontrollohen fjalë"
 
 #: common/config.cpp:1414
 msgid "ignore commands to store replacement pairs"
@@ -164,7 +164,7 @@ msgstr "kod gjuhe"
 
 #: common/config.cpp:1422
 msgid "deprecated, use lang instead"
-msgstr "e nxjerrë nga përdorimi, në vend të saj përdorini lang"
+msgstr "e nxjerrë nga përdorimi, në vend të saj përdorni “lang”"
 
 #: common/config.cpp:1424
 msgid "location of local language data files"
@@ -198,7 +198,7 @@ msgstr "Formë normalizimi Unikod: none, nfd, nfc, comp"
 
 #: common/config.cpp:1442
 msgid "avoid lossy conversions when normalization"
-msgstr "shmang shndërrrime me humbje gjatë normalizimesh"
+msgstr "shmang shndërrime me humbje gjatë normalizimesh"
 
 #: common/config.cpp:1444
 msgid "personal configuration file"
@@ -214,7 +214,7 @@ msgstr "drejtori parashtesash"
 
 #: common/config.cpp:1452
 msgid "replacements list file name"
-msgstr "emër kartele liste zëvendësishme"
+msgstr "emër kartele liste zëvendësimesh"
 
 #: common/config.cpp:1455
 msgid "consider run-together words legal"
@@ -230,7 +230,7 @@ msgstr "gjatësi minimale e fjalëve të brendshme"
 
 #: common/config.cpp:1461
 msgid "consider camel case words legal"
-msgstr "fjalët \"camel case\" konsideroji të ligjshme"
+msgstr "fjalët “camel case” konsideroji të ligjshme"
 
 #: common/config.cpp:1463
 msgid "save replacement pairs on save all"
@@ -297,7 +297,7 @@ msgstr "përpiqet të pastrojë fjalë, që të jenë të vlefshme"
 
 #: common/config.cpp:1505
 msgid "compute soundslike on demand rather than storing"
-msgstr "përllogarit \"soundslike\" kur kërkohet, në vend se t’i depozitosh"
+msgstr "përllogarit “soundslike” kur kërkohet, në vend se t’i depozitosh"
 
 #: common/config.cpp:1507
 msgid "partially expand affixes for better suggestions"
@@ -317,7 +317,7 @@ msgstr "kontrollo nëse fjalët janë të vlefshme"
 
 #: common/config.cpp:1520
 msgid "create a backup file by appending \".bak\""
-msgstr "krijo një kartelë kopjeruajtje duke shtuar pas \".bak\""
+msgstr "krijo një kartelë kopjeruajtje duke shtuar pas “.bak”"
 
 #: common/config.cpp:1522
 msgid "use byte offsets instead of character offsets"
@@ -343,17 +343,17 @@ msgstr "sugjero zëvendësime të mundshme"
 msgid "time load time and suggest time in pipe mode"
 msgstr ""
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
-msgstr "Kjo mund të dojë të thotë se kartela \"%s\" s’u hap dot për lexim ose se nuk ekziston."
+msgstr "Kjo mund të dojë të thotë se kartela “%s” s’u hap dot për lexim. ose se nuk ekziston."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr ""
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Varg i pavlefshëm UTF-8 në pozicionin %ld."
@@ -364,7 +364,7 @@ msgstr "Veprim Jo i Mbuluar: %what:1"
 
 #: common/errors.cpp:43
 msgid "The method \"%what:1\" is unimplemented in \"%where:2\"."
-msgstr "Metoda \"%what:1\" është e pasendërtuar te \"%where:2\"."
+msgstr "Metoda “%what:1” është e pasendërtuar në “%where:2”."
 
 #: common/errors.cpp:51
 #, c-format
@@ -374,32 +374,32 @@ msgstr "%file:1:"
 #: common/errors.cpp:59
 #, c-format
 msgid "The file \"%file:1\" can not be opened"
-msgstr "Kartela \"%file:1\" s’mund të hapet"
+msgstr "Kartela “%file:1” s’mund të hapet"
 
 #: common/errors.cpp:67
 #, c-format
 msgid "The file \"%file:1\" can not be opened for reading."
-msgstr "Kartela \"%file:1\" s’mund të hapet për lexim."
+msgstr "Kartela “%file:1” s’mund të hapet për lexim."
 
 #: common/errors.cpp:75
 #, c-format
 msgid "The file \"%file:1\" can not be opened for writing."
-msgstr "Kartela \"%file:1\" s’mund të hapet për shkrim."
+msgstr "Kartela “%file:1” s’mund të hapet për shkrim."
 
 #: common/errors.cpp:83
 #, c-format
 msgid "The file name \"%file:1\" is invalid."
-msgstr "Emri i kartelës \"%file:1\" është i panjohur."
+msgstr "Emri i kartelës “%file:1” është i panjohur."
 
 #: common/errors.cpp:91
 #, c-format
 msgid "The file \"%file:1\" is not in the proper format."
-msgstr "Kartela \"%file:1\" s’është në formatin e duhur."
+msgstr "Kartela “%file:1” s’është në formatin e duhur."
 
 #: common/errors.cpp:107
 #, c-format
 msgid "The directory \"%dir:1\" can not be opened for reading."
-msgstr "Drejtoria \"%dir:1\" s’mund të hapet për lexim."
+msgstr "Drejtoria “%dir:1” s’mund të hapet për lexim."
 
 #: common/errors.cpp:123
 msgid "The key \"%key:1\" is unknown."
@@ -407,7 +407,7 @@ msgstr "Tasti “%key:1” është i panjohur."
 
 #: common/errors.cpp:131
 msgid "The value for option \"%key:1\" can not be changed."
-msgstr "Vlera për mundësinë \"%key:1\" s’mund të ndryshohet."
+msgstr "S’mund të ndryshohet vlera për mundësinë “%key:1”."
 
 #: common/errors.cpp:139
 msgid "The key \"%key:1\" is not %accepted:2 and is thus invalid."
@@ -452,27 +452,27 @@ msgstr "Tasti “%key:1” nuk merr ndonjë parametër, kur paraprihet nga një 
 #: common/errors.cpp:235
 #, c-format
 msgid "The language \"%lang:1\" is not known."
-msgstr "Gjuha \"%lang:1\" është e panjohur."
+msgstr "Gjuha “%lang:1” nuk njihet."
 
 #: common/errors.cpp:243
 #, c-format
 msgid "The soundslike \"%sl:2\" is not known."
-msgstr "\"Soundslike\" \"%sl:2\" është i panjohur."
+msgstr "“Soundslike” “%sl:2” është i panjohur."
 
 #: common/errors.cpp:251
 #, c-format
 msgid "The language \"%lang:1\" is not supported."
-msgstr "Gjuha \"%lang:1\" nuk mbulohet."
+msgstr "Gjuha “%lang:1” nuk mbulohet."
 
 #: common/errors.cpp:259
 #, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
-msgstr "S’gjenden lista fjalësh për gjuhën \"%lang:1\"."
+msgstr "S’gjenden lista fjalësh për gjuhën “%lang:1”."
 
 #: common/errors.cpp:267
 #, c-format
 msgid "Expected language \"%lang:1\" but got \"%prev:2\"."
-msgstr "Pritej gjuha \"%lang:1\", por u mor \"%prev:2\"."
+msgstr "Pritej gjuha “%lang:1”, por u mor “%prev:2”."
 
 #: common/errors.cpp:283
 #, c-format
@@ -492,39 +492,39 @@ msgstr ""
 #: common/errors.cpp:307
 #, c-format
 msgid "The file \"%file:1\" is not in the proper format. Expected the file to be in \"%exp:2\" not \"%got:3\"."
-msgstr "Kartela \"%file:1\" s’gjendet nën formatin e duhur. Pritej që kartela të ishte në \"%exp:2\", jo \"%got:3\"."
+msgstr "Kartela “%file:1” s’gjendet nën formatin e duhur. Pritej që kartela të ishte në “%exp:2”, jo “%got:3”."
 
 #: common/errors.cpp:323
 #, c-format
 msgid "The encoding \"%encod:1\" is not known."
-msgstr "Kodimi \"%encod:1\" është i panjohur."
+msgstr "Kodimi “%encod:1” është i panjohur."
 
 #: common/errors.cpp:331
 #, c-format
 msgid "The encoding \"%encod:1\" is not supported."
-msgstr "Kodimi \"%encod:1\" nuk mbulohet."
+msgstr "Kodimi “%encod:1” nuk mbulohet."
 
 #: common/errors.cpp:339
 #, c-format
 msgid "The conversion from \"%encod:1\" to \"%encod2:2\" is not supported."
-msgstr "Shndërrimi nga \"%encod:1\" në \"%encod2:2\" nuk mbulohet."
+msgstr "Shndërrimi nga “%encod:1” në “%encod2:2” nuk mbulohet."
 
 #: common/errors.cpp:379
 #, c-format
 msgid "The string \"%str:1\" is invalid."
-msgstr "Vargu \"%str:1\" është i pavlefshëm."
+msgstr "Vargu “%str:1” është i pavlefshëm."
 
 #: common/errors.cpp:387
 msgid "The word \"%word:1\" is invalid."
-msgstr "Fjala \"%word:1\" është e pavlefshme."
+msgstr "Fjala “%word:1” është e pavlefshme."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr "Flamurka e ndajshtesës '%aff:1' është e pavlefshme për fjalën \"%word:2\"."
+msgstr "Flamurka e ndajshtesës '%aff:1' është e pavlefshme për fjalën “%word:2”."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
-msgstr "Flamurka e ndajshtesës '%aff:1' s’mund të aplikohet te fjala \"%word:2\"."
+msgstr "Flamurka e ndajshtesës '%aff:1' s’mund të aplikohet te fjala “%word:2”."
 
 #: common/errors.cpp:451
 msgid "not a version number"
@@ -532,17 +532,17 @@ msgstr "s’është numër versioni"
 
 #: common/errors.cpp:467
 msgid "dlopen returned \"%return:1\"."
-msgstr "dlopen u përgjigj me \"%return:1\"."
+msgstr "dlopen u përgjigj me “%return:1”."
 
 #: common/errors.cpp:475
 #, c-format
 msgid "The file \"%filter:1\" does not contain any filters."
-msgstr "Kartela \"%filter:1\" s’përmban ndonjë filtër."
+msgstr "Kartela “%filter:1” s’përmban ndonjë filtër."
 
 #: common/errors.cpp:483
 #, c-format
 msgid "The filter \"%filter:1\" does not exist."
-msgstr "Filtri \"%filter:1\" s’ekziston."
+msgstr "Filtri “%filter:1” s’ekziston."
 
 #: common/errors.cpp:491 common/errors.cpp:587
 msgid "Confused by version control."
@@ -550,7 +550,7 @@ msgstr ""
 
 #: common/errors.cpp:499
 msgid "Aspell version does not match filter's requirement."
-msgstr "Versioni i Aspell-it nuk përputhet me domosdoshmëri të filtrit."
+msgstr "Versioni i Aspell-it s’përputhet me domosdoshmëri të filtrit."
 
 #: common/errors.cpp:507
 msgid "Filter option already exists."
@@ -575,7 +575,7 @@ msgstr "Specifikues i zbrazët mundësie."
 #: common/errors.cpp:555
 #, c-format
 msgid "Option \"%option:1\" possibly specified prior to filter."
-msgstr "Mundësia \"%option:1\" ka gjasa të jetë specifikuar përpara filtrit."
+msgstr "Mundësia “%option:1” ka gjasa të jetë specifikuar përpara filtrit."
 
 #: common/errors.cpp:563
 msgid "Unknown mode description key \"%key:1\"."
@@ -606,12 +606,12 @@ msgstr ""
 #: common/errors.cpp:619
 #, c-format
 msgid "\"%mode:1\" error"
-msgstr "Gabim \"%mode:1\""
+msgstr "Gabim “%mode:1”"
 
 #: common/errors.cpp:627
 #, c-format
 msgid "Unknown mode: \"%mode:1\"."
-msgstr "Mënyrë e panjohur: \"%mode:1\"."
+msgstr "Mënyrë e panjohur: “%mode:1”."
 
 #: common/errors.cpp:635
 #, c-format
@@ -640,7 +640,7 @@ msgstr ""
 #: common/errors.cpp:691
 #, c-format
 msgid "\"%expression:1\" is not a valid regular expression."
-msgstr "\"%expression:1\" s’është shprehje e rregullt e vlefshme."
+msgstr "“%expression:1” s’është shprehje e rregullt e vlefshme."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
@@ -681,15 +681,14 @@ msgid "Invalid Option: %s"
 msgstr "Mundësi e Pavlefshme: %s"
 
 #: prog/aspell.cpp:322
-#, fuzzy, c-format
-#| msgid " does not take any parameters."
+#, c-format
 msgid "'%s' does not take any parameters."
-msgstr " nuk merr ndonjë parametër."
+msgstr "'%s' nuk merr ndonjë parametër."
 
 #: prog/aspell.cpp:335 prog/aspell.cpp:395
 #, c-format
 msgid "You must specify a parameter for \"%s\"."
-msgstr "Duhet të përcaktoni një parametër për \"%s\"."
+msgstr "Duhet të përcaktoni një parametër për “%s”."
 
 #: prog/aspell.cpp:384
 msgid "You must specify an action"
@@ -703,7 +702,7 @@ msgstr "Veprim i Panjohur: %s"
 #: prog/aspell.cpp:398
 #, c-format
 msgid "Error: You must specify at least %d parameters for \"%s\".\n"
-msgstr "Gabim: Duhet të specifikoni të paktën %d parametra për \"%s\".\n"
+msgstr "Gabim: Duhet të specifikoni të paktën %d parametra për “%s”.\n"
 
 #: prog/aspell.cpp:640
 msgid "Invalid Input"
@@ -734,7 +733,7 @@ msgstr "Mund të specifikohet vetëm një emër kartele."
 #: prog/aspell.cpp:990
 #, c-format
 msgid "Could not open the file \"%s\" for reading"
-msgstr "S’u hap dot kartela \"%s\" për lexim"
+msgstr "S’u hap dot kartela “%s” për lexim"
 
 #: prog/aspell.cpp:1003
 #, c-format
@@ -744,12 +743,12 @@ msgstr ""
 #: prog/aspell.cpp:1018
 #, c-format
 msgid "\"%s\" is not a regular file"
-msgstr "\"%s\" s’është kartelë e rregullt"
+msgstr "“%s” s’është kartelë e rregullt"
 
 #: prog/aspell.cpp:1029
 #, c-format
 msgid "Could not open the file \"%s\" for writing. File not saved."
-msgstr "S’u hap dot kartela \"%s\" për shkrim. Kartela s’u ruajt."
+msgstr "S’u hap dot kartela “%s” për shkrim. Kartela s’u ruajt."
 
 #: prog/aspell.cpp:1042
 msgid "Ignore"
@@ -761,7 +760,7 @@ msgstr "Shpërfilli krejt"
 
 #: prog/aspell.cpp:1044
 msgid "Replace"
-msgstr "Zëvendëso"
+msgstr "Zëvendësoje"
 
 #: prog/aspell.cpp:1045
 msgid "Replace all"
@@ -803,27 +802,27 @@ msgstr "Na ndjeni, kjo është zgjedhje e pavlefshme!"
 
 #: prog/aspell.cpp:1545
 msgid "Can't merge a master word list yet. Sorry."
-msgstr "S’përziehet dot ende një listë kryesore fjalësh. Na ndjeni."
+msgstr "S’përzihet dot ende një listë kryesore fjalësh. Na ndjeni."
 
 #: prog/aspell.cpp:1569
 msgid "Sorry \"create/merge personal\" is currently unimplemented.\n"
-msgstr "Na ndjeni, \"krijoni/përzieni personale\" është aktualisht e pasendërtuar.\n"
+msgstr "Na ndjeni, “krijoni/përzieni personale” aktualisht është e pasendërtuar.\n"
 
 #: prog/aspell.cpp:1578 prog/aspell.cpp:1634
 #, c-format
 msgid "Sorry I won't overwrite \"%s\""
-msgstr "Më ndjeni, s’do të mbishkruaj \"%s\""
+msgstr "Më ndjeni, s’do të mbishkruaj “%s”"
 
 #: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
-msgstr "Na ndjeni, \"krijoni/përzieni repl\" është aktualisht e pasendërtuar.\n"
+msgstr "Na ndjeni, “krijoni/përzieni zëvend.” aktualisht është e pasendërtuar.\n"
 
 #: prog/aspell.cpp:1897
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
-msgstr "\"%s\" s’është flamurkë e vlefshme për urdhrin \"munch-list\"."
+msgstr "“%s” s’është flamurkë e vlefshme për urdhrin “munch-list”."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -847,7 +846,7 @@ msgstr "  -c|check <kartelë>  kontrollon drejtshkrimin e një kartele"
 
 #: prog/aspell.cpp:2834
 msgid "  -a|pipe          \"ispell -a\" compatibility mode"
-msgstr "  -a|pipe          mënyra përputhshmëri me \"ispell -a\""
+msgstr "  -a|pipe          mënyra përputhshmëri me “ispell -a”"
 
 #: prog/aspell.cpp:2835
 msgid "  [dump] config    dumps the current configuration to stdout"
@@ -871,11 +870,11 @@ msgstr "[mundësi] është një nga sa vijon:"
 
 #: prog/aspell.cpp:2852
 msgid "  list             produce a list of misspelled words from standard input"
-msgstr "  list             prodho prej inputi standard një listë fjalësh të keqshkruara"
+msgstr "  list             prodho prej input-i standard një listë fjalësh të keqshkruara"
 
 #: prog/aspell.cpp:2855
 msgid "  soundslike       returns the sounds like equivalent for each word entered"
-msgstr "  soundslike       përgjigjet me të njëvlerëshmin soundslike për çdo fjalë të dhënë"
+msgstr "  soundslike       përgjigjet me të njëvlerëshmin “soundslike” për çdo fjalë të dhënë"
 
 #: prog/aspell.cpp:2856
 msgid "  munch            generate possible root words and affixes"
@@ -933,7 +932,7 @@ msgstr "    shfaq lëndën, krijon ose përzien një fjalor kryesor, personal, o
 #. and should not be translated.
 #: prog/aspell.cpp:2874
 msgid "  <norm-form>      normalization form to use, either none, internal, or strict"
-msgstr "  <norm-form>      formë normalizimi për t’u përdorur, një nga \"none\", \"internal\", ose \"strict\""
+msgstr "  <norm-form>      formë normalizimi për t’u përdorur, një nga “none”, “internal”, ose “strict”"
 
 #: prog/aspell.cpp:2918
 msgid ""
@@ -944,8 +943,8 @@ msgid ""
 msgstr ""
 "Fjalorë të Gatshëm:\n"
 "    Fjalorët mund të përzgjidhen drejtpërsëdrejti me mundësinë\n"
-"    \"-d\" ose \"master\".  Mundet të përzgjidhen edhe tërthorazi me\n"
-"    mundësinë \"lang\", \"variety\", dhe \"size\".\n"
+"    “-d” ose “master”.  Mundet të përzgjidhen edhe tërthorazi me\n"
+"    mundësinë “lang”, “variety”, dhe “size”.\n"
 
 #: prog/aspell.cpp:2939
 msgid ""
@@ -953,7 +952,7 @@ msgid ""
 "    Filters can be added or removed via the \"filter\" option.\n"
 msgstr ""
 "Filtra të Gatshëm (dhe mundësi për ta):\n"
-"    Filtrat mund të shtohen ose hiqen përmes mundësisë \"filter\".\n"
+"    Filtrat mund të shtohen ose hiqen përmes mundësisë “filter”.\n"
 
 #: prog/aspell.cpp:2946
 #, c-format
@@ -964,7 +963,7 @@ msgstr ""
 "\n"
 "  filtër %s: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -973,12 +972,12 @@ msgid ""
 "    This will happen implicitly if Aspell is able to identify the file\n"
 "    type from the extension, and possibility the contents, of the file.\n"
 msgstr ""
-"Mënyra Filtri të Passhme:\n"
+"Mënyra Filtri të Gatshme:\n"
 "    Mënyrat e Filtrit janë ndërthurje të riformësuara filtrash optimizuar\n"
 "    për kartela të një lloji specifik. Një mënyrë përzgjidhet përmes\n"
-"    mundësisë \"mode\". Kjo do të ndodhë pa u vënë re, nëse Aspell është\n"
-"    në gjendje të identifikojë llojin e kartelës prej zgjatimit të saj, dhe\n"
-"    mundësisht lëndën.\n"
+"    mundësisë \"mode\". Kjo do të ndodhë pa u vënë re, nëse Aspell\n"
+"    është në gjendje të identifikojë llojin e kartelës prej zgjatimit të\n"
+"    saj, dhe mundësisht lëndën.\n"
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
@@ -1019,7 +1018,7 @@ msgstr "Control-B"
 
 #: prog/check_funs.cpp:788
 msgid "Move Back one space"
-msgstr "Shko mbrapsht një hapësirë"
+msgstr "Shko Mbrapsht një hapësirë"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:791
@@ -1084,7 +1083,7 @@ msgstr "Control-K"
 
 #: prog/check_funs.cpp:817
 msgid "Kill all characters to the EOL"
-msgstr ""
+msgstr "Asgjëso krejt shenjat deri te EOL"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:821
@@ -1101,7 +1100,7 @@ msgstr "Kjo vjen ndoshta ngaqë: "
 
 #: modules/speller/default/language.cpp:110
 msgid "The required field \"name\" is missing."
-msgstr "Mungon fusha e domosdoshme \"name\"."
+msgstr "Mungon fusha e domosdoshme “name”."
 
 #: modules/speller/default/language.cpp:524
 msgid "Empty string."
@@ -1149,7 +1148,7 @@ msgstr "Sinjalizim: Po hiqet ndajshtesë e pazbatueshme '%s' nga fjala %s.\n"
 #: modules/speller/default/language.cpp:726
 #, c-format
 msgid "Warning: %s Skipping string.\n"
-msgstr ""
+msgstr "Kujdes: %s Po anashkalohet varg.\n"
 
 #: modules/speller/default/language.cpp:780
 msgid "The total length is larger than 240 characters."
@@ -1158,43 +1157,55 @@ msgstr "Gjatësia në tërësi është më e madhe se 240 shenja."
 #: modules/speller/default/language.cpp:784
 #, c-format
 msgid "Warning: %s Skipping word.\n"
-msgstr ""
+msgstr "Kujdes: %s Po anashkalohet fjalë.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Numër me gjasa i gabuar."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Funksion hash jo i përputhshëm."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Rend Endian i gabuar."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
-msgstr "Soundslike i gabuar."
+msgstr "“Soundslike” i gabuar."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
-msgstr "Version soundslike i gabuar."
+msgstr "Version “soundslike” i gabuar."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Te fjala u gjetën flamurka ndajshtesash, por s’është dhënë kartelë ndajshtesash."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
-msgstr "Gjatësia në tërësi e fjalës, me të dhënat \"soundslike\", është më e madhe se 240 shenja."
+msgstr "Gjatësia në tërësi e fjalës, me të dhënat “soundslike”, është më e madhe se 240 shenja."
 
 #: modules/speller/default/multi_ws.cpp:58
 msgid "There must be at least one \"add\" line."
-msgstr "Duhet të ketë të paktën një rresht \"add\"."
+msgstr "Duhet të ketë të paktën një rresht “add”."
 
 #: modules/speller/default/suggest.cpp:1730
 msgid "one of ultra, fast, normal, slow, or bad-spellers"
-msgstr "një nga ultra, fast, normal, slow, ose bad-spellers"
+msgstr "një nga “ultra”, “fast”, “normal”, “slow”, ose “bad-spellers”"
 
 #: modules/speller/default/data.cpp:406
 msgid "is not one of the allowed types"
@@ -1241,7 +1252,7 @@ msgstr "shenja citimi email-i"
 
 #: modules/filter/email-filter.info:21
 msgid "num chars that can appear before the quote char"
-msgstr "shenja \"num\" që mund të shfaqen përpara shenjës \"quote\""
+msgstr "shenja numerike që mund të shfaqen përpara shenjës “quote”"
 
 #: modules/filter/html-filter.info:9
 msgid "filter for dealing with HTML documents"
@@ -1367,16 +1378,11 @@ msgstr "mënyrë për kontroll dokumentesh Texinfo"
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "mënyrë për anashkalim konstruktesh të ngjashëm me URL (mënyra parazgjedhje)"
 
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "Aspell %s.  Copyright 2000-2019 by Kevin Atkinson.\n"
-#~| "\n"
 #~ msgid ""
 #~ "\n"
 #~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
 #~ "\n"
 #~ msgstr ""
 #~ "\n"
-#~ "Aspell %s.  Të drejta kopjimi 2000-2019 nga Kevin Atkinson.\n"
+#~ "Aspell %s.  Të drejta kopjimi 2000-2023 nga Kevin Atkinson.\n"
 #~ "\n"

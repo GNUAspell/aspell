@@ -1,15 +1,15 @@
 # Dutch translations for aspell.
-# Copyright (C) 2023 Kevin Atkinson (msgids)
+# Copyright (C) 2026 Kevin Atkinson (msgids)
 # This file is distributed under the same license as the aspell package.
 #
 # Elros Cyriatan <cyriatan@fastmail.fm>, 2004.
-# Benno Schulenberg <benno@vertaalt.nl>, 2005, 2006, 2007, 2008, 2010, 2011, 2019, 2023.
+# Benno Schulenberg <benno@vertaalt.nl>, 2005, 2006, 2007, 2008, 2010, 2011, 2019, 2023, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell-0.60.8.1\n"
+"Project-Id-Version: aspell-0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-04 16:18+0100\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-09 11:37+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -343,17 +343,17 @@ msgstr "mogelijke vervangingen suggereren"
 msgid "time load time and suggest time in pipe mode"
 msgstr "opstart- en suggestietijd bijhouden in pijpmodus"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Dit kan ook betekenen dat het bestand '%s' niet kan worden geopend om te lezen, of niet bestaat."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Unicode-codepunt U+%04X wordt niet ondersteund."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Ongeldige UTF-8-reeks op positie %ld."
@@ -824,7 +824,7 @@ msgstr "Sorry, \"aanmaken/samenvoegen van vervangingen\" is nog niet geïmplemen
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "'%s' is geen geldige optie voor de opdracht 'munch-list'."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -968,7 +968,7 @@ msgstr ""
 "\n"
 "  %s filter: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1167,31 +1167,43 @@ msgstr "De totale lengte is groter dan 240 tekens."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Waarschuwing: %s -- woord wordt overgeslagen.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Mogelijk een onjuist aantal."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Onverwacht bestandseinde."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Invoer-/uitvoerfout."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Incompatibele hash-functie."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Verkeerde bytevolgorde ('endianness')."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Onjuiste \"klinkt-als\"."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Onjuiste versie van \"klinkt-als\"."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Ongeldige positie in kopregel van woordenboek."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Affixopties gevonden in woord, maar er is geen affixbestand opgegeven."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "De totale woordlengte, inclusief \"klinkt-als\"-gegevens, is meer dan 240 tekens."
 
@@ -1375,15 +1387,6 @@ msgstr "voor het controleren van Texinfo-documenten"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "voor het overslaan van URL-achtige constructies (standaard)"
-
-#~ msgid ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
-#~ "\n"
 
 #~ msgid "edit distance to use, override sug-mode default"
 #~ msgstr "te gebruiken bewerkafstand (sug-modus negeren)"

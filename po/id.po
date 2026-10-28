@@ -2,23 +2,23 @@
 # Copyright (C) 2008 Kevin Atkinson
 # This file is distributed under the same license as the aspell package.
 # Arif E. Nugroho <arif_endro@yahoo.com>, 2008.
-# Andika Triwidada <andika@gmail.com>, 2021, 2023.
+# Andika Triwidada <andika@gmail.com>, 2021, 2023, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8.1\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-06 09:45+0700\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-15 15:53+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
-"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"Language-Team: Indonesian <tp-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -344,17 +344,17 @@ msgstr "saran mungkin penggantian"
 msgid "time load time and suggest time in pipe mode"
 msgstr "waktu load waktu dan waktu saran dalam mode pipe"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Ini dapat juga berarti kalau berkas \"%s\" tidak dapat dibuka untuk pembacaan atau juga tidak ada."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Kode unicode menunjuk ke U+%04X tidak didukung."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Urutan UTF-8 di posisi %ld tidak valid."
@@ -823,7 +823,7 @@ msgstr "Maaf \"create/merge repl\" saat ini belum diimplementasikan.\n"
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" bukan sebuah opsi valid untuk perintah \"munch-list\"."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -970,7 +970,7 @@ msgstr ""
 "\n"
 "  %s penyaring: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1002,7 +1002,7 @@ msgstr "Terima Perubahan"
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:779
 msgid "Backspace"
-msgstr "Bacspace"
+msgstr "Backspace"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:781
@@ -1025,7 +1025,7 @@ msgstr "CTLR-B"
 
 #: prog/check_funs.cpp:788
 msgid "Move Back one space"
-msgstr "Pindah kembali satu spasi"
+msgstr "Pindah Mundur satu spasi"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:791
@@ -1039,7 +1039,7 @@ msgstr "CTRL-F"
 
 #: prog/check_funs.cpp:794
 msgid "Move Forward one space"
-msgstr "Pindah kedepan satu spasi"
+msgstr "Pindah Maju satu spasi"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:797
@@ -1081,7 +1081,7 @@ msgstr "CTRL-D"
 
 #: prog/check_funs.cpp:812
 msgid "Delete the next character"
-msgstr "Delete ke karakter selanjutnya"
+msgstr "Hapus karakter selanjutnya"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:816
@@ -1090,7 +1090,7 @@ msgstr "CTRL-K"
 
 #: prog/check_funs.cpp:817
 msgid "Kill all characters to the EOL"
-msgstr "Bunuh semua karakter sampai EOL"
+msgstr "Bunuh semua karakter sampai akhir baris"
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:821
@@ -1166,31 +1166,43 @@ msgstr "Panjang total lebih besar dari 240 karakter."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Peringatan: %s Melewatkan kata.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Mungkin jumlah tidak benar."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "EOF yang tidak diharapkan."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Galat I/O."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Fungsi hash yang tidak kompatibel."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Pengurutan endian salah."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Soundslike salah."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Versi soundslike salah."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Ofset tidak valid dalam header kamus."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Opsi affix ditemukan dalam kata tetapi tidak ada berkas affix yang diberikan."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Panjang total kata, dengan data soundslike, lebih besar dari 240 karakter."
 
@@ -1372,12 +1384,3 @@ msgstr "mode untuk pemeriksaan dokumen Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "mode untuk melewatkan URL seperti konstruk (mode baku)"
-
-#~ msgid ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Aspell %s.  Hak Cipta 2000-2023 oleh Kevin Atkinson.\n"
-#~ "\n"

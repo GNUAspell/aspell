@@ -1,27 +1,28 @@
 # -*- mode: po; buffer-file-coding-system: iso-8859-1; default-input-method: latin-1-prefix -*-
 #
 # French messages for GNU Aspell
-# Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2011, 2019 Th. Thomas
+# Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2011, 2019, 2026 Th. Thomas
 # This file is distributed under the same license as the aspell package.
 # Note: this file was distributed under the modified BSD license, but the
 # Translation Project Robot does not accept it.
 #
-# Thierry Thomas <thierry@pompo.net>, 2019.
+# Thierry Thomas <thierry@pompo.net>, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8.1\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-03 10:55+0200\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-12 11:48+0200\n"
 "Last-Translator: Thierry Thomas <thierry@pompo.net>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.9\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -348,17 +349,17 @@ msgstr "suggérer des remplacements possibles"
 msgid "time load time and suggest time in pipe mode"
 msgstr "durée, temps de chargement et de rech. en mode pipe"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Cela peut aussi vouloir dire que le fichier « %s » ne peut être ouvert en lecture ou n’existe pas."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Le code Unicode U+%04X n’est pas supporté."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Séquence UTF-8 invalide à la position %ld."
@@ -384,12 +385,12 @@ msgstr "Impossible d’ouvrir le fichier « %file:1 »"
 #: common/errors.cpp:67
 #, c-format
 msgid "The file \"%file:1\" can not be opened for reading."
-msgstr "Impossible d’ouvrir le fichier « %file:1 » en lecture"
+msgstr "Impossible d’ouvrir le fichier « %file:1 » en lecture."
 
 #: common/errors.cpp:75
 #, c-format
 msgid "The file \"%file:1\" can not be opened for writing."
-msgstr "Impossible d’ouvrir le fichier « %file:1 » en écriture"
+msgstr "Impossible d’ouvrir le fichier « %file:1 » en écriture."
 
 #: common/errors.cpp:83
 #, c-format
@@ -404,7 +405,7 @@ msgstr "Le fichier « %file:1 » n’est pas au format attendu."
 #: common/errors.cpp:107
 #, c-format
 msgid "The directory \"%dir:1\" can not be opened for reading."
-msgstr "Impossible d’ouvrir le répertoire « %dir:1 » en lecture"
+msgstr "Impossible d’ouvrir le répertoire « %dir:1 » en lecture."
 
 #: common/errors.cpp:123
 msgid "The key \"%key:1\" is unknown."
@@ -726,7 +727,7 @@ msgstr "AVERTISSEMENT : impossible de passer en mode Nroff : %s\n"
 
 #: prog/aspell.cpp:734
 msgid "Time to load word list: "
-msgstr "Temps de chargement du dictionnaire :"
+msgstr "Temps de chargement du dictionnaire : "
 
 #: prog/aspell.cpp:934
 #, c-format
@@ -795,7 +796,7 @@ msgstr "Sortir"
 
 #: prog/aspell.cpp:1125
 msgid "Are you sure you want to abort (y/n)? "
-msgstr "Voulez-vous vraiment abandonner (o/n) ?"
+msgstr "Voulez-vous vraiment abandonner (o/n) ? "
 
 #. TRANSLATORS: The user may input any of these characters to say "yes".
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
@@ -838,7 +839,7 @@ msgstr ""
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "« %s » n’est pas valide pour la commande « munch-list »."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -980,7 +981,7 @@ msgstr ""
 "\n"
 "  %s filtre : %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1176,31 +1177,43 @@ msgstr "La longueur totale dépasse 240 caractères."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Attention : %s mot ignoré.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Décompte probablement incorrect."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Fin inattendue."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Erreur d’E/S."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Fonction de hachage incompatible."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Système de poids erroné (endian)."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Phonème erroné."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Version erronée de phonème."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Décalage invalide dans l’en-tête du dico."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Fanions affixes retrouvés dans le mot mais aucun fichier affixe fourni."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "La longueur totale du mot, phonèmes inclus, dépasse 240 caractères."
 

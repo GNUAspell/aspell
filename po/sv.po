@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8.1\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
 "PO-Revision-Date: 2025-04-16 21:22+0200\n"
 "Last-Translator: Josef Andersson <janderssonse@proton.me>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -344,17 +344,17 @@ msgstr "föreslå möjliga ersättningar"
 msgid "time load time and suggest time in pipe mode"
 msgstr "ta tiden för inläsning och för förslag i rörledningsläge"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Det här kan också innebära att filen ”%s” inte kunde öppnas för läsning, eller att den inte finns."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Unicode-kodpunkten U+%04X saknar stöd."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Ogiltig UTF-8-sekvens vid position %ld."
@@ -824,7 +824,7 @@ msgstr "Tyvärr, ”create/merge repl” är för närvarande inte implementerat
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "”%s” är inte en giltig flagga för kommandot ”munch-list”."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -965,7 +965,7 @@ msgstr ""
 "\n"
 "  %s-filter: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1159,31 +1159,43 @@ msgstr "Den totala längden är större än 240 tecken."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Varning: %s Hoppar över ord.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Möjligen felaktigt antal."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Inkompatibel hashfunktion."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Fel byteordning."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Fel soundslike."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Fel soundslike-version."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Affixflaggor hittades i ordet, men ingen affixfil angavs."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Total ordlängd, med soundslike-data, överstiger 240 tecken."
 

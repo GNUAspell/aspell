@@ -1,14 +1,14 @@
 # Polish translation for aspell.
 # Copyright (C) 2011 Kevin Atkinson (msgids)
 # This file is distributed under the same license as the aspell package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2011-2023.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2011-2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8.1\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-04 20:15+0100\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-10 07:45+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -244,7 +244,7 @@ msgstr "rozmiar listy słów"
 
 #: common/config.cpp:1469
 msgid "no longer used"
-msgstr "już nie używane"
+msgstr "już nieużywane"
 
 #: common/config.cpp:1471
 msgid "suggestion mode"
@@ -341,24 +341,24 @@ msgstr "sugerowanie możliwych zamienników"
 msgid "time load time and suggest time in pipe mode"
 msgstr "mierzenie czasu wczytywania i sugestii w potoku"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Może to także oznaczać, że plik \"%s\" nie istnieje lub ni można go otworzyć do odczytu."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Znak unikodowy o kodzie U+%04X nie jest obsługiwany."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Błędna sekwencja UTF-8 na pozycji %ld."
 
 #: common/errors.cpp:27
 msgid "Operation Not Supported: %what:1"
-msgstr "Operacja nie obsługiwana: %what:1"
+msgstr "Operacja nieobsługiwana: %what:1"
 
 #: common/errors.cpp:43
 msgid "The method \"%what:1\" is unimplemented in \"%where:2\"."
@@ -642,7 +642,7 @@ msgstr "\"%expression:1\" nie jest poprawnym wyrażeniem regularnym."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
-msgstr "Nie obsłużony błąd: "
+msgstr "Nieobsłużony błąd: "
 
 #: prog/aspell.cpp:99
 #, c-format
@@ -820,7 +820,7 @@ msgstr "Niestety \"create/merge\" na liście zamienników nie jest teraz zaimple
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "\"%s\" nie jest poprawną flagą polecenia \"munch-list\"."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -961,7 +961,7 @@ msgstr ""
 "\n"
 "  filtr %s: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1140,7 +1140,7 @@ msgstr "Uwaga: Usuwanie błędnego afiksu '%s' ze słowa %s.\n"
 #: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr "Uwaga: Usuwanie nie pasującego afiksu '%s' ze słowa %s.\n"
+msgstr "Uwaga: Usuwanie niepasującego afiksu '%s' ze słowa %s.\n"
 
 #: modules/speller/default/language.cpp:726
 #, c-format
@@ -1156,31 +1156,43 @@ msgstr "Całkowita długość jest większa niż 240 znaków."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Uwaga: %s Pominięto słowo.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Prawdopodobnie błędna liczba."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Nieoczekiwany koniec pliku."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Błąd we/wy."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Niekompatybilna funkcja skrótu."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Błędna kolejność bajtów w słowie."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Błędne nazwa pliku brzmień."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Błędna wersja brzmień."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Błędna pozycja w nagłówku słownika."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Napotkano w słowie flagi afiksów, ale nie podano pliku afiksów."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Całkowita długość słowa, wraz z danymi o brzmieniu, jest większa niż 240 znaków."
 
@@ -1362,12 +1374,3 @@ msgstr "tryb do sprawdzania dokumentów Texinfo"
 #: modules/filter/modes/url.amf:5
 msgid "mode to skip URL like constructs (default mode)"
 msgstr "tryb do pomijania napisów typu URL (domyślny)"
-
-#~ msgid ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 by Kevin Atkinson.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Aspell %s.  Copyright 2000-2023 Kevin Atkinson.\n"
-#~ "\n"

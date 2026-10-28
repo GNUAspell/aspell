@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aspell 0.60.8-pre2\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
 "PO-Revision-Date: 2020-03-08 12:51+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -354,17 +354,17 @@ msgstr "foreslå mulige erstatninger"
 msgid "time load time and suggest time in pipe mode"
 msgstr "tag tid på indlæsning og foreslag i kanaltilstand"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Det kunne også betyde at filen »%s« ikke findes eller at du ikke har lov til at læse i den."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Unicode-positionen U+%04X er ikke understøttet."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Ugyldig UTF-8-sekvens på position %ld."
@@ -834,7 +834,7 @@ msgstr "Beklager »opret/sammenføj repl« er aktuelt ikke implementeret.\n"
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "»%s« er ikke et gyldigt flag for kommandoen munch-list."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -975,7 +975,7 @@ msgstr ""
 "\n"
 "  %s filter: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1170,32 +1170,44 @@ msgstr "Den samlede længde er større end 240 tegn."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Advarsel: %s Springer ord over.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Muligvis en forkert optælling."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Inkompatibel hashfunktion."
 
 # endian er, så vidt jeg ved, byte rækkefølge
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Forkert endian (byte) rækkefølge."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Forkert soundslike (udtale)."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Forkert version af soundslike (udtale)."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr ""
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Affiksflag fundet i ord men ingen affiksfil angivet."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Den totale ordlængde, med soundslike (udtale) data, er længere end 240 tegn."
 

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the aspell package.
 #
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012.
-# Božidar Putanec <bozidarp@yahoo.com>, 2019-2025.
+# Božidar Putanec <bozidarp@yahoo.com>, 2019-2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell-0.60.8.1\n"
+"Project-Id-Version: aspell-0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2025-03-26 20:55-0700\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-10 17:39+0200\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -81,7 +81,7 @@ msgstr ""
 
 #: common/config.cpp:1296
 msgid "ASPELL_CONF env var"
-msgstr "okružna varijabla ASPELL_CONF"
+msgstr "varijabla okruženja ASPELL_CONF"
 
 #. TRANSLATORS: The remaining strings in config.cpp should be kept
 #. under 50 characters, begin with a lower case character and not
@@ -161,7 +161,7 @@ msgstr "definira tipkovnicu za analizu zatipaka"
 
 #: common/config.cpp:1420
 msgid "language code"
-msgstr "jezični kȏd"
+msgstr "jezični kod"
 
 #: common/config.cpp:1422
 msgid "deprecated, use lang instead"
@@ -347,17 +347,17 @@ msgstr "predloži moguće zamjene"
 msgid "time load time and suggest time in pipe mode"
 msgstr "trajanje učitavanja i predlaganja u „pipe mode”"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Ovo također može značiti da se datoteka „%s” ne može otvoriti za čitanje ili ne postoji."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Unicode znakovi na poziciji U+%04X nisu podržani."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Nevaljana UTF-8 sekvencija na poziciji %ld."
@@ -826,7 +826,7 @@ msgstr "Nažalost, „create/merge repl” za sada još nije implementiran.\n"
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "„%s” nije valjani flag za naredbu „munch-list”."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -967,7 +967,7 @@ msgstr ""
 "\n"
 "  %s filtar: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1163,31 +1163,43 @@ msgstr "Ukupna duljina je veća od 240 znakova."
 msgid "Warning: %s Skipping word.\n"
 msgstr "Upozorenje: %s -- riječ je preskočena.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Možda broj(enje) nije točno."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Neočekivani EOF."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "I/O greška."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Nekompatibilna hash-funkcija."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Pogrešni redoslijed bajtova (endiannes)."
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "Pogrešna zvučnost."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Pogrešna inačica zvučnosti."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Neispravni pomak u zaglavlju rječnika"
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "U riječi su nađeni flazi afiksa ali datoteka afiksa nije dana."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Ukupna duljina riječi s podacima o zvučnosti je veća od 240 znakova."
 

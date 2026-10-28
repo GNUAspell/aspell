@@ -1,26 +1,28 @@
 # Romanian translation for aspell.
 # Mesajele în limba română pentru aspell.
-# Copyright © 2003, 2006, 2023 Free Software Foundation, Inc.
+# Copyright © 2003, 2006, 2019, 2023, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the aspell package.
 # Acest fișier este distribuit sub aceeași licență ca și pachetul aspell.
 #
 # Laurentiu Buzdugan <lbuz@rolix.org>, 2003, 2006.
 # Daniel Șerbănescu <daniel@serbanescu.dk>, 2019.
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2023.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2023, 2026.
 #
 # Cronologia traducerii fișierului „aspell”:
 # Traducerea inițială, făcută de LB, pentru versiunea aspell 0.60-b20040608, iun-2004.
 # Actualizare a traducerii pentru versiunea 0.60.8-pre2, făcută de DȘ, sep-2019.
 # Revizuire/corectare pentru versiunea 0.60.8-pre2, făcută de R-GC, oct-2023.
 # Actualizare a traducerii pentru versiunea 0.60.8.1, făcută de R-GC, dec-2023.
+# Revizuire/actualizare a traducerii pentru versiunea 0.60.8.2, făcută de R-GC, sep-2026.
+# Actualizare a traducerii pentru versiunea 0.60.8.3, făcută de R-GC, oct-2026.
 # Actualizare a traducerii pentru versiunea Y, făcută de X, Z(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: aspell 0.60.8.1\n"
+"Project-Id-Version: aspell 0.60.8.3\n"
 "Report-Msgid-Bugs-To: kevina@gnu.org\n"
-"POT-Creation-Date: 2026-01-27 00:58-0500\n"
-"PO-Revision-Date: 2023-12-04 11:54+0100\n"
+"POT-Creation-Date: 2026-10-28 16:50-0400\n"
+"PO-Revision-Date: 2026-10-09 19:51+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -29,7 +31,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || ((n%100) > 0 && (n%100) < 20)) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: common/info.cpp:232
 msgid "a number between 0 and 1"
@@ -185,7 +187,7 @@ msgstr "codul limbii"
 
 #: common/config.cpp:1422
 msgid "deprecated, use lang instead"
-msgstr "depășit, folosiți lang în schimb"
+msgstr "învechit, folosiți lang în schimb"
 
 #: common/config.cpp:1424
 msgid "location of local language data files"
@@ -332,7 +334,7 @@ msgstr "expandează parțial afixele pentru sugestii mai bune"
 
 #: common/config.cpp:1509
 msgid "skip invalid words"
-msgstr "sare peste cuvintele invalide"
+msgstr "sare peste cuvintele nevalide"
 
 #: common/config.cpp:1511
 msgid "check if affix flags are valid"
@@ -370,17 +372,17 @@ msgstr "sugerează posibile înlocuiri"
 msgid "time load time and suggest time in pipe mode"
 msgstr "cronometrează timpul de încărcare și sugerează timpul în modul „pipe” (conductă)"
 
-#: common/convert.cpp:303 common/convert.cpp:497
+#: common/convert.cpp:303 common/convert.cpp:498
 #, c-format
 msgid "This could also mean that the file \"%s\" could not be opened for reading or does not exist."
 msgstr "Aceasta ar putea însemna, de asemenea, că fișierul „%s” nu a putut fi deschis pentru citire sau nu există.."
 
-#: common/convert.cpp:590 common/convert.cpp:702 common/convert.cpp:748
+#: common/convert.cpp:591 common/convert.cpp:703 common/convert.cpp:749
 #, c-format
 msgid "The Unicode code point U+%04X is unsupported."
 msgstr "Punctul de cod Unicode „U+%04X” nu este acceptat.."
 
-#: common/convert.cpp:887
+#: common/convert.cpp:888
 #, c-format
 msgid "Invalid UTF-8 sequence at position %ld."
 msgstr "Secvență UTF-8 nevalidă la poziția %ld."
@@ -494,7 +496,7 @@ msgstr "Limba „%lang:1” nu este admisă."
 #: common/errors.cpp:259
 #, c-format
 msgid "No word lists can be found for the language \"%lang:1\"."
-msgstr "Nu poate fi găsită nici o listă de cuvinte pentru limba „%lang:1”."
+msgstr "Nu poate fi găsită nicio listă de cuvinte pentru limba „%lang:1”."
 
 #: common/errors.cpp:267
 #, c-format
@@ -514,7 +516,7 @@ msgstr "Condiția „%cond:1” nu este validă."
 #: common/errors.cpp:299
 #, c-format
 msgid "The condition \"%cond:1\" does not guarantee that \"%strip:2\" can always be stripped."
-msgstr "Condiția „%cond:1” nu garantează că „%strip:2” poate fi întotdeauna redusă (stripped)."
+msgstr "Condiția „%cond:1” nu garantează că „%strip:2” poate fi întotdeauna curățat."
 
 #: common/errors.cpp:307
 #, c-format
@@ -524,7 +526,7 @@ msgstr "Fișierul „%file:1” nu este în formatul potrivit. Se aștepta ca fi
 #: common/errors.cpp:323
 #, c-format
 msgid "The encoding \"%encod:1\" is not known."
-msgstr "Codificarea „%encod:1” nu este cunoscut”."
+msgstr "Codificarea „%encod:1” nu este cunoscută."
 
 #: common/errors.cpp:331
 #, c-format
@@ -543,11 +545,11 @@ msgstr "Șirul „%str:1” nu este valid."
 
 #: common/errors.cpp:387
 msgid "The word \"%word:1\" is invalid."
-msgstr "Cuvântul „%word:1” nu este ivalid."
+msgstr "Cuvântul „%word:1” nu este valid."
 
 #: common/errors.cpp:395
 msgid "The affix flag '%aff:1' is invalid for word \"%word:2\"."
-msgstr "Marcajul afix „%aff:1” este nevalid pentru cuvântul „%word:2”."
+msgstr "Marcajul afix „%aff:1” nu este valid pentru cuvântul „%word:2”."
 
 #: common/errors.cpp:403
 msgid "The affix flag '%aff:1' can not be applied to word \"%word:2\"."
@@ -670,7 +672,7 @@ msgstr "„%mode:1”: Magic „%magic:2”: expresie regulată greșită după 
 #: common/errors.cpp:691
 #, c-format
 msgid "\"%expression:1\" is not a valid regular expression."
-msgstr "„%expression:1”: nu este o expresie regulară validă."
+msgstr "„%expression:1”: nu este o expresie regulată validă."
 
 #: common/posib_err.cpp:114
 msgid "Unhandled Error: "
@@ -768,7 +770,7 @@ msgstr "Nu s-a putut deschide fișierul „%s” pentru citire"
 #: prog/aspell.cpp:1003
 #, c-format
 msgid "Invalid keymapping: %s"
-msgstr "Asociere de tastă nevalidă: %s"
+msgstr "Asociere de taste nevalidă: %s"
 
 #: prog/aspell.cpp:1018
 #, c-format
@@ -820,7 +822,7 @@ msgstr "Sunteți sigur că doriți să renunțați (d/n)? "
 #. MUST ONLY CONSIST OF ASCII CHARACTERS.
 #: prog/aspell.cpp:1129
 msgid "Yy"
-msgstr "DdYy"
+msgstr "Dd"
 
 #: prog/aspell.cpp:1157
 msgid "With: "
@@ -845,14 +847,14 @@ msgstr "Scuze, nu se poate suprascrie „%s”"
 
 #: prog/aspell.cpp:1625
 msgid "Sorry \"create/merge repl\" is currently unimplemented.\n"
-msgstr "Scuze, „crearea/fuzionarea de liste de înlocuiril” nu este încă implementată.\n"
+msgstr "Scuze, „crearea/fuzionarea de liste de înlocuiri” nu este încă implementată.\n"
 
 #: prog/aspell.cpp:1897
 #, c-format
 msgid "\"%s\" is not a valid flag for the \"munch-list\" command."
 msgstr "„%s” nu este o opțiune validă pentru comanda „munch-list”."
 
-#. TRANSLATORS: These should all be formated to fit in 80 column or
+#. TRANSLATORS: These should all be formatted to fit in 80 column or
 #. less
 #: prog/aspell.cpp:2829
 msgid "Usage: aspell [options] <command>"
@@ -995,7 +997,7 @@ msgstr ""
 "\n"
 "  %s filtru: %s\n"
 
-#. TRANSLATORS: This should be formated to fit in 80 column or less
+#. TRANSLATORS: This should be formatted to fit in 80 column or less
 #: prog/aspell.cpp:2963
 msgid ""
 "Available Filter Modes:\n"
@@ -1012,7 +1014,7 @@ msgstr ""
 
 #: prog/check_funs.cpp:287
 msgid "Error: Stdin not a terminal."
-msgstr "Eroare: Ieșirea standard nu este un terminal."
+msgstr "Eroare: Intrarea standard nu este un terminal."
 
 #. TRANSLATORS: This is a literal Key.
 #: prog/check_funs.cpp:774
@@ -1174,7 +1176,7 @@ msgstr "Avertisment: Se elimină afixul incorect „%s” din cuvântul %s.\n"
 #: modules/speller/default/language.cpp:585
 #, c-format
 msgid "Warning: Removing inapplicable affix '%s' from word %s.\n"
-msgstr "Avertisment: Se elimină afixul  inaplicabil „%s” din cuvântul %s.\n"
+msgstr "Avertisment: Se elimină afixul inaplicabil „%s” din cuvântul %s.\n"
 
 #: modules/speller/default/language.cpp:726
 #, c-format
@@ -1183,38 +1185,50 @@ msgstr "Avertisment: %s Se omite șirul.\n"
 
 #: modules/speller/default/language.cpp:780
 msgid "The total length is larger than 240 characters."
-msgstr "Lungimea totală e mai mare de 240 caractere."
+msgstr "Lungimea totală este mai mare de 240 caractere."
 
 #: modules/speller/default/language.cpp:784
 #, c-format
 msgid "Warning: %s Skipping word.\n"
 msgstr "Avertisment: %s Se omite cuvântul.\n"
 
-#: modules/speller/default/affix.cpp:426
+#: modules/speller/default/affix.cpp:434
 msgid "Possibly incorrect count."
 msgstr "Numărătoare posibil incorectă."
 
-#: modules/speller/default/readonly_ws.cpp:362
+#: modules/speller/default/readonly_ws.cpp:186
+msgid "Unexpected EOF."
+msgstr "Sfârșit de fișier neașteptat."
+
+#: modules/speller/default/readonly_ws.cpp:188
+msgid "I/O Error."
+msgstr "Eroare de In/Ieș."
+
+#: modules/speller/default/readonly_ws.cpp:373
 msgid "Incompatible hash function."
 msgstr "Funcție hash incompatibilă."
 
-#: modules/speller/default/readonly_ws.cpp:440
+#: modules/speller/default/readonly_ws.cpp:451
 msgid "Wrong endian order."
 msgstr "Ordine greșită a octeților (tipul de „endianness”)"
 
-#: modules/speller/default/readonly_ws.cpp:463
+#: modules/speller/default/readonly_ws.cpp:474
 msgid "Wrong soundslike."
 msgstr "„Sună ca” greșit."
 
-#: modules/speller/default/readonly_ws.cpp:469
+#: modules/speller/default/readonly_ws.cpp:480
 msgid "Wrong soundslike version."
 msgstr "Versiune „Sună ca” greșită."
 
-#: modules/speller/default/readonly_ws.cpp:936
+#: modules/speller/default/readonly_ws.cpp:497
+msgid "Invalid offset in dictionary header."
+msgstr "Poziție nevalidă în antetul dicționarului."
+
+#: modules/speller/default/readonly_ws.cpp:956
 msgid "Affix flags found in word but no affix file given."
 msgstr "Marcaje afix găsite în cuvânt dar nici un fișier de afixe nu este dat."
 
-#: modules/speller/default/readonly_ws.cpp:974
+#: modules/speller/default/readonly_ws.cpp:994
 msgid "The total word length, with soundslike data, is larger than 240 characters."
 msgstr "Lungimea totală a cuvântului, cu datele „sună ca”, este mai mare de 240 de caractere."
 
@@ -1331,7 +1345,7 @@ msgstr "verifică comentariile TeX"
 
 #: modules/filter/tex-filter.info:21
 msgid "TeX commands"
-msgstr "Comenzi TeX"
+msgstr "comenzi TeX"
 
 #: modules/filter/texinfo-filter.info:7
 msgid "filter for dealing with Texinfo documents"
@@ -1339,11 +1353,11 @@ msgstr "filtru pentru procesarea documentelor Texinfo"
 
 #: modules/filter/texinfo-filter.info:13
 msgid "Texinfo commands to ignore the parameters of"
-msgstr "Comenzi Texinfo pentru care sunt ignorați parametrii"
+msgstr "comenzi Texinfo pentru care sunt ignorați parametrii"
 
 #: modules/filter/texinfo-filter.info:41
 msgid "Texinfo environments to ignore"
-msgstr "Medii Texinfo de ignorat"
+msgstr "medii Texinfo de ignorat"
 
 #: modules/filter/url-filter.info:7
 msgid "filter to skip URL like constructs"
@@ -1351,7 +1365,7 @@ msgstr "filtru pentru ignorarea construcțiilor precum adresele URL"
 
 #: modules/filter/modes/ccpp.amf:8
 msgid "mode for checking C++ comments and string literals"
-msgstr "mod pentru verificarea comentariilor C++ și șirurilor literare"
+msgstr "mod pentru verificarea comentariilor C++ și a șirurilor literare"
 
 #: modules/filter/modes/comment.amf:5
 msgid "mode to check any lines starting with a #"
