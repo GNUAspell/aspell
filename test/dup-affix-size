@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Duplicate words whose combined affix flags push the dictionary entry past
+# the 240 character limit must be rejected by "create master", instead of
+# overflowing the one byte entry size and reading past the affix buffer.
+
+set -e
+set -x
+
+export PATH="`pwd`"/inst/bin:$PATH
+
+rm -rf tmp/dup-affix-size
+mkdir -p tmp/dup-affix-size
+cd tmp/dup-affix-size
+
+cp ../../inst/lib/aspell-0.60/iso-8859-1.cset ../../inst/lib/aspell-0.60/iso-8859-1.cmap .
+printf 'name xx\ncharset iso-8859-1\nsoundslike none\naffix xx\naffix-compress true\n' > xx.dat
+printf 'SFX A Y 1\nSFX A 0 s .\n\nSFX B Y 1\nSFX B 0 ed .\n' > xx_affix.dat
+
+# each line is within the limit on its own, together they need 257 bytes
+printf 'cat/%s\ncat/%s\n' "`printf '%126s' '' | tr ' ' A`" "`printf '%126s' '' | tr ' ' B`" > bad-words
+if aspell --lang=xx --data-dir=. --dict-dir=. create master ./bad.rws < bad-words 2> res; then
+    echo "fail: create master succeeded"
+    exit 1
+elif fgrep 'larger than 240 characters' res; then
+    echo "pass"
+else
+    echo "fail:"
+    cat res
+    exit 1
+fi
+
+# duplicates that fit are still merged
+printf 'cat/A\ncat/B\ndog/A\n' > good-words
+aspell --lang=xx --data-dir=. --dict-dir=. create master ./good.rws < good-words
+aspell --lang=xx --data-dir=. --dict-dir=. --master=./good.rws dump master > dump
+if [ "`sort dump | tr '\n' ' '`" = "cat/AB dog/A " ]; then
+    echo "pass"
+else
+    echo "fail:"
+    cat dump
+    exit 1
+fi
