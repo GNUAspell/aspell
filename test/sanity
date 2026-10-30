@@ -32,3 +32,19 @@ else
     exit 1
 fi
 
+# aspell check must not follow a symlink planted at <file>.new
+# (the document must be spelled correctly so that check never prompts;
+# without curses or termios support aspell does not notice that stdin
+# is not a terminal and would loop forever waiting for input)
+echo 'swimmer' > tmp/check.txt
+echo 'keep' > tmp/check-target
+rm -f tmp/check.txt.new
+ln -s check-target tmp/check.txt.new
+aspell -d en_US check tmp/check.txt < /dev/null > /dev/null || true
+if [ "`cat tmp/check-target`" = keep -a ! -h tmp/check.txt.new ]; then
+    echo "pass"
+else
+    echo "fail:"
+    cat tmp/check-target
+    exit 1
+fi
