@@ -8,8 +8,8 @@ ifdef SLOPPY
   EXTRA_CONFIG_FLAGS += --enable-sloppy-null-term-strings
 endif
 
-.PHONY: all prep sanity filter-test suggest wide cxx_warnings
-all: prep sanity filter-test suggest wide cxx_warnings
+.PHONY: all prep sanity filter-test dup-affix-size suggest wide cxx_warnings
+all: prep sanity filter-test dup-affix-size suggest wide cxx_warnings
 	cat test-res
 
 # warning-settings.mk defines EXTRA_CXXFLAGS
@@ -31,6 +31,10 @@ sanity: prep
 filter-test: prep
 	./filter-test "${ASPELL_WRAP} ${ASPELL}" < markdown.dat
 	echo "all ok (markdown filter-test)" >> test-res
+
+dup-affix-size: prep
+	./dup-affix-size
+	echo "all ok (dup-affix-size)" >> test-res
 
 inst/bin/aspell: build/Makefile phony
 	$(MAKE) -C build aspell && ( cmp -s build/aspell inst/bin/aspell || $(MAKE) -s -C build install )

@@ -32,21 +32,3 @@ else
     exit 1
 fi
 
-
-# duplicate words whose combined affix flags exceed the entry size limit
-# must be rejected when creating a dictionary
-mkdir -p tmp/xx
-cp inst/lib/aspell-0.60/iso-8859-1.cset inst/lib/aspell-0.60/iso-8859-1.cmap tmp/xx
-printf 'name xx\ncharset iso-8859-1\nsoundslike none\naffix xx\naffix-compress true\n' > tmp/xx/xx.dat
-printf 'SFX A Y 1\nSFX A 0 s .\n\nSFX B Y 1\nSFX B 0 ed .\n' > tmp/xx/xx_affix.dat
-printf 'cat/%s\ncat/%s\n' "`printf '%126s' '' | tr ' ' A`" "`printf '%126s' '' | tr ' ' B`" > tmp/xx/words
-if aspell --lang=xx --data-dir=tmp/xx --dict-dir=tmp/xx create master ./tmp/xx/xx.rws < tmp/xx/words 2> tmp/res; then
-    echo "fail: create master succeeded"
-    exit 1
-elif fgrep 'larger than 240 characters' tmp/res; then
-    echo "pass"
-else
-    echo "fail:"
-    cat tmp/res
-    exit 1
-fi
