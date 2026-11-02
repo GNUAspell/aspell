@@ -824,14 +824,15 @@ void pipe()
 	case 'c':
 	  switch (line[3]) {
 	  case 's':
-	    if (get_word_pair(line + 4, word, word2))
+	    if (get_word_pair(line + 4, word, word2)) {
 	      BREAK_ON_ERR(err = config->replace(word, word2));
-            if (strcmp(word,"suggest") == 0)
-              suggest = config->retrieve_bool("suggest");
-            else if (strcmp(word,"time") == 0)
-              do_time = config->retrieve_bool("time");
-            else if (strcmp(word,"guess") == 0)
-              include_guesses = config->retrieve_bool("guess");
+              if (strcmp(word,"suggest") == 0)
+                suggest = config->retrieve_bool("suggest");
+              else if (strcmp(word,"time") == 0)
+                do_time = config->retrieve_bool("time");
+              else if (strcmp(word,"guess") == 0)
+                include_guesses = config->retrieve_bool("guess");
+            }
 	    break;
 	  case 'r':
 	    word = trim_wspace(line + 4);
