@@ -1,0 +1,142 @@
+name: Windows release package
+
+on:
+  # Build and attach the zip whenever a release is published
+  release:
+    types: [published]
+  # Manual run: give an existing release tag to attach the zip to (optional)
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to upload to (leave empty to only build an artifact)"
+        required: false
+        type: string
+
+permissions:
+  contents: write   # needed to upload release assets
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - name: Set up MSYS2 (UCRT64)
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            base-devel
+            git
+            zip
+            texinfo
+            mingw-w64-ucrt-x86_64-toolchain
+            mingw-w64-ucrt-x86_64-autotools
+            mingw-w64-ucrt-x86_64-gettext-tools
+            mingw-w64-ucrt-x86_64-libtool
+            mingw-w64-ucrt-x86_64-perl
+
+      - name: Determine version and names
+        id: meta
+        shell: msys2 {0}
+        run: |
+          TAG="${{ github.event.release.tag_name || inputs.tag }}"
+          if [ -n "$TAG" ]; then
+            VERSION="${TAG#rel-}"
+            VERSION="${VERSION#v}"
+          else
+            VERSION="$(git describe --tags --always 2>/dev/null || echo dev)"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "pkg=aspell-${VERSION}-win64" >> "$GITHUB_OUTPUT"
+
+      - name: Generate configure script
+        shell: msys2 {0}
+        run: |
+          if [ -x ./autogen ]; then
+            ./autogen
+          elif [ ! -f configure ]; then
+            autoreconf -fiv
+          fi
+
+      - name: Configure
+        shell: msys2 {0}
+        run: |
+          ./configure \
+            --prefix=/aspell \
+            --enable-win32-relocatable \
+            --enable-compile-in-filters \
+            --disable-curses \
+            --disable-shared \
+            --enable-static \
+            LDFLAGS="-static -static-libgcc -static-libstdc++"
+
+      - name: Build
+        shell: msys2 {0}
+        run: make -j"$(nproc)"
+
+      - name: Install into staging directory
+        shell: msys2 {0}
+        run: |
+          rm -rf stage
+          make install DESTDIR="$PWD/stage"
+
+      - name: Bundle runtime DLLs
+        shell: msys2 {0}
+        run: |
+          BIN=stage/aspell/bin
+          # Collect every non-system DLL (those living under /ucrt64) that the
+          # installed executables and DLLs depend on, then copy them next to the exes.
+          for f in "$BIN"/*.exe "$BIN"/*.dll; do
+            [ -f "$f" ] || continue
+            ldd "$f" | awk '/\/ucrt64\/bin\//{print $3}'
+          done | sort -u | while read -r dll; do
+            echo "Bundling $dll"
+            cp -f "$dll" "$BIN"/
+          done
+          ls -l "$BIN"
+ 
+      - name: Smoke test
+        shell: msys2 {0}
+        run: |
+          ./stage/aspell/bin/aspell.exe --version
+
+
+      - name: Smoke test
+        shell: msys2 {0}
+        run: |
+          ./stage/aspell/bin/aspell.exe --version
+
+      - name: Create zip package
+        shell: msys2 {0}
+        run: |
+          PKG="${{ steps.meta.outputs.pkg }}"
+          rm -rf "$PKG" "$PKG.zip"
+          mv stage/aspell "$PKG"
+          cp -f COPYING README* "$PKG"/ 2>/dev/null || true
+          zip -r -9 "$PKG.zip" "$PKG"
+          ls -l "$PKG.zip"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.meta.outputs.pkg }}
+          path: ${{ steps.meta.outputs.pkg }}.zip
+
+      - name: Upload zip to release assets
+        if: steps.meta.outputs.tag != ''
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "${{ steps.meta.outputs.tag }}" \
+            "${{ steps.meta.outputs.pkg }}.zip" \
+            --clobber \
+            --repo "${{ github.repository }}"
