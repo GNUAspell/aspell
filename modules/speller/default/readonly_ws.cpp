@@ -189,6 +189,15 @@ static PosibErr<void> read_w_error(FStream & f, const char * file_name, void * s
   return no_err;
 }
 
+static PosibErr<void> validate_ptrs(const char * file_name, const void * begin, const void * end,
+                                    const void * ptr1, const void * ptr2 = NULL)
+{
+  if (ptr1 < begin || ptr1 >= end
+      || ptr2 && ptr2 < begin || ptr2 && ptr2 >= end)
+    return make_err(bad_file_format, file_name);
+  return no_err;
+}
+
 namespace {
 
   using namespace aspeller;
@@ -488,14 +497,6 @@ namespace {
     block_size = data_head.block_size;
     int offset = data_head.head_size;
 
-    if (data_head.word_offset > block_size
-	|| data_head.hash_offset > block_size
-	|| data_head.jump1_offset > block_size
-	|| data_head.jump2_offset > block_size
-	|| data_head.first_word_offset > block_size - data_head.word_offset)
-      return make_err(bad_file_format, fn,
-		      _("Invalid offset in dictionary header."));
-
     mmapped_block = mmap_open(block_size + offset, f, 0);
     if( mmapped_block != (char *)MAP_FAILED) {
       block = mmapped_block + offset;
@@ -506,24 +507,29 @@ namespace {
       f.seek(data_head.head_size);
       RET_ON_ERR(read_w_error(f, fn, block, block_size));
     }
+    char * block_end = block + block_size;
 
     if (data_head.jump2_offset) {
       fast_scan = true;
       jump1 = reinterpret_cast<const Jump *>(block + data_head.jump1_offset);
       jump2 = reinterpret_cast<const Jump *>(block + data_head.jump2_offset);
-    } else {
+      RET_ON_ERR(validate_ptrs(fn, block, block_end, jump1, jump2));
+   } else {
       jump1 = jump2 = 0;
     }
 
     word_block = block + data_head.word_offset;
     first_word = word_block + data_head.first_word_offset;
+    RET_ON_ERR(validate_ptrs(fn, block, block_end, word_block, first_word));
 
     word_lookup.parms().block_begin = word_block;
     word_lookup.parms().hash .lang     = lang();
     word_lookup.parms().equal.cmp.lang = lang();
     const u32int * begin = reinterpret_cast<const u32int *>
       (block + data_head.hash_offset);
-    word_lookup.vector().set(begin, begin + data_head.word_buckets);
+    const u32int * end = begin + data_head.word_buckets;
+    RET_ON_ERR(validate_ptrs(fn, block, block_end, begin, end));
+    word_lookup.vector().set(begin, end);
     word_lookup.set_size(data_head.word_count);
     
     //low_level_dump();
