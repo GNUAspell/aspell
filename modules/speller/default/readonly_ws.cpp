@@ -178,7 +178,7 @@ static inline bool duplicate_flag(const char * d) {
   return get_flags(d) & DUPLICATE_FLAG;
 }
 
-PosibErr<void> read_w_error(FStream & f, const char * file_name, void * str, unsigned int n)
+static PosibErr<void> read_w_error(FStream & f, const char * file_name, void * str, unsigned int n)
 {
   FILE * fh = f.c_stream();
   fread(str,1,n,fh);
@@ -435,7 +435,7 @@ namespace {
 
     DataHead data_head;
 
-    f.read(&data_head, sizeof(DataHead));
+    RET_ON_ERR(read_w_error(f, fn, &data_head, sizeof(DataHead)));
 
 #if 0
     COUT << "Head Size: " << data_head.head_size << "\n";
