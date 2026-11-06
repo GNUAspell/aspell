@@ -36,12 +36,14 @@ namespace {
       }
       PosibErr<bool> add(ParmStr s) {
         RET_ON_ERR_SET(conv(s), const char *, val);
+        if (conv.buf.empty()) return true;
         Value c = *(Value *)val;
         if (!have(c)) data.push_back(c);
         return true;
       }
       PosibErr<bool> remove(ParmStr s) {
         RET_ON_ERR_SET(conv(s), const char *, val);
+        if (conv.buf.empty()) return true;
         Value c = *(Value *)val;
         Vector<Value>::iterator i = data.begin();
         Vector<Value>::iterator end = data.end();
