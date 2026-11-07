@@ -643,7 +643,7 @@ namespace aspeller {
       if (!dict) {
         dict = new_default_writable_dict(*config_);
         dict->set_check_lang(lang_name(), *config_);
-        RET_ON_ERR(add_dict(new SpellerDict(dict, *config_)));
+        RET_ON_ERR(add_dict(new SpellerDict(dict)));
       }
       const char * fn;
       StringListEnumeration els = wordlist_files.elements_obj();
