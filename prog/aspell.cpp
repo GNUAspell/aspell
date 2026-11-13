@@ -657,7 +657,8 @@ void print_elements(const AspellWordList * wl) {
     line += w;
     line += ", ";
   }
-  line.resize(line.size() - 2);
+  if (count > 0)
+    line.resize(line.size() - 2);
   COUT.printf("%u: %s\n", count, line.c_str());
 }
 
@@ -1823,6 +1824,7 @@ static void print_wordaff(const String & base, const String & affs, Conv & oconv
 static bool lower_equal(aspeller::Language * l, ParmString a, ParmString b)
 {
   if (a.size() != b.size()) return false;
+  if (a.size() == 0) return true;
   if (l->to_lower(a[0]) != l->to_lower(b[0])) return false;
   return memcmp(a + 1, b + 1, a.size() - 1) == 0;
 }
