@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# A phonet rule with an unterminated "(" group must not make phonet()
+# scan past the end of the rule string looking for the closing ")".
+
+set -e
+set -x
+
+export PATH="`pwd`"/inst/bin:$PATH
+
+rm -rf tmp/phonet-paren
+mkdir -p tmp/phonet-paren
+cd tmp/phonet-paren
+
+cp ../../inst/lib/aspell-0.60/iso-8859-1.cset ../../inst/lib/aspell-0.60/iso-8859-1.cmap .
+printf 'name xx\ncharset iso-8859-1\nsoundslike xx\n' > xx.dat
+
+# The rule strings are stored next to each other, so without the fix the
+# scan for ")" in "A(B" runs into the earlier "Q)$" rule and "AB" no
+# longer maps to "X".
+printf 'version 1.0\nQ)$ Y\nA(B X\n' > xx_phonet.dat
+echo AB | aspell --lang=xx --data-dir=. --dict-dir=. soundslike > res
+if [ "`cat res`" = "`printf 'AB\tX'`" ]; then
+    echo "pass"
+else
+    echo "fail:"
+    cat res
+    exit 1
+fi
+
+# a properly closed group behaves the same as before
+printf 'version 1.0\nA(B) X\n' > xx_phonet.dat
+printf 'AB\nAC\n' | aspell --lang=xx --data-dir=. --dict-dir=. soundslike > res
+if [ "`cat res | tr '\t\n' ': '`" = "AB:X AC: " ]; then
+    echo "pass"
+else
+    echo "fail:"
+    cat res
+    exit 1
+fi

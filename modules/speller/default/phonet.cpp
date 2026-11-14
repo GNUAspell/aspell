@@ -249,9 +249,10 @@ namespace aspeller {
             if (parms.lang->is_alpha(word[i+k])  // ...could be implied?
                 && strchr(s+1, word[i+k]) != NULL) {
               k++;
-              while (*s != ')')
+              while (*s != ')'  &&  *s != '\0')
                 s++;
-              s++;
+              if (*s == ')')
+                s++;
             }
           }
           p0 = (int) *s;
