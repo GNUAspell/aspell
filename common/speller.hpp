@@ -22,6 +22,7 @@
 #include "posib_err.hpp"
 #include "parm_string.hpp"
 #include "char_vector.hpp"
+#include "suggestions.hpp"
 
 namespace acommon {
 
@@ -126,6 +127,8 @@ namespace acommon {
     // return null on error
     // the word list returned by suggest is only valid until the next
     // call to suggest
+
+    virtual PosibErr<Suggestions *> suggestions(MutableString, void *) = 0;
   
     virtual PosibErr<void> store_replacement(MutableString, 
 					     MutableString) = 0;
