@@ -13,6 +13,7 @@
 #include "fstream.hpp"
 #include "errors.hpp"
 #include "string_list.hpp"
+#include "asc_ctype.hpp"
 
 #ifdef USE_FILE_LOCKS
 #  include <fcntl.h>

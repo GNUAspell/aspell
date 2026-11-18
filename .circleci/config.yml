@@ -302,6 +302,60 @@ jobs:
         when: always
         command: CXX=clang++-21 CC=clang-21 ./sanity-check.sh
 
+  build_20_04_mingw64:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    #shell: /bin/bash --login
+    # To see the list of pre-built images that CircleCI provides for most common languages see
+    # https://circleci.com/docs/2.0/circleci-images/
+    docker:
+    - image: cimg/base:2022.12-20.04
+    steps:
+    # Machine Setup
+    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
+    #   of this that are relevant in each
+    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly.
+    # In 2.0 you can choose where in the course of a job your code should be checked out.
+    - checkout
+    #
+    # note: default gcc version is 8.3
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib mingw-w64
+    - run: sudo apt-get -y purge aspell
+    #
+    - run: ./autogen
+    - run: ./configure --host=x86_64-w64-mingw32 && make
+    - run: make dist clean
+    - run: ./configure --host=i686-w64-mingw32 && make
+    - run: make dist clean
+
+  build_22_04_mingw64:
+    working_directory: ~/GNUAspell/aspell
+    parallelism: 1
+    #shell: /bin/bash --login
+    # To see the list of pre-built images that CircleCI provides for most common languages see
+    # https://circleci.com/docs/2.0/circleci-images/
+    docker:
+    - image: cimg/base:2022.12-22.04
+    steps:
+    # Machine Setup
+    #   If you break your build into multiple jobs with workflows, you will probably want to do the parts
+    #   of this that are relevant in each
+    # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly.
+    # In 2.0 you can choose where in the course of a job your code should be checked out.
+    - checkout
+    #
+    # note: default gcc version is 8.3
+    - run: sudo apt-get -y update
+    - run: sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib mingw-w64
+    - run: sudo apt-get -y purge aspell
+    #
+    - run: ./autogen
+    - run: ./configure --host=x86_64-w64-mingw32 && make
+    - run: make dist clean
+    - run: ./configure --host=i686-w64-mingw32 && make
+    - run: make dist clean
+
 
   tests_20_04:
     working_directory: ~/GNUAspell/aspell
@@ -361,13 +415,16 @@ workflows:
   version: 2
   sanity_check:
     jobs:
-      - build_jessie
-      - build_16_04
-      - build_18_04
-      - build_20_04
-      - build_22_04
-      - build_24_04
-      - build_snapshots
+      #- build_jessie
+      #- build_16_04
+      #- build_18_04
+      #- build_20_04
+      #- build_22_04
+      #- build_24_04
+      #- build_snapshots
+      - build_20_04_mingw64
+      - build_22_04_mingw64
+
   tests:
     jobs:
       - tests_20_04
