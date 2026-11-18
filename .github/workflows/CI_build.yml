@@ -1,0 +1,141 @@
+name: CI_build
+
+on: [push, pull_request]
+
+jobs:
+
+  build_windows_msys2:
+
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_configuration: [Release, Debug]
+        build_platform: [x86_64, i686]
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v6
+
+    - name: Make aspell install
+      working-directory: .\
+      run: |
+        Write-host "${{ matrix.build_platform }}"
+        Write-host "${{ matrix.build_configuration }}"
+        $Env:Path = 'C:\msys64\usr\bin' + [IO.Path]::PathSeparator + $Env:Path
+        if ( $${{ matrix.build_platform == 'i686'}} ) {$Env:MSYSTEM = 'MINGW32'}
+        if ( $${{ matrix.build_platform == 'i686'}} ) {$Env:Path = 'C:\msys64\mingw32\bin' + [IO.Path]::PathSeparator + $Env:Path}
+        if ( $${{ matrix.build_platform == 'x86_64'}} ) {$Env:MSYSTEM = 'MINGW64'}
+        if ( $${{ matrix.build_platform == 'x86_64'}} ) {$Env:Path = 'C:\msys64\mingw64\bin' + [IO.Path]::PathSeparator + $Env:Path}
+        if ( $${{ matrix.build_configuration == 'Debug'}} ) {$Env:DEBUG = '1'}
+        bash -lc "pacman --noconfirm -Syuu"
+        bash -lc "pacman --noconfirm -Syuu"
+        if ( $${{ matrix.build_platform == 'i686'}} ) {bash -lc "pacman --noconfirm -S mingw-w64-i686-gcc mingw-w64-i686-make"}
+        if ( $${{ matrix.build_platform == 'x86_64'}} ) {bash -lc "pacman --noconfirm -S mingw-w64-x86_64-gcc mingw-w64-x86_64-make"}
+        Write-Output "Tools version:"
+        Write-Output (((gcc --version) | select-object -first 1) + " " + (gcc -dumpmachine))
+        Write-Output (mingw32-make --version) | select-object -first 1
+        Write-Output (sh --version) | select-object -first 1
+        cd auto
+        perl -I ./ mk-src.pl
+        cd ../win32
+        mingw32-make
+        mingw32-make prefix=./installation install
+
+    - name: Archive artifacts for ${{ matrix.build_platform}} / Release
+      if: matrix.build_configuration == 'Release'
+      uses: actions/upload-artifact@v6
+      with:
+          name: aspell_win.${{ matrix.build_platform}}.${{ matrix.build_configuration}}
+          path: win32/installation/
+
+
+  build_linux_mingw:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_platform: ["x86_64", i686]
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Prepare generated files
+      working-directory: ./auto
+      run: |
+           perl -I ./ mk-src.pl
+
+    - name: Install packages via apt
+      run: |
+           sudo apt-get -qq update
+           sudo apt-get -qq install -y mingw-w64
+           (for alt in i686-w64-mingw32-g++ i686-w64-mingw32-gcc x86_64-w64-mingw32-g++ x86_64-w64-mingw32-gcc; do sudo update-alternatives --set $alt /usr/bin/$alt-posix; done);
+
+    - name: build make mingw
+      working-directory: ./win32
+      run: |
+           export PATH=/usr/bin/${{ matrix.build_platform }}-w64-mingw32-gcc/bin:/usr/bin/${{ matrix.build_platform }}-w64-mingw32-g++/bin:$PATH
+           ${{ matrix.build_platform }}-w64-mingw32-g++ --version
+           make TARGET=${{ matrix.build_platform }}-w64-mingw32-
+           make TARGET=${{ matrix.build_platform }}-w64-mingw32- prefix=./installation install
+
+    - name: Archive artifacts for ${{ matrix.build_platform}}
+      uses: actions/upload-artifact@v6
+      with:
+          name: aspell_mingw_cross.${{ matrix.build_platform}}
+          path: win32/installation/
+
+
+  build_linux_autogen:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_platform: ["x86_64", i686]
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install packages via apt
+      run: |
+           sudo apt-get -qq update
+           sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext
+           sudo apt-get -qq install -y mingw-w64
+           (for alt in i686-w64-mingw32-g++ i686-w64-mingw32-gcc x86_64-w64-mingw32-g++ x86_64-w64-mingw32-gcc; do sudo update-alternatives --set $alt /usr/bin/$alt-posix; done);
+
+    - name: build
+      working-directory: ./
+      run: |
+           ./autogen
+           ./configure --host=${{ matrix.build_platform}}-w64-mingw32 && make
+
+
+  build_linux_native:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Install packages via apt
+      run: |
+           sudo apt-get -y update
+           sudo apt-get -y install make autopoint texinfo libtool intltool bzip2 gettext g++-multilib g++-13 g++-14 g++-14-multilib clang-16 clang-17 clang-18 clang-19
+           sudo apt-get -y purge aspell
+
+    - name: build
+      working-directory: ./
+      run: |
+           ./autogen
+           ./sanity-check.sh
+           CXX="g++ -m32" CC="gcc -m32" ./sanity-check.sh
+           CXX="g++-14 -m32" CC="gcc-14 -m32" ./sanity-check.sh
+           CXX=g++-13 CC=gcc-13 ./sanity-check.sh
+           CXX=g++-14 CC=gcc-14 ./sanity-check.sh
+           CXX=clang++-16 CC=clang-16 ./sanity-check.sh
+           CXX=clang++-17 CC=clang-17 ./sanity-check.sh
+           CXX=clang++-18 CC=clang-18 ./sanity-check.sh
+           CXX=clang++-19 CC=clang-19 ./sanity-check.sh
+           ./config-opt && make -C build -j2
