@@ -108,7 +108,7 @@ namespace aspeller {
       guess_info.reset();
       return check(word.begin(), word.end(), false,
 		   unconditional_run_together_ ? run_together_limit_ : 0,
-		   check_inf, check_inf + 8, &guess_info);
+		   check_inf, check_inf + 64, &guess_info);
     }
     PosibErr<bool> check(ParmString word)
     {
@@ -213,7 +213,7 @@ namespace aspeller {
     double distance (const char *, const char *, 
 		     const char *, const char *) const;
 
-    CheckInfo check_inf[8];
+    CheckInfo check_inf[64];
     GuessInfo guess_info;
 
     SensitiveCompare s_cmp;
