@@ -1,0 +1,15 @@
+# gettext po filter option file
+
+#This Filter is usable with the following version(s) of Aspell
+ASPELL >=0.51
+
+#This line will be printed when typing `aspell help po'
+DESCRIPTION filter to deal with gettext .po files
+
+STATIC filter
+
+OPTION maintainer-mode
+TYPE bool
+DESCRIPTION review only msgids
+DEFAULT false
+ENDOPTION
