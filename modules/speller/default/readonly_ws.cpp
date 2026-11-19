@@ -193,7 +193,7 @@ static PosibErr<void> validate_ptrs(const char * file_name, const void * begin, 
                                     const void * ptr1, const void * ptr2 = NULL)
 {
   if (ptr1 < begin || ptr1 >= end
-      || ptr2 && ptr2 < begin || ptr2 && ptr2 >= end)
+      || (ptr2 && ptr2 < begin) || (ptr2 && ptr2 >= end))
     return make_err(bad_file_format, file_name);
   return no_err;
 }
