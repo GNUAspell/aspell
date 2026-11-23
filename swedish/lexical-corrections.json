@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "note": "Reviewed misspellings; also applied to legacy Aspell inputs during conversion. Not a general character replacement rule.",
+  "corrections": [
+    {
+      "word": "adressskanning",
+      "replacement": "adresskanning",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "bollliknande",
+      "replacement": "bolliknande",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "enspannnet",
+      "replacement": "enspannet",
+      "rule": "R35",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "word": "enspannnets",
+      "replacement": "enspannets",
+      "rule": "R35",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "word": "fjärrresursen",
+      "replacement": "fjärresursen",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "formattera",
+      "replacement": "formatera",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterad",
+      "replacement": "formaterad",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterade",
+      "replacement": "formaterade",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterades",
+      "replacement": "formaterades",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterar",
+      "replacement": "formaterar",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterare",
+      "replacement": "formaterare",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterat",
+      "replacement": "formaterat",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "formatterats",
+      "replacement": "formaterats",
+      "rule": "R04",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "word": "gemensammma",
+      "replacement": "gemensamma",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "internnummmer",
+      "replacement": "internnummer",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "mallleverantören",
+      "replacement": "malleverantören",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "word": "skatttefria",
+      "replacement": "skattefria",
+      "rule": "R01",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    }
+  ]
+}

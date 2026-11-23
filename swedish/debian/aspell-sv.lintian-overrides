@@ -1,0 +1,3 @@
+# Aspell reads phonetic rules in the ISO-8859-1 charset declared in sv.dat.
+# Converting this file to UTF-8 would change runtime behavior.
+aspell-sv: national-encoding [usr/lib/aspell/sv_phonet.dat]
