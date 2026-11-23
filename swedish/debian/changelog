@@ -1,0 +1,26 @@
+aspell-sv (2026.11.23~rc1-1) unstable; urgency=medium
+
+  * Refresh the exported Swedish dictionary from hunspell-sv 2abdb04.
+  * Update source hashes and verify the expanded word list.
+
+  * Adopt Sprakradet as the authority for Swedish language and writing rules.
+  * Validate source evidence and separate context advice from spelling tests.
+  * Install the language policy and reviewed rule catalogue as documentation.
+
+ -- Daniel Nylander <github@danielnylander.se>  Mon, 21 Sep 2026 13:23:43 +0000
+
+aspell-sv (2026.09.21~rc2-1) unstable; urgency=medium
+
+  * Apply reviewed corrections to the legacy and Hunspell word sources.
+  * Extend compound vocabulary and test complete words through libaspell.
+  * Refresh the pinned Hunspell revision and conversion evidence.
+
+ -- Daniel Nylander <github@danielnylander.se>  Mon, 21 Sep 2026 12:00:00 +0000
+
+aspell-sv (2026.09.17~rc1-1) unstable; urgency=medium
+
+  * Package the Swedish dictionary conversion preview.
+  * Generate native dictionary hashes at installation time.
+  * Disable free compounds and test all exported word forms.
+
+ -- Daniel Nylander <github@danielnylander.se>  Thu, 17 Sep 2026 12:00:00 +0000

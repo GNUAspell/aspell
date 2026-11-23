@@ -1,0 +1,3 @@
+Tests: spelling
+Depends: @, python3
+Restrictions: superficial

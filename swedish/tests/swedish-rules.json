@@ -1,0 +1,2663 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-21",
+  "scope": "Modern svensk standardskrift, med uttryckligt angivna varianter och stilskillnader.",
+  "warning": "Urval för feldiagnostik; inte heltäckande grammatik eller representativt kvalitetsmått.",
+  "cases": [
+    {
+      "id": "T001",
+      "rule": "R01",
+      "scope": "word",
+      "text": "äggula",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T002",
+      "rule": "R01",
+      "scope": "word",
+      "text": "glasstrut",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T003",
+      "rule": "R01",
+      "scope": "word",
+      "text": "nattåg",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T004",
+      "rule": "R01",
+      "scope": "word",
+      "text": "tillåta",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T005",
+      "rule": "R01",
+      "scope": "word",
+      "text": "missköta",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T006",
+      "rule": "R01",
+      "scope": "word",
+      "text": "topposition",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T007",
+      "rule": "R01",
+      "scope": "word",
+      "text": "glass-skål",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T008",
+      "rule": "R01",
+      "scope": "word",
+      "text": "jobb-bevakning",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T009",
+      "rule": "R01",
+      "scope": "word",
+      "text": "jobbevakning",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T010",
+      "rule": "R01",
+      "scope": "word",
+      "text": "ägggula",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T011",
+      "rule": "R01",
+      "scope": "word",
+      "text": "glassstrut",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T012",
+      "rule": "R01",
+      "scope": "word",
+      "text": "natttåg",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T013",
+      "rule": "R01",
+      "scope": "word",
+      "text": "tilllåta",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T014",
+      "rule": "R01",
+      "scope": "word",
+      "text": "misssköta",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T015",
+      "rule": "R01",
+      "scope": "word",
+      "text": "toppposition",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T016",
+      "rule": "R01",
+      "scope": "word",
+      "text": "jobbbevakning",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T017",
+      "rule": "R02",
+      "scope": "word",
+      "text": "kam",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T018",
+      "rule": "R02",
+      "scope": "word",
+      "text": "kamma",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T019",
+      "rule": "R02",
+      "scope": "word",
+      "text": "kammar",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T020",
+      "rule": "R02",
+      "scope": "word",
+      "text": "tom",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T021",
+      "rule": "R02",
+      "scope": "word",
+      "text": "tomma",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T022",
+      "rule": "R02",
+      "scope": "word",
+      "text": "grym",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T023",
+      "rule": "R02",
+      "scope": "word",
+      "text": "grymma",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T024",
+      "rule": "R02",
+      "scope": "word",
+      "text": "dam",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T025",
+      "rule": "R02",
+      "scope": "word",
+      "text": "damm",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T026",
+      "rule": "R02",
+      "scope": "word",
+      "text": "lamm",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T027",
+      "rule": "R02",
+      "scope": "word",
+      "text": "ram",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T028",
+      "rule": "R02",
+      "scope": "word",
+      "text": "ramm",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T029",
+      "rule": "R02",
+      "scope": "word",
+      "text": "kamm",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T030",
+      "rule": "R02",
+      "scope": "word",
+      "text": "tomm",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T031",
+      "rule": "R02",
+      "scope": "word",
+      "text": "gryma",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ]
+    },
+    {
+      "id": "T032",
+      "rule": "R03",
+      "scope": "word",
+      "text": "hembränd",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T033",
+      "rule": "R03",
+      "scope": "word",
+      "text": "hembränt",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T034",
+      "rule": "R03",
+      "scope": "word",
+      "text": "hembränning",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T035",
+      "rule": "R03",
+      "scope": "word",
+      "text": "bränntemperatur",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T036",
+      "rule": "R03",
+      "scope": "word",
+      "text": "hembrännd",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T037",
+      "rule": "R03",
+      "scope": "word",
+      "text": "hembrännt",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ]
+    },
+    {
+      "id": "T038",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatera",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T039",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatering",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T040",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formaterar",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T041",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formaterade",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T042",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formaterat",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T043",
+      "rule": "R04",
+      "scope": "word",
+      "text": "paketera",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T044",
+      "rule": "R04",
+      "scope": "word",
+      "text": "paketering",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T045",
+      "rule": "R04",
+      "scope": "word",
+      "text": "etikettera",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T046",
+      "rule": "R04",
+      "scope": "word",
+      "text": "etikettering",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T047",
+      "rule": "R04",
+      "scope": "word",
+      "text": "programmera",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T048",
+      "rule": "R04",
+      "scope": "word",
+      "text": "programmering",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T049",
+      "rule": "R04",
+      "scope": "word",
+      "text": "programmet",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T050",
+      "rule": "R04",
+      "scope": "word",
+      "text": "reklamera",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T051",
+      "rule": "R04",
+      "scope": "word",
+      "text": "reklamation",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T052",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formattera",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T053",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formattering",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T054",
+      "rule": "R04",
+      "scope": "word",
+      "text": "pakettera",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T055",
+      "rule": "R04",
+      "scope": "word",
+      "text": "etiketera",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T056",
+      "rule": "R04",
+      "scope": "word",
+      "text": "etiketering",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T057",
+      "rule": "R04",
+      "scope": "word",
+      "text": "programera",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T058",
+      "rule": "R04",
+      "scope": "word",
+      "text": "programering",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T059",
+      "rule": "R04",
+      "scope": "word",
+      "text": "reklammera",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T060",
+      "rule": "R05",
+      "scope": "word",
+      "text": "idé",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T061",
+      "rule": "R05",
+      "scope": "word",
+      "text": "idén",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T062",
+      "rule": "R05",
+      "scope": "word",
+      "text": "idéer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T063",
+      "rule": "R05",
+      "scope": "word",
+      "text": "idéerna",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T064",
+      "rule": "R05",
+      "scope": "word",
+      "text": "museum",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T065",
+      "rule": "R05",
+      "scope": "word",
+      "text": "museet",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T066",
+      "rule": "R05",
+      "scope": "word",
+      "text": "museer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T067",
+      "rule": "R05",
+      "scope": "word",
+      "text": "jubileum",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T068",
+      "rule": "R05",
+      "scope": "word",
+      "text": "jubileet",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T069",
+      "rule": "R05",
+      "scope": "word",
+      "text": "jubileer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T070",
+      "rule": "R05",
+      "scope": "word",
+      "text": "kommitté",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T071",
+      "rule": "R05",
+      "scope": "word",
+      "text": "kommittéer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T072",
+      "rule": "R05",
+      "scope": "word",
+      "text": "kafé",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T073",
+      "rule": "R05",
+      "scope": "word",
+      "text": "kaféer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T074",
+      "rule": "R05",
+      "scope": "word",
+      "text": "armé",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T075",
+      "rule": "R05",
+      "scope": "word",
+      "text": "arméer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T076",
+      "rule": "R05",
+      "scope": "word",
+      "text": "muséer",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T077",
+      "rule": "R05",
+      "scope": "word",
+      "text": "muséet",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T078",
+      "rule": "R05",
+      "scope": "word",
+      "text": "jubiléer",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T079",
+      "rule": "R05",
+      "scope": "word",
+      "text": "jubiléet",
+      "expected_accept": false,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ]
+    },
+    {
+      "id": "T080",
+      "rule": "R06",
+      "scope": "word",
+      "text": "blåbärspaj",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T081",
+      "rule": "R06",
+      "scope": "word",
+      "text": "blåbärssylt",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T082",
+      "rule": "R06",
+      "scope": "word",
+      "text": "lastbilsstöld",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T083",
+      "rule": "R06",
+      "scope": "word",
+      "text": "enhetschef",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T084",
+      "rule": "R06",
+      "scope": "word",
+      "text": "köksskåp",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T085",
+      "rule": "R06",
+      "scope": "word",
+      "text": "tidsplan",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T086",
+      "rule": "R06",
+      "scope": "word",
+      "text": "tidplan",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T087",
+      "rule": "R06",
+      "scope": "word",
+      "text": "tidpunkt",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T088",
+      "rule": "R06",
+      "scope": "word",
+      "text": "tidtagning",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T089",
+      "rule": "R06",
+      "scope": "word",
+      "text": "dagsböter",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T090",
+      "rule": "R06",
+      "scope": "word",
+      "text": "dagdröm",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ]
+    },
+    {
+      "id": "T091",
+      "rule": "R07",
+      "scope": "word",
+      "text": "kärnkraftsindustri",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T092",
+      "rule": "R07",
+      "scope": "word",
+      "text": "kärnkraftverk",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T093",
+      "rule": "R07",
+      "scope": "word",
+      "text": "vindkraftspark",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T094",
+      "rule": "R07",
+      "scope": "word",
+      "text": "vindkraftverk",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T095",
+      "rule": "R07",
+      "scope": "word",
+      "text": "vattenkraftsproduktion",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T096",
+      "rule": "R07",
+      "scope": "word",
+      "text": "vattenkraftverk",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T097",
+      "rule": "R07",
+      "scope": "word",
+      "text": "barnbokhandel",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T098",
+      "rule": "R07",
+      "scope": "word",
+      "text": "barnbokshandel",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ]
+    },
+    {
+      "id": "T099",
+      "rule": "R08",
+      "scope": "word",
+      "text": "ladugård",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T100",
+      "rule": "R08",
+      "scope": "word",
+      "text": "ladusvala",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T101",
+      "rule": "R08",
+      "scope": "word",
+      "text": "kyrktorn",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T102",
+      "rule": "R08",
+      "scope": "word",
+      "text": "kyrkomusiker",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T103",
+      "rule": "R08",
+      "scope": "word",
+      "text": "oljerigg",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T104",
+      "rule": "R08",
+      "scope": "word",
+      "text": "oljefärg",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T105",
+      "rule": "R08",
+      "scope": "word",
+      "text": "kedjereaktion",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T106",
+      "rule": "R08",
+      "scope": "word",
+      "text": "pizzarecept",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T107",
+      "rule": "R08",
+      "scope": "word",
+      "text": "pulkbacke",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T108",
+      "rule": "R08",
+      "scope": "word",
+      "text": "pulkabacke",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T109",
+      "rule": "R08",
+      "scope": "word",
+      "text": "svensklärare",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T110",
+      "rule": "R08",
+      "scope": "word",
+      "text": "svenskalärare",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ]
+    },
+    {
+      "id": "T111",
+      "rule": "R09",
+      "scope": "word",
+      "text": "tv-program",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ]
+    },
+    {
+      "id": "T112",
+      "rule": "R09",
+      "scope": "word",
+      "text": "usb-minne",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ]
+    },
+    {
+      "id": "T113",
+      "rule": "R09",
+      "scope": "word",
+      "text": "AT-läkare",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ]
+    },
+    {
+      "id": "T114",
+      "rule": "R09",
+      "scope": "word",
+      "text": "VM-kval",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ]
+    },
+    {
+      "id": "T115",
+      "rule": "R09",
+      "scope": "word",
+      "text": "spaanläggning",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ]
+    },
+    {
+      "id": "T116",
+      "rule": "R10",
+      "scope": "word",
+      "text": "fotbollsförbund",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29064",
+        "https://frageladan.isof.se/faqs/31227"
+      ]
+    },
+    {
+      "id": "T117",
+      "rule": "R10",
+      "scope": "context",
+      "text": "Svenska Fotbollförbundet",
+      "assessment": "giltigt namn",
+      "note": "Organisationens fastställda namn; ska inte normaliseras efter en allmän foge-s-regel.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29064",
+        "https://frageladan.isof.se/faqs/31227"
+      ]
+    },
+    {
+      "id": "T118",
+      "rule": "R11",
+      "scope": "word",
+      "text": "Annas",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20976",
+        "https://frageladan.isof.se/faqs/30687"
+      ]
+    },
+    {
+      "id": "T119",
+      "rule": "R11",
+      "scope": "word",
+      "text": "Max",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20976",
+        "https://frageladan.isof.se/faqs/30687"
+      ]
+    },
+    {
+      "id": "T120",
+      "rule": "R11",
+      "scope": "context",
+      "text": "Linas cykel är blå.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel på vanlig s-genitiv.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20976",
+        "https://frageladan.isof.se/faqs/30687"
+      ]
+    },
+    {
+      "id": "T121",
+      "rule": "R11",
+      "scope": "context",
+      "text": "Lina’s cykel är blå.",
+      "assessment": "avvikelse i vanlig standardskrift",
+      "note": "Eget exempel; en ordlista kan släppa igenom delarna trots apostrofen.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20976",
+        "https://frageladan.isof.se/faqs/30687"
+      ]
+    },
+    {
+      "id": "T122",
+      "rule": "R12",
+      "scope": "word",
+      "text": "vd:s",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T123",
+      "rule": "R12",
+      "scope": "word",
+      "text": "tv:n",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T124",
+      "rule": "R12",
+      "scope": "word",
+      "text": "tv:ar",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T125",
+      "rule": "R12",
+      "scope": "word",
+      "text": "tv:arna",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T126",
+      "rule": "R12",
+      "scope": "word",
+      "text": "tv:s",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T127",
+      "rule": "R12",
+      "scope": "context",
+      "text": "SAS:s flygplan",
+      "assessment": "tillåten variant",
+      "note": "Kolon-s kan tydliggöra genitiv.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T128",
+      "rule": "R12",
+      "scope": "context",
+      "text": "SAS flygplan",
+      "assessment": "tillåten variant",
+      "note": "En förkortning på s behöver inte alltid ytterligare genitivmarkering.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T129",
+      "rule": "R13",
+      "scope": "word",
+      "text": "tv",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T130",
+      "rule": "R13",
+      "scope": "word",
+      "text": "vd",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T131",
+      "rule": "R13",
+      "scope": "word",
+      "text": "pdf",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T132",
+      "rule": "R13",
+      "scope": "word",
+      "text": "usb",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T133",
+      "rule": "R13",
+      "scope": "word",
+      "text": "dna",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T134",
+      "rule": "R13",
+      "scope": "word",
+      "text": "EU",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T135",
+      "rule": "R13",
+      "scope": "word",
+      "text": "VM",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ]
+    },
+    {
+      "id": "T136",
+      "rule": "R14",
+      "scope": "word",
+      "text": "idag",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T137",
+      "rule": "R14",
+      "scope": "word",
+      "text": "framförallt",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T138",
+      "rule": "R14",
+      "scope": "word",
+      "text": "nuförtiden",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T139",
+      "rule": "R14",
+      "scope": "word",
+      "text": "hejdå",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T140",
+      "rule": "R14",
+      "scope": "word",
+      "text": "istället",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T141",
+      "rule": "R14",
+      "scope": "context",
+      "text": "i dag",
+      "assessment": "tillåten variant",
+      "note": "Likvärdig stavningsvariant till idag.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T142",
+      "rule": "R14",
+      "scope": "context",
+      "text": "framför allt",
+      "assessment": "tillåten variant",
+      "note": "Särskriven variant; ska inte automatkorrigeras till ett enda ord.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T143",
+      "rule": "R14",
+      "scope": "context",
+      "text": "nu för tiden",
+      "assessment": "tillåten variant",
+      "note": "Särskriven variant; orddelar som accepteras bevisar inte frasanalys.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ]
+    },
+    {
+      "id": "T144",
+      "rule": "R15",
+      "scope": "word",
+      "text": "såhär",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27942"
+      ]
+    },
+    {
+      "id": "T145",
+      "rule": "R15",
+      "scope": "word",
+      "text": "sådär",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27942"
+      ]
+    },
+    {
+      "id": "T146",
+      "rule": "R15",
+      "scope": "context",
+      "text": "så här",
+      "assessment": "tillåten variant",
+      "note": "Kan skrivas isär.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27942"
+      ]
+    },
+    {
+      "id": "T147",
+      "rule": "R16",
+      "scope": "word",
+      "text": "skumtomte",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21159"
+      ]
+    },
+    {
+      "id": "T148",
+      "rule": "R16",
+      "scope": "word",
+      "text": "sjuksköterska",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21159"
+      ]
+    },
+    {
+      "id": "T149",
+      "rule": "R16",
+      "scope": "context",
+      "text": "En sjuk sköterska ringde.",
+      "assessment": "beror på avsikten",
+      "note": "Korrekt om sköterskan är sjuk; yrkesbenämningen sjuksköterska har annan betydelse.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21159"
+      ]
+    },
+    {
+      "id": "T150",
+      "rule": "R16",
+      "scope": "context",
+      "text": "En sjuksköterska ringde.",
+      "assessment": "standardskrift",
+      "note": "Yrkesbenämning; egen kontrollmening.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21159"
+      ]
+    },
+    {
+      "id": "T151",
+      "rule": "R17",
+      "scope": "word",
+      "text": "policy",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T152",
+      "rule": "R17",
+      "scope": "word",
+      "text": "policyn",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T153",
+      "rule": "R17",
+      "scope": "word",
+      "text": "policyer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T154",
+      "rule": "R17",
+      "scope": "word",
+      "text": "policyerna",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T155",
+      "rule": "R17",
+      "scope": "word",
+      "text": "policys",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T156",
+      "rule": "R17",
+      "scope": "word",
+      "text": "jury",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T157",
+      "rule": "R17",
+      "scope": "word",
+      "text": "juryer",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ]
+    },
+    {
+      "id": "T158",
+      "rule": "R18",
+      "scope": "word",
+      "text": "femhundra",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T159",
+      "rule": "R18",
+      "scope": "word",
+      "text": "niotusen",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T160",
+      "rule": "R18",
+      "scope": "word",
+      "text": "tjugofem",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T161",
+      "rule": "R18",
+      "scope": "word",
+      "text": "femhundralapp",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T162",
+      "rule": "R18",
+      "scope": "word",
+      "text": "femhundraårsjubileum",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T163",
+      "rule": "R18",
+      "scope": "context",
+      "text": "fem hundra",
+      "assessment": "tillåten variant",
+      "note": "Särskrivning kan tydliggöra ett avrundat hundratal.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ]
+    },
+    {
+      "id": "T164",
+      "rule": "R19",
+      "scope": "context",
+      "text": "Hon talar svenska.",
+      "assessment": "standardskrift",
+      "note": "Språknamnet är inget egennamn här.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29769",
+        "https://frageladan.isof.se/faqs/29850"
+      ]
+    },
+    {
+      "id": "T165",
+      "rule": "R19",
+      "scope": "context",
+      "text": "Hon talar Svenska.",
+      "assessment": "avvikelse i vanlig standardskrift",
+      "note": "Stavningsmotorn kan acceptera en möjlig meningsinledande form utan att granska dess position.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29769",
+        "https://frageladan.isof.se/faqs/29850"
+      ]
+    },
+    {
+      "id": "T166",
+      "rule": "R20",
+      "scope": "context",
+      "text": "Hon använder en Iphone.",
+      "assessment": "rekommenderad löptextform",
+      "note": "Namnformen är ett stilval; inte ett krav på hur en logotyp eller kodidentifierare ska skrivas.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29223"
+      ]
+    },
+    {
+      "id": "T167",
+      "rule": "R20",
+      "scope": "context",
+      "text": "Hon använder en iPhone.",
+      "assessment": "varumärkesgrafik",
+      "note": "Avvikande versaler bör inte automatiskt svartlistas i en allmän ordbok.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29223"
+      ]
+    },
+    {
+      "id": "T168",
+      "rule": "R21",
+      "scope": "context",
+      "text": "Priset är 18,75 kronor.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel på decimalkomma.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21402"
+      ]
+    },
+    {
+      "id": "T169",
+      "rule": "R21",
+      "scope": "context",
+      "text": "Priset är 18.75 kronor.",
+      "assessment": "avvikelse i vanlig svensk löptext",
+      "note": "Punkten ska inte ändras med samma regel i programkod eller versionsnummer.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21402"
+      ]
+    },
+    {
+      "id": "T170",
+      "rule": "R22",
+      "scope": "context",
+      "text": "Beloppet är 14 500 kronor.",
+      "assessment": "standardskrift",
+      "note": "Mellan talgrupperna finns U+00A0, fast mellanslag.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30318"
+      ]
+    },
+    {
+      "id": "T171",
+      "rule": "R23",
+      "scope": "context",
+      "text": "Andelen är 37 %.",
+      "assessment": "standardskrift",
+      "note": "Fast mellanslag mellan tal och tecken.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21726"
+      ]
+    },
+    {
+      "id": "T172",
+      "rule": "R23",
+      "scope": "context",
+      "text": "Andelen är 37%.",
+      "assessment": "typografisk avvikelse",
+      "note": "En ordlista granskar normalt inte mellanrummet framför procenttecknet.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21726"
+      ]
+    },
+    {
+      "id": "T173",
+      "rule": "R24",
+      "scope": "context",
+      "text": "Öppet 10–18.",
+      "assessment": "standardskrift",
+      "note": "Tankstreck U+2013 utan mellanrum vid ett intervall.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/22053",
+        "https://frageladan.isof.se/faqs/26553",
+        "https://frageladan.isof.se/faqs/29229"
+      ]
+    },
+    {
+      "id": "T174",
+      "rule": "R24",
+      "scope": "context",
+      "text": "Öppet 10-18.",
+      "assessment": "typografisk avvikelse",
+      "note": "Bindestreck U+002D är inte det rekommenderade intervalltecknet i satt löptext.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/22053",
+        "https://frageladan.isof.se/faqs/26553",
+        "https://frageladan.isof.se/faqs/29229"
+      ]
+    },
+    {
+      "id": "T175",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Mötet hålls den 21 september 2026.",
+      "assessment": "standardskrift",
+      "note": "Egen exempelmening med utskrivet månadsnamn.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf"
+      ]
+    },
+    {
+      "id": "T176",
+      "rule": "R25",
+      "scope": "context",
+      "text": "2026-09-21",
+      "assessment": "entydigt numeriskt datum",
+      "note": "Datumvalidering och stavningskontroll är olika uppgifter.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf"
+      ]
+    },
+    {
+      "id": "T177",
+      "rule": "R26",
+      "scope": "context",
+      "text": "Vi behöver två saker: papper och penna.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel på kolon framför en uppräkning.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21288"
+      ]
+    },
+    {
+      "id": "T178",
+      "rule": "R26",
+      "scope": "context",
+      "text": "Vi behöver två saker; papper och penna.",
+      "assessment": "interpunktionsfel i avsedd struktur",
+      "note": "Alla enskilda ord kan vara rättstavade trots fel skiljetecken.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21288"
+      ]
+    },
+    {
+      "id": "T179",
+      "rule": "R27",
+      "scope": "context",
+      "text": "Det regnade; vi stannade hemma.",
+      "assessment": "möjligt stilval",
+      "note": "Eget exempel; semikolon binder ihop två närstående huvudsatser.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/26862"
+      ]
+    },
+    {
+      "id": "T180",
+      "rule": "R28",
+      "scope": "context",
+      "text": "ägg-\ngula",
+      "assessment": "avstavningsfall",
+      "note": "Återställer tredje g över ordledsgränsen. Ord-API-testning av två delar validerar inte avstavningen.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30765",
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T181",
+      "rule": "R29",
+      "scope": "word",
+      "text": "de",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T182",
+      "rule": "R29",
+      "scope": "word",
+      "text": "dem",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T183",
+      "rule": "R29",
+      "scope": "word",
+      "text": "dom",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T184",
+      "rule": "R29",
+      "scope": "context",
+      "text": "De ringde oss.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel med pronomen som subjekt.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T185",
+      "rule": "R29",
+      "scope": "context",
+      "text": "Dem ringde oss.",
+      "assessment": "grammatikfel i avsedd standardskrift",
+      "note": "Dem står här som subjekt; den isolerade ordformen måste ändå finnas i ordboken.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T186",
+      "rule": "R29",
+      "scope": "context",
+      "text": "Vi såg de röda husen.",
+      "assessment": "standardskrift",
+      "note": "De fungerar som artikel, trots att hela nominalfrasen är objekt.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ]
+    },
+    {
+      "id": "T187",
+      "rule": "R30",
+      "scope": "context",
+      "text": "Sara hämtade sin väska.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel: väskan hör enligt grundmönstret till Sara.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30957",
+        "https://frageladan.isof.se/faqs/23373",
+        "https://frageladan.isof.se/faqs/27570"
+      ]
+    },
+    {
+      "id": "T188",
+      "rule": "R30",
+      "scope": "context",
+      "text": "Sara hämtade hennes väska.",
+      "assessment": "standardskrift med annan referens",
+      "note": "Eget exempel: väskan kan tillhöra en annan kvinna; inte generellt fel.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30957",
+        "https://frageladan.isof.se/faqs/23373",
+        "https://frageladan.isof.se/faqs/27570"
+      ]
+    },
+    {
+      "id": "T189",
+      "rule": "R31",
+      "scope": "context",
+      "text": "Kommittén är försenad.",
+      "assessment": "tillåten variant",
+      "note": "Grammatisk singular.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20997"
+      ]
+    },
+    {
+      "id": "T190",
+      "rule": "R31",
+      "scope": "context",
+      "text": "Kommittén är försenade.",
+      "assessment": "tillåten variant",
+      "note": "Betydelsekongruens med personerna i gruppen.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20997"
+      ]
+    },
+    {
+      "id": "T191",
+      "rule": "R31",
+      "scope": "context",
+      "text": "En försenade kommitté kom.",
+      "assessment": "grammatikfel i avsedd standardskrift",
+      "note": "Attributet framför singularformen har inte samma valfrihet.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20997"
+      ]
+    },
+    {
+      "id": "T192",
+      "rule": "R32",
+      "scope": "context",
+      "text": "Hon säger att hon inte kan komma.",
+      "assessment": "neutral standardskrift",
+      "note": "Egen kontrollmening med bisatsordföljd.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21486"
+      ]
+    },
+    {
+      "id": "T193",
+      "rule": "R32",
+      "scope": "context",
+      "text": "Hon säger att hon kan inte komma.",
+      "assessment": "ledigare ordföljd",
+      "note": "En stilprofil kan rekommendera bisatsordföljd; alla ord är rättstavade.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21486"
+      ]
+    },
+    {
+      "id": "T194",
+      "rule": "R33",
+      "scope": "word",
+      "text": "sträck",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27078"
+      ]
+    },
+    {
+      "id": "T195",
+      "rule": "R33",
+      "scope": "word",
+      "text": "streck",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27078"
+      ]
+    },
+    {
+      "id": "T196",
+      "rule": "R33",
+      "scope": "context",
+      "text": "Hon arbetade fyra timmar i sträck.",
+      "assessment": "standardskrift",
+      "note": "Eget exempel på en sammanhängande tidsperiod.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27078"
+      ]
+    },
+    {
+      "id": "T197",
+      "rule": "R33",
+      "scope": "context",
+      "text": "Hon arbetade fyra timmar i streck.",
+      "assessment": "fel ord i avsedd betydelse",
+      "note": "Streck är ett korrekt ord som ändå blir fel för den avsedda tidsbetydelsen.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27078"
+      ]
+    },
+    {
+      "id": "T198",
+      "rule": "R34",
+      "scope": "context",
+      "text": "prova på-kurs",
+      "assessment": "regelbaserad exempelbildning",
+      "note": "Eget exempel med en tvåordig förled och bindestreck före efterledet.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20742"
+      ]
+    },
+    {
+      "id": "T199",
+      "rule": "R35",
+      "scope": "word",
+      "text": "spann",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T200",
+      "rule": "R35",
+      "scope": "word",
+      "text": "spannet",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T201",
+      "rule": "R35",
+      "scope": "word",
+      "text": "spannets",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T202",
+      "rule": "R35",
+      "scope": "word",
+      "text": "spannen",
+      "expected_accept": true,
+      "basis": "Tillämpning av regeln på ordformer; inte en importerad ordlista.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T203",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formaterad",
+      "expected_accept": true,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T204",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formaterare",
+      "expected_accept": true,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T205",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterad",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T206",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterade",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T207",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterades",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T208",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterar",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T209",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterare",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T210",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterat",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T211",
+      "rule": "R04",
+      "scope": "word",
+      "text": "formatterats",
+      "expected_accept": false,
+      "basis": "Riktad uppföljning av den felstavade stammen formatter- i de lokala källorna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ]
+    },
+    {
+      "id": "T212",
+      "rule": "R01",
+      "scope": "word",
+      "text": "adresskanning",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T213",
+      "rule": "R01",
+      "scope": "word",
+      "text": "bolliknande",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T214",
+      "rule": "R01",
+      "scope": "word",
+      "text": "fjärresursen",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T215",
+      "rule": "R01",
+      "scope": "word",
+      "text": "malleverantören",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T216",
+      "rule": "R01",
+      "scope": "word",
+      "text": "skattefria",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T217",
+      "rule": "R01",
+      "scope": "word",
+      "text": "gemensamma",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T218",
+      "rule": "R01",
+      "scope": "word",
+      "text": "internnummer",
+      "expected_accept": true,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T219",
+      "rule": "R01",
+      "scope": "word",
+      "text": "adressskanning",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T220",
+      "rule": "R01",
+      "scope": "word",
+      "text": "bollliknande",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T221",
+      "rule": "R01",
+      "scope": "word",
+      "text": "fjärrresursen",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T222",
+      "rule": "R01",
+      "scope": "word",
+      "text": "mallleverantören",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T223",
+      "rule": "R01",
+      "scope": "word",
+      "text": "skatttefria",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T224",
+      "rule": "R01",
+      "scope": "word",
+      "text": "gemensammma",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T225",
+      "rule": "R01",
+      "scope": "word",
+      "text": "internnummmer",
+      "expected_accept": false,
+      "basis": "Egen granskning av poster med tre lika konsonanter; korrekt motform kontrolleras separat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ]
+    },
+    {
+      "id": "T226",
+      "rule": "R35",
+      "scope": "word",
+      "text": "enspannet",
+      "expected_accept": true,
+      "basis": "Riktad diagnos: enspann/C får felaktigt ett extra n vid böjning. Motformerna följer spann + et/ets, inte en allmän regexregel.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T227",
+      "rule": "R35",
+      "scope": "word",
+      "text": "enspannets",
+      "expected_accept": true,
+      "basis": "Riktad diagnos: enspann/C får felaktigt ett extra n vid böjning. Motformerna följer spann + et/ets, inte en allmän regexregel.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T228",
+      "rule": "R35",
+      "scope": "word",
+      "text": "enspannnet",
+      "expected_accept": false,
+      "basis": "Riktad diagnos: enspann/C får felaktigt ett extra n vid böjning. Motformerna följer spann + et/ets, inte en allmän regexregel.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T229",
+      "rule": "R35",
+      "scope": "word",
+      "text": "enspannnets",
+      "expected_accept": false,
+      "basis": "Riktad diagnos: enspann/C får felaktigt ett extra n vid böjning. Motformerna följer spann + et/ets, inte en allmän regexregel.",
+      "sources": [
+        "https://svenska.se/saol/?hv=xnr464207",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ]
+    },
+    {
+      "id": "T230",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Vi köpte sju böcker.",
+      "assessment": "lämpligt i berättande löptext",
+      "note": "Eget exempel: lågt tal med bokstäver när antalet inte är centralt.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ]
+    },
+    {
+      "id": "T231",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Vi väntade i tio dagar.",
+      "assessment": "bokstäver möjliga även vid tio",
+      "note": "Eget exempel: tio är ingen automatisk övergång till siffror.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ]
+    },
+    {
+      "id": "T232",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Lådan väger 7 kg.",
+      "assessment": "siffror före förkortad måttenhet",
+      "note": "Eget exempel: låg siffra är lämplig i en exakt måttuppgift.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ]
+    },
+    {
+      "id": "T233",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Grupperna hade 7, 14 och 21 deltagare.",
+      "assessment": "konsekvent skrivsätt för jämförbara antal",
+      "note": "Eget exempel: håll jämförbara antal enhetliga även när låga och höga tal blandas.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ]
+    },
+    {
+      "id": "T234",
+      "rule": "R25",
+      "scope": "context",
+      "text": "Omkring tusen personer deltog.",
+      "assessment": "bokstäver möjliga för stort ungefärligt antal",
+      "note": "Eget exempel: stora tal kräver inte alltid siffror.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ]
+    }
+  ]
+}

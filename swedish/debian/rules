@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	$(MAKE)
+	word-list-compress c < sv.wl | gzip -n -9 > sv.cwl.gz
+
+override_dh_auto_test:
+	$(MAKE) check
+
+override_dh_auto_install:
+	install -d debian/aspell-sv/usr/lib/aspell debian/aspell-sv/usr/share/aspell
+	install -m 644 sv.dat sv_phonet.dat sv.multi debian/aspell-sv/usr/lib/aspell/
+	install -m 644 sv.cwl.gz debian/aspell-sv/usr/share/aspell/
+
+execute_after_dh_install:
+	installdeb-aspell

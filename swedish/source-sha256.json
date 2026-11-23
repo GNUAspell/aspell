@@ -1,0 +1,8 @@
+{
+  "aspell-sv-0.51-0.tar.bz2": "9b70573c9c8cf76f5cdb6abcdfb834a754bbaa1efd7d6f57f47b8a91a19c5c0a",
+  "sv_SE.aff": "97fc1a3cd998f62ba48366ac13398b919a17e991cb69115fa60bb861093406b9",
+  "sv_SE.dic": "963720c729fcc05911bf9544113adbb6ecdfa3760ec6e328c77b4ebc853074d0",
+  "test-words.txt": "ab695f5fbd147ecd5616f62024500e473bf249584c21bc27be903c16df76f1b2",
+  "lexical-corrections.json": "f2c5534bfbf5e463eada1d8089052441bd3e23a123202f17ac75ff7f69ba847a",
+  "tests/swedish-rules.json": "5f172ba40c2e5ccdfb0777af8243872871ab27e8f26c4e96a689a4921a3372f8"
+}

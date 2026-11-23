@@ -1,0 +1,442 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-21",
+  "rules": [
+    {
+      "id": "R01",
+      "title": "Tre lika konsonanter vid sammansättning",
+      "layer": "ordbildning",
+      "explanation": "När samma konsonant möts tre gånger vid en ordledsgräns skrivs normalt två. Ett bindestreck kan synliggöra gränsen; vid avstavning där återkommer den utelämnade konsonanten.",
+      "caution": "Regeln gäller konsonanter; flera vokaler får stå intill varandra. En teckensökning hittar även initialförkortningar, namn och uttrycksfull stavning som måste bedömas separat. Avstavning kräver egna tester.",
+      "action": "Behåll positiva, negativa och bindestrecksförsedda testfall. Granska explicit lagrade fel som kan kringgå sammansättningsreglerna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31080"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R02",
+      "title": "Dubbelteckning av m och lexikala undantag",
+      "layer": "stavning och böjning",
+      "explanation": "Ett betonat kort vokalljud kan följas av dubbelt m framför en vokaländelse, även när grundordet slutar på enkelt m. Vissa grundord har ändå mm för att skiljas från ett annat ord.",
+      "caution": "Uttal och betydelse behövs: både dam och damm är riktiga ord. En generell regel som tar bort slutligt mm skulle förstöra giltiga ord.",
+      "action": "Testa böjningsfamiljer och båda leden i betydelseskiljande ordpar.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23280"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R03",
+      "title": "Enkelt n i böjda former på d och t",
+      "layer": "böjning",
+      "explanation": "I den undersökta ordfamiljen har hembränd och hembränt enkelt n, medan hembränning behåller dubbelteckningen.",
+      "caution": "Tillämpa på rätt morfologisk enhet. Följden nnt kan uppstå över en sammansättningsgräns: bränntemperatur är ett eget skyddsexempel, inte ett citat ur källan.",
+      "action": "Testa både böjningsregeln och sammansättningar som inte ska normaliseras med en global teckenersättning.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27957"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R04",
+      "title": "Dubbelteckning i avledda verb",
+      "layer": "avledning",
+      "explanation": "Grundordets betoning och vokallängd spelar roll. Formatera får ett t; etikettera behåller tt. Programmera får mm, medan reklamera har ett m.",
+      "caution": "Liknande ändelser innebär inte att samma dubblering passar alla stammar.",
+      "action": "Kontrollera hela avledningsfamiljer; kopiera inte suffixflaggor mellan ord utan att kontrollera stammen.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/25353"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R05",
+      "title": "Accent i grundform och böjning",
+      "layer": "stavning och böjning",
+      "explanation": "Accenten följer med från en accentförsedd grundform till dess böjningar. Museum och jubileum ger däremot böjningar utan nytillkommen accent.",
+      "caution": "Accentbortfall kan ibland ge ett annat giltigt ord. Accenttecken ska därför inte avlägsnas eller läggas till globalt.",
+      "action": "Testa separata böjningsklasser och kontrollera även inställningar som ignorerar accenter.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24207",
+        "https://frageladan.isof.se/faqs/22554"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R06",
+      "title": "Foge-s är delvis lexikalt",
+      "layer": "ordbildning",
+      "explanation": "S används ofta efter en sammansatt förled eller vissa avledningsändelser. Men enkla förleder och flera etablerade sammansättningar måste bedömas ordvis. Ibland finns varianter med och utan s.",
+      "caution": "Ett korrekt foge-s försvinner inte automatiskt framför ytterligare s. Rekommenderad variant är inte alltid den enda korrekta.",
+      "action": "Bygg belagda förledsklasser och behåll dokumenterade varianter. Ett generellt valfritt s skulle både godkänna fel och dölja struktur.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30843",
+        "https://frageladan.isof.se/faqs/20670",
+        "https://frageladan.isof.se/faqs/26172"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R07",
+      "title": "Sammansättningens gruppering ändrar fogen",
+      "layer": "ordbildning",
+      "explanation": "Kärnkraftsindustri och kärnkraftverk grupperar delarna på olika sätt. Den närmaste ordledsstrukturen påverkar om s används.",
+      "caution": "Räkna inte bara antal delord. Ett känt helt efterled kan styra mer än en mekanisk regel för den första delen.",
+      "action": "Testa kontrasterande ordbyggnad; prioritera morfologisk struktur framför teckenmönster.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/24435"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R08",
+      "title": "Fogevokaler och förändrad förled",
+      "layer": "ordbildning",
+      "explanation": "Förleder kan behålla, förlora eller byta slutvokal. Äldre och nyare ord samt olika sammansättningar med samma grundord kan bete sig olika.",
+      "caution": "Ladugård, kyrktorn och kyrkomusiker visar varför en enda ersättningsregel inte räcker. Dokumenterade parallellformer ska inte rensas bort.",
+      "action": "Gruppera förleder efter faktiskt bruk; testa både etablerade former och tillåtna varianter.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/31251"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R09",
+      "title": "Bindestreck i förkortningssammansättningar",
+      "layer": "ordbildning och typografi",
+      "explanation": "Initialförkortningar i sammansättningar skrivs med bindestreck. Bindestreck kan även hjälpa när ett vanligt sammansatt ord annars blir svårtolkat.",
+      "caution": "Det innebär inte att alla sammansättningar med namn ska få bindestreck. Tokenisering kan göra att motorn bara granskar ordets delar.",
+      "action": "Testa hela strängar via ord-API och visa separat vad kommandoradens textfilter gör.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30528"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R10",
+      "title": "Egennamn följer inte alltid allmän ordbildning",
+      "layer": "namn och redaktionell norm",
+      "explanation": "Ett organisationsnamn kan ha en fastställd form som skiljer sig från den generiska benämningen. Namn med flera ord kan också bilda sammansättningar på annat sätt än enkla namn.",
+      "caution": "Svenska Fotbollförbundet är inte belägg för att det generiska ordet fotbollsförbund ska sakna s.",
+      "action": "Håll namnbelägg åtskilda från produktiva regler och undvik automatiska namnändringar.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29064",
+        "https://frageladan.isof.se/faqs/31227"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R11",
+      "title": "Genitiv och apostrof",
+      "layer": "morfologi och kontext",
+      "explanation": "Vanlig svensk genitiv bildas med s utan apostrof. Ord och namn som redan slutar på s, x eller z får normalt inget extra s.",
+      "caution": "Apostrof kan i särskilda fall förtydliga genitiv när huvudordet är utelämnat. Namn kan också ha avsiktlig särpräglad grafisk form.",
+      "action": "Ge kontextbaserade råd; ett förbud mot alla apostrofer skulle vara fel.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20976",
+        "https://frageladan.isof.se/faqs/30687"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R12",
+      "title": "Genitiv och böjning av förkortningar",
+      "layer": "morfologi och typografi",
+      "explanation": "Kolon kan skilja en bokstavsläst förkortning från dess böjningsändelse. Förkortningar som slutar på s kan få ett extra kolon-s för tydlighet men behöver det inte alltid.",
+      "caution": "SAS och SAS:s kan båda fungera i genitiv beroende på sammanhang. Samma behandling ska inte utan vidare användas för ord som utläses som vanliga ord.",
+      "action": "Testa kolon som del av strängen och undvik att förväxla en godkänd token med en kontrollerad konstruktion.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23874",
+        "https://frageladan.isof.se/faqs/21420"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R13",
+      "title": "Versaler i initialförkortningar",
+      "layer": "stil och lexikon",
+      "explanation": "Väl etablerade förkortningar för vanliga ord kan skrivas med gemener. Egennamn och mindre etablerade förkortningar behöver ofta versaler.",
+      "caution": "Förkortningens funktion och etablering styr. Varken versaler eller gemener ska normaliseras generellt.",
+      "action": "Registrera vanliga former och låt en separat stilprofil styra rekommendationerna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21420"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R14",
+      "title": "Tillåten variation mellan ihop och isär",
+      "layer": "ord och fras",
+      "explanation": "Flera vanliga flerordsuttryck har både hopskrivna och särskrivna varianter. Konsekvens inom texten är ofta ett bättre råd än att förklara den ena formen fel.",
+      "caution": "I vissa uttryck påverkar skrivsättet betydelsen. Valfrihet för en grupp får inte generaliseras till alla uttryck.",
+      "action": "Behåll tillåtna hopskrivna ord och testa uttryck som fraser i ett separat lager.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/23289"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R15",
+      "title": "Så här och såhär",
+      "layer": "ord och fras",
+      "explanation": "Både hopskrivna och särskrivna former av så här och så där accepteras; deras funktion och stil kan påverka vad som är vanligast.",
+      "caution": "Ett redaktionellt val av den vanligaste formen motiverar inte en hård svartlista.",
+      "action": "Tillåt båda och ge eventuella stilråd på frasnivå.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27942"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R16",
+      "title": "Sammansättning eller vanlig ordgrupp",
+      "layer": "betydelse och syntax",
+      "explanation": "Svenska sammansatta ord skrivs normalt ihop. Betoning, betydelse och hur leden böjs hjälper till att avgöra om det är ett sammansatt ord eller en vanlig ordgrupp.",
+      "caution": "Samma delord kan vara riktiga var för sig och ändå uttrycka något annat än det avsedda. En stavningsmotor har inte automatiskt tillgång till avsikten.",
+      "action": "Testa kontraster med angiven betydelse i ett framtida grammatiklager; lägg inte alla separata ordpar i en förbudslista.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21159"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R17",
+      "title": "Lånord och svensk plural",
+      "layer": "böjning och stil",
+      "explanation": "För policy rekommenderas plural på -er och bestämd plural på -erna. S-plural förekommer men kan göra bestämd plural svårare att uttrycka.",
+      "caution": "Policys kan också vara en vanlig singular genitiv. En ordlista kan därför inte generellt förbjuda formen för att en annan plural rekommenderas.",
+      "action": "Testa rekommenderade böjningar och behåll morfologiskt giltig genitiv.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21255"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R18",
+      "title": "Talord skrivna med bokstäver",
+      "layer": "ordbildning och skrivsätt",
+      "explanation": "Många talord skrivs ihop. Avrundade hundra- och tusental kan även delas för läsbarhet. I sammansättningar hålls talledet ihop; miljon och större enheter står som egna ord.",
+      "caution": "En rekommendation om läsbarhet är inte en regel att alla talord alltid ska delas eller alltid skrivas ihop.",
+      "action": "Testa hela talord, tillåtna fraser och sammansättningar var för sig.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27138"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R19",
+      "title": "Länder, språk och nationalitet",
+      "layer": "versaler och kontext",
+      "explanation": "Landsnamn skrivs med stor begynnelsebokstav, medan språk och nationella beteckningar normalt har liten bokstav.",
+      "caution": "Meningsbörjan och egennamnsanvändning kan ge andra versaler. Att ett ord med stor bokstav accepteras är därför inget bevis på fel i ordboken.",
+      "action": "Kontrollera versaler i meningskontext och undvik hårda förbud mot möjliga meningsinledningar.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29769",
+        "https://frageladan.isof.se/faqs/29850"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R20",
+      "title": "Varumärkets logotyp och namn i löptext",
+      "layer": "redaktionell stil",
+      "explanation": "Språkrådet rekommenderar ofta vanlig namnkapitalisering i löptext även när logotypen använder avvikande versaler.",
+      "caution": "Kodidentifierare, exakta produktsträngar och citat har andra krav. Normalisera inte dessa automatiskt.",
+      "action": "Gör rådet valbart i en stilprofil, inte till ett generellt stavningsförbud.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/29223"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R21",
+      "title": "Decimalkomma",
+      "layer": "tal och typografi",
+      "explanation": "I vanlig svensk text avskiljs decimaler med komma.",
+      "caution": "Programkod, versionsnummer och vissa utbyten av maskindata använder andra konventioner.",
+      "action": "Kontrollera tal i rätt dokumenttyp; ett numeriskt uttryck som ignoreras av stavningsmotorn är inte validerat.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21402"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R22",
+      "title": "Gruppering av stora tal",
+      "layer": "tal och typografi",
+      "explanation": "Längre siffertal grupperas normalt i tre positioner räknat från höger. Ett fast mellanslag håller ihop talet vid radbrytning.",
+      "caution": "Identifierare, årtal och andra sifferkoder är inte vanliga antal som ska grupperas mekaniskt.",
+      "action": "Använd dokumentanalys med taltyper och Unicodekontroll.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30318"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R23",
+      "title": "Procent, enheter och fast mellanslag",
+      "layer": "tal och typografi",
+      "explanation": "Procenttecken skiljs från talet med mellanrum; fast mellanslag förebygger radbrytning. I löptext kan det utskrivna ordet vara tydligare.",
+      "caution": "Sammansatta adjektiv med procent följer andra mönster än ett tal följt av symbol.",
+      "action": "Separera texttyp, mellanrumsregel och ordbildning.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21726"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R24",
+      "title": "Tankstreck för intervall, bindestreck för ord",
+      "layer": "typografi",
+      "explanation": "Ett intervall mellan två tal kan skrivas med tankstreck utan omgivande mellanrum. Bindestreck binder i stället ihop ordled; samma uttryck kan därför innehålla båda tecknen.",
+      "caution": "Ungefärliga antal och intervall betyder inte alltid samma sak. Minustecken i matematik har ytterligare en funktion.",
+      "action": "Kontrollera tecknets roll, inte bara dess utseende.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/22053",
+        "https://frageladan.isof.se/faqs/26553",
+        "https://frageladan.isof.se/faqs/29229"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R25",
+      "title": "Datum och valet mellan siffror och bokstäver",
+      "layer": "texttyp och typografi",
+      "explanation": "Valet mellan siffror och bokstäver beror på texttyp och sammanhang. Låga tal skrivs ofta med bokstäver när antalet inte är centralt; Myndigheternas skrivregler nämner ofta tolv eller lägre. Siffror används när taluppgiften är central och framför förkortade måttenheter. Månadens namn passar ofta i löptext; fullständigt numeriskt datum passar i vissa standardiserade uppgifter.",
+      "caution": "Det finns ingen exakt allmän gräns vid nio, tio eller tolv. Precision, mängden taluppgifter och konsekvens mellan jämförbara antal kan motivera siffror även för låga tal. Även stora ungefärliga tal kan skrivas med bokstäver.",
+      "action": "Ge endast råd med hänsyn till sammanhanget. Ingen automatisk ersättning mellan siffror och bokstäver eller generell stavfelsmarkering. Kontrollera även att datum är entydiga.",
+      "sources": [
+        "https://www.isof.se/download/18.5409ff0518d54a4bbada3de/1706690111224/L%C3%A4rarhandledning-Snabba-skrivregler2.pdf",
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R26",
+      "title": "Kolon och semikolon har olika uppgifter",
+      "layer": "interpunktion",
+      "explanation": "Kolon kan inleda en förklaring eller uppräkning. Semikolon kan förbinda närstående satser eller skilja grupper inne i en uppräkning.",
+      "caution": "Semikolon är inte en dekorativ ersättning för kolon framför en uppräkning.",
+      "action": "Kräver analys av satser och uppräkningsstruktur.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21288"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R27",
+      "title": "Interpunktion lämnar utrymme för val",
+      "layer": "interpunktion och stil",
+      "explanation": "Skiljetecken uttrycker hur starka avbrott och samband skribenten vill visa. Flera lösningar kan vara möjliga mellan satser.",
+      "caution": "Alla avvikelser från en föredragen kommatering är inte språkliga fel.",
+      "action": "Skilj motiverade råd från hårda grammatikfel i gränssnitt och testfacit.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/26862"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R28",
+      "title": "Avstavning och sammanhållna uttryck",
+      "layer": "layout",
+      "explanation": "Siffergrupper, förkortningar och liknande enheter bör hållas ihop. Namn och adresser behöver särskild försiktighet vid radbrytning.",
+      "caution": "Godkännande av en sträng med bindestreck bevisar inte att ett program kan avstava vid rätt ställe eller återställa en konsonant över ett radbyte.",
+      "action": "Separat testsvit för layout och avstavningsmotor; håll isär hårt bindestreck, mjukt bindestreck och radbrytning.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30765",
+        "https://frageladan.isof.se/faqs/31080"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R29",
+      "title": "De, dem och dom",
+      "layer": "syntax och stil",
+      "explanation": "De och dem rekommenderas i neutral standardskrift; dom kan passa en mer samtalsnära text. Valet mellan pronomenformer påverkas av satsfunktion och ibland efterföljande bestämningar.",
+      "caution": "De är också bestämd artikel. Dom är dessutom ett eget substantiv. Ingen av dessa former kan generellt förbjudas i en ordlista.",
+      "action": "Använd grammatisk kontext och tillåt en vardaglig stilprofil. Undvik absoluta ersättningsregler framför som.",
+      "sources": [
+        "https://www.isof.se/svenska-spraket/klarsprak/bulletinen-klarsprak/artiklar-klarsprak/2022-05-23-sprakfragan-hur-gor-vi-med--dom--",
+        "https://frageladan.isof.se/faqs/30873"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R30",
+      "title": "Sin, sitt, sina och hans, hennes, deras",
+      "layer": "referens och syntax",
+      "explanation": "Reflexiva possessiva pronomen anknyter normalt till subjektet i samma sats. Andra possessiva pronomen kan anknyta till någon annan eller till ett subjekt i en annan sats.",
+      "caution": "Satsliknande konstruktioner och fasta uttryck ger accepterad variation. Exempelvis fungerar både i sin helhet och i dess helhet i vissa konstruktioner.",
+      "action": "Granska referenter och satsgränser; automatisk ersättning av ord är olämplig.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/30957",
+        "https://frageladan.isof.se/faqs/23373",
+        "https://frageladan.isof.se/faqs/27570"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R31",
+      "title": "Kongruens: grammatisk form och betydelse",
+      "layer": "syntax",
+      "explanation": "Kollektiva substantiv kan med predikativa adjektiv följas av antingen grammatisk singular eller plural efter betydelsen. Framför substantivet gäller inte samma valfrihet.",
+      "caution": "Ett mekaniskt krav på singular efter varje kollektivt substantiv skulle ge falska larm.",
+      "action": "Testa attributiv och predikativ användning separat och bevara accepterad variation.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20997"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R32",
+      "title": "Bisatsordföljd och ledig stil",
+      "layer": "syntax och stil",
+      "explanation": "I neutral skrift står satsadverbial normalt före det finita verbet i en bisats. Huvudsatsordföljd förekommer däremot i vissa bisatser i samtal och ledigare skrift.",
+      "caution": "Den vanliga undervisningstumregeln beskriver inte alla konstruktioner och stilar. Att flytta en negation kan också förändra vad den hör till.",
+      "action": "Bygg stilmedvetna, satsbaserade kontroller och undvik ordpositionsregler utan parsning.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/21486"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R33",
+      "title": "Rättstavat ord med fel betydelse",
+      "layer": "lexikal betydelse",
+      "explanation": "Sträck och streck är båda giltiga ord men används i olika uttryck och betydelser.",
+      "caution": "Att lägga båda i en ordlista löser inte valet mellan dem i en mening.",
+      "action": "Testa fasta uttryck och betydelsebärande kontext i ett språkgranskningslager.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/27078"
+      ],
+      "dictionary_scope": "word"
+    },
+    {
+      "id": "R34",
+      "title": "Sammansättningar med flerordig förled",
+      "layer": "ordbildning och typografi",
+      "explanation": "När en fras ingår som förled kan bindestreck markera anslutningen till huvudledet. Längre och mindre etablerade fraser behöver ofta tydligare sammanbindning.",
+      "caution": "Väl etablerade uttryck kan ibland bilda ett enda sammanhängande ord. Samma lösning passar inte varje förled.",
+      "action": "Behåll hela frasen i analysen; vanlig ordvis tokenisering tappar relationerna.",
+      "sources": [
+        "https://frageladan.isof.se/faqs/20742"
+      ],
+      "dictionary_scope": "context"
+    },
+    {
+      "id": "R35",
+      "title": "Genus och böjningsklass är lexikala uppgifter",
+      "layer": "böjning",
+      "explanation": "Språkrådet hänvisar till SAOL för enskilda ords böjning (Myndigheternas skrivregler, avsnitt 6.1). Ett substantivs genus och betydelse påverkar böjningen. Ordet spann förekommer exempelvis i olika betydelser med olika genus och böjningsmönster.",
+      "caution": "Stammens sista bokstav räcker inte för att välja suffix. Den tidigare flaggningen enspann/C gav ett extra n i den lokala ordboken: detta är vår diagnos av en flaggning, inte en ny allmän svensk språkregel.",
+      "action": "Granska hela böjningsparadigmet när en flagga tilldelas. Testa både rätt former och former som en felvald klass skulle generera.",
+      "sources": [
+        "https://sprakochfolkminnen.diva-portal.org/smash/get/diva2:1136028/FULLTEXT02.pdf",
+        "https://svenska.se/saol/?hv=xnr464207"
+      ],
+      "dictionary_scope": "word"
+    }
+  ],
+  "norm_source": "Språkrådet (Isof)"
+}

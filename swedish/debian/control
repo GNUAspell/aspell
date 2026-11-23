@@ -1,0 +1,22 @@
+Source: aspell-sv
+Section: text
+Priority: optional
+Maintainer: Daniel Nylander <github@danielnylander.se>
+Build-Depends: debhelper-compat (= 13), dictionaries-common-dev (>= 1.23.0), aspell (>= 0.60.8), python3
+Standards-Version: 4.7.4
+Rules-Requires-Root: no
+Homepage: https://github.com/yeager/aspell-sv
+Vcs-Git: https://github.com/yeager/aspell-sv.git
+Vcs-Browser: https://github.com/yeager/aspell-sv/tree/master/swedish
+
+Package: aspell-sv
+Architecture: all
+Depends: ${misc:Depends}, ${aspell:Depends}, aspell (>= 0.60.8)
+Provides: aspell6a-dictionary
+Description: Swedish dictionary preview for GNU Aspell
+ Swedish word forms derived from the original Aspell list and an expanded
+ Hunspell source. The platform-specific dictionary hash is generated at
+ installation time using the system Aspell engine.
+ .
+ This preview disables free compound joining to avoid known false positives.
+ Correct compound words absent from the explicit list may be rejected.

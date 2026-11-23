@@ -1,0 +1,47 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: aspell-sv
+Upstream-Contact: Daniel Nylander <github@danielnylander.se>
+Source: https://github.com/yeager/aspell-sv
+Comment: This preview preserves the license declarations of its two dictionary
+ sources. Combined terms and per-source rights need review before submission
+ to a distribution archive. See README.md and the preserved source notices.
+
+Files: *
+Copyright: 2026, Daniel Nylander <github@danielnylander.se>
+License: LGPL-3
+Comment: Build and conversion contributions; upstream notices are preserved.
+
+Files: sv.wl
+Copyright: 1998-2002, Skåne Sjælland Linux User Group <bestyrelsen@sslug.dk>
+ 2003-2015, Göran Andersson <goran@init.se>
+License: LGPL-2.1 and LGPL-3
+Comment: The word list combines entries from the two upstream lists.
+
+Files: sv.dat sv.multi Copyright.aspell COPYING.aspell
+Copyright: 1998-2002, Skåne Sjælland Linux User Group <bestyrelsen@sslug.dk>
+License: LGPL-2.1
+
+
+Files: sv_phonet.dat
+Copyright: 2000, Martin Norbäck <d95mback@dtek.chalmers.se>
+License: GPL-2+
+
+Files: LICENSE.hunspell
+Copyright: 2003-2015, Göran Andersson <goran@init.se>
+License: LGPL-3
+
+License: GPL-2+
+ The phonetic rules are distributed under GNU General Public License,
+ version 2 or (at your option) any later version. On Debian systems the
+ version 2 text is available in /usr/share/common-licenses/GPL-2.
+
+License: LGPL-2.1
+ The original Aspell Swedish dictionary is distributed under GNU Lesser
+ General Public License version 2.1. The complete text is available on
+ Debian systems in /usr/share/common-licenses/LGPL-2.1.
+
+License: LGPL-3
+ The modern Hunspell source declares GNU Lesser General Public License
+ version 3. On Debian systems its complete text is in
+ /usr/share/common-licenses/LGPL-3, with the incorporated GNU General Public
+ License version 3 in /usr/share/common-licenses/GPL-3.

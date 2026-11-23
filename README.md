@@ -1,3 +1,18 @@
+# Swedish dictionary preview
+
+A standalone Swedish dictionary proposal and its reproducible conversion,
+validation, and packaging tools are in [`swedish/`](swedish/README.md). The
+Aspell engine is unchanged.
+
+This is a **preview**, not an official Aspell language release. Free compound
+joining is disabled because it accepted known misspellings; correct unseen
+compounds may be rejected. Review questions about compounds and lexical-source
+licensing remain open.
+
+See [upstream technical review](https://github.com/GNUAspell/aspell/issues/692).
+
+---
+
 This is the Git repository for GNU Aspell.
 
 http://aspell.net
